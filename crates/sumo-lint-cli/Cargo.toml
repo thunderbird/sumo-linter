@@ -1,0 +1,15 @@
+[package]
+name = "sumo-lint-cli"
+description = "Command-line linter for SUMO Knowledge Base wiki markup."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "sumo-lint"
+path = "src/main.rs"
+
+[dependencies]
+sumo-wiki-core.workspace = true

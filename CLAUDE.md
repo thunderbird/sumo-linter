@@ -110,6 +110,22 @@ fix marked `safe` or `unsafe`; only `safe` fixes apply without `--force`.
 - `tests/fixtures/selftest-known-bad.wiki` holds deliberately broken markup with 15 planted
   errors; keep it passing as a regression fixture.
 
+## Phase-2 candidate rules (not yet implemented)
+
+Recorded as they surface, so they aren't lost. All await the same opportunistic rollout.
+
+- **Heading spacing** — `= H =` vs `=H=`. Awaiting community consultation; see below.
+- **Make leading-space preformatting explicit.** A line beginning with a space is
+  rendered preformatted by wiki markup, which is invisible in source and easy to
+  create by accident. `switching-thunderbird` relies on it for a `.reg` sample.
+  Proposed: rewrite such blocks as an explicit `<pre>` so the intent is obvious,
+  and flag lone space-indented lines that were probably accidental. Needs care —
+  the rewrite must not change rendering, so verify against the `--rendered` oracle.
+- **Whitespace hygiene** — trailing whitespace (382 occurrences) and tab characters
+  (98). Uncontroversial, safe to autofix.
+- **Within-article heading consistency** — 20 articles mix both heading styles;
+  normalising each to its own dominant style needs no community decision.
+
 ## Style rollout: opportunistic, never a bulk sweep
 
 Decided 2026-08-04: once a house style is settled, apply it **going forward, as articles are

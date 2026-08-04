@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = ["crates/sumo-wiki-core", "crates/sumo-lint-cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MPL-2.0"
+repository = "https://github.com/thunderbird/sumo-linter"
+rust-version = "1.89"
+
+[workspace.dependencies]
+sumo-wiki-core = { path = "crates/sumo-wiki-core" }

@@ -1,0 +1,14 @@
+[package]
+name = "sumo-wiki-core"
+description = "Lossless lexer, document model, and lint rules for SUMO Knowledge Base wiki markup."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+# Deliberately dependency-free and I/O-free: no fs, no network, no tokio.
+# This crate must compile to wasm32-unknown-unknown unchanged.
+[dependencies]
+
+[dev-dependencies]

@@ -13,14 +13,24 @@ Firefox and other non-MZLA products are deliberately out of scope for style — 
 their own conventions. This is why the style layer must be a configurable preset
 (`style = "thunderbird"`) on top of a product-neutral correctness core, never hardcoded.
 
-Scope: products `thunderbird` (154 articles) + `thunderbird-android` (2). Locale-aware
-architecture from day one, but **only en-US is implemented**.
+Scope: products `thunderbird` + `thunderbird-android` on **production**
+(`support.mozilla.org`). Locale-aware architecture from day one, but **only en-US is
+implemented**. The corpus is 203 articles; 193 public ones are committed under `corpus/`.
 
 ## Current state
 
-Empty of Rust code. Only the dev-only corpus scraper exists (`tools/scrape/`) plus
-`tests/fixtures/`. No `Cargo.toml` yet. Check the filesystem before assuming any module
-layout — the plan below describes the intended shape, not what exists.
+Phases 1 and 2 are implemented and tested. `cargo test` runs 26 tests, including property
+tests over every corpus article.
+
+Linting the committed corpus reports **5 errors, all verified by hand** and all filed:
+issues #223, #224, #225 (unbalanced `'''`) and #228 (two `{for}` bugs in
+`keyboard-shortcuts-thunderbird` that the earlier regex audit could not detect, because the
+file's 294/294 tag totals balance).
+
+**Not verified locally: the WASM artifact.** Homebrew's rust has no
+`wasm32-unknown-unknown` target and there is no `rustup`, so `web/` has never been built or
+opened here. CI builds it; `tools/build-web.sh` explains the prerequisite. Do not describe
+the web app as working until someone has loaded it.
 
 Toolchain present: rustc/cargo 1.89.0 (Homebrew), Node 22, Playwright + Chromium 1234.
 
@@ -82,23 +92,30 @@ Read-only by construction: GETs only, never submits a form, defaults to staging
 (`--base https://support.mozilla.org` to switch). `corpus/` and `.auth/` are gitignored —
 never commit scraped SUMO content or an authenticated session.
 
-## Intended architecture
+## Architecture
 
-Cargo workspace. The core must stay I/O-free so it compiles to WASM.
+Cargo workspace with **zero dependencies**. The core does no I/O so it compiles to WASM.
 
 | Crate | Role |
 |---|---|
-| `crates/sumo-wiki-core` | lexer → lossless CST → rules → formatter. No fs, no network. |
-| `crates/sumo-lint-cli` | `sumo-lint` binary: clap, file walking, config, diffs, `--fix` |
-| `crates/sumo-lint-wasm` | `wasm-bindgen` shim for the GitHub Pages app |
+| `crates/sumo-wiki-core` | lossless lexer → rules → formatter. No fs, no network, no deps. |
+| `crates/sumo-lint-cli` | `sumo-lint` binary: hand-rolled args, `--fix`, `--style`, `--diff`, JSON |
+| `crates/sumo-lint-lsp` | LSP over stdio: diagnostics + `textDocument/formatting` |
+| `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
+| `editors/` | VS Code extension; Neovim and Vim 8 configuration |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
 | `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS) |
 
-**Lossless CST is non-negotiable.** A formatter must reprint everything it didn't
-deliberately change, so tokens carry byte spans and all trivia is preserved.
+**Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an
+unmodified parse is byte-identical. This is asserted in the lexer, property-tested over
+every corpus article, and re-checked before `--fix` writes a file — a lexer bug would
+otherwise corrupt articles silently.
+
+It is a **token stream**, not a full CST. That is enough for phase-1 rules and phase-2
+formatting; do not describe it as a tree.
 
 Diagnostics carry a stable code (`SW001`), severity, byte span, message, and an optional
-fix marked `safe` or `unsafe`; only `safe` fixes apply without `--force`.
+fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`.
 
 ## Conventions
 
@@ -110,11 +127,36 @@ fix marked `safe` or `unsafe`; only `safe` fixes apply without `--force`.
 - `tests/fixtures/selftest-known-bad.wiki` holds deliberately broken markup with 15 planted
   errors; keep it passing as a regression fixture.
 
+## Phase 2: implemented, with churn as the governing constraint
+
+`sumo-wiki-core::style` implements phase-2 formatting. The default is the least
+invasive setting that still removes real inconsistency, because **every source change is
+reviewed by volunteer localizers** — a diff with no rendered difference costs their time
+for nothing.
+
+Measured on the 203-article corpus:
+
+| Setting | Articles changed |
+|---|---|
+| Default (per-article heading normalisation) | **30 / 203 (15%)** |
+| `--strip-trailing-whitespace` | 129 / 203 (64%) |
+
+- **`HeadingSpacing::PreserveDominant` is the default.** Each article is normalised to
+  whichever style *it* already uses most; already-consistent articles come back
+  byte-identical, and ties are left alone. This means the `= H =` vs `=H=` question
+  **does not block phase 2** — when the community decides, set `Style::heading_spacing`
+  to `Spaced` or `Tight` and the same code enforces it.
+- **`trailing_whitespace` defaults to false.** It quadruples churn for zero rendered
+  benefit. Opt in per invocation with `--strip-trailing-whitespace`.
+- Asymmetric headings are **skipped** by the formatter: which level the author meant is a
+  guess, so it stays a phase-1 error (SW005) for a human to resolve.
+- Properties enforced over the whole corpus: formatting is **idempotent**, output still
+  **round-trips**, and the **line count never changes** (localizers diff by line).
+
 ## Phase-2 candidate rules (not yet implemented)
 
-Recorded as they surface, so they aren't lost. All await the same opportunistic rollout.
-
-- **Heading spacing** — `= H =` vs `=H=`. Awaiting community consultation; see below.
+- **Heading spacing as a global convention** — still awaiting community consultation, but
+  no longer blocking; see the table above.
 - **Make leading-space preformatting explicit.** A line beginning with a space is
   rendered preformatted by wiki markup, which is invisible in source and easy to
   create by accident. `switching-thunderbird` relies on it for a `.reg` sample.

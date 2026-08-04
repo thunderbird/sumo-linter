@@ -12,7 +12,9 @@ use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 use std::process::ExitCode;
 
-use sumo_wiki_core::{line_col, rules::RULES, Applicability, Document, Severity};
+use sumo_wiki_core::{
+    line_col, rules::RULES, Applicability, Document, HeadingSpacing, Severity, Style,
+};
 
 const USAGE: &str = "\
 sumo-lint — lint SUMO Knowledge Base wiki markup
@@ -22,9 +24,21 @@ USAGE:
     sumo-lint -                       read from stdin
 
 OPTIONS:
-    --fix                apply safe fixes in place
+    --fix                apply safe fixes in place (phase 1: errors)
     --unsafe-fixes       also apply fixes whose intent is a guess (implies --fix)
-    --diff               show what --fix would change, without writing
+    --style              apply house-style formatting in place (phase 2)
+    --diff               show what --fix / --style would change, without writing
+
+STYLE OPTIONS:
+    --heading-spacing <preserve|spaced|tight>
+                         preserve (default) normalises each article to whichever
+                         style it already uses most, leaving already-consistent
+                         articles byte-identical. Use spaced or tight only once a
+                         convention has been agreed.
+    --strip-trailing-whitespace
+                         also remove trailing spaces and tabs. Off by default: it
+                         changes 64% of articles instead of 15%, with no rendered
+                         difference, and every diff is reviewed by a localizer.
     --format <text|json> output format (default: text)
     --quiet              only print the summary
     --list-rules         list every rule and exit
@@ -41,12 +55,15 @@ Warnings do not affect the exit code; only errors do.
 #[derive(Default)]
 struct Opts {
     fix: bool,
+    style: bool,
     unsafe_fixes: bool,
     diff: bool,
     json: bool,
     quiet: bool,
     paths: Vec<PathBuf>,
     stdin: bool,
+    heading_spacing: HeadingSpacing,
+    strip_trailing_whitespace: bool,
 }
 
 fn main() -> ExitCode {
@@ -65,6 +82,19 @@ fn main() -> ExitCode {
                 return ExitCode::SUCCESS;
             }
             "--fix" => o.fix = true,
+            "--style" => o.style = true,
+            "--strip-trailing-whitespace" => o.strip_trailing_whitespace = true,
+            "--heading-spacing" => match args.next().as_deref() {
+                Some("preserve") => o.heading_spacing = HeadingSpacing::PreserveDominant,
+                Some("spaced") => o.heading_spacing = HeadingSpacing::Spaced,
+                Some("tight") => o.heading_spacing = HeadingSpacing::Tight,
+                other => {
+                    eprintln!(
+                        "error: --heading-spacing expects preserve|spaced|tight, got {other:?}"
+                    );
+                    return ExitCode::from(2);
+                }
+            },
             "--unsafe-fixes" => {
                 o.fix = true;
                 o.unsafe_fixes = true;
@@ -167,9 +197,22 @@ fn main() -> ExitCode {
             }
         }
 
-        if o.fix || o.diff {
-            let (out, n) = doc.apply_fixes(o.unsafe_fixes);
-            if n > 0 && out != *src {
+        if o.fix || o.style || o.diff {
+            // Fixes repair errors; style expresses a convention. Both are applied
+            // through the same write path so a file is only rewritten once.
+            let (mut out, n) = if o.fix || o.diff {
+                doc.apply_fixes(o.unsafe_fixes)
+            } else {
+                (src.clone(), 0)
+            };
+            if o.style {
+                let style = Style {
+                    heading_spacing: o.heading_spacing,
+                    trailing_whitespace: o.strip_trailing_whitespace,
+                };
+                out = Document::parse(out).format(&style);
+            }
+            if out != *src {
                 if o.diff {
                     println!("--- {name}\n+++ {name} (fixed)");
                     print_diff(src, &out);
@@ -181,7 +224,14 @@ fn main() -> ExitCode {
                         return ExitCode::from(2);
                     }
                     fixed_files += 1;
-                    println!("{name}: applied {n} fix{}", plural(n));
+                    let what = if o.style && n > 0 {
+                        format!("{n} fix{} and style changes", plural(n))
+                    } else if o.style {
+                        "style changes".to_string()
+                    } else {
+                        format!("{n} fix{}", plural(n))
+                    };
+                    println!("{name}: applied {what}");
                 }
             }
         }

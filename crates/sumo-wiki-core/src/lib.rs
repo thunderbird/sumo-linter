@@ -19,9 +19,11 @@
 pub mod diagnostic;
 pub mod lexer;
 pub mod rules;
+pub mod style;
 
 pub use diagnostic::{line_col, Applicability, Diagnostic, Fix, LineCol, Severity};
 pub use lexer::{lex, LinkKind, MacroKind, Opaque, Token, TokenKind};
+pub use style::{HeadingSpacing, Style};
 
 /// A parsed document: the source, plus tokens that tile it exactly.
 #[derive(Debug, Clone)]
@@ -61,6 +63,15 @@ impl Document {
     /// True if the token stream covers the source exactly, with no gaps.
     pub fn is_lossless(&self) -> bool {
         lexer::tiles(&self.tokens, self.source.len()) && self.reprint() == self.source
+    }
+
+    /// Apply phase-2 style formatting.
+    ///
+    /// Separate from [`Document::apply_fixes`] on purpose: fixes repair errors,
+    /// while this expresses a house style. Mixing them would make it impossible
+    /// to adopt one without the other.
+    pub fn format(&self, style: &Style) -> String {
+        style::format(&self.source, &self.tokens, style)
     }
 
     pub fn diagnostics(&self) -> Vec<Diagnostic> {

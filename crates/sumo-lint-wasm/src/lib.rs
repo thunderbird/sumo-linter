@@ -22,7 +22,7 @@
 
 use std::sync::Mutex;
 
-use sumo_wiki_core::{line_col, Applicability, Document};
+use sumo_wiki_core::{line_col, Applicability, Document, HeadingSpacing, Style};
 
 /// Holds the last result so its memory stays valid until the next call.
 static LAST: Mutex<Option<std::ffi::CString>> = Mutex::new(None);
@@ -93,6 +93,33 @@ pub unsafe extern "C" fn fix(ptr: *const u8, len: usize, unsafe_fixes: u32) -> *
     let src = read_input(ptr, len);
     let (out, n) = Document::parse(src).apply_fixes(unsafe_fixes != 0);
     hand_back(format!(r#"{{"text":{},"applied":{}}}"#, json_str(&out), n))
+}
+
+/// Apply phase-2 house style, returning `{"text":…,"changed":bool}`.
+///
+/// `heading_spacing`: 0 = preserve each article's own dominant style (default,
+/// churn-avoiding), 1 = always spaced, 2 = always tight.
+///
+/// # Safety
+/// `ptr` must point to `len` initialised bytes.
+#[no_mangle]
+pub unsafe extern "C" fn style(ptr: *const u8, len: usize, heading_spacing: u32) -> *const u8 {
+    let src = read_input(ptr, len);
+    let style = Style {
+        heading_spacing: match heading_spacing {
+            1 => HeadingSpacing::Spaced,
+            2 => HeadingSpacing::Tight,
+            _ => HeadingSpacing::PreserveDominant,
+        },
+        ..Style::thunderbird()
+    };
+    let out = Document::parse(src.clone()).format(&style);
+    let changed = out != src;
+    hand_back(format!(
+        r#"{{"text":{},"changed":{}}}"#,
+        json_str(&out),
+        changed
+    ))
 }
 
 /// Report whether the lexer round-trips this input. Exposed so the web app can

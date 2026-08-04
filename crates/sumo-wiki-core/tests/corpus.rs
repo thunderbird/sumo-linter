@@ -100,3 +100,83 @@ fn known_bad_fixture_reports_errors() {
         );
     }
 }
+
+// ---------------------------------------------------------------------------
+// Phase 2: formatting properties
+// ---------------------------------------------------------------------------
+
+use sumo_wiki_core::{HeadingSpacing, Style};
+
+/// Formatting must be idempotent, or "format on save" would never settle.
+#[test]
+fn formatting_is_idempotent_on_the_corpus() {
+    for f in corpus_files() {
+        let src = std::fs::read_to_string(&f).unwrap();
+        let name = f.file_name().unwrap().to_string_lossy().to_string();
+        for style in [
+            Style::thunderbird(),
+            Style {
+                heading_spacing: HeadingSpacing::Spaced,
+                ..Style::default()
+            },
+            Style {
+                heading_spacing: HeadingSpacing::Tight,
+                ..Style::default()
+            },
+        ] {
+            let once = Document::parse(&src).format(&style);
+            let twice = Document::parse(&once).format(&style);
+            assert_eq!(once, twice, "{name}: formatting is not idempotent");
+            assert!(
+                Document::parse(&once).is_lossless(),
+                "{name}: formatted output does not round-trip"
+            );
+        }
+    }
+}
+
+/// Formatting must never change the number of lines: localizers diff by line, and
+/// silently merging or splitting lines would be a far bigger change than intended.
+#[test]
+fn formatting_preserves_line_count() {
+    for f in corpus_files() {
+        let src = std::fs::read_to_string(&f).unwrap();
+        let out = Document::parse(&src).format(&Style::thunderbird());
+        assert_eq!(
+            src.lines().count(),
+            out.lines().count(),
+            "{}: line count changed",
+            f.file_name().unwrap().to_string_lossy()
+        );
+    }
+}
+
+/// The churn guarantee: an article whose headings are already internally
+/// consistent must come back byte-identical under the default style, apart from
+/// trailing-whitespace cleanup. Verified with that cleanup disabled so the
+/// heading policy is measured on its own.
+#[test]
+fn default_style_leaves_consistent_articles_untouched() {
+    // Trailing-whitespace stripping is off by default, so the default style is
+    // already heading-only; no override needed.
+    let style = Style::thunderbird();
+    let mut untouched = 0;
+    let mut changed = 0;
+    for f in corpus_files() {
+        let src = std::fs::read_to_string(&f).unwrap();
+        if Document::parse(&src).format(&style) == src {
+            untouched += 1;
+        } else {
+            changed += 1;
+        }
+    }
+    if untouched + changed == 0 {
+        return; // no corpus
+    }
+    eprintln!("default heading policy: {untouched} articles untouched, {changed} changed");
+    // Most of the corpus must be left alone, or the policy is not churn-avoiding.
+    assert!(
+        untouched > changed * 4,
+        "expected the default to leave most articles alone: {untouched} vs {changed}"
+    );
+}

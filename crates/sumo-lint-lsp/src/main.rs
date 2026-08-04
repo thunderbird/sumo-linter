@@ -21,7 +21,7 @@
 use std::collections::HashMap;
 use std::io::{self, BufRead, Write};
 
-use sumo_wiki_core::{Applicability, Document, Severity};
+use sumo_wiki_core::{Applicability, Document, Severity, Style};
 
 fn main() -> io::Result<()> {
     let stdin = io::stdin();
@@ -42,8 +42,32 @@ fn main() -> io::Result<()> {
                 // avoids incremental-sync bookkeeping bugs.
                 respond(
                     id.as_deref(),
-                    r#"{"capabilities":{"textDocumentSync":1,"documentFormattingProvider":false},"serverInfo":{"name":"sumo-lint-lsp","version":"0.1.0"}}"#,
+                    r#"{"capabilities":{"textDocumentSync":1,"documentFormattingProvider":true},"serverInfo":{"name":"sumo-lint-lsp","version":"0.1.0"}}"#,
                 )?;
+            }
+            // Format on save / "Format Document". This is how phase-2 house style
+            // reaches editors, and why the LSP was built before phase 2.
+            "textDocument/formatting" => {
+                let result = match field_str(&body, "uri").and_then(|u| docs.get(&u).cloned()) {
+                    Some(text) => {
+                        let formatted = Document::parse(text.clone()).format(&Style::thunderbird());
+                        if formatted == text {
+                            // No edits at all: the churn-avoiding default means a
+                            // conforming article is returned untouched.
+                            "[]".to_string()
+                        } else {
+                            let end = to_position(&text, text.len());
+                            format!(
+                                r#"[{{"range":{{"start":{{"line":0,"character":0}},"end":{{"line":{},"character":{}}}}},"newText":{}}}]"#,
+                                end.0,
+                                end.1,
+                                json_str(&formatted)
+                            )
+                        }
+                    }
+                    None => "[]".to_string(),
+                };
+                respond(id.as_deref(), &result)?;
             }
             "shutdown" => respond(id.as_deref(), "null")?,
             "exit" => return Ok(()),

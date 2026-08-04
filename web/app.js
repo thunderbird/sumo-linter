@@ -137,6 +137,26 @@ function run() {
   }
 }
 
+/**
+ * Apply phase-2 house style.
+ *
+ * Passing 0 selects per-article heading normalisation, so an article that is
+ * already internally consistent comes back unchanged and the button reports as
+ * much rather than silently doing nothing.
+ */
+function applyStyle() {
+  const ta = document.getElementById('src');
+  const result = call(wasm.style, ta.value, 0);
+  const note = document.getElementById('stylenote');
+  if (result.changed) {
+    ta.value = result.text;
+    note.textContent = 'house style applied';
+    run();
+  } else {
+    note.textContent = 'already consistent — nothing to change';
+  }
+}
+
 function applyFixes() {
   const ta = document.getElementById('src');
   const result = call(wasm.fix, ta.value, 0);
@@ -155,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     t = setTimeout(run, 120);
   });
   document.getElementById('fixbtn').addEventListener('click', applyFixes);
+  document.getElementById('stylebtn').addEventListener('click', applyStyle);
   document.getElementById('sample').addEventListener('click', () => {
     ta.value = [
       '= Example article =',

@@ -78,15 +78,21 @@ question and fixes 20 articles by touching 43 lines.
 1. **Which style is the Thunderbird house style?** (`= Heading =`, `=Heading=`, or
    "don't standardise — only fix within-article inconsistency")
 
-**On rollout, my proposal: decide the style, then apply it going forward as articles are
-edited for other reasons — no mass reformat.** A bulk sweep would touch ~514 or ~619
-headings across most of the KB, produce a diff with zero rendered difference, bury real
-edits in revision histories, and create needless work for localisers reviewing changed
-source. Applying it opportunistically converges over time at no cost. The same applies to
-the 20 internally-inconsistent articles above: worth fixing, but as those articles are
-touched rather than in one sweep.
+**This is no longer blocking anything.** The formatter already ships with a default that
+needs no decision: it normalises each article to **whichever style that article already
+uses most**, and leaves articles that are already consistent **byte-identical**. Measured
+across the corpus, that touches 30 of 203 articles — the 20 that contradict themselves plus
+about 10 with one-sided spacing like `= Sharing your key with others=`. The other 173 are
+untouched. When the community picks a convention, one setting switches the tool over.
 
-That means the only thing genuinely up for discussion is question 1.
+**On rollout: apply going forward as articles are edited for other reasons — no mass
+reformat.** A bulk sweep would touch ~500 headings for zero rendered difference, bury real
+edits in revision histories, and create work for localisers reviewing changed source.
+
+For the same reason, **trailing-whitespace cleanup is off by default**. It sounds harmless,
+but it takes the proportion of articles modified from 15% to 64% — 129 of 203 — with no
+rendered difference at all. Every one of those diffs would land in front of a volunteer
+localiser who has to look at a changed line and find nothing actually changed.
 
 To be clear about scope: this is a **Thunderbird/MZLA** convention. Firefox and other
 products can keep their own; nothing here asks anything of them.

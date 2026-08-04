@@ -13,6 +13,37 @@ target
 # Contains mutation testing data
 **/mutants.out*/
 
+# Scraped corpus. Public en-US article source IS committed, as a backup.
+#
+# Deliberately NOT committed, because this repo is public:
+#  - The 10 articles below return HTTP 404 anonymously (verified 2026-08-04):
+#    unpublished drafts, plus confirmed spam (chitlink, age-calculation).
+#    Committing them would publish content SUMO has not published.
+#  - index.json and report.md, which name those non-public articles.
+# Re-fetch anything here with tools/scrape; nothing in corpus/ is source of truth.
+/corpus/index.json
+/corpus/report.md
+/corpus/rendered/
+/corpus/en-US/age-calculation.wiki
+/corpus/en-US/chitlink-smart-url-shortener-link-management-platf.wiki
+/corpus/en-US/formatting-problems-caused-8bit-mime.wiki
+/corpus/en-US/how-change-default-setting-double-click-event.wiki
+/corpus/en-US/importing-outlook-cvs-contact-files-thunderbird.wiki
+/corpus/en-US/install-thunderbird-on-chromeos.wiki
+/corpus/en-US/invalid-certificates.wiki
+/corpus/en-US/recovering-thunderbird-openpgp-secret-key-dataloss.wiki
+/corpus/en-US/setting-default-preferences-use-column-header-and-.wiki
+/corpus/en-US/troubleshoot-pdf-and-email-issues-thunderbird.wiki
+
+# Browser profile holding an authenticated SUMO session. MUST NOT be committed.
+/.auth/
+
+# Node deps for the dev-only scraper
+node_modules/
+
+# Playwright MCP scratch output
+.playwright-mcp/
+
 # RustRover
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore

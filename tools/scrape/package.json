@@ -1,0 +1,16 @@
+{
+  "name": "sumo-linter-scrape",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only corpus fetcher for sumo-linter. Not part of the shipped linter.",
+  "license": "MPL-2.0",
+  "scripts": {
+    "login": "node scrape.mjs --login",
+    "scrape": "node scrape.mjs",
+    "report": "node report.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

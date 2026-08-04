@@ -1,0 +1,29 @@
+= Good Heading =
+==Asymmetric Heading ===
+
+Some '''bold text and ''italics'' here.
+
+{for win,mac}
+Windows and Mac content
+{/for}
+{for not linux}
+Dangling open block
+
+{note}'''Note:''' this note never closes
+
+* Item A
+*	
+* Item C   
+
+Use {key ctrl+shift+k} to open it.
+Press {button OK} then {menu Settings}.
+
+[[Image:foo.png|width=300|bogusparam=7|align=left]]
+[[Template:SomeTemplate|arg]]
+[Markdown](http://example.com) and **markdown bold**
+# Not a markdown heading, this is a list
+[[Unclosed link
+
+<nowiki>{for this} '''should be ignored'''</nowiki>
+<!-- {note} also ignored -->
+		tab line

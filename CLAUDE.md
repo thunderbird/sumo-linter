@@ -27,12 +27,20 @@ issues #223, #224, #225 (unbalanced `'''`) and #228 (two `{for}` bugs in
 `keyboard-shortcuts-thunderbird` that the earlier regex audit could not detect, because the
 file's 294/294 tag totals balance).
 
-**Not verified locally: the WASM artifact.** Homebrew's rust has no
-`wasm32-unknown-unknown` target and there is no `rustup`, so `web/` has never been built or
-opened here. CI builds it; `tools/build-web.sh` explains the prerequisite. Do not describe
-the web app as working until someone has loaded it.
+The WASM build and web app are **verified working in a real browser**: all six exports load,
+diagnostics render with correct line/column, both buttons behave, and a 124 KB input with
+Arabic, Japanese and em-dashes lints in 4 ms and styles in 11 ms while still round-tripping.
 
-Toolchain present: rustc/cargo 1.89.0 (Homebrew), Node 22, Playwright + Chromium 1234.
+Toolchain: **rustup-managed rustc/cargo 1.97.1** plus the `wasm32-unknown-unknown` target,
+Node 22, Playwright + Chromium 1234. Homebrew's `rust` formula was removed — having both
+meant a stray `/opt/homebrew/bin/cargo` would silently lack the WASM target.
+
+Build and serve the web app:
+
+```sh
+tools/build-web.sh                        # writes web/sumo_lint_wasm.wasm (~116 KB)
+python3 -m http.server -d web 8412        # pick a free port; 8099 is often taken
+```
 
 ## Hard-won facts about SUMO (verified live — do not re-derive)
 

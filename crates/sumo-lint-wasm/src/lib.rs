@@ -20,12 +20,20 @@
 //! The result buffer is leaked deliberately and reclaimed on the next call, so
 //! callers never have to free it.
 
-use std::sync::Mutex;
+use std::cell::RefCell;
 
 use sumo_wiki_core::{line_col, Applicability, Document, HeadingSpacing, Style};
 
-/// Holds the last result so its memory stays valid until the next call.
-static LAST: Mutex<Option<std::ffi::CString>> = Mutex::new(None);
+thread_local! {
+    /// Holds the last result so its memory stays valid until the next call.
+    ///
+    /// Thread-local rather than a global: with one shared slot, a second call
+    /// frees the string the first caller is still reading. WASM is
+    /// single-threaded so it never bit in the browser, but Rust runs tests in
+    /// parallel and it showed up there as an intermittent failure — exactly the
+    /// kind of latent unsoundness that would be miserable to debug later.
+    static LAST: RefCell<Option<std::ffi::CString>> = const { RefCell::new(None) };
+}
 
 /// Allocate `len` bytes for the caller to write UTF-8 source into.
 #[no_mangle]
@@ -140,14 +148,19 @@ unsafe fn read_input(ptr: *const u8, len: usize) -> String {
 }
 
 /// Store `s` so it outlives the call, and return a pointer to its bytes.
+///
+/// The previous result for this thread is freed, so at most one is retained.
+/// Callers must therefore read the returned string before the next call.
 fn hand_back(s: String) -> *const u8 {
     let c = std::ffi::CString::new(s).unwrap_or_default();
-    let p = c.as_ptr() as *const u8;
-    // Replacing the previous value frees it, so at most one result is retained.
-    if let Ok(mut g) = LAST.lock() {
-        *g = Some(c);
-    }
-    p
+    LAST.with(|slot| {
+        let mut slot = slot.borrow_mut();
+        *slot = Some(c);
+        // Take the pointer from the stored value, not from a local that is about
+        // to move: the address must belong to the CString we are retaining.
+        slot.as_ref()
+            .map_or(std::ptr::null(), |c| c.as_ptr() as *const u8)
+    })
 }
 
 fn json_str(s: &str) -> String {

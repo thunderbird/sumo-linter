@@ -102,6 +102,21 @@ fix marked `safe` or `unsafe`; only `safe` fixes apply without `--force`.
 - `tests/fixtures/selftest-known-bad.wiki` holds deliberately broken markup with 15 planted
   errors; keep it passing as a regression fixture.
 
+## Style rollout: opportunistic, never a bulk sweep
+
+Decided 2026-08-04: once a house style is settled, apply it **going forward, as articles are
+edited for other reasons**. Do not mass-reformat the KB.
+
+Why this constrains the design: a bulk sweep would rewrite ~500+ headings with *zero*
+rendered difference, bury substantive edits in revision history, and hand localisers a pile
+of source changes with no user-visible payoff. So the formatter must be useful on a single
+article at a time, and there is no migration script to write. The same applies to the 20
+internally-inconsistent articles — fix them when touched.
+
+Heading style is genuinely undecided and awaiting community consultation: the corpus splits
+53.9% `= H =` vs 44.7% `=H=` across 1149 headings, and `=H=` is the *newer* trend. Neither
+form may be treated as correct in the meantime. See `docs/heading-convention-discussion.md`.
+
 ## Rule-selection principle
 
 Phase-1 rules are ranked by **measured frequency in the real corpus** (`corpus/report.md`),

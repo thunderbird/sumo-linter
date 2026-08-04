@@ -1,0 +1,32 @@
+__TOC__
+
+vCard is a file format standard for electronic business cards. vCards can contain name and address information, phone numbers, e-mail addresses, URLs, logos, photographs, etc. vCards are often attached to messages because:
+
+* They enable your recipient to quickly and reliably add your contact information to their personal address book.
+* They help you to minimize your [[Signatures|signature]] because your contact information is available in the vCard (and therefore doesn't need to be included at the bottom of every email message).
+
+See [http://en.wikipedia.org/wiki/VCard vCard on Wikipedia] for more details about this format.
+
+= How to attach your vCard to a message =
+
+To automatically attach your vCard to all outgoing messages: 
+
+# {for win,mac}Go to the {menu Tools > Account Settings} menu.{/for} {for linux}Go to the {menu Edit > Account Settings} menu.{/for}
+#Click the {button Edit card…} button to configure your virtual card information.
+#Check '''Attach my vCard to message''' as shown below if you want to attach your vCard to all your outgoing messages by default.
+
+{for not mac}[[Image:attach your vcard]]{/for}{for mac}[[Image:attach your vcard-mac]]{/for}
+
+Rather than automatically attaching your vCard, you can attach it to individual messages. While composing the message, click the arrow near the {button Attach} button and check or uncheck the '''Personal Card (vCard)''' menu item.
+
+{for not mac}[[Image:attach vcard during composition]]{/for}{for mac}[[Image:attach vcard during composition-mac]]{/for}
+
+= How to deal with received vCards =
+
+When a vCard is attached to a message, the message will have an attachment with a *.vcf extension. Thunderbird will automatically recognize and preview this attachment in the message body, as shown below:
+
+[[Image:vcard preview]] 
+
+Click the icon to open the vCard and add it to your address book.
+
+{note}A vCard as an attachment is only recognized by Thunderbird if the message is in "Original HTML" format. You can check your chosen message format in the {menu View > Message body as} menu. Also make sure {menu View -> Display Attachments Inline} is checked.{/note}

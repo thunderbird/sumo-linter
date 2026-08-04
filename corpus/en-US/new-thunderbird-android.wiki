@@ -1,0 +1,52 @@
+[[T:TBAndroidMore]]
+This article introduces the most interesting new features, improvements, and changes visible to users which are available in Thunderbird for Android. For full details, please refer to [[Thunderbird release notes - What's new and known issues]].
+
+__TOC__
+==Thunderbird 19==
+* The QR Code scanner now works with Thundermail QR codes to quickly setup your Thundermail email account. Full instructions:[[Thundermail and Thunderbird for Android]].
+=Older Releases=
+[[UI:details_start]]
+==Thunderbird 18==
+* PNG custom avatars are now supported (as well as JPEGs and stylized letter monograms as per the Thunderbird 17 section).
+* There is a new setting to display times in ISO 8601 format ''(YYYY-MM-DD HH:mm)'' in the message list.
+*# Tap {button ≡} > tap the gear icon:{button [[Image:gear icon]]}.
+*# Tap {button General settings} > tap {menu Display} > under '''Messsage lists''', tap {menu Date/Time Format} > tap {button ISO}.
+==Thunderbird 17==
+* Custom avatars for email accounts are now available. JPEGs only for now. PNGs will be supported in a future release. Upload yours as follows: 
+*# Tap {button ≡} at the top left > tap the gear icon:{button [[Image:gear icon]]} at the bottom left.
+*# Tap your email account that you want to customize e.g. <code>nemo@thunderbird.net</code> > tap {menu General settings} > tap {menu Image} to upload your custom JPEG. You can also use a stylized letter monogram by tapping {menu Monogram} or pick one of the built-in icons by tapping {menu Icon}.
+==Thunderbird 16==
+* The SMTP issues with enterprise and educational accounts on outlook.com have been fixed in [https://github.com/thunderbird/thunderbird-android/issues/10312 #10312].
+* The following issue was fixed in TB 16.1 which was released one week after Thunderbird 16.0. <del>Known Issue: Deleted/read messages in your unified inbox may not update until you manually refresh. We hope to have a fix soon. you can can follow along on issue: [https://github.com/thunderbird/thunderbird-android/issues/10243 #10243]</del>
+==Thunderbird 15==
+* There are further SMTP issues with enterprise and educational accounts on outlook.com and the team is testing a fix. You can follow along on issue [https://github.com/thunderbird/thunderbird-android/issues/10312 #10312]. It looks like this will fixed in the next release, TB 16.
+==Thunderbird 14==
+* SMTP issues with enterprise and educational accounts on outlook.com have been fixed.
+==Thunderbird 13==
+* The notification in status bar re-appearing multiple times a day issue (github issue [https://github.com/thunderbird/thunderbird-android/issues/8049 #8049]) has been fixed.
+* Special folders (Trash, Sent, Drafts, Archives, etc) not appearing after updating from TB11 to TB12 (github issue: [https://github.com/thunderbird/thunderbird-android/issues/9771 #9771]) was fixed.
+* The bug with outgoing email not working for certain educational and enterprise accounts is scheduled to be fixed in the next release, Thunderbird 14 for Android (github issue: [https://github.com/thunderbird/thunderbird-android/issues/9160 #9160]).
+==Thunderbird 12==
+* If you use a password manager, Android will now use it to automatically fill in your password when you add a new account.
+==Thunderbird 11==
+* Mail folders are easier to navigate.
+* Algorithmic darkening makes reading emails easier in dark mode.
+* Thunderbird 11.1 : Selected/read/unread message states are now easier to distinguish visually.
+* You can still see font settings if you search for '''font''' in Settings. This will be removed in a future Thunderbird release. Please use the Android operating system font size settings instead.
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 10==
+* You can now empty your Spam folder by tapping {menu Empty Spam} in the Spam folder's menu {menu ⋮} (also known as the '''kebab''' menu because the 3 vertical dots resemble a kebab).
+* On Android 10 or older, you now have an option to use the system theme.
+*# Tap {button ≡} at the top left > tap the gear icon:{button [[Image:gear icon]]} at the bottom left.
+*# Tap {button General settings} > tap {menu Display} > tap {button Use system default} under '''Theme'''
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 9==
+* Initial Android 15 support.
+* Thunderbird attempts to use your email provider's auto configuration database. If it fails it, it uses Mozilla's database.
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 8==
+* Refer to [[New in Thunderbird for Android version 8]] please.
+[[UI:details_end]]

@@ -1,0 +1,36 @@
+This article offers a detailed introduction to the most interesting new features, improvements, and changes visible to users which are available in Thunderbird 102.0, to be downloaded from the [https://www.thunderbird.net/ official website]. Existing installations of Thunderbird will be updated automatically in due time. A more comprehensive, but less descriptive list of changes can be found in the [https://www.thunderbird.net/thunderbird/102.0/releasenotes/ Thunderbird 102 Release Notes].
+
+__TOC__
+
+<!-- = Get Thunderbird in your language! =
+Thunderbird 102 – translated by the community – is available in [https://www.thunderbird.net/en-US/thunderbird/all/ many languages] from the [https://www.thunderbird.net Thunderbird homepage]. -->
+
+= Simply connect to your Email and more: Improved Account Setup Hub =
+The new Account Setup Hub is your one-stop-shop for connecting to your favorite communications and other resources. Whether it's email, contacts, calendar, or chat: Getting started is as easy as 1-2-3. For example, just enter your name, email address, and password, and connect instantly! And if you want to add more at a later time, the same Account Setup Hub will never be more than a click away, with convenient auto-discovery and auto-configuration. From here, you can also use Thunderbird's new Import feature for existing data from other mail clients, other installations of Thunderbird, etc. ([[#w_migration-and-data-backup-made-easy-new-import-and-export-hub|more below]]).
+
+[[Image:TB91-first-account-setup-virgin-start-tab]]
+
+= Take control of your personal information: New Spaces Toolbar =
+'''New:''' Thunderbird now features a central Spaces Toolbar for fast and easy access to your most important activities in the application: With a single click, you can move between Mail, Address Book, Calendar, Tasks, Chat, and your personal add-ons. And if you feel like adapting Thunderbird to your personal preferences, there's a button for Settings, too!
+
+[[Image:TB102-3-pane-spaces-toolbar]]
+
+Small screen? Just hide the spaces toolbar, and it will morph into a convenient Spaces Menu button at the start of your tab bar.
+
+= Manage your contacts with ease: New Address Book =
+The new design of the Address Book makes it easier to navigate and interact with your contacts. By default, the Address Book is now in a tab. Enjoy the convenience of the new vertical layout, and see more information about a contact at a glance. The new dedicated Edit mode protects your valuable contact data against accidental changes and allows for a better visual presentation when viewing a contact.
+
+[[Image:TB102-address-book-contact-display-vertical]]
+
+[[Image:TB102-address-book-contact-edit-vertical]]
+
+= Focus on what matters: Redesigned Message Header =
+Thunderbird always helps you to do more with less effort. '''Improved:''' When reading your email, the redesigned message header allows you to focus on what matters as it highlights important information. It's also more responsive and easier to navigate. You can now star important messages right there and convert them into a calendar event or a task.
+
+[[Image:TB102-message-reader-message-header-Alex]]
+
+= Keep your private online talks secure: New Matrix Chat Support =
+'''New:''' Thunderbird now offers direct basic support for chats using [https://www.matrix.org/ Matrix], a popular open network for secure and decentralized communication. Users will also benefit from a number of general UX improvements to chat, and more to come.
+
+= Migration and data backup made easy: New Import and Export Hub =
+'''New:''' Moving accounts and data in and out of Thunderbird is now easy with the new, central Import and Export Hub. With a few clicks, you can migrate your data from other clients or other Thunderbird installations, import address books and calendars, and much more. You can also export your entire Thunderbird profile for backup purposes.

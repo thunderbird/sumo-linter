@@ -1,0 +1,22 @@
+If Thunderbird starts up without your messages, addresses, passwords and other settings, check whether your data is available in a different [[Profiles - Where Thunderbird stores your messages and other user data|profile]]. This can happen because Thunderbird creates a [[Dedicated profile per Thunderbird installation|dedicated profile for each Thunderbird installation]] starting with [[Find what version of Thunderbird you are using|Thunderbird version]] 68.
+
+To recover your Thunderbird data and settings from another profile when Thunderbird is open:
+
+Access the ''Troubleshooting information'' window using one of the following procedures:
+*Click the menu button [[Image:TB68_Hamburger_Menu_Button_Win]], click {menu Help} and select {menu Troubleshooting information}.
+*On the menu bar, click the {menu Help} menu and select {menu Troubleshooting information}.
+{for win}If the Thunderbird menu bar is not visible, press the {button Alt} key on your keyboard to temporarily make it visible.{/for}
+
+[[Image:TB68_Help_Menu_1_Win]] o [[Image:TB68_Help_Menu_2_Win]]
+
+On the ''Troubleshooting Information'' page that opens, click the '''about:profiles''' link.
+
+[[Image:TB68_About_Profiles_Link_Win]]
+
+This will open the ''About Profiles'' page.<br>{for win}[[Image:TB68_About_Profiles_Page_Win]]{/for}{for mac}[[Image:about:profiles macOS]]{/for}{for linux}[[Image:Fx52_about-profiles-linux]]{/for}
+
+This page should list at least one profile and could list many. The profile that Thunderbird is currently using will have this: '''This is the profile in use and it cannot be deleted.'''
+{warning}Please do not delete any profiles. Don't use any Remove buttons.{/warning}
+If you have another profile listed on this page, it may contain your missing profile data. You can click the {button Launch profile} button to open another Thunderbird window using that profile. If the other profile doesn't contain your missing data, simply close that new window. If it does contain the missing data, you can set it as the profile that Thunderbird will open by default. Click the {button Set as default profile} button for that profile, and Thunderbird will use it automatically the next time you open Thunderbird.
+
+For more information about managing Thunderbird profiles, see [[Profile Manager - Create and remove Thunderbird profiles]].

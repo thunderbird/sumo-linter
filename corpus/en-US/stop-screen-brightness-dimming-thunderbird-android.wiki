@@ -1,0 +1,39 @@
+[[T:TBAndroidMore]]
+
+Android's settings and automatic screen dimming can make it difficult to read the screen due to low contrast. Here's how to reduce screen dimming and make Thunderbird more readable.
+
+__TOC__ 
+=General tips and tricks=
+* A dirty proximity sensor (located near the front-facing camera) can cause your screen to dim. To prevent this, keep the area around the front-facing camera clean.
+* Different manufacturers often implement different variants of Android and have slightly differently named Android settings. Also, setting names change in newer versions of Android. It is therefore impossible to give a comprehensive guide to the relevant settings for all Android devices for all Android versions.
+
+Here are some specific tips that will allow you to find the relevant settings for screen dimming on your device: Look for Android settings under sections with words like: 
+* '''Eye comfort shield''': Turn off.
+* '''Power saving''': Turn off or increase timeout before it starts.
+* '''Battery saver''': Turn off or increase timeout to prevent dimming.
+* '''High contrast text''' or '''High contrast mode''': See if changing these settings makes your screen more readable.
+* '''Accessibility''' and '''Display''': Look for settings related to screen dimming, screen timeouts and lock settings - turn off all automatic screen dimming, extra screen dimming (often found in {menu Android Settings} > {menu Accessibility} > {menu Extra dim}) and increase timeouts for screen locking.
+=Thunderbird settings=
+==Use the Thunderbird theme that's best for you==
+* Use the theme that is best for you in terms of visual comfort and perceived contrast. For some, that is the Light theme, for others, the Dark theme is better.
+# Tap {button ≡} at the top left > tap the gear icon:{button [[Image:gear icon]]} at the bottom left.
+# Tap {button General settings} > tap {menu Display}. Tap whatever works best: {button Dark} or {button Light} or {button Use system default} under '''Theme'''.
+=Third Party documentation=
+== Google Android settings==
+* On some Android devices, using Android's Dark or Light theme might be helpful (in addtion to using the Thunderbird theme that suits you). See Google's documentation: [https://support.google.com/accessibility/android/answer/6151800 Turn on Dark theme & color inversion].
+* How to turn off '''Extra dim''' can be found in Google's article: [https://support.google.com/accessibility/android/answer/11183305#colorcorrection&zippy=%2Cuse-color-correction%2Cdim-your-screen Change text & display settings].
+* For more information on the features for low-vision assistance, visit the [https://support.google.com/accessibility/android Android Accessibility Help Centre].
+[[UI:details_start]]
+==Google Pixel settings==
+Pixel phones have their own variant of Android. Please refer to the official documentation: [https://support.google.com/pixelphone/answer/6111557 Manage screen & display settings on a Pixel phone]
+[[UI:details_end]]
+[[UI:details_start]]
+==Samsung phones and tablets==
+Samsung has specific documentation for all of their Android devices (both non Galaxy and Galaxy):
+* [https://www.samsung.com/us/support/answer/ANS10003431/ Stop the screen brightness from dimming on your Galaxy phone or tablet].
+* Follow the instructions in Samsung's guide: [https://www.samsung.com/us/support/troubleshoot/TSG10001443/ Unable to turn on Eye comfort shield on Samsung phone or tablet] in reverse. In other words, '''disable''' the Eye comfort shield instead of enabling it: turn on Color inversion if needed, turn on the Color filter and enable Color adjustment or Color correction.
+[[UI:details_end]]
+[[UI:details_start]]
+==Third Party links disclaimer==
+{note}Please note that following the external links to Samsung and Google's websites in the previous sections will direct you to an external website that is not operated by Mozilla. These links can  break at any time without notice.{/note}
+[[UI:details_end]]

@@ -1,0 +1,11 @@
+This article describes how to change the date or time of an event. If you need more information about creating a calendar and an event, please see the [[Work with events]] article.
+
+= Change the date or time of an event =
+*Locate the event you wish to edit in the appropriate calendar and right-click it.
+*Choose the {menu Edit} option.
+OR
+*Select the event in the Event list and press {key Enter} on your keyboard.
+Now edit as required.
+*In the {pref From} and {pref To} fields, make the desired changes. Other fields may be changed as well if desired.
+*Once all changes have been made, click the {button Save and Close} button.
+Congratulations, the time or date of the event has been successfully changed.

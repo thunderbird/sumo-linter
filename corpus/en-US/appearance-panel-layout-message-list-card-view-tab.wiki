@@ -1,0 +1,34 @@
+[[T:TBMore]]
+
+This article describes the '''Appearance''' panel ([[Find what version of Thunderbird you are using|Thunderbird version]] 140 and newer) which can be found at Thunderbird app menu {menu ☰} > {menu Settings} > {menu Appearance}. It allows you to toggle your message list layout between Card and Table view, change the view's settings, and set your default folder sorting order and threading options.
+
+__TOC__
+
+[[Image:tb-140-appearances-panel]]
+
+=1. Card or Table view for the message list=
+Please refer to [[Getting Started with the Thunderbird main window (Supernova and newer)]] for more information on Card and Table view.
+==Card view ==
+* Click '''Card view''' to select Card view and then:
+** Click '''2 rows'''. The first row has the sender's display name (not the actual email address), time and at the top right the ''Message Actions'' menu, {menu ⋮} (also known as the ''kebab'' menu because the three vertical dots evoke a kebab). The second row displays the subject. 
+** Or click '''3 rows''' to get a 3rd row, which adds information about the message thread (if there is more than one message in that thread), tags and starred status.
+==Table view==
+* Click '''Table view''' to select Table view and then:
+** Tick ✓ '''Allow horizontal scroll''' if you would like horizontal scrolling for wide content like tables.
+
+=2. Select default threading for new folders: Unthreaded, Threaded or Grouped by Sort=
+* Click '''Threaded''' to make all new folders threaded by default.
+* Or click '''Unthreaded''' to make all new folders unthreaded by default.
+* Or click '''Grouped by Sort''' to sort by groups.
+
+=3. Default Sort field: Date, Subject, From and so on=
+There are many options for default sort order for new folders. The most popular options for '''Default Sort by:''' are:
+* {menu Date}
+* {menu Subject}
+* {menu From}
+Once you have picked a Default sort field, you can then choose {button Ascending} or {button Descending}.
+
+=4. Select folders to apply new settings to=
+You choose to apply the new settings to your current folders as follows:
+* Click {button All existing folders} to apply the new settings to all folders, not just the new ones. Don't worry, you will be given a chance to cancel applying the changes.
+* Or click {button Choose…} to apply the new settings to a particular folder (click {button Folder…}), or a particular folder and its subfolders ({button Folder and its children…}). Again, you can cancel.

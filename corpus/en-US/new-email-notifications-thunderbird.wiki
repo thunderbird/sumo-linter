@@ -1,0 +1,54 @@
+In order for this feature to work, you have to enable and configure notifications both in Thunderbird and in your operating system.
+
+__TOC__
+
+=1. Turn on native notifications in Thunderbird=
+# Thunderbird app menu {menu ☰} > {button Settings} > {menu General} > search for '''When new messages arrive'''.{for win, linux} Ensure '''Use the system notification''' is ticked "✓".{/for}
+# Click {button Customize…}.
+# Ensure the fields and actions you would like to display in your new email notifications are ticked "✓" ('''Archive''' is only available in 141 and newer releases).
+#;[[Image:borderless customize new mail alert]]
+{warning}Some operating systems have limits on how many action buttons are displayed in a notification. Windows 11 for example will only display 4 action buttons even if you have selected 5 or more actions.{/warning}
+
+=2. Configure your operating system's native notifications=
+Please follow your operating system's documentation to enable and configure notifications native to your operating system.
+
+[[UI:details_start]]
+==Windows==
+===Turn on Thunderbird email notifications===
+(Refer to Microsoft's Knowledge Base Article for more details:  [https://support.microsoft.com/en-us/windows/notifications-and-do-not-disturb-in-windows-feeca47f-0baf-5680-16f0-8801db1a8466 Notifications and Do Not Disturb in Windows].)
+# Enable notifications globally: In the Settings app on your Windows device, open System > {menu Notifications} and then toggle the switch next to {menu Notifications} to {button On}.
+# Under {menu Notifications from apps and other senders}, scroll down to {menu Mozilla Thunderbird} and then toggle the switch to {button On}.
+# Click on the chevron {button >} to configure more options.
+
+===Example: Windows 11 notification===
+Here's how notifications look in Windows 11:
+;[[Image:windows11-tb142-new-email-os-notification]]
+[[UI:details_end]]
+
+[[UI:details_start]]
+==macOS==
+===Turn on Thunderbird email notifications===
+(Refer to Apple's Knowledge Base Article for more details:  [https://support.apple.com/en-uz/guide/mac-help/mh40583/15.0/mac/15.0 Notifications settings on Mac].)
+# Choose Apple menu > {menu System Settings…} and then click {menu Notifications} in the sidebar.
+# Scroll down to {menu Thunderbird} and then click on the chevron {button >}.
+# Next to {menu Allow notifications}, toggle the switch to the right to turn on Thunderbird notifications.
+# Optional: configure the rest of the notification options to suit your requirements.
+
+===Example: macOS 15 Sequoia notification===
+Here's how notifications look in macOS 15 Sequoia after clicking on {menu Options}:
+;[[Image:macOS15-sequoia-tb142-notification-after-clicking-on-options-menu]] 
+[[UI:details_end]]
+
+[[UI:details_start]]
+==Linux==
+===Turn on Thunderbird email notifications under Gnome Shell ===
+# In the Settings application, select {menu Notifications} in the sidebar menu.
+# Click {menu Thunderbird} in the {menu App Notifications} section.
+# Toggle on the switch next to {menu Notifications}.
+;[[Image:gnome-settings-notifications-view]] 
+;[[Image:gnome-settings-notification-view-app-menu]] 
+
+===Example: Gnome Shell notification===
+Here's how notifications look in Gnome Shell:
+;[[Image:tb140-linux-new-message-notification]] 
+[[UI:details_end]]

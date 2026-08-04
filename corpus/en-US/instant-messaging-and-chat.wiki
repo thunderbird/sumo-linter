@@ -1,0 +1,63 @@
+Thunderbird supports instant messaging and chat using IRC, XMPP, and Google Talk.
+
+__TOC__
+
+= Configuring Chat =
+To use Chat, you must first create a new account (or configure an existing account) with an online instant messaging or chat provider. Thunderbird currently works with IRC, XMPP, <del>Twitter</del>, and Google Talk. 
+
+In this example we will show IRC, Google Talk and XMPP.  Note, Twitter is no longer supported.
+
+== Start the New Account Wizard ==
+
+At the top of the Thunderbird window, click on the {menu File} menu, then click {menu New} and then click {menu Chat Account…}:
+
+[[Image:ChatSelectionDialog]] 
+
+== Enter Username ==
+
+For IRC, you will have to enter your IRC server name, e.g. irc.mozilla<!---->.org for Mozilla's IRC server.
+
+For XMPP, you will also have to enter your XMPP server name. 
+
+[[Image:irc-enter-username]]
+
+== Enter Password ==
+
+Enter the password for the service.
+
+[[Image:irc-password]]
+
+{note}A password is optional for an IRC account and is only required if you have reserved your nickname on the IRC network.{/note}
+
+== Advanced Options ==
+This is not usually needed, so just click {for win,linux}{button Next}{/for}{for mac}{button Continue}{/for}.
+
+[[Image:irc-skip-advanced-options]]
+
+== Finish the Wizard ==
+
+Next, you will be presented with a Summary screen. Click {button Finish} to finish the wizard and start chatting.
+
+[[Image:irc-summary]]
+
+= Using Chat =
+
+== Connect to your Chat Account ==
+First make sure that you are online by going to your Chat Status and connecting:
+* click on the {menu Tools} menu and then click on {menu Chat status} and then {menu Show Accounts…}
+* click on the {button Connect} button next to the account you want to go online with
+
+[[Image:irc-click-connect]]
+
+== Use the Chat Tab to start and join conversations ==
+Click on the Chat Tab next to the Write Tab to start and join conversations.
+
+[[Image:irc-chat-tab]]
+
+== Chat is included in Search ==
+
+Like any other type of Thunderbird account (e.g. email and RSS), Chat is integrated with search.
+
+Here's an example of email, and Chat conversations being found by Thunderbird's [[Global Search|global search]]:
+
+[[Image:irc-search]]

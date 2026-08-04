@@ -1,0 +1,66 @@
+This article describes various features about the Lightning user interface.
+
+__TOC__
+
+== Lightning components ==
+
+After installing the Lightning Addon, you will find the following user interface components added to Thunderbird:
+
+* ''Today Pane'' - an optional Lightning pane on the right side of your mail tabs or Lightning tabs
+* ''Calendar'' Tab - containing the main calendar and holiday calendars
+* ''Tasks'' Tab - containing all current tasks and ways for you to configure them
+* Two buttons on the right of Thunderbird's tab bar: "Switch to Calendar Tab" and "Switch to Tasks Tab"
+
+=== Switching between Mail tabs and Lightning tabs ===
+To switch between Mail tabs and Lightning tabs, you can choose one of the following ways:
+* via the Lightning toolbar buttons on the tab bar
+* via the following keyboard shortcuts
+** Calendar tab: {for win,linux}{key Ctrl+Shift+C}{/for}{for mac}{key Cmd+Shift+C}{/for}
+** Tasks tab: {for win,linux}{key Ctrl+Shift+D}{/for}{for mac}{key Cmd+Shift+D}{/for}
+** Main Mail tab: {for win,linux}{key Ctrl+1}{/for}{for mac}{key Cmd+1}{/for}
+* via the {menu Events and Tasks} menu from the main menu bar at the top
+
+== Today Pane ==
+The ''Today Pane'' allows you to have a quick overview of your tasks and events for the coming period as well as creating new tasks and events.
+==== Opening and Closing the Today Pane ====
+
+This Pane can be switched on and off in two ways:
+* Hit the {key F11} key on your keyboard.
+* Go to the {menu View} menu, select {menu Today Pane} and choose the {menu Show Today Pane} option.
+
+You can also switch this pane off by using the {button x} button in the right top corner of the pane.
+
+=== Today pane components ===
+
+The ''Today pane'' has 3 view modes:
+* {menu Events} (Mini Calendar)
+* {menu Events and Tasks} (Mini Calendar and Mini Tasks list)
+* {menu Tasks} (Mini Tasks list)
+
+You can switch between these view modes using the {button <} and {button >} buttons at the top of the ''Today pane''.
+
+==== Mini Calendar ====
+The ''Mini Calendar'' is only visible when the ''Today Pane'' with ''Events'' is visible.
+It has 3 view modes:
+
+* {menu Show Mini-Day}
+* {menu Show Mini-Month} 
+* {menu Show none}
+
+You can switch between these modes using the {menu View | Today Pane} submenu.
+
+=Show completed tasks=
+#Go to View
+#Go to Calender
+#then go to Current View
+#Tasks in View and select show completed Tasks 
+<!-- 
+Events
+
+Tasks
+
+Calendar Mode
+
+Task Mode 
+
+Toolbar customization (currently broken) -->

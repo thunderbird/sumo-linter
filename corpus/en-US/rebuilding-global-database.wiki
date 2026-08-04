@@ -1,0 +1,19 @@
+The Global Database ("Gloda" for short) is an indexing system that enables Thunderbird to search messages. Rebuilding the Global Database re-indexes messages and address book cards. (Newsgroup messages are not indexed.)
+
+Reasons for rebuilding the Global Database include:
+
+* The database may have been corrupted.
+* The search index may not be functioning correctly (such as displaying blank results, performing poorly).
+* The database is too big and needs to be reduced in size. <br> {note}Rebuilding the database will not automatically reduce the size of the index. The database will only shrink if there are fewer messages to index since the index was last updated - which can be accomplished by deleting messages, or disabling message sync for an account or folder.{/note}
+* The Global Database file becomes fragmented, which reduces index performance.
+
+
+=Steps to Rebuild the Global Database=
+
+# Quit Thunderbird.
+# Locate the {filepath global-messages-db.sqlite} file in your [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird Profile]].
+# Delete the {filepath global-messages-db.sqlite} file.
+# Start Thunderbird. The re-indexing process will start automatically. Depending on the number of messages, it might take some time for the indexing to complete. You can continue to use Thunderbird, but performance might be affected and search will return only partial results or even no results until the indexing is complete. The indexing progress can be monitored through the {menu Tools > Activity Manager} menu.
+
+=See Also=
+* [[Global Search|Global Search Article]]

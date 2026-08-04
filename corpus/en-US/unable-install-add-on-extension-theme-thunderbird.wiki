@@ -1,0 +1,49 @@
+An inability to install an extension can be the result of problems with the extension or the version of Thunderbird you are using. This article describes various causes of install problems and what you can do to address them.
+
+__TOC__
+
+= Add-on is not compatible =
+A file in each add-on indicates the range of Thunderbird versions with which it is compatible. At [https://addons.thunderbird.net/ Thunderbird Add-ons] you can find and review the version compatibility information for each add-on. If your installed version of Thunderbird does not fit within the specified range, then installing the add-on or starting Thunderbird will fail or indicate the add-on is not compatible. 
+
+'''A published add-on is the responsibility of its respective add-on author.'''
+If an add-on does not work or is not compatible, you have these choices:
+* Update to the latest version of Thunderbird. For more information, see [[Updating Thunderbird]].
+* Find a version of the add-on that is compatible with your version of Thunderbird. The [https://addons.thunderbird.net/ Thunderbird Add-ons] website usually has the most up to date version.
+* Use a different add-on. You can often find other add-ons with similar functionality at [https://addons.thunderbird.net/ Thunderbird Add-ons].
+* Contact the author of the add-on at the support site listed on its add-on page. (Note: posting a review is not effective and will not reach the author.)
+
+= Trouble installing Themes =
+Starting with beta version 61, Thunderbird supports only lightweight themes, and you can therefore no longer install "complete themes".  [[Install themes to change the look of Thunderbird]] describes the purpose and installation process.  
+
+= You are asked to download the add-on, rather than allowed to install it =
+Some websites serve add-ons as downloads, requiring you to download the file to your computer, before installing it. 
+* These files are usually {filepath [http://en.wikipedia.org/wiki/XPInstall .xpi]} or {filepath [http://en.wikipedia.org/wiki/JAR_%28file_format%29 .jar]} files. 
+# Download the file to your local computer.
+# Click {menu ≡} > {menu Add-ons and Themes}. The Add-ons Manager tab will open.
+#In the Add-ons Manager tab, select the {menu Extensions} panel.
+# To add the downloaded add-on to the list of available add-ons, drag and drop the file into the Add-ons window. The add-on is added to the list.
+#  The installation process should begin.
+'''An add-on will not work if incompatible.'''
+
+= Corrupt extension files =
+Corrupt extension configuration files can cause problems when trying to install an add-on. Deleting these files will make Thunderbird recreate them the next time it starts. You won't lose your extensions or their settings by deleting these files.
+
+# Open your profile folder:<br />[[T:openProfileFolderTB]]
+# Delete the following files:
+#* {filepath extensions.sqlite}
+#* {filepath extensions.sqlite-journal} (if found) 
+#* {filepath extensions.ini}
+#* {filepath extensions.json}
+# Restart Thunderbird.
+
+= Conflict with another add-on =
+An already installed add-on may interfere with the installation of a new one. Install the new extension in Thunderbird [[Safe Mode Thunderbird|Safe Mode]] as a workaround. 
+
+= Add-on has a high risk of causing stability or security problems and can't be installed =
+Certain add-ons have been blocklisted for being unsafe.  For more information, see [[Why does Mozilla disable some add-ons from running in Firefox?]]
+
+<!-- MZ credit -->
+<br><br>
+'''''Based on information from
+* [[Unable to install add-ons (extensions or themes)]]
+* [http://kb.mozillazine.org/Unable_to_install_themes_or_extensions_-_Firefox Unable to install themes or extensions - Firefox (mozillaZine KB)]'''''

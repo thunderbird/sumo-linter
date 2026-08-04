@@ -1,0 +1,37 @@
+Follow these instructions to remove Thunderbird from your computer.
+
+{for winxp}
+#Go to the Windows Start menu and select {menu Control Panel}.
+#Click on {menu Add or Remove Programs}.
+#Select {menu Mozilla Thunderbird} from the list of programs. 
+#Click {button Remove}. This will launch the uninstall wizard, which will guide you through the rest of the process.
+{/for}
+{for win7}
+# Go to the Windows Start menu and select {menu Control Panel}.
+#Click the {menu Uninstall a program} link under '''Programs'''.
+#Select {menu Mozilla Thunderbird} from the list of programs. 
+#Click the {menu Uninstall} option that appears at the top of the list. This will launch the uninstall wizard, which will guide you through the rest of the process.
+{/for}
+{for win8}
+#From the Desktop version of Windows 8, move your mouse to the right edge of the screen to bring up the Charms menu, then click {menu Settings}.
+#From the Settings menu, select {menu Control Panel}.
+#Click the {menu Uninstall a program} link under '''Programs'''.
+#Select {menu Mozilla Thunderbird} from the list of programs. 
+#Click the {menu Uninstall} option that appears at the top of the list. This will launch the uninstall wizard, which will guide you through the rest of the process.
+{/for}
+{for win10}
+#Click the Windows Start button or press the Windows key {key [[Image:Windows Key]]}.<!-- The next two steps are from Microsoft's article, http://windows.microsoft.com/en-us/windows-10/repair-or-remove-programs-->
+#In the Start menu, select {menu Settings}.
+#In Settings, select {menu System} and then {menu Apps & features}.
+#Select {menu Mozilla Thunderbird} from the list of programs. 
+#Click the {button Uninstall} button. This will launch the uninstall wizard, which will guide you through the rest of the process.
+{/for}
+{for mac}
+#Open the {filepath Applications folder}.
+#Click and drag the Thunderbird icon to Trash.
+{/for}
+{for linux}
+#Open {menu Ubuntu Software Center} and click on the {menu Installed} icon.
+#Expand the {menu Internet} section and click on {menu Thunderbird Mail} to highlight it. 
+#Click on the {button Remove} button to the far right. Follow the instructions that pop up.
+{/for}

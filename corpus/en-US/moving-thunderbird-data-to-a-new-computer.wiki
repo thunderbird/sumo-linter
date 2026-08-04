@@ -1,0 +1,51 @@
+{for win}
+[[Video:https://www.youtube.com/watch?v=ywJ6eQwhb78]]
+{/for}
+
+Thunderbird stores your data in a separate location, away from the {for win}program files{/for}{for mac,linux}application{/for}, called your [[Profiles - Where Thunderbird stores your messages and other user data|profile folder]]. To move your data, you can copy your profile folder to the equivalent location on your destination computer. Ensure both versions of Thunderbird are up to date or identical before attempting a transfer as otherwise it might fail.
+
+{note}'''Note:''' If you have used the Profile Manager on your source computer to store your Thunderbird profile folder in a custom location into a remote storage drive, [[Use multiple profiles in Thunderbird|create a new profile]] on your destination computer and set that profile to use the same location. Thunderbird's new installation will use the already existing data.{/note}
+
+=Method using a transfer device=
+*'''On your source computer'''
+*# Connect a device for data transfer, either a local one such as a USB flash drive, or a remote storage drive.
+*# {for win,linux}Click the menu button [[Image:Fx57Menu]], then click {menu Help} and select {menu Troubleshooting Information}.{/for}{for mac}Open the {menu Help} menu and select {menu Troubleshooting Information}.{/for}
+*# Locate the "Profile Folder" entry, then click {for win}{button Open Folder}{/for}{for linux}{button Open Directory}{/for}{for mac}{button Show in Finder}{/for}.<br>Your Thunderbird profile folder will open in {for win}Windows Explorer{/for}{for linux}File Browser{/for}{for mac}Finder{/for}.
+*# {for win,linux}Close{/for}{for mac}Quit{/for} Thunderbird.
+*# From your Thunderbird profile folder in {for win}Windows Explorer{/for}{for linux}File Browser{/for}{for mac}Finder{/for}, {for win}go up three levels{/for}{for linux}go up two levels{/for}{for mac}open the {menu Go} menu and select {menu Enclosing Folder} two times{/for}.
+*# [[T:contextmenu]] on the {filepath {for win, mac}Thunderbird{/for}{for linux}.thunderbird{/for} } folder and select {for win,linux}{menu Copy}{/for}{for mac}{menu Copy "Thunderbird"}{/for}.{for linux}<br>({filepath .thunderbird} is a hidden folder. Make sure you have File Browser set to show hidden files.){/for}
+*# [[T:contextmenu]] the device you are using to transfer your data, then select {for win,linux}{menu Paste}{/for}{for mac}{menu Paste Item}{/for}.
+*# If you are using a local transfer device, remove it safely from the source computer.
+{note}'''Note:''' This steps can also be used to create a backup of your Thunderbird profile folder.{/note}
+
+*'''On your destination computer'''
+*# Connect the same transfer device you have used before to copy your Thunderbird profile folder from the source computer.
+*# [[T:contextmenu]] on the copy of the Thunderbird profile folder that you created on the transfer device, then select {for win,linux}{menu Copy}{/for}{for mac}{menu Copy "Thunderbird"}{/for}.
+*# Open Thunderbird (Close the account setup window if it appears.)
+*# {for win,linux}Click the menu button [[Image:Fx57Menu]], then click {menu Help} and select {menu Troubleshooting Information}.{/for}{for mac}Open the {menu Help} menu and select {menu Troubleshooting Information}.{/for}
+*# Locate the "Profile Folder" entry, then click {for win}{button Open Folder}{/for}{for linux}{button Open Directory}{/for}{for mac}{button Show in Finder}{/for}.<br>Your Thunderbird profile folder will open in {for win}Windows Explorer{/for}{for linux}File Browser{/for}{for mac}Finder{/for}.
+*# {for win,linux}Close{/for}{for mac}Quit{/for} Thunderbird.
+*# From your Thunderbird profile folder in {for win}Windows Explorer{/for}{for linux}File Browser{/for}{for mac}Finder{/for}, {for win}go up three levels{/for}{for linux}go up two levels{/for}{for mac}open the {menu Go} menu and select {menu Enclosing Folder} two times{/for}.
+*# [[T:contextmenu]] inside the folder, then select {for win,linux}{menu Paste}{/for}{for mac}{menu Paste Item}{/for}.
+*# When prompted, choose to replace your current data.
+
+{for mac}
+=An alternative method for Mac=
+# Hold down the {key Option} key while pulling down {menu Go} on the Mac's main menu. Select and open {menu Library}.
+# Within the Library is a Thunderbird folder, which can be copied/pasted or Shared (i.e. [[T:contextmenu]], Share, AirDrop if the receiving computer is in close proximity.)
+# Ensure you already have the Thunderbird app installed on your receiving computer, but don't open it to check messages. Go through the same process ({key Option} key, {menu Go}, {menu Library}) and replace the empty (or old) Thunderbird folder on the receiving computer with the existing Thunderbird folder that contains all your current data.
+# Test Thunderbird on the receiving computer - it should look identical to your original on the sending computer and contain all the same messages. CAUTION: Do not open Thunderbird again on the original computer - unless you repeat the process in reverse to transfer the folder contents back to the original computer before opening the app. (If you forget, you can manually check one version against the other to ensure important messages are retained, but it's messy and time consuming.)
+{/for}
+
+{for win}
+=An alternative method for manual transfer between Windows 10 and Windows 11 computers=
+This section assumes you have a default Windows installation and will work on computers upgraded to Windows 10 from previous Windows versions.
+# Locate the master profile folder on the source computer as above.
+# Locate the master profile folder on the destination computer as above.
+# Note out of interest that your username (indicated by ~ below) on the two computers might be different due to legacy issues, but it will make no difference with a manual transfer as below.
+# Close Thunderbird in both computers.
+# On the source computer, copy the Thunderbird folders in both {filepath Windows(C:)/Users/~/AppData/Roaming} and {filepath Windows(C:)/Users/~/AppData/Local} to your transfer media, in separate folders so you do not overwrite them.
+# On the destination computer, remove (or rename if you need a data backup or to preserve an old profile) any Thunderbird folders in the destination folders {filepath Windows(C:)/Users/~/AppData/Roaming} and {filepath Windows(C:)/Users/~/AppData/Local} directories.
+# Copy from your transfer media the correct Thunderbird folders into the two folders above to replace the ones you have removed or renamed.
+# Restart Thunderbird on the destination computer and test it, noting that your inbox tab should be identical to source, but that other tabs may have opened with Thunderbird messages.
+{/for}

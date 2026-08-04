@@ -1,0 +1,50 @@
+Thunderbird (starting with version 24.0) will check whether a local directory used to store your mail, messages headers, and message filters for an account is a safe and valid location, normally within the [[Profiles - Where Thunderbird stores your messages and other user data|profile folder]]. This can cause an alert like "The Local Directory path is not suitable for message storage", to avoid storing your data in a directory where an application or the operating system might accidentally delete it. For example, a directory where an application is installed or temporary files are stored. It is also possible for an add-on to specify dangerous locations.
+
+Normally you will only run into this problem if you try to change where mail is stored, or you create a folder that has characters that might confuse Thunderbird. Thunderbird stores all of the mail for each folder in a file called a mbox file that is named after the folder, with no file extension. For example your inbox folder would be stored as "inbox.". If the folder name contains special characters used by the operating system (like '*', '\', '/', ':', '?', '>', '<', or "), the path to the mbox file (mail folder) can be ambiguous. Another potential problem might be using a folder name that is similar to a reserved file name such as "places.sqlite".
+
+The local directory for a mail account is specified in Tools -> Account Settings -> account name -> Server Settings -> Local directory, near the browse button at the bottom of that window. The only allowed subdirectories in the profile are Mail, ImapMail and News (and subdirectories within them). The local directory is normally named after a mail server. For example, if you have a Gmail POP server it typically uses Mail\pop.googlemail.com. If you configure it to use a global inbox it uses Mail\Local Folders.
+
+Some examples of a valid Local directory path:
+
+    C:\Users\User\AppData\Roaming\Thunderbird\Profiles\12345678.default\Mail\pop.server2.com (Windows Vista, 7, 8, 8.1 and newer)
+    D:\Data\MyEmails\pop.server3.com
+    C:\Profiles\ 
+
+Some examples of invalid locations:
+
+    C:\WINDOWS
+    C:\Program Files
+    C:\Documents and Settings\User\Local Settings\Temp
+    /tmp 
+
+Whether a directory is a valid location depends upon your systems settings. For example, you could have a D:\Program Files directory if you booted Windows from drive D. Thunderbird will complain if you try to use the following locations:
+
+{|
+|+ 
+!Folder or Environment variable!! What it translates to !! Operating system
+|
+|-
+|"ProfD" ||Profile directory ||All
+|-
+|"GreD" ||GRE (Gecko Runtime Environment) install directory ||All
+|-
+|"CurProcD"||Thunderbird installation directory ||All
+|-
+|"TmpD"||Operating System's temporary file directory ||All
+|-
+|"SysD"||System directory||Windows
+|-
+|"WinD"||Windows directory||Windows
+|-
+|"ProgF" ||Program Files or Program Files (x86) directory||Windows
+|-
+|"Trsh" ||Trash directory||OS X
+|-
+|"/System"||System directory||OS X
+|-
+|"/dev"||Devices directory||OS X and Linux
+|-
+|"/proc"||Process info directory||Linux
+|-
+|"/sys"||System state directory||Linux 
+|}

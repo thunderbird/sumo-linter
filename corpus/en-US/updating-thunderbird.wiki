@@ -1,0 +1,24 @@
+{for win}
+[[Video:https://www.youtube.com/watch?v=dqvnngrxLWo?rel=0]]
+{/for}
+By default, Thunderbird is set to automatically update itself but you can always do a manual update. Here's how:
+{for linux}{note}'''Note:''' If you run Linux (such as Ubuntu) and use your Linux distribution's packaged version of Thunderbird, you will need to wait for an updated package to be released to its package repository. See [[Install Thunderbird on Linux]] '''This article only applies if you installed Thunderbird manually''' (without using your distribution's package manager).{/note}{/for}
+
+# {for win}Go over to the {menu Help} menu and select {menu About Thunderbird}.{/for}{for mac}On the menu bar click the {menu Thunderbird} menu and select {menu About Thunderbird}.{/for}{for linux}At the top of the Thunderbird window click the {menu Help} menu and select {menu About Thunderbird}.{/for}
+# The '''About Thunderbird''' window will open and Thunderbird will begin checking for updates and downloading them automatically.
+#;[[Image:TB About Update 1]]
+#When the updates are ready to be installed, click {button Restart Thunderbird to Update}.
+#;[[Image:TB About Update 2]]
+
+==To change update settings==
+To change update settings:
+# [[T:optionspreferences TB]]
+# Use the {menu General} tab.
+# Below '''Updates''', select '''Automaticlly install updates''' or '''Check for updates, but let me choose when to install them'''.
+
+==Having problems?==
+
+Simply download and install the latest version from the Thunderbird website, and Thunderbird will pick up your existing data.<br/>
+For instructions, see {for win}[[Install Thunderbird on Windows]]{/for}{for linux}[[Install Thunderbird on Linux]]{/for}{for mac}[[Install Thunderbird on Mac]]{/for}.
+
+* If a ''Software Update Failed'' message appears, see [[Thunderbird Software Update Failed]]

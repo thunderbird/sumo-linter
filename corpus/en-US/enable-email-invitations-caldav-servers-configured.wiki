@@ -1,0 +1,19 @@
+If you have subscribed to a calendar using the caldav protocol, you might have experienced that if you have created an event and added other people to join it, there seems to be no invitation send out when saving the event.
+
+Apart from not having an email identity associated to this calendar, that could be related to the server settings, which might tell Thunderbird/Lightning that the server will take care of any scheduling operation. But somethimes, this is not what you want since you cannot see yourself whether or not an invitation was send out properly or the server supports only scheduling operations for users on the same calendar server and you want to also invite other people.
+
+Starting with Thunderbird 60 / Lightning 6.2, there is a per calendar option available to overrule the servers scheduling options and enforce Lightning to do email scheduling.
+
+To enable it, switch to the calendar or task view, and right-click on the respective caldav calendar and select the properties item in the context menu.
+
+[[Image:Editing calendar properties]]
+
+Now, you just check the option "Prefer client-side email scheduling", which is available below the dropdown list to select an email identity. This option will be only visible for CalDAV calendars but not for any other type of calendar.
+
+[[Image:Prefer email scheduling in calendar properties]]
+
+Since email invitations for a calendar only work properly if you have associated an email identity to the calendar, the feature won't be available, if you haven't done so. Even if you configure it first and then remove the email identity, it won't be effective.
+
+[[Image:Disabled option to prefer email scheduling]]
+
+If you're configuring a new caldav calendar, enabling this feature from within the calendar wizard is prepared but currently not enabled until the server feature detection is implemented. So, currently you need to edit the calendar preferences as described above after creating the calendar.

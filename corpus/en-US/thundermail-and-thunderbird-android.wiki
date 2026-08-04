@@ -1,0 +1,62 @@
+[[Template:TBproEarlyBirdInviteOnly]]
+Here’s how to get started with Mozilla’s Thundermail service. 
+__TOC__
+=Configure Thundermail in Thunderbird for Android=
+== Automatic Setup for Thunderbird 18 or newer==
+{note} '''NOTE''': Thunderbird Pro requires Thunderbird for Android version 18 or newer (also K-9). We recommend using the latest monthly release version documented in [[New in Thunderbird for Android]].{/note}
+# Thunderbird app menu {menu ≡} > Settings gear icon {button [[Image:gear icon]]} > {menu Add account}.
+# Enter your Thundermail email address. For example <code>nemo@thundermail.com</code>.
+# Click {button Next}.
+# The next screen will prompt you to '''Please specify the special folders for your account''', and offer some suggested settings for your Thunderbird special folders. For most people, the defaults are fine. Configure them to your needs and click {button Next}. 
+# On the next screen, configure your user name under '''Your name''' and optionally your signature and click {button Next}.
+# The next screen has sync and notification options. For most people, the defaults are fine. Configure them to your needs and click {button Next} .
+==QR Code Setup for Thunderbird 19 or newer==
+* This is faster because you don't have to type your Thundermail email address. {note}NOTE: Please ensure Thunderbird is allowed to use the camera in Android settings in order to make QR code scanning work.{/note}
+* Please follow the instructions at: [[How To Import from Thundermail#w_how-to-import-from-thundermail|How to Import from Thundermail]] to import your Thundermail settings into Thunderbird for Android using the QR code on the Thundermail accounts page.
+=Manual Settings=
+Thunderbird should automatically configure your Thundermail email settings to match your [https://accounts.tb.pro/mail TB Pro accounts page]. If it doesn’t, please  manually change the receiving email and sending email settings according to the sections below. If manual setup fails, please create a support ticket using our form at: https://support.tb.pro/hc/en-us/requests/new.
+[[UI:details_start]]
+
+==Receiving email==
+# Thunderbird app menu {menu ≡} > Settings gear icon {button [[Image:gear icon]]}
+# Under '''Accounts''', tap on your Thundermail email account. For example: <code>nemo@thundermail.com</code>.
+# Tap {menu Fetching mail} > {menu Incoming Server} and set the following values:
+*'''Server:''' <code>mail.thundermail.com</code> '''Security:''' SSL/TLS '''Port:''' 993
+*'''Authentication:''' OAuth 2.0
+*'''Username:''' your full Thundermail email address, for example <code>nemo@thundermail.com</code>.
+
+==Sending email==
+# Thunderbird app menu {menu ≡} > Settings gear icon {button [[Image:gear icon]]}
+# Under '''Accounts''', tap on your Thundermail email account. For example: <code>nemo@thundermail.com</code>.
+# Tap {menu Sending mail} > {menu Outgoing server} and set the following values:
+* '''Server Name:''' <code>mail.thundermail.com</code> '''Connection''' '''Security:''' SSL/TLS '''Port:''' 465
+* '''Authentication:''' OAuth 2.0
+* '''Username:''' your full Thundermail email address. For example: <code>nemo@thundermail.com</code>.
+
+[[UI:details_end]]
+
+=Configure Catch-All, Thundermail, tb.pro, and Custom Domain Aliases for use with Thunderbird=
+==Set up a Thunderbird identity for each each alias you want to reply from==
+The steps are the same for [https://support.tb.pro/hc/articles/51338950680467-Setting-Up-a-Catch-All-Alias catch-All], [https://support.tb.pro/hc/articles/46804820453907-Setting-Up-Email-Aliases tb.pro, Thundermail and custom domain aliases], so we will just use the term '''alias''' to refer to all of these types of aliases in the instructions below:
+
+You will have to setup an '''identity''' in Thunderbird for every alias you want to send email from.
+
+For example, if your catch-all is for <code>glamroc.com</code> and you would like to reply as  <code>alice@glamroc.com</code> and <code>slade@glamroc.com</code> in addition to the default alias for <code>glamroc.com</code>, you will have to setup identities for both <code>alice@glamroc.com</code> and <code>slade@glamroc.com</code>. 
+
+Here's how:
+# Thunderbird app menu {menu ≡} > Settings gear icon {button [[Image:gear icon]]}.
+# Tap on your account, e.g. <code>roc@glamcroc.com</code> > {menu Sending mail}.
+# Tap {menu Manage identities} > {menu ⋮} (also known as the ''kebab'' menu because the three vertical dots evoke a kebab) > {menu New identity}.
+# Enter the desired alias in the '''Email address''' field e.g. <code>alice@glamroc.com</code>. All other fields are optional, but we recommend you enter a memorable shorter name in the '''Your name''' field.
+# Save the identity by tapping {button SAVE}. When replying, you can now change the '''From''' field to this identity by tapping on it.
+==Send email with the identities for your aliases==
+# When composing or replying, tap on the email address in the  '''From''' field.
+# Tap on the relevant identity for the alias you wish to send from.
+# Write and send the email as usual.
+=Have some fun now that email setup is done!=
+Congratulations, you have done successfully setup Thundermail with Thunderbird for Android! Next:
+* Send and receive email with Thundermail.
+* New to Thunderbird for Android? Then check out [[Getting started with Thunderbird for Android]].
+<!--
+* If you have large files, you can send them with FIXME because Send on Mobile needs some polish: add link to Thunderbird Send which is included with your Thunderbird Pro subscription.
+-->

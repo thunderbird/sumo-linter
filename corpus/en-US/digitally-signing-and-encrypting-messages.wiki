@@ -1,0 +1,101 @@
+{warning}'''Note:''' This article applies to '''Thunderbird 68 and earlier versions'''. Starting from [https://www.thunderbird.net/en-US/thunderbird/78.0/releasenotes/ version 78], Thunderbird features inbuilt OpenPGP encryption technology, so the Enigmail add-on has been discontinued. For more information, please refer to [[OpenPGP in Thunderbird - HOWTO and FAQ]].{/warning}
+
+__TOC__
+
+This tutorial explains how to set up Thunderbird to digitally sign, encrypt and decrypt messages in order to make them secure.
+
+=Introduction=
+The email infrastructure that everyone uses is, by design, not secure. While most people connect to their email servers using a secure ("SSL") connection, some servers allow unsecured access. Furthermore, as the message moves through its transmission path from sender to recipient, the connections between each server are not necessarily secure. It is possible for third parties to intercept, read and alter email messages as they are transmitted.
+
+When you [http://en.wikipedia.org/wiki/Digital_signature digitally sign] a message, you embed information in the message that validates your identity. When you encrypt a message, it appears to be "scrambled" and can only by read by a person who has the key to decrypting the message. Digitally signing a message ensures that the message originated from the stated sender. Encrypting ensures that the message has not been read or altered during transmission.
+
+To encrypt messages, you can use the [http://en.wikipedia.org/wiki/Public-key_cryptography public-key cryptographic system]. In this system, each participant has two separate keys: '''a public encryption key''' and '''a private decryption key'''. When someone wants send you an encrypted message, he or she uses your public key to generate the encryption algorithm. When you receive the message, you must use your private key to decrypt it.
+
+{note} Note: Never share your private key with anyone. {/note}
+
+The protocol used to encrypt emails is called [https://en.wikipedia.org/wiki/Pretty_Good_Privacy PGP] (Pretty Good Privacy). To use PGP within Thunderbird, you must first install:
+
+* [http://www.gnupg.org/ GnuPG]: (GNU Privacy Guard): a free software implementation of PGP
+* [https://addons.thunderbird.net/thunderbird/addon/enigmail/ Enigmail]: a Thunderbird add-on
+
+These two applications also provide the capability to digitally sign messages.
+
+=Installing GPG and Enigmail=
+To install GnuPG, download appropriate package from the [http://www.gnupg.org/download/index.en.html#auto-ref-3 GnuPG binaries page]. Follow the installation instructions provided for your particular package. For more information on installing PGP on specific operating systems, refer to:
+
+* [http://write.flossmanuals.net/thunderbird-workbook/installing-pgp-in-windows/ Installing PGP on Windows]
+* [http://write.flossmanuals.net/thunderbird-workbook/installing-pgp-in-ubuntu/ Installing PGP on Ubuntu]
+* [http://write.flossmanuals.net/thunderbird-workbook/installing-pgp-in-osx/ Installing PGP on Mac OS X]
+
+To install Enigmail:
+
+# In Thunderbird, select {menu Tools > Add-ons}.
+# Use the search bar in the top right corner to search for Enigmail.
+# Select Enigmail from the search results and follow the instructions to install the add-on.
+
+=Creating PGP keys=	
+Create your public/private keys as follows:
+
+# On the Thunderbird menu bar, click {menu OpenPGP} and select {menu Setup Wizard}. 	
+# Select {pref Yes, I would like the wizard to get me started} as shown in the image below. Click {button Next} to proceed.
+#;[[Image:OpenPGP-1]]
+# The wizard asks whether you want to sign all outgoing messages or whether you want to configure different rules for different recipients. It is usually a good idea to sign all emails so that people can confirm that the email is indeed from you. Message recipients do not need to use digital signatures or PGP to read a digitally signed message. Select {pref Yes, I want to sign all of my email} and click {button Next} to proceed.
+# Next, the wizard asks if you want to encrypt all your emails. You should not select this option unless you have the public keys for all the people that you expect to send messages to. Select {pref No, I will create per-recipient rules for those who send me their public keys} and click {button Next} to proceed.
+# The wizard asks if it can change some of your mail formatting settings to better work with PGP. It is a good choice to answer {pref Yes} here. Click {button Next} to proceed.
+# Select the email account for which you want to create the keys. You need to enter a password in the ‘Passphrase’ text box which is used to protect your private key. This password is used to decrypt messages, so don't forget it. The password should be at least 8 characters long and not use any dictionary words. (See [http://en.wikipedia.org/wiki/Password_strength#Guidelines_for_strong_passwords this Wikipedia article] for information on creating strong passwords.) Enter this password twice and click {button Next} to proceed.
+# The next screen displays the preferences you configured. If you are satisfied, click {button Next} to proceed.
+# When the process of creating your keys is completed, click {button Next} to proceed.
+# The wizard will ask if you want to create a ‘Revocation certificate’ which you would use if the security of your key pair was compromised and you needed to inform others that it is no longer valid. If you want to create the file click on {button Generate Certificate} and follow the steps on the subsequent screens. Otherwise, click {button Skip}.
+# The wizard finally informs you that it has completed the process. Click {button Finish} to exit the wizard.
+
+=Sending and receiving public keys=
+==Sending your public key via email==
+To receive encrypted messages from other people, you must first send them your public key:
+
+# Compose the message.
+# Select {menu OpenPGP} from the Thunderbird menu bar and select {menu Attach My Public Key}.
+#;[[Image:AttachPublicKey]]
+# Send the email as usual.
+
+==Receiving a public key via email==
+To send encrypted messages to other people, you must receive and store their public key:
+
+# Open the message that contains the public key.
+# At the bottom of the window, double click on the attachment that ends in '.asc'. (This file contains the public key.)
+# Thunderbird automatically recognizes that this is a PGP key. A dialog box appears, prompting you to ‘Import’ or ‘View’ the key. Click {button Import} to import the key.
+#;[[Image:ImportPublicKey]]
+# You will see a confirmation that the key has been successfully imported. Click {button OK} to complete the process.
+
+=Sending a digitally signed and / or encrypted email=
+# Compose the message as usual.
+# To digitally sign a message, select {menu OpenPGP} from the Thunderbird menu and enable the {menu Sign Message} option. To encrypt a message, enable the {menu Encrypt Message} option. The system may ask you to enter your Passphrase before encrypting the message.
+#;[[Image:SignEncryptedEmail]]
+# If your email address is associated with a PGP key, the message will be encrypted with that key. If the email address is not associated with a PGP key, you will be prompted to select a key from a list.
+# Send the message as usual.
+
+{note} Note: The subject line of the message will not be encrypted. {/note}
+
+=Reading a digitally signed and / or encrypted email=
+When you receive an encrypted message, Thunderbird will ask you to enter your secret passphrase to decrypt the message. To determine whether or not the incoming message has been signed or digitally encrypted you need to look at the information bar above the message body.
+
+If Thunderbird recognizes the signature, a green bar (as shown below) appears above the message.
+;[[Image:GoodSignature]]
+
+If the message has been encrypted and signed, the green bar also displays the text "Decrypted message".
+;[[Image:Signature&Encrypted]]
+
+If the message has been encrypted but not signed the bar would appear as shown below.
+;[[Image:EncryptedNotSigned]]
+{note} Note: A message which has not been signed could be from someone trying to impersonate someone else. {/note}
+
+=Revoking your key=
+If you believe that your private key has been "compromised" (that is, someone else has had access to the file that contains your private key), you should revoke your current set of keys as soon as possible and create a new pair. To revoke your current set of keys:
+
+# On the Thunderbird menu, click {menu OpenPGP} and select {menu Key Management}.
+#;[[Image:RevokeKey]]
+# A dialog box appears as shown below. Check {pref Display All Keys by Default} to show all the keys.
+# Right-click on the key you want to revoke and select {pref Revoke Key}.
+# A dialog box appears asking if you really want to revoke the key. Click {button Revoke Key} to proceed.
+# Another dialog box appears asking you to enter your secret passphrase. Enter the passphrase and click {button OK} to revoke the key.
+
+Send the revocation certificate to the people you correspond with so that they know that your current key is no longer valid. This ensures that if someone tries to use your current key to impersonate you, the recipients will know that the key pair is not valid.

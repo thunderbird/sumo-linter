@@ -1,0 +1,27 @@
+{warning} The Config Editor (about:config) is a powerful tool, intended to be used by software developers. Setting values to something other than default values is not supported, because Thunderbird developers may change or deprecate the preference in the future. Changes made to preferences can break Thunderbird at any time and make troubleshooting more difficult.{/warning}
+
+Thunderbird's Config Editor may be used to view or edit Thunderbird preference settings, which are not accessible through the normal user interface. Modifications made are unsupported and used are at your own risk.
+
+To access the Config Editor:
+* Click {menu ≡} > {menu Settings} > {button General}
+* Scroll down to the bottom and click {button Config Editor...}
+
+[[Image:Warning on Config editor window]]
+
+Clicking on the {button Show All} button in the display will show all hidden preferences in a tab called ''Advanced Preferences''.
+
+[[Image:Image of typical config editor tab]]
+
+In the Config Editor, you can type a string in the field showing '''Search preference name''' to filter the list of preferences to only those that contain the specified string in their names.
+{note}'''Note:''' Preferences that have been changed from their default values are shown in bold. There is a revert arrow on the end of the entry to change the setting to the default value {button [[Image:tb115-undo-16x16]]}{/note}
+To edit a boolean preference ({pref true}/{pref false} value), click on the ''Toggle'' [[Image:Config Editor Toggle]] button. For text preferences, double-clicking on the preference will enable in-place editing. Once the edit is complete, save your changes by clicking the checkmark [[Image:Config Editor Save Checkmark]]
+
+In rare cases, you may need to add a new preference. You should not normally need to do this unless you are instructed to do so by Thunderbird documentation or one of its add-ons.
+
+To add a new preference:
+# Type or paste the preference name into the search box.
+# Select the appropriate preference type (number, string or [https://developer.mozilla.org/en-US/docs/Glossary/Boolean boolean]) from the offered options.
+# Click on the ''Add'' {button [[Image:Config Editor Add]]} to add the preference.
+To delete a previously added preference, click the trash icon following the entry {button [[Image:Copnfig Editor Trash Icon]]}
+
+Changes to preferences are stored immediately. However, some parts of Thunderbird or many add-ons only read their preferences on start-up, so it is good practice to restart Thunderbird after editing preferences for your changes to take effect. It is also important to know that when you restore a preference to its default value, Thunderbird does not store that preference in the preferences file. Only non-default preferences are stored in the preferences file.

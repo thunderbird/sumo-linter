@@ -1,0 +1,16 @@
+With Thunderbird's '''Import Tool''', you can import settings and data from a variety of sources including [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird profiles]], other applications or certain files. For example, you can use this tool to migrate accounts, messages, address books, calendars and settings into your current Thunderbird application. The Import Tool also works hand in hand with Thunderbird's [[Export your Thunderbird Profile|Export Tool]].
+
+= How to import settings and data with the Import Tool =
+[[Image: TB102-tools-import-step1]]
+
+Here's how to get going with your import:
+# Select {button ≡} > {menu Tools} > {menu Import}.
+# Select an import source from the list, either one of the applications ''or'' {menu Import from a file}.
+# Click the {button Continue} button.
+# In step 2 of the import, you will be offered more choices to specify your source. After making your choice, click the {button Continue} button.
+# In step 3, choose what parts of the source data you want to import, then click the {button Continue} button.
+# In the final confirmation step, you'll see a summary of your choices. Click the {button Start Import} button to perform the import, or the {button &lt; Back} button to make changes.
+{warning}'''Please note that the Import Tool will currently not support ZIP files larger than 2 GB.'''<br>
+If you are importing from another Thunderbird profile, and your source folder is larger than 2 GB, please use {menu Import from another Thunderbird installation} in step 1 and then select {menu Choose a profile folder} in step 2 of the import.{/warning}
+{warning}'''Outlook import requires Outlook to be installed.'''<br>
+Thunderbird leverages Outlook to import Outlook data. It is not sufficient to have a .pst file, but Outlook must be installed on your device.{/warning}

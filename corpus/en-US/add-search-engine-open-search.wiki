@@ -1,0 +1,10 @@
+[[Open Search]] enables Thunderbird users to search various websites from within Thunderbird and display the results in a Thunderbird tab. This article describes how to add additional websites to the Open Search interface. 
+
+The example below shows how to add Google to the website list. (Note that there is a  [https://addons.thunderbird.net/thunderbird/addon/google-search-for-thunderbi/ Google Search for Thunderbird] add-on that you can install rather than doing the steps described below. These steps are still potentially relevant however for installing other search engines.)
+
+# Locate your [[Profiles - Where Thunderbird stores your messages and other user data#w_where-is-my-profile-stored|Thunderbird profile]].
+# Close Thunderbird.
+# Create a directory called {filepath searchplugins} if it does not already exist.
+# Click [http://bwinton.latte.ca/Work/google.xml http://bwinton.latte.ca/Work/google.xml]. Save the contents of the page to a file called {filepath google.xml} in the {filepath searchplugins} directory. (In Firefox, to save the page contents to a file, right-click on the page then select {menu Save page as...}.)
+# Remove the file search.json.mozlz4 in the profile folder. Otherwise the search engine will not appear in the list of available search engines to be selected.
+# Open Thunderbird. The Google icon should now be displayed in the website list on the Open Search page.

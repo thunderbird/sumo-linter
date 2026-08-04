@@ -1,0 +1,117 @@
+This page describes Thunderbird's configuration options that affect your identity. 
+
+=Configure the organization associated with an email account=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name>}
+
+=Specify a certificate to digitally sign outgoing messages (for the selected identity)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Security}
+
+=Configure where copies of sent messages are stored for the selected account=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Copies & Folders}
+
+=Configure where message drafts are stored for the selected identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Copies & Folders}
+
+=Configure where message drafts are stored for the selected account=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Copies & Folders}
+
+=Configure where archived messages are stored for the selected identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Copies & Folders}
+
+=Configure where message templates are stored for the selected identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Copies & Folders}
+
+=Configure encryption settings for sending messages (for the selected identity)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Security}
+
+=Configure the reply-to address that is associated with an identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Settings}
+
+=Configure a signature for an identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Settings}
+
+=Specify a file containing a signature for use with an identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Settings}
+
+=Specify the outgoing (SMTP) server used to send messages for the selected identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Settings}
+
+=Configure where copies of sent messages are stored for the selected identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Copies & Folders}
+
+=Specify addresses to automatically CC or BCC on sent messages for the selected identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Copies & Folders}
+
+=Specify addresses to automatically CC or BCC on sent messages for the selected account=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Copies & Folders}
+
+=Specify whether your signature should be placed above or below the quote (for the selected identity)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Composition & Addressing}
+
+=Specify whether your signature is included when forwarding messages (for the selected identity)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Composition & Addressing}
+
+=Specify that messages should be composed in HTML format (for the selected identity)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Composition & Addressing}
+
+=Specify whether the original messages should be quoted in the reply (for the selected identity)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Composition & Addressing}
+
+=Specify whether the original messages should be quoted in the reply (for the selected account)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Composition & Addressing}
+
+=Edit the information in your vCard=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Edit Card}
+
+=Configure and manage identities=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities}
+
+=Specify the name associated with an identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Settings}
+
+=Change the email address that is associated with an identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Settings}
+
+=Configure the organization associated with an identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Settings}
+
+=Specify whether a vCard should be attached to outgoing messages from the selected identity=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Settings}
+
+=Specify whether a confirmation dialog is shown when messages are saved (for the selected identity)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Copies & Folders}
+
+=Specify whether to use global LDAP server preferences for address lookup or a different LDAP server (for the selected identity)=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Manage Identities > <identity> > Composition & Addressing}
+
+=Specify whether a vCard should be attached to outgoing messages=
+
+Menu location: {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name>}

@@ -1,0 +1,41 @@
+{for not tb115}[[Image:tb102-quick-filter-main]]{/for}{for tb115}[[Image:tb115-quick-filter-bar-main]]{/for}
+
+The Quick Filter Bar helps you sort your message list based on specific criterias. You can filter your messages based on the following filters:
+
+{|
+|'''Filter'''||'''Action'''
+|-
+| {button [[Image:tb-icon-pin]]&nbsp; Pin}  || Keep filters applied when switching folders.
+|-
+| {button [[Image:tb-icon-unread]]&nbsp;  Unread}|| Show only unread messages.
+|-
+|{button [[Image:tb-icon-starred]]&nbsp; Starred}|| Show only starred messages.
+|-
+|{button [[Image:tb-icon-address-book]]&nbsp; Contact}|| Show only messages from people in your address book.
+|-
+|{button [[Image:tb-icon-tag]]&nbsp; Tags}|| Show only messages with tags on them.
+|-
+|{button [[Image:tb-icon-attachment]]&nbsp; Attachment}|| Show only messages with attachments.
+|}
+
+To show or hide the Quick Filter Bar, click on {button [[Image:tb-icon-filter]]&nbsp; Quick Filter} in the {for not tb115}Mail Toolbar{/for}{for tb115}Message List Header{/for}. You can also reveal it by pressing {for win,linux}{key Ctrl+Shift+K}{/for}{for mac}{key Command+Shift+K}{/for} or hide it by pressing {key Esc}. 
+
+{for not tb115}[[Image:tb102-quick-filter-search]]{/for}{for =tb115}[[Image:tb115-quick-filter-bar-search]]{/for}
+
+When you enter filter terms in the search box, you will be given the option to apply filters to limit your search to the Sender, Recipients, Subject and/or Body of the messages. Click on the relevant buttons to apply the desired filters. 
+
+== Searching for multiple tags ==
+
+{for not tb115}[[Image:tb102-quick-filter-tags]]{/for}{for =tb115}[[Image:tb115-quick-filter-bar-tags]]{/for}
+
+When clicking on the Tags filter, you will see a dropdown menu and a list of all your tags. The drop down menu offers two filtering mode:
+
+{|
+|'''Filter'''||'''Action'''
+|-
+|All of|| Show message where all the selected tag criteria must match.
+|-
+|Any of|| Show messages where at least one of the selected tag criteria should match.
+|}
+
+To limit your search to certain tags, click on them.

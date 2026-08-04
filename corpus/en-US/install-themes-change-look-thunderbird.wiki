@@ -1,0 +1,38 @@
+A theme is a type of Thunderbird add-on which changes the visual appearance of Thunderbird. This article describes how to find, install and manage themes in Thunderbird.
+
+__TOC__
+
+= What are themes? =
+A theme changes the appearance of Thunderbird, such as the color scheme and background image of the toolbars. Some types of themes can also change the buttons' appearance and can make Thunderbird look like a completely different program.
+
+{note}'''Note:''' As of Thunderbird 68, complete themes are no longer supported.{/note}
+
+= How to install themes =
+# Click the menu button [[Image:Fx57Menu]] and choose {menu Add-ons}. The Add-ons Manager tab will open.
+# In the Add-ons Manager tab, select the {menu Themes} panel.
+# Click on the link "Choose from thousands of themes." at the top of the tab.
+#;[[Image:Choose from themes Thunderbird.]] 
+#In the tab that appears, you can scroll or search for the theme you want using the search box in the top right.
+#;[[Image:install themes tb60]] 
+#*To see what a background theme will look like before installing it, simply hover over it.
+#If you see a theme you like, click the grey {button Add} button to install it.
+#Thunderbird will download the requested theme and may ask you to confirm that you want to install it.
+
+= Managing themes =
+
+== How to switch themes ==
+When several themes are installed:
+# Click the menu button [[Image:Fx57Menu]] and choose {menu Add-ons}. The Add-ons Manager tab will open.
+# In the Add-ons Manager tab, select the {menu Themes} panel.
+# Select a theme in the list.
+# Click the {button Enable} button.
+
+== How to remove themes ==
+When several themes are installed:
+# Click the menu button [[Image:Fx57Menu]] and choose {menu Add-ons}. The Add-ons Manager tab will open.
+# In the Add-ons Manager tab, select the {menu Themes} panel.
+# Select a theme in the list.
+# Click the {button Remove} button.
+
+= Troubleshooting =
+* If you have difficulties with links opening in an external browser instead of within Thunderbird, make sure you are using Thunderbird 60 or higher.

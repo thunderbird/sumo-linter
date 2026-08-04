@@ -1,0 +1,68 @@
+This article explains how to customize your Thunderbird installation on Windows with the full, offline installer (versus the simplified online Thunderbird installer described in the [[Install Thunderbird on Windows]] article, where you can't make any changes to the installation options, such as the program folder where Thunderbird is installed).
+
+__TOC__
+
+= Where to download Thunderbird for a custom installation =
+You can download the Thunderbird Setup file in your language, from [https://www.thunderbird.net/thunderbird/all//?utm_medium=referral&utm_source=support.mozilla.org this Thunderbird download page].
+{note}'''Note:''' The 64-bit version of Thunderbird on 64-bit Windows is recommended. On 32-bit systems, only the 32-bit version of Thunderbird can be installed.{/note}
+
+= How to install Thunderbird with custom settings =
+When you run the Thunderbird Setup file, the Mozilla Thunderbird Setup Wizard will open.
+{note}'''Note:''' You can install Thunderbird without losing any existing messages and settings.{/note}
+
+<!-- [[Image:Fx54CustomSetup1]] -->
+
+After clicking {button Next} you can choose a Standard or Custom installation. The Standard setup will be selected by default.
+
+<!-- [[Image:Fx54CustomSetup2-Type]] -->
+
+A Custom setup lets you choose the folder where Thunderbird program files will be installed, as well as which shortcuts to create. These options are not available in a Standard setup. Select the '''Custom''' setup type and click {button Next}.
+
+== Choose where Thunderbird is installed ==
+The next step is where you can choose a different '''Destination Folder''', which is where the Thunderbird program files will be installed.
+
+<!-- [[Image:Fx54CustomSetup3-Location]] -->
+
+{filepath C:\Program Files\Mozilla Thunderbird\} is the default folder path on 32-bit Windows. It's also the default location on 64-bit Windows when the 64-bit Thunderbird version is installed.
+
+When the 32-bit Thunderbird version is installed on 64-bit Windows, the default folder path is {filepath C:\Program Files (x86)\Mozilla Thunderbird\}
+
+You can change the folder where Thunderbird will be installed either by manually typing the location of another folder on your computer, or you can click {button Browse…} to select a new folder.
+* '''Space required:''' The amount of space on your hard drive that's needed to install Thunderbird.
+* '''Space available:''' The amount of space available on your hard drive.
+Click {button Next} to continue.
+
+== Choose optional components ==
+<!-- [[Image:Fx54CustomSetup3a-Maintenance-Service]] -->
+
+In the next screen, you can choose whether to install the optional '''Mozilla Maintenance Service''' which allows application updates to occur in the background, without requiring you to click {button Yes} in the Windows User Account Control (UAC) dialog. For more information, see [[What is the Mozilla Maintenance Service?]]
+{note}'''Note:''' This option may be missing in some cases, as when installing Thunderbird with a limited user account or when the Mozilla Maintenance Service is already installed.{/note}
+
+== Choose shortcuts ==
+<!-- [[Image:Fx54CustomSetup4-Shortcuts]] -->
+*''' On my Desktop:''' You can choose to create a Thunderbird shortcut icon on the Windows Desktop.
+*'''In my Start Menu Programs folder:''' This will create a Thunderbird shortcut icon in the Windows Start Menu Programs folder.
+*'''On my taskbar:''' This will add a Thunderbird shortcut icon in the Windows taskbar.
+After choosing which Thunderbird program shortcuts to create, click {button Next}.
+{warning}'''Warning:''' If you already have a Windows shortcut for Thunderbird from another installation you wish to keep, you should rename the existing shortcut before you finish installing Thunderbird; otherwise, the original shortcut will be overwritten.{/warning}
+
+= Summary =
+The Summary that comes up next will show the folder location where Thunderbird will be installed.
+
+{for winxp,win7}
+<!-- [[Image:Fx54CustomSetup5-Summary-NewInstall]] -->
+*Check mark '''Use Thunderbird as my default mail application''' if you want Thunderbird to start up in your mail application when you click a mail link or shortcut. For more information, see [[Make Thunderbird the default mail client]]. 
+{note}'''Note:''' The option to make Thunderbird your default mail application will be missing if you don't have permission to set Windows Registry keys or if you are installing Thunderbird over an existing version and Thunderbird is already the default mail application.{/note}
+{/for}
+<!-- [[Image:Fx54CustomSetup5-Summary-Upgrade]] -->
+
+If you are reinstalling Thunderbird over an existing version, you'll see an {button Upgrade} button instead of an {button Install} button.
+
+Click {button Install} or {button Upgrade} to complete the installation. When Thunderbird is finished installing, the ''Completing the Mozilla Thunderbird Setup Wizard'' screen will appear.
+
+<!-- [[Image:Fx54CustomSetup7-Finish]] -->
+
+Click {button Finish}. This will start Thunderbird with the default profile, in case a profile already exists. 
+If there are [[Use multiple profiles in Thunderbird|multiple existing profiles]], and you want to start Thunderbird with a specific one, first clear the '''Launch Thunderbird now''' checkbox.
+
+'''Congratulations, you are done installing Thunderbird!'''

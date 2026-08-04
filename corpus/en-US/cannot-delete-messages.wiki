@@ -1,0 +1,18 @@
+If you cannot delete messages in Thunderbird, it may be caused by a corrupted trash folder.
+
+Here is how to delete the corrupted trash folder and create a new one:
+
+# First, open your Profile folder:
+#*At the top right of the Thunderbird window, click the menu button [[Image:New Fx Menu]], then select {menu Help}, and then {menu Troubleshooting Information}. The ''Troubleshooting Information'' tab will open.
+#* Under the '''Application Basics''' section, click on {button {for win}{for not tb52}Show Folder{/for}{for tb52}Open Folder{/for}{/for}{for mac}Show in Finder{/for}{for linux}Open Directory{/for}}. A window with your profile {for not mac}files{/for}{for mac}folder{/for} will open.
+# Close Thunderbird.
+# Open the {filepath Mail} (or {filepath ImapMail}) folder in your file manager (according to whether you are using POP or IMAP with the affected account).
+# Open the folder with your incoming mail server name (something like {filepath imap.googlemail<!-- -->.com} or {filepath pop.googlemail<!-- -->.com}).
+# Select the {filepath Trash} and {filepath Trash.msf} files and delete them. In some accounts, these may be named {filepath Bin} or {filepath Deleted}. 
+# Restart Thunderbird.
+#* If you are using IMAP, a new Trash folder will be automatically created by Thunderbird. 
+#* If you are using POP:
+#*# In the folder list, right-click on your account name and select {button New Folder...}.
+#*#Enter '''Trash''' as folder's name and confirm by clicking on {button Create Folder}. <br>
+
+The trash will reappear and you will be able to delete mail again.

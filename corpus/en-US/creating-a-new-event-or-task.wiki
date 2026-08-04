@@ -1,0 +1,56 @@
+This article describes how to create a new event or task in Lightning on Thunderbird.
+
+'''Event''' - A calendar entry that represents something that will happen whether you take action or not. For example, meetings and birthdays are events.
+
+'''Task''' - A calendar entry that represents some action by you. For example, writing a report and visiting a client are tasks. 
+
+__TOC__
+= Creating a new event =
+Creating an event is easy. Simply do one of the following things:
+* Click the {menu File} menu at the top of the Thunderbird window, or click the menu button [[Image:Fx89menuButton]].
+* Select the {menu New} submenu and select {menu Event}.
+* Press the Shortcut {key Ctrl} + {key I}.
+* Click the {button New event} button in the ''Today pane''.
+* Double-click on {menu Today}, {menu Tomorrow} or {menu Soon} in the events overview of the ''Today pane''.
+[[Image:6d93cae9f31ae015f44f449d934ff422-1298311966-428-1.png]]
+
+In both ''Calendar Mode'' and ''Event Mode'' you can use the above methods but you can also use the dedicated {button New Event} button in the "Calendar Toolbar":
+
+[[Image:6d93cae9f31ae015f44f449d934ff422-1298311966-428-2.png]]<br>
+In this window you can set the details of the event. Here's a description of all the possible values:
+
+*{menu Title}: The name of the event. This is what you will see when you first glance at the calendar
+*{menu Location}: Where the event will be taking place
+*{menu Category}: What type of event is it?
+*{menu Calendar}: Which calendar would you like to store the event in (see Creating new calendars)
+*{menu Start and End}: Choose the time the event begins, and the time that it ends
+*{menu Repeat}: If this event will happen again, check this box (see [[Create a recurring event]])
+*{menu Reminder}: Will pop up with an alarm at a specified time before the event.
+*{menu Description}: A brief summary/list of the event
+
+By default event are assumed to have a start and end date and time. 
+
+You can set these dates and times by entering them via the keyboard in the respective field or by clicking on the drop-down arrow in that same field. You will then be presented with the following selection options:
+
+[[Image:6d93cae9f31ae015f44f449d934ff422-1298311966-428-4.png]]
+
+{note}'''When changing the start date, the end date will automatically be set to the same date.'''{/note}
+
+[[Image:6d93cae9f31ae015f44f449d934ff422-1298311966-428-5.png]]
+
+You select a time by first selecting the hours and then the minutes. The window will close automatically after selecting the minutes.
+
+If you want to use a time that is not shown, you can extend the selections by clicking on the {button >>} button at the bottom right.
+
+[[Image:6d93cae9f31ae015f44f449d934ff422-1298311966-428-6.png]]
+
+If the event does not have a start or end time you can select the {button All day event} tick-box after which the start and end time will be greyed out.
+
+[[Image:6d93cae9f31ae015f44f449d934ff422-1298311966-428-7.png]]
+
+= Creating a new task =
+To create a task follow one of these steps:
+* Click the {menu File} menu at the top of the Thunderbird window, or click the menu button [[Image:Fx89menuButton]].
+* Select the {menu New} submenu and select {menu Task}.
+* Press the Shortcut {key Ctrl} + {key D}.
+* Click the {button New task} button in the ''Today pane''.

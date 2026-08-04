@@ -1,0 +1,50 @@
+Thunderbird includes a Software Update feature that automatically checks for updates and prompts you to install them when necessary.  For more information about the Software Update feature, see [[Updating Thunderbird]].
+
+Sometimes, the updater fails and displays the following error message: 
+
+{note}'''Software Update Failed'''
+The update could not be installed. Please make sure there are no other copies of Thunderbird running on your computer, and then restart Thunderbird to try again.{/note}
+
+This article presents possible solutions to this problem and workarounds to get Thunderbird updated. 
+
+__TOC__
+= Another user is running Thunderbird =
+If you share your computer with other users, and another user's account is still logged in with Thunderbird running, this error can occur. Make sure you're the only user logged in to the computer when updating Thunderbird. The easiest way to do this is to restart your computer. Once the computer starts up again, start Thunderbird, click the {menu Help} menu, and select {menu Check for Updates...}.
+<!--
+* If {menu Check for Updates...} is grayed out, see [[Check for Updates is disabled]].
+-->
+
+= End all Thunderbird processes and restart Thunderbird =
+End any Thunderbird processes that may still be active, either manually or by  restarting your computer.
+
+Once all instances of Thunderbird have been ended or after the computer starts up again, restart Thunderbird to see if the updater is now working.
+
+== Ending Thunderbird processes on Windows ==
+You can manually end the Thunderbird process using Windows Task Manager. 
+# Right-click on an empty spot in the Windows task bar and select {menu Task Manager} (or press {key Ctrl}+{key Shift}+{key Esc}).
+# Select the {menu Processes} tab.
+# Select the '''thunderbird.exe''' entry in the processes list, click {button End Process} and click {button Yes} in the "Task Manager Warning" dialog that appears.
+
+= Run Update as Administrator =
+If you are using Windows 7 or Vista:
+#End the Thunderbird process in Windows Task Manager as explained above, or reboot the computer so that no Thunderbird processes are active.
+#Open the Windows Start Menu, type ''thunderbird'' and right-click on the "Mozilla Thunderbird" entry that appears.
+#Select {menu Run as Administrator} and {menu Continue} if the User Account Control dialog comes up.
+If the issue is not resolved,  end Thunderbird again, as explained above,  but this time, open the {filepath C:\Program Files\Mozilla Thunderbird} folder, right-click on the '''thunderbird''' or '''thunderbird.exe''' file icon and select {menu Run as Administrator}. <!-- http://support.mozilla.com/tiki-view_forum_thread.php?comments_parentId=171013&forumId=1 -->
+
+= Did you edit msconfig or stop Application Experience? =
+If the issue is not resolved, you may have stopped the service "Application Experience" or disabled "Application Experience" in msconfig.
+# Right-click on an empty spot in the Windows task bar and select {menu Task Manager} (or press {key Ctrl}+{key Shift}+{key Esc}).
+# Select the {menu Services} tab. Start the service "AeLookupSvc - Application Experience". If you are unable to start it, you may have disabled "Application Experience" in msconfig. 
+# To edit msconfig, press the Windows button and type "msconfig" and select the program that is displayed. Select the {menu Services} tab. Make sure that "Application Experience" is enabled. Click OK and restart your computer if needed.
+
+= Last resort =
+If you have tried every solution above and you still see the '''Software Update Failed''' message, you can update Thunderbird by installing the new version over top of your current version.
+
+<!--
+XXX If you are seeing this error even though you have installed the latest version of Thunderbird, see [[Updates reported when running newest version]].
+-->
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Software_Update#Software_Update_not_working_properly Software Update (mozillaZine KB)]'''''

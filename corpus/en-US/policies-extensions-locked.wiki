@@ -1,0 +1,24 @@
+This article describes how to uninstall an extension or theme that can't be removed by following the instructions in [[Thunderbird add-ons - frequently asked questions#w_how-do-i-uninstall-an-add-on|How to uninstall add-ons]]. 
+
+{note}'''Note:''' Extensions installed due to an enterprise policy can be removed manually as described in this document, but they will be automatically reinstalled during the next Thunderbird start. In this case contact your IT department to learn more about applied enterprise policies.{/note}
+
+__TOC__
+
+=Uninstalling add-ons from Thunderbird Safe Mode=
+If you can't access the [[Thunderbird add-ons - frequently asked questions#w_what-and-where-is-the-add-on-manager|add-on manager]] or if the option to remove a certain add-on is disabled, you may need to uninstall it from Thunderbird Safe Mode.
+
+#Click the menu button {for not tb60}[[Image:New Fx Menu]]{/for}{for tb60}[[Image:fx57menu]]{/for}, click {menu Help} and select {menu Restart With Add-ons Disabled…}.
+#In the Thunderbird Safe Mode dialog, click {button Continue in Safe Mode}.
+
+Once Thunderbird has started in Safe Mode, try removing the add-on again and then restarting Thunderbird.
+
+=Uninstalling add-ons manually=
+Navigate to the folder where extensions are installed and delete the extension:
+
+#Click the menu button {for not tb60}[[Image:New Fx Menu]]{/for}{for tb60}[[Image:fx57menu]]{/for}, click {menu Help} and select {menu Troubleshooting Information}. The '''Troubleshooting Information''' tab will open. 
+#Under the '''Application Basics''' section next to Profile Folder, click {button {for win}Open Folder{/for}{for mac}Show in Finder{/for}{for linux}Open Directory{/for}}. {for mac}A window will open that contains your profile folder.{/for}{for win,linux}Your profile folder will open.{/for}
+#Open the {filepath extensions} folder inside your profile folder. Inside the {filepath extensions} folder there are folders or XPI files for each extension and theme that you have installed. 
+#To determine which folder or XPI file corresponds to the extension you want to uninstall, return to Thunderbird and the {menu Troubleshooting Information} tab.
+#In the '''Extensions''' section, find the extension you want to remove and note the string in the '''ID''' column.
+#Click the menu button {for not tb60}[[Image:New Fx Menu]]{/for}{for tb60}[[Image:fx57menu]]{/for} and select {menu Exit} to close Thunderbird.
+#Delete the folder or XPI file that corresponds to the extension ID you noted above.

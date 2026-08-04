@@ -1,0 +1,64 @@
+This article explains how Thunderbird stores messages on disk and why it is necessary to periodically ''compact'' folders. Compacting is a regular file maintenance process (sometimes referred to as "purging") which recovers disk space without changing or removing any of your messages.
+
+__TOC__
+
+= How Thunderbird stores messages =
+Thunderbird has two storage methods for folders:
+* [http://en.wikipedia.org/wiki/Mbox Mbox] is the default format, where all of a folder's messages are stored in a single file on disk. This is where the compact process is useful, and the purpose of this article is to explain how and why.
+* [[Maildir in Thunderbird|Maildir]] is a newer storage format, where every message of a folder is a separate file. '''maildir''' does not need compacting, and so this article is not applicable to '''maildir''' folders.
+
+= What compact does not do =
+Compact (purge) is a <u>maintenance</u> process, so it:
+* does '''not''' delete messages from folders
+* does '''not''' remove messages from trash or spam folders
+* does '''not''' compress folders by using compression algorithms such as zip
+
+You may be concerned that the compact prompt sometimes appears just when you have deleted a message, or when you have started Thunderbird. This is expected behavior and is not cause for concern, because compact does '''not''' delete your messages.
+
+= Is it OK to compact? =
+Compact (purge) is normal maintenance (for the [[#w_why-is-compact-required|reasons]] described below), and so it is OK to allow a compact to proceed.
+
+= The ''Compact Folders'' prompt =
+The ''Compact Folders'' prompt appears when the compact threshold has been reached.
+
+[[Image:TB91-compact-folders-prompt]]
+
+You can choose {button Compact now} to allow compacting to proceed, or {button Remind me later} if the prompt came at an inconvenient time (in Thunderbird 78, the respective buttons were '''Proceed''' and '''Cancel'''). The prompt also has a checkbox: {menu ☐ Compact folders automatically in the future}. To avoid being prompted again, you can tick this option and choose {button Compact now} ('''Proceed''' in Thunderbird 78) - then compacting will happen automatically in the background when necessary. If you do not wish to be prompted, we suggest you use the checkbox.
+
+= Why is compact required? =
+Folders are stored by default in [[#w_how-thunderbird-stores-messages|mbox format]], and these need periodic cleaning because your daily usage of Thunderbird involves:
+* Adding messages to a folder, such as receiving new mail, which makes the '''mbox''' file larger. 
+* Deleting messages, or filtering or moving them to another folder, which does *not* immediately make the '''mbox''' file smaller. The folder does not get smaller because, for performance reasons, a deleted message is only logically marked for deletion. It becomes a gap which you can longer access, and the gaps, like bits of dirt, are eventually removed (purged) with a compact operation.
+{note}'''Note:''' Compact does not apply to accounts using the [[Maildir in Thunderbird|maildir]] storage format. Unlike '''mbox''', '''maildir''' stores each message in a separate file, and deleting a message results in deleting the message file.{/note}
+
+= When does compact occur? = 
+A compact happens when:
+* You right-click a folder and select {menu Compact} to compact a single folder
+* You select {menu File > Compact Folders} to compact all folders in an account
+* The amount of disk space to be freed by removing the gaps exceeds the threshold for automatic compact ([[#w_how-can-i-configure-compact|configuration]] described below). Because deleting messages causes these gaps, you will often see the ''Compact Folders'' prompt just after deleting a message.
+
+= How can I configure compact? =
+
+{button ≡} > {menu {for mac,linux}Settings{/for}{for win}Settings (formerly Options or Preferences){/for}} > {menu General} > {menu Disk Space}
+
+In configuring, you can:
+* Disable automatic compact (not recommended because your folders will not be regularly cleaned of deleted messages)
+* Change the compact threshold - a higher value will result in less frequent compacts (for example, if you deal with large messages or a large volume of messages, then you may want use a larger threshold)
+* Choose if you want to get prompted or if you prefer automatic compacting without prompts (new in Thunderbird 91). Note: The checkbox in the settings and the corresponding checkbox in the prompt will have reverse values because they are worded differently.
+[[Image:TB91-compact-folders-preferences-vs-prompt]]
+
+
+= How does compact work? =
+Thunderbird opens the '''mbox''' file on the disk (for example, the ''Inbox''), and based on the rules for the '''mbox''' mail format it reads the file one message at a time:
+* If the message is still current, it is copied to a new temporary '''mbox''' file, called {filepath Nstmp}.
+* If the message was marked as deleted or moved, that message is skipped and not moved to the mtemporary '''mbox''' file.
+This repeats until the end of the file is reached. Then the original storage file is deleted, the new one replaces it, and a new index for this message file is created (for example {filepath Inbox.msf}). The end result is the gaps (the dirt) are gone.
+
+During compact, the progress is displayed in the Status Bar:<br><br>
+[[Image:Compacting folder message]] 
+
+= Potential complications =
+Most users will experience no complications during or after the compact process. But because compact involves significant IO activity, some users might experience folder issues or slowness, even more so if antivirus software monitoring is not excluding your [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird profile directory]]. For more information see [[Compacting folders - Potential complications]].
+
+= See also =
+* The [http://thunderbirdtweaks.blogspot.com Thunderbird Tweaks blog] has a related article called "[http://thunderbirdtweaks.blogspot.com/2011/07/compacting-what-is-it-and-why-must-i-do.html Compacting :- What is it and Why must I do it.]"

@@ -1,0 +1,24 @@
+This tutorial will show you how to configure a new account for POP access (rather than IMAP).
+
+#Select '''{for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > Account Actions > Add Mail Account…'''
+#;[[Image:tb52 POP-Step1]]
+#Enter your full name, email address and password and click '''Continue'''.
+#;[[Image:tb52 POP-Step2]]
+#;Once Thunderbird has found your account, it will automatically configure your account settings for both POP3 and IMAP. Select the POP3 option, then click '''Done'''.
+#;[[Image:tb52 POP-Step3]]<br>{note}You can also manually configure your account settings by clicking '''Manual config''' and entering the following information:{/note}
+#* Incoming: Enter your incoming mail provider's POP server (usually "mail.yourmailprovider<!-- -->.com" or "pop.yourmailprovider<!-- -->.com", for example "mail.argontech<!-- -->.net"). 
+#* Outgoing: Enter your outgoing mail provider's server (usually "mail.domainname<!-- -->.com" or "smtp.domainname<!-- -->.com").
+#* Select "POP3" from the drop-down list to the left of the incoming mail server name (the row labelled "Incoming:" in the screenshot). '''This is important because if IMAP is selected, you won't be able to change it to POP later!'''
+#* Username: Enter your email address (or whatever your email provider recommends, usually your full email address, although sometimes just the part before the "@").
+#* Incoming port number: This depends on the email provider.
+#* Outgoing port number: This depends on the email provider.
+#* Incoming authentication: This depends on the email provider. 
+#* Outgoing authentication: This depends on the email provider.
+#;[[Image:Adding POP Manual]]
+#* Once these settings have been changed, click '''Re-test'''. You should get a message that says that a configuration was found at the email provider. If not, check your settings and test again.
+#Click '''Done''' to exit the Mail Account Setup dialog. View the Account Settings page and you will see that your new account has been created. Also check if your '''Outgoing Server (SMTP)''' is correct for this account (at the bottom of the screenshot).
+#;[[Image:tb52 POP-Step5]]
+#Check that your incoming and outgoing mail is working correctly. 
+'''If everything is working as it should (which means you can send and receive email and see your old emails; note that some email providers may not give you access to all of your emails or all your email folders; check with your email provider) and you accidentally created an IMAP account earlier''', then delete the accidentally created IMAP account as follows: open '''{for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings''', select the accidentally created IMAP account with the IMAP server setting, then select '''Account Actions > Remove Account''' from the drop-down list underneath the account list on the left. 
+
+For more information about account connection information, see [[Automatic Account Configuration]] and [[Configuration Options for Accounts]].

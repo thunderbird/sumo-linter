@@ -1,0 +1,67 @@
+<!-- This article is used as context-help, opened when clicking a learn-more link from inside Thunderbird's Account Settings, End-To-End Encryption. Please keep the primary focus of the article. -->
+
+This article provides guidance for configuring the End-To-End Encryption settings in Thunderbird's Account Settings. For a more general introduction, see also the article [[Introduction to End-to-end encryption in Thunderbird]].
+
+To use End-To-End Encryption (e2ee) with email, you must own proper cryptographic keys for yourself, and configure them in Thunderbird's Account Settings. By performing this configuration, you confirm that you are willing to use this functionality.
+
+The steps to complete your configuration depend on the e2ee technology you would like to use. You may choose to configure just one of them, or both technologies. The configuration is separate per account and identity, as it is directly related to an email address.
+
+__TOC__
+
+== Your own OpenPGP Configuration ==
+If you want to exchange encrypted messages with correspondents that are already set up to use OpenPGP, then you need an OpenPGP personal key for yourself. Thunderbird defines this as a key pair, consisting of secret and public keys, together with a label that contains your own email address.
+
+If you have never created an OpenPGP key in Thunderbird, but you have previously used other OpenPGP software, you might already be in possession of a secret key. Use a backup/export feature of your other software to save the secret key to a file, and, if that worked, then try to import the result file into Thunderbird.
+{note}'''Note:''' Thunderbird will remove the protection of secret keys when importing them into Thunderbird. To ensure that your secret keys are still stored securely on your computer, it is best to set up a [[Protect your Thunderbird passwords with a Primary Password|Primary Password]] in Thunderbird settings, which will then be automatically used to protect your OpenPGP secret keys, too.{/note}
+If you have previously used Thunderbird 68 (or older versions) with the Enigmail add-on, you might already have secret keys, because several versions of Enigmail automatically created secret keys without asking you. They might still be stored on your computer. If you would like to reuse them with the latest Thunderbird version, you could try to use the GnuPG software to retrieve them. (See the corresponding entry in the document [[OpenPGP in Thunderbird - HOWTO and FAQ]].)
+
+If you have never used other software to create OpenPGP keys, or if you prefer not to reuse them, then Thunderbird allows you to create this kind of key for yourself inside Account Settings, in the {menu End-To-End Encryption} tab.
+
+Click the button to {button Add a key…}, then either select import or create, depending on your needs.
+
+After you import a key, then Thunderbird should offer you to select it as the personal key for that account or identity, if it passed the following requirements during import:
+* the key is not expired
+* the key is not revoked
+* the key is valid for both digital signing and encryption
+* the key contains a user ID with the email address of the account or identity that you are configuring inside Account Settings
+Once you select it, you have completed your own setup for OpenPGP email security.
+
+== Your own S/MIME configuration ==
+If you want to exchange encrypted messages with correspondents that are already set up to use S/MIME, then you need a personal email certificate key for yourself.
+
+The S/MIME email encryption technology depends on the service of trusted third parties, so called Certificate Authorities (CA), from whom you must obtain a personal certificate for yourself, and install and configure it in Thunderbird.
+
+Usually it isn't practical to create a certificate by yourself, because your email correspondents will usually not accept such self-signed certificates.
+
+The preparation steps for obtaining a personal certificate from a CA usually are:
+# you create raw cryptographic keys, a pair of a secret and a public key
+# you send your public key to a CA that is supported by Thunderbird
+# the CA will sign your public key on their systems and adding some more data to it to create your certificate
+# the CA sends the certificate back to you
+# you combine the received certificate with the secret key that you had previously created, this turns the certificate into your personal certificate
+# you import your personal certificate using Thunderbird's Certificate Manager
+# you open Thunderbird account settings, End-To-End Encryption, and you select the certificate that you wish to use with that email account (only personal certificates considered valid by Thunderbird will be offered for selection). Select the certificate for both encryption and digital signing.
+Recent versions of Thunderbird cannot assist you in creating your raw key pair for S/MIME. You need to use external software.
+Some CAs offer you the convenience to automatically create a key pair for you. This isn't ideal, because the secret key used for your personal certificate may be created on the computers operated by the CA. There is the risk that someone obtains and keeps a copy of the secret key, which could enable them to decrypt the encrypted email messages that are sent to you.
+
+== Test your own Setup ==
+Once you have completed your own setup, you should test it. Try to send an encrypted and digitally signed email to yourself. To do that, compose a new message. If you have multiple accounts or identities, ensure that the From address at the top of the composer window shows an identity for which you have already completed the End-To-End Encryption setup.
+
+Then enter the same email address into the To address field. Also add a test subject and test message contents. Then enable encryption. (In Thunderbird version 102, this can be done easily with the {button Encrypt} toolbar button. In earlier versions, click the arrow shown after the {button Security} toolbar button, and select {button Require encryption}.) Then send the message. Then go back to your inbox, get new messages, and you should receive the message you have just sent. It should be reported as having been encrypted, refer to the appropriate S/MIME or OpenPGP labels in the message header area, which can be clicked to show detail information.
+
+== Distributing your own public key or certificate ==
+If you want to enable others to send encrypted email to you, it might be useful to not wait until they ask you to send your public key to them.
+
+You could decide to be proactive, and ensure that other people will be able to obtain your public key or certificate when they decide to send you encrypted email. A simple way to do so is by sending a digitally signed email.
+
+If you send a digitally signed email using the '''OpenPGP''' technology, Thunderbird will usually include a copy of your public key as a small attachment, which is automatically added, because the public key is required to verify that a digital signature is technically valid.
+
+If you send a digitally signed email using the '''S/MIME''' technology, your certificate is always included.
+
+You can decide that you will always digitally sign the emails you send, you can find the respective setting in Account Settings. (Please be aware, if you digitally sign an email, you will probably no longer be able to plausibly deny that you were the sender of an email you have sent.)
+
+Another way to distribute an OpenPGP public key is to use a keyserver. The keyserver available at https://keys.openpgp.org/ (operated by members of the OpenPGP developer community) is a good choice for publishing your public key. Thunderbird versions 78, 91 and 102 are capable of querying this keyserver when performing an online discovery for missing public keys.
+
+To publish your key, you must export your public key to a file, for example by using the menu next to your configured personal key in Thunderbird account settings, or by using Thunderbird's OpenPGP Key Manager. Be careful and use the correct command. For obtaining a copy of your key that is safe for sharing with others, always use a command that talks about a public key operation. '''Never share your personal, secret key!'''
+
+Once you have a file that contains your public key, you could also distribute your key using any other mechanism that works for sharing files, such as hosting the file on your own website.

@@ -1,0 +1,134 @@
+{warning}
+The transfer process supports account settings and account passwords. Emails and other data are not transferred.
+{/warning}
+
+__TOC__
+=How To Import from Thundermail=
+==Export Thundermail settings with a QR code==
+# In your desktop browser, open the '''Thunderbird Accounts Hub''' at: https://accounts.tb.pro/mail and click on {menu Mobile} under '''Get started with Thundermail'''.
+# Click on the chevron {button ⌄} next to '''Scan QR Code'''  to display the QR code for your Thundermail account. 
+Follow the steps below on your Android phone or tablet to scan the Thundermail QR code.
+==Import Thundermail settings into Thunderbird for Android==
+Open Thunderbird for Android on your phone or tablet and follow the steps below.
+===First run===
+After you install Thunderbird for Android and run it for the first time, here's how to import the Thundermail settings.
+# Tap {button Get started} on the initial screen.
+# Tap {button Import settings}. Thunderbird for Android will start the camera and display ''Align the QR code provided from Thunderbird Desktop'' Scan the QR code provided from Thundermail (ignore the ''Thunderbird Desktop'' wording; the QR code from '''Thundermail''' is the one you want).
+# Tap {button Import}.
+# Tap on your Thunderbird email address at the top of the screen, and then tap {button Sign in}
+# Since Thundermail uses [https://wikipedia.org/wiki/OAuth OAuth],  you will be prompted for your Thundermail password. Enter your Thundermail password and then tap {button SIGN IN} to complete your import.
+{note}NOTE: If you tap {button Later} at the bottom or cancel the sign in by closing the app, you can always sign in later as follows:
+# Tap Thunderbird app menu {menu ≡} > Tap Settings gear icon {button [[Image:gear icon]]} > tap on your Thundermail email address at the top of the screen > tap {menu Fetching mail} > tap {menu Incoming server} > tap {button Next} > tap {button Sign in}.
+# Follow the prompts to sign into Thundermail.
+# Setup your Thundermail folders: Thunderbird app menu {menu ≡} > {menu Sync all accounts}.{/note}
+[[UI:details_start]]
+===Subsequent runs===
+Once you have set up an email account, the next time you import email settings, the process will be slightly different:
+# Tap {button ≡} at the top left > tap the gear icon: {button [[Image:gear icon]]} at the bottom left.
+# Tap {button Import settings}. Thunderbird for Android will start the camera and display ''Align the QR code provided from Thunderbird Desktop''. Scan the QR code provided from Thundermail (ignore the ''Thunderbird Desktop'' wording; the QR code from '''Thundermail''' is the one you want).
+# Tap {button Import}.
+# Tap on your Thunderbird email address at the top of the screen, and then tap {button Sign in}
+# Since Thundermail uses [https://wikipedia.org/wiki/OAuth OAuth],  you will be prompted for your Thundermail password. Enter your Thundermail password and then tap {button SIGN IN} to complete your import.
+{note}NOTE: If you tap {button Later} at the bottom or cancel the sign in by closing the app, you can always sign in later as follows:
+# Tap Thunderbird app menu {menu ≡} > Tap Settings gear icon {button [[Image:gear icon]]} > tap on your Thundermail email address at the top of the screen > tap {menu Fetching mail} > tap {menu Incoming server} > tap {button Next} > tap {button Sign in}.
+# Follow the prompts to sign into Thundermail.
+# Setup your Thundermail folders: Thunderbird app menu {menu ≡} > {menu Sync all accounts}.{/note}
+[[UI:details_end]]
+= How To Import from Thunderbird Desktop =
+{warning}''Export for Mobile'' is available starting with Thunderbird Desktop 128.4.0 or Thunderbird beta 132 or newer. It is not available in older versions of Thunderbird.{/warning}
+
+== Export Thunderbird Desktop settings ==
+# Open Thunderbird Desktop and click {button ≡} > {menu Tools} > {menu Export for Mobile}.
+# Tick the Email accounts you wish to export to Thunderbird for Android.
+#;[[Image:Thunderbird 128 Export accounts to Thunderbird Mobile]]
+# If you have accounts that are not using [https://wikipedia.org/wiki/OAuth OAuth] and you wish to export your passwords, you will see a '''Security''' section. Tick '''Include all accounts passwords''' under '''Security''' to export your passwords in the QR code.
+# Click {button Export}. (You may be prompted for a PIN number. For Windows, that would be the Windows signin password.) A QR code will be displayed. Follow the steps below on your Android phone or tablet to scan the Thunderbird Desktop settings QR code. If you have many email accounts, multiple QR codes will be displayed when you scan from your Android device in the next step.
+#;[[Image:tb-128-qr-code]]
+
+== Import the Desktop settings into Thunderbird for Android ==
+Open Thunderbird for Android on your phone or tablet and follow the steps below.
+
+=== First run ===
+After you install Thunderbird for Android and run it for the first time, here's how to import settings from Desktop:
+# Tap {button Get started} on the initial screen.
+# Tap {button Import settings}. Thunderbird for Android will start the camera and display ''Align the QR code provided from Thunderbird Desktop''. Scan the QR code from Thunderbird Desktop.
+#* If you have many email accounts, you will scan multiple QR codes, but only one QR code is displayed at a time by Thunderbird Desktop. After scanning the first QR code, Thunderbird for Android will display a confirmation of the form: ''Scanned X of Y'' where ''X'' is the count of QR codes you have scanned so far out of a total of ''Y'' QR codes (for example ''Scanned 1 of 2''). In Thunderbird Desktop, click {button Next} to manually advance to the next QR code to be scanned. Repeat until all QR codes have been scanned.
+# Ensure the email accounts you want to import are all ticked. Tap {button Import}.
+# If your account uses [https://wikipedia.org/wiki/OAuth OAuth] instead of password authentication or you have chosen not to import your passwords, you will be prompted for your passwords. Follow the prompts to complete your import.
+
+[[UI:details_start]]
+=== Subsequent runs ===
+Once you have set up an email account, the next time you import email settings, the process will be slightly different:
+# Tap {button ≡} at the top left > tap the gear icon: {button [[Image:gear icon]]} at the bottom left.
+# Tap {button Import settings} > {button Scan QR code}. Scan the QR code from Thunderbird Desktop. If you have many email accounts, after scanning the first QR code, another code will be displayed and scanned until all account settings have been set up.
+# Ensure the email accounts you want to import are all ticked. Tap {button Import}.
+# If your account uses [https://wikipedia.org/wiki/OAuth OAuth] instead of password authentication or you have chosen not to import your passwords, you will be prompted for your passwords. Follow the prompts to complete your import.
+[[UI:details_end]]
+
+= How To Import from K-9 or other Thunderbird for Android apps =
+{warning}Importing from K-9 Mail requires K-9 Mail 8.0 or later.{/warning}
+Open Thunderbird for Android on your phone or tablet and follow the steps below.
+
+== First run ==
+After you install Thunderbird for Android and run it for the first time, here's how to import settings from '''K-9''' or Thunderbird from Android:
+# Tap {button Get started} on the initial screen.
+# Tap {button Import your account settings now} > tap {button Import from app}.
+# Tap the email app you wish to import your email account settings from (either '''K-9 Mail''' or another release of Thunderbird for Android, for example Beta).
+# Ensure the email accounts you want to import are all ticked. Tap {button Import}.
+# If your account uses [https://wikipedia.org/wiki/OAuth OAuth] instead of password authentication or you have chosen not to import your passwords, you will be prompted for your passwords. Follow the prompts to complete your import.
+
+[[UI:details_start]]
+== Subsequent runs ==
+Once you have set up an email account, the next time you import email settings, the process will be slightly different:
+# Tap {button ≡} at the top left > tap the ''gear'' icon: {button [[Image:gear icon]]} at the bottom left.
+# Tap {button Import settings} > tap {button Import from app}.
+# Tap the email app you wish to import your email account settings from (either '''K-9 Mail''' or another release of Thunderbird for Android, for example Beta).
+# Ensure the email accounts you want to import are all ticked. Tap {button Import}.
+# If your account uses [https://wikipedia.org/wiki/OAuth OAuth] instead of password authentication or you have chosen not to import your passwords, you will be prompted for your passwords. Follow the prompts to complete your import.
+[[UI:details_end]]
+
+[[UI:details_start]]
+= How To Import email account settings using a settings file from Thunderbird or K-9 =
+{warning} It is not possible to import a settings file from apps other than Thunderbird for Android or ''K-9''.{/warning}
+
+== 1. Export Thunderbird or K-9 settings to a file ==
+Open the app, K-9 or Thunderbird for Android, whose settings you wish to export.
+# Tap {button ≡} at the top left > tap the ''gear'' icon: {button [[Image:gear icon]]} at the bottom left.
+# Tap {button Export settings}.
+# Tick the Email accounts you wish to export to Thunderbird for Android.
+# Tap {button Export}.
+# Change the directory and the filename as you see fit and tap {button Save}. Take note of the filename and directory, for example a directory in ''Google Drive'', the '''Downloads''' directory, etc. You will need the filename and directory in order to import the settings in ''Step 2''.
+
+== 2. Import the exported settings file into Thunderbird for Android ==
+Open Thunderbird for Android on your phone or tablet and follow the steps below.
+
+=== First run ===
+Here's how to import settings from the file you created in ''Step 1'':
+# Tap {button Get started} on the initial screen.
+# Tap {button Import your account settings now} > {button Select file}. Select the file you saved from ''Step 1.''
+# Ensure the email accounts you want to import are all ticked. Tap {button Import}.
+# You will be prompted for your passwords. Follow the prompts to complete your import.
+
+=== Subsequent runs ===
+Once you have set up an email account, the next time you import email settings, the process will be slightly different:
+# Tap {button ≡} at the top left > tap the ''gear'' icon: {button [[Image:gear icon]]} at the bottom left.
+# Tap {button Import settings} > tap {button Select file}. Select the file you saved from the ''Step 1.''
+# Ensure the email accounts you want to import are all ticked. Tap {button Import}.
+# You will be prompted for your passwords. Follow the prompts to complete your import.
+[[UI:details_end]]
+
+= Not seeing all your email accounts? =
+You will not be able to import some email accounts because they are configured in a way that is not supported by Thunderbird for Android, or because of device limitations. If you have failure that does not match to one of the items below, create a qrexport log file using [https://wiki.mozilla.org/MailNews:Logging logging instructions], and file a bug report.
+
+== Not supported ==
+* Some Android devices with front facing cameras
+*Email accounts with the following configurations are NOT supported (see [https://bugzilla.mozilla.org/show_bug.cgi?id=1919786 Bug 1919786] for full details):
+* [https://wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface GSSAPI].
+* [https://wikipedia.org/wiki/NTLM NTLM].
+* ''TlsCertificate''.
+* ''TryStartTls''. See [https://bugzilla.mozilla.org/show_bug.cgi?id=1868517 Bug 1868517].
+* Non-ASCII email addresses are not supported.
+* Non SMTP outgoing servers are not supported.
+
+== Multiple outgoing servers are not exported ==
+* Only the SMTP server for the default identity is exported for those email accounts with multiple outgoing servers.

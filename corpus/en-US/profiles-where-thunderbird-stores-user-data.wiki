@@ -1,0 +1,104 @@
+All your data such as messages, passwords and user preferences, and changes made while you use Thunderbird, are stored in a special folder called a ''profile''. Your profile folder is stored in a separate place from the Thunderbird program, so that if something ever goes wrong with the Thunderbird program your information will still be there. It also means that you can uninstall Thunderbird and reinstall without losing your settings and data. But storing it separately is NOT a backup. 
+{warning}'''Frequent backups are recommended to protect your data.''' Without a backup you risk permanent loss of data from many possible causes. The following are NOT backups: data on mail servers, your Thunderbird profile on your local computer, a Thunderbird profile on a different computer, profiles run in cloud-based storage.{/warning}
+
+__TOC__
+
+= How do I find my profile? =
+[[T:openProfileFolderTB]]
+
+== Finding your profile without opening Thunderbird ==
+<!-- NO NOT RENAME OR REMOVE THIS SECTION! It's linked from Template:OpenProfileFolderTB. --> 
+{for win}
+{for not winxp}
+Thunderbird stores your profile folder in this location on your computer, by default:<br>
+{filepath "C:\Users\<your Windows login username>\AppData\Roaming\Thunderbird\Profiles\"}<br>
+Windows hides the {filepath AppData} folder by default, but you can find your profile folder as follows:
+{for win10}
+# Press {key [[Image:Windows Key]]}+{key R} on the keyboard. A Run dialog will open. 
+# Paste or type in:<br>'''%APPDATA%\Thunderbird\Profiles\'''
+# Click {button OK}.  A window will open containing profile folders.  
+# Double-click the profile folder you wish to open. 
+{/for}
+{for win8}
+# From the Start Screen, click the '''Desktop''' tile. The Desktop view will open.
+# From the Desktop, hover in the lower right-hand corner to access the Charms.
+# Select the {menu Search} charm. The Search sidebar will open.
+# In the search box, paste or type in:<br>'''%APPDATA%\Thunderbird\Profiles\''' <br>without pressing Enter. A list of profile folders will appear.
+# Click on the profile folder you wish to open (it will open in a window). If you only have one profile, its folder would have "default" in the name.
+{/for}
+{for win7}
+# Click the Windows {button Start} button. The Start menu will open.
+# In the Search box at the bottom of the Start menu, paste or type:<br>'''%APPDATA%\Thunderbird\Profiles\''' <br>without pressing Enter. A list of profiles will appear at the top of the Start menu.
+# Click on the profile folder you wish to open (it will open in a window). If you only have a single profile, its folder would have "default" in the name.
+{/for}
+*Alternatively, you can find your profile by pressing the {key [[Image:Windows Key]]} key and then start typing: '''%APPDATA%\Thunderbird\Profiles\''' 
+{note}'''Note:''' To set Windows to show the {filepath AppData} folder and other hidden files and folders, see [https://support.microsoft.com/help/14201/windows-show-hidden-files Show hidden files - Windows Help].{/note}
+{/for}
+{for winxp}
+# Click the Windows {button Start} button, and select {menu Run…}.<br/> <br/>[[Image:win-run.png]]<br/>
+# Paste or type in:<br>'''%APPDATA%\Thunderbird\Profiles\''' <br>then click {button OK}. <br/>A window will open containing profile folders.<br/>[[Image:win-rundialog.png]]
+# Double-click the profile folder you wish to open.
+{/for}
+{/for}
+{for mac}
+# Click the '''Finder''' icon in the dock. On the menu bar, click the {menu Go} menu, hold down the {key Option} or {key Alt} key and select {menu Library}.
+# Open the {filepath Thunderbird} folder, and then the {filepath Profiles} folder. 
+# Your profile folder is within this folder. 
+{/for} 
+{for linux}
+# '''(Ubuntu)''' Click the {menu Places} menu on the top right of the screen and select {menu Home Folder}. A File Browser window will appear.
+# Click the {menu View} menu and select {menu Show Hidden Files} if it isn't already checked.
+# Double click the folder marked {filepath .thunderbird}. Your profile folder is within this folder. 
+{/for}
+If you only have one active profile, and you are using [[Thunderbird ESR|Thunderbird '''ESR''']] or [[Thunderbird Release|Thunderbird '''release''']] (two types of [[How to select a Thunderbird release channel|update channels]]), then "default-release" will be in the name by default (unless you have changed it) - both types of installs use the same profile name. Note: a folder name with just "default" without "-release" is normally an empty, unused dummy folder and can be ignored.
+
+If you are using [[Thunderbird Beta|Beta]] or [[Thunderbird Daily|Daily]] then the profile name defaults to "default-beta" or "default-daily" respectively. You might also have created [[Use multiple profiles in Thunderbird|multiple profiles]]. 
+
+= Backing up a profile =
+You can backup your data using [[Export your Thunderbird Profile|Thunderbird's export tool]], or the steps below. 
+
+To back up your profile, first close Thunderbird if it is open and then copy the profile folder to another location.
+# Locate your profile folder, as explained above.
+# Shut down Thunderbird.
+# Go to one level above your profile's folder, i.e. to {filepath {for win}<nowiki>%</nowiki>APPDATA%\Thunderbird\Profiles\{/for}{for mac}~/Library/Thunderbird/Profiles/{/for}{for linux}~/.mozilla/Thunderbird/{/for}}
+# {for win,linux}Right-click{/for}{for mac}Hold down the {key Ctrl} key while you click{/for} on your profile folder (e.g. {filepath xxxxxxxx.default}), and select {menu Copy}.
+# {for win,linux}Right-click{/for}{for mac}Hold down the {key Ctrl} key while you click{/for} the backup location (e.g. a USB-stick or a blank CD-RW disc), and select {menu Paste{for mac} item{/for}}.
+
+<!-- XXX Add info about important files -->
+<!-- XXX Add Info on managing profiles -->
+
+= Restoring a profile backup =
+You can restore your data using [[Import settings and data into Thunderbird|Thunderbird's import tool]], or the steps below. 
+# Shut down Thunderbird.
+# If your existing profile folder and profile backup folder have the same name, simply replace the existing profile folder with the profile backup, then start Thunderbird. {note}'''Important:''' The profile folder names must match exactly for this to work, including the random string of 8 characters. If the names do not match or if you are restoring a backup to a different location, follow the steps below.{/note}
+
+== Restoring to a different location ==
+If the profile folder names do not match or if you want to move or restore a profile to a different location, do the following:
+# Completely close Thunderbird, as explained above.
+#[[Using Multiple Profiles|Use the Thunderbird Profile Manager to create a new profile]] in your desired location, then exit the Profile Manager. {note}'''Note:''' If you just installed Thunderbird on a new computer, you can use the default profile that is automatically created when you first run Thunderbird, instead of creating a new profile.{/note}
+#Locate the backed up profile folder on your hard drive or backup medium (e.g., your USB-stick).
+#Open the profile folder backup (e.g., the {filepath xxxxxxxx.default} backup).
+#Copy the entire ''contents'' of the profile folder backup, such as the {filepath mimeTypes.rdf} file, {filepath prefs.js} file, etc.
+#Locate and open the new profile folder as explained above and then close Thunderbird (if open).
+#Paste the contents of the backed up profile folder into the new profile folder, overwriting existing files of the same name.
+#Start Thunderbird.
+
+= Moving a profile =
+Occasionally, you might want to move a profile or tell Thunderbird to use a profile stored in another location. 
+#Shut down Thunderbird.
+#Move the profile folder to the desired location.{for winxp} For example, on Windows XP, move the profile from {filepath C:\Documents and Settings\[username]\Application Data\Thunderbird\Profiles\xxxxxxxx.default} to {filepath D:\Stuff\MyMailProfile}{/for}. (If you are reverting to a  backed up profile, this step isn't necessary. Just note the current location of the profile you want to restore.)
+#Open up the profiles.ini file in a text editor. The file is located in the application data folder for Thunderbird:
+#* The path is {for win}{filepath %AppData%\Thunderbird\}&nbsp;for Windows{/for}{for linux}{filepath ~/.thunderbird/}&nbsp;for Linux{/for}{for mac}{filepath ~/Library/Thunderbird/}&nbsp;for Mac OS X{/for}.
+#In the {filepath profiles.ini} file, locate the entry for the profile you've just moved. Change the Path= line to the new location. 
+#If you switch from a relative path to a non-relative path, the direction of the slashes may need to change. For example, in Windows, non-relative paths use backslashes, whereas relative ones use forward slashes. Change IsRelative=1 to IsRelative=0.
+#Save {filepath profiles.ini} and restart Thunderbird.
+
+= Sharing profile data between computers =
+'''Simultaneous access to any part of the Thunderbird profile folder, via a file share, cloud storage or any other method, is NOT supported. Doing so risks corruption and permanent loss of data.'''
+
+== Cloud storage ==
+Thunderbird profile stored on cloud synced file storage should work on most cases, but simultaneous access from multiple running instances of Thunderbird, from multiple computers or within a single computer, is not supported. Your Thunderbird profile on cloud storage is not a backup.
+
+= See Also =
+*[http://kb.mozillazine.org/Profile_Manager Profile Manager Article] on MozillaZine.
+*[http://kb.mozillazine.org/Profile_backup Profile Backup Article] on MozillaZine.

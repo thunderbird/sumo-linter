@@ -1,0 +1,74 @@
+A mailing list is a sub list of an address book. 
+An address book can have more than one mailing list. <br>
+Any contact in an address book which has a valid email address can be placed in a mailing list. <br>
+A mailing list is used to send one email to a group of contacts.
+
+__TOC__
+
+= Create a mailing list =
+#Open the Address Book.
+#Select {menu File} > {menu New} > {menu Mailing List}.
+#Enter a suitable name for the mailing list.
+#At this point you have two options:
+#*'''Option 1:'''
+#*#Manually enter the email addresses of your contacts. 
+#*#Type one email address per line. 
+#*#;You cannot sort email addresses in this list in this window. They will appear in the order added.  
+#*#Click {button OK} when finished.
+#*'''Option 2:'''
+#*#Do not enter any email addresses via this window.
+#*#Close the window by clicking {button OK}.
+#*#Select the address book with contacts you wish to put into a mailing list.
+#*#Select to highlight contacts. 
+#*#*To select various contacts: Hold down the {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} key and left click on the contacts.
+#*#*To select a block: Select the first contact, hold down the {key Shift} key and select the last contact.<br>
+#*#Left click and hold down on the selected highlighted contacts to grab.
+#*#Drag the contacts to the left and hover over the mailing list.
+#*#Release the mouse button to drop contacts into the mailing list.
+
+If the contacts were not already in the associated address book, they will also be entered into the associated address book. <br>
+The image below shows an example of a new mailing list called 'Test'. It is a mailing list in the Personal Address Book.
+
+[[Image:Mailing List add contacts]] 
+
+= Create email using a mailing list =
+There are two methods producing different results.
+
+=='''Via the Address Book'''==
+On the Mail Toolbar, locate 'Address Book'.
+#Click {menu Address Book} to open it.
+#Select the mailing list.
+#Click the {menu Write} button.
+This will open a new Write message window, and each contact in the mailing list will appear in a separate To field. This allows you to remove a name, if desired. <br>
+You may also need to manually select {button Bcc} for each email address, as your contacts may not want you to distribute their email address.<br>
+Enter the Subject; Compose the email and click {button Send}.
+
+=='''Via a new Write message'''==
+On the Mail Toolbar, locate the 'Write' button.
+#Click the {menu Write} button.
+#;A new Write message window will open, and on the left side there should be the 'Contacts Sidebar'. <br>
+#*If you cannot see the Contacts Sidebar, you need to enable it.<br>
+#**Click {menu View} > {menu Contacts Sidebar} or use the {key F9} key to toggle the view.
+#Select the address book containing the mailing list.
+#Select the mailing list.
+#Click the {button Add to Bcc} button or another option.
+
+[[Image:Mailing Lists]] 
+
+This will add the mailing list as the mailing list name. You cannot see individual contacts. This saves you from needing to change eg. To to Bcc, but you cannot edit any names from that email using this method.<br>
+Enter the Subject; Compose the email and click {button Send}.
+
+= How to add two contacts who use the same email address =
+As an example: <br>
+In your address book you have two people with the same email address. <br>
+a) Bob Smith has email address: thesmiths @ domain. <br>
+b) Jan Smith has email address: thesmiths @ domain. <br>
+
+These two people are perfectly OK in an address book, but to get them into a mailing list will not work using the conventional method. So do the following to get them into the mailing list.
+
+In the Address Book, select one of the people and edit their email address. In the example I put a letter A in the front. <br>
+Jan Smith has the email address Athesmiths @ domain.
+
+Now move both people to the mailing list. As the email addresses are not the same, they will both move to the mailing list. Once in the mailing list, select the mailing list and double click Jan Smith to edit the email address by removing the 'A'. Click {button OK} when finished.
+
+Now you should have two people sharing the same email address in the mailing list, and if you go back and check the address Book entries, you will find them correct.

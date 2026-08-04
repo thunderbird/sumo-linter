@@ -1,0 +1,147 @@
+__TOC__
+
+Addressing an email message with Thunderbird is easy. The addressing area has been designed from the ground up for a convenient and powerful user experience.
+
+[[Image: TB78-Compose-Addressing-To]]
+
+{note}
+== Changes to the addressing area in Thunderbird 78 ==
+
+Please note: The addressing area has been redesigned for Thunderbird 78, and this article has been fully rewritten to describe the new design and behaviour.
+* In Thunderbird 78, recipients of the same type (e.g. To, Cc, or Bcc) are grouped into a single row which will accept more than one email address. Handling message recipients is now easier and much more efficient than before. For example, you can now select several recipients and apply the same action to all of them at the same time (copy, cut, remove, drag etc.).
+* By comparison, in Thunderbird 68, it was one recipient per address row, each with its own type selector. Recipients of different types could be wildly mixed, and acting on several recipients at the same time was not possible.
+* You can find a short summary of differences and similarities between the old and new addressing area in the [https://support.mozilla.org/en-US/kb/new-thunderbird-78#w_new-addressing-area New Addressing Area] section of the article [[New in Thunderbird 78.0]]. However, the full details of the new design are described below.
+{/note}
+
+== Adding recipients to your email message ==
+
+Whenever you click Write, Forward or Reply, Thunderbird opens a new Write window, also known as compose window. It will open up with focus on the To: address field, ready for your input. A recipient consists of an email address and an optional display name which you can choose freely – but remember that your recipient will also see the display name! Typical email recipients look like this:
+
+; service@example.com<br>
+; Jane Doe <jane.doe@example.com>
+
+Thunderbird will show each recipient as a recipient item, sometimes jokingly called recipient “pill” by Thunderbird contributors because they first arrived with rounded corners (the recipient items, not the contributors… ;-)).
+
+
+=== Adding ''new'' recipients ===
+
+There are several ways of adding one or more new recipients to your message:
+* Type a recipient directly into the address field, then press {key Enter}. In the same line, just type another one and press {key Enter} again.<br>Note: Do not enter any comma or semi-colon between recipient items, as Thunderbird will handle the technicalities for you.
+* Copy and paste comma-separated recipients into the address field, then press {key Enter}. 
+* Drag and drop recipients into a shown address field.
+
+=== Adding recipients ''from your address book'' ===
+
+Thunderbird offers very efficient possibilities of adding recipients which are already in your address book:
+* Type search words in the address field of your choice, and recipient autocomplete will assist you.
+
+{note}
+;'''Autocomplete search''' is very powerful:
+;* Order of search words doesn’t matter: “Doe John” finds “John Doe”.
+;* Partial search words work: “Ann” finds “Marianne”, “Mary-Ann” etc.
+;* You can even combine search words from different contact properties like name and email: “John example” finds “John Doe <manager@example.com>”.
+;* Comma is ignored, so “Doe, John” finds “John Richard Doe”.
+;* Try defining and searching unique nicknames for your contacts, too.
+{/note}
+
+* [[#w_selecting-and-adding-recipients-from-contacts-side-bar|Add recipients from contacts sidebar]]: A miniature address book right there in your write window! Powerful especially for adding several recipients.
+* You can also [[#w_starting-a-new-message-from-your-address-book|start writing a message from contacts in your address book]].
+
+{note}
+=== How to edit or remove recipient items ===
+* To edit a recipient item, select it with mouse or cursor navigation keys, then press Enter. When you’re done editing, just press Enter again. More information about [[#w_changing-recipient-type-how-to-move-recipients-to-another-address-field|changing the type of a recipient item (To, Cc, and Bcc)]]  below.
+
+[[Image: TB78-Compose-Addressing-EditPill]]
+
+* To remove a recipient item, select it and press {for win,linux}{key Del} or {key Backspace}{/for}{for mac}{key Delete}{/for}. In the same way, you can also [[#w_selecting-several-or-all-recipient-items|select several recipient items]] and delete them in a single step. {menu Delete} is also available from the context menu after right-clicking on a recipient item {for win}or pressing the context menu key{/for}.
+{/note}
+
+== Address Fields: To, Cc, Bcc ==
+
+For efficient communication and privacy, Thunderbird offers different address fields to group your recipients by type:
+
+{|
+|'''To:'''||The main recipients of your message (visible for all recipients).<br>
+|-
+|'''Cc&nbsp;(Carbon&nbsp;copy):'''||Other recipients (visible for all recipients).<br>
+|-
+|'''Bcc&nbsp;(Blind&nbsp;carbon&nbsp;copy):'''||Hidden recipients (not visible for all other recipients).<br>
+|-
+|'''Reply-To:'''||You can specify one or more of your own email addresses where you want to receive replies to your message when the recipient uses the “Reply” function of his email system.
+|}
+
+To show the Cc: or Bcc: address fields, use the {button Cc} and {button Bcc} buttons on top of the To: address field; for Reply-To and other message headers, use the {button >>} disclosure button which says {tooltip Other types of addressing fields}.
+
+[[Image: TB78-Compose-Addressing-MoreAddressingFields]]
+
+It is recommended to use the Bcc: address field if you are writing to groups of people who are not related or very close friends. Any Bcc: recipient will receive the message, but all other recipients, even other Bcc: recipients, won’t know about that from looking at the message. If your message has only Bcc: recipients, the message will show as addressed to "undisclosed recipients;" or similar wording by the receiving email program. This will protect the privacy of your recipients, and prevent spam when lots of private email addresses might be made public by computers infected with computer viruses.
+
+{note}
+=== Selecting several or all recipient items ===
+
+The new addressing area makes it easier than ever before to act on several recipient items at the same time. Just select and go! Clumsy was yesterday! Enjoy the new convenience of copying, cutting, pasting, moving, or deleting several recipient items in a single step. Depending on scenario, applying actions to lots of recipients is now up to 99% more efficient than before.
+
+* ''To select several recipient items even when they are <u>not</u> next to each other:'' Hold down the {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} key while clicking on each recipient. Using keyboard, hold down {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} while navigating with {key →}, {key ←}, {key Home} or {key End}, and select recipient items with {key Space}. You can even select recipient items from different address fields this way!
+
+;[[Image: TB78-Compose-Addressing-CtrlSelectPills]]
+
+* ''To select several recipient items which are next to each other:'' Hold down {key Shift} while navigating with {key ←} or {key →} to select the next items. This also works in combination with holding down {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} to add to an existing distributed selection.
+
+;[[Image: TB78-Compose-Addressing-ShiftSelectPills]]
+
+* ''To select ''all'' recipient items of the focused address field:'' Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key A}. To select all recipient items of ''all'' address fields, just press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key A} again!
+
+;[[Image: TB78-Compose-Addressing-SelectAllPills-AllFields]]
+{/note}
+
+=== Changing recipient type: How to move recipients to another address field ===
+
+You can now change the type of your recipients between To, Cc, and Bcc in a snap, even for several recipients at the same time. First, [[#w_selecting-several-or-all-recipient-items|select the recipient items]] which you want to move to another address field. Now there are several ways of moving the selected recipient items to another address field:
+* Right-click on a selected recipient item{for win} (or press the context menu key){/for}, then choose {menu Add to Cc}, {menu Add to Bcc}, or {menu Add to To} from the context menu. The target address field will be automatically shown if it is still hidden, saving you an extra step.
+* Alternatively, press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key X} to cut the selected recipient items, focus the target address field, and paste them with {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key V}.
+* Drag and drop selected recipient items between shown address fields, or onto the recipient field button of a hidden field ({button Cc}, {button Bcc}), which will automatically be shown with the recipients added.
+
+== Selecting and adding recipients from Contacts Side bar ==
+
+The Write window offers a miniature address book pane called “Contacts Sidebar”. This is convenient and powerful especially for adding several recipients based on your search words. Select a specific address book to display only the contacts contained therein. You can show or hide this pane with the shortcut key {key F9} or using the menu: {menu View > Toolbars > Contacts Sidebar}.
+
+[[Image: TB78-Compose-ContactsSideBar|width=285]]
+
+To add a single contact to the To: address field, simply double-click on it. There are several ways of selecting several contacts in contacts sidebar in order to add them as recipients. 
+
+{note}
+=== Selecting several contacts from your address book ===
+
+* ''To select several contacts which are <u>not</u> next to each other:'' Hold down the {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} key while you click on each contact (or press spacebar on keyboard). Clicking or pressing spacebar on an already selected contact will deselect it.
+
+;[[Image: TB78-Compose-ContactsSideBar-CtrlSelect]]
+
+* ''To select several contacts which are next to each other:'' Click on the first contact you want to select, then hold down {key Shift} key while clicking on the last contact, which will also select all contacts in between. Alternatively, using keyboard, hold down the {key Shift} key while using navigation keys like {key ↓}, {key ↑}, {key End}, {key Home}, {key Page Up} or {key Page Down} to extend your selection.
+
+;[[Image: TB78-Compose-ContactsSideBar-ShiftSelect]]
+
+* ''For advanced high efficiency selections, you can actually combine the two methods:'' Keep holding down {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} and add {key Shift} when appropriate to add a coherent group of contacts to your existing distributed selection.
+{/note}
+
+=== Adding contacts from contacts sidebar to an address field ===
+
+Here’s how you can add one or more selected contacts to the desired address field:
+* Use the {button Add to To:}, {button Add to Cc:}, {button Add to Bcc:} buttons at the bottom of the pane.
+* Alternatively, right-click on one of the selected contacts and add them using the respective action from context menu.
+
+;[[Image: TB78-Compose-ContactsSideBar-Context]]
+
+* You can also drag and drop one or more selected contacts from the sidebar into any of the address fields, or onto the {button CC} or {button Bcc} disclosure buttons.
+
+;[[Image: TB78-Compose-ContactsSideBar-DragAndDrop-CcBccButtons]]
+
+== Starting a new message from your Address Book ==
+
+It is also possible to start writing a new message directly from the Address Book window. This might be handy for the simple scenario where you only want to use the To: address field. 
+The address book has the same search and [[#w_selecting-several-contacts-from-your-address-book|selection]]  features like contacts sidebar. So you can select several contacts by holding down the {key Ctrl} key and/or the {key Shift} key. Then just click the {button Write} button on the Address Book Toolbar or right-click on the selection and choose {menu Write} from context menu.
+
+[[Image: TB78-Compose-AddressbookWrite-Context]]
+
+== See Also ==
+* [[Send and receive messages in Thunderbird]]
+* [[How to create and use mailing lists on Thunderbird]]

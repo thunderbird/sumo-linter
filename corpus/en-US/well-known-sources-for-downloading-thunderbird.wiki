@@ -1,0 +1,15 @@
+=Official distribution locations for Mozilla Thunderbird=
+Unless you have a good reason to install your software using a different mechanism, it is recommended that you use one of the download sources described on this page. You should be careful about using software named Thunderbird from other sources – there is risk of installing [https://wikipedia.org/wiki/Computer_virus infected] or [https://wikipedia.org/wiki/Trojan_horse_(computing) Trojan] software.
+
+Once installed, when newer versions of Thunderbird become available they will automatically be installed.
+
+==Thunderbird&#46;net website==
+[https://www.thunderbird.net/ Thunderbird.net] is the Thunderbird project's website, offering downloads for the '''Windows''', '''macOS''' and '''GNU/Linux''' operating systems. Use the [https://www.thunderbird.net/download/ download page] to obtain the installation package that is recommended for your operating system and language, for the [https://developer.thunderbird.net/releases/channels channel] you wish to use. Please refer to installation instructions for [[Install Thunderbird on Windows|Windows]], [[Install Thunderbird on Mac|macOS]] and [[Install Thunderbird on Linux|Linux]] for additional details.
+
+Optionally, if you wish to verify that you have downloaded an official version, follow the [[Verify a Mozilla Thunderbird installation package|instructions for verifying a Thunderbird download]].
+
+==Microsoft Store==
+If you use the Microsoft Windows operating system version 10 or newer, you may use the [https://apps.microsoft.com/detail/9pm5vm1s3vmq Microsoft Store] to install Thunderbird.
+
+==Linux==
+Several methods of installation are available to Linux users: distribution created packages, [https://www.thunderbird.net/ thunderbird.net] website (previously mentioned), Flatpak and Snap. These are described in more detail in the [[Install Thunderbird on Linux]] article.

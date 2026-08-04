@@ -1,0 +1,114 @@
+As soon as you’ve [[Automatic Account Configuration|set up an email account]], you’re ready to start sending and receiving messages in Thunderbird. Here’s how to do it.
+
+__TOC__
+
+== Sending a new message ==
+# In the Thunderbird toolbar, click the {button + New Message} button (labelled with a red '''1''' in the following screenshot). The '''Write window''' opens (also known as ''composition window'').
+#;<br>[[Image:tb115-new-message-get-messages-folder-pane-options]]
+# In the '''To''' field, type the email address of a person you want to send the message to. Press {key Enter} or {key Tab} after each address to turn it into a recipient item (also known as a recipient ''pill''). You can also use the {button CC} and {button BCC} disclosure buttons or {button >>} to add other types of recipients. After entering all recipients, press {button Enter} again to move on to the subject field.
+#;<br>'''For detailed information on addressing and using recipient items efficiently, please refer to the [[Addressing an Email]] article.'''
+#;<br>[[Image:tb115-writing-email]]
+#;<br>{note}'''Tip: Enter recipients faster with autocomplete'''<br>When you send a message, Thunderbird will automatically save the email addresses of all the recipients in your address book. When you write a new message, Thunderbird will then autocomplete known addresses from your address book as you type them. Just press {key Tab} or {key Enter} as soon as the right address appears, or select one from the list of proposals – the address will be entered and you can enter another one. Learn more about efficient autocomplete searches in [[Addressing an Email]].{/note}
+# In the '''Subject''' field, type the subject of your message, then press {key Enter} or {key Tab} to move on to the message pane.
+# Type and format your message in the message pane.
+{note}'''Tip''': You can customize the appearance of your message with Thunderbird’s word-processing functions in the Formatting Bar above the message pane. You can easily apply text formatting or insert links, images, tables, or smileys e.g. '😁'. Thunderbird will automatically send formatted messages in HTML format and unformatted messages as plain text.{/note}
+# Click the {button Send} button, or press {for win,linux}{key Ctrl}{/for}{for mac}{key Cmd}{/for}+{key Enter}.
+{note}'''Note''': Thunderbird will save a copy of your sent messages in the '''Sent''' folder of your account.{/note}
+
+== Receiving messages ==
+By default, Thunderbird checks for new messages every time you open the application. It will also automatically check again every 10 minutes, while the application is running. This behavior for both actions can be customized ([[#w_automatically-checking-for-new-messages|see below]]).
+
+To check for messages at any other time, click the {button [[Image:tb115-official-getmessages-icon16x16]]} button in the toolbar.
+
+== Customizing how messages are sent and received ==
+Get Thunderbird flying the way you want it! Many settings can easily be customized.
+
+=== Automatically checking for new messages ===
+Set how often you want Thunderbird to automatically check for messages:
+# Click {button ≡} > {menu Account Settings}.
+# On the accounts pane, click '''Server Settings''' beneath your account.
+# Choose the time interval for checking in the '''Check for new messages every''' setting. If you don't want Thunderbird to check automatically, uncheck this setting.
+# To enable or disable automatically checking for new messages at startup, check or uncheck '''Check for new messages at startup'''.
+
+=== Auto-saving ===
+When you’re writing a new message, your work is auto-saved every five minutes, but you can make it more often, or less:
+# Click {button ≡} > {menu Settings}.
+# Choose '''Composition'''.
+# Choose the time interval for auto-save in the '''Auto Save every''' setting. If you don't want Thunderbird to save automatically, uncheck this setting.
+
+=== Sound alert for new messages ===
+Choose your own sound alert for new messages:
+# Click {button ≡} > {menu Settings}.
+# Choose '''General'''.
+# From the ''Incoming Mails'' section, choose '''Use the following sound file''' option.
+# Click the {button Browse…} button.
+# Choose your sound file and click the {button Open} button.
+# You can preview the soundfile by clicking the {button Play} button.
+
+=== Marking messages as read ===
+Thunderbird displays ''unread'' messages in bold type, marking a message ''read'' and in normal type as soon as you click on the message. If you don't like this behavior, you can change the time interval before Thunderbird marks messages as read:
+# Click {button ≡} > {menu Settings}
+# Choose '''General'''.
+# Go to ''Reading & Display'' section.
+# Choose the '''After displaying for … seconds''' option and set how long Thunderbird should delay before marking a message as read.
+
+= Advanced =
+== Configuring email accounts ==
+When Thunderbird downloads messages, it uses the configuration on the ''Server Settings'' page of each email account. Each email address corresponds to one incoming mail server (either POP or IMAP). To change your accounts server settings:
+# Click {button ≡} > {menu Account Settings}.
+# On the accounts pane, click '''Server Settings''' beneath your account.
+Thunderbird sends messages to the SMTP server that is assigned to the selected email account:
+# Click {button ≡} > {menu Account Settings}.
+# On the accounts pane, scroll down the account list. The last item is the '''Outgoing Server (SMTP)'''. Click this item.
+# Select a server from the list and click the {button Edit…} button.
+# Make your changes in the ''SMTP Server'' window, and click {button OK} to save your changes and to close the window.
+Next, the Outgoing SMTP server is assigned to each account:
+# Click the account and select the desired server from the '''Outgoing Server (SMTP)''' drop-down list.
+Each email account is listed in the ''All Folders'' panel on the left side of the Thunderbird interface.
+For information about manually configuring email accounts, see [[Manual Account Configuration]]. For information about automatically configuring new email accounts, see [[Automatic Account Configuration]].
+
+== Downloading incoming messages ==
+By default, Thunderbird will check your mail server(s) for new messages on application startup and then ''automatically'' as described earlier in this article. In addition to that, you can check for new messages ''manually'' at any time.
+
+To '''get new messages ''for the currently selected account''''', you can use any one of the following methods:
+<!-- I don't think the following is in TB115 but could be implemented in a future release
+* Click the {button [[Image:tb115-get-messages-16x16]]} button in the top left corner of Thunderbird's main window.
+-->
+* Use the [[Keyboard Shortcuts TB|keyboard shortcut]].
+* Right-click (control click on macOS) the account in the folder pane and select {menu Get Messages}.
+* From the menu bar:
+** Click the {menu File} menu.
+** Select {menu Get New Messages for} and click {menu Current Account} from the sub-menu (where ''Current Account'' is the account highlighted in the folder pane).
+
+To '''get new messages ''for all accounts''''', you can use any one of the following methods:
+* Click the {button [[Image:tb115-official-getmessages-icon16x16]]} button in the top left corner of Thunderbird's main window.
+* Use the [[Keyboard Shortcuts TB|keyboard shortcut]].
+* From the menu bar:
+** Click the {menu File} menu.
+** Choose {menu Get New Messages for} and click {menu All Accounts} from the sub-menu.
+
+== Composing a new message ==
+To compose a new message, you can use any one of the following methods:
+* From the Application menu button: {button ≡} > {menu Create} > {menu Message}.
+* Click the {button + New Message} button in the ''Mail Toolbar''.
+* In the Thunderbird menu bar, click the {menu Message} menu and select {menu New Message}.
+* Use the [[Keyboard Shortcuts TB|keyboard shortcut]].
+If an email (or newsgroup) account is highlighted in the ''Folder Pane'', the message's ''From'' address will default to the selected account. If no account is specified, the ''From'' address will default to the first account configured in the ''Account Settings''. Click the '''From''' drop-down list to select a different account.
+
+For more details about adding and handling recipient items (aka recipient pills) in the addressing area, including more information about recipient autocompletion, please refer to [[Addressing an Email]].
+
+To insert a recipient from your address book, you can just start typing the person's name in the desired recipient field, for example the '''To''' field. A drop-down list will show all address book entries where the first or last name starts with the character(s) you entered{for tb31}, or entries where the string you entered exists{/for}. For example, if you enter '''se''', anyone in the address book with the last name of ''Serrano''{for tb31}, or ''Casey''{/for} or the first name of ''Sean''{for tb31}, or ''Jesse''{/for} would be displayed in the drop-down list.
+
+You can also drag and drop addresses from your address book to a new message. Simply open the address book, select the desired entry and drag it to the recipient area of the new message.
+
+== Replying to a message ==
+To reply to a message, you can use any one of the following methods:
+* Click the {button Reply} or {button Reply All} button in the message header toolbar when the message is displayed.
+* Right-click the message in the Message List and select {menu Reply to Sender Only} ({key {for linux,win}Ctrl{/for}{for mac}Command{/for} + R}), {menu Reply to All} ({key {for linux,win}Ctrl{/for}{for mac}Command{/for} + Shift + R}) or {menu Reply to List} ({key {for linux,win}Ctrl{/for}{for mac}Command{/for} + Shift + L}).
+
+= See Also =
+* The [http://archive.flossmanuals.net/thunderbird/composing-messages.html Composing and Formatting Messages] Chapter in the ''Thunderbird'' FLOSS manual
+* [[Automatic Account Configuration]]
+== Problems ==
+* [[Cannot send messages]]
+* [[Cannot receive messages]]

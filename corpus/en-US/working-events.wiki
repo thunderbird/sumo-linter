@@ -1,0 +1,38 @@
+This article describes how to manage and work with events in the Lightning extension. 
+
+== Creating events ==
+To create an event, please read the [[Create a new event or task]] article.
+If you'd like to create a recurring event instead, please see [[Create a recurring event]] instead.
+
+== Add/Invite Attendees ==
+You can add attendees when creating a new event or when editing an event. There are 2 ways you can add attendees when in the {menu Edit/New Event} windows:
+* Using the menu item {menu Options -> Invite Attendees...}
+* Using the {menu Invite Attendees} menu item in the {menu Events} Window
+
+After using one of the methods above, you will see the "Invite Attendee" window:
+
+[[Image:e40a9d32a24306dc9cb1dd50465c5961-1298312592-390-1.png]]
+
+You can add attendees by adding their email address or name. Your Address book is linked to these fields so auto-complete is working in the same way when composing emails.
+
+=== Attendees States ===
+
+You can switch the status of attendees by clicking on the icons in front of their name/email address. The various states are:
+
+CONFIRMED: <img src="https://wiki.mozilla.org/images/1/13/Attendee_State1.jpg">
+
+DECLINED: <img src="https://wiki.mozilla.org/images/3/3a/Attendee_State2.jpg">
+
+TENTATIVE: <img src="https://wiki.mozilla.org/images/6/61/Attendee_State3.jpg">
+
+=== Attendees Roles ===
+
+You can switch the role of attendees by clicking on the icons in front of their name/email address. The various roles are:
+
+PARTICIPANT: <img src="https://wiki.mozilla.org/images/b/bb/Attendee_Role1.jpg">
+
+OPT-PARTICIPANT: <img src="https://wiki.mozilla.org/images/9/99/Attendee_Role2.jpg">
+
+CHAIR: <img src="https://wiki.mozilla.org/images/4/4e/Attendee_Role3.jpg">
+
+{note}'''The default email personality for the calendar the event belongs to will be seen as the default CHAIR. You can not un-invite this person or change this person's role.'''{/note}

@@ -1,0 +1,58 @@
+Thunderbird offers different release “channels” (update paths) so you can choose the development stage of the app that best fits your needs, whether you prefer stability, early access to features, or want to help shape development. Below is a quick comparison, followed by details about each channel.
+
+If you are running a current version of Thunderbird ESR, you can “update” to the ''Release'' channel.
+
+<!-- And if you are interested in trying more than one channel at a time, you can set up [[separate Thunderbird profiles for each channel]] to keep your data safe and organized. -->
+
+__TOC__
+
+= Quick comparison of channels =
+Here’s a quick comparison to help you decide:
+{|
+|+ 
+!Channel!!Stability!!New Feature Updates!!Best For
+|-
+|[[#w_thunderbird-release-channel-default|Release]]||[[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]]||[[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]]||Most users
+|-
+|[[#w_thunderbird-extended-support-release-channel-esr|ESR]]||[[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]]||[[Image:Bookmark Star Active]]||Long-term support, stability-focused users
+|-
+|[[#w_thunderbird-beta-channel|Beta]]||[[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]]||[[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]]||Users who balance early access with reasonable stability
+|-
+|[[#w_thunderbird-daily-channel|Daily]]||[[Image:Bookmark Star Active]]||[[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]][[Image:Bookmark Star Active]]||Developers and early testers
+|}
+
+= Channel details =
+== Thunderbird Release channel (Default) ==
+'''Best for:''' Users who want a Thunderbird that is stable and regularly updated<br>
+'''Update frequency:''' Every four weeks<br>
+'''Download:''' https://thunderbird.net/download/release
+
+This channel receives updates every four weeks that include new features, improvements, bug fixes and security patches. So moving from one release to the next will be less disruptive than updating between major versions of ESR. This channel represents the best balance between new functionality and stability, so it is the default channel starting in 2025 and what most users should download and use. To change to this channel from ESR, see [[Thunderbird Release]]. <!-- this note is wanted as inline text, not  as a formal KB note -->Note: Release channel is not yet available for Microsoft Store (for Windows), Snap and Flatpak (Linux). 
+
+{warning}If you have add-ons installed, listed at {menu ≡} > {menu Add-ons and Themes} > {menu Extensions}, please [[Thunderbird add-ons - frequently asked questions|ensure your Thunderbird add-on is supported]] before downloading.{/warning}
+
+== Thunderbird Extended Support Release channel (ESR) ==
+'''Best for:''' Users or organizations that prioritize long-term stability over new features<br>
+'''Update frequency:''' Once per year (with occasional security updates)<br>
+'''Download:''' https://thunderbird.net/download/esr
+
+The ESR channel of Thunderbird is ideal for users who prefer minimal changes to their software during most of the year. It receives important security updates but fewer feature changes over time. This is a great option for managed environments, like businesses or schools, where consistent behavior and low maintenance are key. This channel will have the highest level of compatibility for add-ons. Learn more in our [[Thunderbird ESR]] support article.
+
+== Thunderbird Beta channel ==
+'''Best for:''' Users who want to test upcoming features and help improve Thunderbird<br>
+'''Update frequency:''' Frequent updates, before they reach the Thunderbird Release Channel<br>
+'''Download:''' https://thunderbird.net/download/beta
+
+Thunderbird Beta gives you early access to new features before they become part of the Thunderbird Release channel. It is more stable than Daily but still in active testing. You might encounter occasional bugs, and your reports of these bugs to our team is important for improving Thunderbird. Learn more in our [[Thunderbird Beta]] support article.
+{warning}If you have add-ons installed, listed at {menu ≡} > {menu Add-ons and Themes} > {menu Extensions}, please [[Thunderbird add-ons - frequently asked questions|ensure your Thunderbird add-on is supported]] before downloading.{/warning}
+
+== Thunderbird Daily channel ==
+'''Best for:''' Adventurous users who want the absolute latest and don’t mind risk<br>
+'''Update frequency:''' Daily<br>
+'''Download:''' https://thunderbird.net/download/daily
+
+This is the cutting edge of Thunderbird development. The Daily channel is where new code lands first, and it can be unstable or break entirely. It’s meant for contributors and experienced testers who are comfortable troubleshooting issues, and data loss is possible. If that sounds like you, check out our [[Thunderbird Daily]] support article.
+{warning}If you have add-ons installed, listed at {menu ≡} > {menu Add-ons and Themes} > {menu Extensions}, please [[Thunderbird add-ons - frequently asked questions|ensure your Thunderbird add-on is supported]] before downloading.{/warning}
+
+= Unsure which channel to use? =
+'''Still unsure which channel to use? Start with the Thunderbird Release channel. You can always switch later if your needs change.'''

@@ -1,0 +1,54 @@
+Whether you are just curious or already using beta, this article will help you have the best possible experience. Using Beta is a great way for you to help the global Thunderbird community and improve the product, by testing fixes and new features, and discovering and reporting bugs before they reach release. '''Thank you for your interest in using beta!'''
+
+__TOC__
+
+=README BEFORE using beta=
+Don't be intimidated by this common sense list - they are presented here for your protection.
+* Protect your Thunderbird data by doing regular [[Profiles - Where Thunderbird stores your messages and other user data#w_backing-up-a-profile|backups of your Thunderbird profile]].
+* High-impact flaws such as data loss are rare but may occur, so protect your data with backups. 
+* New features require new code, so flaws are possible. Please [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird report flaws], but please be patient because flaws in test versions may not be fixed quickly because of competing development priorities.  
+* Use the [https://thunderbird.topicbox.com/groups/beta/ beta topicbox] to learn about new features and connect with the experience of other beta users.
+* Expect frequent updates, which we use to quickly provide improvements and fixes.
+* If you use filters then you must decide where to run your filters for which email accounts - in your beta profile or your other profile. Do not use filters for an account in both profiles. 
+* Some [https://addons.thunderbird.net/thunderbird/ add-ons] may not work in beta. If you have difficulty, please submit your issues to the add-on author, and consult the [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|Add-ons FAQ]].
+* If you using POP accounts you must make a choice, because your only copy of POP mail is on your computer in one Thunderbird profile and not on a mail server (unless you changed the default settings):
+**'''Don't use a POP account with your beta or daily install:''' Using POP  is not recommended because you risk losing your email if you do not configure ALL of your email clients correctly with your POP accounts.
+**'''Change your account in Thunderbird to use IMAP instead of POP.'''
+**'''If you have to use POP:'''
+**# Set all of your email clients  (Thunderbird for Android, Thunderbird Desktop, Outlook, etc.) to '''Leave messages on server''' in {menu ≡} > {menu Account Settings} > {menu Server Settings} (or equivalent in your email clients).
+**# Uncheck '''For at most [X] days'''. 
+**# Manually delete messages from the POP server. 
+**# We recommend that you do not use '''Fetch headers only''' in Thunderbird, nor a similar setting in other Email clients.
+
+= Resources, assistance and references =
+How you can help improve Thunderbird, find help, and give help:
+* Ask and answer beta-specific  questions in the [https://thunderbird.topicbox.com/groups/beta beta topicbox community].
+* Post general Thunderbird questions in [https://support.mozilla.org/questions/new/thunderbird/form Thunderbird support (SUMO)]. [https://support.mozilla.org/questions/thunderbird?filter=recently-unanswered&show=all You can also answer SUMO questions].
+* [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird Report bugs] that you find. Report performance issues by [[Profiling Thunderbird Performance|creating a performance profile]] and add it to your bug report.
+* Read informative Release Notes at {menu ≡} > {menu Help} > {menu About Thunderbird Beta} > {button Release Notes} in Thunderbird, or visit [https://www.thunderbird.net/notes/beta Beta release notes].
+* [[Mozilla Crash Reporter TB|Submit all crash reports]].
+* Check the [https://start.thunderbird.net/beta/ Beta Start Page] which has handy information, available insde Thunderbird with {for win, linux} {key ALT} > {/for}{menu Go} > {menu Mail Start Page} ([[Keyboard shortcuts - perform common Thunderbird tasks quickly#w_moving-around-thunderbird|keyboard shortcuts]]).  
+
+= Add-ons =
+<!-- DO NOT REMOVE THIS HEADING ANCHOR, there are links to it from other locations -->
+Add-on authors are not obligated to have their add-ons work in beta. Some might not work. Consult the [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|add-ons FAQ]] if you have difficulty. 
+
+= How to install and run beta =
+Install Thunderbird Beta into its own program directory, which official Mozilla downloads should do correctly. But be cautious - pay attention that the installer does not target a non-beta program directory - if it does then Thunderbird beta may use and corrupt your production data profile.
+
+For Windows the default install directory is <code>C:\Program Files\Mozilla Thunderbird Beta</code>. If you need more help please refer to installation instructions for [[Install Thunderbird on Windows|Windows]], [[Install Thunderbird on Mac|macOS]], [[Install Thunderbird on Linux|Linux]], and [[Well known sources for downloading the Thunderbird email software|official sources]] for additional details.
+
+Quick links to official beta sources:
+* [https://www.thunderbird.net/thunderbird/all/?release=beta Windows, macOS and Linux via Thunderbird download page] - choose the beta channel
+* [https://snapcraft.io/thunderbird Ubuntu from Canonical via Snap] <code>-- sudo snap install thunderbird --channel=monthly/beta</code>
+* [https://discourse.flathub.org/t/how-to-use-flathub-beta/2111 Flatpak]
+
+= How do I change from a beta version back to a release version? =
+Do not change from beta to release by installing release into the beta program folder, nor by pointing a release install to a Thunderbird beta data profile - accessing data with an older version number of the program risks instability and corrupt data.
+
+Instead, make a separate profile for release, and transfer any data you need from the beta profile using standard tools, for example Address Book Export/Import, or  {menu ≡} > {menu Tools} > {menu Export}. Exceptions:
+* For POP and local mail: In the '''Mail''' directory of your Thunderbird profile you will find both '''Local Folders''' directory and POP account directories. You can copy the contents of these from one profile to another, but take care to NOT overwrite any '''msgFilters.dat''' files as they contain your filter rules.''' HOWEVER, NOTE, files from a newer version are not guaranteed to work in an older version.'''
+* For IMAP accounts, there should be no need to copy any files from a beta profile to your production profile.
+
+= Beta isn't for me. How can I help? =
+[https://www.thunderbird.net/participate/ Participate] lists many ways for you to help in the community, and places to learn more about Thunderbird.

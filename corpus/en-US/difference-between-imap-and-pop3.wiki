@@ -1,0 +1,38 @@
+When adding an email account to Thunderbird, you can decide between ''IMAP (remote folders)'' and ''POP3 (keep mail on your computer)''. IMAP and POP3 are different methods (often referred to as protocols) of accessing your email.
+
+* '''IMAP:''' Messages and folders are kept on the server. Changes made in Thunderbird are mirrored on the server, and changes on the server are mirrored to Thunderbird.
+* '''POP3:''' New incoming messages are in a mailbox (Inbox) on the server, which Thunderbird downloads to store on your computer, and Thunderbird immediately removes from the server unless you choose otherwise from the [[Configuration Options for Accounts#w_server-settings-panel|Thunderbird Server Settings panel]] for your account. 
+
+'''We recommend using IMAP.'''
+
+__TOC__
+
+= What to consider =
+To help you decide for yourself, here are some things to consider:
+* '''Do you want to access the account from more than one device?''' Choose IMAP.
+* '''Do you want to access the account from a web browser?''' Choose IMAP.
+* '''Does your email provider support IMAP or POP3?''' Most of them support both, but you should verify first.
+* '''What is the size limit of your mailbox?''' Most mail providers provide more than enough space to keep everything on the server, but if you plan on storing more than 15GB, choose POP3.
+* '''Are you typically on a high latency or extremely high cost connection (such as satellite), or rarely have an internet connection?''' Choose POP3.
+
+= What is IMAP and POP3? =
+
+== IMAP ==
+IMAP stands for '''I'''nternet '''M'''ail '''A'''ccess '''P'''rotocol, which is more modern than POP3. It is a two-way protocol that copies your email from a remote server to Thunderbird, while preserving the original copy of the mail on the remote server. Changes to these email messages, such as marking them as read, adding or removing labels or tags, or moving them to a different folder, will be replicated on the remote server.
+
+Emails that have been downloaded to Thunderbird from the remote server are available for use in Thunderbird when there is no internet connection. Changes made in Thunderbird while there is no internet connection will be synchronized with the remote server when Thunderbird reconnects to the internet.
+
+Changes made in Thunderbird are replicated to all imap connected devices.
+
+To protect against dataloss, and perhaps also for legal reasons, you should frequently [[Profiles - Where Thunderbird stores your messages and other user data|back up your Thunderbird profile]], even though your mail is stored on a remote server.
+
+== POP3 ==
+POP3 stands for '''P'''ost '''O'''ffice '''P'''rotocol (version '''3'''). It is a one-way protocol that downloads your email from a remote server to Thunderbird and deletes the email from the remote server (after 7 days by default in Thunderbird). Changes to these email messages in Thunderbird, such as marking them as read or moving them to a different folder, are not replicated on the remote server, and are only applied to your local computer running Thunderbird.
+
+To protect against dataloss, and perhaps also for legal reasons, you should frequently [[Profiles - Where Thunderbird stores your messages and other user data|back up your Thunderbird profile]], especially because your mail is '''not''' stored on a remote server.
+
+= Changing your account =
+
+Thunderbird does not currently offer a way to convert your existing IMAP account to POP3 or vice versa. In order to change your account to a different protocol, you will need to add the account onto Thunderbird again.
+
+See [[Automatic Account Configuration]] to add a new mail account automatically or [[Manual Account Configuration]] to manually configure a new mail account.

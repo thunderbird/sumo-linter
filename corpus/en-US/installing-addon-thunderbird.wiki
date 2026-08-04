@@ -1,0 +1,50 @@
+[[Thunderbird add-ons - frequently asked questions|Add-ons]] are little apps that add new functionality to Thunderbird (extensions) or change its appearance (themes). This article shows you how to install an add-on to your Thunderbird.
+
+__TOC__
+
+=The ideal case=
+
+In an ideal world, all the add-ons you would want are officially vetted, approved, and can be found on the official website, [https://addons.thunderbird.net/ addons.thunderbird.net].
+
+For add-ons that fall into this category, you can simply go to the Add-ons Manager tab in Thunderbird by clicking the menu button [[Image:Fx57Menu]] followed by {menu Add-ons} and click on the {menu Extensions} panel on the left to display the search box in the top-right corner. Enter the add-on's name or enough of it to limit the search results returned to a manageable number and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} or click the magnifying glass icon. 
+
+Once you have done your first search, a new {menu Search} category appears in the panel on the left. You can keep refining your search until you find what you want.
+
+Here is a search for add-ons that mention "Contacts":
+
+[[Image:Addon tab]]
+
+Once you locate an add-on you like, click on {button Install}, wait for it to be downloaded, then click on ''Restart now'' if prompted.
+
+=A slightly less ideal case (Install from a downloaded XPI file)=
+
+You may have been given an URL for the add-on, or the add-on you want isn't on the "official" page. Searching for it, as shown above, doesn't locate the add-on.
+
+Visit the webpage in your browser, right-click the download link with your mouse, select {menu Save Link As…} and save the XPI file to a location on your computer that is easy to remember. As the download is temporary, it is suggested you use either your Downloads folder or your desktop.
+
+{warning}If you are using older versions of Firefox, a left-click on the download link will cause the browser to try and install the add-on into Firefox itself. This invariably results in an error about compatibility, as the add-on is designed for Thunderbird. 
+
+If you're using another browser, a left-click might result in your browser attempting to download and "open" the XPI file. This is basically a small program, so it is not meant to be opened. It has to be saved to disk.{/warning}
+
+To install a downloaded XPI file into Thunderbird, you have two options.
+
+==Download==
+
+Right-click the link and select {menu Save As…} or {menu Save Link As…} as described earlier.
+
+You will be invited to download and save the file. Most browsers have a default download location. Make a note of where it downloads to, and what it's called. Some add-on files may have silly names like "latest-234.xpi", which is not very helpful when you're trying to find it later on.
+
+Open the Add-ons Manager tab in Thunderbird. There's a button to the left of the search box. {for win}[[Image:CogWheel]]{/for}{for linux}[[Image:CogWheelLinux]]{/for} Click this and select {menu Install Add-on From File…} from the subsequent menu.  
+
+[[Image:MenuUnderCogWheel]]
+
+You will need to navigate to where you saved the XPI file using the file picker and select it to complete the install.
+
+==Drag-and-drop==
+
+* Open the add-ons manager (click the menu button [[Image:Fx57Menu]] and then {menu Add-ons}).
+* Drag your downloaded XPI file to the Add-ons Manager tab and drop it.
+
+{for win}
+If you are using Windows, you can even skip the desktop bit. Open your browser and Thunderbird side by side, with Thunderbird's Add-ons Manager tab displayed. Drag the link directly from the browser onto Thunderbird's Add-ons Manager tab. The main advantage of this method is that you don't need to actually save a copy of the add-on to your hard disk before it is installed.
+{/for}

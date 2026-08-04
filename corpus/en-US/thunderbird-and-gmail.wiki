@@ -1,0 +1,70 @@
+{note}'''NOTES''': 
+* For simplicity, we will use the term [https://en.wikipedia.org/wiki/OAuth '''OAuth'''] instead of '''OAuth 2''' or '''OAuth 2.0'''. Thunderbird’s current implementation of OAuth is based on OAuth 2.0, the most common version of OAuth.
+* This article is written for Thunderbird ESR 153 / monthly 153 and newer versions of Thunderbird. Thunderbird 152 and older will be referred to as “older versions”.{/note}
+
+Thunderbird can be configured to work seamlessly with Google’s [https://www.google.com/gmail/about/ Gmail] service. Messages are synchronized between your local version of Thunderbird and the web-based Gmail.
+__TOC__
+=Configuring your Gmail account=
+To configure Thunderbird to work with Gmail:
+# Click Thunderbird app {menu ☰} > {menu Add Account} > {menu New Account} in older versions) > {menu Email}.
+# The '''Account Hub Add your email address''' dialog is displayed. After you provide your account information (your name and Gmail email address), and click {button Continue}, Thunderbird will open your system web browser (older versions will open a tab in Thunderbird) with an OAuth dialogue supplied and branded by Google. This Google dialogue will:
+## Ask for your Gmail address again as well as your password.
+## Depending on how you or your organization have configured your Gmail, you may be prompted to do multi-factor authentication using an authenticator app or other means.
+## Finally, a dialogue with a list of Google Services is presented for you to allow Thunderbird to access. This list includes email and perhaps other services like Calendar and Contacts as well. Click {button Continue} to finish the process and return to Thunderbird from your system web browser.
+## Thunderbird will begin downloading your existing messages.
+#;Having issues? Please follow our [[OAuth2 for Thunderbird|OAuth Troubleshoting Checklist]] before [http://support.mozilla.org/questions/new/thunderbird/form asking a support question] on our forums.
+# Review [https://support.google.com/mail/answer/78892#zippy=%2Cthunderbird Google’s recommended settings for Thunderbird] so that your local actions (such as labelling and deleting) correspond to those that Gmail takes and won’t cause any conflicts.
+
+For more detailed information, please refer to these guides:
+* [[Automatic Account Configuration]]
+* [https://support.google.com/mail/topic/7280141 Gmail’s support articles on email clients]
+=Gmail’s peculiarities=
+==Archiving messages==
+Gmail does not use a standard IMAP archive folder, unlike other mail providers that use an '''Archive''' folder (as described in the [[Archived Messages]] article). When you archive an email in Gmail, it simply removes the '''Inbox''' label while the email itself remains completely safe and searchable within your '''All Mail''' folder.
+
+To achieve parity with the way Gmail handles archiving messages, tick {button Keep messages in:} and then select '''Other''' under '''Message Archives''' like so:
+;[[Image:tb153-message-archives]] 
+==Subscribing to folders and synchronizing messages==
+===Understanding Gmail labels and Thunderbird folders===
+Gmail uses a special implementation of IMAP. Because of this implementation, Gmail labels become Thunderbird folders. When you apply a label to a message in the Gmail web interface, Thunderbird creates a folder with the same name as the label and stores the message in that folder. Similarly, if you move a message to a folder in Thunderbird, Gmail will create a label with the folder name and assign it to the message.
+
+If you copy a message to another folder, Gmail will still store only one message but apply both folder names as labels to it. Thunderbird, however, will have multiple copies of the message. 
+
+In Thunderbird, if you delete or move any copy of a message into the Trash, all labels are removed and it will no longer appear in any other folder.
+
+In the example shown below, the folders that exist at the same level as the top level (such as '''FOSS''') correspond to Gmail labels:
+;[[Image:tb153-folder-pane-with-gmail-foss-label]] 
+
+There is also a set of special subfolders for the '''top level Gmail''' folder:
+* '''All Mail''': Contains all of the messages in your Gmail account, including Sent and Archived. Any messages that you see in the Inbox will also appear in the top level''/All Mail'' folder.
+* '''Drafts''': Contains your drafts.
+* '''Sent''': Contains your sent items.
+* '''Spam''': Contains messages that were marked as Spam (either by Gmail or Thunderbird).
+* '''Starred''': Contains messages that were starred (either by Gmail or Thunderbird).
+* '''Trash''': Contains deleted messages.
+* '''Important''': Contains messages that Gmail has flagged as “important” (see [https://support.google.com/mail/answer/186531 Priority Inbox overview] for more details about this Gmail feature).
+
+===Subscribing to or unsubscribing from folders (labels)===
+You can configure which folder (and its messages) you want to display and download in Thunderbird by changing folder subscriptions. By default, all folders are displayed and downloaded as described above. To change folder subscriptions:
+# Right-click (control click on macOS) on your Gmail address (<code>nemo@thunderbird.net</code> for this example) and select {menu Subscribe…}
+# Uncheck any folders that you don’t want to download and display in Thunderbird and click {button OK}.
+#;[[Image:tb153-subscribe-folders]] 
+{note}'''Please note''': For performance and space reasons, it is recommended to unsubscribe from Gmail’s '''All Mail''' folder since you will have multiple copies of the message (one for each label in the folder for that label and one in '''All Mail'''). If you do unsubscribe from '''All Mail''', we recommend you use Gmail filters or Thunderbird filters to keep the emails you want and delete the rest. Otherwise, you will lose local offline access to messages that aren’t actively filtered into your '''Inbox''', '''Sent''', the folders for each label, or custom local folders.{/note}
+===Synchronizing folders (labels)===
+If you want to see all of your Gmail labels and messages in Thunderbird, but prefer to avoid the full content being downloaded to your system, you can tweak the synchronization settings to define which folder should be synchronized. If you don’t synchronize a folder, only the message header will be displayed in Thunderbird, but the actual message content will only be downloaded when you click on the message.
+
+To change how messages are downloaded, set synchronization options for the account and for individual folders (click the Thunderbird app menu {menu ☰} > {menu Account Settings…}). See [[IMAP Synchronization]] for more information.
+===Thunderbird’s message lists differ from the web interface===
+If some messages are appearing in your '''Inbox''' that shouldn’t be, or aren’t appearing but should be, you may need to select the ''Don’t override filters'' option under '''Inbox''' > '''Filtered mail''' in Gmail’s settings. The same can be achieved by turning off '''Smart features''' and '''personalisation''' in Gmail’s '''General'''settings.
+
+You can also change whether Gmail’s interface should group messages by conversation with the '''Conversation View''' option in Gmail’s '''General''' settings page, which can match your [[Message threading in Thunderbird - keep messages grouped by conversation|Thunderbird conversation grouping preference]].
+
+See this Gmail support article on [https://support.google.com/mail/answer/6562 how to change Gmail settings].
+=Useful Add-ons=
+* [https://addons.thunderbird.net/thunderbird/addon/google-4-tbsync/ Google-4-TbSync: Google contact and contact group sync]
+* [https://addons.thunderbird.net/thunderbird/addon/cardbook/ CardBook: Contact Manager, supports CardDAV4, including Google contact labels / groups]
+* If you want to sync your calendars between Thunderbird and Google, please read [[Using Thunderbird with Google Calendar]].
+* [https://addons.thunderbird.net/en-US/thunderbird/addon/gtrash/ GTrash] makes true deletion more convenient when using Google’s recommended deletion settings
+=See also=
+* [https://support.google.com/mail/answer/78892 Gmail’s support article on recommended settings].
+* [https://bugzilla.mozilla.org/show_bug.cgi?id=402793 This ticket, which tracks issues using Gmail with Thunderbird (Bug 402793)].

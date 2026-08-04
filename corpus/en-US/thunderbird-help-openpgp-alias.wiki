@@ -1,0 +1,11 @@
+<!-- This article is used as context-help, opened when clicking a learn-more link from inside Thunderbird's OpenPGP Key Assistant. Please keep the primary focus of the article. See also https://bugzilla.mozilla.org/show_bug.cgi?id=1773720 -->
+
+The Thunderbird OpenPGP Alias Keys feature is used for sending an encrypted email using a public key that does not contain (or does not match) the email address of a message recipient.
+
+For example, a correspondent might ask you to use a particular public key for sending them encrypted email, but that public key doesn't contain their email address. 
+
+Another example is a company that might have published a single public key for sending encrypted email to '''any''' employee of the company, and the public key doesn't contain any email address. When receiving an email that was encrypted with that key, the company might then decrypt the email, and then forward the decrypted email to the intended recipient. While this isn't complete End-To-End Encryption, at least the email will be encrypted while passing through the public Internet, until it arrives at the company's email server.
+
+Usually, Thunderbird refuses to use a key with a mismatching email address. By using the Alias Keys Feature, you can override Thunderbird's usual checks, and tell Thunderbird to use a public key anyway.
+
+The Alias Keys Features is an advanced configuration mechanism. At the time of writing this article, Thunderbird doesn't allow you to directly manage aliases. Instead, you must [/kb/openpgp-recipient-alias-configuration use an advanced configuration].

@@ -1,0 +1,48 @@
+If you cannot send messages, this page provides a series of steps you can follow to check for common problems. If you have problems receiving messages, see [[Cannot receive messages]].
+
+__TOC__
+
+{warning}
+= The problem suddenly started after updating to a new major version of Thunderbird? =
+If your existing configuration suddenly stopped working after updating Thunderbird to a new major version, it might be your Antivirus or Firewall blocking the new version, or your email provider using outdated TLS security protocols. See these sections below:
+* [[#w_verify-that-your-outgoing-email-is-not-being-blocked|Verify that your outgoing email is not being blocked]]
+* [[#w_verify-that-your-mail-server-supports-the-minimum-version-of-tls|Verify that your mail server supports the minimum version of TLS]]
+{/warning}
+
+= Verify your SMTP outgoing email settings =
+* In the Thunderbird menu bar, click the {menu {for win,mac}Tools{/for}{for linux}Edit{/for}} menu and select {menu Account Settings}, or click the Application menu button [[Image:New Fx Menu]] and select {for win}{menu Options}{/for}{for mac,linux}{menu Preferences}{/for} and {menu Account Settings} from the sub-menu, and select '''Outgoing Server (SMTP)''' from the bottom of the list in the left panel. Check that the settings are the same as documented in the article for your mail provider ([[Thunderbird and Gmail|Gmail]], [[Thunderbird and Yahoo|Yahoo]], [[Thunderbird and Comcast|Comcast]], [[Thunderbird and Hotmail|Hotmail]], [[Thunderbird and Sympatico|Sympatico]]…) '''OR'''
+* Look for an SMTP mail settings article on the mail provider's site. This is usually in the support section of their website; searching for “mail settings” or “SMTP” will usually find it. Check that your Thunderbird settings match the documented settings.
+
+[[Image:fbc7355532a508eb55186ebf7bbb1cd1-1277326689-659-1.jpg]]
+
+= Verify the correct SMTP Server is being used =
+* In the Thunderbird menu bar, click the {menu {for win,mac}Tools{/for}{for linux}Edit{/for}} menu and select {menu Account Settings}, or click the Application menu button [[Image:New Fx Menu]] and select {menu Account Settings}, and select the account name. Verify that you are using the right SMTP server for the email address. Most of the time, you cannot send messages from one account provider using another account provider's service. For example, you cannot send a mail from “joe@gmail.com” through Yahoo's SMTP server.
+
+[[Image:fbc7355532a508eb55186ebf7bbb1cd1-1277326770-967-1.jpg]]
+
+= Verify that your outgoing email is not being blocked =
+Verify that your outgoing email is not being blocked by your firewall, VPN, proxy, antivirus software (which sometimes implements a proxy and intercepts email) or your Internet Service Provider:
+* Try briefly turning both antivirus, VPN, proxy and firewall software off, sending a test email, and turning them on and sending another test email.
+{note}
+'''Note:''' Software blocking outgoing email is a common cause of not being able to send messages after updating Thunderbird, since it may be set to trust the previous version of Thunderbird but no longer recognize the updated version as trusted.
+* Remove Thunderbird from your program's list of trusted or recognized programs, then add it back manually or when prompted to resolve this.
+{/note}
+* Many ISPs block outgoing email on port 25. You may have to switch to another port (e.g. 587 or 465). Contact your ISP's support to see if they are blocking your outgoing email port.
+
+= Verify that your mail server supports the minimum version of TLS =
+As of [[Find what version of Thunderbird you are using|version]] 78, Thunderbird expects higher security standards for the so-called TLS network encryption protocol. If your provider does not support the newer versions of the protocol, sending and receiving of messages may fail. You can temporarily lower the bar to check if this is the reason for your problem (which obviously reduces security, so it's not recommended). More details and instructions here:
+
+[[Thunderbird 78 FAQ#w_after-upgrading-to-thunderbird-78-i-cannot-get-or-send-email-messages|Thunderbird 78 FAQ – After upgrading to Thunderbird 78, I cannot get or send email messages]]
+
+= Delete SMTP Password =
+Try [[Configuration Options for Security#w_view-or-delete-passwords-for-email-accounts|deleting your SMTP password]]. However, don't do this as a first step, especially if you cannot send messages after updating Thunderbird while you previously could. In such case, usually there is nothing wrong with a stored SMTP password in Thunderbird (see above).
+
+= Reset SMTP Password =
+Try changing your SMTP password. This is usually done via a “reset email password” form on your ISP's support website.
+
+= If this list doesn't help =
+Please [https://support.mozilla.org/questions/new/thunderbird create a ''new'' support request] with a screenshot of your SMTP settings with your user ID obscured, and include the following information: your mail provider (for example, Gmail), ISP (for example, Comcast), firewall version (if any), antivirus software and version (if any), operating system and version (for example, Windows 11 or macOS 14 Sonoma), and [[Find what version of Thunderbird you are using|Thunderbird version]] (for example, Thunderbird 115.6.0). For information on how to create a screenshot, see [[How do I create a screenshot of my problem?]]
+
+= More resources =
+*[http://kb.mozillazine.org/Cannot_send_mail MozillaZine's technical but very helpful knowledge base article on this topic]
+* [https://wiki.mozilla.org/Thunderbird:Testing:Antivirus_Related_Performance_Issues Thunderbird and antivirus related issues]

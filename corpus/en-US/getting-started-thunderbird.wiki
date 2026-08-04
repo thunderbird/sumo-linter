@@ -1,0 +1,45 @@
+[[T:TBMore]]
+__TOC__
+
+=What is an email client?=
+Web browsers are often used by people to manage their email, using '''webmail''' services such as Gmail.com or Outlook.com. It is convenient because you can access your email from almost any computer. If you are away from your computer, then you can easily check your email on somebody else’s computer using their web browser.
+
+An alternative to '''webmail''' is to use an '''email client program''' installed on your own computer. A program like [https://www.thunderbird.net/ Thunderbird] or Apple Mail or Outlook offers many advantages over using webmail in a browser. Thunderbird lets you organize email exactly how you want, you can read and search email when you are offline, and you can manage multiple email accounts (e.g. work and personal Gmail, and personal Outlook accounts) all in one place. Desktop email clients and web email clients can coexist side-by-side, so you can use more than one, and you can also use webmail.
+
+[https://www.thunderbird.net/ Thunderbird] is a feature-rich, reliable, and secure email client for managing your email. It's free and open source, and is used by many people around the world since 2004. Best of all, it runs on Windows, macOS, Linux, and [[Getting started with Thunderbird for Android|Android phones]]. You can connect to any email service that supports email protocols ''[[FAQ Changing IMAP to POP|POP]]'', ''[[IMAP Synchronization|IMAP]]'', ''SMTP'', and ''[[Thunderbird and Exchange|Exchange]]'', including ''Outlook'', ''Exchange'', ''Gmail'', ''Hotmail'', ''GMX'' and ''Fastmail''. 
+
+=Getting started=
+'''You must already have one or more email accounts existing from you mail provider(s).'''  Then:
+
+==Install Thunderbird==
+Install on [[Install Thunderbird on Windows|Windows]], [[Install Thunderbird on Linux|Linux]] or [[Install Thunderbird on Mac|macOS]]. On first startup of Thunderbird you will see an account configuration dialog.
+
+==Add your email accounts==
+[[Automatic Account Configuration|Add your existing email accounts to Thunderbird]]. For example, add your [[Thunderbird and Gmail|Gmail account(s)]], or add your Outlook, Hotmail, Office365 accounts using [[Microsoft OAuth Authentication and Thunderbird in 2024|OAuth]].
+
+==Configure Thunderbird as you see fit==
+* Perhaps you want [[Getting Started with the Thunderbird main window (Supernova and newer)#w_vertical-view-layout-with-card-view|Card View]]?  
+* Perhaps you want a [[Switching the folder pane view|Unified Inbox]]? There are many  possibilities. Please feel free to experiment in order to find your optimal setup.
+
+==Check out the powerful features that an email client offers==
+* Use the [[Quick Filter Toolbar]] to search a single account as you type. 
+* Or use [[Global Search]] to search across multiple accounts.
+* [[Organize your messages with filters|Organize your messages using filters]].
+* [[Create new calendars|Multiple calendar accounts]] all in one place.
+* [[Advanced panel - System, network, updates, and other advanced settings in Thunderbird|Offline]] mode for reading emails and composing drafts while not connected to the internet.
+
+=For beginners and experts alike: Backups, the main window and more=
+* Please back up your Thunderbird data periodically. See: [[Export your Thunderbird Profile]].
+* There are a lot of features in Thunderbird's main window that might improve your workflow. Full details: [[Getting Started with the Thunderbird main window (Supernova and newer)]].
+
+=I'm not a beginner! What's changed?=
+Not new to Thunderbird? Perhaps checking it out after a few years? Then the following articles should be helpful in resuming your journey with Thunderbird:
+* [[New in Thunderbird Desktop|Thunderbird 140 Nebula, and newer]]
+* [[New in Thunderbird 128 Nebula]], [[Thunderbird 128 Nebula FAQ]]
+* [[Getting Started with the Thunderbird main window (Supernova and newer)]]
+* [[New in Thunderbird 115 Supernova]], [[Thunderbird 115 Supernova FAQ]]
+
+=Need support? Got a Feature Request? Want to contribute to Thunderbird or Mozilla?=
+* If the [https://support.mozilla.org/products/thunderbird Thunderbird support articles for Thunderbird] don't solve your problem and you need support please [https://support.mozilla.org/questions/new/thunderbird ask a question on our Thunderbird Forum].
+* Please suggest feature requests and other improvements on [https://connect.mozilla.org/ Mozilla Connect].
+* Our community of Thunderbird volunteers answers support questions, localizes, and contributes software patches. [https://www.thunderbird.net/participate/ You can Join Us!]

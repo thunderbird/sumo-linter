@@ -1,0 +1,112 @@
+__TOC__
+
+=What are Saved Searches?=
+A Saved Search is a special folder which shows a selection of messages which match your pre-defined search criteria. Saved Searches are a great way of saving time because instead of typing or recreating your most frequent searches again and again, you can just get immediate live results by looking at your Saved Search folder.
+;[[Image:TB102-saved-search-folder-message-list]]
+When you create a Saved Search, you can choose criteria such as email addresses, subject words, tags or dates. You can even choose different source folders from several accounts. Thunderbird then creates a folder which shows only matching messages. Actions on the messages shown in a Saved Search folder will apply directly to your original messages in the source folders. New matching messages from the specified source folders will automatically be shown in the Saved Search folder. 
+
+For example, you may want to view all messages from your high-school friends in their own folder named “Highschool”. Just add their email addresses to a Saved Search and their messages will automatically show up in the “Highschool” folder as they arrive. Yet the same messages will also still be shown in the source folders like your Inbox.
+{warning}'''NOTE''': Saved Searches display the ''actual'' matching messages of the source folders, ''not copies'' of those messages. '''Deleting messages in a Saved Search folder will remove them from Thunderbird entirely and normally also from the server of your email provider'''. However, deleting the Saved Search ''folder itself'' from the folder list will ''not'' remove the original messages it was displaying. So you can delete any Saved Searches you no longer need without having to worry about losing your messages.{/warning}
+
+=How to create a Saved Search folder=
+# First, highlight the desired account in the folder pane. 
+# Then, from the {menu File} menu, click {menu New}, and then {menu Saved Search} from the sub-menu. The '''New Saved Search Folder''' dialog appears.<br><br>[[Image:TB102-new-saved-search-folder-jane]]
+# Change the '''Name''' for your Saved Search as you want to have it in the folder list. The folder that was selected when you opened the '''New Saved Search Folder''' dialog in step 1 will be displayed as the default name and location.
+# Click the '''Create as a subfolder of''' dropdown if you wish to change the parent folder.
+# To select the folders to search, click the {button Choose} button. A dialog will be displayed that contains a hierarchical view of all the folders in all of your accounts. Select the check box next to each folder you wish to include in the search.<br><br>[[Image:TB102-saved-search-folder-select-folders]]{note}'''Tip''': If you want to include a number of folders that are next to each other in the list, click on the row of the first folder (not in the check box), then press {key Shift} and click on the last folder. Then press the {key Spacebar} to select the check box of all the highlighted folders (pressing {key Spacebar} again will clear the check boxes).<br><br>'''Note''': You can include as many folders as you like in your saved search, but each folder you add will cause the search to take longer. Only select the folders that you need.{/note}
+# If your messages are not stored on your local system for offline access (for example, if they are stored on a central IMAP server), check {button Search Online}. This is only necessary if you are filtering based on the body of the message, as addresses and the subject line are stored locally even if you leave the message body on the server.{note}'''TIP''': In most cases, searching online is unnecessary and will slow your search down. An offline search is conducted locally on your computer, while an online search uses your mail server to do the search. Offline searches are much faster and Thunderbird's auto-sync mechanism automatically keeps your folders up-to-date.{/note}
+
+=How to set the search criteria=
+#Choose one of three search modes:
+#* Match all of the following: This creates an "and" query where all of the listed rules must apply for the message to be shown in the folder. 
+#* Match any of the following: This creates an "or" query where if any of the listed rules match a message, then the message will be shown in the folder.
+#* Match all messages: This means you have no search criteria and are just using the saved search to combine the contents of multiple folders and display them as a single folder.
+#Choose your criteria.<br>The filter criteria, also known as "rules", are each made up of three parts:
+#* A property, for example “From”
+#* A test, for example “Contains”
+#* A value, for example “HighSchoolDude@example.com” 
+;This example matches messages from “HighSchoolDude@example.com”. 
+;The tests and values will vary depending on the property you select.
+
+=Example searches=
+Saved searches are especially useful if you regularly receive a large number of messages, and have an ongoing need to quickly pick out those of special interest.
+* '''Example 1''': You regularly receive messages from workplace colleagues that include important work-related documents as attachments. You could create this search:
+;[[Image:attachments example for saved searches]] 
+Your new saved search folder “Unread work attachments” will show all messages that are unread, have attachments, and were sent from the "MyWorkplace" domain. All future messages meeting all three criteria will show up in your new folder as well.
+* '''Example 2''': You like to filter out lower-priority messages to reduce clutter. For example you may have chosen to receive notifications from businesses you patronize, but like to quickly read and dispose of those messages. You could create a saved search like this:
+;[[Image:promotions example for saved searches]] 
+Your new saved search folder “Promotional Stuff” will show any messages that are from the address “sales@software.biz”, OR have “discount” in the subject line, OR have the word “customer” somewhere in the address or display name (“customer.service”, “Customer Support” etc.) After a quick read you can then delete those messages individually.
+
+=Properties=
+The most commonly used properties are described below.
+;[[Image:Properties dropdown for saved searches]] 
+The following properties refer to the email message “headers” (as opposed to content in the body of the message):
+* From 
+* To
+* Cc 
+* To or Cc
+* From, To, Cc or Bcc
+The sender and recipient properties can contain one or more email addresses, and sometimes also a display name. In the example "John Doe" <johndoe@example.com>, "John Doe" is the display name, and "johndoe@example.com" is the email address. When you enter the value for the search, Thunderbird will search for the value in both the display name and the email address. For example,  if your filter is: 
+;{pref From | Is | "johndoe@example.com"}
+Thunderbird checks if the display name "John Doe" is the same as "johndoe@example.com" (which fails) and also if the email address is the same as "johndoe@example.com" (which succeeds).
+{note}'''TIP''': Using the email address in a filter is more accurate than using the display name. The author of the email provides the display name, and sometimes the display name will be omitted or different from the address.{/note} 
+Searches are case-insensitive, so capitalization does not matter. If the sender of the message used "JohnDoe@Example.com", it would still succeed when compared with our test value of "johndoe@example.com". Searches on display names are also case-insensitive.
+{note}'''TIP''': In addition to checking messages for specific individuals, you can also use this filter to see if people involved in the message list are in your address book or not. Use the “is in my address book” / “is not in my address book” for the test, then specify an address book as the value. If you create a custom address book with relevant names, you can use this to specify a group of people in a saved search without adding them individually.{/note}
+
+'''Tags'''
+
+Tags are used to mark messages with a special designation and highlight color. Thunderbird provides the tags '''Important''', '''Work''', '''Personal''', '''To Do''', and '''Later''', as well as the ability to create custom tags.
+
+{pref Contains}: Succeeds if the tag is present on the message.
+
+{pref Doesn't Contain}: Succeeds as long as the tag is not present on the message.
+
+{pref Is}: Succeeds if the message has only the specified tag present. So if your filter is {pref Tag | Is | Important}, a message tagged with "Important" and "Work" would not match until the "Work" tag is removed.
+
+{pref Isn’t}: Fails if the message has only the specified tag present. So if your filter is {pref Tag | Isn’t | Important}, then a message tagged with "Important" and "Work" would match until the "Work" tag is removed, at which point it would fail to match.
+
+{pref IsEmpty}: Succeeds if the message has no tags applied.
+
+{pref Isn’tEmpty}: Succeeds if the message has any tags applied.
+{note}'''NOTE''': Starred and unstarred messages are checked by adding the filter {pref Status | Is (or Isn't) | Starred}.{/note}
+
+'''Subject'''
+
+This lets you check the subject of a message. It will include the "Re: " prefix if one is present, but ignores capitalization.
+
+'''Body'''
+
+This lets you check for the presence of a word or phrase in the message body. These searches are subject to some important limitations:
+* Saved searches do not support “word stemming,” the functionality that removes or transforms suffixes so that different variations of a word will all match. For example, "runner", "runs", and "running" all stem to the same root (“run”), but in saved searches only the specified word will match. (Thunderbird’s Global Search supports stemming.)
+* Saved searches will not search across line breaks in the message. For example, if you want to search for the phrase "let's party!", it will only match as long as the complete phrase appears in a single line of the message.
+* Searching the body of a message can be time-consuming. Thunderbird has to read the contents of a message from the hard drive. 
+
+'''Date and Age in Days'''
+
+The {pref Date} property lets you check the date of the message (as provided by the author of the message, not when you received it) against a specific date you provide as the value.
+
+The {pref Age in Days} property lets you check the age of the message (using the date provided by the author of the message, not when you received it). The age is always calculated using the instant the message is checked for a match.
+
+'''Attachment Status'''
+
+The {pref Attachment Status} property lets you check whether messages have attachments (by using {pref Is | Has Attachments}) or have no attachments (by using {pref Isn’t | Has Attachments}) . 
+{note}'''NOTE''': If your saved search includes messages that are stored on a remote server, as opposed to your local system, Thunderbird may not be entirely accurate with this analysis. The software does not know specific details about messages until the messages are downloaded, which occurs when you click on a message.{/note}
+
+'''Tests and values'''
+
+{pref Is / isn't}: Checks if either the display name or email address match the value provided in the filter, ignoring differences in capitalization. Use this to match specific email addresses.
+
+{pref Is in my address book / isn't in my address book}: Use this to match multiple email addresses, and possibly as a shorthand for people whose messages are important to you. For the value, choose between Personal Address Book and Collected Addresses: 
+* Personal Address Book is made up of addresses which are added when you click the star next to the sender’s name in the message reader.
+* Collected Addresses is made up of all the people you have sent messages to on the computer you’re currently using. Thunderbird maintains this list automatically.
+{note}'''NOTE''': On Mac OS X, the system address book may also be present.{/note}
+{pref Ends with}: Checks if the display name or email address ends with the provided value, ignoring differences in capitalization. You might use this with something like "@example.com" to match all the email addresses from a single domain.
+
+{pref Begins with}: Checks if the display name or email addres starts with the provided value, ignoring difference in capitalization. You might use this with something like "webmaster@" to match emails to webmasters across multiple domains.
+
+{pref Contains / doesn't contain}: Checks if the provided value can be found anywhere in the display name or email address, ignoring differences in capitalization. Use this test cautiously because it can often match things you don't actually want it to match. Consider using "is" or "ends with" instead. 
+
+=Related articles=
+* [[Global Search]]
+* [[Open Search]]
+* [[Quick Filter Toolbar]]

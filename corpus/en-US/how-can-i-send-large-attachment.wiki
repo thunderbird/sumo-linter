@@ -1,0 +1,78 @@
+Sometimes you need to send a large amount of data as a message attachment (for example, a collection of high resolution photos, or a project on which you are working). Mail servers (both yours and the message recipient) usually have a restriction of the size of attachments that they will allow. The maximum allowable size varies from server to server, according to their individual configuration. For example, Comcast's maximum size for binary attachments is around 10.9 MB, while Gmail allows attachments up to 25 MB.
+
+If you exceed the server limit, you will get an error message like this:
+
+{warning}The size of the message you are trying to send exceeds the global size limit (XX&nbsp;XXX&nbsp;XXX bytes) of the server. The message was not sent, try to reduce the message size and try again.{/warning} where XX&nbsp;XXX&nbsp;XXX is the maximum file size that you can send.
+
+In addition to server restrictions, however, you must also consider how long it takes for the message to be uploaded from your computer to the server and then downloaded from the server to the message recipient. A message with a large attachment will take a long time to upload and download and may block other operations while it is being handled.
+
+In general, it is best to minimize the size of your attachment(s). If that is not possible, you can upload attachments to an external storage service rather than attaching them to messages.
+
+Follow these guidelines and tips if you need to send large attachments:
+
+__TOC__
+
+=Check the size of your attachment(s) while composing=
+
+When you add attachments to a message, watch the total size of your attachment(s). The total size of each attachment and the sum of all attachments is displayed in the attachment panel as shown below:
+
+;[[Image:attachment size 2]]
+
+Legend:
+#Total number of attachments
+#Total size of attachment
+#Size of each individual attachment
+
+{note}You need to use Thunderbird 5 (or above) to see attachment size.{/note}
+
+=Reduce the size of attachments=
+
+==Resize and compress images==
+High resolution pictures take a lot of disk space. Therefore, it is better to send a low resolution version of a photo instead of the original.
+
+There are several ways to do this:
+
+* Use a photo manager to send photos, which will usually have an option to resize before sending. Most operating systems include a photo manager, and there are many photo management tools available for free download.
+* On Windows, select images using Windows Explorer and choose "Send to". Windows will automatically offer to compress the pictures.
+* Install one of several Thunderbird add-ons that will automatically resize images:
+**[https://addons.mozilla.org/thunderbird/addon/auto-resize-image/ Auto Resize Image]
+**[https://addons.mozilla.org/thunderbird/addon/shrunked-image-resizer/ Shrunked Image Resizer]
+{for linux}
+* Install [http://www.bitron.ch/software/nautilus-image-converter.php Nautilus Image Converter] to resize your picture directly in Nautilus.
+{/for}
+
+==Compress (zip) your data==
+
+For binary files that are '''not images''' (such as text documents or spreadsheets), you can "zip" files that you attach to your message ("Zip" is a common data compression and archive format. Files that have been zipped have a ".zip" extension).
+
+This can be done either:
+
+* manually with one of the many free zip tools available for all operating systems.
+* automatically with the help of the [https://addons.mozilla.org/thunderbird/addon/auto-compress-file/ Auto Compress File] add-on.
+
+{note}While you can zip image files, it usually doesn't reduce the file size very much. Therefore zipping image files is generally not useful.{/note}
+
+=Use an external storage service=
+
+There are several websites that provide online file storage. You can upload your files to these sites and enable other people to download them. Rather than sending a file attached to a message, you can simply send a message that includes a link to the file which the recipients can download at their convenience.
+
+You should carefully read the terms, conditions, and privacy statement of the file sharing service before you use it.
+
+==Photos sharing service==
+
+If you want to share pictures or videos only, you can use one of several photo sharing services (such as [http://www.flickr.com/ Flickr], [https://photos.google.com/ Google Photos], [http://www.facebook.com/ Facebook], etc.).
+
+==Online file storing and sharing service==
+
+These services are primarily used to store data on the internet. However, they can also be used to share your data, as the files can be accessed via a URL.
+
+*[http://www.dropbox.com/ Dropbox]
+
+{note}'''Tip:''' The Filelink feature makes it easier to upload and share files through the online storage service of your choice. See [[Filelink for Large Attachments]] for more details on how to set it up.{/note}
+
+==Online file sharing service==
+
+There are several websites that act as a mail proxy and allow you to transfer files via a browser. You specify the recipient, file name and your address.
+
+*[http://www.yousendit.com/ YouSendIt]
+*[http://www.sendthisfile.com/ SendThisFile]

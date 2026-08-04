@@ -1,0 +1,61 @@
+With Thunderbird, it's possible to have multiple calendars. During email account setup, your existing online calendars can be automatically detected. Or you can set up new calendars in Calendar Mode or Task Mode.
+
+__TOC__
+
+= Connect to your online calendars during email account setup =
+
+[[Image: TB91-account-setup-sucessfully-created-connect-linked-services]]
+
+After setting up your existing email address with convenient auto-configuration, Thunderbird will now automatically detect your remote address books and calendars based on the user information you provided.
+
+When adding a Google mail account to Thunderbird, you can easily add your existing Google calendars and address book (see [https://thunderbird.topicbox.com/groups/beta/T9886a223d58b7aad-M09757bc2dee271bf7d29580b Notes]).
+
+{note}'''Note:''' If one of your Google calendars is not found or not accessible, it might not be set up for syncing. You can choose which calendars Google will expose in your [https://calendar.google.com/calendar/u/0/syncselect Google Calendar Sync Settings]. Unfortunately, Google does not support tasks through CalDAV.
+{/note}
+
+= Creating a new calendar =
+From the Calendar Tab (not the sidebar):
+* [[T:contextmenu]] in the calendar list on the left side of the screen.
+* Choose {menu New Calendar…} from the context menu.
+* Alternatively, you can use {button ≡} > {menu New} > {menu Calendar…}, or {menu File} >  {menu New } > {menu Calendar…}.
+
+Now you need to choose whether you want to create the calendar "on your computer" or "on the network".
+
+== On your computer - local calendars ==
+When choosing "On my computer", you can only use the calendar on the computer you're working at. All the data is stored inside an internal database (the file local.sqlite in your Thunderbird profile).
+
+* Choose '''On my computer''' and click {for win,linux}{button Next}{/for}{for mac}{button Continue}{/for}.
+* Enter a name for your calendar and choose a color, then click {button Create Calendar}.
+
+== On the Network - connect to your online calendars ==
+When choosing "On the Network", your calendar files may reside on general webservers (read-only), on WebDAV or CalDAV servers, on the local filesystem or a network share, or you could use your Google calendars.
+
+* Choose '''On the Network''' and click {for win,linux}{button Next}{/for}{for mac}{button Continue}{/for}.
+
+[[Image: TB91-create-new-calendar-username-location-gmail]]
+
+# Enter your username, for example your email address on Gmail.
+# Enter the calendar URL in the Location field. Thunderbird recognizes a variety of calendar URLs.
+# If applicable, check '''This location doesn't require credentials'''.
+# '''Offline Support''' is checked by default, so that you can also use your calendar when you are offline.
+# Click on {button Find Calendars}.
+
+In the next step, Thunderbird will show you a selection of available calendars.
+
+[[Image: TB91-create-new-calendar-select-calendars-gmail]]
+
+* You can change the properties of each calendar, for example its name and color, using the {button Properties} button.
+* Check the calendars you want, and click on {button Subscribe}.
+
+=== Finding the link to your Google calendar ===
+# Go to your Google calendar on the browser, click the Options menu (3 points) next to the name of the calendar you wish to subscribe to and click on {menu Settings and sharing}.
+
+[[Image:Google Calendar Settings and Sharing]] 
+
+# Find and copy a link to your calendar.
+#* In the '''Access permissions for events''' section, click on '''Get shareable link''' and copy the link.
+#* Alternatively, you can use ICS format: In the '''Integrate calendar''' section, select and copy the link under ''Public address in iCal format'' or ''Secret address in iCal format''.
+# Paste this link into the Location field of the ''Create New Calendar'' dialog box.
+
+=== iCalendar (ICS) ===
+You're able to subscribe to calendars provided by third parties, mostly in ics format. These are almost always read-only; you won't be able to change anything for the calendars. An example of this kind of calendar are the [https://www.thunderbird.net/calendar/holidays/ holiday calendars provided by Thunderbird].

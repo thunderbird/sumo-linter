@@ -1,0 +1,22 @@
+Thunderbird provides the ability to archive messages - that is, to move messages from their current folder into a dedicated archive folder. This makes it easy to keep the Inbox and other folders clean. The archive can reside either in your account's mailbox (in the case of imap accounts, this includes on the mail server), or in a local folder. Using a local folder will help you from reaching your mail server's quota limit. Archived messages are still indexed by Thunderbird's search.
+
+__TOC__
+
+=How do I archive my messages?=
+Messages can only be archived manually, not automatically. To archive one or more messages, select the desired messages and then click on the {button Archive} button, or simply press {key A} on your [[Keyboard Shortcuts TB|keyboard]].  It is recommended that you not select more than 2,000 messages at a time.
+
+[[Image:tb archive mail]]
+
+=How do I configure archiving?=
+==Configure archive location==
+The location of archived messages is configured individually for each email account. Click the Thunderbird menu button [[T:appmenu TB]] and choose {menu Account Settings}. On the accounts pane, click '''Copies & Folders''' under the desired email account in the left panel. In the '''Message Archives''' section, use the settings in '''Keep message archives in''' to set the location of the archive (either in your account's mailbox or in a local folder) or to disable the feature altogether.
+
+[[Image:tb archive folder setting]] 
+
+{note}A change of the location will only have an effect on messages that get archived subsequently, but you can archive messages within an old archive folder again, to easily move them to the newly set location.{/note}
+
+==Configure archive folder structure==
+You can define the structure of the archive folder by clicking the {button Archive options...} button in the '''Message Archives''' section. There you can choose if you want to keep all your archived messages within a single folder, or file them into yearly or monthly subfolders. It's also possible to keep the original folder structure of your messages when they get archived.
+
+==Multiple identities per account==
+If you have set up additional [[Using Identities|identities]] for an email account, the archiving location and folder structure can be configured separately for each identity.

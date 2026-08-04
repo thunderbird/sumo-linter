@@ -1,0 +1,137 @@
+This article explains the settings available in the Advanced panel of the Thunderbird {for win}Options{/for}{for mac,linux}Preferences{/for} window. These are settings that aren't used often, such as proxy settings or various advanced settings that only some people need.
+
+__TOC__
+
+=General tab=
+{for win}[[Image:tb45-advanced-general-win10]]{/for}
+{for mac}[[Image:tb45-advanced-general-mac]]{/for}
+{for linux}[[Image:tb45-advanced-general-linux]]{/for}
+
+== Return Receipts ==
+A return receipt adds a request with your message to notify you when the recipient has opened the message.
+
+== Return Receipts Dialog ==
+{for win}[[Image:tb45-advanced-general-rr-win10]]{/for}
+{for mac}[[Image:tb45-advanced-general-rr-mac]]{/for}
+{for linux}[[Image:tb45-advanced-general-rr-linux]]{/for}
+
+* '''When sending messages, always request a return receipt''': Check mark this setting to make Thunderbird automatically request a return receipt on every message you send.
+When receipt arrives:
+* '''Leave it in my Inbox''': Return receipts arrive through email. Select this {for win}option{/for}{for mac,linux}preference{/for} to leave return receipts in your Inbox email folder.
+* '''Move it to my "Sent" folder''': Select this {for win}option{/for}{for mac,linux}preference{/for} to make Thunderbird automatically move return receipts to your "Sent" email folder.
+When I receive a request for a return receipt:
+* '''Never send a return receipt''': If someone sends you a message that contains a request for a return receipt, select this {for win}option{/for}{for mac,linux}preference{/for} to make Thunderbird always ignore the request. 
+* '''Allow return receipts for some messages''': For each of these cases, you can set Thunderbird to always send a receipt, ignore the request, or choose '''Ask me''', which will make Thunderbird display a prompt when you open the message.
+
+==Scrolling==
+* '''Use autoscrolling''': Autoscrolling is a useful feature which allows you to scroll by clicking the middle mouse button (usually the scroll wheel) and moving the mouse up or down. Some people find this annoying, so autoscrolling can be disabled with this {for win}option{/for}{for mac,linux}preference{/for}.
+
+* '''Use smooth scrolling''': Smooth scrolling can be very useful if you read a lot of long messages. Normally, when you press {key Page Down}, the view jumps directly down one page. With smooth scrolling, it slides down smoothly, so you can see how much it scrolls. This makes it easier to resume reading from where you were before.
+
+== System Integration ==
+* '''Always check to see if Thunderbird is the default mail client on startup''': Select this setting if you want Thunderbird to check whether it is the default mail client at startup. Making Thunderbird your default mail client will ensure Thunderbird is used whenever an application has the option to send mail. For more information, see [[Make Thunderbird the Default Mail Client]].
+{for win}
+* '''Allow Windows Search to search messages''': Select this option to allow Windows' built-in search to index your Thunderbird messages. Once indexed, your Thunderbird messages will be included in search results when you use the Windows Search feature.
+{/for}
+{for mac}
+* '''Allow Spotlight to search messages''': Select this preference to allow Spotlight to index your Thunderbird messages. Once indexed, your Thunderbird messages will be included in Spotlight search results.
+{/for}
+
+== Advanced Configuration ==
+* '''Enable Global Search and Indexer''': This enables Thunderbird's built-in search feature, which allows you to search among all messages you have in Thunderbird. For more information, see [[Global Search]].
+* '''Message Store Type for new accounts''': By default, Thunderbird stores mail folders locally in single files (For example, there's a file called ''Inbox''). You can make new accounts store each message in its own file. For more information, see [[Maildir in Thunderbird]].
+*'''Use hardware acceleration when available''': Thunderbird can use your computer's graphics processor to display some messages with video and animation. This makes Thunderbird faster since your computer's graphics processor is much better than your computer's main processor at displaying these types of things. This box is checked by default but the feature isn't available for all graphics processors. Thunderbird will enable it when possible.{note}If you change this setting you must restart Thunderbird.{/note}
+* '''Config Editor''': The Config Editor lists all {for win}options{/for}{for mac,linux}preferences{/for} that Thunderbird has loaded. Many of them are advanced {for win}options{/for}{for mac,linux}preferences{/for}, that are not available in the {for win}Options{/for}{for mac,linux}Preferences{/for} window or Account Settings window. In the Config Editor, you can view, edit, and reset those {for win}options{/for}{for mac,linux}preferences{/for}. For more information, see [[Config Editor]].
+
+=Data Choices tab=
+{for win}[[Image:tb45-advanced-data-win10]]{/for}
+{for mac}[[Image:tb45-advanced-data-mac]]{/for}
+{for linux}[[Image:tb45-advanced-data-linux]]{/for}
+
+== Telemetry ==
+*'''Enable Telemetry''': Enabling this setting will send anonymous data ([[Share telemetry data with Mozilla to help improve Firefox|learn more]]) to Mozilla about the real world performance of Thunderbird. This information will be used to make Thunderbird better.
+== Crash Reporter ==
+* '''Enable Crash Reporter''': If Thunderbird crashes, the [[Mozilla Crash Reporter TB|Mozilla Crash Reporter]] will appear, asking you if you want to report the crash to Mozilla. With this box check marked, the ''Tell Mozilla about this crash so they can fix it'' check box in the crash reporter will default to being check marked.
+
+= Network & Disk Space tab =
+{for win}[[Image:tb45-advanced-network-win10]]{/for}
+{for mac}[[Image:tb45-advanced-network-mac]]{/for}
+{for linux}[[Image:tb45-advanced-network-linux]]{/for}
+
+== Connection ==
+Your organization or Internet service provider may offer or require you to use a proxy. A proxy acts as an intermediary between your computer and the Internet. It intercepts all requests to the Internet to see if it can fulfill the request using its cache. Proxies are used to improve performance, filter requests, and hide your computer from the Internet to improve security. Proxies are often part of corporate firewalls.
+
+== Connection Settings Dialog ==
+{for win}[[Image:tb45-advanced-network-proxy-win10]]{/for}
+{for mac}[[Image:tb45-advanced-network-proxy-mac]]{/for}
+{for linux}[[Image:tb45-advanced-network-proxy-linux]]{/for}
+
+* '''No proxy''':  Choose this if you don't want to use a proxy.
+* '''Auto-detect proxy settings for this network''': Choose this if you want Thunderbird to automatically detect the proxy settings for your network.
+* '''Use system proxy settings''':  Choose this if you want to use the proxy settings configured for your operating system. ''(default setting)''
+* '''Manual proxy configuration''': Choose this if you have a list of one or more proxy servers. Ask your system administrator for the configuration information. Each proxy requires a hostname and a port number.
+** If the same proxy name and port number are used for all protocols, check '''Use this proxy server for all protocols'''.
+** '''No Proxy For''': List of hostnames or IP addresses that will not be proxied.
+* '''Automatic proxy configuration URL''': Choose this if you have a [http://en.wikipedia.org/wiki/Proxy_auto-config proxy configuration] (.pac) file. Enter the URL and click {button OK} to save changes and load the proxy configuration.
+** {button Reload}: The reload button will load the currently available proxy configuration.
+
+==Offline==
+These settings control how Thunderbird behaves when your computer is not connected to the internet. For example, Thunderbird will not check for new messages, or try to download messages when you select them. When composing a message, the Send button will become "Send Later" and Thunderbird will put your outgoing message in the Outbox, instead of trying to send it.
+
+== Offline Settings Dialog ==
+{for win}[[Image:tb45-advanced-network-offline-win10]]{/for}
+{for mac}[[Image:tb45-advanced-network-offline-mac]]{/for}
+{for linux}[[Image:tb45-advanced-network-offline-linux]]{/for}
+
+* '''Automatically follow detected online state''': Thunderbird will check if your computer is not connected to the internet. If it is not connected, Thunderbird will switch to offline mode. When a connection is detected, Thunderbird will switch to online mode.
+* '''Manual state when starting up''': If ''Automatically follow detected online state'' is not enabled, this will determine how Thunderbird decides if it should be in offline mode when you start it. Setting this to ''Offline'' will make Thunderbird always start in offline mode. Setting this to ''Online'' will make Thunderbird always start in online mode. ''Ask me for online state'' will make Thunderbird always prompt you which mode to choose.  ''Remember previous online state'' will make Thunderbird open in the mode it was set at when you last closed it.
+* '''Send unsent messages when going online''': If you have any messages in your Outbox, setting this to ''Yes'' will make Thunderbird automatically send those messages when you switch to online mode. When set to ''No'', messages in your Outbox will not be sent. Setting this to ''Ask me'' will make Thunderbird prompt you to send messages in your Outbox when you switch to online mode.
+* '''Download messages for offline use when going offline''': If you have any offline folders set to keep a copy of every message on your computer, setting this to ''Yes'' will make Thunderbird automatically download any messages in those folders you don't have stored locally when you switch to offline mode. When set to ''No'', local copies of messages will not be synced. Setting this to ''Ask me'' will make Thunderbird prompt you to download new messages from online folders when you switch to offline mode.
+
+==Disk space==
+Messages you view, which are not kept on your computer, are normally stored in a special cache folder for quicker viewing the next time you view the message. You can specify the amount of disk space the cache can use here. You can also immediately clear the contents of the cache.
+* {button Clear Now}: Immediately clears the current contents of the cache, freeing the disk space used by the cache.
+* '''Use up to ___MB of space for the cache''': This box allows you to specify the maximum size, in megabytes, of the cache on your computer.
+* '''Compact all folders when it will save over ___MB in total''': When a message is deleted, Thunderbird will keep it stored, and mark it as deleted so you won't see it. Compacting a folder removes any messages from storage that have been marked as deleted. This will make message lists load faster, and take up less disk space. Checking this box allows you to specify the maximum size, in megabytes, of the folder before Thunderbird will automatically compact it.
+
+= Update tab =
+{for win}[[Image:tb45-advanced-update-win10]]{/for}
+{for mac}[[Image:tb45-advanced-update-mac]]{/for}
+{for linux}[[Image:tb45-advanced-update-linux]]{/for}
+
+{for win}
+<!-- ==Thunderbird updates== -->
+*'''Automatically install updates (recommended: improved security)''': Thunderbird automatically downloads and installs found updates.
+** '''Warn me if this will disable any of my add-ons:''' If you wish to be prompted if the downloads will disable any installed add-ons, select that setting.
+*'''Check for updates, but let me choose whether to install them:''' Thunderbird lets you choose if you want to download and install updates. If you do not choose to do so, you can download them at a later time.
+*'''Never check for updates (not recommended: security risk):''' Thunderbird will not check for updates. {warning}'''Warning:''' If you select this setting, you will not receive critical security updates that may keep you safe online unless you frequently do a manual check for updates.{/warning}
+* To review the history of updates that have been downloaded and installed, click {button Show Update History}.
+*'''Use a background service to install updates:''' Thunderbird will use the [[What is the Mozilla Maintenance Service?|Mozilla Maintenance Service]] when installing updates. This will remove the need to authorize Thunderbird to make changes to your computer through the User Account Control dialog in Windows 7 and Vista.
+{note}'''Note:''' You must be running Thunderbird as an administrator or as the user who originally installed Thunderbird to install Thunderbird updates.{/note}
+{/for}
+{for mac,linux}
+{for linux}{note}Note: Thunderbird update options may be absent if updates are controlled by your Linux [https://wikipedia.org/wiki/Package_manager package manager]. {/note}{/for}
+
+<!-- ==Thunderbird updates== -->
+*'''Automatically install updates (recommended: improved security)''': Thunderbird automatically downloads and installs found updates.
+** '''Warn me if this will disable any of my add-ons:''' If you wish to be prompted if the downloads will disable any installed add-ons, select that setting.
+*'''Check for updates, but let me choose whether to install them:''' Thunderbird lets you choose if you want to download and install updates. If you do not choose to do so, you can download them at a later time.
+*'''Never check for updates (not recommended: security risk):''' Thunderbird will not check for updates. {warning}'''Warning:''' If you select this setting, you will not receive critical security updates that may keep you safe online unless you frequently do a manual check for updates.{/warning}
+* To review the history of updates that have been downloaded and installed, click {button Show Update History}.
+{for mac}{note}'''Note:''' You must be running Thunderbird as an admin or as the user who originally installed Thunderbird to install Thunderbird updates.{/note}{/for}{for linux}{note}'''Note:''' You must be running Thunderbird as root or as the user who originally installed Thunderbird to install Thunderbird updates.{/note}{/for}
+{/for}
+
+= Certificates tab =
+{for win}[[Image:tb45-advanced-certs-win10]]{/for}
+{for mac}[[Image:tb45-advanced-certs-mac]]{/for}
+{for linux}[[Image:tb45-advanced-certs-linux]]{/for}
+
+[http://en.wikipedia.org/wiki/Public_key_certificate Certificates] help perform encryption and decryption of connections to websites.
+
+* '''When a server requests my personal certificate:''' Some servers ask you to identify yourself with a personal certificate. In order to do so, they ask Thunderbird to generate one for you. When you access a server in the future, Thunderbird will ask you for which certificate to use. If you wish to have Thunderbird automatically choose a certificate for you, select the '''Select one automatically''' {for win}option{/for}{for mac,linux}preference{/for}. {note}'''Note:''' A personal certificate can contain personally identifiable information, such as your name or address. It may therefore harm your privacy if you select the '''Select one automatically''' {for win}option{/for}{for mac,linux}preference{/for}. If you do, you will not be alerted when a website request your personal certificate, and you may lose the ability to control who can access your personal information.{/note}
+
+* '''Query OCSP responder servers to confirm the current validity of certificates''': Thunderbird may ask an OCSP (Online Certificate Status Protocol) server to confirm that a certificate is still valid. By default, Thunderbird validates a certificate if the certificate provides an OCSP server. You will most likely only need to change this if your Internet environment requires it.
+
+* {button Manage Certificates}: Click this button to view stored certificates, import new certificates, and back up or delete old certificates in Thunderbird.
+
+* {button Security Devices}: Security devices can encrypt and decrypt connections and store certificates and passwords. If you need to use a security device other than the one in Thunderbird, click the {button Security Devices} button.

@@ -1,0 +1,13 @@
+Thunderbird can be used to read messages from and write messages to Usenet newsgroups. (These newsgroups are different from general discussion forums or email distribution lists because they transmit messages via the NNTP protocol. For more information, see [http://en.wikipedia.org/wiki/Usenet_newsgroup Wikipedia].)
+
+To configure Thunderbird as your newsgroup reader:
+# {for win}Press {key Alt} to display the menu bar, then select{/for}{for not win}Select{/for} '''File > New > Other Accounts...'''.
+# Select '''Newsgroup Account''' and click {button {for win,linux}Next{/for}{for mac}Continue{/for}}.
+# Enter your name and email account. When you send a message to a newsgroup, these values will be used to identify the source of the message. Click {button {for win,linux}Next{/for}{for mac}Continue{/for}}.
+# Enter the address of the newsgroup server that you are subscribing to, for example ''news.mozilla.<!--.-->org'' and click {button {for win,linux}Next{/for}{for mac}Continue{/for}}.
+# Enter a name for the account and click {button {for win,linux}Next{/for}{for mac}Continue{/for}}.
+# You will be presented with a summary screen. Verify that all the information you entered is correct and click {button {for win,linux}Finish{/for}{for mac}Done{/for}}, or click {button Back} to edit the incorrect information.
+
+Once you have configured a newsgroup server, right-click the account name in the folder pane and select '''Subscribe...''' to specify the groups that you want to join. 
+
+To modify other account settings, right-click the account name in the folder pane and select '''Settings'''. You can customize various settings, such as the frequency and amount of downloaded messages, composition options, etc.

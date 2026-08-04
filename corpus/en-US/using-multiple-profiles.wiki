@@ -1,0 +1,57 @@
+As described in the [[Profiles - Where Thunderbird stores your messages and other user data|Profiles]] article, Thunderbird saves personal information such as messages, passwords and user preferences in a set of files called a "profile", which is stored in a separate location from the Thunderbird program files. 
+
+When you first install Thunderbird it creates a profile called "default", and this profile is used automatically. However, you can create additional profiles, each with their own set of account configurations, messages, etc. (Note, each profile can access multiple email accounts.)
+
+The Profile Manager is used to create and delete profiles, and to select the profile to use for a Thunderbird session.
+
+__TOC__
+
+= Starting the Profile Manager =
+The Profile Manager is not displayed by default. Instead, you must start Thunderbird with a "switch" that makes the Profile Manager appear:
+
+{for win}
+* {for winxp}Open the Windows {button Start} menu and select {button Run...} to open the Run dialog.{/for}{for win7,win8,win10}Press {key [[Image:Windows Key]]}+{key R} on the keyboard to open the Run dialog.{/for} Then enter "<code>thunderbird.exe -p</code>" and click {button OK}.
+
+{note}Note: If the Profile Manager window does not appear, you may need to specify the full path of the Thunderbird program, enclosed in quotes; for example:
+
+''On 32-bit Windows''
+* <code>"C:\Program Files\Mozilla Thunderbird\thunderbird.exe" -p</code>
+''On 64-bit Windows''
+* <code>"C:\Program Files (x86)\Mozilla Thunderbird\thunderbird.exe" -p</code> (32-bit version, and standard location for 64-bit version)
+* <code>"C:\Program Files\Mozilla Thunderbird\thunderbird.exe" -p</code> (optional location for Thunderbird 64-bit version){/note}
+{/for}
+{for mac}
+* Open the Terminal application, then type "<code>/Applications/Thunderbird.app/Contents/MacOS/thunderbird-bin -ProfileManager</code>" and press {button Return}.
+{/for}
+{for linux}
+* In Terminal run: "<code>thunderbird -ProfileManager</code>"
+{/for}
+
+[[Image:ab167bec686b081a25849c98d6bf9ea7-1265838263-54-1.jpg]]
+
+If the Profile Manager window does not open, Thunderbird may have been running in the background, even though it was not visible. Close all instances of Thunderbird or restart the computer and then try again. 
+
+= Creating a profile =
+To create a new profile, click the {button Create Profile...} button. After specifying a name for the profile, you may also specify a custom location for the profile folder (or click {button {for win,linux}Finish{/for}{for mac}Done{/for}} to use the default location).
+
+[[Image:ab167bec686b081a25849c98d6bf9ea7-1265840566-766-1.jpg]]
+
+= Renaming a profile =
+To rename a profile, highlight the profile in the '''Choose User Profile''' window and select {button Rename Profile...}. Give the profile a new name and click {button OK}.
+
+= Deleting a profile =
+To delete a profile, highlight the profile in the '''Choose User Profile''' window and select {button Delete Profile...}. Click {button Don't Delete Files} if you only want to remove the profile from the list but keep its files. Click {button Delete Files} to permanently delete the profile and all its data.
+
+{note}Note that you cannot delete a profile by simply deleting the profile folder from the disk. It will still be displayed in the list of available profiles.{/note}
+
+= Options =
+== Work Offline ==
+Choosing this option loads the selected profile and starts Thunderbird without connecting to the Internet. You can view messages saved to your computer and experiment with your profile.
+
+== {for not tb31}Don't ask at startup{/for}{for tb31}Use the selected profile without asking at startup{/for} ==
+When you have multiple profiles, this option tells Thunderbird what to do at startup:
+*If you check this option, Thunderbird will automatically load the selected profile at startup. To access other profiles, you must start the Profile Manager first. 
+*If you uncheck this option, Thunderbird will show you the Profile Manager each time you start it, so that you can select a profile to use.  
+
+= See also =
+See the [[Profiles - Where Thunderbird stores your messages and other user data|Profiles]] article for information about locating the profile data files on a file system and making backups.

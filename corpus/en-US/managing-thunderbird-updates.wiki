@@ -1,0 +1,11 @@
+With default settings, Thunderbird will update itself automatically as determined by local settings and availability of new versions from product update servers.
+
+You can choose to be asked whether available updates should be installed.
+
+{button ≡} > {menu Settings} > {menu General} > '''Thunderbird Updates'''
+
+[[Image: TB91-preferences-updates-automatically-vs-manual]]
+
+We recommend keeping automatic updates enabled for all Thunderbird installations to ensure that the latest security fixes are applied and all features are available. However, if you are in an enterprise environment, your organization may have policies in place to control or prevent automatic updates.
+
+Read more about [https://enterprise.thunderbird.net/manage-updates-policies-and-customization/managing-thunderbird-updates managing Thunderbird updates] in the [https://enterprise.thunderbird.net/ Thunderbird Enterprise Deployment Hub].

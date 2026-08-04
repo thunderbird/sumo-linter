@@ -1,0 +1,21 @@
+Optional support for [https://en.wikipedia.org/wiki/Maildir Maildir] allows a single unique file per email  (using the [https://www.loc.gov/preservation/digital/formats/fdd/fdd000388.shtml EML] data format), unlike the default monolithic single file format of one file per folder known as [https://en.wikipedia.org/wiki/Mbox mbox]. '''Note – this is NOT full Maildir in the sense that most users, particularly Linux or mail administrators, know Maildir. You cannot point Thunderbird accounts to a mail server directory, nor do you get message flags stored with emails.''' See the [https://wiki.mozilla.org/Thunderbird/Maildir wiki] for more details.
+
+Maildir is disabled by default because there are <u>[http://mzl.la/1HTGlUw still many bugs]</u>. It is not 100% ready for users. 
+{warning}'''Warning:''' We suggest you leave Maildir disabled unless you are an advanced user, willing to risk your data, and know how to back up your email before turning on Maildir and how to restore it if you run into problems.{/warning}
+The remainder of this article explains the format change and how to test Maildir.
+
+Maildir is a major change for Thunderbird because it changes the mail storage mechanism.  The single file per email storage format has significant benefits:
+* Backups are easier and shorter because the amount of data to be backed up is reduced to only emails that have changed since the last backup.
+* It is easier for anti-virus to scan emails in individual files, and infected mails can be removed without the loss of all the other mail in the folder, as often occurs today with anti-virus software which cannot handle multiple emails in one file.
+
+= How to turn on Maildir =
+{warning}'''Warning:''' Again, this feature is experimental and we recommend that you know how to file bugs and how to back up and restore your email before turning on Maildir.{/warning}
+To turn on Maildir:
+# Back up your email.
+# [[T:optionspreferences TB]]
+# In the {menu General} tab, next to '''Message Store Type for new accounts''', select {button File per message (maildir)}.
+Any email account created from now on will use Maildir. Existing accounts will continue to use mbox. If you want to use mbox again for new accounts, just reset the config variable.
+
+To change an existing account to use maildir, see [https://www.wilderssecurity.com/threads/thunderbird-from-mbox-to-maildir.389599/ this blog post].
+
+'''Please [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird file a bug] if you encounter any Maildir issues.'''  See also [http://mzl.la/1HTGlUw already filed bug reports].

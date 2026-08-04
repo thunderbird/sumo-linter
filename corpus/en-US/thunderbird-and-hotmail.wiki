@@ -1,0 +1,41 @@
+Thunderbird can be used as a client for all of Microsoft's email services (Hotmail, Outlook<!-- -->.com and Windows Live Mail, henceforth referred to as "Hotmail"). Thunderbird will download messages from the Hotmail server and store them on your local system. Similarly, Thunderbird can be used to compose messages which are sent through Hotmail's mail servers. You can still use Hotmail's web-based application - Thunderbird will query the server and synchronize messages.
+
+__TOC__
+
+==Configuring servers==
+Hotmail accounts can be configured in Thunderbird's [[Automatic Account Configuration]]. This article provides instructions on how to manually [[Manual Account Configuration|configure an account]] or modify an existing account.
+
+To manually configure or modify Hotmail account settings:
+
+# {for win,linux}At the top of the Thunderbird window, click on the {/for}{for mac}On the menu bar, click on the {menu Thunderbird} menu, choose {/for}{for linux} {menu Edit}{/for}{for win,mac}{menu Tools}{/for}{for win,linux} menu{/for} and select {menu Account Settings…}. The Account Settings dialog window will be displayed.
+# Select your Hotmail account from the list on the left. Make sure your name and account are correctly specified in the {menu Default Identity} section.<br><br>[[Image:sethotmailaccounts]]<br><br>
+# In the left panel, below your Hotmail account name, click on {menu Server Settings}. The server settings will be displayed in the right panel.
+
+===Configuring IMAP and POP accounts===
+{note}'''Note''': For an explanation of IMAP and POP, [https://support.mozilla.org/kb/glossary-terms-including-types-accounts#w_mail-accounts click here].{/note}
+
+====IMAP mail account settings====
+*Server Name: imap-mail.outlook<!-- -->.com
+*Port: 993
+*User Name: your username (for example ''j.kowal@outlook.com'')
+*Connection security: SSL/TLS
+*Authentication method: Normal password
+*Configure the rest of the server settings according to your preferences.<br><br>[[Image:sethotmailimap]]
+
+====POP mail account settings====
+*Server Name: pop-mail.outlook<!-- -->.com
+*Port: 995
+*User Name: your username (for example ''j.kowal@outlook.com'')
+*Connection security: SSL/TLS
+*Authentication method: Normal password
+*Configure the rest of the server settings according to your preferences.<br><br>[[Image:sethotmailpop]]
+
+===Configuring the outgoing server===
+# At the bottom of the list on the left, select {menu Outgoing Server (SMTP)}. Configured outgoing servers will be displayed in the right panel. The Hotmail server will probably be called '''Microsoft Live Hotmail''' or something similar.<br><br>[[Image:sethotmailsmtp]]<br><br>
+# Select the server and click the {button Edit} button to alter the settings. Configure them as follows:
+#*Server Name: smtp-mail.outlook<!-- -->.com
+#*Port: 587
+#*Connection security: STARTTLS
+#*Authentication method: Normal password
+#*User Name: your username (for example ''j.kowal@outlook.com'')<br><br>[[Image:sethotmailsmtp1]]
+{note}'''Note''': If you receive a password error in Thunderbird when trying to retrieve messages using POP, you may need to sign in using webmail first and [http://windows.microsoft.com/en-us/windows/outlook/send-receive-from-app enable POP settings] under the Options section of your Outlook<!-- -->.com email account.{/note}

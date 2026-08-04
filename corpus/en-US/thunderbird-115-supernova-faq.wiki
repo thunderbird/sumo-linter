@@ -1,0 +1,108 @@
+[[T:TBMore]]
+This article answers questions for new users of Thunderbird 115 (Supernova), in particular users who have upgraded from a previous version.
+
+Supernova is constantly evolving. Throughout the next year, we will deliver many improvements to existing Supernova features and introduce brand new ones. Upgrade to version 115 and experience the future of Thunderbird!
+
+__TOC__
+
+== Where can I find more information on changes and new features in Thunderbird 115 Supernova? ==
+Please refer to the following documents:
+* [[New in Thunderbird 115 Supernova]]
+* [[Getting Started with the Thunderbird main window (Supernova and newer)]]
+* [https://www.thunderbird.net/en-US/thunderbird/115.0/releasenotes]
+* [https://www.thunderbird.net/en-US/thunderbird/releases/] (all releases, including details on the latest minor releases)
+
+== Why are Thunderbird 115’s fonts so large? So small? ==
+For most people, this issue can be solved using the Thunderbird Application menu, {menu ≡} as follows :
+* Change the density to suit your taste: Click {menu ≡} > {menu Density}. Then click {button [[Image:tb115-relaxed-density]]} (for "Relaxed") to increase the size of UI elements in Thunderbird or click {button [[Image:tb115-compact-density]]} (for "Compact") to decrease the size.
+* Change the font size to suit your needs: Click {menu ≡} > {menu Font Size}. Click {button +} to increase the size of the fonts or click {button -} to decrease the size of the fonts.
+
+== Why are the fonts still too large (or too small) after I changed the density and font size? ==
+In order to provide a better, more easily configurable user experience, Thunderbird 115 has taken must stronger control of UI sizing. As a result, we see rare unexpected reports of zoom not working, or too large or too small displays or fonts which require your adjustment or investigation. This can be caused by:
+* Something changed an unsupported preference called ''layout.css.devPixelsPerPx''
+* Something changed an unsupported preference called ''mail.uifontsize''
+* CSS overrides in ''userChrome.css'' (which are [[userChrome.css and .js and userContent are unsupported|unsupported]]) 
+* Other reasons, which require investigation
+
+To reset ''layout.css.devPixelsPerPx'' directly to the supported default value:
+* Click {menu ≡} > {menu Settings} > {button General}.
+* Scroll down to the bottom and click {button Config Editor…}.
+* Enter ''layout.css.devPixelsPerPx'' and if it has been changed you will see a reset button which will look like a counter clockwise arrow button, [[Image:tb115-undo-16x16]]. Click {button [[Image:tb115-undo-16x16]]} to reset the value immediately.
+
+To reset ''mail.uifontsize'' directly to the supported default value:
+* Click {menu ≡} > {menu Settings} > {button General}.
+* Scroll down to the bottom and click {button Config Editor…}.
+* Enter ''mail.uifontsize'' and if it has been changed you will see a reset button which will look like a counter clockwise arrow button, [[Image:tb115-undo-16x16]]. Click {button [[Image:tb115-undo-16x16]]} to reset the value immediately.
+
+Please [[userChrome.css and .js and userContent are unsupported|consider turning off all userChrome customizations]].
+
+If this does not fix your issue, please [https://support.mozilla.org/questions/new/thunderbird/form ask for support].
+
+== How do I get the Thunderbird 115 “Supernova” Look? ==
+Thunderbird 115 “Supernova” ships with brand new layout options to give you a more beautiful and more productive email experience. But those new options are not on by default for many. Here's how to turn on these new options (inspired by the blog post: [https://blog.thunderbird.net/2023/08/make-thunderbird-yours-how-to-get-the-thunderbird-115-supernova-look/ Make Thunderbird Yours: How To Get The Thunderbird 115 “Supernova” Look]).
+
+=== Step 1: Turn on Vertical View ===
+Rearrange the Folder pane, Message List pane, and Message pane to be displayed side-by-side (also known as "Vertical View") as follows ([https://blog.thunderbird.net/files/2023/08/TB-115-Switch-to-Vertical-Layout.gif animated GIF]):
+* Click: The Application Menu i.e. {menu ≡} > {menu View}  > {menu Layout} > tick i.e. ensure {menu Vertical View} is checked "✓".
+*;[[Image:tb115-vertical-ticked]]
+
+=== Step 2: Turn on Cards View ===
+“Cards” view is a new way of displaying your message list. It is simpler and more compact, to help reduce cognitive burden when you view the list;
+* Click {button [[Image:tb115-display-options-icon-offical-from-micah]]} (which is the new ''Message list display options'' icon and is on the right of the ''Quick Filter'' icon) > {menu Cards View} ([https://blog.thunderbird.net/files/2023/08/TB-115-Switch-to-Cards-View.gif animated GIF]). See also: [[Getting Started with the Thunderbird main window (Supernova and newer)#w_vertical-view-layout-with-card-view]].
+*;[[Image:tb115-howto-turn-on-card-view]]
+
+Cards View is still in active development. More features such as a message preview line and sender avatars will be added in the future. 
+{note}
+'''TIP #1:''' Are you having trouble finding that menu? The area of Thunderbird where you activate Cards View is called the "Message List Header". Some people choose to hide this section to reclaim a bit of vertical space. It is easy to get it back:  
+* Click {menu ≡} > {menu View} > {menu Layout} > tick i.e. ensure {menu Message List Header} is checked ✓
+
+'''TIP #2:''' Cards View is also available when using Classic or Wide layouts. 
+{/note}
+
+=== Step 3: Turn on “Tags” Folder Mode ===
+There is a new {menu Folder pane options} menu also known as a “meatball” or “three horizontal dots” menu, {menu ⋯}, to the '''right''' of {button + New Message}. This menu has options to show the Total message count, Folder Size and hide the ''Get Messages'' and ''New Message'' icons as well as hide the Local Folders and the Folder Pane Header. It also has a {menu Folder Modes} sub menu which has options for display folders in the Folder Pane as well a new option to show Tags in the Folder Pane.
+
+If Tags are an important part of your workflow, here's how to make it easier to access them ([https://blog.thunderbird.net/files/2023/08/TB-115-Activate-Tags-Folder-Mode.gif animated GIF]):
+* Click {menu ⋯} to the '''right''' of {button + New Message} > {menu Folder Modes} > tick i.e. ensure {menu Tags} is checked "✓". That’s it! You can also use this menu to hide Local Folders. 
+*;[[Image:tb115-turn-on-tags-folder-modes]]
+{note}
+'''Tip:''' Want to move your Tags up or down in the Folder Pane? 
+* Click {menu ⋮} next to Tags in the Folder Pane on the left >  {menu Move Up} OR {menu Move Down} to place your Tags wherever you wish in the Folder Pane.
+{/note}
+
+=== Step 4: Customize The Message Header ===
+The Message Header is the section at the top of the Message Pane where the email is displayed, showing information such as sender’s name, contact photo (which pulls from the Address Book), subject, any associated tags, and more. Configure the Message Header Settings to suit your preferences as follows ([https://blog.thunderbird.net/files/2023/08/TB-115-Customize-Message-Header.gif animated GIF]):
+* In the Message Pane, click {button More ⌄} > {menu Customize...} make it yours > {button Done} Before clicking {button Done}, make it yours by deciding if you want to display a profile picture, show the sender's profile picture, sender's full address, show all headers, hide labels etc.
+*;[[Image:400px-2023-08-31-tb115-message-header-settings]]
+
+== Why doesn’t Thunderbird follow the operating system accent colors, especially on Linux? ==
+The Thunderbird user interface (UI) is extremely large and complicated, with many moving pieces and UI elements that the user can select, move, highlight, etc.
+
+By default, we ship Thunderbird with its own brand identity in order to guarantee AAA color contrast and readability between foreground and background elements.
+
+Areas like the Message List Pane, or the Folder Pane, contain many elements and icons with specific colors that need to change and adapt depending on the state of the element.
+
+A selected element will display a different background color. If the selected element is not currently focused, it will display a different color. If the element is only focused but not selected, it will display yet another color.
+
+These examples are just a fraction of the many variations we need to handle in every single UI element.
+
+Allowing every Operating System, especially Linux Desktop Environments, to fully affect the Thunderbird colors continually created issues and unexpected consequences.
+
+The amount of bug reports of users unable to properly see the reply icon with their KDE Arch Theme with Dracula accent colors is something we constantly struggled with to give a humorous but relevant example.
+
+Even the default Ubuntu color scheme, with its orange accent color, created constant unexpected consequences.
+
+We do not have the resources to support each variation or edge case.
+
+Our primary focus is to guarantee that Thunderbird is always readable and usable in every configuration. Therefore, enforcing our own brand identity and keeping it consistent across operating systems allowed us to remove these unexpected breakages and reduce the number of bug reports about accessibility and visibility.
+
+=== Why does Firefox follow the OS colors? ===
+Because the Firefox UI is mostly just a toolbar and a settings page with monochromatic line icons. It is a much simpler and self contained UI that does not need to worry about color contrast and readability, and following system colors is easy to support.
+
+=== We recommend Add-ons and Themes to customize your colors ===
+We rebuilt the UI in order to rely entirely on CSS variables.
+
+We did this so add-on developers can create their own themes and drastically change the look and feel of Thunderbird by tweaking a few CSS variables. This is still a work in progress and improving constantly, but we are already seeing heavily customized themes to make Thunderbird look like a native GTK application, for example.
+
+== Why are my Thunderbird customizations broken in 115? ==
+If your customization required changes to userChrome.css, userContent.css, or other related files, then these [[userChrome.css and .js and userContent are unsupported|userChrome* customizations are still unsupported in 115]] (they were also unsupported in 102 and all previous releases). There may be [https://support.mozilla.org/questions/thunderbird?tagged=unsupporteduserchromecss&show=all solutions in the forums] but please remember these are unofficial; unsupported solutions and could break at any time.

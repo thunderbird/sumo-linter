@@ -1,0 +1,79 @@
+__TOC__
+
+
+=Accounts=
+==Mail Accounts==
+
+This article explains the types of protocols (IMAP, POP, RSS, NNTP) supported by Thunderbird. See [[Automatic Account Configuration]] or [[Manual Account Configuration]] for information about how to configure accounts in Thunderbird.
+
+A "protocol" is a set of rules that computing devices use to communicate. Common protocols include HTTP (for transmitting web pages) and FTP (for sending files).
+
+Email communications use several protocols to send and receive messages. When sending messages, email programs use [https://en.wikipedia.org/wiki/Smtp SMTP] (Simple Mail Transfer Protocol). To fetch messages, email programs use either [http://en.wikipedia.org/wiki/Post_Office_Protocol POP] (Post Office Protocol) or [https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol IMAP] (Internet Message Access Protocol). 
+
+The differences between the POP and IMAP protocols are described below. As of Thunderbird version 3, IMAP has been the default protocol for fetching messages (although you can manually configure an account to use the POP protocol). In most cases, your choice of protocol will be dictated by your mail account provider.
+
+===IMAP===
+
+When an email program uses the IMAP protocol, messages are stored both on the mail server and on the local device where the email program is running. Changes are synchronized between the client and the server. Therefore, if you access your account from more than one device, you see the same set of messages, message status and folder structure regardless of the device you are using (because all the email programs synchronize with the server).
+
+The main drawback of IMAP is that it tends to send and receive more traffic between the device and the mail server, so performance can be poor if your Internet connection is slow or costly if you are paying expensive rates for data use (for example, on a per-megabyte basis).
+
+Accounts that use the IMAP protocol may confuse people if they are not aware of the synchronization aspect. A person might think that deleting a message on one device only deleted the local copy, not realizing that the message is also deleted from the server and therefore from all other devices that access that account. 
+
+A detailed discussion of configuring and using the IMAP can be found [[IMAP Synchronization|here]].
+
+===POP===
+
+The POP mail protocol is very simple. There is no synchronization. POP connects to the server, downloads the contents of the inbox to your device and then logs out from the server. POP can leave messages on the server. The default for Thunderbird is to leave them there for 7 days. The retention period can be edited from your [[Manual Account Configuration | account settings]].
+
+The advantage of POP is that it is simple, requires significantly less data to be transmitted between the server and you, and once the mail is in your inbox, it is not tied to a server or another device.
+
+==RSS==
+
+[https://en.wikipedia.org/wiki/RSS RSS] (commonly known as Really Simple Syndication) is a protocol that communicates changes on a website. For example, when a blogger writes a new blog post, that post is added to the site's RSS feed. Using an RSS feed reader (such as Thunderbird), you can read the new activity on blogs to which you have subscribed. 
+
+==News==
+
+News servers are one of the oldest forms of collaborative communication on the Internet. They are like a mailing list, in that you post a message and the message is propagated to anyone else that has subscribed to that newsgroup. Unlike a true mailing list server, you don't have to subscribe to the list in order to see the messages. You simply connect to the news server and view postings to the newsgroup.
+
+The only time your membership of the group is shown publicly is when you actually post a message to the newsgroup. Newsgroups also differ from mailing lists in that you don't have to use your real email address to post. You can post with an anonymous or invalid address such as None@nowhere.com. Unlike mailing lists, you don't download new messages to your inbox. Instead you are simply notified of unread posts in the newsgroup. Messages are not downloaded unless you elect to click on them. Only the list of messages arrives when you select the group.
+
+Much communication at Mozilla is done through newsgroups and duplicated through mailing lists and web pages.
+
+See [[Creating a Newsgroup Account]] for configuration instructions.
+
+=Profile / Profile Folder=
+
+Thunderbird stores all user data, including settings in a location on your computer referred to as the profile folder.
+
+For detailed information, see [[Profiles - Where Thunderbird stores your messages and other user data|Profiles]] and [[Using Multiple Profiles]].
+
+=Time=
+
+The time used by email is [http://en.wikipedia.org/wiki/Coordinated_Universal_Time Coordinated Universal Time (UTC)] to make the user experience of email acceptable, the raw UTC time is not displayed by email programs. They convert the UTC time to local time using the timezone information on the computer, including daylight savings time. This can at times lead to confusion, particularly when you get a reply that shows a time different to the one your sent items shows.
+
+=Return Receipts=
+
+Almost all email programs can offer to request a return receipt from the recipient, some call it a read receipt. Thunderbird is no exception. With default settings in Thunderbird, you will be prompted/asked if you want to return a read receipt when you first select a message that has this flag set to read it. It is then up to you if you want to notify the sender you read their mail.
+
+=Delivery Status Notifications=
+
+These come in two kinds, positive and negative responses.
+
+The negative response is when you get an email that says something like ''Sorry, your message could not be delivered to:...'' followed by a reason why the message could not be delivered. These messages are reasonably common, although many servers have stopped sending them due to [http://en.wikipedia.org/wiki/Backscatter_%28email%29 Backscatter from SPAM].
+
+The positive delivery status notification is also becoming far less popular. Most email servers have this option turned off as the delivery confirmation validates the address on a spammers mailing list, and this presents something of a privacy concern. Did the account owner authorize the mail provider to confirm their email address?
+
+=Outbox=
+==Where is the 'Outbox'?==
+The 'Outbox', located under 'Local folders', is a waiting area for emails that have not been sent.
+
+==How do I use the 'Outbox'?==
+If you have written an email, but do not want to send the email immediately and you are working with Thunderbird 'online', then you can choose 'File' > 'Send Later' to send the email to the 'Outbox' to wait until you want to send it.
+
+If you write an email and are working 'offline', either because you are not connected to the Internet or you have selected Thunderbird to work 'offline', then you will only see a 'Send Later' option and your email will be sent to the 'Outbox'.
+
+=What does Thunderbird 'offline' mean?=
+You can tell Thunderbird to work 'online' or 'offline' (the latter not being able to connect to the server). If you see two blue screen icons in the bottom status bar on the far left, this indicates that Thunderbird is 'online'. Two black screen icons in the bottom status bar on the far left will indicate that Thunderbird is 'offline'.
+
+You can set Thunderbird to work 'offline' by selecting {menu File} > {menu Offline} > {menu Work Offline}. This setting works whether you are using POP or IMAP.

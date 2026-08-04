@@ -1,0 +1,69 @@
+Thunderbird for Android does not have built-in encryption capabilities. Instead, it uses an external Android application called [https://www.openkeychain.org/ OpenKeychain].
+
+__TOC__
+
+= Install OpenKeychain and select it as a Crypto Provider =
+You will need to install OpenKeychain if you have not already and enable it in Thunderbird for Android.
+# Install OpenKeychain from wherever you get your Android apps e.g. [https://play.google.com/store/apps/details?id=org.sufficientlysecure.keychain Google Play]  or [https://f-droid.org/packages/org.sufficientlysecure.keychain/ F-Droid].
+# Open Thunderbird for Android. Tap the application menu {button ≡} > Settings gear icon {button [[Image:gear icon]]} 
+# Tap the email account for encryption under '''Accounts''' e.g. tap {menu jane@example.com} to set up encrypted email for '''jane@example.com''' > tap {menu End-end encryption}.
+# Slide '''Enable OpenPGP support''' to the right. You will see that  {menu Configure end-to-end key} is now enabled.
+
+= Select an encryption key or create a new key =
+# Tap {menu Configure end-to-end key}.
+# A screen from the OpenKeychain app will appear:
+#;[[Image:tb-android8-pgp-openkeychain-popup]]
+# Tap {button This is a new address} to create a new key or Tap {button I already have a key} if you already have created or imported a key.
+See the [https://www.openkeychain.org/ OpenKeychain] website for more information on creating and managing keys.
+= Sharing your key with others=
+Before you send someone an end-to-end encrypted email, you need their public key. They also need your public key.
+
+Some ways to exchange public keys include:
+* meeting in-person (the OpenKeychain application has a convenient interface for mutual key exchange).
+* downloading from the recipient's personal website.
+* relying on the [https://en.wikipedia.org/wiki/Web_of_trust Web of Trust] whereby you trust somebody else's word that a public key is valid.
+* downloading the key from a [https://www.rossde.com/PGP/pgp_keyserv.html KeyServer] (but note the warning on that page about needing to verify the authenticity of keys).
+* using ''Autocrypt'', which includes your key in the header of every email that you send. This is not supported by all mail clients.
+
+== Share your key using Autocrypt ==
+K-9 Mail supports the Autocrypt protocol, but it needs to be enabled in the End-to-end encryption settings page:
+# Tap the application menu {button ≡} > Settings gear icon {button [[Image:gear icon]]} 
+# Tap the email account for encryption under '''Accounts''' e.g. tap {menu jane@example.com} to set up encrypted email for '''jane@example.com''' > tap {menu End-end encryption}.
+# Tap {menu Autocrypt mutual mode} and tick the box in the popup > tap {button OK}:
+#;[[Image:tb-android8-autocrypt-mutual-mode-popup]]
+
+= How to send a signed and encrypted email =
+If OpenKeychain knows the PGP keys of the receipients, then you will be able to send an email that is signed and encrypted. 
+* When composing e-mail after OpenKeychain has been set up, a new padlock icon appears in the top right of the composition screen:
+*;[[Image:tb-android8-padlock-unlocked.png]]
+(If the icon does not appear, it means that OpenKeychain does not know the PGP keys of any of the recipients).
+* Tap the padlock icon to enable encryption. Once you tap the padlock icon, it turns green:
+*;[[Image:tb-android8-green-padlock-locked]]
+= How to send a signed and unencrypted email =
+Thunderbird for Android normally sends mails that are both encrypted and signed. You can also sign the message, which proves it was sent by you, but without encrypting it. This is sometimes useful ; e.g. in public mailing lists.
+[[UI:details_start]] 
+== First, disable "Hide unencrypted signatures" for the account ==
+# Tap the application menu {button ≡} > Settings gear icon {button [[Image:gear icon]]} 
+# Tap the email account for encryption under '''Accounts''' e.g. tap {menu jane@example.com} for '''jane@example.com''' > tap {menu End-end encryption}.
+# Slide {menu Hide unecrypted signatures} to the left to disable signature hiding for this account.
+#;[[Image:tb-android8-hide-unencrypted-signature]]
+== Second, enable signed and unencrypted mode when composing email ==
+When composing email, tap the vertical ellipsis icon {button ⋮} > tap {menu Enable PGP Sign-Only} option.
+;[[Image:620px-tb-android8-enable-pgp-sign-only]]
+The lock will add another icon to confirm you are only signing the message:
+;[[Image:tb8-signed-not-encrypted-icon]]
+Tapping the icon lets you change back to normal end-to-end encryption mode.
+[[UI:details_end]]
+[[UI:details_start]]
+= Receiving signed emails in Thunderbird for Android=
+== Receiving encrypted, signed emails in Thunderbird for Android ==
+Thunderbird for Android will automatically use OpenKeychain to try to decrypt encrypted, signed emails with your key and check the signature. It will look like this:
+;[[Image:tb8-android-encrypted-signed-email]]
+Tap on the green lock icon to display information about the sender and recipient of the email.
+;[[Image:tb8-android-info-about-received-encrypted-signed-email]]
+==Receiving non encrypted, signed emails in Thunderbird for Android ==
+Non encrypted (i.e. plaintext), signed emails are in plaintext (and therefore world-readable). There is a checkmark icon and the email looks like this:
+;[[Image:tb8-android-nonencrypted-signed-email]]
+Tap on the checkmark icon to confirm that the message is signed, in plaintext (i.e. it's not encrypted) and display information about the sender and recipient of the email.
+;[[Image:tb8-android-confirm-plaintext-signed-email]]
+[[UI:details_end]]

@@ -1,0 +1,90 @@
+<!-- Note: The https://support.mozilla.org/en-US/kb/how-to-make-screenshots article includes instructions for KB contributors to create and edit screenshot images to use in KB articles. This article should be a guide for users who want to take a screenshot to include in a support forum post. This article should use "for" to separate instructions for Windows, Mac and Linux. The instructions should use the default, built-in tools and just focus on making and uploading an image. Resizing and annotating are not necessary. For reference on how to use the built-in tools see https://support.mozilla.org/en-US/kb/how-to-make-screenshots - Note that until https://bugzilla.mozilla.org/show_bug.cgi?id=718732 is fixed, Windows XP users will have to save their images as png (the default is bmp). -->
+A [http://en.wikipedia.org/wiki/Screenshot screenshot] is an image of your computer screen or portion of the screen. On the Mozilla Support forum, we don't want people to be shy about adding screenshots. A picture is worth a thousand words and can go a long way to help explain a problem.
+
+To take a screenshot, either use the Firefox Screenshots feature or else follow the directions given below to create a screenshot on your computer, iOS device or Android device.
+
+__TOC__
+
+=Firefox Screenshots=
+To take a screenshot in Firefox using the Firefox Screenshots feature:
+[[T:contextmenu]] on an empty part of the page and select {menu Take Screenshot}. Alternatively, use the keyboard shortcut {for win,linux}{key Ctrl+Shift+S}{/for}{for mac}{key Command+Shift+S}{/for}.
+;[[Image:Take a screenshot in Firefox|width=250]]
+{note}
+'''Tip:''' You can also [[Customize Firefox controls, buttons and toolbars|customize your Firefox toolbar]] to add a {button Screenshot} button:
+#[[Template:customizefx29]]
+#*A special tab will open, where you can drag and drop items in or out of the overflow menu and the toolbar.
+#Drag the ''Screenshot'' [[Image:Fx88Customize-ScreenshotButton]] item to the toolbar.
+#Click {button Done}.
+{/note}
+To learn more about Firefox Screenshots, see [[Take screenshots on Firefox]].
+
+{for win}
+= Create a screenshot on Windows =
+Once you have the screen presented the way you want for the screenshot:
+#Press the {key Print Screen} or {key Prnt Scrn} or {key Prt Sc} key (depending on your keyboard). This key is usually found in the upper right section of your keyboard. To capture only the active window, hold down the {key Alt} key at the same time.
+#Go to the ''Windows'' Start menu [[Image:Windows Icon|width=25]] and open up the '''Microsoft Paint''' program from the ''Programs'' list (look under ''Accessories'').
+#;[[Image:Paint|width=300]]
+#Once Paint is open, click '''Paste''' and your screenshot will appear.
+#Save your image as a PNG file, in an easy-to-find location, such as your desktop.
+#;[[Image:Save Screenshot|width=300]]
+You now have a screenshot that you can add to your forum post by clicking the '''Browse''' button below the ''Post a Reply'' box.
+
+== Tools ==
+* [http://en.wikipedia.org/wiki/Microsoft_Paint Microsoft Paint] (included with Windows)
+* [http://en.wikipedia.org/wiki/Snipping_Tool Snipping tool] (included with Windows 7, Vista, Windows 8 and Windows 10)
+* [http://www.irfanview.com/ Irfanview] (Free)
+* [http://www.getpaint.net/ Paint .NET] (Free)
+* [http://www.xnview.com/en/index.html XNView] (Free)
+* [http://en.wikipedia.org/wiki/Category:Screenshot_software More screenshot software]
+{/for}
+
+{for mac}
+= Create a screenshot on Mac =
+Once you have the screen presented the way you want for the screenshot:
+*To capture the screen, hold down the {key command} key, as well as the {key Shift} key, as you press {key 3}.
+*To capture a specific section, hold down the {key Command} key, as well as the {key Shift} key, as you press {key 4}; then select the area you want to copy.
+*To capture a specific window, hold down the {key command} key, as well as the {key Shift} key, as you press {key 4}; then press the {key spacebar}. You can then click on a window to capture it.
+As a result, a PNG file will be created and added to your desktop, called {filepath Picture 1}. You now have a screenshot that you can add to your forum post by clicking the '''Browse''' button below the ''Post a Reply'' box.
+
+== Tools ==
+* [http://www.xnview.com/en/index.html XNView] (Free)
+* [http://en.wikipedia.org/wiki/Category:Screenshot_software More screenshot software]
+{/for}
+
+{for linux}
+= Create a screenshot on Gnu/Linux =
+Once you have the screen presented the way you want for the screenshot:
+* On Ubuntu, click the {menu Applications} menu, go to the {menu Accessories} folder, and select {menu Take Screenshot}.
+* In distributions using the KDE environment (Kubuntu, OpenSUSE, etc.), [http://en.wikipedia.org/wiki/KSnapshot KSnapshot]
+* In distributions using the Gnome desktop environment (Debian, Trisquel, Fedora, etc.), [http://en.wikipedia.org/wiki/Gnome-screenshot Gnome-screenshot]
+*In most other distributions, depending on your desktop manager, you may also use the {key Print Screen} or {key Prnt Scrn} key to capture your screenshot as follows:
+** {key Print Screen}: whole screen
+** {key Alt} + {key Print Screen}: current window
+** {key Shift} + {key Print Screen}: selected rectangle on the screen
+** {key Ctrl} combined with any of the above will copy the screenshot to the clipboard
+You now have a screenshot that you can add to your forum post by clicking the '''Browse''' button below the '''Post a Reply''' box.
+
+== Tools ==
+* [http://shutter-project.org/ Shutter] is powerful screenshot tool available as a standard package in most Gnu/Linux distributions
+* [http://www.xnview.com/en/index.html XNView] (Free)
+* [http://en.wikipedia.org/wiki/Category:Screenshot_software More screenshot software]
+{/for}
+
+= Create a screenshot on iOS devices =
+Once you have the screen presented the way you want for the screenshot:
+#Press and hold the '''Sleep/Wake''' button, then immediately press the '''Home''' button.
+#Your screen will flash white for a second and the device will make a camera shutter noise (if the volume is on) to indicate that the screenshot has been taken.
+#The screenshot is now stored in your photos app for you to view.
+{note}'''iOS devices''': iPhone 6 devices & above, the ''Sleep/Wake'' button is on the right side of the device.{/note}
+
+= Create a screenshot on Android devices =
+How to take a screenshot on your Android phone or tablet depends on the particular device and Android version, but here are two common methods:
+*Press and hold the '''Sleep/wake''' button and the '''volume-down''' button simultaneously until the screen flashes.
+*If the above did not work and your device has a home button, press and hold the '''home''' button and the '''power''' button simultaneously until the screen flashes.
+Afterward, find the screenshot image in the Gallery app.
+;{note}'''Note:''' On Android phones running stock Android with Android version 9 (Pie) installed, you can simply press and hold the '''power/lock/unlock''' button, which will cause the ''Power Menu'' to display. From within this menu, select '''Screenshot''' (the third option at the bottom of the menu) and a screenshot will automatically be saved to your gallery. {/note}
+<!-- Ref: https://support.mozilla.org/en-US/kb/adding-screenshots/revision/116638#w_taking-android-screenshots and https://support.mozilla.org/en-US/questions/1076863 -->
+If none of those methods work, you can visit an Android forum such as forums.androidcentral.com for help with your specific device.
+
+= More help =
+The [http://www.take-a-screenshot.org/ take-a-screenshot.org] website has instructions for taking a screenshot on Windows, Mac, Linux, iOS and Android devices.

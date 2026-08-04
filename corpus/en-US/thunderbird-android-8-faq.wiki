@@ -1,0 +1,54 @@
+[[T:TBAndroidMore]]
+This article answers questions for new users of Thunderbird for Android version 8.
+
+Thunderbird for Android is constantly evolving. Throughout the next year, we will deliver many improvements to existing Thunderbird features and introduce brand-new ones. [https://play.google.com/store/apps/details?id=net.thunderbird.android Upgrade to Thunderbird for Android] version 8 and experience the future of Thunderbird on mobile!
+
+__TOC__
+
+= Why do I see “admin_policy_enforced”, “App Blocked”, “unverified app” or “not approved” error/warning when logging in to Gmail? =
+Please see [[Gmail and Thunderbird for Android]].
+
+= What is the difference between K-9 Mail and Thunderbird for Android? They look the same? =
+In June 2022, [https://k9mail.app/2022/06/13/K-9-Mail-and-Thunderbird.html K-9 Mail joined the Thunderbird family] as the foundation for Thunderbird on Android. Since then, we’ve been updating both apps to give users the same solid experience, '''so it’s normal to notice that K-9 Mail and Thunderbird look and feel nearly identical'''. They’re built on the same code, and that’s intentional!
+
+We’re able to configure which features are available in each app, so some features might be unique to Thunderbird if they are a better fit. For example, the import feature helps users move from K-9 Mail to Thunderbird, which wouldn’t really make sense the other way around. Over time, Thunderbird will gain a few unique features as we evaluate the best way to support our Android email users – including when it might make sense to consolidate our focus fully on Thunderbird.
+
+If you prefer the robot dog and would like to keep K-9 Mail around, you are welcome to. If you'd like to stay up to date with the latest features, we encourage you to try [https://play.google.com/store/apps/details?id=net.thunderbird.android.beta Thunderbird Beta for Testers] or make [https://play.google.com/store/apps/details?id=net.thunderbird.android Thunderbird for Android] your primary email application.
+
+= If I am on Thunderbird for Android beta, how do I switch to the release? =
+Thunderbird for Android Beta and Release are two separate applications. You can install both alongside each other to switch between applications. You can [[Import settings and data into Thunderbird for Android|transfer your settings]] from one app to the other.
+
+* Thunderbird's main release, intended for general users, is available on [https://play.google.com/store/apps/details?id=net.thunderbird.android Google Play] and [https://f-droid.org/packages/net.thunderbird.android F-droid].
+* Thunderbird's beta release, intended for those willing to report bugs or experience features before they are ready for general consumption, is available on [https://play.google.com/store/apps/details?id=net.thunderbird.android.beta Google Play] and [https://f-droid.org/packages/net.thunderbird.android.beta F-droid].
+
+= What about F-Droid? I believe I got auto-updated from K-9 Mail to Thunderbird! =
+F-Droid builds of [https://f-droid.org/packages/net.thunderbird.android Thunderbird] and [https://f-droid.org/packages/net.thunderbird.android.beta Thunderbird Beta] are available in the F-Droid app.
+
+If you've been using K-9 Mail, you might have received a notification that an update to Thunderbird Beta is available without you explicitly installing Thunderbird. This was a temporary metadata issue on our end where the listing was pointing using incorrect data from our repository. Despite the naming, the update was still actually K-9 Mail (com.fsck.k9). The issue has since been resolved, your next updates will now correctly indicate they are K-9 Mail.
+
+= I'm not able to use the import from K-9 Mail or Thunderbird Desktop. What am I missing? =
+The import requires using a supported version. Please make sure you are using [[Find what version of Thunderbird you are using|Thunderbird Desktop version]] 128.4.0 or later, and K-9 Mail 8.0 or later. More information is at [[Import settings and data into Thunderbird for Android]].
+
+Please also try different distances in your camera, and switch to light mode on your desktop.
+
+= I'm having trouble identifying my email accounts in the new design =
+We've updated the folder drawer design to be compliant with the Material 3 interface guidelines. As part of this change, unfortunately, a few features got lost. The current letter combinations are the first two letters of the domain of your email address.
+
+In an update not too long in the future, we intend to return to the ability to set an account image and provide further customization opportunities. We would also like to stabilize the ordering, so the active account is not moved to the top.
+
+For the moment, the only workaround we can offer is to customize the accent colors and memorize them.
+
+= I'm not getting notifications for my email, or they are not arriving unless I check manually =
+You might have accidentally skipped over this in the first time user experience. Make sure you grant notification permissions to the application in your Android settings, as well as the ability to schedule exact alarms.
+
+We've also changed the way the former “folder classes” work. If you are not getting notifications for the folders that are important to you, double check that you have either sync or push enabled in the folder settings for that folder.
+
+= What is happening with Exchange Support? =
+Thunderbird for Android currently supports the following protocols: IMAP POP and SMTP. Support for Exchange is being planned for future releases. Please keep an eye on [https://blog.thunderbird.net/category/mobile-news/ our blog] for news.
+
+= What is happening with Thunderbird Sync? =
+* We are building our own sync storage server, and it is taking some time to set it up and test. We will let you know when it is available for public pre-release testing.
+* In the meantime, you can reuse your email account settings from Thunderbird Desktop via a QR code or import your settings from K-9 or from a file. Please see [[Import settings and data into Thunderbird for Android]] for full details.
+
+= What about calendaring? =
+* Thunderbird for Android does not have calendar functionality. It is not on the near term roadmap, but will be evaluated in the future. For now, users are encouraged to use one of the many calendar apps available for Android, and post the features they would most want on [https://connect.mozilla.org/t5/ideas/idb-p/ideas/label-name/thunderbird%20android Mozilla Connect].

@@ -1,0 +1,16 @@
+This page describes Thunderbird's configuration options for attachments. 
+
+=Specify where attachments are saved=
+
+Menu location: {menu {for mac}Thunderbird > Preferences{/for}{for win}Tools > Options{/for}{for linux}Edit > Preferences{/for} > Attachments}
+
+=Configure what happens when I click on attachments=
+
+Menu location: {menu {for mac}Thunderbird > Preferences{/for}{for win}Tools > Options{/for}{for linux}Edit > Preferences{/for} > Attachments}
+
+
+=Allow me to view "hidden" attachments=
+
+There is a special view mode for messages which allows you to see all of a message's attachments, even "hidden" ones, in its attachments list. 
+
+Because this view mode is not needed by most users and could be confusing to some, it is disabled by default. To enable it, use the [[Config Editor]] to change the preference {pref mailnews.display.show_all_body_parts_menu} to {pref true}.

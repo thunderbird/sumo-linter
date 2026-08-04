@@ -1,0 +1,10 @@
+[[T:TBAndroidMore]]
+For an introduction to the most interesting new features, improvements and changes visible to users in the version 8 of Thunderbird for Android, see [https://blog.thunderbird.net/2024/10/thunderbird-for-android-8-0-takes-flight/ our blog post on Thunderbird.net].<!-- More details can be found in [https://github.com/thunderbird/thunderbird-android/releases/tag/THUNDERBIRD_8_0 the release notes].-->
+
+= Donors welcome! =
+You can now support Thunderbird for Android monthly or a one-time basis through the Google Play Store as follows:
+# In Thunderbird for Android, tap {button ≡} at the top left and then tap the gear icon{button [[Image:gear icon]]} at the bottom left.
+# Tap {menu ♡ Support Thunderbird}.
+
+= Import your settings from Thunderbird for Desktop or K-9 =
+Thunderbird for Android version 8 can import your settings from K-9 Mail, from Thunderbird on the desktop or via a file from Thunderbird for Android or K-9 on another Android device. For full details, see [[Import settings and data into Thunderbird for Android]].

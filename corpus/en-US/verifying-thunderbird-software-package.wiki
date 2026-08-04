@@ -1,0 +1,30 @@
+After [https://www.thunderbird.net/download/?downloaded=True&download_channel=esr downloading an installation package] from the thunderbird.net website or directly from [https://archive.mozilla.org/pub/thunderbird/releases/ Thunderbird's release archive], you may verify that the download has completed correctly, and optionally that it is an authentic package from Mozilla.
+
+For each release, a root folder can be found, which contains subdirectories for individual operating systems, which contain installation package files. In the root folder of a specific release, you can find a text file named ''SHA256SUMS''.
+
+= Verify that the download of the installation package has completed correctly =
+To perform the verification follow these steps:
+# Choose your installation package, based on your operating system and your language, and download it.
+# Use a tool to calculate the ''SHA256'' hashsum (which is a kind of checksum) for the file you have downloaded, and keep it on your screen for comparison.
+# Go back to your browser to the root folder, for example [https://archive.mozilla.org/pub/thunderbird/releases/128.5.0esr/], and view the file ''SHA256'' for the release you have downloaded.
+# Find the line that contains the language and name of the file that you have downloaded. In the same line, the expected hashsum for the file is shown. Ensure this hashsum matches the output you got from the tool used to calculate the ''SHA256'' hashsum.
+If you view the file ''SHA256SUM'' using a recent version of Thunderbird, and you view the file on the https://archive.mozilla.org site, and the hashsums match, chances are very high that your download is correct and authentic.
+
+= Verify the authenticity of the downloaded file (optional) =
+If you would also like to check that you view the correct ''SHA256SUMS'' file (for example, because you have downloaded these files from a mirror) you may check that the file carries the digital signature of the Mozilla Software Release team. Follow these steps to verify the authenticity of the downloaded file:
+# Download both files ''SHA256SUMS'' and ''SHA256SUMS.asc''.
+# To check the signature, you may use the GnuPG software, and in addition, you must obtain Mozilla's most recent and official public key that is used for signing this file.
+#* The GnuPG software is usually already included on Linux distributions. For other operating systems you should be able to find HOWTO documents that describe how to install and use GPG4WIN for Windows or GPGTools for macOS.
+#* Use GnuPG or similar software to import Mozilla's public key, which is usually announced on Mozilla's security blog. At the time of writing this document, the most recent version can be found in <br>[https://blog.mozilla.org/security/2023/05/11/updated-gpg-key-for-signing-firefox-releases/ this Mozilla Security Blog].
+# Now tell GnuPG to check the signature in the ''SHA256SUMS.asc'' file against the data in the ''SHA256SUMS'' file with the following command:<br><code>'''$ gpg --verify SHA256SUMS.asc'''</code><br>
+# You will then receive the results of the comparison. In this example there are 8 lines of output:
+;<code>gpg: assuming signed data in 'SHA256SUMS</code><br>
+;<code>gpg: Signature made Di 26 Sep 2023 20:49:02 CEST</code><br>
+;<code>gpg: using RSA key ADD7079479700DCADFDD5337E36D3B13F3D93274</code><br>
+;<code>gpg: Good signature from "Mozilla Software Releases <release@mozilla.com>" [unknown]</code><br>
+;<code>gpg: WARNING: This key is not certified with a trusted signature!</code><br>
+;<code>gpg: There is no indication that the signature belongs to the owner.</code><br>
+;<code>Primary key fingerprint: 14F2 6682 D091 6CDD 81E3 7B6D 61B7 B526 D98F 0353</code><br>
+;<code>Subkey fingerprint: ADD7 0794 7970 0DCA DFDD 5337 E36D 3B13 F3D9 3274</code><br>
+
+;Lines 7 and 8 tell you which key was used to create the digital signature. You may compare the fingerprint(s) shown on those lines with the fingerprint shown on the Mozilla security blog post. If they match, you have successfully verified the ''SHA256SUMS'' file.

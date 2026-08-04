@@ -1,0 +1,332 @@
+This article provides detailed information for users of Thunderbird who want to send and receive encrypted and digitally signed email messages using the OpenPGP standard. This feature is commonly known as end-to-end encryption (e2ee), and makes communications safer against being spied on by third parties. Thunderbird 78 has built-in support for two encryption standards, OpenPGP and S/MIME.
+
+This article also provides important information for users of the former Enigmail add-on migrating from Thunderbird 68 to Thunderbird 78.
+
+__TOC__
+
+== What is end-to-end encryption about, and how does it work? ==
+
+End-to-end encryption (e2ee) makes communications safer against being spied on by third parties. Please refer to the article [[Introduction to End-to-end encryption in Thunderbird]] where we explain some of the basics.
+
+== Does Thunderbird support OpenPGP? ==
+
+Yes. Thunderbird 78 has built-in support for two encryption standards, OpenPGP and S/MIME. OpenPGP has been enabled by default since version 78.2.1.
+
+Previous versions of Thunderbird (version 68 and before) had built-in S/MIME support, and it was possible to add OpenPGP support using the Enigmail add-on and GnuPG software. The Enigmail add-on is no longer available for Thunderbird 78 except to assist its former users with migrating to the built-in OpenPGP support or getting guidance how to restore their Enigmail “Junior Mode” user experience.
+
+== Why was Enigmail replaced and will it come back? ==
+
+The Enigmail add-on was replaced with built-in support for OpenPGP in Thunderbird 78.
+
+This change was necessary because Thunderbird stopped supporting legacy add-ons, like Enigmail, in [https://www.thunderbird.net/en-US/thunderbird/78.0/releasenotes/ Thunderbird 78]. The same change happened in [https://blog.mozilla.org/addons/2016/11/23/add-ons-in-2017/ Firefox in 2017]. Thunderbird followed in 2020 because it is sharing Mozilla platform code with Firefox.
+
+Enigmail will [https://enigmail.net/index.php/en/home/news/70-2019-10-08-future-openpgp-support-in-thunderbird not be further developped] or migrated to other add-on technologies. About this change, Patrick Brunschwig, author of Enigmail, wrote:
+
+''“It has always been my goal to have OpenPGP support included in the core Thunderbird product. Even though it will mark an end to a long story, after working on Enigmail for 17 years, I’m very happy with this outcome.”''
+
+== Does OpenPGP in Thunderbird 78 look and work exactly like Enigmail? ==
+
+No, there are several differences in the user interface and features offered. Thunderbird’s built-in OpenPGP support is ''not'' an exact copy of Thunderbird with Enigmail. Thunderbird wants to offer a fully integrated solution, and is no longer using GnuPG by default to avoid licensing issues. This document explains the differences:<br/>
+https://wiki.mozilla.org/Thunderbird:OpenPGP:Migration-From-Enigmail
+
+== I have never used OpenPGP with Thunderbird before: How do I setup OpenPGP? ==
+
+To use OpenPGP functionality in Thunderbird, you need to set a so-called personal key pair for your email address. You can do that in the {menu End-to-End Encryption} subsection of your account settings. If you have already used OpenPGP with other software, you need to import a backup copy of your existing key. Otherwise, you can create a new key.
+
+* {menu ≡} > {menu Account Settings} > ''select your account'' > {menu End-to-End Encryption} > {button Add Key…}
+** If you already have a personal OpenPGP key pair from another software, choose {menu Import an existing PGP key}.
+** If you don't have a key yet, choose {menu Create a New OpenPGP key}.
+* After importing or creating it, while still in account settings, select the key you want to actively use with your email account.
+Note that using OpenPGP has consequences as explained in the general introduction. It is important to make a backup of your key and store it in a secure location, separate from your regular computer.
+
+== I have previously used Enigmail, how do I migrate and configure? ==
+
+You can upgrade your Thunderbird settings from an older version (such as 68.x) to version 78.x
+It is recommended that you make a backup of your old Thunderbird profile before you use Thunderbird 78 for the first time, because once you have upgraded, your profile can no longer be used with Thunderbird 68. If for any reason you decide that you must continue to use Thunderbird 68 and Enigmail, a backup will allow you to go back easily.
+
+Enigmail is currently available in two versions, 2.1.x and 2.2.x:
+* Enigmail 2.1.x only works with Thunderbird 68 and older release versions, and provides the classic functionality. 
+* Enigmail version 2.2.x is a specially modified version, which only works with Thunderbird 78 and later version. Enigmail 2.2.x doesn't provide the traditional functionality, rather it exists to help you migrate your keys and settings to Thunderbird 78.
+
+If you start Thunderbird 78 with an existing profile, and the previous profile had Enigmail installed, then Thunderbird 78 will detect that the previous Enigmail 2.1.x Add-on is not compatible. It should automatically check for a newer version, it will find Enigmail 2.2.x and install it. Then Enigmail will automatically open a tab that greets you and explains that migration is possible, and offers to start it.
+
+Enigmail was using GnuPG to store and manage all keys and trust settings. If you click the button to start the migration, the Enigmail migration software will read your old keys from GnuPG one after the other. You must enter passwords to confirm the export of your keys from GnuPG and to allow them to be unlocked for importing them into Thunderbird's new internal key storage.
+
+Thunderbird 78 uses different settings than Enigmail. With Enigmail, it was possible to enable OpenPGP for an email account, but let it automatically select which of your keys would be used. Thunderbird 78 combines these settings. To enable OpenPGP for an email account, it is necessary to explicitly specify which personal key to use.
+
+Consequently, if you had previously used the automatic selection, then the migration might not have selected a key yet. After the migration, you should manually check the configuration of all your email accounts and identities, and if necessary, manually select the appropriate key.
+
+== The Enigmail migration has completed successfully, but I'm still unable to use OpenPGP. ==
+
+If you had Enigmail enabled for an email account on Thunderbird 68, and you enabled the preference "Use email address of this identity to identify OpenPGP key", then OpenPGP may not be enabled automatically in Thunderbird 78. You need to use account settings to manually select an OpenPGP key for every account and identity which you want to use with OpenPGP. Unfortunately, Enigmail migration does not automatically select them for you.
+
+== Can I repeat the migration? ==
+
+Note that migration requires the use of Thunderbird 78.x. Using Thunderbird 91 and later, the migration Add-on  is no longer available. If you still need to upgrade from Thunderbird 68 or older, you could manually download Thunderbird 78 to perform the migration, then upgrade to the latest Thunderbird version afterwards.
+
+If there is any problem with the migration with Thunderbird 78.x, you can repeat it. For example, the migration may fail if you experience a bug in Thunderbird, or if you did not remember the password for all of your personal keys, and did only a partial migration. To repeat the migration, you need to access a command from the top menu bar. If you are using Windows or Linux, and the top menu bar isn't visible, use a mouse right click in the top area of the Thunderbird main window, and enable the menu bar. Then use the Tools menu, which contains the command "Migrate Enigmail Settings".
+
+== I tried to import a file with public keys, and I get an error message that the file is too big. ==
+
+Please see the answer to the following question.
+
+== I previously used OpenPGP with GnuPG, but with a different email software. How can I migrate my keys to Thunderbird 78? ==
+
+You need to first export your keys from the other software and then re-import them to Thunderbird.
+
+As a way of exporting your personal keys (also called private or secret keys), you could use a command from command prompt to export them to a file. To export keys managed by GnuPG, you could use the following command:
+
+gpg --export-secret-keys --armor > my-secret-keys.asc
+
+Then you can import them into Thunderbird. Either use the Add Key and Import functionality in Thunderbird account settings, end-to-end encryption. Or use the global menu bar to open the Tools menu which offers the OpenPGP Key Manager. Use File Import Secret Keys and select the file you have created above. (Both import methods work with secret/private keys, only.)
+You probably have only a small amount of personal keys, therefore this approach should work.
+
+You may use a similar approach for exporting the public keys of your correspondents and use the following command:
+
+gpg --export --armor > all-public-keys.asc
+
+However, if you have many keys, you might experience a problem because of a current limitation in Thunderbird.
+Currently, Thunderbird cannot import a large set of keys in a single step. An attempt to import a file that is bigger than 5 MB will be rejected.
+
+You have two options to work around this limitation.
+* The first option is to use a graphical key manager for GnuPG and export your keys into separate files. For example, if all public keys in total have a size of 17 MB, you would have to create 4 files, and select a quarter of public keys for each exported file. This is a bit cumbersome.
+* Alternatively, you could try to use the Enigmail version 2.2.x migration Add-on for importing public keys into Thunderbird, even if you haven't used Enigmail before.
+
+To do so, use Thunderbird 78 and search for the Enigmail Add-on. You will be offered to install version 2.2.x. Once installed, you can manually access the command "Migrate Enigmail Settings" from Thunderbird's top menu bar, in the Tools submenu.
+Note that this may fail, depending on how you have set up GnuPG software on your computer, so it cannot be guaranteed that this approach works.
+
+If GnuPG software has been correctly installed on your computer, the Enigmail migration Add-on will find it and import all public keys from GnuPG into Thunderbird one by one, without being affected by the above-mentioned sized limit.
+
+== Enigmail reports that migration of my private key has failed. ==
+
+This could mean that you were trying to import a key that is not yet supported by RNP.
+Another possible reason is an incomplete setup of GnuPG software on your computer, especially if you were not prompted to enter a password to export your private key – this shouldn't apply if you have recently successfully used Enigmail on your computer.
+
+A good way to ensure that you have correctly installed GnuPG is to use the following procedure:
+* Install Thunderbird 68 into a separate directory, then run Thunderbird 68 with parameter -P and run it with a separate profile. (You don't need to configure an email account, you may cancel that suggestion.)
+* Then install Enigmail into your Thunderbird 68 profile, and execute the Enigmail setup wizard, which will help you to setup GnuPG software correctly.
+
+If this didn't help, you could check the Enigmail FAQ: https://enigmail.net/index.php/en/faq-en?view=topic&id=14
+
+== What types of OpenPGP keys are supported? ==
+
+Please note: Thunderbird uses the RNP software for processing keys, which may not yet support certain types of keys. This means that certain keys which are supported by GnuPG / Enigmail may not work with Thunderbird 78 by default, especially some keys with an advanced structure. '''However, for private keys, you might solve the problem by configuring Thunderbird to use GnuPG''', as explained in the next section.
+
+For private keys that are stored on a smartcard, please see the separate section about smartcard support.
+
+Thunderbird 91 and later supports importing and using OpenPGP personal keys with an offline primary key. The term offline means that the secret key for the primary key is intentionally absent. Note that Thunderbird itself doesn't support creating such a key, it's necessary to use external OpenPGP software (e.g. GnuPG) to create this key configuration, which could then be exported from GnuPG, and then imported into Thunderbird.
+
+{warning}'''The following keys are ''not'' or ''not yet'' supported by Thunderbird ''by default'':'''
+* Certain keys that are incomplete, for example those using an offline primary key.
+* Keys that use a different password for a sub key
+* Keys located on a smartcard.
+* Keys using the MD5 hash algorithm.
+* Certain other keys that RNP may not yet support.
+
+If you find that a key does not work with Thunderbird, please report it! If possible, and only if it is a public key, please include a copy of the key. '''Please be careful and never send us your secret/private keys!'''{/warning}
+
+{warning}'''Keys using SHA-1 hashes'''
+
+Thunderbird 91.8 attempted to deprecate OpenPGP keys that contain properties that were signed using the SHA-1 has algorithm, but the change was reverted, as too many users were negatively affected. More details about the deprecation plan can be found in this blog post: https://blog.thunderbird.net/2022/05/openpgp-keys-and-sha-1/ .{/warning}
+
+== I have imported my secret key, but Thunderbird cannot decrypt my emails. ==
+
+Maybe you imported the wrong key?
+To check that you have really imported the right key, you can do the following:
+
+# In Thunderbird, click on a message that you think you should be able to decrypt, but cannot decrypt.
+# Use {button ≡} &gt; {menu Save As} &gt; {menu File} and save your message to a file on disk (e.g. /tmp/test.eml).
+# Open a terminal. Run this command: '''gpg --list-packets /tmp/test.eml'''<br>You should get a listing of key IDs that can be used to decrypt the message (encrypted with ... ID ...).
+# Now go back to Thunderbird: {button ≡} &gt; {menu Tools} &gt; {menu OpenPGP Key Manager}.
+# For each of the secret keys that you have available (listed as bold), double-click to view key properties, then click on the structure tab.
+
+Can you find the ID that was shown above by ''gpg''?
+You need to have the secret keys for at least one of the IDs that were shown by ''gpg''.
+If you do not have any matching secret key, then you cannot decrypt the message.
+If you ''do'' have a matching secret, but Thunderbird still fails to decrypt the message, please [https://bugzilla.mozilla.org/enter_bug.cgi?product=MailNews%20Core&component=Security%3A%20OpenPGP report a bug against Thunderbird] with more details about your key.
+
+== If my secret key isn't supported by Thunderbird, what can I do? ==
+
+Thunderbird 78 allows you to optionally set up the external software called GnuPG for handling your secret keys (for digital signing and decryption of received messages).
+This will enable the use of smartcards or hardware tokens that store a secret key. You may also use it for keys that are stored in files on your computer and are not supported by Thunderbird’s built-in OpenPGP implementation.
+
+You need to install and configure the required GnuPG software yourself, because it cannot be distributed together with Thunderbird. Therefore this mechanism isn't enabled by default.
+To learn how to use it, please refer to the next question about smartcards.
+
+Note that public keys and their acceptance settings (for encryption and signature verification) are always handled by Thunderbird's internal code.
+
+== Can I use an OpenPGP smartcard or a hardware token with Thunderbird 78? ==
+
+Yes, we offer an optional mechanism.
+It requires that you install GnuPG and all required software yourself.
+Please refer to this document for more details:
+https://wiki.mozilla.org/Thunderbird:OpenPGP:Smartcards
+
+== How do I send an encrypted or digitally signed email? ==
+
+Ensure that you have configured your personal key for your email account or identity.
+When you write an email, use the Options menu, or the menu found on the security button, and enable the protection you would like to use.
+
+== What is needed to send an encrypted message? ==
+
+* You must have your personal key set up and selected.
+* You must have an accepted public key for every recipient of an encrypted message which you want to send. Public keys are often attached to the email messages of your correspondents. There is more information on getting public keys from others in another section of this document.
+* You must verify that the public keys of your correspondents really belong to them. If you accept someone’s public key without verifying it, you will be exposing your communication to Monster In The Middle attacks (MITM).
+* If you don't have a public key for every recipient, sending of your message will be blocked, and Thunderbird will alert you. You can choose between not sending the message at all, or disabling encryption and sending the message without protection, or only send the message to the subset of recipients for who you do have public keys.
+
+== What does key acceptance mean? ==
+
+Technically, anyone is able to create an OpenPGP key in anyone's name, using any email address they want. Nobody is able to limit or prevent that. This means, whenever you receive a correspondent's public key, you risk that it is a false key, and an attempt to trick you.
+Unless you have verified your correspondent's key, you might not be having a confidential conversation, but rather you might be the victim of a Monster-In-The-Middle attack (MITM).
+It is your decision if you care about this attack vector, and you might want to decide individually based on the correspondent.
+
+If you accept a key, it means you are willing to use that key for sending encrypted messages to that correspondent. If you receive an email from a correspondent, your acceptance decision controls how the digital signature will be displayed. Only signatures from accepted keys will be shown as valid.
+
+== Why do I have to mark my own secret key as accepted as a personal key? ==
+
+This is about a theoretical attack. Thunderbird treats personal keys differently, it grants full trust to those keys, and we skip the usual acceptance question (verified, unverified, etc.).
+
+In theory, an attacker might create a key in the name of one of your contacts, send the secret key to you, and trick you to import it. By requiring you to confirm that a secret key is your own key, you will probably notice that it isn't a key in your name, and you will probably reject its use as your personal key. This stops the attack.
+This setting is similar to GnuPG's model of setting key as having "ownertrust ultimate".
+
+== Why is encryption automatically enabled when I reply to an encrypted message? ==
+
+When replying, the default is to quote (include) the information that was in the message that you reply to. Your correspondent might have good reasons to encrypt their message, so you should be very careful when including the original text in a new message you send. It is advisable to continue using encryption. If you are unable to encrypt, and if you consider to reply without encryption, you should probably remove all the quoted text from the email message you are writing.
+
+== How do I get the public keys of my correspondents? ==
+
+If your correspondent sends you an email with their public key attached, or as a regular attachment, or contained in a hidden email header according to the Autocrypt standard, then Thunderbird will offer you to import the key.
+
+You may try to discover keys online by email address, by clicking on an email address in an email message you are reading, and using the command "discover key" shown in the popup menu. Currently, it will search for published keys using the WKD protocol, and it will search for keys in the keys.openpgp.org keyserver. The same mechanism can be used from the OpenPGP Key Manager, using the Keyserver, "Discover Keys Online" command, which allows you to search by any email address or key ID or fingerprint. Also, the same discovery mechanism can be used when having attempted to send an encrypted email, and reviewing the missing key information.
+If a key has been published on the Internet, you may download the key and use OpenPGP key manager to import the downloaded file. Or you may try to import by downloading from a given URL.
+
+Enigmail used to offer searching on non-verifying keyservers. At this time Thunderbird doesn't offer that, because of the various issues that were detected with those keyservers in the recent past. If you need to obtain a key from a keyserver that isn't currently supported by Thunderbird 78, then you must use other software to obtain it, then save it to a file, then you can use OpenPGP Key Manager to import the public key file.
+
+You can get the correspondent's public keys from other servers using the following gpg command:
+
+gpg --keyserver pgp.key-server.io --armor --export PASTE_KEY_ID_HERE
+
+Copy the received public PGP key to clipboard and import it using OpenPGP Key Manager's Edit menu by selecting the "Import Keys from Clipboard" option.
+
+== Does Thunderbird support opportunistic or automatic encryption? ==
+
+No. At this time, Thunderbird requires the user to take control and decide when encryption should be used or not be used, by enabling the appropriate options when composing an email.
+
+== I had configured the Enigmail add-on to trust all usable keys. Does Thunderbird support that? ==
+
+No. For each correspondent's public key that you want or need to use, Thunderbird 78 requires that you accept the key at least once.
+
+== Why does Thunderbird automatically enable the digital signature when I enable encryption? ==
+
+Message encryption by itself only provides confidentiality of content, but it doesn't provide reliable information about the actual sender of the message. In theory, someone could send you an encrypted message, but fake the sender of the email, giving you a false impression of trustworthy communication. Because an encrypted email without digital signature is not really secure, it is highly recommended to also digitally sign emails.
+
+Thunderbird currently does not offer an option to prevent digital signing from being enabled automatically. We might consider to offer this as a default configuration in the future. At this time, if you don't want to send a digital signature, you must manually disable this option prior to sending on each encrypted email that you send.
+
+== Why does Thunderbird automatically send my public key whenever I digitally sign an email? ==
+
+The whole point of digitally signing a message is that the recipient will be able to verify that the digital signature is correct. A digital signature cannot be verified if the correspondent’s public key is unavailable. To ensure that your recipients will be able to verify your signature, it is best to always include your public key.
+
+You may manually disable the automatic attachment prior to sending the message.
+
+Thunderbird 91 and later allow you to disable the automatic attachment in account settings.
+
+== My public key is very big, because I have many signatures on it. It is too big to include it with every signed message. ==
+
+Thunderbird 102 and later will automatically attach a reduced version of your key, which removes all certificates from other people.
+
+In Thunderbird 91 and before, we weren't able to automatically minimize your key. If you need to use an older version and want to avoid that your big key is sent with each digitally signed message, you could use other software, like GnuPG, to edit and minimize your key. Ensure you have a reliable backup of your secret key. Then export your key. Use other software to minimize it. Then delete your secret key in Thunderbird, import the minimized key, and ensure to adjust your account settings to use that key.
+
+== I used an advanced configuration with GnuPG to use a group of recipients and define the keys to be used. ==
+
+Thunderbird 91 and later support an alias mechanism, see the [https://wiki.mozilla.org/Thunderbird:OpenPGP:Aliases wiki page that explains how to use it]. In short, it is possible to maintain an external text file that defines which public keys should be used when creating encrypted email for certain email addresses or domains.
+
+== Does Thunderbird support per recipient rules or filter rules to automatically decrypt emails? ==
+
+{warning}Please note: Thunderbird does ''not'' currently support per recipient rules or filter rules to automatically decrypt emails as in the Enigmail add-on. Please ensure that your encryption and digital signature settings apply as expected.{/warning}
+
+== Can I disable the encryption of the email subject? ==
+
+Yes, in Thunderbird 91 and later it is possible to disable it per message, or disable encrypted subjects by default in account settings.
+
+== Does Thunderbird support the Web Of Trust? ==
+
+No. Thunderbird will not automatically trust or accept keys that were signed by others.
+Also at this time, if you indicate that you have verified a correspondent's key, Thunderbird will not add your signature to it. This might change in a future version of Thunderbird.
+
+When using the Enigmail migration tool to migrate public keys to Thunderbird, it should detect keys that have already been signed by your personal key, and automatically mark the corresponding keys as accepted keys, so you don't need to start from scratch.
+
+== How does Thunderbird store which keys are accepted? ==
+
+This information is stored in a file called openpgp.sqlite in the Thunderbird profile directory.
+
+==Where does Thunderbird store OpenPGP keys? ==
+
+It stores them in the Thunderbird profile directory.
+
+== How can I export my secret or public key? ==
+
+Use the OpenPGP key manager, which you can find in the global Tools menu bar. Find the key that you would like to export and click it to select it. Then use the window's menu bar to open the File menu, and select either "Export public key" or "Backup secret key" depending on what you require.  The OpenPGP key manager also allows you to export public keys of your correspondents.
+
+Alternatively, open Account Settings for the email account of your key that you want to export and select the End-to-End Encryption pane. Next to each personal key is a little small chevron, which you can click to open key details. Click the More button to open a list of possible actions. Select either "Export public key" or "Backup secret key".
+
+== I need to use both GnuPG and Thunderbird in parallel, can I synchronize my keys? ==
+
+No. At this time, Thunderbird uses its own copy of keys, and doesn't support synchronizing keys with GnuPG. The exception is the mechanism offered for smartcards, which could be used to use the personal keys managed by GnuPG.
+
+== How is my personal key protected? ==
+
+At the time you import your personal key into Thunderbird, we unlock it, and protect it with a different password, that is automatically (randomly) created. The same automatic password will be used for all OpenPGP secret keys managed by Thunderbird.
+You should use the Thunderbird feature to set a Primary Password. Without a Primary Password, your OpenPGP keys in your profile directory are unprotected.
+
+== Does Thunderbird support Autocrypt? ==
+
+Thunderbird does not support the Autocrypt philosophy that encryption should be fully automatic. However, Thunderbird provides limited compatibility with email clients that support Autocrypt.
+* When sending an email and using the option to attach your OpenPGP public key, and your key is sufficiently simply to be compatible with Autocrypt, then Thunderbird will add the appropriate header in the outgoing email, which can allow your correspondent to learn about your public key.
+* When receiving email that contains a correspondent's public key in an Autocrypt header, Thunderbird allows you to import the key.
+* At this time, Thunderbird doesn't support the "Gossip" feature.
+
+== I previously used Enigmail's Junior Mode (green, red, yellow symbols), what are my options? ==
+
+Enigmail for Thunderbird 68 had offered two very different modes of operation. A classic mode, which was described in settings as "force using S/MIME and Enigmail", and a "junior mode" which was implemented by software from the pEp software company. Note that Thunderbird is not affiliated with the pEp company.
+
+Thunderbird 78 does not provide the junior mode, the built-in OpenPGP feature that Thunderbird 78 provides is more similar to Enigmail's classic mode of operation. 
+
+When starting Thunderbird 78, after Enigmail has been upgraded to version 2.2.x (the version that provides migration assistance), Enigmail will open a web page provided by the pEp company, which offers you to download a newer version of their software.
+
+If you don't want to install pEp software, you may attempt a manual migration to Thunderbird's new built-in OpenPGP feature. To do so, you must set the configuration that disabled the previous Junior Mode.
+Open the Thunderbird general settings, scroll to the bottom, open Config Editor, and search for "extensions.enigmail.juniorMode". Double click it to change it, and set the value to zero. This configuration change will cause the Enigmail migration tool to believe that you were previously using the Enigmail classic mode.
+
+Restart Thunderbird 78. After restarting, the Enigmail 2.2.x migration assistant will offer you to perform a migration of your keys. Because the Enigmail tool only migrates keys and settings that were managed using GnuPG, it cannot migrate the trust settings that were managed by pEp software. However, Enigmail should be able to migrate your personal keys, allowing you to decrypt the messages that are encrypted with that key. Enigmail should also be able to migrate the public keys of your correspondents. However, most or all correspondent keys will likely have the state "not accepted" in Thunderbird 78, so you will have to accept or verify them once when you're trying to use them.
+
+After restarting Thunderbird 78, if no migration offer is shown, then you need to access a command from the top menu bar. If you are using Windows or Linux, and the top menu bar isn't visible, use a mouse right click in the top area of the Thunderbird main window, and enable the menu bar. Then open the Tools menu, which contains the command "Migrate Enigmail Settings".
+
+== I am using Enigmail 2.2.x to perform a migration, but the import appears stuck. ==
+
+Maybe the software has run into a problem. Please refer to the section about obtaining more information on failure.
+
+== Where can I ask questions about, or report problems with the OpenPGP feature? ==
+
+If your problem isn't covered on this page or in the linked documents, please refer to section "Discussion" on the following page for ways to contact us:
+https://wiki.mozilla.org/Thunderbird:OpenPGP#Discussion
+
+== How can I check if the problem I have has already been reported? ==
+
+Please refer to section "Open issues and TODO list" here:
+https://wiki.mozilla.org/Thunderbird:OpenPGP#Open_issues_and_TODO_list
+
+== I am seeing a problem and I want to try and analyze it myself. ==
+
+More information can be found here in section "Debugging / Tracing":
+https://wiki.mozilla.org/Thunderbird:OpenPGP#Debugging_.2F_Tracing
+
+== Thunderbird was automatically upgraded to version 78, but I prefer to stay with Thunderbird 68 and Enigmail. ==
+
+As soon as you have started Thunderbird 78 with a profile, you cannot easily go back to 68, because the profile has been migrated, and Thunderbird 68 will refuse to use it, and will not start.
+* If you have a backup of your profile, you can try to restore it, then you should be able to start Thunderbird 68 again.
+* If you don't have a backup, you could create Thunderbird 68 with a fresh profile and configure Thunderbird again.
+* The use of the Thunderbird startup parameter --allow-downgrade is not recommended, because you will lose some configuration settings and may get unexpected behavior.
+
+== I received an encrypted email with a hidden recipient (key ID 0x00000000) and Thunderbird cannot decrypt it. ==
+
+This is not yet supported. The addition of the feature is tracked here:
+https://github.com/rnpgp/rnp/issues/1275

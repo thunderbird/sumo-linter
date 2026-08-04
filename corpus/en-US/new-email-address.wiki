@@ -1,0 +1,70 @@
+__TOC__
+
+=Introduction=
+==Why would I need my own email address?==
+*Want a mail address that belongs to you or your family or your organization?
+*Don't like the idea that your personal messages are owned by some big world wide company?
+*Want to be free to change your Internet Service Provider without worrying if your mail address will survive?
+*Don't want a robot to  scan your messages in order to detect which ad is better for you to see when you use webmail, or  maybe you don't want ads at the end of your messages?
+
+In order to answer these questions and to provide a great email experience to its users, Thunderbird allows you to subscribe to some email services that can give you a personal email address. Instead of using something like john.smith@gmail.com, you can use for instance john@smith.us, or john.smith@mylittlecompagnie.com
+
+==What does Thunderbird provide ?==
+Thunderbird is currently working with two major email service providers:
+* [https://mailfence.com/ Mailfence] (based in Europe)
+* [http://www.gandi.net/ Gandi] (based in Europe)
+
+Usually email address providers will charge you an annual fee to set-up and host your personalized account. Depending on the email address provider, the personalized email account can come with other services. We encourage you to examine each mail provider's offering and pick the one that's best for you. Here's a quick glance at the paid offers (free offers may differ):
+
+{|
+|||'''Mailfence'''||'''Gandi'''
+|-
+|Custom email domain || yes || yes
+|-
+|Email alias addresses || 10 || Unlimited
+|-
+|Mailbox  size|| 5 GB - 50 GB || (2x) 3 GB - 50 GB
+|-
+|Cloud storage|| 12 GB - 70 GB || n/a
+|-
+|Secure group spaces|| 3 - 7 || n/a
+|-
+|Encryption + Two-factor authentication || yes || n/a
+|-
+|Website langages|| 10 languages available || 6 languages available
+|-
+|More details|| https://mailfence.com || https://www.gandi.net/domain/mail 
+|}
+Note that both of them support POP and IMAP, secure connections, and some other features. If you have special needs (larger mailbox capacity, more address for  you or your business) then you can simply upgrade to another email package at the same provider.
+
+=How do I set up a new mail account?=
+==Creating a new email account ==
+When you start Thunderbird for the first time, or select {menu File > New > Get a New Mail Account}, you are given the option to acquire an entirely new email account from an email service provider. Enter the name you want to use for your new email address in the field at the top, select the desired provider and click {button Search}. 
+
+The email service provider(s) you selected will show you available email addresses that are based on the name you entered. You can change the name you entered and search again until you find the email address you like best. If the email service provider charges for an account, the amount will be displayed. 
+
+[[Image:TB78-Get-a-new-mail-account-Sample-search]] 
+
+Select the address you would like to acquire by clicking on the button that displays the amount. You will be prompted to create an account on the email service provider's site and configure payment and other options. 
+
+After creating your new account, Thunderbird will automatically configure it so you can begin using the new account right away.
+
+== Configuring an existing email account ==
+If you already have a ''Mailfence'' or a ''Gandi'' account (or any other type of accounts), you can skip the process of creating a new account and move on to configuring an existing account, by clicking on {button Skip this and use my existing email}. These pages provide more details about the setup of an existing email address in Thunderbird:
+
+* [https://kb.mailfence.com/kb/how-can-use-mailfence-messages-with-thunderbird-using-smtp-and-imap-pop/ How to use Mailfence with Thunderbird]
+* [http://wiki.gandi.net/en/mail/setting-email-with-tbird Configuring Gandi Mail for Thunderbird]
+* [[Automatic Account Configuration]] in Thunderbird (for any other email address) 
+
+To abort the account configuration process, click {button I think I'll configure my account later}.
+
+= Using the new email account =
+Your new email account will be displayed in the Folder panel on the left side of the main Thunderbird window. 
+
+Messages will be automatically downloaded to the new account when Thunderbird checks the server for messages.
+
+You can now customize your mail account, for instance by composing your [[signatures]].
+
+To compose a message from your new account, select the account in the Folder panel and click the {button Write} button.
+
+[[T:ShareArticle|link=http://mzl.la/1hivvxJ]]

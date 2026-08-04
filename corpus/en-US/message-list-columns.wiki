@@ -1,0 +1,19 @@
+When Thunderbird shows a list of messages, it displays a set of columns that contain attributes of each message, such as the message subject, date, etc. 
+
+[[Image:0ce91f9379ad3e73eaeb49674df83243-1294176581-880-1.jpg]]
+
+= Add or remove columns =
+
+The screenshot above shows the default column layout. Click the column picker button on the far right of the label bar to see a list of the available columns. Alternatively, you can right-click on any column label to display the list.
+
+[[Image:0ce91f9379ad3e73eaeb49674df83243-1294177618-649-1.jpg]]
+
+Click on a checked item in the list to remove a column from the message list. Click on an unchecked item in the list to add a column to the message list.
+
+= Move or resize columns =
+
+To move a column, click and drag the column heading to the desired position. To resize a column, roll your cursor over the right side of the column heading. When the cursor changes from a single pointer to a double pointer, drag the column edge into the desired position.
+
+= Apply column layout to other folders =
+
+To apply the column layout to other folders, select {menu Apply columns to} from the column list. Select {menu Folder} to apply the changes to one specific folder. Select {menu Folder and its children} to apply the changes to a selected folder and all sub-folders beneath it. Under {menu Folder and its children}, you can select an email address (which will apply the folder configuration to all folders beneath that address) or a specific folder under an email address. Note that if you apply the changes from one folder to another, the column positions and sizes will also be applied.

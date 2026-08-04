@@ -1,0 +1,19 @@
+=Thunderbird Pro brief introduction=
+Thunderbird Pro is a subscription-based bundle of services that consists of:
+* Thundermail: An email service.
+* Appointment: A collaborative scheduling service.
+* Send: A secure way to send large files.
+
+Check out our website for all the details: https://tb.pro/ 
+{note}Please note: For the best possible experience, we recommend that you start with Thunderbird Desktop or a desktop browser like Firefox, Chrome, or Safari. Appointment, Send, and the Thunderbird Pro dashboard are optimized for desktop. The team is improving the mobile experience for Thunderbird Pro overall for mobile. For now, we have focused our mobile effort on Thundermail exclusively.{/note}
+=Prepare for Thunderbird Pro=
+* If you are not a Thunderbird Desktop user, please register at the link in the email we sent you.
+* If you have Thunderbird Desktop installed, then install the Thunderbird Pro add-on according to [[Install the Thunderbird Pro Add-on in Thunderbird Desktop]]. 
+* Set up your Thunderbird Pro account. You must enter a payment choice (for example, a credit card number). If you have a Thunderbird Pro coupon code, you must still add a payment option. If you have a problem with the code that you received, please [https://support.tb.pro/hc/en-us/requests/new ask for support]. Currently, only credit cards are accepted. Apple Pay, PayPal, and other 3rd party services are not yet supported. 
+=Set up your Thunderbird Pro apps: Thundermail, Send, and Appointment=
+* For Thundermail Desktop - Configure the Thunderbird program for Thundermail according to this article: [[Thunderbird for Desktop and Thundermail]].
+* For Thundermail on mobile - Configure the Thunderbird Android app for Thundermail according to the article: [[Thundermail and Thunderbird for Android]].
+* For Appointment - Configure according to [https://support.tb.pro/hc/sections/43161318933907 our Appointment articles].
+* Configure Send as per [https://support.tb.pro/hc/sections/43937747865235 our Send articles].
+=Let's go!=
+Go forth! Set up some office hours with Appointment. Transmit some files with Send. Deliver and receive email with Thundermail using your Thundermail Address Book, [https://support.tb.pro/hc/articles/46804820453907-Setting-Up-Email-Aliases Thundermail aliases] and [https://support.tb.pro/hc/articles/51338950680467-Setting-Up-a-Catch-All-Alias Thundermail catch-all addresses]. Use your Thundermail Calendar to setup events.

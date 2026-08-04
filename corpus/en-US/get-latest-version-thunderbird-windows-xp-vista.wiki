@@ -1,0 +1,14 @@
+<!-- Mostly copied from https://support.mozilla.org/kb/get-latest-version-firefox-windows-xp-vista -->
+Although Thunderbird will run on Windows XP Service Pack 2 (SP2) or above, the latest installers for Thunderbird require Windows XP with Service Pack 3 (SP3) or Windows Vista with update [https://support.microsoft.com/en-us/kb/2763674 KB2763674]. To  work around this issue, a two-step process is necessary to install the latest version of Thunderbird. Windows XP and Vista users should follow these steps:
+# [[Installing Thunderbird on Windows|Download and install Thunderbird]] up to version 38.5.0 ([https://archive.mozilla.org/pub/thunderbird/releases/38.5.0/ link to download]). <!-- The Thunderbird download page currently serves 38.5.1 for Windows XP -->
+#After installing this version you can use the Thunderbird updater to install the latest version of Thunderbird. See the article [[Updating Thunderbird]] for details.
+
+We're sorry for the inconvenience.
+
+{note}'''For advanced users:'''<br>
+On Windows XP SP3 or up-to-date Vista operating systems, you can download the full installer for the latest version of Thunderbird from https://archive.mozilla.org/pub/thunderbird/releases/
+
+For example, to download the Thunderbird 38.6.0 Windows English (US) full installer, navigate to {filepath /38.6.0/win32/en-US/} and choose the file {filepath Thunderbird Setup 38.6.0.exe}.
+
+Before downloading, read the [https://www.mozilla.org/thunderbird/system-requirements System Requirements] and see the [https://www.mozilla.org/thunderbird/notes Release Notes] for information about the latest Thunderbird release.
+{/note}

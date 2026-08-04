@@ -1,0 +1,67 @@
+If Thunderbird is specified as your system's default email application, it will integrate with other applications (such as word processors and web browsers). For example, when you click an email address link (like "[mailto:email@example.com email@example.com]") on a web page or invoke a mail function (such as "Send to") from a word processor, Thunderbird will launch and open a message composition window.
+
+Unfortunately, there is a great deal of variability among operating systems and applications regarding how the default mail client is specified. If the suggestions on this page do not solve your problem, consult the specific application or operating system's documentation for instructions on how to set the default email client. Also, see the [http://kb.mozillazine.org/Default_mail_client#Windows Default mail client] article on the MozillaZine website for more tips. 
+
+= Force Thunderbird to check if it is the default =
+
+Thunderbird can be configured to check if it is the operating system's default mail client each time it is started. 
+
+# [[T:optionspreferences TB]]
+# On the {menu Advanced} panel, select the {menu General} tab.
+# Make sure that "Always check to see if Thunderbird is the default mail client on startup" is checked. 
+# Click {button Check Now} to check if Thunderbird is set as the default mail client immediately.
+[[Image:Thunderbird check if default menu]]
+
+* If you want to set Thunderbird as the default client for e-mail, newsgroups or feeds, check the corresponding boxes and click OK. When a box is grayed out, Thunderbird is already set as the default client for that purpose.
+* If you set Thunderbird to be the default mail client, other applications (such as your web browser or word processing application) may need to be restarted for the changes to take effect. 
+
+= Set Thunderbird as the operating system default =
+
+{for winxp}
+#Click the Windows Start button, then click on the Control Panel icon to open the Windows Control Panel.
+#Click the '''Add or Remove Programs''' icon to open the Add or Remove Programs applet.
+#On the left side of the Window click the '''Set Program Access and Defaults''' icon.
+#In the Access and Defaults window, click on the '''Custom''' radio button to expand the Custom category.
+#Underneath '''Choose a default e-mail program''', select '''Mozilla Thunderbird'''.
+#Click {button OK} at the bottom of the window. 
+{/for}
+
+{for win7}
+#Click the Windows Start button, then click the '''Default Programs''' item.
+#Click on '''Set your default programs'''.
+#Under '''Programs''', click '''Thunderbird'''.
+#Click '''Set this program as default'''.
+#Click {button OK} at the bottom of the window. 
+{/for}
+
+{for win8}
+#Open the '''PC Settings''' application by pressing and releasing the Windows Start button, then clicking the gear icon.
+#Select {menu Search and apps} from the sidebar.
+#Select {menu Defaults} from the sidebar.
+#Click the icon under the heading '''Email''' to show your choices.
+#Select '''Thunderbird'''.
+{/for}
+
+{for win10}
+#Open the '''Settings''' application by pressing and releasing the Windows Start button, then clicking the gear icon.
+#Click the Apps icon, then click '''Default Apps''' in the list.
+#Click the icon under the heading '''Email''' to show your choices.
+#Select '''Thunderbird'''.
+{/for}
+
+{for mac}
+The instructions above for making Thunderbird check if it is the default email client should have configured the operating system preference. However, if it isn't working, you can set it manually as follows:
+
+# Launch the default Mac OS X email application (called "Mail", located in the {filepath /Applications} folder.)
+# Select {menu Mail > Preferences} from the menu.
+# On the {menu General} tab, select "Thunderbird" from the Default email reader drop-down list.
+# Close Mail. 
+{/for}
+
+{for linux}
+Using Gnome as an example, go to {menu Applications > Desktop Preferences > Advanced > Preferred Applications}. Select {button Custom Mail Reader} and enter <code>thunderbird "mailto:%s"</code> (If Thunderbird is not in the system's PATH statement, specify the full path.)
+{/for}
+
+= Set Thunderbird as an application default =
+
+In some cases (such as Firefox on KDE Linux), the application doesn't check the operating system preferences to determine the default email application. When that is the case, you must set the default in the application itself. Refer to the application documentation for instructions.

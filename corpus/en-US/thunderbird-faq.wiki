@@ -1,0 +1,61 @@
+This article provides general information about Thunderbird.
+
+__TOC__
+
+= What is Thunderbird? =
+Thunderbird is a free, open-source, cross-platform application for managing email, news feeds, chat, and news groups. It is a local email application, meaning it installs and runs as a client on your device, being rather  than browser or web-based. It is powerful yet easy-to-use through its [https://www.thunderbird.net/features/ many features].
+
+= Who makes Thunderbird? =
+Thunderbird is developed, tested, translated and supported by volunteers, plus paid staff at MZLA. '''Thunderbird is a <u>community</u> driven project''', because the project is [https://www.thunderbird.net/en-US/about/#governed-by-contributors overseen by the Thunderbird Council], which is elected by the Thunderbird Community. Thunderbird development is made possible by [https://www.thunderbird.net/donate/?form=support&utm_campaign=main&utm_source=sumo&utm_medium=web&utm_content=text_kb-thunderbird-faq funds donated by the Thunderbird community to MZLA].
+* The Thunderbird community and company (MZLA) is completely independent of the Mozilla Corporation, the makers of Firefox. But the Mozilla Corporation supports Thunderbird by hosting many of the Thunderbird infrastructure and resources.
+
+= Why should I use Thunderbird? =
+* Thunderbird is free.
+* Thunderbird has many [https://www.thunderbird.net/features/ cool features].
+* Thunderbird gives '''you''' control and ownership over your email.
+* Many [https://addons.thunderbird.net/thunderbird/ add-ons are available] to extend and customize your email experience.
+* Thunderbird's history is with Mozilla, and so it adheres to the [https://www.mozilla.org/about/manifesto Mozilla Manifesto], a pledge that describes a commitment to an open, accessible, egalitarian Internet.
+
+= Is Thunderbird free? =
+Yes! Thunderbird is open source software. Anyone can download and use the program for free, and view and modify the source code under the terms of the [https://www.mozilla.org/MPL/ license].
+
+= Where can I download Thunderbird? =
+Download current versions of Thunderbird for all languages is available [https://www.thunderbird.net/ here], both mobile and desktop. We also have [[Thunderbird Beta|beta versions]] and [[Thunderbird Daily|daily versions]] for testing, and the [https://releases.mozilla.org/pub/mozilla.org/thunderbird/ source code].
+
+= Is Thunderbird available in my language? =
+Very likely, yes. Thunderbird has many dedicated volunteer translators who translate each version. If you do not find your language in [https://www.thunderbird.net/download the download list], then we encourage you [https://source-docs.thunderbird.net/en/latest/l10n/index.html to help develop a localized version] with the help of other volunteers.
+
+= Is Thunderbird available for my platform? =
+Probably. '''Windows, Mac, Linux, and Android''' are available from the [https://www.thunderbird.net/download download page]. For other operating systems, you can [https://developer.thunderbird.net/thunderbird-development/building-thunderbird build Thunderbird desktop from the source code].
+
+== Is Thunderbird available for IOS or iPhone? ==
+
+Thunderbird for [https://blog.thunderbird.net/tag/ios/ iOS] development (for iPhone and iPad) is in progress! When it is ready for users there will be a [https://blog.thunderbird.net/ public announcement].
+
+= What is my Thunderbird email address? =
+Thunderbird the '''application''' (client) runs on your device to send, receive, sort and search your email messages, after you [[Automatic Account Configuration|'set up your '''existing''' email address(es)]]. 
+
+If you do not already have an email address:
+* Thunderbird can [[Thunderbird for Desktop and Thundermail|provide you with a Thundermail address]]. 
+* ISPs (Internet Service Providers) usually give you one or more email accounts when you sign up for their internet access. 
+* Employers often provide their employees with email accounts. 
+
+= Where is my personal information (such as my messages, passwords, account information, etc) stored? =
+Thunderbird stores your personal data on your local drive. If you are using the IMAP protocol for accessing messages, then your messages are also stored on your email provider's server. See [[IMAP Synchronization]] for more information. 
+
+You will want to protect this information by [[Profiles - Where Thunderbird stores your messages and other user data#w_backing-up-a-profile|backing up your profile]].
+
+= Where can I get help with using Thunderbird? =
+Support is available at:
+* The [/products/thunderbird Knowledge Base of many articles], for example the article you are reading now.
+* Thunderbird's [/questions/thunderbird support forum] where you can ask a question, or search for issues and answers if you didn't find the answer in the [/products/thunderbird Knowledge Base].
+* [https://www.thunderbird.net/participate/ Special topics and discussion sites].
+* For [[Thunderbird add-ons - frequently asked questions|add-ons (extensions)]] questions or problems you will want to find the '''Support site''' or '''Support E-mail''' adddress on each add-on's web page.
+
+{warning}'''Thunderbird does not provide direct support in your home nor via email, fax, youtube, zoom, phone, remote, nor paid services'''. [[Avoid and report Mozilla tech support scams|Please report scams and be wary of offers of paid support.]]. Instead, we rely on our volunteer community to help users. (See below on how you can help.){/warning}
+
+= Can I help? =
+Yes, absolutely! Please do!
+* Help other Thunderbird users with their [/questions/thunderbird Thunderbird questions].
+* Help improve [/products/thunderbird Thunderbird KB articles].
+*Help [https://www.thunderbird.net/participate/ in other ways], such as documentation, coding, and testing [[Thunderbird Beta|beta versions]] or [[Thunderbird Daily|daily versions]].

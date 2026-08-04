@@ -1,0 +1,26 @@
+If you want to search a website for text you see in a message in Thunderbird, you can instantly run the search from Thunderbird.
+
+__TOC__
+
+=How to perform a Search=
+Let’s say you see the phrase "''I like Minotaur''" and want to search the web for Minotaur. Just highlight the word "''Minotaur''", then right-click and select {menu Search Bing for "Minotaur"}
+
+;{for win10}[[Image:opensearch-win10]]{/for}{for win7, win8, winxp}[[Image:opensearch-win7]]{/for}{for mac}[[Image:opensearch-mac]]{/for}{for linux}[[Image:opensearch-linux]]{/for}
+
+Thunderbird will show the search results in your default browser.
+
+=How to change the search engine=
+By default, Bing is set as the search engine. To change it, do the following:
+# [[T:optionspreferences TB]]
+# Select the {menu General} panel.
+# Under '''Default Search Engine''', use the drop-down menu to select your preferred search engine from the list.
+# {for win}Click {button OK} to close the Options window.{/for}{for linux}Click {button Close} to close the Preferences window.{/for}{for mac}Close the Preferences window.{/for}
+
+=How to add Google to the search engine list=
+Google is not included in the search engine list, but you can add it by installing the [https://addons.thunderbird.net/thunderbird/addon/google-search-for-thunderbi/ Google Search for Thunderbird] add-on. 
+# {for win}Press the {key Alt} key to display the menu bar, then click on the {menu Tools} menu and choose {menu Add-ons}.{/for}{for mac}In the menu bar, open the {menu Tools} menu and select {menu Add-ons}.{/for}{for linux}Press the {key F10} key to display the menu bar, then click on the {menu Tools} menu and choose {menu Add-ons}.{/for}
+# On the left sidebar, make sure {menu Extensions} is selected.
+# In the search field in the top-right corner, enter ''Google Search''.
+# Beside '''Google Search for Thunderbird''', click {button Install}.{for win10}<br/><br/>[[Image:tb-google-win10]]<br/>{/for}{for win7}<br/><br/>[[Image:tb-google-win7]] <br/>{/for}
+# Restart Thunderbird.
+After you install the add-on, Google will be available in the list of search engines.

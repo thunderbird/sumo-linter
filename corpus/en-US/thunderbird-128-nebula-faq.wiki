@@ -1,0 +1,29 @@
+[[T:TBMore]]
+This article answers questions for new users of Thunderbird 128 (Nebula), in particular users who have upgraded from a previous version.
+
+Nebula is constantly evolving. Throughout the next year, we will deliver many improvements to existing Nebula features and introduce brand new ones. Upgrade to version 128 and experience the future of Thunderbird!
+
+__TOC__
+
+== What is happening with Thunderbird Sync? ==
+We are building our own sync storage server and it is taking some time to set it up and test. We will let you know when it is available for public pre-release testing.
+
+== What is happening with Exchange Support? ==
+We recommend you use Exchange in Thunderbird for Desktop 147 or newer. Please refer to [[Thunderbird and Exchange]] for more details including current limitations.
+
+== Why is Thunderbird 128 labeled as 128.0esr when previous versions were not called ESR? ==
+'''In short: Thunderbird 128.0esr is the same release channel as Thunderbird 115, only the name has changed'''. This channel gets a yearly major feature release as always.
+
+For 128, we added “ESR”(which stands for Extended Support Release) to the name because we’re introducing a new monthly feature release channel similar to the [[Choose a Firefox update channel|Firefox Rapid Release channel]]. So we needed to distinguish between that and the yearly channel. Since Firefox calls their yearly release “ESR”, we opted to do the same.
+
+For many years, due to lack of development resources, Thunderbird had no monthly feature release at all. There was only Beta. During that time, it wasn’t necessary to use the “ESR” label.
+
+Going forward, there will be four Thunderbird channels:
+* '''Daily''': Updates every day with the latest changes directly from development branches, for bleeding edge testers.
+* '''Beta''': Major updates every 4 weeks, after testing on Daily. Provides testing for final release branches.
+* '''Release''': Major updates every 4 weeks, containing everything that was tested on Beta the previous month.
+* '''Extended Support Release (ESR)''': Major updates once per year, minor and security updates the rest of the time, with support extending for ~15 months after a major update.
+''The new monthly feature release channel will be available for testing and use later this year.''
+
+== Why are my Thunderbird customizations broken in 128? ==
+If your customization required changes to userChrome.css, userContent.css, or other related files, then these [[userChrome.css and .js and userContent are unsupported|userChrome* customizations are still unsupported in 128]] (they were also unsupported in 115 and all previous releases). There may be [https://support.mozilla.org/questions/thunderbird?tagged=unsupporteduserchromecss&show=all solutions in the forums] but please remember these are unofficial and unsupported solutions, and could break at any time.

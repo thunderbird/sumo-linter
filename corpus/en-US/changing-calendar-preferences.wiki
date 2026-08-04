@@ -1,0 +1,16 @@
+This article describes how to change the preferences (name, color, location etc.) of a single calendar.
+
+== Accessing calendar preferences ==
+To change the preferences of a single calendar, either double-click on it or highlight the calendar you want to edit, then click the {menu Edit} menu from the top and select {menu Calendar properties}.
+
+[[Image:Changing calendar preferences]]
+
+== Available options ==
+* '''Calendar Name:''' Here you can choose to change the name of your calendar, for example from ''Home'' to ''Private''.
+* '''Color:''' By clicking on the box next to the word ''Color'', you can change the background of all your calendar events to something more pleasing to you than blue, like mauve, purple, or yellow.
+* '''Location:''' This is the location of your calendar. Do not edit this unless you know what you are doing.
+* '''E-Mail:''' This is the email address Thunderbird uses to send invitations for events.
+* '''Refresh Calendar:''' This is how frequent Thunderbird will check for changes on the calendar details.
+* '''Read Only:''' If checked, this makes the calendar not editable by default. This is very nice for shared office calendars that you don't want to edit by accident. (Can also be made read-only by clicking on the "color" of the calendar in the calendar tab.)
+* '''Show Reminders:''' This enables/disables the reminders portion of the calendar.
+* '''Offline Support:''' If checked, your remote calendar is synchronized on your hard disk. This allows you to read and write to your calendar while offline and can also reduce network traffic.

@@ -1,0 +1,17 @@
+This article describes how to install Thunderbird on Mac. For other operating systems, see [[Install Thunderbird on Windows]] and [[Install Thunderbird on Linux]].
+Before you install Thunderbird, check that your computer meets the [https://www.thunderbird.net/thunderbird/system-requirements/ System Requirements].
+
+Open the [https://www.thunderbird.net/ Thunderbird download page] and click the "Free Download" button to download the platform and language edition of Thunderbird for your computer. If you want to download Thunderbird in a language other than the one suggested, click on "Systems & Languages" for the list of available editions. Click on the macOS installation of your choice to continue.
+
+Once the download is completed, the disk image may open by itself and mount a new volume which contains the Thunderbird application. If you do not see the new volume, double-click the Thunderbird dmg icon to open it. A Finder window appears, containing the Thunderbird application. '''Drag the Thunderbird icon to the Applications folder.'''  Now eject the disk image by selecting it in a Finder window and pressing the {key command}+{key E} keys or by using the Finder's {menu File} menu, and selecting {menu Eject}.
+
+Thunderbird is now ready for use. Open the Applications folder and start by double-clicking on the Thunderbird icon. You may get a security warning that Thunderbird has been downloaded from the Internet. Because you downloaded Thunderbird from the official site, you can click {button Open} to continue.
+
+{note}'''Tip:''' You can add Thunderbird to your dock for easy access. Just open your Applications folder and drag Thunderbird to the dock.{/note}
+
+The first time you start Thunderbird you may be alerted that it is not your default email application. (The default email application is the program that opens, for example, when you click a link on a web page to an email address.) If you want Thunderbird to be the default email application, click {button Yes} to set it as your default mailer. If not (for example if you are just trying out Thunderbird) click {button No}.
+
+== Common Problems ==
+* If you fail to install Thunderbird to the Applications folder, every time Thunderbird starts it will not have remembered your provious session settings - it will ask you to create email accounts, or otherwise indicate that it has no data.  '''You must drag the Thunderbird dmg file/icon to the Applications folder.'''
+
+<!-- transliterated from FF by smo -->

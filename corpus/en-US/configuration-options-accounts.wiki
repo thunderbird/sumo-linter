@@ -1,0 +1,129 @@
+This article explains the settings available in the Account Settings window. These are settings that are specific to each account.
+To access the Accounts Settings window, go to {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings}.
+
+__TOC__
+
+= Account Actions =
+{button Account Actions} at the bottom left of Account Settings offers:
+* Add Mail Account
+* Add Chat Account
+* Add Feed Account
+* Add Newsgroup Account
+* Set as Default, changes the currently selected mail account to be the default account, and adds a star next to the account name
+* Remove Account
+
+= Account Settings panel =
+{for win}[[Image:tb52-accountsettings-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-mac]]{/for}
+* '''Account name''': Here, you can name the account. The name will appear in the folder pane as well as other areas in Thunderbird where you need to navigate accounts.
+* '''Your Name''': This is the name that will appear in messages you send in the ''From'' field.
+* '''Email Address''': When sending a message, this is the email address that will appear in the ''From'' field.
+* '''Reply-to Address''': If you want replies to your messages to be sent to an address different from that in the ''From'' field, enter that address here.
+* '''Organization''': If you'd like to state the organization your address belongs to, enter it in this field, and it will be attached to messages you send from the above address.
+* '''Signature text''': If you'd like to append a signature to your message, enter it here or attach a signature file by check marking '''Attach the signature from a file instead'''. For more information, see [[Signatures]].
+* '''Attach my vCard to messages''': A vCard is a virtual business card often attached to email messages. Enable this setting and click {button Edit Card} to enter the data in your vCard. The vCard will then be attached to all messages you send from this identity.
+* '''Outgoing Server''': If you have multiple outgoing servers set up, use this menu to choose which server to use with this identity.
+* {button Manage Identities}: An identity is a configuration of name, address, signature, outgoing server, and many other corresponding settings. In Thunderbird, you can set up more than one identity per-account. Click on this button to set up and manage any other identities for this account. For more information, see [[Using Identities]].
+
+= Server Settings panel =
+{for win}[[Image:tb52-accountsettings-server-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-server-mac]]{/for}
+* '''Server Type''': This setting is determined at the time the account is created. <!-- For more information, see the difference between POP and IMAP -->
+* '''Server Name''' and '''Port''': This is the server Thunderbird will connect to when retrieving messages for your account. The name and port number are provided by your mail provider. 
+* '''User Name''': When contacting the server for new messages, the user name identifies which account you are retrieving messages for. Your user name is provided by your mail provider.
+
+== Security Settings ==
+* '''Connection Security''': These settings determine if your connection to the server is encrypted.
+** '''None''': The connection is not encrypted.
+** '''SSL/TLS''': (Recommended when possible) The connection is encrypted.
+** '''STARTTLS''': The connection starts as unencrypted, but attempts to make a secure connection if the server supports it.
+* '''Authentication method''': These are various methods used to verify that you are the owner of the account you are trying to access. Your account provider will determine which authentication to choose. <!-- Needs explanation of each method -->
+
+== Server Settings ==
+* '''Check for new messages at startup''': With this setting enabled, Thunderbird will check the account for new messages when you start Thunderbird.
+* '''Check for new messages every __ minutes''': Make Thunderbird check for new messages automatically on a set time interval. 
+* '''Allow immediate server notifications when new messages arrive''': (IMAP accounts only) With this setting, Thunderbird will use the IMAP IDLE command, allowing you to receive new messages as soon as they arrive on the server without having to check the server for new messages.
+''When I delete a message:'' 
+(IMAP accounts only) By default, when you delete a message, Thunderbird will move it to the Trash folder for that account. Here, you can change that behavior.
+* '''Move it to this folder''': Instead of moving the message to the trash folder, use this menu to select a different folder where messages will be moved to.
+* '''Just mark it as deleted''': Using this setting will keep the deleted message in the original folder, but strike a line through it to show you it has been marked as deleted. To clear the folder of deleted messages, right-click on the folder and select {menu Compact}.
+* '''Remove it immediately''': Choose this setting to make Thunderbird remove messages when you delete them, without moving them to any folder.
+* '''Automatically download new messages''': (POP accounts only) If Thunderbird checks for new messages using the ''Check for new messages every'' setting and detects new messages, you will still need to click {button Get Messages} to download those new messages. Enable this setting to automatically download those new messages when they are detected.
+* '''Fetch headers only''': (POP accounts only) With this setting enabled, Thunderbird will only download the message headers. When you want to view a new message, Thunderbird will present a link to download the message content.
+* '''Leave messages on server''': (POP accounts only) Using this setting, Thunderbird will not remove messages from the server after you've downloaded them. Set ''For at most __ days'' to delete messages from the server after a set time period. Set ''Until I delete them'' to delete messages from the server when you delete them from Thunderbird.
+
+== Message Storage ==
+* '''Clean up ("Expunge") Inbox on Exit''': (IMAP accounts only) When a message is deleted, the master copy on the server is only marked as deleted. Enable this setting to remove messages on the server inbox marked as deleted from the server.
+* '''Empty Trash on Exit''': With this setting enabled, Thunderbird will empty your trash folder when you exit the program/application.
+* '''Message Store Type''': This setting determines if Thunderbird stores mail folders locally in single files (For example, there's a file called ''Inbox'') or stores each message in its own file. For more information, see [[Maildir in Thunderbird]].{note}'''NOTE:''' This setting is determined when creating an account.{/note}
+* '''Local Directory''': This is the location where Thunderbird stores messages for the account. If you'd like to store messages for the account in a separate location from the rest of your Thunderbird profile, click {button Browse} to select the directory you want.
+
+== Advanced IMAP Settings ==
+{for win}[[Image:tb52-accountsettings-advancedIMAP-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-advancedIMAP-mac]]{/for}
+Click on {button Advanced} to configure IMAP server settings that are rarely customized.
+* '''IMAP Server Directory''': If the IMAP folders reside in a different location than the default, fill in this field with the correct location. For instance, on Gmail, folders are kept in the ''[Gmail]'' directory.
+* '''Show only subscribed folders''': With IMAP accounts, folders are kept on the server. In cases where the server contains folders for other functions, such as notes, there will be a folder for that function. By default, Thunderbird only shows the folders you have subscribed to. Disable this setting to make Thunderbird display all folders on the server. To select which folders you see, right-click on the account in the folder pane, and select {menu Subscribe}.
+* '''Server supports folders that contain sub-folders and messages''': Use this setting if your server folders residing in other folders.
+* '''Maximum number of server connections to cache''': Most servers support multiple connections. If you have an issue with connections to the server being dropped, try lowering this number.
+* Namespaces are used when your account has shared folders. For instance, your inbox is accessible only to you, but there may be a folder shared with other users. '''Personal namespace''' determines the directory are that is only accessible to you.  '''Public (shared)''' determines which directory is accessible to anyone. Use '''Other Users''' to determine specific users.
+* '''Allow server to override these namespaces''': Enable this setting to let the server determine your namespaces.
+
+== Advanced POP Settings ==
+(POP accounts only) Click on {button Advanced} to configure your Inbox storage. 
+* '''When downloading mail from this account's server, use the following folder to store new messages''': The setting determines which folder to use as the inbox for this account. By pointing more than one account to the same inbox, you can have one Inbox for all of your POP accounts.
+
+= Copies & Folders panel =
+{for win}[[Image:tb52-accountsettings-copies-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-copies-mac]]{/for}
+* '''Place a copy in''': With this setting enabled, Thunderbird will make a copy of messages that you send, and place them in the folder you choose.
+* '''Place replies in the folder of the message being replied to''': When replying to a message with this setting enabled, Thunderbird will determine which folder the message you are replying to is in, and place a copy of your reply in the same folder.
+* '''Cc these email addresses''': If you'd like Thunderbird to automatically add an address to the ''Cc'' field on every message you send, enter the address in this field. To enter more than one address, use a comma to separate them.
+* '''Bcc these email addresses''': If you'd like Thunderbird to automatically add an address to the ''Bcc'' field on every message you send, enter the address in this field. To enter more than one address, use a comma to separate them.
+* '''Keep message archives in''': With this setting enabled, you can create a folder to hold an archive of your messages. For more information, see [[Archived Messages]].
+* '''Keep draft messages in''': If you save a message as a draft, this setting determines which folder the draft will be saved in. Your draft will be removed when the message is sent.
+* '''Keep message templates in''': If you save a message as a template, this setting determines which folder the template will be saved in.
+* '''Show confirmation dialog when messages are saved''': <!-- explanation needed/missing -->
+
+= Composition & Addressing panel =
+{for win}[[Image:tb52-accountsettings-composition-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-composition-mac]]{/for}
+* '''Compose messages in HTML format''': Enable this setting to add the ability to format your messages using HTML, like bold, italics, underline, set a font family, font size, font color, background color, and more.
+* '''Automatically quote the original message when replying''': With this setting enabled, when you click on {button Reply} or {button Reply All} on a message, the message you are replying to will be automatically quoted in the message compose window.
+* '''Then''': If you have ''Automatically quote the original message when replying'' enabled, this setting determines where the cursor will be placed - either above or below the quoted text.
+* '''And place my signature''': In addition to ''Automatically quote the original message when replying'', if you also have Thunderbird set to automatically add a signature, this setting determines where your signature will be placed - either above or below the quoted text.
+* '''Include signature for replies''': If you do not want your signature added when replying to a message, disable this setting.
+* '''Include signature for forwards''': Enable this setting to make Thunderbird automatically add your signature when forwarding a message.
+Click {button Global Composing Preferences} to open the Composition panel in the {for mac,linux}Preferences{/for}{for win}Options{/for} window.
+* '''When looking up addresses''': If you have Thunderbird set to look up addresses on an LDAP server when composing a message, this setting can be used to specify a different LDAP server when composing messages from this identity.
+Click {button Global Addressing Preferences} to open the Addressing tab in the {for mac,linux}Preferences{/for}{for win}Options{/for} window.
+
+= Junk Settings panel =
+{for win}[[Image:tb52-accountsettings-junk-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-junk-mac]]{/for}
+* '''Enable adaptive junk mail controls for this account''': Enable this setting to use Thunderbird junk mail filtering, which will detect junk messages and filter them out. For information about these settings, see [[Thunderbird and Junk / Spam Messages]].
+
+= Synchronization & Storage panel =
+{for win}[[Image:tb52-accountsettings-sync-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-sync-mac]]{/for}
+* '''Keep messages for this account on this computer''': With IMAP, only headers are stored on your computer. When viewing a message, Thunderbird accesses the message content residing on the server. With this setting enabled, Thunderbird will store a local copy of each message on your computer, allowing you to read messages while offline. Click {button Advanced} to select which folders you want to store local copies of. For more information, see [[IMAP Synchronization]].
+
+= Return Receipts panel =
+{for win}[[Image:tb52-accountsettings-RR-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-RR-mac]]{/for}
+* '''Use my global return receipt preferences for this account''': A return receipt adds a request with your message to notify you when the recipient has opened the message. Your global return receipt settings can be viewed in the Advanced tab in the {for mac,linux}Preferences{/for}{for win}Options{/for} window by clicking {button Global Preferences}. If you'd like to use different settings for this account, select '''Customize return receipts for this account'''. Settings available here are the same as global preferences, but they will only apply to the current account. For information, see [[Advanced panel - System, network, updates, and other advanced settings in Thunderbird]].
+
+= Security panel =
+{for win}[[Image:tb52-accountsettings-security-win10]]{/for}
+{for mac}[[Image:tb52-accountsettings-security-mac]]{/for}
+
+== Digital Signing ==
+When you digitally sign a message, you embed information in the message that validates your identity. This is accomplished by using a digital certificate to sign your messages. For more information, see [[Digitally Signing and Encrypting Messages]].
+* '''Digitally sign messages (by default)''': Enable this setting to make Thunderbird automatically sign your messages using the certificate selected above. If this setting is not enabled, you can sign a message in the composition window by going to the {menu Options} menu and selecting {menu Digitally Sign This Message}.
+
+== Encryption ==
+When you encrypt a message, it appears to be "scrambled" and can only by read by a person who has the key to decrypt the message. This is also accomplished by using a digital certificate. For more information, see [[Digitally Signing and Encrypting Messages]].
+
+''Default encryption setting when sending messages'':
+* '''Never (do not use encryption)''': Set this preference to only encrypt messages that you choose when composing the message. You can encrypt a message in the composition window by going to the {menu Options} menu and selecting {menu Encrypt This Message}.
+* '''Required (can't send message unless all recipients have certificates)''': Set this preference if you want all messages being sent to be encrypted.

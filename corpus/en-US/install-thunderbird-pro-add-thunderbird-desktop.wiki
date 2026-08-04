@@ -1,0 +1,22 @@
+[[Template:TBproEarlyBirdInviteOnly]]
+
+{note}'''PLEASE NOTE''': Thunderbird Pro requires the latest [[Thunderbird ESR]] release or newer. We recommend the latest monthly release version of Thunderbird, which is documented here: [[New in Thunderbird Desktop]].{/note}
+
+= Install the Thunderbird Pro Add-on =
+
+The [https://addons.thunderbird.net/thunderbird/addon/pro/ '''Thunderbird Pro add-on'''] is [[Installing an Add-on in Thunderbird|installed]] like any other Thunderbird add-on:
+
+# Thunderbird app menu {menu ≡} > Settings gear icon {button [[Image:gear icon]]} > {menu Add-ons and Themes}.
+# Enter “'''Thunderbird Pro'''” in '''Find more add-ons'''.
+# Click {button Add to Thunderbird} and then {button Add} in the dialogue that pops up. Follow the prompts to complete the process.
+#;[[Image:2026-02-10 how install tb pro add-on]] 
+
+= Explore the Power of Thunderbird Pro! =
+
+* [[Thunderbird for Desktop and Thundermail|Add your Thundermail account to Thunderbird Desktop]] and send some messages!
+* If you have an Android phone, [[Thundermail and Thunderbird for Android|add your Thundermail account to Thunderbird for Android]] and send some email while on the go.
+
+* Configure [https://support.tb.pro/hc/sections/43937747865235 Thunderbird Send'''] for sending large files.
+* Have folks book time on your calendar by setting up [https://support.tb.pro/hc/sections/43161318933907 '''Thunderbird Appointment'''].
+
+And more!

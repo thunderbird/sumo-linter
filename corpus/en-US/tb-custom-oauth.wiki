@@ -1,0 +1,1 @@
+stub only for now (see github issue [https://github.com/thunderbird/knowledgebase-issues/issues/218 #218])

@@ -1,0 +1,58 @@
+Running a performance diagnostic can help developers identify the causes of high CPU usage, slowdowns, or excessive memory consumption in Thunderbird.
+
+;Before you begin, check whether the issue disappears when Thunderbird is started in [[Troubleshoot Mode Thunderbird|Troubleshoot Mode]]. Please also check [https://wiki.mozilla.org/Thunderbird:Testing:Memory_Usage_Problems performance checklist on wiki] - users of Windows OS especially, should test Windows started in Safe Mode.
+
+Performance diagnostics use a tool called the performance profiler. Thunderbird uses the Firefox profiler, so some dialog windows may refer to Firefox. The [https://profiler.firefox.com/docs/#/ Firefox profiler documentation] is excellent, but usually not required unless you encounter difficulties or need to perform special tasks such as startup profiling. In the documentation, every instance of the word “Firefox” should be understood as “Thunderbird”.
+
+__TOC__
+
+= Preparing the Performance Profiler =
+The performance profiler is part of the ''Developer Tools''.
+
+==Opening Developer Tools==
+In Thunderbird’s main window, open the developer tools:
+# Use the keyboard shortcut {for win,linux}{key Ctrl+Shift+I}{/for}{for mac}{key command+option+I}{/for}, or click the menu button in Thunderbird [[Image:IG main menu]] and choose {menu Tools}.
+# From the menu, select {menu Developer Tools}. An incoming connection prompt will appear.<br><br>
+#; {warning}'''Important!''' To allow the developer tools to connect to Thunderbird, you must approve the connection in the prompt. The prompt window may be hidden behind other Thunderbird windows.{/warning}
+# Click {key OK}. The ''Developer Tools'' window will open. In current versions of Thunderbird, the {menu Performance} tab is visible, and clicking it shows the {button Start Recording} button.<br>If the tab is not visible:
+#;* Press {key F1} or click the [[Image:horizontal3-dot]] button in the upper-right corner of the window and choose {menu Settings}. The developer tools settings window will open.
+#;* Make sure the ''Default Developer Tools'' section has the {menu [✓] Performance} option enabled. If it is not enabled:
+#;;* enable it, then click the {menu Performance} tab that appears at the top of the developer tools window.
+
+==Configuring profiler settings==
+To configure the profiler settings:
+# At the bottom of the ''Performance'' tab, click <u>Edit Settings…</u>. A Thunderbird window will open with the profiler settings tab active.
+# In the '''Profiler Settings''' section, enable the {menu Thunderbird} radio button (in nightly/trunk versions, the {menu Daily} button). After changing other options, this button will automatically deactivate and the {button Custom} button will become active.
+# In the '''Features''' section, enable the {button All File IO} checkbox.
+# To protect privacy or reduce memory usage, scroll down and disable the {button Screenshots} checkbox.
+# Adjust other settings if needed. For example:
+#* To diagnose high memory usage (multiple gigabytes), change the ''Native Allocations'' option - available only in [https://www.thunderbird.net/download/daily/ Thunderbird Thunderbird Daily].
+#* If reproducing your issue requires more than one minute of recording or if many additional data collections are enabled, you may need to increase the buffer size from 1 GB to 2 GB and extend the sampling interval beyond the default 1 ms.
+# Close the profiler settings window using the window controls – there is no {button OK} or {button Save} button.
+
+= Recording a performance diagnostic =
+{warning}'''Important!''' Before you start recording, prepare a clear test scenario whenever possible. Unless otherwise specified, the recording should be as short as possible and include only the actions suspected to trigger the issue. From the time you start recording, please document how many seconds it takes until the problem starts and the problem ends, and include this when you report your performance profile.{/warning}
+When the profiler and test scenario are ready, you can begin recording and saving the performance diagnostic.
+# In the {menu Performance} tab of the developer tools window, click {button Start Recording} button.
+#;{note}'''Note:''' A warning icon may appear on the toolbar. Clicking it opens a console at the bottom of the window with the message “Failed to get the active browserId while starting the profiler” – this can be ignored.{/note}
+# After recording starts, quickly return to Thunderbird’s main window and perform the actions from your test scenario.
+# When finished, immediately return to the developer tools window and click {button Capture recording} to stop data collection. A brief '''Capturing profile''' message will appear, followed by the Firefox profiler window displaying the recorded data.
+
+= Saving and sharing performance diagnostic results =
+To save and share the performance diagnostic results:
+# Click the {button Upload Local Profile} button in the upper-right corner of the profiler window.
+#; [[Image:profiler_result|width=600]]
+# In the “Share Performance Profile” panel, select the checkboxes for any private information you want to include. By default, no private information is included in the performance profile.
+#; [[Image:profiler_share|width=300]]
+# Click the [[Image:performance_download|width=110]] button to save a JSON file locally. You can then email it or attach it to a bug report.
+# Click the [[Image:profiler_upload|width=100]] button to upload the profile to the [https://profiler.firefox.com/ Firefox profiler] repository and generate a direct link (permalink). The link becomes available after clicking the {button Permalink} button in the profiler window. You can copy and share it with developers or others who can help diagnose the issue, or attach it to a new or existing [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird bug report] in [https://bugzilla.mozilla.org Bugzilla (BMO)].
+#; [[Image:profiler_link]]
+# Close the performance profiler window.
+# Close the developer tools window.
+
+= Diagnosing Thunderbird startup and shutdown =
+Startup or shutdown diagnostics require following [https://profiler.firefox.com/docs/#/./guide-startup-shutdown special but very simple instructions]. As before, every instance of the word “Firefox” should be understood as “Thunderbird”.
+
+= Advanced tests  =
+
+Some types of diagnostics require using a development version of Thunderbird, available from the [https://www.thunderbird.net/download/daily/ Thunderbird download page].

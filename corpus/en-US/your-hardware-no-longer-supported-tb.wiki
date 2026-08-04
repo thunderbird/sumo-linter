@@ -1,0 +1,7 @@
+If your computer has a processor older than [https://en.wikipedia.org/wiki/Pentium_4 Pentium 4], Thunderbird version 52 and above will not run.
+
+If Thunderbird 48 or older (like version 45) is already installed on your computer, you can continue using it but you will not receive any further updates. If you download Thunderbird version 52 or above and try to run it, you will see the message, ''Thunderbird cannot be installed. This version of Thunderbird requires a processor with SSE2 support.''
+
+The reason is, like many programs, newer versions of Thunderbird require a processor that supports Streaming SIMD Extensions 2 (SSE2) for better performance. We recommend a computer with a Pentium 4 or newer processor that supports SSE2 to use the latest version of Thunderbird, which has more features, stability and security.
+
+The processor requirements of Thunderbird as distributed by Linux distributions may differ from the processor requirements of Thunderbird as distributed by Mozilla, so you may be able to obtain an up-to-date version of Thunderbird that does not require SSE2 from your Linux distribution.

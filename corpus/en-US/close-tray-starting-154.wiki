@@ -1,0 +1,33 @@
+__TOC__
+
+If you use Thunderbird on Windows, you may be familiar with sending Thunderbird to the [https://en.wikipedia.org/wiki/Taskbar#Notification_area system tray] (the notification area) so it keeps running in the background. Starting with Thunderbird 154, the way this works has changed – instead of minimizing to the tray, Thunderbird now moves to the tray when you close it. This article explains the change and shows you how to turn the feature on.
+
+{note}'''Note:''' This feature applies only to '''Thunderbird 154 and later''' on Windows 10 and 11. It is not available on macOS or Linux.{/note}
+
+==“Close to tray” instead of “minimize to tray”==
+In earlier versions, Thunderbird could be set to move to the system tray when you minimized the window. As of Thunderbird 154, that behavior has been replaced:
+
+* The '''Minimize''' button now simply minimizes the Thunderbird window, like other applications.
+* The '''Close''' (X) button can move Thunderbird to the system tray instead of quitting, so it keeps running in the background.
+
+If you previously used the '''When Thunderbird is minimized, move it to the tray''' setting, Thunderbird 154 and newer automatically migrates you to this new “'''close to tray'''” behavior. This keeps Thunderbird consistent with how modern Windows applications use the system tray.
+
+==Turn on “close to tray”==
+# Click the Thunderbird app menu {menu ☰} > {menu Settings}.
+# Select the {menu General} tab and scroll down to the '''System Integration''' section.
+# Check the box labeled '''When Thunderbird is closed, move it to the tray'''. This option is off by default. Once this is enabled, clicking the '''Close''' (X) button moves Thunderbird to the system tray instead of quitting. Thunderbird keeps running in the background so you continue to receive new messages and notifications.
+
+==Close Thunderbird from the system tray==
+When “close to tray” is turned on, you can fully quit Thunderbird directly from the tray:
+
+# In the system tray, right-click the Thunderbird icon.
+# Select '''Exit Thunderbird'''.
+
+This lets you close Thunderbird without opening the window first.
+
+==Start Thunderbird in the tray==
+You can also have Thunderbird start directly in the system tray instead of opening a window when it launches.
+
+# Click the Thunderbird app menu {menu ☰} > {menu Settings}.
+# Select the {menu General} tab and scroll down to the '''System Integration''' section.
+# Check the box labeled '''Start Thunderbird in the tray'''. This option is off by default. Once you check this option, you have to click on the Thunderbird icon in the tray to open a Thunderbird window.

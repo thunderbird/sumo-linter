@@ -1,0 +1,97 @@
+This article describes how you can customize Thunderbird's date and time formats using regional settings or override preferences.
+
+__TOC__
+
+= Choose Thunderbird date and time formats defined by operating system or application locale =
+
+By default, Thunderbird will use date and time formats according to the regional settings of your operating system. If you have more than one language pack installed for Thunderbird, and if the regional settings of your operating system are different from your current Thunderbird user interface language, you can also choose the application locale for Date and Time Formatting:
+
+{note}
+≡ > Preferences > General > Language & Appearance > Date and Time Formatting ><br>
+(•) Application locale: German (Germany)<br>
+(&nbsp;&nbsp;) Regional settings locale: English (United States)
+{/note}
+
+{warning}'''Note''': You need to '''restart Thunderbird''' for any changes to date and time formats to take effect!{/warning}
+
+This will reflect in the underlying Thunderbird preference:
+
+'''intl.regional_prefs.use_os_locales = true''' (default: Use ''Regional Settings locale'' of operating system)
+
+'''intl.regional_prefs.use_os_locales = false''' (modified: Use current ''Application locale'' of Thunderbird)
+
+Thunderbird will then format date and time according to your regional choice, for example:
+
+* English (United States): '''01/02/2022, 12 PM'''
+* German (Germany): '''02.01.2022, 12:00'''
+
+Whilst such regional formats might be well understood in their original regions, they can be ambiguous in international contexts, for example due to the inversion of day and month in North America, or (if you're used to that) the ''absence'' of inversion the rest of the world, or the use of dots as separators. Similarly, the time 12 PM might leave many guessing if that's 12 noon or 12 midnight...
+
+So if you are looking for an easy way to clarify your dates and times without resorting to Swedish regional settings, Thunderbird's date and time format override preferences will come in handy.
+
+= Create date and time format override preferences using Thunderbird's Config Editor =
+
+Thunderbird's date and time format override preferences will allow you to apply date and time formats which are different and independent of those defined by the regional localizations available in your operating system or Thunderbird. '''You need to create these preferences''' and set them to your preferred format.
+
+This feature is available starting from Thunderbird 91, soon available for download from [https://www.thunderbird.net www.thunderbird.net] (until then, try it in [https://www.thunderbird.net/channel/ Thunderbird 91 beta]).
+
+The following string preferences are supported by the platform:
+
+{note}
+{|
+! Preference !! Example value !! Output !! Description
+|-
+| intl.date_time.pattern_override.date_short || yyyy-MM-dd || 2025-12-31 || Short date
+|-
+| intl.date_time.pattern_override.date_medium ||  ||  || Medium date
+|-
+| intl.date_time.pattern_override.date_long ||  ||  || Long date
+|-
+| intl.date_time.pattern_override.date_full ||  ||  || Full date
+|-
+| intl.date_time.pattern_override.time_short || HH:mm || 09:59 || Short time
+|-
+| intl.date_time.pattern_override.time_medium ||  ||  || Medium time
+|-
+| intl.date_time.pattern_override.time_long ||  ||  || Long time
+|-
+| intl.date_time.pattern_override.time_full ||  ||  || Full time
+|}
+{/note}
+
+{warning} '''Note:'''
+
+* For the preference values, you need to use valid Unicode date field symbols like <code>yyyy-MM-dd</code>, as listed in the [https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table Date Field Symbol Table].
+{/warning}
+
+The most useful preferences are '''intl.date_time.pattern_override.date_short''' and '''intl.date_time.pattern_override.time_short'''. For example, these preferences are used to construct the date/time stamps in message reader, in combination with '''intl.date_time.pattern_override.connector_short''' described below.
+
+You can use Thunderbird's inbuilt config editor to create these prefs:
+* {menu ≡} > {menu Preferences} > {menu General} > {button Config Editor...} button at the very bottom.
+* Type the full name of the pref which you want to create into the search box, for example '''intl.date_time.pattern_override.date_short'''. As the pref does not exist, it will show up in the results list as a new pref which you can create by first selecting {menu (•) String} and then using the the {button +} button.
+* It will then ask you for a value, and you can enter your preferred format pattern, like <code>yyyy-MM-dd</code> (you can always edit the value again later).
+
+Then do the same by analogy for '''intl.date_time.pattern_override.time_short'''.
+
+Remember to '''restart Thunderbird''' for your custom date and time format preferences to take effect!
+
+= Change the date/time connector (e.g. from comma to space) =
+
+You might also want to change that Thunderbird will typically connect date and time with a comma.
+First you need to create a preference called '''intl.date_time.pattern_override.connector_short'''.
+
+The connector preference value must have date and time placeholders in curly brackets.
+* Date: '''{1}'''
+* Time: '''{0}'''
+* Any regular display text must be single-quoted to avoid parsing and truncated display, but some simple characters like space (&nbsp;) or comma (,) work without quoting.
+* Apparently the format follows the [https://unicode.org/reports/tr35/tr35-dates.html#Date_Time_Combination_Examples Date-Time Combination Examples].
+
+Some examples:
+
+'''intl.date_time.pattern_override.connector_short = <code>{1} {0}</code>''' (single space between placeholders)<br>
+Result for the short date and short time combination (as used in message display): '''2021-06-24 21:00'''
+----
+'''intl.date_time.pattern_override.connector_short = <code>{1}'T'{0}</code>'''<br>
+Result for the short date and short time combination: '''2021-06-24T21:00'''
+
+{note}You need to '''restart''' Thunderbird for your new connector to take effect!{/note}

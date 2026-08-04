@@ -1,0 +1,27 @@
+[[Video:https://www.youtube.com/watch?v=UC9NN7J4S9M]]
+
+This article describes how to install Thunderbird on Windows.
+* If you are upgrading from a previous version of Thunderbird, see [[Update Thunderbird to the latest version]].
+
+{for mac,linux}{note}'''This article only applies to Windows.'''{/note}{/for}
+
+{note}'''Before installing Thunderbird:<br><br>'''
+* Make sure that your computer meets the [https://www.mozilla.org/thunderbird/system-requirements/ System Requirements].
+{for winxp}
+*Although Thunderbird will run on '''Windows XP Service Pack 2 (SP2)''' or above, the latest installers for Thunderbird require '''Windows XP with Service Pack 3 (SP3)'''. If you are running Windows XP SP2, please follow these [[How can I get the latest version of Thunderbird on Windows XP or Vista?|instructions on how to install the latest Thunderbird on your system]].
+{/for}
+{for winxp}
+*Do not install Thunderbird using a limited '''Windows XP''' account. For more information, see [http://support.microsoft.com/kb/2663817 How to determine your user account type in Windows] at microsoft.com.{/for}
+{/note}
+
+# Visit the [http://www.getthunderbird.com/ Thunderbird download page] in any browser (e.g. Firefox or Microsoft Internet Explorer). The page will automatically recommend the best version(s) of Thunderbird for you.<br>[[Image:Installing Thunderbird Win 1]] <br>
+# Click on the green download link to download the Thunderbird installer. Depending on your connection speed, the download may take up to a few minutes. Thanks for your patience… it’ll be worth the wait!
+# Start the process by clicking {button Run}.<br>[[Image:click on run to install thunderbird]] <br>
+# Then, just follow the steps (we’ve made the process as painless as possible).<br>[[Image:Welcome to the Thunderbird Setup Wizard]] <br>{note}'''Congratulations, you are done installing Thunderbird!'''{/note}
+# Double-click on the Thunderbird icon whenever you want to communicate.<br>[[Image:double click on the thunderbird icon]] <br>
+
+== Having problems?==
+Here are some articles that can help you:
+* [[Thunderbird Software Update Failed]]
+* [[Thunderbird Crashes]]
+* [[How can I get the latest version of Thunderbird on Windows XP or Vista?]]

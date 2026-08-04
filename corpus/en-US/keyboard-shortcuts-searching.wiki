@@ -1,0 +1,23 @@
+This page shows the keyboard shortcuts for the various ''search functions'' in Thunderbird. For the full list of ''all'' keyboard shortcuts, see [[Keyboard Shortcuts TB|Keyboard Shortcuts]].
+
+=Prior to version 3.1=
+
+In earlier versions (prior to 3.1) of Thunderbird, the  {button Ctrl} / {button Command} + {button F} key combination invoked the function for searching for text in the currently selected message. 
+
+=Version 3.1 to version 7=
+
+In subsequent versions prior to version 8, the {button Ctrl} / {button Command} + {button F} key combination was reassigned to invoke Quick Filter, which allows you to limit the  messages currently displayed by specifying various filter parameters.
+
+The keystroke combination for searching for text within a message was {button Ctrl} / {button Command} + {button F}, {button Ctrl} / {button Command} + {button F}. (That is, the same key combination used twice in a row.)
+
+=Version 8 and later=
+
+As of Thunderbird version 8, the following keystrokes are assigned to search functions:
+
+* Search All Messages (Global Search): {for win}{button Ctrl}  + {button K}{/for}{for mac}{button Command} + {button K}{/for}{for linux}{button Ctrl}  + {button K}{/for}
+* Quick Filter Bar (filter messages in current view): {for win}{button Ctrl} + {button Shift} + {button K}{/for}{for mac}{button Command} + {button Shift} + {button K}{/for}{for linux}{button Ctrl} + {button Shift} + {button K}{/for}
+* Search for messages in a folder (search dialog): {for win}{button Ctrl} + {button Shift} + {button F}{/for}{for mac} {button Command} + {button Shift} + {button F}{/for}{for linux}{button Ctrl} + {button Shift} + {button F}{/for}
+
+* Find text in current message: {for win}{button Ctrl} + {button F}{/for}{for mac} {button Command} + {button F}{/for}{for linux}{button Ctrl} + {button F}{/for}
+* Find again in current message: {for win}{button Ctrl}  + {button G} or {button F3}{/for}{for mac}{button Command} + {button G} or {button F3}{/for}{for linux}{button Ctrl}  + {button G} or {button F3}{/for}
+* Find previous in current message: {for win}{button Ctrl} + {button Shift} + {button G} or {button Shift} + {button F3}{/for}{for mac}{button Command} + {button Shift} + {button G} or {button Shift} + {button F3}{/for}{for linux}{button Ctrl} + {button Shift} + {button G} or {button Shift} + {button F3}{/for}

@@ -1,0 +1,19 @@
+'''Thunderbird Matrix Chat FAQ'''
+
+__TOC__
+
+= How can I connect a Matrix account that uses Single Sign On (SSO) in Thunderbird? =
+Add your Matrix account with SSO as follows:
+#Click {menu ≡} > {menu New Account} > {menu Chat} > select {button Matrix} > click {button Next}.
+# In the ''Username'' dialog: For '''Username''' enter your username, for '''Server''' enter the primary domain of your SSO account, and then click {button Next}. {note}For example, if your account is: “@awesomeaccount:matrix<!-- -->.org”, enter '''awesomeaccount''' in the ''Username'' field and '''matrix<!-- -->.org''' in the ''Server'' field.{/note}
+# Since you are using an SSO account, there is no need to enter a password so leave the ''Password'' field empty and click {button Next}.
+# For most people, there is no need to make any changes in the ''Advanced Options'' dialog so you can simply click {button Next}.
+# On the ''Summary'' page, ensure the checkbox for '''Connect this account now''' is ticked and click {button Finish}.
+# Thunderbird will now open a separate page to ask for the credentials of your SSO account, which you should complete as usual.
+When done, Thunderbird will start requesting the chat rooms from your account. This is a slow process, please allow time, your rooms should appear one after another on the left side of that chat window.
+
+= Why do some Matrix rooms remain empty, why others show old messages? =
+Thunderbird does not support dynamic back scroll, which means most old messages from previous sessions will not be shown. Only your unread messages are shown on initial connection, and all messages that are sent to rooms later on. However, sometimes it is ambiguous which messages are still unread, and this can cause some old messages to be shown.
+
+= Why are images not shown? =
+At this time, only text messages are supported.

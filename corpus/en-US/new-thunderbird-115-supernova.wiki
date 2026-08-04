@@ -1,0 +1,67 @@
+[[T:TBMore]]
+
+This article introduces the most interesting new features, improvements, and changes visible to users which are available in Thunderbird 115 Supernova.
+
+For more details on the main window in Thunderbird 115, please refer to: [[Getting Started with the Thunderbird main window (Supernova and newer)]]. Also see the [https://blog.thunderbird.net/tag/supernova/ Thunderbird Blog] for more details and background.
+
+__TOC__
+
+= New Unified Toolbar =
+There is now a single “Unified Toolbar” on top of the Tabs Bar, which is fully screenreader and keyboard accessible. This toolbar is used for all “Spaces”, which are Mail, Address Book, Calendar, Tasks, Chat and Settings. The toolbar is customizable by right clicking ({key control} click on macOS) > {button Customize…}
+<br><br>
+[[Image:tb115-unified-toolbar-customize]]
+
+{button Customize…} offers a common set of buttons available for all “Spaces”, which correspond to the [[New in Thunderbird 102#w_take-control-of-your-personal-information-new-spaces-toolbar|Spaces Toolbar Introduced in 102]]. Also available are Spaces-specific buttons for each Space. 
+
+Full keyboard navigation includes {key Tab} and arrow keys to navigate, {key Enter} to add a button to the toolbar, {key Delete} to remove it, and {key Alt} with arrow keys to move buttons around on the toolbar, in addition to mouse actions such as drag and drop. 
+
+Please refer to [[Unified Toolbar]] for more details on the Unified Toolbar and customizations.
+
+We are working on improving the other toolbars (e.g., composer, message window, event editor, etc.) for a future release.
+
+= Simplified Application Menu=
+The Application Menu (also known as appmenu or “Thunderbird Menu”), {menu ≡}, has been simplified and reduced to make it easier to navigate. Only global context items are listed, which do not need to be updated or changed based on which Thunderbird “Space” you are using. There are now at most two layers of submenus, so you no longer need to dig around in multiple sublevels to find what you need.
+
+Of course, you can still find other menu items in the Thunderbird menu bar by pressing the {key Alt} key on Windows and Linux (and in the macOS Thunderbird menu bar).
+
+= Improved Message List =
+The message list now uses modern HTML technology, which is faster and has a whole host of behind the scenes improvements to make improving it in the future much easier.
+
+A new Message List Header shows the current folder name, number of messages, Quick Filter, and new “Message list display options” icon, [[Image:tb115-display-options-icon-offical-from-micah]].
+
+The Vertical View Layout now defaults to a new two line “Card View” which is more compact and better suited to the Vertical Layout. With the customization options, you can change the Vertical View back to the version 102 “Table View”.
+
+= Calendar Improvements =
+To summarize, there is an improved “mini-month” layout, a Unified Toolbar for the Calendar “Space” on top of the tabs, improvements to the day/week/month grid, and some other minor changes.
+
+For the mini-month:
+<br><br>
+[[Image:tb115-calendar-minimonth]] 
+* [a] The Today icon in the “mini-month” has been changed from an {button ◯} button to a graphical icon on the '''left'''. 
+* Dates with an event or task are now marked with a blue dot to allow easier scanning without relying on color.
+* [b,c] New buttons are placed in a more contextually relevant place: {button + New Event}, {button New Calendar}.
+
+For the day/week/month grid:
+<br><br>
+[[Image:tb115-calendar-day-week-month-grid]]
+* [a] The {button Today} navigation button has been changed to the same Today icon used in the mini-month.
+* [b] The “Day, Week, Multiweek, Month” tab bar was changed to radio style buttons to indicate you can only select one.
+* [c] There is a new Settings icon to the '''right''' of the “Day, Week, Multiweek, Month” again in a more contextually relevant place.
+
+= Look and Feel Improvements: New Message Button, Get messages, Folder pane options meatball menu =
+All the buttons in the Folder Pane and Unified Toolbars have been revamped using modern CSS and HTML Technology. The buttons are now more accessible and customizable. 
+
+Many menus and buttons have been moved and changed to be closer to where they are more relevant in the context of Thunderbird. One example is the new {menu Folder Modes} sub menu, which is documented below.
+
+Miscellaneous but important improvements:
+<br><br>
+[[Image:tb115-new-message-get-messages-folder-pane-options]]
+* There is a new {button + New Message} button to compose a new email, chat message, etc. that replaces the old {button Write} button. Refer to '''1''' in the screenshot above.
+* There is a new ''Get messages'' icon, [[Image:tb115-official-getmessages-icon16x16]], to the '''left''' of {button + New Message}. This new icon replaces the old {button Get Messages} button. Refer to '''2''' in the screenshot above.
+* There is a new {menu Folder pane options} menu also known as a “meatball” or “three horizontal dots” menu, {menu ⋯}, to the '''right''' of   {button + New Message}. This menu has options to show the Total message count, Folder Size and hide the ''Get Messages'' and ''New Message'' icons as well as hide the Local Folders and Folder Pane Header. It also has a {menu Folder Modes} sub menu. This sub menu replaces the 102 {menu ⋯} menu at the top of the “Folder Pane” toolbar.  Refer to '''3''' in the screenshot above.
+
+= Other Look and Feel Improvements =
+* In the Mail Space, the ''Quick Filter'' icon that toggles between hiding or showing the Quick Filter Toolbar' is always visible (in prior versions it became invisible when you removed it via customization).
+* There is a new tabular view in Address Book.
+* “Touch” has been removed from {menu ≡} > {button Density}. It’s now Compact, Default and Relaxed, before 115, it was Compact, Normal and Touch.
+* A new Card View for messages can be turned on by clicking the new ''Message list display options'' icon (which is on the right of the ''Quick Filter'' icon): [[Image:tb115-display-options-icon-offical-from-micah]] > {menu Cards View}. Please see: [[Getting Started with the Thunderbird main window (Supernova and newer)#w_vertical-view-layout-with-card-view]].

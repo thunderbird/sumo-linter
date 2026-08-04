@@ -1,0 +1,37 @@
+This article explains the settings available in the Security panel of the Thunderbird {for win}Options{/for}{for mac,linux}Preferences{/for} window. The Security panel contains {for win}options{/for}{for mac,linux}preferences{/for} related to keeping you safe on the Internet.
+
+__TOC__
+
+=Junk tab=
+{for win}[[Image:tb52-security-junk-win10]]{/for}
+{for mac}[[Image:tb52-security-junk-mac]]{/for}
+
+Thunderbird includes the ability to identify and filter out junk messages. These settings help you customize how junk mail filtering behaves. For more information, see [[Thunderbird and Junk / Spam Messages]].
+
+* '''When I mark messages as junk''': Junk Mail Filtering can be used to filter out any junk messages from your inbox. In some cases, you will want to mark a message as junk. Using this setting, you can determine where the message will go when you mark it as junk.
+
+* '''Mark messages determined to be junk as read''': With this setting enabled, Thunderbird will mark a message as read when it is marked as junk.
+
+* '''Enable adaptive junk filter logging''': This setting allows you to enable and disable logging of junk mail filtering, as well as view the log itself. Normally, it should not be necessary to enable logging.
+
+=E-mail Scams tab=
+{for win}[[Image:tb52-security-scams-win10]]{/for}
+{for mac}[[Image:tb52-security-scams-mac]]{/for}
+
+*'''Tell me if the message I'm reading is a suspected email scam''': A scam message contains material designed to trick you into disclosing personal information. With this setting enabled, Thunderbird will display a warning if it detects the message you are reading is a scam. For more information, see [[Thunderbird’s Scam Detection]].
+
+=Antivirus tab=
+{for win}[[Image:tb52-security-antivirus-win10]]{/for}
+{for mac}[[Image:tb52-security-antivirus-mac]]{/for}
+
+*'''Allow antivirus clients to quarantine individual incoming messages''': By default, Thunderbird stores each mail folder locally as single file. For example, there's a file called Inbox. If your antivirus software detects a virus in a new incoming message, it will quarantine the entire inbox file because the new message has been saved to that file. 
+
+But with this setting enabled, Thunderbird first stores each incoming message in a temporary file in the system temp folder on your computer, allowing your antivirus software to only quarantine a single message. If the file is removed by the antivirus, then you get an error message about the file being missing. If the new message file still exists after being scanned by antivirus software, then it is moved to your Thunderbird inbox folder file.
+
+=Passwords tab=
+{for win}[[Image:tb52-security-passwords-win10]]{/for}
+{for mac}[[Image:tb52-security-passwords-mac]]{/for}
+
+The Thunderbird Password Manager securely stores the usernames and passwords you use to access servers, so you don't have to re-enter them when you check for new messages. Click {button Saved Passwords} to view, edit, or remove the usernames and passwords that Thunderbird has saved for you. For more information, see [[Password Manager - Remember, delete and change passwords in Thunderbird]].
+
+* '''Use a Primary Password''': If you share a computer, and don't want others to see your stored passwords, enable this setting to make Thunderbird require you to enter a Primary Password in order to view or use the passwords you've told Thunderbird to remember. To edit or remove your Primary Password, click {button Change Primary Password}. For more information, see [[Protect your Thunderbird passwords with a Primary Password]].

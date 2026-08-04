@@ -1,0 +1,24 @@
+When viewing the details of an OpenPGP key in Thunderbird, a warning might be shown that the key contains unsafe properties. This article explains the meaning of the warning.
+
+__TOC__
+
+= Background =
+OpenPGP uses private and public keys, which contain properties such as usernames, email addresses, additional sub keys, validity and expiration information, and more. These properties of a key use digital signatures to prove that they were really added or changed by the key owner and not by someone else. For example, if a key owner has updated the expiration date property of an OpenPGP key, the modification involves a signature that is added to the OpenPGP key.
+
+A digital signature uses cryptographic technology that combines multiple algorithms in order to produce a proof of authenticity that cannot be easily falsified. Because computers have become more powerful over time, algorithms that were considered secure in the past may no longer be considered secure today. For example, using the [https://en.wikipedia.org/wiki/SHA-1 SHA-1 hash algorithm] is no longer recommended because certain attacks on the algorithm are possible. Despite this recommendation being several years old, some users might be unaware and still use old OpenPGP software or a software configuration which causes the use of SHA-1.
+
+= Thunderbird 91.8.0 =
+[[Find what version of Thunderbird you are using|Thunderbird versions]] 91.8.0 and 91.8.1 contained a change to reject signatures involving unsafe algorithms depending on when the signature was created. As a result, signatures using SHA-1 were rejected if they were created after mid-January 2019.
+
+After the release of 91.8.0, more users than expected reported that they were no longer able to use affected OpenPGP keys. Based on our analysis, SHA-1 was involved in all the reported scenarios.
+
+= Thunderbird 91.9.0 =
+To allow more time for the transition away from SHA-1, Thunderbird version 91.9.0 has been changed to be less strict than 91.8.0. In 91.9.0, SHA-1 signatures will work again on properties of OpenPGP keys and for signatures on key revocations. Therefore, affected users will be able to use their key with Thunderbird until SHA-1 is fully deprecated in a future version.
+
+However, other unsafe algorithms like MD5 will continue to be rejected. And SHA-1 will also continue to be rejected for signatures of email messages created after mid-January 2019.
+
+= Rejection of SHA-1 in a future version of Thunderbird =
+Thunderbird developers still intend to fully reject the use of SHA-1 in OpenPGP keys in the future, but it has been decided that more time is required for the transition period, and that Thunderbird should also implement changes to assist users in the required transition. If you are managing your OpenPGP secret keys with Thunderbird, a future version will help you to upgrade your key.
+
+= Other software =
+Other OpenPGP software might already reject a key based on these unsafe properties, or might do so in the future. If you see this warning for the public key of one of your correspondents, you should ask them to either upgrade their key to no longer use SHA-1, or to switch to a new key.

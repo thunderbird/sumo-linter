@@ -1,0 +1,38 @@
+{for not tb68}{note}This feature requires Thunderbird version 68 and above.{/note}{/for}
+
+__TOC__
+
+=What are profiles?=
+Thunderbird saves information such as addresses, messages, passwords and user preferences in a set of files called a profile. This profile is stored in a location separate from the Thunderbird {for mac, linux}application{/for}{for win}program files{/for}. More information about Thunderbird profiles can be found [[Profiles - Where Thunderbird stores your messages and other user data|here]].
+
+=What profile changes were made in Thunderbird 68?=
+
+Some users have multiple program installations of Thunderbird on the same computer; for example, Thunderbird 38, Thunderbird 45, Thunderbird 52 and Thunderbird 60, each installed in a separate {for mac, linux}application{/for}{for win}program{/for} folder. In these older Thunderbird installations it was allowed to share the same profile by default. 
+
+However, with version 68 and newer versions a dedicated profile is used for each program installation of Thunderbird (including [https://www.thunderbird.net/#channel Nightly and Beta]). This makes Thunderbird more stable when switching between installations on the same computer, and also allows you to run different installations of Thunderbird at the same time.
+
+{note}'''Tip:''' To see what Thunderbird version you're on, see [[Find what version of Thunderbird you are using]].{/note}
+
+You will not lose any personal data or customizations. Previous profile data is saved and associated with the first Thunderbird installation that was opened after this change.  Details of why these changes were made is explained in the Firefox article [[Understanding in depth the profile per installation feature]]. 
+
+=What are my options?=
+If you do nothing, your profile data will be different with each installation of Thunderbird.
+
+=Can I change which Thunderbird installation uses my previously shared profile?=
+Yes. You can use the Profile Manager for any installation to set a new default profile for that particular installation. Directions are available in the [[profile manager create and remove thunderbird profiles|Profile Manager]] article. See also the [[Recover user data missing after Thunderbird update]] article.
+
+=What happens to my profile if I downgrade to a previous version of Thunderbird?=
+You should create a new profile to avoid corruption issues.
+
+Starting with [[Find what version of Thunderbird you are using|Thunderbird version]] 68, each Thunderbird installation requires a separate profile. Any previous [[Profiles - Where Thunderbird stores your messages and other user data|profile data]] is saved and associated with the first Thunderbird installation opened after the change.
+
+If you try to launch a Thunderbird installation with a profile that was last used in a newer version, you'll see a warning that using an older version of Thunderbird can corrupt profile data, such as:
+;[[Image:TB68_Downgrade_Protection_Prompt]]
+Click the {button Create New Profile} button to start Thunderbird with a new profile.
+
+When you downgrade Thunderbird and use a new profile, any profile that was used in the higher version is still available in the [[profile manager create and remove thunderbird profiles|Profile Manager]], for use in a more recent version of Thunderbird.
+
+'''Note:''' Downgrade protection can be overridden by [https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options launching Thunderbird through the command line] with the '''--allow-downgrade''' parameter.
+
+=I already use separate profiles for my different Thunderbird installations=
+If you have already manually created separate profiles for different installations, you will not notice the change.

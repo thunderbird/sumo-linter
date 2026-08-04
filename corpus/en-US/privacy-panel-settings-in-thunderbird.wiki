@@ -1,0 +1,49 @@
+<!-- For consistency reasons I also removed the spare spaces in headers and syntax formats (as minor edits). Not sure if there is a rule how to handle spare spaces in these cases (personally I find writing articles and handling edits much easier without putting in extra spaces). But of course if there is a KB rule that headers and syntax must have spaces, just ignore these changes and remove this comment. -->
+This article describes the settings available in the {menu Privacy & Security} panel of Thunderbird's options.
+
+__TOC__
+
+=Privacy=
+==Mail Content==
+*'''Allow remote content in messages:''' Sometimes messages will load content remotely, like images. Unfortunately, it is common for spammers to use this method to verify that your address is valid. By default, Thunderbird does not load remote content, and provides a button to override it for each message. Select this setting if you want Thunderbird to display remote content on every message automatically. Click {button Exceptions…} to control which sites can load remote content automatically. For more information, see [[Remote Content in Messages]].
+
+==Web Content==
+*'''Remember websites and links I've visited:''' If selected, Thunderbird will change the color of links you have already visited.
+*'''Accept cookies from sites:''' If selected, Thunderbird will accept cookies from web content in messages you view. Click {button Exceptions…} to control whether some sites are not allowed to set cookies.
+;'''Accept third-party cookies:'''
+:*'''Always:''' Thunderbird will always accept cookies from ''https://site2<!-- -->.com'' when you view a message with content from ''https://site1<!-- -->.com''.
+:*'''From visited:''' If you have viewed a message with content from ''https://site2<!-- -->.com'' previously, Thunderbird will accept cookies from this site when you are viewing a message with content from ''https://site1<!-- -->.com'', otherwise Thunderbird will not accept them.
+:*'''Never:''' Thunderbird will never accept cookies from ''https://site2<!-- -->.com'' when you are viewing a message with content from ''https://site1<!-- -->.com''.
+;'''Keep until:'''
+:*'''they expire:''' If selected, Thunderbird will allow the sites you view a message with content from to specify how long Thunderbird should keep their cookies.
+:*'''I close Thunderbird:''' If selected, your cookies will be deleted when you close Thunderbird.
+:*'''ask me every time:''' If selected, Thunderbird will ask you how long to keep a cookie each time a site tries to set one. Click {button Show Cookies…} to display the Cookies window.
+*'''Send websites a “Do Not Track” signal that you don’t want to be tracked:''' Most major websites track their visitors' behavior and then sell or provide that information to other companies. This information can then be used to show ads, products or services specifically targeted to you. If selected, Thunderbird will tell every website you view a message with content from, their advertisers, and content providers that you don't want your browsing behavior to be tracked.
+
+=Passwords=
+The Thunderbird Password Manager securely stores the usernames and passwords you use to access servers, so you don't have to re-enter them when you check for new messages, or send messages. Click {button Saved Passwords…} to view, edit, or remove the usernames and passwords that Thunderbird has saved for you. For more information, see [[Password Manager - Remember, delete and change passwords in Thunderbird]].
+*'''Use a Primary Password:''' If you share a computer, and don't want others to see your stored passwords, enable this setting to make Thunderbird require you to enter a Primary Password in order to view or use the passwords you've told Thunderbird to remember. To edit or remove your Primary Password, click {button Change Primary Password…}. For more information, see [[Protect your Thunderbird passwords with a Primary Password]].
+
+=Junk=
+Thunderbird includes the ability to identify and filter out junk messages. These settings help you customize how junk mail filtering behaves. For more information, see [[Thunderbird and Junk / Spam Messages]].
+*'''When I mark messages as junk:''' Junk Mail Filtering can be used to filter out any junk messages from your inbox. In some cases, you will want to mark a message as junk. Using this setting, you can determine where the message will go when you mark it as junk.
+*'''Mark messages determined to be junk as read:''' With this setting enabled, Thunderbird will mark a message as read when it is marked as junk.
+*'''Enable adaptive junk filter logging:''' This setting allows you to enable and disable logging of junk mail filtering, as well as view the log itself. Normally, it should not be necessary to enable logging.
+
+=Thunderbird data collection and use=
+*'''Allow Thunderbird to send technical and interaction data to Mozilla:''' Enabling this setting will send anonymous data ([https://www.mozilla.org/en-US/privacy/thunderbird/#health-report Learn More]) to Mozilla about the real world performance of Thunderbird. This information will be used to make Thunderbird better.
+*'''Allow Thunderbird to send backlogged crash reports on your behalf:''' Checking this allows Thunderbird to transmit crash reports at a later time if the initial crash was not able to submit the report at the time it happened (perhaps because the internet was not available). [[Mozilla Crash Reporter TB|Learn more]] about Mozilla's Crash Reporter for Thunderbird.
+
+=Security=
+==Scam Detection==
+*'''Tell me if the message I'm reading is a suspected email scam:''' A scam message contains material designed to trick you into disclosing personal information. With this setting enabled, Thunderbird will display a warning if it detects the message you are reading is a scam. For more information, see [[Thunderbird’s Scam Detection]].
+
+==Antivirus==
+*'''Allow antivirus clients to quarantine individual incoming messages:''' By default, Thunderbird stores each mail folder locally as a single file. For example, there's a file called ''Inbox''. If your antivirus software detects a virus in a new incoming message, it will quarantine the entire ''Inbox'' file because the new message has been saved to that file.<br><br>But with this setting enabled, Thunderbird first stores each incoming message in a temporary file in the system temp folder on your computer, allowing your antivirus software to only quarantine a single message. If the file is removed by the antivirus software, you will get an error message about the file being missing. If the new message file still exists after being scanned by the antivirus software, then it is moved to your Thunderbird ''Inbox'' folder file.
+
+==Certificates==
+[http://en.wikipedia.org/wiki/Public_key_certificate Certificates] help perform encryption and decryption of connections to websites and other servers, including mail servers. Self-signed certificates are also used by some antivirus products and need a manual exception to allow them to scan the encrypted connection.
+*'''When a server requests my personal certificate:''' Some servers ask you to identify yourself with a personal certificate. In order to do so, they ask Thunderbird to generate one for you. When you access a server in the future, Thunderbird will ask you which certificate to use. If you wish to have Thunderbird automatically choose a certificate for you, select the '''Select one automatically''' choice. Be aware that a personal certificate can contain personally identifiable information, such as your name or address, and it may therefore harm your privacy if you select the '''Select one automatically''' choice.  The '''Ask me every time''' choice will result in you being prompted on each occasion a certificate is requested.
+*'''Query OCSP responder servers to confirm the current validity of certificates:''' Thunderbird may ask an OCSP (Online Certificate Status Protocol) server to confirm that a certificate is still valid. By default, Thunderbird validates a certificate if the certificate provides an OCSP server. You will most likely only need to change this if your Internet environment requires it.
+*{button Manage Certificates…}: Click this button to view stored certificates, import new certificates, and back up or delete old certificates in Thunderbird.
+*{button Security Devices…}: Security devices can encrypt and decrypt connections and store certificates and passwords. Click this button if you need to use a security device other than the one in Thunderbird.

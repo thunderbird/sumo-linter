@@ -1,0 +1,60 @@
+=Microsoft OAuth authentication and Thunderbird in 2026=
+{note}'''NOTES:'''
+* For simplicity, we will use the term [https://en.wikipedia.org/wiki/OAuth '''OAuth'''] instead of '''OAuth 2''' or '''OAuth 2.0'''. Thunderbird’s current implementation of OAuth is based on OAuth 2.0, the most common version of OAuth.
+* Prior to Thunderbird 153, the Microsoft OAuth dialogues are presented in a tab inside Thunderbird. Versions 153 and higher display the Microsoft OAuth dialogues externally in your system’s default web browser (Firefox, Chrome, etc.) instead.
+{/note}
+Microsoft has made some changes to authentication for their hosted email services for business and academic accounts. This article describes these changes and how to adjust to them.
+{warning}As of June 2026, this information is still evolving and subject to change - please [[Update Thunderbird to the latest version|update Thunderbird to the latest release]] in order to have the best experience with Microsoft’s email services. Due to Microsoft’s ever-changing diversity of email servers and deployments, issues can emerge without warning that cause Thunderbird and other non-Microsoft email clients to suddenly stop working.{/warning}
+
+__TOC__
+
+=Changes to authentication=
+Microsoft has instituted the following changes:
+* [https://learn.microsoft.com/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online Deprecated basic authentication] (username/password), now requiring [[OAuth2 for Thunderbird|OAuth]] authentication.
+* In some cases, SMTP authentication has been completely disabled. For new accounts, SMTP always starts disabled. In addition, there are some restrictions on SMTP that are not currently understood.
+Microsoft has also changed the way they classify certain clients, so Thunderbird’s previous OAuth setup does not properly qualify it as a desktop client. As a result, we have been forced to make configuration changes to Thunderbird, which may have side effects for users.
+
+=Changes or problems you may encounter=
+For [https://outlook.com outlook.com], [https://hotmail.com hotmail.com], Microsoft 365 (formerly known as Office 365 and often abbreviated as O365), or other Microsoft-hosted email services, you may see the following issues:
+
+==Your Outlook or Hotmail password no longer works with Thunderbird and you cannot send or receive email==
+* Thunderbird might display an error message similar to: <code>Login to server outlook.office365.com with username youremail@hotmail.com failed.</code>
+* Solution
+** Ensure two-step verification is turned on for your Microsoft account (see Microsoft’s support article: [https://support.microsoft.com/en-us/account-billing/how-to-use-two-step-verification-with-your-microsoft-account-c7910146-672f-01e9-50a0-93b4585e7eb4 How to use two-step verification with your Microsoft account]).
+** Enable cookies for Microsoft’s Outlook or Hotmail websites in Thunderbird, otherwise you will not be able to log in to your Outlook or Hotmail account using OAuth2 authentication:
+**# Click Thunderbird app menu {menu ≡} > {menu Settings} > {menu Privacy & Security}.
+**# Under the ''Web Content'' section, tick '''Accept cookies from sites'''.
+**# Click {button Exceptions…} next to  '''Accept cookies from sites''' to make sure you are not blocking cookies from Microsoft sites, such as [https://outlook.com outlook.com], [https://hotmail.com hotmail.com] or [https://office365.com office365.com].
+** Change Thunderbird’s authentication method for incoming mail (IMAP or POP):
+**# Click Thunderbird app menu {menu ≡} > {menu Account Settings}.
+**# On the left side, click {menu Server Settings}} for your [https://outlook.com outlook.com] or [https://hotmail.com hotmail.com] account.
+**# Select Authentication method: {menu OAuth2} (instead of {menu Normal password}).
+**#;[[Image:tb153-select-oauth2]] 
+
+* Change Thunderbird’s authentication method for sending messages (SMTP):
+*# Click Thunderbird app menu {menu ≡} > {menu Account Settings} and click on your Microsoft email account on the left side. For example: <code>tbtesttb@hotmail.com</code>
+*# At the bottom right, click {button Edit outgoing server…}:
+*#;[[Image:tb153-microsoft-email-tbtesttb-edit-outgoing-server]] 
+*# Select '''Authentication method''': {menu OAuth2} (instead of '''Normal password'''). The Server Name might need to be changed <code>to smtp-mail.outlook.com</code> :
+*#;[[Image:tbg153-microsoft-email-smtp-server]] 
+*#Click {button OK} to save your changes.
+
+==A screen that indicates IT administrator approval is required for the app==
+* You must ask your administrator to authorize Thunderbird – approval must be done, but only once.
+* Per Microsoft documentation, administrators should visit <code>https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id=9e5f94bc-e8a4-4e73-b8be-63364c29d753</code> and grant the following permissions in order to authorize Mozilla Thunderbird: <code>'''IMAP.AccessAsUser.All'''</code>, <code>'''POP.AccessAsUser.All'''</code>, <code>'''SMTP.Send'''</code> and '''offline_access'''.
+
+==An account worked on Thunderbird 102.6.1, but does not work on 102.7.1 or later==
+* Try to sign in with a new Thunderbird profile (see [[Profile Manager - Create and remove Thunderbird profiles]] for instructions on how to create a new profile).
+* If a new Thunderbird profile works, we recommend continuing using the new profile.'''For experienced users who want to keep other changes made in the config editor:''' Open the Thunderbird profile manager to switch back to the old Thunderbird profile and use the [[Config Editor]] to filter for '''oauth2''', find the appropriate server(s), and delete the entries for <code>'''oauth2.issuer'''</code> and <code>'''auth2.scope'''</code>.
+* If that doesn’t work, please [https://support.mozilla.org/questions/new/thunderbird/form ask for support].
+
+==IMAP/POP3 works, but SMTP does not work==
+* If you have a Microsoft 365 business account, ensure that SMTP authentication is enabled or ask your IT administrator to check and turn it on if disabled. Read Microsoft’s article [https://learn.microsoft.com/, exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission Enable or disable authenticated client SMTP submission (SMTP AUTH) in Exchange Online] for instructions.
+* If you have a Microsoft 365/Hotmail/etc. '''personal''' account, use basic authentication (read Microsoft’s guide [https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040 POP, IMAP, and SMTP settings for Outlook.com] for instructions).
+
+==Calendar does not work==
+* Thunderbird does not support Exchange calendars. If you are using an add-on or other software to enable calendar, then you will need to seek support from the author of that add-on or software.
+
+=Where to get help=
+* If you are a user within a business or academic institution that provides Microsoft accounts, you should seek assistance from within your organization.
+* If you have a personal account through one of Microsoft’s hosted services, Please follow our [[OAuth2 for Thunderbird|OAuth Troubleshooting Checklist]] before [https://support.mozilla.org/questions/new/thunderbird/form asking a support question] on our forums.

@@ -1,0 +1,74 @@
+If you see a message about Intel-based apps or Rosetta when opening Thunderbird on your Mac, it means your current version of Thunderbird may need to be updated. 
+
+This message is displayed when using old versions of Thunderbird that require Rosetta or if your Mac is configured to open Thunderbird with Rosetta. Thunderbird has better performance and stability when Rosetta is not used.
+
+You might see a message like:
+
+'''“Support Ending for Intel-based Apps. This version of Thunderbird will not open in a future release of macOS.”'''
+
+Thunderbird should still open for now, but this warning means that your current version may not be supported in future versions of macOS or that your Mac is configured to open Thunderbird with Rosetta.
+
+__TOC__
+
+=Why this happens=
+Apple is removing support for '''Rosetta''', a tool that allows apps built for Intel-based Macs to run on Apple silicon devices (such as M1, M2, and newer Macs).
+If Thunderbird is using Rosetta:
+*macOS may show a warning
+*Thunderbird may stop opening entirely on macOS 28
+*Thunderbird’s performance and stability will be degraded
+For more details, see [https://support.apple.com/102527 Apple’s documentation]. 
+
+=Check if Thunderbird is using Rosetta=
+If your macOS version still supports Rosetta, you can turn it off:
+#Quit Thunderbird.
+#Open the {menu Applications} folder.
+#Find {menu Thunderbird}.
+#Right-click (or Control-click) it and select {button Get Info}.
+#Look for {button Open using Rosetta}.
+#If checked, uncheck it.
+#Close the window and open Thunderbird again.
+If Thunderbird opens normally, the issue is fixed.
+
+=Update Thunderbird to the latest version=
+If you don’t see the Rosetta option, update to the latest version.
+#Visit the [https://getthunderbird.com/ Thunderbird download page]. 
+#Download the latest version of Thunderbird.
+#Open the downloaded file.
+#Drag Thunderbird into the {menu Applications} folder.
+#Replace the existing version if prompted.
+#Open Thunderbird.
+{note}'''Note:''' New versions of Thunderbird run natively on Apple silicon and do not require Rosetta.{/note}
+
+=If you still see the message=
+*Make sure you are using the latest version of Thunderbird
+*Restart your Mac after installing updates
+*Check for macOS updates
+If the problem continues, you can get help from [https://support.mozilla.org/ Mozilla Support].
+
+=Frequently asked questions=
+==What is Rosetta?==
+Rosetta is a compatibility feature from Apple that allows apps built for Intel-based Macs to run on Apple silicon devices (such as M1 and M2 Macs).
+
+==Why is Rosetta being removed?==
+Apple is transitioning fully to Apple silicon. Newer versions of macOS no longer support Rosetta, so apps must run natively.
+
+==Why am I seeing this warning now?==
+macOS is notifying you that your current version of Thunderbird depends on older technology that will not be supported in the future. If Thunderbird is already up-to-date, your Mac might be configured to launch Thunderbird with Rosetta.
+
+==Do I need Rosetta to use Thunderbird?==
+No. Current versions of Thunderbird are built to run natively on Apple silicon and do not require Rosetta.
+
+==Do I need to change anything right now?==
+No. Thunderbird will continue to work for now when run with Rosetta, but performance and stability will be degraded.
+
+However, updating is recommended to ensure Thunderbird has the latest security updates. Running without Rosetta is best for Thunderbird performance and stability. 
+
+==What happens if I keep using an old version of Thunderbird?==
+Older versions that rely on Rosetta may stop working on newer versions of macOS. Updating is recommended to ensure Thunderbird has the latest security updates. Running without Rosetta is best for Thunderbird performance and stability.
+
+==Will updating Thunderbird affect my data?==
+No. Updating Thunderbird does not remove your bookmarks, history or saved data.
+
+=Related articles=
+*[[Install Thunderbird on Mac]]
+*[[Update Thunderbird to the latest version]]

@@ -1,0 +1,49 @@
+If you are monitoring your Internet connection activity, you may notice that Thunderbird sometimes automatically connects to the Internet. These connections are for routine maintenance, update and security purposes, which are described on this page.
+
+__TOC__
+
+= Loopback connection =
+
+Thunderbird makes a "loopback" connection to IP address 127.0.0.1 on non-Unix machines. That IP address is the local address of the machine where Thunderbird is running. This connection is not a security problem and should not be disabled. See the Firefox [https://bugzilla.mozilla.org/show_bug.cgi?id=100154 bug 100154] for more information.
+
+= Auto-update checking =
+
+{note}'''Warning''': You should install Thunderbird updates as they become available in order to secure your system against vulnerabilities. Therefore, we do not recommend that you disable update checks.{/note}
+
+Thunderbird periodically checks to see if updates are available for itself or for installed add-ons (extensions, themes, etc). To disable these checks:
+
+# [[T:optionspreferences TB]]
+# Select the {menu Advanced} panel.
+# Select the {menu Update} tab.
+# {for not tb31}Uncheck the '''Thunderbird''' and '''Installed Add-ons''' options.{/for}{for tb31}Check '''Never check for updates (not recommended: security risk)'''.{/for}
+
+= Home page loading =
+
+By default, Thunderbird automatically loads a page with the latest Thunderbird information when the application is started. This page is downloaded from the Internet. To prevent Thunderbird from loading this page:
+
+# [[T:optionspreferences TB]]
+# Select the {menu General} panel.
+# Uncheck the '''When Thunderbird launches, show the Start Page in the message area''' option.
+
+= Add-on list prefetching =
+
+Each time the Add-ons tab is opened, Thunderbird prefetches a list of add-ons to improve responsiveness of the '''Get Add-ons''' pane.  This connection is only made when the Add-ons Manager is opened.
+
+= Extension blocklist updating =
+
+{note}'''Warning''': Disabling blocklist updating is not recommended and may result in you using extensions known to be untrustworthy.{/note}
+
+Mozilla maintains a list of extensions that are not approved for use with Thunderbird. Thunderbird downloads this list from the Internet. To disable this:
+
+# [[T:optionspreferences TB]]
+# Select the {menu Advanced} panel.
+# Select the {menu General} tab.
+# Click {button Config Editor…}.
+# Enter {pref extensions.blocklist.enabled} in the '''Search''' field.
+# Observe the '''Value''' column of the {pref extensions.blocklist.enabled} row.
+#* If it is set to {pref false}, then do nothing.
+#* If it is set to {pref true}, double-click on it to set it to {pref false}.
+
+= Extensions =
+
+Installed and activated extensions may connect to the Internet. For example, a translation extension might connect to the Internet to look up words in a dictionary. See the [[Add-ons and Extensions FAQ#w_how-do-i-disable-or-uninstall-an-add-on]] for information about disabling add-ons.

@@ -1,0 +1,42 @@
+Threading is a useful way of displaying your message list in Thunderbird. Instead of just listing messages sorted by date, Thunderbird can group messages in tree-like structures by conversations. This is the default view starting from version 102.
+
+[[Image:TB102-message-list-threaded]]
+
+__TOC__
+
+=What is threading?=
+Threading puts email conversations together hierarchically. This is especially handy to keep conversations on mailing lists organized, with a lot of people replying to various messages of a conversation. Also, it saves you from losing individual messages of a conversation in stacks of other messages, and lets you perform mass actions like deleting or ignoring a whole conversation.
+
+=Enable threading on a folder=
+Threading is turned on by default in Thunderbird for all folders. Otherwise you can easily turn it on for the current folder.
+#{for tb115}Click the [[Image:tb115-display-options-icon-offical-from-micah]] ''Message list display options'' icon{for win,linux} (or, press the {key Alt} key to make the classic menu bar appear and open the {menu View} menu){/for}{for mac}(or, on the menu bar, click on the {menu View} menu){/for}.{/for}{for not tb115}{for win7,win8,win10}Click the appmenu button [[Template:appmenu TB]] and select the {menu View} menu (or, press the {key Alt} key to make the classic menu bar appear and open the {menu View} menu).{/for}{for mac}On the menu bar, click on the {menu View} menu.{/for}{for winxp,linux}At the top of the Thunderbird window, click on the {menu View} menu.{/for}{/for}
+#In the {menu Sort by} submenu, choose {menu Threaded}.
+Your messages will be bundled into tree structures that can be expanded or collapsed with the '''>''' or '''v''' arrow next to the subject.
+
+=Disable threading on a folder=
+If threaded view doesn't suit you, you can disable it by following the above steps and selecting {menu Unthreaded} in the {menu Sort by} menu.
+
+=Applying threading to other folders=
+Starting with version 102.2.1, you can apply the current thread view (enabled or disabled) to other folders through the message list's column chooser. Using this method, all of the current folder's view settings will be applied, not just the threading setting:
+#Click the column chooser icon to the far right of the message list column headers ("Select columns to display").<br>[[Image: TB102-column-picker]]
+#Click {menu Apply Current View to...} near the bottom of the menu.
+#Choose a target folder from the {menu Folder...} menu to apply the current view only to a single folder, or from the {menu Folder and its children...} menu to apply it to multiple folders, which can also be an entire email account.
+
+=Changing default threading mode=
+You can change the default threading mode for new folders according to your personal preference. This will not change or affect existing folders, for which you need to use one of the methods above.
+
+#[[Template:optionspreferences TB]]
+#At the bottom right corner of the {menu General} section, click the {button Config Editor} button to open the '''Advanced Preferences''' tab.
+#Type '''mailnews.default_view_flags''' into the ''Search preference name'' search box.
+#Click the {button ✎} Edit button
+#Change the value of the preference:
+#*0: New folders will default to ''Unthreaded''.
+#*1: New folders will default to ''Threaded'' (this is the default).
+#Press {key Enter} or click the {button ✓} Save button to confirm the new value.
+
+=Managing threads=
+*To perform an action for all messages in a thread - for example delete, [[Archived Messages|archive]] or [[Message Tags - Categorize your email in Thunderbird|tag]] them - select a collapsed thread and click the respective button. You can still perform actions for individual messages by expanding the thread and selecting the message.
+*If a conversation on a mailing list doesn't interest you, you can ignore it. Ignoring will hide (but not delete) a thread from your list of messages, and disable new mail notifications for new replies. To ignore a thread or a subthread, see [[Ignoring threads]].
+
+=Other ways of threading conversations=
+Would you like to put conversations together in a different manner? Perhaps like Gmail does, linearly and with your messages included? Try the [https://addons.thunderbird.net/thunderbird/addon/gmail-conversation-view/ Thunderbird Conversations] add-on or search the [https://addons.thunderbird.net Thunderbird Add-ons site] to find an add-on that suits you.

@@ -1,0 +1,62 @@
+{for win}
+[[Video:https://www.youtube.com/watch?v=Nz_9K9VnDEU]]
+{/for}
+
+"Signatures" are blocks of text that are automatically appended to every message that you send (including both new messages and replies to incoming messages). They are generally used to provide additional contact information, legal terms or some other boilerplate information that is relevant to every email. This article explains how to configure and use signatures in Thunderbird.
+
+__TOC__
+
+= About signatures =
+There are two basic methods for creating signatures.
+Simple text signatures can be directly created in 'Account Settings' for the selected mail account as discussed in the sections below for 'Plain-text signatures' and 'HTML signatures.
+
+Simple or more complicated signatures where you desire greater control over positioning of text and perhaps need to include an image can be created in Thunderbirds 'Write' composing window using all the formatting tools available. See the section below 'Sigatures stored in files'.
+
+An simple text email signature might say something like:
+{note}John Doe
+Minion
+The Big Example Organization{/note}
+Simple text Signatures are created in Thunderbird's '''Account Settings''' interface. Click the menu button [[Image:Fx57menu]] (or on 'Menu Bar' use '''{for win,mac}Tools{/for}{for linux}Edit{/for}''') > '''Account Settings''', and then, in the left panel, select the account for which you want to create a signature.
+;[[Image:18b145ed7d093472557cda5e6f9b1477-1263782960-169-1.jpg]]
+If you have multiple email accounts, you must configure signatures separately for each account.
+
+= Plain-text signatures =
+To configure a plain-text signature, enter the text you want to append to each outgoing message in the '''Signature text''' field. Plain text signatures work with messages formatted both in HTML and in text.
+;[[Image:18b145ed7d093472557cda5e6f9b1477-1270075431-260-1.jpg]]
+...results in...
+;[[Image:18b145ed7d093472557cda5e6f9b1477-1270075532-990-1.jpg]]
+
+= HTML signatures =
+To use HTML formatting in your signature, check '''Use HTML''' and format the Signature text with the desired HTML mark-up. If you send messages in text (rather than HTML) format, text characters will be substituted for the HTML markup.
+;[[Image:18b145ed7d093472557cda5e6f9b1477-1270075771-11-2.jpg]]
+...results in...
+;[[Image:18b145ed7d093472557cda5e6f9b1477-1270075771-11-1.jpg]]
+
+= Signatures stored in files =
+Alternatively, in Account Settings, you can upload a file that contains your signature. Check '''Attach the signature from a file instead''' and then click {button Choose...} to select the file. The file can contain either plain or HTML-formatted text. If you have an HTML-formatted signature, the message recipient must be able to view HTML-formatted messages in their email program. If they have disabled this ability, the signature will be rendered in text format and images will not be displayed.
+
+You can create a signature file by using the Thunderbird composer. As an example, open a new HTML-formatted message window in Thunderbird ({menu File > New > Message}) or click on {menu Write} located on the'Mail Toolbar'. Make sure that the formatting toolbar is displayed. 
+;[[Image:HtmlToolbar]] 
+(If it is not displayed, you are composing a message formatted in text, not HTML. To change to HTML, select {menu Options > Delivery Format > Rich Text (HTML) Only}.)
+
+#Compose and format your signature as desired. Note that numerous formatting functions are available from the {menu Insert} and {menu Format} menus.
+#;<br>[[Image:18b145ed7d093472557cda5e6f9b1477-1270077639-894-1.jpg]]
+#Click {menu File > Save As > File}. Choose where to save your HTML file. Make sure Save as Type : "HTML files" is selected, and then specify a file name and click {button Save}.
+#Close the message window and discard the message without saving.
+#Open the Account Settings and select the email account in the panel on the left.
+# Check '''Attach the signature from a file''', click {button Choose} and navigate to the file you created.
+
+== Including image files in signatures ==
+To include an image file from your local computer in a signature, follow the steps above to create an HTML signature. When you are composing the signature contents, though, use the {menu Insert > Image} menu option to specify the desired image. 
+;[[Image:18b145ed7d093472557cda5e6f9b1477-1270078353-181-1.jpg]]
+In addition to selecting the image file, use this dialog to configure other aspects of the image, such as the size, a URL link, its position with regards to the text, etc.
+
+You can also specify an image located on a web server as part of your attachment. Simply specify the image URL in the field where you would otherwise specify the file name. If you check "'''Attach this image to the message'''" the image will be included as an attachment. If you do not attach the image, message recipients must have an internet connection to view the image. Also, keep in mind that for security reasons many people configure their email programs to block remote content, which would prevent the image from displaying unless it was attached to the message.
+
+= Using vCards =
+[http://en.wikipedia.org/wiki/VCard vCard] is a file format standard for electronic business cards. vCards can contain name and address information, phone numbers, e-mail addresses, URLs, logos, photographs, etc. If an incoming message has a vCard as an attachment, Thunderbird displays the vCard contents as a signature. Thunderbird can be configured to attach your vCard to outgoing messages (either automatically or on a per-message basis). See [[How to use virtual card (vCard)]] for instructions.
+
+= Signature position =
+When you are replying to messages, by default your signature will appear beneath the quoted text at the end of the message. To change this behavior, select {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings > <account name> > Composition & Addressing}. Change the reply style to "Start my reply above the quote". Next, change the setting for "and place my signature" to "below my reply (above the quote)". 
+
+This setting can be configured for each account and for each identity.

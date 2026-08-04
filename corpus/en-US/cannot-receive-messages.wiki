@@ -1,0 +1,54 @@
+This article provides troubleshooting information when you have problems receiving messages. If you have problems sending messages, see [[Cannot send messages]].
+
+__TOC__
+
+= The problem suddenly started after updating to Thunderbird version 78... Try this! =
+
+Thunderbird 78 expects higher security standards for the so-called TLS network encryption protocol. If your provider does not support the newer versions of the protocol, sending and receiving of messages may fail. You can temporarily lower the bar to check if this is the reason for your problem (which obviously reduces security, so it is not recommended). More details and instructions at [[Thunderbird 78 FAQ#w_after-upgrading-to-thunderbird-78-i-cannot-get-or-send-email-messages|Thunderbird 78 FAQ]].
+
+= Is your account configured correctly? =
+
+To look at the settings for an account, select {menu {for win,mac}Tools{/for}{for linux}Edit{/for} > Account Settings} in the Thunderbird menu bar, or click the Application menu button [[Image:New Fx Menu]] and select {for win}{menu Options}{/for}{for mac,linux}{menu Preferences}{/for} and {menu Account Settings} from the sub-menu, then select {menu Server Settings} for the account name from the list on the left. The connection to the incoming mail server is configured at the top of the page on the right.
+
+[[Image:992c957734e017c49fc78fa508b937ff-1269453233-693-1.jpg]]
+
+Your email account provider can give you connection information about their servers (probably on their website). Make sure your account settings match these settings. 
+
+See also:
+
+*[[Manual Account Configuration]] (for instructions on using the New Account dialog for manual configuration)
+*[[Automatic Account Configuration]] (for creating a new account)
+
+= Verify that your incoming email is not being blocked =
+
+Verify that your incoming email is not being blocked by your firewall, VPN, proxy, antivirus software (which sometimes implements a proxy and intercepts email) or your Internet Service Provider:
+
+* Try briefly turning off antivirus, VPN, proxy and firewall software, check for new email, and turning them on and check again for email.  
+
+{note}'''Note:''' Software blocking incoming email is a common cause of not being able to receive messages after updating Thunderbird, since it may be set to trust the previous version of Thunderbird but no longer recognize the updated version as trusted.  When this happens, IMAP folders may also disappear. [https://wiki.mozilla.org/Thunderbird:Testing:Antivirus_Related_Performance_Issues here] documents some basic information about antivirus products and their known bad interactions with Thunderbird.
+* Remove Thunderbird from your program's list of trusted or recognized programs, then add it back manually or when prompted to resolve this.{/note}
+
+= Did your ability to receive mail suddenly stop? Was it working before? =
+
+*Check the service status of your ISP. (Many ISPs have a status or alert page on their website.) They may be having technical difficulties. 
+
+*If you use ESET/NOD32 antivirus, and since November 30, 2020 are not getting email or your IMAP folders disappeared, see https://support.eset.com/en/kb3126-disable-ssl-filtering-in-eset-windows-products   
+
+*If your ISP provides a web-based email interface, try to log in and view your mail. If you can see your messages, the problem is probably related to your account configuration.
+
+* If you cannot log in to your ISPs web-based email interface, your password may have changed. If so, it must also be changed in Thunderbird. To change your password: 
+** [[Template:optionspreferences TB]]
+** On the {button Security} panel, click on the {button Passwords} tab and then click {button Saved Passwords...}. 
+** Click on the relevant account and then click {button Remove}. 
+** Close and re-open Thunderbird. You will be prompted to enter a new password for the account.
+
+* If you recently updated Thunderbird to version 38, check whether you are being impacted by [[Thunderbird and Logjam|changes related to Logjam]].
+
+= Are you receiving some emails but not others? =
+
+* Does your ISP have a spam filter that might be holding or deleting messages on the server?
+* Have you created filters in Thunderbird that might be misfiling messages?
+
+= Are you exceeding mail provider access limits? =
+
+* Some mail providers (ISPs) impose limits on account access.  For example [[Thunderbird and Gmail|Gmail]] limits simultaneous connections to 15 per account (approximately three devices, including phones) and downloads to 2.6 GB per day.

@@ -1,0 +1,49 @@
+{note}Important Note for those who have been redirected to this page by Yahoo or AOL website advice. Please read information in the Help Article [[Thunderbird and Yahoo]] subsection “Important Changes to Authentication Method Notice”.{/note}
+
+=Getting Started=
+Adding an existing e-mail account from most providers is a snap in Thunderbird! To start, you will need your e-mail login credentials: username & password. Thunderbird will attempt to match your input with its internal database to properly configure the connection (protocol, server addresses, authentication) for your specific provider. If the profile is unavailable, no sweat! You can also configure manually!
+
+==Step-By-Step Instructions==
+{note}Your computer must be connected to the Internet for Thunderbird to create your account automatically.{/note}
+
+===1. Access Account Setup===
+You can initiate the process of adding a new account in one of two ways. For a new install, you will be automatically prompted to enter your existing e-mail account details upon first launching Thunderbird.
+
+For an existing install, you can navigate to the setup screen via {menu ≡} > {menu New Account} > {menu Existing Email}.
+
+[[Image:Existing E-mail Setup]]
+
+===2. Enter Account Details===
+You can now populate your username and password in the setup screen. You will also be asked to include your name to associate with this specific account.
+
+Once finished, click {button Continue}.
+
+===3. Validate Provider Profile Exists===
+At this stage, Thunderbird will check if your webmail provider is available in the database and will provide available configuration options. IMAP (type of protocol) will be the preferred setting in most cases.
+
+If Thunderbird was unable to retrieve your mail provider, you have the alternate option to configure manually. You will need to check with your provider for their specific email settings. You can visit this page for more help [[Manual Account Configuration]].
+
+[[Image:Thunderbird Email Provider]]
+
+You have the option to choose either IMAP or POP as your incoming mail protocol. IMAP and POP are the standard protocols for retrieving emails. IMAP, the more modern protocol, allows you to store messages on the mail server and on your local machine at the same time. The POP protocol only allows messages to be stored locally. Email providers may provide access by either the IMAP or POP protocol, or may support both. (To get a better understanding of the technical details for both protocols, see [[Glossary of Terms including types of Accounts]] and [[IMAP Synchronization]].)
+
+Once you have selected your protocol, click {button Done}.
+
+===4. Granting Thunderbird Account Access===
+Depending on your webmail provider, a new Thunderbird window may launch asking you to login via your provider's website to grant access to Thunderbird.
+
+Enter your login credentials and click {button Allow} or equivalent.
+
+[[Image:Thunderbird Provider Authentication]]
+
+===5. Finalizing Setup===
+Thunderbird will now begin to retrieve your folders and messages from your provider.
+
+Please not this may take some time, a progress bar will be visible in the lower right of your screen.
+
+Congratulations on completing setup!
+
+[[Image:Thunderbird Interface Empty]]
+
+=Onboard your Webmail Provider / ISP to Thunderbird=
+The Thunderbird team wants to collect server information for as many ISP and webmail providers as possible. You can help! If your email server information is not found when you create your account, you must configure your account manually. However, please ask your email provider to submit their ISP connection information. For more detailed technical information about ISPDB and autoconfiguration, how to use it and add a record to it, see [https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat Autoconfiguration in Thunderbird] on the Mozilla Wiki.

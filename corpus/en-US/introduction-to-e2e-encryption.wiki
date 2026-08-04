@@ -1,0 +1,82 @@
+This document provides a high level overview. For questions and instructions, see also the separate document: [[OpenPGP in Thunderbird - HOWTO and FAQ]]
+
+__TOC__
+
+=What is End-to-End Encryption in Thunderbird?=
+
+End-to-end encryption (e2ee) for email can be used to ensure that only the sender and the recipients of a message can read the contents.  Without this protection it is easy for network administrators, email providers and government agencies to read your messages.
+
+Achieving e2ee requires carefulness by both the sender and the recipients. A single mistake by any of the involved parties can be sufficient to break the security of e2ee.
+
+Also, email metadata cannot be protected using e2ee. Examples are name and address of sender and recipients, time message was sent, or from which computer emails are sent or received. The subject of the mail may also remain unprotected and easily readable, even when e2ee is used.
+
+==How e2ee with OpenPGP works in general==
+
+Thunderbird handles most of the details so that you don't need to worry about them. But we recommend you attempt to understand how it works, which is described below, so that you reduce your risk of making mistakes and are not fully protected.
+
+Encryption uses a mathematical procedure to make messages unreadable. Making a message readable again is called decryption, and requires knowledge of the involved secrets.
+
+The ancient approach to encryption required that two people meet and share a secret, which would then be used to both encrypt by the sender, and would later be used by the recipient to decrypt the message.
+
+E2ee for email uses a modern approach called public key cryptography. The use of e2ee with public key cryptography requires that every sender and recipient does a one time preparation, which involves the generation of personal random numbers. Two such random numbers are necessary, one will be called your secret key and another one will be called your public key. These numbers are very big, they consist of hundreds or thousands of digits.
+
+Using clever mathematics, a message can be encrypted (made unreadable) using the public key. The message can be decrypted (made readable) only by the person who is in possession of the matching secret key.  In other words, if you give your public key to someone else then they can use this key to encrypt a message for you. And the result is data that cannot be read by anyone but you. Then they send the encrypted data to you. Then you use your secret key to decrypt the data and can read the message.
+
+The pair of your secret key and its related public key is called a personal key. '''You must never share the secret key with anyone else''' because then it's obviously no longer a secret, and it's no longer a personal key.  If you share your secret key with someone else, then that other person can also read the encrypted messages that are sent to you. Or if you are careless and store your secret key without protection, or if you backup your secret to the cloud without protection, then it might be easy for someone to steal your secret key and use it to read all encrypted messages that are sent to you.
+
+Also if you lose your secret key, for example if you lose your computer or if you erase all data on your computer, then you will no longer be able to read your encrypted messages. '''Your messages are not recoverable in any way, by anyone, if this happens.'''
+
+There are additional ways in which the security of e2ee can be broken, and that involves using the wrong public key. The following is an example:
+
+If Alice wants to send an encrypted email to Bob, she needs to obtain Bob's public key. The public key is a big number, so it must be transmitted over the internet, either in an email, or downloaded from a web site, or downloaded from a directory. If Alice encrypts an email using Bob's key, and if Bob is careful to never share his secret key with anyone else, then only Bob will be able to decrypt and read the message.
+
+However, the difficulty is to ensure that Alice really obtained Bob's public key. Someone could try to trick Alice and Bob, in an attempt to intercept their communication for surveillance purposes. For example Eve could create a rogue key and send it to Alice, presenting it as Bob's key. If Alice believes that this key belongs to Bob and uses it to encrypt messages to Bob, then Eve will be able to read the message that Alice sent. You could compare this to obtaining the wrong postal address of someone, so that the letters from Alice to Bob go to Eve's house instead. Eve then opens the letter, reads it and sends it on to Bob, possibly altering some details.
+
+To guarantee the security of e2ee, it is important to verify that you have really obtained Bob's key, not a rogue key.
+
+Whenever you receive a public key from one of your correspondents, you should be aware of the risk that it might be a rogue key. If you cannot risk that are you tricked by Eve, then you should doublecheck that you have received Bob's correct public key.
+
+The common way to doublecheck is to communicate with Bob once, using a mechanism that allows you to confirm that you are really talking to Bob. For example, you could use a video call, or if you recognize Bob's voice, a phone call. Or you could meet in person.
+
+Once you are communicating with Bob, you should open the details of the public key that you have received. Thunderbird will show you a special checksum, that is also called a fingerprint, which is a combination of around 40 characters and letters. Bob should do the same for his own fingerprint, and should read the fingerprint to you. You should look at your own computer screen, and verify that it matches what you see on your own computer. If it doesn't match then you have downloaded the incorrect key, or someone is trying to trick you - in practice, your communication is under surveillance. If it matches completely then you can mark the key as verified, and your software will remember it.
+
+The concept of public and secret keys might be easier to understand with the following analogy. Think of a public key as a little box that can be locked. You can have as many little boxes as you want. You can share your boxes, or make them available for download, or even add them to a directory. Other people can find your boxes on the Internet. They can place a secret message inside it, and lock it, and then send the box to you. Your secret key is like a real key, and can be used to unlock the box. Because only you have the matching key, only you can unlock the box. If you want to be certain that you really got Bob's box, not Eve's box, you need to look at the number that's written on the outside of the box, which is called the fingerprint. Talk to Bob using video chat, phone or in person, and verify that the fingerprint on the box matches what Bob tells you.
+
+Also be aware that it is easy to make mistakes when using encrypted email. Consider if Alice sends an encrypted message to Bob, and Bob might decide to forward the message to Carol. Carol might have never prepared to use e2ee, or Bob might not have Carol's public key. If Bob forwards Alice's message to Carol without encryption then the contents of the original message are no longer protected. Consequently, if you exchange sensitive contents by email, you might want to ask your communication partners to not forward your emails.
+
+As a bonus, the technology used for e2ee can also be used to digitally sign a message. The from address shown in email might have been modified by a person who is trying to mislead you. If Bob sends an email to Alice, he could use his secret key to create a digital signature. (Under the hood, this works by calculating a special number.) Alice can use Bob's public key to confirm that only Bob was able to create this signature, because only Bob owns the matching secret key. If Alice has verified the fingerprint of Bob's key, and if all numbers match the automatic checks by Thunderbird, then the message is known to be really sent by Bob. Of course, we still assume that Bob is careful with his secret key and never shared it.
+
+==How e2ee with S/MIME works in general==
+
+Although S/MIME uses some of the same concepts as OpenPGP, it is used differently.
+
+At a future time this article will be extended to cover S/MIME.
+
+==What are the consequences of using e2ee==
+
+If you send encrypted messages, the messages in your sent folder will be encrypted. If you lose your secret key, you will be unable to read your archived messages. '''These messages cannot be recovered!'''
+
+All devices on which you read encrypted messages must be configured to use the same personal key. If you are using software other than Thunderbird, that software may not support end-to-end encryption. For example reading encrypted emails on your phone will require some setting up.
+
+If you lose your secret key, other people can continue to send you encrypted email, and you will be unable to read them. 
+
+Note: Search functions in general do not work for the body content of encrypted messages.
+
+=How to use OpenPGP End-to-end encryption with Thunderbird=
+
+Thunderbird will not attempt to use e2ee automatically. To use e2ee you must configure your personal key. The configuration section can be found in Thunderbird's account setting, in the End-to-end encryption tab. Once you have a personal key configured, you can control the use of encryption or digital signing in individual message that you send.
+
+For each email address at which you want to receive encrypted email, or that you want to use to send digitally signed email, you need to create your personal key.
+
+You should avoid having multiple personal keys. If you use two devices to read messages from the same email account, you probably want to be able to read the encrypted messages you receive on both devices.
+Therefore, only generate a personal key once. Then backup your personal key to a file. It is recommended that you use a strong password to protect that backup of your personal key, to make it difficult for anyone else to use your backup file to get your secret key. Copy that backup file to the other device, enter the password to  unlock the backup, and then import the personal key on that device.
+
+Once you have created your personal key, you need to enable other people to obtain your public key. Be careful, and never share your secret key with anyone. However, the public key may be widely shared so that people can send you encrypted emails and verify your digital signatures.
+
+When composing an email, there is an arrow shown behind the security button on the toolbar. Click the arrow to select the menu choice "attach my public key".
+
+Recipients will see an attachment in your email with a filename that starts with "OpenPGP". If the recipient uses Thunderbird then they can right click that message to open a menu with choices, and from that menu they can select "Import OpenPGP Key".
+
+==Discussion and Support==
+
+If you would like to discuss end-to-end encrypted email in Thunderbird, need help setting it up, or have other questions related to this topic please do so on our e2ee mailing list: https://thunderbird.topicbox.com/groups/e2ee

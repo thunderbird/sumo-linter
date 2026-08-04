@@ -1,0 +1,9 @@
+Thunderbird 60, the release version following 52, does not support Windows XP or Vista. Thunderbird 52 is the last version that supports Windows XP and Windows Vista. 
+
+=Why is Thunderbird support ending for Windows XP and Vista users?=
+Microsoft itself ended support for Windows XP in [https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet 2014] and ended support for Windows Vista in [https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet 2017]. Unsupported operating systems receive no security updates, have known exploits, and can be dangerous to use, which makes it difficult to maintain Thunderbird for those versions.
+
+=How can I get the newest features of Thunderbird?=
+To get the latest features and updates, you will need to upgrade your computer's operating system:
+*Upgrade to a version of Windows that Microsoft still supports, such as Windows 7, 8 or 10. Learn more [https://support.microsoft.com/help/14223/ here]. 
+*(Advanced): Switch to a [https://wikipedia.org/wiki/Linux Linux]-based operating system. Please see the support websites for the version of Linux that you're interested in.

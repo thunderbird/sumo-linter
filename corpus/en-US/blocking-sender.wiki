@@ -1,0 +1,11 @@
+Thunderbird does not have an option for blocking email messages from specific people or domains. However, you can use message filters to automatically  dispose of unwanted messages.
+
+Message filters operate on a per-account basis, so when you set up the filter you must configure it to act on the correct account.  The easiest way to do this is:
+* Select a message from a sender you wish to block: {for win,linux}Right-click{/for}{for mac}Press and hold the {button Ctrl} key, click{/for} on the sender's address and choose '''Create Filter From...'''. <br><br> [[Image:block sender]] <br><br>
+* This will open the '''Filter rules''' window with the email address already inserted into the filter.  
+*# Name the filter.  Something like "Block list" would be appropriate. 
+*# In the bottom half of the window, change the action to perform to '''Delete Message'''.<br><br> [[Image:filter rule]] <br><br>
+* Click {button OK} to save the filter. The next time that person sends you mail, it will automatically be deleted.
+
+The Message filter that you have created can be opened and edited by selecting the {menu Message filters...} entry in the {menu Tools} menu. It is not necessary to create an individual filter for each address you want to block.  
+Now you have the '''Block list''' filter, the next time you want to block someone you can add the person's address into the top of the filter by clicking the {button +} button and thus creating a new field to enter the new address. Make sure you select the "Match any of the following" option, as you wish it to fire on ''any'' of the listed addresses.

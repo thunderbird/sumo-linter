@@ -1,0 +1,24 @@
+This article describes how to create a recurring event in a calendar. If you want to create a new event or task in general, please read the [[Create a new event or task]] article.
+
+This walk-through also assumes that you have already created a new calendar. If not, please read the [[Create new calendars]] article first.
+
+__TOC__
+
+== Creating an event ==
+* Click the {menu File} menu at the top of the Thunderbird window, or click the menu button [[Image:Fx89menuButton]].
+* Select the {menu New} submenu and select {menu Event}.
+* Fill in the {menu Title}, {menu Location}, {menu Start} and {menu End} fields.
+* Select the calendar that the event will be created for in the Calendar drop-down menu.
+* Select the repeat pattern from the ''Repeat'' drop-down menu.
+* If you selected {menu Custom...} for the repeat pattern, the ''Edit Recurrence'' window will appear.
+
+== The ''Edit recurrence'' window ==
+* In the Repeat drop-down menu select the basic frequency of this event (''Daily'', ''Weekly'', ''Monthly'' or ''Annually'').
+* In the ''Every'' text-box type in how often the frequency will be relevant.  For example, for an event that takes place every other week choose {menu Weekly} and then ''2''.
+* If you choose a frequency of weekly or monthly you will be asked which days of the week or month the event will occur.  Choose those that apply.
+* If this event will occur indefinitely put a dot in {menu No end date}.
+* If this event will only occur for a limited amount of time put a dot in either {menu Create __ Appointment(s)} or in {menu Repeat until} as applicable and fill in the corresponding fields.
+* Click on the {button OK} button to close the ''Edit Recurrence'' window.
+* Click on the {button OK} button to close out the final dialog and complete the event creation.
+
+Congratulations, your recurring event should be setup correctly.

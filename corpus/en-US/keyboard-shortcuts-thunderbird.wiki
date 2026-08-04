@@ -1,0 +1,480 @@
+Keyboard shortcuts are quick key combinations that let you perform certain tasks in Thunderbird faster. For example, if you want to [[Archived Messages|archive a message]], you can simply strike the "A" key rather than using the mouse to click the option in a menu. Some shortcuts can be customized or disabled with the use of an add-on.
+
+__TOC__
+
+= About keyboard shortcuts =
+In Thunderbird, keyboard shortcuts are context sensitive, which means that they vary according to the area of the Thunderbird interface that is currently "active". For example, when a message is selected in the message list, the Cut, Copy, and Paste keyboard shortcuts are disabled (because it doesn't make sense to cut and paste text into the message list). Similarly, if you select text while you are reading a message, the Copy shortcut is available, but not the Cut or Paste shortcuts (because while it makes sense to copy text from a message you are reading, it doesn't make sense to paste text into or cut text from a message you are reading).
+
+The keyboard shortcut functions themselves may vary depending on the part of the Thunderbird interface that is active. For example, if you are writing a message, the {for win,linux}{key Ctrl+A}{/for}{for mac}{key Command+A}{/for} keyboard shortcut selects all the text in the message. However, if a message is highlighted in the message list, {for win,linux}{key Ctrl+A}{/for}{for mac}{key Command+A}{/for} selects all the messages in the message list.
+{note}'''Note:''' Keyboard shortcuts consist of so-called modifiers (for example, {key Ctrl}) and alphanumeric characters (for example {key A}). In the documentation, shortcuts are written using the names of modifier keys (for example, {key Ctrl}) together with uppercase letters (for example, {key P}) or just alphanumeric characters (for example, {key K}). If a shortcut contains a modifier, its notation may look like this: {button Ctrl+A}. Shortcuts can include multiple modifiers and an alphanumeric character, for example: {button Ctrl+Shift+L}. This means pressing and holding the {key Ctrl} and {key Shift} keys, then pressing the {key L} key. If a shortcut contains only an alphanumeric character without a modifier key, please do not use the {key Shift} key, since in that case it only changes the alphanumeric character to uppercase.{/note}
+
+= Shortcut keys and operating systems =
+*On Windows and Linux, the shortcut modifier key is usually the {key Ctrl} key.
+*On macOS, the shortcut modifier key is usually the {key Command} key.
+*On macOS laptops, you must hold down the {key fn} key to enable the function keys {key F1} through {key F12}.
+
+= List of keyboard shortcuts =
+View Keyboard Shortcuts for:
+* [[#w_message-functions|Message functions]]
+* [[#w_search-and-filter-functions|Search and filter functions]]
+* [[#w_moving-around-thunderbird|Moving around Thunderbird]]
+* [[#w_writing-messages|Writing messages]]
+* [[#w_address-book|Address Book]]
+* [[#w_calendar|Calendar]]
+* [[#w_miscellaneous|Miscellaneous]]
+
+== Message functions ==
+[[#w_miscellaneous| ↓ ]] | [[#w_search-and-filter-functions| → ]]
+
+{| 
+!Starting a new message!!
+|-
+|New message||{for win}{key Ctrl+N}<br>{key Ctrl+M}{/for}{for linux}{key Ctrl+N}<br>{key Ctrl+M}{/for}{for mac}{key Command+N}{/for}
+|-
+|Reply to Message (sender only)||{for win,linux}{key Ctrl+R}{/for}{for mac}{key Command+R}{/for}
+|-
+|Reply to All in Message (sender and all recipients)||{for win,linux}{key Ctrl+Shift+R}{/for}{for mac}{key Command+Shift+R}{/for}
+|-
+|Reply to List||{for win,linux}{key Ctrl+Shift+L}{/for}{for mac}{key Command+Shift+L}{/for}
+|-
+|Forward Message||{for win,linux}{key Ctrl+L}{/for}{for mac}{key Command+L}{/for}
+|-
+|Edit Message as New||{for win,linux}{key Ctrl+E}{/for}{for mac}{key Command+E}{/for}
+|-
+|Starting a new message in non-default format (Plain text vs. HTML)||Hold {key Shift} while clicking any one of these buttons:<br>{button Write}, {button Reply}, {button Reply All}, {button Reply List} or {button Forward};<br>'''''or''''' ''Right-click'' existing message, then hold {key Shift} while choosing any one of the following from the context menu:<br>{menu Reply to Sender Only}, {menu Reply to All}, {menu Reply to List} or {menu Forward}.
+|-
+|''For keyboard shortcuts during message composition, see [[#w_writing-messages|Writing Messages]].''||
+|-
+!Receiving and reading messages!!
+|-
+|Get New Messages for Current Account||{for win}{key F5}{/for}{for linux}{key F5}<br>{key F9}{/for}{for mac}{key F5}<br>{key Command+Y}{/for}
+|-
+|Get New Messages for All Accounts||{for win}{key Shift+F5}{/for}{for linux}{key Shift+F5}<br>{key Shift+F9}{/for}{for mac}{key Shift+F5}<br>{key Command+Shift+Y}{/for}
+|-
+|Open message (in new window or tab)||{for win,linux}{key Ctrl+O}<br>{key Enter}{/for}{for mac}{key Command+O}<br>{key Return}{/for}
+|-
+|Open message or folder in a new tab in the background||''Middle-click'' the message or folder, '''''or'''''<br>''Right-click'' the message or folder, then choose {menu Open Message in New Tab} or {menu Open in New Tab} from the context menu
+|-
+|Open message or folder in a new tab in the foreground||{key Shift} + ''Middle-click'' the message or folder, '''''or'''''<br>''Right-click'' the message or folder, then hold {key Shift} while choosing {menu Open Message in New Tab} or {menu Open in New Tab} from the context menu
+|-
+|Open message in conversation||{for win,linux}{key Ctrl+Shift+O}{/for}{for mac}{key Command+Shift+O}{/for}
+|-
+|Zoom In||{for win,linux}{key Ctrl+&#43;}<br>{key Ctrl+=}<br>{key Ctrl} + ''scroll wheel up''{/for}{for mac}{key Command+&#43;}<br>{key Command+=}<br>{key Command+Control} + ''scroll wheel up''{/for}
+|-
+|Zoom Out||{for win,linux}{key Ctrl+-}<br>{key Ctrl} + ''scroll wheel down''{/for}{for mac}{key Command+-}<br>{key Command+Control} + ''scroll wheel down''{/for}
+|-
+|Reset Zoom||{for win,linux}{key Ctrl+0} (zero){/for}{for mac}{key Command+0} (zero){/for}
+|-
+|Expand Collapsed Thread||{key &rarr;}
+|-
+|Collapse Expanded Thread||{key &larr;}
+|-
+|Expand All Threads||{key *}
+|-
+|Collapse All Threads||{key \}
+|-
+|Newsgroups: Ignore or Unignore Thread||{key K}
+|-
+|Newsgroups: Ignore or Unignore Subthread||{key Shift+K}
+|-
+|Newsgroups: Watch Thread||{key W}
+|-
+|''For keyboard shortcuts to move between your messages, see [[#w_moving-around-thunderbird|Moving around Thunderbird]].''||
+|-
+!Managing your messages!!
+|-
+|Print message or selected message text||{for win,linux}{key Ctrl+P}{/for}{for mac}{key Command+P}{/for}
+|-
+|Save Message as File||{for win,linux}{key Ctrl+S}{/for}{for mac}{key Command+S}{/for}
+|-
+|View Message Source||{for win,linux}{key Ctrl+U}{/for}{for mac}{key Command+U}{/for}
+|-
+|Select All (messages, text or attachments)||{for win,linux}{key Ctrl+A}{/for}{for mac}{key Command+A}{/for}
+|-
+|Select Thread||{for win,linux}{key Ctrl+Shift+A}{/for}{for mac}{key Command+Shift+A}{/for}
+|-
+|Toggle [https://support.mozilla.org/en-US/kb/Unable%20to%20scroll%20with%20arrow%20keys Caret browsing] (select text with keyboard)||{key F7}
+|-
+|Copy selected text||{for win,linux}{key Ctrl+C}{/for}{for mac}{key Command+C}{/for}
+|-
+|Cut selected search text||{for win,linux}{key Ctrl+X}{/for}{for mac}{key Command+X}{/for}
+|-
+|Paste text into search or filter fields||{for win,linux}{key Ctrl+V}{/for}{for mac}{key Command+V}{/for}
+|-
+|Select multiple adjacent messages<br>(a continuous set of messages)||Select the '''first''' message of your intended selection, and then<br>'''''either''''' {key Shift} + ''Click'' on the '''last''' message of your selection,<br>'''''or''''' hold {key Shift} while using any of the following movement keys to expand your selection: {key &darr;}, {key &uarr;}, {key Page Down}, {key Page Up}, {key End} or {key Home}.
+|-
+|Select multiple non-adjacent messages<br>(several separate messages)
+|{for win}
+Select any message of your intended selection, and then<br>'''''either''''' {key Ctrl} + ''Click'' on each message that you want to add to your selection,<br>'''''or''''' hold {key Ctrl} while using any of the movement keys listed below and then pressing {key Space} on each message that you want to add to your selection. The movement keys are {key &darr;}, {key &uarr;}, {key Page Down}, {key Page Up}, {key End} or {key Home}.
+{/for}
+{for linux}
+Select any message of your intended selection and then<br>{key Ctrl} + ''Click'' on each message that you want to add to your selection.
+{/for}
+{for mac}
+Select any message of your intended selection and then<br>{key Command} + ''Click'' on each message that you want to add to your selection.
+{/for}
+|-
+|Copy message to another folder||Hold {for win,linux}{key Ctrl}{/for}{for mac}{key Option}{/for} while ''dragging'' message to destination folder (release mouse button before releasing {for win,linux}{key Ctrl}{/for}{for mac}{key Option}{/for}).
+|-
+|Move message to another folder||''Drag'' message to destination folder.
+|-
+|Move/Copy message to previous target folder Again||{for win}{key Ctrl+Shift+M}{/for}{for linux}{key Ctrl+Shift+M}{/for}{for mac}{key Command+Option+M}{/for}
+|-
+|[[Archived Messages|Archive Message]]||{key A}
+|-
+|Delete message, folder, attachment or selected search text||{key Del}
+|-
+|Delete message bypassing trash (no Undo!)||{key Shift+Del}
+|-
+|Undo||{for win,linux}{key Ctrl+Z}{/for}{for mac}{key Command+Z}{/for}
+|-
+|Redo||{for win,linux}{key Ctrl+Y}{/for}{for mac}{key Command+Y}{/for}
+|-
+|Rename Folder||{for win,linux}{key F2}{/for}{for mac}''Windows and Linux only''{/for}
+|-
+![[Message Tags - Categorize your email in Thunderbird|Tagging]] and marking your messages!!
+|-
+|Add/Remove Tag||{key 1} to {key 9}
+|-
+|Remove All Tags from Message||{key 0} (zero)
+|-
+|Mark Message as Read/Unread||{key M}
+|-
+|Mark Thread as Read||{key R}
+|-
+|Mark All Read||{key Shift+ C}
+|-
+|Mark as Read By Date||{key C}
+|-
+|Mark as Junk||{key J}
+|-
+|Mark as Not Junk||{key Shift+J}
+|-
+|Add/Remove Star||{key S}
+|} 
+
+== Search and filter functions ==
+[[#w_message-functions| ← ]] | [[#w_list-of-keyboard-shortcuts| ↑ ]] | [[#w_miscellaneous| ↓ ]] | [[#w_moving-around-thunderbird| → ]]
+
+{|
+!Finding messages!!
+|-
+|[[Global Search|Search All Messages]] (global fulltext search in all accounts) ||{for win,linux}{key Ctrl+K}{/for}{for mac}{key Command+K}{/for}
+|-
+|[[Quick Filter Toolbar|Quick Filter]] (search messages in current folder or view)||{for win,linux}{key Ctrl+Shift+K}{/for}{for mac}{key Command+Shift+K}{/for}
+|-
+|Clear current Quick Filter; hide Quick Filter Bar||{key Esc} (as often as needed)
+|-
+|Search Messages (advanced search in folder)||{for win,linux}{key Ctrl+Shift+F}{/for}{for mac}{key Command+Shift+F}{/for}
+|-
+!Finding text in the current message!!
+|-
+|Find Text in Current Message||{for win,linux}{key Ctrl+F}{/for}{for mac}{key Command+F}{/for}
+|-
+|Find Again in Current Message||{for win,linux}{key Ctrl+G}<br>{key F3}{/for}{for mac}{key Command+G}<br>{key F3}{/for}
+|-
+|Find Previous in Current Message||{for win,linux}{key Ctrl+Shift+G}<br>{key Shift+F3}{/for}{for mac}{key Command+Shift+G}<br>{key Shift+F3}{/for}
+|-
+|''For a history of search shortcuts across different versions<br>of Thunderbird, see [[Keyboard Shortcuts for Searching]].''||
+|-
+|}
+
+== Moving around Thunderbird ==
+[[#w_search-and-filter-functions| ← ]] | [[#w_list-of-keyboard-shortcuts| ↑ ]] | [[#w_miscellaneous| ↓ ]] | [[#w_writing-messages| → ]]
+
+{|
+!Moving between messages!!
+|-
+|Scroll Down Current Message, then Go to Next Unread Message || {key Space}
+|-
+|Go to Next Message||{key F}
+|-
+|Go to Previous Message||{key B}
+|-
+|Go to Next Unread Message||{key N}
+|-
+|Go to Previous Unread Message||{key P}
+|-
+|Go to Next Unread Thread (and mark current thread as read)||{key T}
+|-
+|Go to Next Viewed Message||{key ]}
+|-
+|Go to Previous Viewed Message||{key [}
+|-
+|Go to first message in message list||{for win,linux}{key Home}{/for}{for mac}{key fn + ←}{/for}
+|-
+|Go to last message in message list||{for win,linux}{key End}{/for}{for mac}{key fn+ →}{/for}
+|-
+!Controlling Thunderbird windows and tabs!!
+|-
+|Move to next UI element||{key Tab}
+|-
+|Move to previous UI element||{key Shift+Tab}
+|-
+|Move to next main UI area<br><small>In the Mail tab, quickly switch between Folder Pane, Message List, Message Pane and Spaces Toolbar (forwards).</small>||{for win}{key F6}<br>{key Ctrl+F6}{/for}{for linux}{key F6}{/for}{for mac}{key F6}{/for}
+|-
+|Move selected [[Getting Started with the Thunderbird main window (Supernova and newer)#w_7-message-list-pane|Message List Pane]] column, for example {button Subject}, to the right <br><small>Applies to the Table View of the Mail Tab; does not apply to Card View.{for mac} Not fully working on macOS due to [https://bugzilla.mozilla.org/show_bug.cgi?id=1862272 1862272]. Workarounds: after clicking on a column, hit {key Tab} and then that one column can be reordered; if able, use the mouse to drag and drop the columns.{/for}</small>||{for win, linux}{key Alt}{/for}{for mac}{key Option}{/for}+{key Right}
+|-
+|Move selected [[Getting Started with the Thunderbird main window (Supernova and newer)#w_7-message-list-pane|Message List Pane]] column, for example {button Subject}, to the left <br><small>Applies to the Table View of the Mail Tab; does not apply to Card View.{for mac} Not fully working on macOS due to [https://bugzilla.mozilla.org/show_bug.cgi?id=1862272 1862272]. Workarounds: after clicking on a column, hit {key Tab} and then that one column can be reordered; if able, use the mouse to drag and drop the columns.{/for}</small>||{for win, linux}{key Alt}{/for}{for mac}{key Option}{/for}+{key Left}
+|-
+|Move to previous main UI area<br><small>In the Mail tab, quickly switch between Folder Pane, Message List, Message Pane and Spaces Toolbar (backwards).</small>||{for win}{key Shift+F6}<br>{key Ctrl+Shift+F6}{/for}{for linux}{key Shift+F6}{/for}{for mac}{key Shift+F6}{/for}
+|-
+|Next Tab||{for win,linux}{key Ctrl+Tab}<br>{key Ctrl+Page Down}{/for}{for mac}{key Control+Tab}<br>{key Command+Option+&rarr;}{/for}
+|-
+|Previous Tab||{for win,linux}{key Ctrl+Shift+Tab}<br>{key Ctrl+Page Up}{/for}{for mac}{key Control+Shift+Tab}<br>{key Command+Option+&larr;}{/for}
+|-
+|Mail & Newsgroups Home Tab (Tab 1)||{for win}{key Ctrl+1}{/for}{for linux}{key Alt+1}{/for}{for mac}{key Command+1}{/for}
+|-
+|Tab 2 to 8||{for win}{key Ctrl+2}to{key 8}{/for}{for linux}{key Alt+2}to{key 8}{/for}{/for}{for mac}{key Command+2}to{key 8}{/for}
+|-
+|Last Tab
+|{for win}{key Ctrl+9}{/for}{for linux}{key Alt+9}{/for}{for mac}{key Command+9}{/for}
+|-
+|Address Book||{for win,linux}{key Ctrl+Shift+B}{/for}{for mac}{key Command+Shift+B}{/for}
+|-
+|Saved Files||{for win,linux}{key Ctrl+J}{/for}{for mac}{key Command+J}{/for}
+|-
+|Help||{for win, linux}{key F1}{/for}{for mac}{key Command+?}{/for}
+|-
+|Developer Tools||{for win,linux}{key Ctrl+Shift+I}{/for}{for mac}{key Command+Option+I}{/for}
+|-
+|Toggle Message Pane||{key F8}
+|-
+|Toggle Menu Bar (if hidden)||{for win,linux}{key Alt}<br>{key F10}{/for}{for mac}''Windows and Linux only''{/for}
+|-
+|Show context menu||{for win,linux}{key Menu key}<br>{key Shift+F10}{/for}{for mac}''Windows and Linux only''{/for}
+|-
+|Minimize current window||{for win}{key Win+&darr;}{/for}{for mac}{key Command+M}{/for}{for linux}''Windows and Mac only''{/for}
+|-
+|Hide Thunderbird||{for mac}{key Command+H}{/for}{for win,linux}''Mac only''{/for}
+|-
+|Hide Other Windows||{for mac}{key Command+Option+H}{/for}{for win,linux}''Mac only''{/for}
+|-
+|Close window or tab||{for win}{key Ctrl+W}<br>{key Alt+F4} (only for closing a window}<br>{key Ctrl+F4} (only for closing a tab){/for}{for linux}{key Ctrl+W}{/for}{for mac}{key Command+W}{/for}
+|-
+|Undo close tab (restore and go to most recently closed tab)||{for win,linux}{key Ctrl+Shift+T}{/for}{for mac}{key Command+Shift+T}{/for}
+|-
+|Quit Thunderbird (Exit Application)||{for win}{menu File}, {menu Exit}{/for}{for linux}{key Ctrl+Q}{/for}{for mac}{key Command+Q}{/for}
+|}
+
+== Writing messages ==
+[[#w_moving-around-thunderbird| ← ]] | [[#w_list-of-keyboard-shortcuts| ↑ ]] | [[#w_miscellaneous| ↓ ]] | [[#w_address-book| → ]]
+
+{|
+!Creating, saving and sending a message!!
+|-
+|New message (''see [[#w_message-functions|Starting a new message]]'')||{for win}{key Ctrl+N}<br>{key Ctrl+M}{/for}{for linux}{key Ctrl+N}<br>{key Ctrl+M}{/for}{for mac}{key Command+N}{/for}
+|-
+|Save Draft||{for win,linux}{key Ctrl+S}{/for}{for mac}{key Command+S}{/for}
+|-
+|Print Draft||{for win,linux}{key Ctrl+P}{/for}{for mac}{key Command+P}{/for}
+|-
+|Send Message Now||{for win,linux}{key Ctrl+Enter}{/for}{for mac}{key Command+Return}{/for}
+|-
+|Send Message Later||{for win,linux}{key Ctrl+Shift+Enter}{/for}{for mac}{key Command+Shift+Return}{/for}
+|-
+!Controlling the compose window!!
+|-
+|Toggle Contacts Sidebar||{for win,linux}{key F9}{/for}{for mac}''Windows and Linux only''{/for}
+|-
+|Move to next main UI element||{for win}{key F6}<br>{key Ctrl+F6}<br>{key Ctrl+Tab}{/for}{for linux}{key F6}<br>{key Ctrl+Tab}{/for}{for mac}{key F6}{/for}
+|-
+|Move to previous main UI element||{for win}{key Shift+F6}<br>{key Ctrl+Shift+F6}<br>{key Ctrl+Shift+Tab}{/for}{for linux}{key Shift+F6}<br>{key Ctrl+Shift+Tab}{/for}{for mac}{key Shift+F6}{/for}
+|-
+|Zoom In||{for win,linux}{key Ctrl+&#43;}<br>{key Ctrl+=}{/for}{for mac}{key Command+&#43;}{/for}<br>{for win,linux}{key Ctrl} + ''scroll wheel up''{/for}{for mac}{key Command+Control} + ''scroll wheel up''{/for}
+|-
+|Zoom Out||{for win,linux}{key Ctrl+-}{/for}{for mac}{key Command+-}{/for}<br>{for win,linux}{key Ctrl} + ''scroll wheel down''{/for}{for mac}{key Command+Control} + ''scroll wheel down''{/for}
+|-
+|Reset Zoom||{for win,linux}{key Ctrl+0} (zero){/for}{for mac}{key Command+0} (zero){/for}
+|-
+|Toggle Attachment Pane||{for win,linux}{key Alt+M}{/for}{for mac}{key Ctrl+M}{/for}
+|-
+|Show Main Mail Window (Mail & Newsgroups)||{for win,linux}{key Ctrl+1}{/for}{for mac}{key Command+1}{/for}
+|-
+|''Most of the common [[#w_moving-around-thunderbird|keyboard shortcuts for<br>controlling a Thunderbird window]] can also be used<br>in the compose window.''
+|-
+!Editing the message text and handling attachments!!
+|-
+|Copy||{for win,linux}{key Ctrl+C}{/for}{for mac}{key Command+C}{/for}
+|-
+|Cut||{for win,linux}{key Ctrl+X}{/for}{for mac}{key Command+X}{/for}
+|-
+|Paste||{for win,linux}{key Ctrl+V}{/for}{for mac}{key Command+V}{/for}
+|-
+|Paste as quotation||{for win,linux}{key Ctrl+Shift+O}{/for}{for mac}{key Command+Shift+O}{/for}
+|-
+|Paste without formatting||{for win,linux}{key Ctrl+Shift+V}{/for}{for mac}{key Command+Shift+V}{/for}
+|-
+|Rewrap message text||{for win,linux}{key Ctrl+R}{/for}{for mac}{key Command+R}
+|-
+|Delete selected text, attachment, table cell contents or table||{key Del}
+|-
+|Delete word to the right (from cursor to end of word)||{for win,linux}{key Ctrl+Del}{/for}{for mac}{key Control+Del}{/for}
+|-
+|Delete word to the left (from cursor to start of word)||{for win,linux}{key Ctrl+Backspace}{/for}{for mac}{key Option+Del}{/for}
+|-
+|Select All (text in a message or attachments)||{for win,linux}{key Ctrl+A}{/for}{for mac}{key Command+A}{/for}
+|-
+|Select Table Cell||{for win,linux}{key Ctrl} + Click within cell{/for}{for mac}{key Command} + Click within cell{/for}
+|-
+|Select Table Rows or Columns||Drag across cells of rows or columns
+|-
+|Select Table||{for win,linux}{key Ctrl} + Click on table border{/for}{for mac}{key Command} + Click on table border{/for}
+|-
+|Insert Link||{for win,linux}{key Ctrl+K}{/for}{for mac}{key Command+K}{/for}
+|-
+|Discontinue Link, or Remove Links from selection||{for win,linux}{key Ctrl+Shift+K}{/for}{for mac}{key Command+Shift+K}{/for}
+|-
+|Remove Named Anchors||{for win,linux}{key Ctrl+Shift+R}{/for}{for mac}{key Command+Shift+R}{/for}
+|-
+|Undo||{for win,linux}{key Ctrl+Z}{/for}{for mac}{key Command+Z}{/for}
+|-
+|Redo||{for win,linux}{key Ctrl+Y}{/for}{for mac}{key Command+Y}{/for}
+|-
+|Find and Replace Text in Current Message||{for win,linux}{key Ctrl+H}{/for}{for mac}''Windows and Linux only''{/for}
+|-
+|Find Again in Current Message||{for win,linux}{key Ctrl+G}<br>{key F3}{/for}{for mac}{key Command+G}<br>{key F3}{/for}
+|-
+|Find Previous in Current Message||{for win,linux}{key Ctrl+Shift+G}<br>{key Shift+F3}{/for}{for mac}{key Command+Shift+G}<br>{key Shift+F3}{/for}
+|-
+|Check Spelling||{for win,linux}{key Ctrl+Shift+P}{/for}{for mac}{key Command+Shift+P}{/for}
+|-
+|Attach File||{for win,linux}{key Ctrl+Shift+A}{/for}{for mac}{key Command+Shift+A}{/for}
+|-
+|Rename Attachment||{for win,linux}{key F2}{/for}{for mac}''Windows and Linux only''{/for}
+|-
+|Reorder Attachments||{for win,linux}{key Alt+X}{/for}{for mac}{key Ctrl+X}{/for}
+|-
+|Insert a line break instead of a new paragraph||{for win,linux}{key Shift+Enter}{/for}{for mac}{key Shift+Return}{/for} ({for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} inserts a paragraph break in paragraph format mode.)
+|-
+!Reorder Attachments!!
+|-
+|Move to Top||{for win,linux}{key Alt+Home}{/for}{for mac}{key Command+Alt+Up}<br>{key Alt+Home}{/for}
+|-
+|Move Up||{key Alt+Up}
+|-
+|Move together||{key Alt+Left}
+|-
+|Move Down||{key Alt+Down}
+|-
+|Move to Bottom||{for win,linux}{key Alt+End}{/for}{for mac}{key Command+Alt+Down}<br>{key Alt+End}{/for}
+|-
+|Sort (All attachments or selected attachments)||{key Alt+Y}
+|-
+!Styling the message text!!
+|-
+|Larger Font Size||
+{for win,linux}{key Ctrl+&#62;}<br>{key Ctrl+.}{/for}{for mac}{key Command+&#62;}<br>{key Command+.}{/for}
+|-
+|Smaller Font Size||{for win,linux}{key Ctrl+&#60;}<br>{key Ctrl+,}{/for}{for mac}{key Command+&#60;}<br>{key Command+,}{/for}
+|-
+|Text Style '''Bold'''||{for win,linux}{key Ctrl+B}{/for}{for mac}{key Command+B}{/for}
+|-
+|Text Style ''Italics''||{for win,linux}{key Ctrl+I}{/for}{for mac}{key Command+I}{/for}
+|-
+|Text Style <u>Underline</u>||{for win,linux}{key Ctrl+U}{/for}{for mac}{key Command+U}{/for}
+|-
+|Text Style "<tt>Fixed Width</tt>"||{for win,linux}{key Ctrl+T}{/for}{for mac}{key Command+T}{/for}
+|-
+|Discontinue or Remove Text Styles||{for win,linux}{key Ctrl+Shift+Y}<br>{key Ctrl+Space}{/for}{for mac}{key Command+Shift+Y}{/for}
+|-
+|Increase Indent||{for win,linux}{key Ctrl+]}{/for}{for mac}{key Command+]}{/for}
+|-
+|Decrease Indent||{for win,linux}{key Ctrl+[}{/for}{for mac}{key Command+[}{/for}
+|-
+|}
+
+== Address Book ==
+[[#w_writing-messages| ← ]] | [[#w_list-of-keyboard-shortcuts| ↑ ]] | [[#w_miscellaneous| ↓ ]] | [[#w_calendar| → ]]
+
+{|
+|New Address Book Contact||{for win,linux}{key Ctrl+N}{/for}{for mac}{key Command+N}{/for}
+|-
+|Write new message to selected contact(s)||{for win,linux}{key Ctrl+M}{/for}{for mac}''Windows and Linux only''{/for}
+|-
+|Addressbook Quick Filter||{for win}{key Ctrl+F}{/for}<!--{for linux}{key Ctrl+F}{/for}{for mac}{key Command+F}{/for}-->{for not win}''Windows only''{/for}
+|-
+|Addressbook Advanced Search||{for win,linux}{key Ctrl+Shift+F}{/for}{for mac}{key Command+Shift+F}{/for}
+|-
+|Edit properties of selected contact or address book||{for win,linux}{key Ctrl+I}{/for}{for mac}{key Command+I}{/for}
+|-
+|Select all (contacts or search text)||{for win,linux}{key Ctrl+A}{/for}{for mac}{key Command+A}{/for}
+|-
+|Print selected contacts||{for win,linux}{key Ctrl+P}{/for}{for mac}{key Command+P}{/for}
+|-
+|Delete (selected text, contact or address book)||{key Del}
+|-
+|Show Main Mail Window (Mail & Newsgroups)||{for win,linux}{key Ctrl+1}{/for}{for mac}{key Command+1}{/for}
+|}
+
+== Calendar ==
+[[#w_address-book| ← ]] | [[#w_list-of-keyboard-shortcuts| ↑ ]] | [[#w_miscellaneous| ↓ ]] | [[#w_miscellaneous| → ]]
+
+{|
+!Get started!!
+|-
+|Show or hide Today Pane||{for win,linux}{key F11}{/for}{for mac}{key F11}{/for}
+|-
+|Calendar tab||{for win}{key Alt+3}{/for}{for linux}{key Ctrl+3}{/for}{for mac}{key Control+3}{/for}
+|-
+|Tasks tab||{for win}{key Alt+4}{/for}{for linux}{key Ctrl+4}{/for}{for mac}{key Control+4}{/for}
+|-
+|Mail & Newsgroups Home Tab (Tab 1)||{for win}{key Alt+1}{/for}{for linux}{key Ctrl+1}{/for}{for mac}{key Control+1}{/for}<br>{for win}{key Ctrl+1}{/for}{for linux}{key Alt+1}{/for}{for mac}{key Command+1}{/for}
+|-
+|New Event||{for win,linux}{key Ctrl+I}{/for}{for mac}{key Command+I}{/for}
+|-
+|New Task||{for win,linux}{key Ctrl+D}{/for}{for mac}{key Command+D}{/for}
+|-
+!Calendar Tab!!
+|-
+|Show Events Filter bar||{menu Events and Tasks &lceil; Find Events}
+|-
+|Filter Events||([https://bugzilla.mozilla.org/show_bug.cgi?id=449018 Bug 449018])
+|-
+|Clear current Events Filter||{key Esc}
+|-
+|Go to Today||{for win,linux}{key Alt+End}{/for}{for mac}{key Option+Fn+→}{/for}
+|-
+|Go to Next Day/Week/Multiweek/Month||{key ]}
+|-
+|Go to Previous Day/Week/Multiweek/Month||{key [}
+|-
+!Tasks Tab!!
+|-
+|Filter Tasks||{for win,linux}{key Ctrl+Shift+K}{/for}{for mac}{key Command+Shift+K}{/for}
+|-
+|Clear current Tasks Filter||{key Esc}
+|-
+!General Functions!!
+|-
+|Copy (selected events, tasks or text)||{for win,linux}{key Ctrl+C}{/for}{for mac}{key Command+C}{/for}
+|-
+|Cut (selected events, tasks or text)||{for win,linux}{key Ctrl+X}{/for}{for mac}{key Command+X}{/for}
+|-
+|Paste||{for win,linux}{key Ctrl+V}{/for}{for mac}{key Command+V}{/for}
+|-
+|Delete (selected events, tasks or text)||{key Del}
+|-
+|Undo||{for win,linux}{key Ctrl+Z}{/for}{for mac}{key Command+Z}{/for}
+|-
+|Redo||{for win,linux}{key Ctrl+Y}{/for}{for mac}{key Command+Y}{/for}
+|-
+|Print||{for win,linux}{key Ctrl+P}{/for}{for mac}{key Command+P}{/for}
+|-
+|''Furthermore, most of the keyboard shortcuts for<br>[[#w_moving-around-thunderbird|moving around Thunderbird]] still apply.''
+|}
+
+== Miscellaneous ==
+[[#w_calendar| ← ]] | [[#w_list-of-keyboard-shortcuts| ↑ ]] |
+
+{|
+|-
+|Go to Mail Start Page<br>''Only active if focus is in Folder Pane or Message List Pane''||{for win,linux}{key Alt+Home}{/for}{for mac}{key Option+Fn+←} (modifier + Home){/for} 
+|-
+|Clear History||{for win,linux}{key Ctrl+Shift+Del}{/for}{for mac}{key Command+Shift+Del}{/for}
+|}
+
+=Adding or changing shortcuts=
+Some add-ons can add or change shortcut keys. For example [https://addons.thunderbird.net/thunderbird/addon/f9-hides-the-folder-pane/ F9 Hides the Folder Pane].
+
+Keyboard configuration for changing shortcut keys is in progress for a future release.

@@ -1,0 +1,81 @@
+This article describes Thunderbird channels available for Snap and Flatpak, changes that make it easier to choose your preferred channel, and provides instructions on how to install a channel build or move to a channel that is different from what you currently have installed.
+
+If you received an announcement in Thunderbird pointing to this article, the purpose is to provide you with information about what is changing and how the changes may affect you.
+__TOC__
+=Thunderbird channels=
+<!-- based on https://support.mozilla.org/kb/installing-thunderbird-linux#w_thunderbird-channels -->
+Thunderbird offers four channels: '''Release''' (also known as Monthly), '''ESR''' (annual major releases), '''Beta''', and '''Daily'''. [[How to select a Thunderbird release channel]] has a full comparison of all four channels. [[Thunderbird ESR]], [[Thunderbird Release]], [[Thunderbird Beta]], [[Thunderbird Daily]] describe each channel in more detail. If you are using Flatpak or Snap, please continue reading this article. Otherwise, please refer to the article [[Install Thunderbird on Linux]].
+
+=Flatpak Beta and ESR changes in 2026=
+
+==Beta==
+
+As of March 30, 2026, the application ID for the Beta channel at Flathub has changed from ''org.mozilla.'''T'''hunderbird'' to a new ''org.mozilla.thunderbird'' (all lower case). And you may have seen a notification in Thunderbird that “We're switching the flatpak beta application ID from org.mozilla.'''T'''hunderbird to org.mozilla.thunderbird”.
+
+As a result:
+* https://flathub.org/apps/org.mozilla.Thunderbird is changing to https://flathub.org/apps/org.mozilla.thunderbird.
+* If you have been using Thunderbird Beta prior to March 30, 2026:
+** When you update, accounts and add-ons should not be affected.
+** Run <code>flatpak update org.mozilla.Thunderbird</code> as normal. Flatpak will ask whether you want to change to the new application ID, because Thunderbird release management has provided flatpak with the rebase information needed to move you to the new application ID.
+*** If you respond '''Yes''', the application ID will have been updated and your future updates should be run with all lower case:<br><code>flatpak update org.mozilla.thunderbird</code><br><br>To transfer your data to be accessible by the new application ID, rename the directory <code>/home/<your-username>/.var/app/org.mozilla.Thunderbird</code> to <code>/home/<your-username>/.var/app/org.mozilla.thunderbird</code>. (Note the change from uppercase <code>T</code> to lowercase <code>t</code>.)
+*** If you respond '''No''', then you will remain on Thunderbird 150.0b1 because the old ''org.mozilla.Thunderbird'' app ID will no longer receive updates. You will be prompted to update your Thunderbird app ID by future flatpak updates because this is a security risk to you.
+* If you are installing Thunderbird Beta as a new user, there is no special action. Just be aware that you want to use the new application ID of '''org.mozilla.thunderbird'''. For installation instructions please refer to [[Install Thunderbird on Linux]] and [https://discourse.flathub.org/t/how-to-use-flathub-beta/2111 Flathub instructions].
+
+==ESR==
+
+As of May 25, 2026, the application ID for the ESR channel at Flathub has changed from ''org.mozilla.'''T'''hunderbird'' to a new ''org.mozilla.thunderbird_esr'' (all lower case). And you may have seen a notification in Thunderbird that “We're switching the flatpak ESR application ID from org.mozilla.'''T'''hunderbird to org.mozilla.thunderbird_esr”.
+
+As a result:
+* https://flathub.org/apps/org.mozilla.Thunderbird is changing to https://flathub.org/apps/org.mozilla.thunderbird_esr.
+* If you have been using Thunderbird ESR prior to May 25, 2026:
+** When you update, accounts and add-ons should not be affected.
+** Run <code>flatpak update org.mozilla.Thunderbird</code> as normal. Flatpak will ask whether you want to change to the new application ID, because Thunderbird release management has provided flatpak with the rebase information needed to move you to the new application ID.
+*** If you respond '''Yes''', the application ID will have been updated and your future updates should be run with all lower case:<br><code>flatpak update org.mozilla.thunderbird_esr</code><br><br>To transfer your data to be accessible by the new application ID, rename the directory <code>/home/<your-username>/.var/app/org.mozilla.Thunderbird</code> to <code>/home/<your-username>/.var/app/org.mozilla.thunderbird_esr</code>. (Note the change from uppercase <code>T</code> to lowercase <code>t</code>, as well as the addition of <code>_esr</code>.)
+*** If you respond '''No''', then you will remain on Thunderbird 140.10.2esr because the old ''org.mozilla.Thunderbird'' app ID will no longer receive updates. You will be prompted to update your Thunderbird app ID by future flatpak updates because this is a security risk to you.
+* If you are installing Thunderbird ESR as a new user, there is no special action. Just be aware that you want to use the new application ID of '''org.mozilla.thunderbird_esr'''. For installation instructions please refer to [[Install Thunderbird on Linux]] and [https://discourse.flathub.org/t/how-to-use-flathub-beta/2111 Flathub instructions].
+
+=Snap channel changes in 2026=
+To satisfy user requests and better align with our other distribution methods, the default for snap will be changing to Thunderbird release channel. This transition will be gradual in steps over time, with snap '''latest/stable''' becoming Thunderbird release channel (it is currently Thunderbird ESR), and a new snap channel '''esr/stable''' becoming available for ESR for users who cannot or do not want to be using the Thunderbird release channel. 
+
+We are announcing and documenting this early so that users can transition when they are ready, with the last possible step happening with Thunderbird version 153 in the summer of 2026. The information below will help you to decide what is best for you, and how to make any necessary changes.
+
+As of April 2026 the available snap channels are:
+* '''latest/stable''' (default install) - tracks the latest '''ESR''' release of Thunderbird
+* '''monthly/stable''' - tracks the latest monthly release of Thunderbird
+* '''esr/stable''' - a '''new channel''' which tracks the latest ESR release of Thunderbird
+You can see the available snap channels in the [https://snapcraft.io/thunderbird drop down menu, next to the '''Install''' button, at Snapcraft].
+
+In late July 2026, when Thunderbird release and Thunderbird ESR both become version 153, the available snap channels will become:
+* '''latest/stable '''(default install) - '''changes''' to track the latest monthly release of Thunderbird
+* '''esr/stable''' - a new channel which tracks the latest ESR release of Thunderbird
+* '''monthly/stable''' - will go away
+
+What does this mean for you?
+
+'''If you are currently using Thunderbird ESR''', we advise that you start today to determine whether to stay with ESR channel or switch to release channel. We believe the latest monthly release is the best version for general users, because the monthly releases get more frequent fixes than ESRs and thereby deliver a more robust version of Thunderbird. See [[How to select a Thunderbird release channel]] for broad descriptions of the available Thunderbird channels. And if you have extensions installed at Thunderbird App menu {menu ☰} > {menu Add-ons and Themes} > {menu Extensions}, please install https://addons.thunderbird.net/thunderbird/addon/addon-compatibility-check/ to see whether any of your extensions are experiments based. If there are any and you are thinking to change to the release channel, you must decide whether you can operate without those extensions. If you cannot, then we recommend you stay with the ESR channel.
+
+'''If you are currently using monthly''', no changes are needed now. But in July, there is an opportunity for you switch to ESR, when for four weeks Thunderbird ESR and Thunderbird release will both be version 153. You may want to do this so that you can take advantage of experiments based add-ons that break when you are using the release channel.
+
+You should be in one of the scenarios below. As always, be sure to [[Export your Thunderbird Profile|back up your Thunderbird profile]] before performing any of the instructions below which will change your environment.
+
+<!-- Not sure where to use this ... Thank you for being willing to transition to the monthly releases! -->
+
+==If you are on latest/stable, Thunderbird ESR, and want to change to monthly channel==
+'''Action needed from you:''' None. (When Thunderbird esr version 153 becomes available, the snap channel be changed to Thunderbird monthly, and your "snap refresh" will move you to Thunderbird release channel.)
+
+==If you are on latest/stable and need to stay with ESR==
+To continue using ESR, you must change your Thunderbird snap install to only get updates from the ESR channel.
+
+'''Action needed from you:''' Today, in a terminal, issue the command:<br><code>sudo snap refresh thunderbird --channel=esr/stable</code>
+
+==If you are on esr/stable and want to stay with ESR==
+You are already where you need to be.
+
+'''Action needed from you:''' None
+
+==If you are on monthly/stable==
+The monthly/stable channel will be going away because the monthly release will move to the latest/stable channel. So you will need to switch the channel that your Thunderbird snap is tracking. DO NOT DO THIS BEFORE LATEST/STABLE IS CHANGED TO RELEASE IN LATE JULY/AUGUST. You will get a notification in Thunderbird when this is ready, and the instructions below will ensure a proper sequence.
+
+'''Action needed from you:'''
+# Ensure the snap version '''no longer contains the string "esr"'''. In a terminal, issue the command:<br><code>sudo snap info thunderbird</code>
+# If version shows as "153.0-1" without "esr" you can proceed. In a terminal, issue the command:<br><code>sudo snap refresh thunderbird --channel=latest/stable</code>

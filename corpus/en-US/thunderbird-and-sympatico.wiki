@@ -1,0 +1,20 @@
+= Sending messages via Sympatico =
+
+To configure Thunderbird to send messages via your Sympatico email account, make sure your account settings are set as shown below. 
+
+To open the Account Settings dialog, select {menu Tools > Account Settings} from the menu. Select '''Outgoing Server (SMTP)''' from the account list on the left side of the dialog. Your Sympatico server should be shown on the right. Click it, and then click the {button Edit} button. The account settings should be as follows:
+
+[[Image:2149575f7916400765c3d31c7b24af0e-1271181231-295-1.jpg]]
+
+
+'''Description''': any descriptive name<br>
+'''Server Name''': smtphm.sympatico.ca<br>
+'''Port''': 25 (or 587 if port 25 does not work)<br>
+'''Use name and password''': Checked<br>
+'''User name''': your email address (e.g: jsmith@sympatico.ca or jsmith@bell.net) <br>
+'''Use secure authentication''': UNCHECKED<br>
+'''Connection security''': STARTTLS<br>
+
+Make sure that this outgoing server is assigned to your Sympatico email account. In the '''Account Settings''' dialog, click on your Sympatico account in the list on the left side. The '''Outgoing Server (SMTP)''' displayed on the right side at the bottom should be the Sympatico SMTP account you configured above.
+
+[[Image:2149575f7916400765c3d31c7b24af0e-1271181422-957-1.jpg]]

@@ -1,0 +1,10 @@
+= Background =
+If you need to set up a meeting, and keep track of who's attending and who is not,  Lightning can do this as well as allow you to send invitations to people who do not have Thunderbird/Lightning, including Microsoft Outlook users!
+
+= Creating the Event =
+#Create a new event in Lightning, by either going to "File, New, Event" or clicking on the "New Event" button on the toolbar if it is immediately accessible.
+#Click on the "Invite Attendees" button. <br><img src="https://wiki.mozilla.org/images/a/a4/Invite_attendees_button.png">
+#The screen that pops up is shown below: <br> <img src="https://wiki.mozilla.org/images/thumb/c/c0/Attendees_screen.png/600px-Attendees_screen.png" > 
+#On the left next to the yellow person icon, you add attendees from your address book.<!-- If their schedules are listed, then you can determine on the right if they are "free" or "busy," during different time slots. NOT AVAILABLE YET, SEE https://bugzilla.mozilla.org/show_bug.cgi?id=205659 -->
+#After adding all the attendees that you would like to attend the meeting, hit OK.
+#Be sure to check the "Notify attendees" box if it is not already checked. <br/> <br/><img src="https://wiki.mozilla.org/images/2/22/Event_w_attendess.png">

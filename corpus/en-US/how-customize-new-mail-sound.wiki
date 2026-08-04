@@ -1,0 +1,21 @@
+When you receive a new email message, Thunderbird plays a sound to alert you. By default, it uses your operating system’s new mail notification, but you can change it to anything you like.
+
+= Change the New Mail sound =
+
+1. [[Template:optionspreferences TB]]
+
+2. Select the {button General} tab.
+
+3. Select '''Use the following sound file'''.
+
+{note}'''NOTE:''' If '''Use the following sound file''' is grayed out, ensure the '''Play a Sound''' box is checked.{/note}
+
+4. Click {button Browse…}, then browse to the folder on your computer that contains the .WAV audio file you want to use.
+
+{note}'''TIP:''' Sound files in other formats such as .MP3 can easily be converted to .WAV. Use a media player for your OS to convert a file, or a freeware application available on the web.{/note}
+
+5. Double-click the sound file, then test it by clicking {button Play}.
+
+;[[Image:Choose and Play a custom sound file]] 
+
+6. Click {button OK} to save your changes.

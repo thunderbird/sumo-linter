@@ -1,0 +1,94 @@
+{note}For versions of Thunderbird prior to Thunderbird 115 Supernova, please refer to [[Getting started with the Thunderbird main window]].{/note}
+
+This article describes Thunderbird's main window for Thunderbird 115 Supernova and newer versions.
+
+There are many ways to configure Thunderbird's main window. This article describes two popular configurations:
+* Classic View Layout with Table View for the Message List Pane
+* Vertical View Layout with Card View for the Message List Pane
+
+Refer also to the many [[Keyboard shortcuts - perform common Thunderbird tasks quickly|keyboard shortcuts]] available in the main window to help you quickly perform functions, such as message actions and navigation, searching and calendar actions. 
+
+__TOC__
+
+= Classic View Layout with Table View =
+The following screenshot shows the Classic View Layout with Table View. To see this view: 
+# Select "Classic View" as follows: click {menu ≡} > {menu View} > {menu Layout} > {menu Classic View} and then 
+# If "Message List Header" (#4 in the screenshot) is not visible, click {menu ≡} > {menu View} > {menu Layout} > {menu Message List Header} and then
+# Select "Table View": (to the right of {button Quick Filter}) click on the "Message list display options" icon [[Image:tb115-display-options-icon-offical-from-micah]] > {menu Table View}
+
+[[Image:tb115-classic-table-view]] 
+
+== 1. Spaces Toolbar ==
+Since version 102, Thunderbird has had a central Spaces Toolbar for fast and easy access to your most important activities. Click on the buttons to move between the various "Spaces": Mail, Address Book, Calendar, Tasks, Chat, and your  add-ons. At the bottom of the Spaces Toolbar, there is a button for hiding the Spaces Toolbar. Above this, is a button to change Settings. More details at [[New in Thunderbird 102]].
+
+== 2. Unified Toolbar ==
+There is a new “Unified Toolbar” on top of the Tab Bar, which is fully screenreader and keyboard accessible. This toolbar is used for all “Spaces” of the Spaces Toolbar, which are  Mail, Address Book, Calendar, Tasks, Chat and Settings. More details at [[Unified Toolbar]].
+
+== 3. Tab Bar ==
+In Supernova,  the Tab Bar is only displayed if you have two or more tabs. For example, if you have a Mail tab and a Calendar Tab, the Tab Bar is visible. If you just have one tab like the Mail tab, the Tab Bar automatically disappears.
+
+== 4. Message List Header ==
+The Message List Header is new for 115. It shows the current folder name, number of messages, "Quick Filter", and “Message list display options” icon [[Image:tb115-display-options-icon-offical-from-micah]]. If you do not see the Message List Header, click {menu ≡} > {menu View} > {menu Layout} > {menu Message List Header}.
+
+== 5. Folder Pane ==
+The Folder Pane is where your accounts and folders will appear. It will show the account name(s) specified in the [[Configuration Options for Accounts|account settings window]], with default account first, and any additional accounts listed in the order you added them. If you are not seeing the Message List Header, click {menu ≡} > {menu View} > {menu Layout} > {menu Folder Pane}.
+
+Within each account, special folders ({filepath Inbox}, {filepath Sent}, {filepath Trash}) will be listed first with unique icons, while other folders will appear in alphabetical order. 
+
+Sub-folders will appear underneath the parent folder. To expand or collapse an account or parent folder, click on the arrow beside the account or parent folder, or double  click on the name.
+
+You can [[Switching the folder pane view|choose your preferred view(s) of the Folder Pane]]. 
+
+== 6. Quick Filter Bar ==
+The Quick Filter Bar helps you sort your message list based on specific criteria. See [[Quick Filter Toolbar|Quick Filter Bar]].
+
+== 7. Message List Pane ==
+In table view, the Message List Pane displays the list of messages of the selected folder as columns, with details like date/time, subject, sender, and more. To pick which details are displayed, and how wide each column is, see [[Message List Columns]]. To change to cards view, click on the "Message list display options" icon [[Image:tb115-display-options-icon-offical-from-micah]] > {menu Cards View}.
+
+== 8. Message Header Pane ==
+The Message '''Header''' Pane (just above the message pane) will show you information about the selected message, such as the ''From'', ''To'', and ''Subject'' headers, as well as the date/time of the message. 
+
+You can also take actions on the message, such as reply, forward, archive, mark as junk or as read and delete. 
+
+''More actions'' are available under down arrow, such as redirect, tag, mark as read,  save, print, convert to event or task, view source, repair text encoding, and message body. The last action is ''Customize'' message header settings, where you can choose how the message header is displayed. 
+
+Click on the avatar beside a contact to add that person to your address book, and the avatar will change to blue. If the contact is in your address book, the avatar color will be blue and you can edit or delete the address book entry.
+
+== 9. Message Pane ==
+The Message Pane is where you see the content of the selected message. To show/hide the Message Pane, press {key F8}, or click {menu ≡} > {menu View} > {menu Layout} > {menu Message Pane}.
+
+== 10. Today Pane ==
+The Today Pane will display information from your calendar, such as any events scheduled for today, tomorrow, and upcoming events (by default within the next 5 days).
+Click on the arrows at the top of the Today Pane to switch to the ''Events and Tasks'' view, which will include your calendar tasks as well as events, or the ''Tasks'' view which will only include your calendar tasks, not events.
+
+To hide the Today Pane, click on the {button X} beside the arrows. To bring it back, click on {menu Today Pane} in the Status Bar. You can also show/hide the Today Pane, by pressing {key F11}.
+
+== 11. Status Bar ==
+The Status Bar from left to right:
+* A button to switch back and forth from online to offline and vice versa.
+* An area to display status messages about operations like downloading email, compacting folders etc.
+* A button to switch back and forth between displaying the "Today Pane" and not displaying it.
+The goal over time is remove the Status Bar and move its functions to more contextually relevant places. For example, the Unread and Total counts that used to be in the Status Bar in pre Supernova releases have been moved to the individual folders.
+
+= Vertical View Layout with Card View =
+The following screenshot shows the Vertical View Layout with Card View. To see this view: 
+# Select "Vertical View" as follows: click {menu ≡} > {menu View} > {menu Layout} > {menu Vertical View} and then 
+# If "Message List Header" (#4 in the screen shot) is not visible, click {menu ≡} > {menu View} > {menu Layout} > {menu Message List Header} and then
+# Select "Card View": (to the right of {button Quick Filter}) click on the "Message list display options" icon [[Image:tb115-display-options-icon-offical-from-micah]] > {menu Cards View}.
+;[[Image:tb115-vertical-card-view]] 
+
+This configuration has most of the same components with the same features as their counterparts in "Classic View Layout with Table View":
+* 1. Spaces Toolbar  
+* 2. Unified Toolbar  
+* 3. Tab Bar 
+* 4. Message List Header 
+* 5. Folder Pane 
+* 6. Quick Filter Bar 
+* 7. Message List Pane  
+* 8. Message Pane
+* 9. Today Pane  
+* 10. Status Bar 
+* 11. One of the cards in Card View
+Card view (one of the cards is highlighted in red, see #11), is a multi-line, non-column alternative view of the message list. Version 115 has a two line "card" for each message in the Message List Pane. The first line has the sender's display name (not the actual email address), time and at the top right the ''Message Actions'' menu, {menu ⋮} (also known as the '''kebab''' menu because the 3 vertical dots resemble a kebab). The second line displays the subject. 
+
+Version 128 and newer has a three line "card" for each message in the Message List Pane. The third line adds information about the message thread (if there is more than one message in that thread), tags and starred status.

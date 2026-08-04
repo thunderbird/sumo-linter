@@ -1,0 +1,78 @@
+To deal with large amounts of unsolicited email ("spam" or "junk mail"), Thunderbird uses an adaptive filter that learns from your actions which types of messages are legitimate and which are junk.
+
+{note}Note: Starting with version 145, all references to Junk have changed to Spam.{/note}
+
+__TOC__
+=Overview=
+Thunderbird's adaptive filter uses a Bayes algorithm plus training data you have collected to determine which messages it will automatically set as junk. But using an algorithm means a message previously marked as junk is not guaranteed to be automatically marked as junk in the future. If you want a guarantee, see [[#w_create-filters-manually|Create filters manually]].
+
+To guarantee that important messages will NOT be marked as junk, use [[#w_whitelisting|Whitelisting]].
+
+Also, because junk mail constantly changes, it is recommended to regularly train Thunderbird. Without frequent training, Thunderbird may not deliver good results.
+
+=Junk filter settings=
+== Global junk settings ==
+Junk filtering is enabled by default. And you can set global junk settings to tune what should happen to messages marked as junk. These settings will be used for all email accounts (although some settings can be overridden in the [[#w_per-account-settings|Per account settings]], as shown below).
+# Click {menu ≡} > {menu Settings} > {menu Privacy & Security} 
+# Scroll down to '''Junk'''. Adjust the settings as you see fit.
+#;[[Image: TB115-account-settings-junk-settings]]
+
+== Per account settings ==
+The junk settings in the account settings for each of your email accounts will override similar settings in the [[#w_global-junk-settings|Global settings]] described above. 
+* Click {menu ≡} > {menu Account Settings} > '''Your email address''' > {menu Junk Settings}
+*;[[Image: tb115-email-account-settings-junk-settings]] 
+
+=== How to turn off Thunderbird's adaptive filtering ===
+* Untick ''Enable adaptive junk mail controls for this account''
+
+===Whitelisting===
+Under ''Do not automatically mark mail as junk if the sender is in'' you can select address books which will be used as a whitelist. Senders whose email address is in a whitelisted address book are exempt and will not be automatically marked as junk by Thunderbird. But you can still manually marking a message containing a whitelisted address as junk. 
+
+'''It is recommended that you enable whitelisting to help ensure that messages from people you most care about will not be marked as junk.'''
+
+=Training the junk filter=
+In order for Thunderbird's junk filter to be effective, you must train it to recognize messages that you consider to be junk '''and''' messages that you consider to be '''not''' junk. If you do not do both, then the filter will not be very effective. 
+
+Note also, it is important to mark messages as junk before deleting them. Just deleting a message doesn't train the filter. 
+
+== Tell Thunderbird what is JUNK ==
+There are several ways of marking messages as junk:
+* You can click on the little icon in the ''Junk'' column of the [[Getting Started with the Thunderbird main window (Supernova and newer)#w_7-message-list-pane|Message List Pane]]:
+*;[[Image: TB115-thread-pane-junk-column|width=300]]
+* You can also click the {button Junk} button on the [[Getting Started with the Thunderbird main window (Supernova and newer)#w_8-message-header-pane|Message Header Pane]]:
+*;[[Image: TB115-message-pane-header-buttons-junk|width=500]]
+* Or you can press {key J} on your keyboard to mark one or more selected messages as junk.
+{note}Once you mark a message as junk, if you have configured your [[#w_global-junk-settings|Global junk settings]] or [[#w_per-account-settings|Per account settings]] to move junk email to a different folder, the email will disappear from the [[Getting Started with the Thunderbird main window (Supernova and newer)#w_7-message-list-pane|Message List Pane]] for the current folder. Don't worry, the email has moved to the folder you have configured for junk mail.{/note}
+{note}Thunderbird's junk filter has been designed to learn from the training data which you provide. Marking more messages as '''Junk''' or '''Not Junk''' (see below) will improve the accuracy of your junk filter by adding more training data.{/note}
+
+== Tell Thunderbird what is NOT Junk ==
+Sometimes Thunderbird's junk filter might get it wrong and mark ''good'' messages as junk. Therefore, it is just as important to tell the filter which messages are ''not'' junk, especially on a new installation of Thunderbird.
+{note}'''Note:''' You should frequently (daily or weekly) check your Junk folder for ''good'' messages wrongly marked as Junk by Thunderbird and mark them as '''Not Junk'''. This will recover the good messages and improve the correctness of the filter for the future.{/note}
+There are several ways of marking messages as '''Not Junk'''.
+* Click on the {button Not Junk} button in the yellow junk notification below the message header in the [[Getting Started with the Thunderbird main window (Supernova and newer)#w_7-message-list-pane|Message List Pane]]:
+*;[[Image: TB115-message-pane-junk-notification-not-junk]]
+* Click on the red junk icon in the '''Junk''' column of the [[Getting Started with the Thunderbird main window (Supernova and newer)#w_7-message-list-pane|Message List Pane]] to toggle the junk status of a message:
+*;[[Image: TB115-thread-pane-unmark-junk-column|width=300]]
+* Or press {key Shift}+{key J} on your keyboard to mark one or more messages as '''Not Junk'''.
+{note}Once you un-mark a message as junk, the email will disappear from the current folder. Don't worry the email is still there! It will be in its original folder; the folder it was in before it was marked as junk.{/note}
+== Repeated training ==
+You should '''regularly''' train the filter by marking a number of '''good''' messages as not junk - messages in your Inbox ''and'' messages that have been filtered into other folders. In this case, you can only use the keyboard shortcut {key Shift}+{key J}, because the {button Not Junk} button appears only for messages that have already been marked as junk. Marking several messages per week will be sufficient, and you can select many messages and mark all of them at the same time. 
+
+Unfortunately the user interface does not help you see whether a message has already been marked as "not junk".
+
+= Other ways of blocking unwanted messages =
+Thunderbird's adaptive junk filter is not an absolute barrier against messages from a specific address or specific types of messages. You can have stronger mechanisms to stop unwanted messages by using the following methods.
+
+== Create filters manually ==
+You can manually:
+* [[Blocking a sender|Block some senders]].
+* [[Organize Your Messages by Using Filters#w_create-a-new-filter|Create filters]] to block messages based on subject or other criteria.
+
+== Use an external filter service ==
+You can also use an external filter service to help classify email and block junk.
+# Click {menu ≡} > {menu Account Settings} > '''Your Account''' > {menu Junk Settings}
+# Enable the {pref Trust junk mail headers set by} option.
+# Choose an external filter service in the drop-down menu.
+#;[[Image:TB115-Trust_junk_mail_headers_set_by|width=400]]
+
+<!-- Also, a better understanding of how the adaptive filter works can help you understand why message are and are not flagged as junk. The [http://mesquilla.com/extensions/junquilla/ JunQuilla] addon can help in that regard. -->

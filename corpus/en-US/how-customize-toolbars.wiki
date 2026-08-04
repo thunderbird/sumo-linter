@@ -1,0 +1,35 @@
+{note} For Thunderbird 115 Supernova and newer, please refer to: [[Unified Toolbar]].{/note}
+
+Thunderbird's toolbars provide easy access to common features. This article explains how you can customize toolbars to make Thunderbird work the way you do.
+
+__TOC__
+
+= How do I show and hide the different toolbars? =
+Most toolbars can be shown or hidden depending on your needs.
+To show or hide a toolbar, {for win,linux}right-click{/for}{for mac}control-click{/for} on an empty section of the Tab Strip at the top and check or uncheck it in the pop-up menu.
+{for win}
+*'''Menu Bar:''' This toolbar at the top of the Thunderbird window contains the browser menus ({menu File}, {menu Edit}, {menu Help}, etc.). On Windows Vista and later versions, the Menu Bar is hidden by default, and its features are contained in the Thunderbird menu button, {menu ≡}. If the Menu Bar is hidden, you can temporarily show it by pressing the {key Alt} key.
+{/for}
+{for linux}
+*'''Menu Bar:''' This toolbar at the top of the Thunderbird window contains the Thunderbird menus ({menu File}, {menu Edit}, {menu Help}, etc.). 
+{/for}
+{for mac}
+*'''Menu Bar:''' This toolbar at the top of the Thunderbird window contains the Thunderbird menus ({menu File}, {menu Edit}, {menu Help}, etc.) and you can't hide it on the Mac.
+{/for}
+*'''Mail Toolbar''': This toolbar (which is underneath the Menu Bar) contains mail related buttons and menus such as  {button Get Messages}, {button Write}, {button Chat},  {button Tag}, {button Quick Filter}, etc.
+*'''Tab Strip:''' This is where your tabs such as the tabs for your inbox and for Thunderbird Add-ons are displayed. You can't hide it.
+
+[[Image:Thunderbird Toolbars - win]]
+= How do I customize or rearrange toolbar items? =
+# {for win,linux}Right click{/for}{for mac}Control click{/for} an empty section of the Tab Strip and select {menu Customize...}. <br />[[Image:Right Click Customize]]<br />The Customize Toolbar window opens. <br />[[Image:Thunderbird Customize Toolbar Window]]
+# Change the toolbar items as necessary. 
+#* To add an item, drag it from the Customize Toolbar window onto the toolbar where you want it to appear.
+#* To remove an item, drag it to the Customize Toolbar window.
+#* To rearrange an item, drag it to the spot where you want it.
+# When finished, click {button Done}.
+
+'''Try it out:''' Experiment with different arrangements. You can always restore the default toolbar settings by clicking {button Restore Default Set} in the Customize Toolbar window.
+
+= Toolbar Troubleshooting  =
+See these toolbar troubleshooting articles:
+*[[What happened to the Thunderbird File, Edit, and View menus?]]

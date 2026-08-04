@@ -1,0 +1,22 @@
+= Account Hub for Thunderbird Desktop =
+
+The Account Hub is our new streamlined, unified, and modern experience for adding email accounts, address books, and calendars.
+{note}'''NOTES'''
+* Prior to Thunderbird 150, the legacy Account Setup was the default. For versions older than 150, please refer to these articles: [[Automatic Account Configuration]] and [[Manual Account Configuration]].
+*For simplicity, we will use the term [https://en.wikipedia.org/wiki/OAuth '''OAuth'''] instead of '''OAuth 2''' or '''OAuth 2.0'''. Thunderbird’s current implementation of OAuth is based on OAuth 2.0, the most common version of OAuth.
+* Prior to Thunderbird 153, the OAuth dialogues are presented in a tab inside Thunderbird. Versions 153 and higher display the OAuth dialogues externally in your system’s default web browser (Firefox, Chrome, etc.) instead. We will refer to versions 152 and lower as '''older versions''' in this article.{/note}
+== Automatic email account setup ==
+# '''Start''': When you first run Thunderbird after installing it, the Account Hub will open into the email setup flow. After the first run, you can start the email setup flow by clicking the Thunderbird app menu {menu ☰} > {menu Add Account} ({menu New Account} in older versions) > {menu Email}.
+# '''Name and Email address''': Fill in your '''Full name''' and '''Email address''' and click {button Continue}. For example, <code>nemo@thundermail.com</code>:
+#;[[Image:TB153 Account Hub enter email address]] 
+# '''Configuration lookup''': Thunderbird will look in its configuration database for email settings based on your email address - most email providers are in our mail provider database. If they aren’t, you can manually configure your settings. Here are the settings that Thunderbird automatically finds for [[Thunderbird Desktop and Thundermail|Thundermail]] (other providers that use OAuth like Gmail and Microsoft email are very similar to Thundermail):
+#;[[Image:tb153 account hub thundermail settings]] 
+# '''Confirm settings''': The default settings are suitable for most folks, so click {button Continue} to finish the setup. For email providers that use OAuth (like '''Thundermail'''), a branded tab will be provided by the provider. This OAuth dialog will pop up in the system browser (for older versions, this opens a tab in Thunderbird). In our example below, Thundermail uses OAuth, so the tab is branded with Thundermail colours and graphics:
+#;[[Image:tb153 opening the system browser for OAuth]] 
+# '''Enter the password in your email provider’s branded system browser tab:''' In this step, you will enter your password and then click {button SIGN IN}. Some providers may require you to do multi-factor authentication during this step. When done, you will receive a notification that your account has been connected to Thunderbird and that you can close the system browser tab:
+#;[[Image:tb153 oauth web browser securely connected]] 
+# '''Add other services like Address Books and Calendars:''' Back in Thunderbird, if the email provider supports other services, you are prompted to add them. For most people, clicking {button Continue} to add the default other services is sensible:
+#;[[Image:tb153 additional services like calendar and address book]] 
+# '''Done!''' At this stage, your email account and other connected services are set up. You can click {button Finish} to end or click {button Add another email} to add another email account:
+#;[[Image:tb153 account hub done!]] 
+# '''Need help?''' If your email provider uses OAuth, please follow our [[OAuth2 for Thunderbird|OAuth Troubleshooting Checklist]] first. If you are still stuck, please [http://support.mozilla.org/questions/new/thunderbird/form ask a support question] in our community support forum.

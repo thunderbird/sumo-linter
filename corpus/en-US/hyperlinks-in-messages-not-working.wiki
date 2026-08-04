@@ -1,0 +1,45 @@
+__TOC__
+
+=Problems with composing messages=
+Unlike some other email programs, Thunderbird does not create a clickable link when you are composing a message and add a hyperlink. If you use the {menu Insert > Link…} command, the link is formatted as a link (underlined and colored), but if you click it nothing happens. If you paste or type a link into the body of a message it appears in the text of the message without any indication that it is a link.  
+
+This behavior is deliberate. When links are “activated”, they are difficult to edit (because when you try to position the cursor within an active link you usually launch the link in the browser). 
+
+When a message is sent (or saved as a draft), Thunderbird “activates” links in the message, adding formatting as necessary and making them clickable hyperlinks.
+
+=Problems with received or saved mails=
+When you click a hyperlink in a message, your system's default web browser should open (if it is not already running) and display the link. If that doesn't happen, there are several possible causes.
+
+== Check that the operating system's default browser is specified ==
+Every operating system allows the specification of a default browser that will be launched (for example) when a hyperlink in a message is clicked. Firefox and other browsers check this setting by default when they start up and prompt you to set them as the default. Sometimes, however, this setting goes awry and your computer forgets which browser is the default. To fix this problem, you need to reset the default browser on your system.
+
+=== Firefox ===
+See [[Make Firefox your default browser]] for instructions. Then restart Thunderbird.
+
+{for mac}
+=== Other browsers ===
+See Apple's article [https://support.apple.com/102362 Change the default web browser or email app on Mac].
+{/for}
+
+{for win}
+=== Microsoft Edge ===
+See Microsoft's article [https://support.microsoft.com/windows/change-default-apps-in-windows-e5d82cad-17d1-c53b-3505-f10a32e1894d Change Default Apps in Windows]. Then restart Thunderbird.
+{/for}
+
+== Check that no application is specified for the HTTP content type ==
+In Thunderbird, you can specify an action that occurs when you click on various types of attachments and inline content. If the action for the HTTP / HTTPS content type is set incorrectly, this will prevent links from opening correctly.
+
+If the operating system's default browser is specified correctly as described above, it is not necessary to specify an action for the HTTP / HTTPS content type. To check this setting, select [[Image:Fx57Menu]] > {menu Settings}, search the preferences dialog for “content” and then work with the list of file types under the ''Content type'' column. If HTTP and/or HTTPS are listed in the ''Content type'' column, either delete the action or ensure the specified action is correct. This situation can arise by receiving a link of HTTP or HTTPS type as an attachment to an email and when asked what to do with the attachment you specify to do this next time.
+
+== Check for an incorrect preference ==
+In some circumstances, a normally hidden preference gets changed, resulting in Thunderbird trying to handle these links internally. One of these circumstances appears to be after you uninstall the ThunderBrowse add-on, although the upgrade process to V5 appears to have caused it for some people as well. To check if this might be the cause, open the {menu Troubleshooting Information} in the {menu Help} menu and under the ''Important Modified Preferences'' heading, look for a preference called {pref network.protocol-handler.external-default} or any other preference beginning with {pref network.protocol-handler.warn-external}. If any of these are present and set to {pref false}, then this is your problem.
+
+To correct this setting, use the [[Config Editor]] to change the hidden preferences from {pref false} to {pref true}.
+Type '''network.protocol-handler.external-default''' into the field or at least so much of it that the entry appears in the list below. Select the entry in the list, right-click it, and select the {menu Reset} option from the menu that appears.
+
+== Check for interference from an extension ==
+It is time to look for an extension that may be causing some unwanted behavior. Run Thunderbird in [[Troubleshoot Mode Thunderbird|Thunderbird Troubleshoot Mode]]. If you can click on hyperlinks in Troubleshoot mode but not in normal mode, your problem is probably being caused by an add-on (also known as an extension).
+
+Next, try the [http://kb.mozillazine.org/Standard_diagnostic_-_Thunderbird Standard Diagnostics].
+
+If you still have a problem, go [https://support.mozilla.org/questions/new/thunderbird to the forum] and ask about what could be the cause. Before you post your question, be sure to explain exactly what you have done already to diagnose the problem.

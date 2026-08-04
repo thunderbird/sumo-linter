@@ -1,0 +1,60 @@
+This reference will help you have the best possible experience using '''Thunderbird Daily''' (which we will refer to as '''Daily'''), where new features are developed and testing begins. This is the least stable channel of Thunderbird code. Make sure you back up important data regularly.
+
+You can help by testing, and reporting bugs before they reach release. Thank you for your interest in using '''Daily'''!
+
+__TOC__
+
+=README BEFORE using Daily=
+* Protect your Thunderbird data by doing regular [[Profiles - Where Thunderbird stores your messages and other user data#w_backing-up-a-profile|backups of your Thunderbird profile]].
+* High-impact flaws such as data loss may occur. Protect yourself with backups. 
+* New features require new code, so flaws are possible. Flaws may not be fixed quickly because of competing priorities, but do report them. Do remember that patience is required when using test versions.
+* Subscribe and contribute to the [https://thunderbird.topicbox.com/groups/daily/ Thunderbird Daily topicbox community mailing list] to share your thoughts, learn about new features and user experience.
+* '''Thunderbird Daily''' is updated daily.
+* Make sure your installer does not install '''Daily''' in a non-Daily program directory - official Mozilla downloads should do this correctly. See [[#w_how-to-install-and-run-daily|How to install and run Daily]] for more information.
+* If you use Thunderbird mail filters and you have more than one Thunderbird data profile, decide where you want to run your filters - in your '''Daily''' profile or your other profile. Do not use filters in both. 
+* Add-on authors are not obligated to make their add-ons work in '''Daily''', so many of your add-ons may not work. Please submit your issues to the add-on author, and consult the [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|Add-ons FAQ]] if you have difficulties.
+* Are you using POP accounts? Unlike IMAP accounts, your only copy of POP mail is in your local Thunderbird data profile and not on a server (unless you changed the default settings). To use a POP account with '''Daily''' you must choose between these options:
+**'''Don't use a POP account with your Daily install:''' Using POP is not recommended, because you risk losing your email if you do not configure ALL of your email clients correctly with your POP accounts.
+**'''If you have to use POP:'''
+**# Set all of your email clients, including Thunderbird for Android and Thunderbird Desktop, Outlook, etc., to '''Leave messages on server''' in {menu ≡} > {menu Account Settings} > {menu Server Settings} (or equivalent in your email clients).
+**# Uncheck '''For at most [X] days'''. 
+**# Manually delete messages from the POP server. We recommend you do not use '''Fetch headers only''' or equivalent in your non Thunderbird email clients.
+
+= Resources, assistance and references =
+How you can help improve Thunderbird, find help, and give help:
+* [[#w_readme-before-using-daily|Review the README above]].
+* Post questions about normal Thunderbird usage in [https://support.mozilla.org/questions/new/thunderbird/form Thunderbird support] aka SUMO.
+* Answer questions about Thunderbird usage in [https://support.mozilla.org/questions/thunderbird?filter=recently-unanswered&show=all SUMO].
+* Ask and help with '''Daily'''-specific questions in the [https://thunderbird.topicbox.com/groups/daily Thunderbird Daily topicbox community mailing list].
+* [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird Report bugs] that you find. Report performance issues by [[Profiling Thunderbird Performance|creating a performance profile]] and adding it to your bug report or support posting.
+* '''Daily''' does not have Release Notes. But you can get a sense, after the fact, by looking at  [https://www.thunderbird.net/notes/beta Beta release notes]. You can also follow [https://hg.mozilla.org/comm-central/ comm-central checkings via the web page] or subscribe to the [https://hg.mozilla.org/comm-central/rss-log comm-central RSS feed].
+* [[Mozilla Crash Reporter TB|Please submit '''all''' crash reports]].
+* Backup your profile with {menu ≡} > {menu Tools} > {menu Export}.
+* Review the '''Daily''' Start Page which has handy information, accessed in Thunderbird with {for win, linux} {key Alt} > {/for}{menu Go} > {menu Mail Start Page} ([[Keyboard shortcuts - perform common Thunderbird tasks quickly#w_moving-around-thunderbird|keyboard shortcuts]]), or [https://start.thunderbird.net/en-US/daily/ in your browser].  
+* Join us in [https://www.thunderbird.net/participate/ other ways to contribute to the project.]
+
+= Add-ons =
+<!-- DO NOT REMOVE THIS HEADING ANCHOR, there are links to it from other locations -->
+Add-on authors are not obligated to have their add-ons work in '''Daily'''. Some might not work. Consult the [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|add-ons FAQ]] if you have difficulty. 
+
+= How to install and run Daily =
+Install Thunderbird Daily into its own program directory. If you download '''Daily''' from official sources, then installation should happen correctly. Do check that it installs to its own program directory, for example <code>C:\Program Files\Mozilla Thunderbird Daily</code>. If you need more help, please refer to installation instructions for [[Install Thunderbird on Windows|Windows]], [[Install Thunderbird on Mac|macOS]], [[Install Thunderbird on Linux|Linux]], and [[Well known sources for downloading the Thunderbird email software|official sources]] for additional details.
+
+Quick links to official Daily sources:
+* [https://www.thunderbird.net/thunderbird/all/?release=daily Windows, macOS and Linux via Thunderbird download page] - choose the '''Daily''' channel.
+<!-- * [https://snapcraft.io/thunderbird Ubuntu from Canonical via Snap] <code>-- sudo snap install thunderbird --beta</code>
+* [https://discourse.flathub.org/t/how-to-use-flathub-beta/2111 Flatpak] -->
+
+= How do I change from a Daily version back to a beta version? =
+
+* Please do not change from '''Daily''' to beta by installing beta into the '''Daily''' program folder.
+* Please do not point a beta install to a '''Daily''' data profile.
+
+Why? Because accessing data with an older version number of the program risks instability and corrupt data.
+
+Instead, make a separate profile for beta, and transfer any data you need from the '''Daily''' profile using standard tools, for example '''Address Book''' ({for win, linux}{key Alt}{/for}{for mac}{key Ctrl}{/for} + {key 2}) > {menu Export}/{menu Import}, or {menu ≡} > {menu Tools} > {menu Export}. Exceptions:
+* For POP and local mail: In the '''Mail''' directory of your Thunderbird profile you will find both the '''Local Folders''' directory and POP account directories. You can copy the contents of these from one profile to another, but take care to NOT overwrite any '''msgFilters.dat''' files, as they contain your filter rules.''' {warning} WARNING: Files from a newer version are not guaranteed to work in an older version.{/warning}
+* For IMAP accounts, there should be no need to copy any IMAP data files from a '''Daily''' profile to your other profile.
+
+= Daily isn't for me. How can I help? =
+[https://www.thunderbird.net/participate/ Participate] lists many ways for you to help in the community, and places to learn more about Thunderbird.

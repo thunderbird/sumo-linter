@@ -1,0 +1,35 @@
+{note} For Thunderbird 115 Supernova and newer, please refer to: [[Getting Started with the Thunderbird main window (Supernova and newer)]].{/note}
+
+This article describes Thunderbird's main window, as seen below. Refer also to the many [[Keyboard shortcuts - perform common Thunderbird tasks quickly|keyboard shortcuts]] available in the main window to help you quickly perform functions, such as message actions and navigation, searching and calendar actions. 
+[[Image:Thunderbird view panes]] 
+
+__TOC__
+
+= Folder pane = 
+The Folder pane is where your accounts and folders will appear. It will show the account name(s) specified in the [[Configuration Options for Accounts|account settings window]], with default account first, and any additional accounts listed in the order you added them.
+
+Within each account, special folders ({filepath Inbox}, {filepath Sent}, {filepath Trash}) will be listed first with unique icons, while other folders will appear in alphabetical order. 
+
+Sub-folders will appear underneath the parent folder. To expand or collapse an account or parent folder, click on the arrow beside the account or parent folder, or double  click on the name.
+
+You can [[Switching the folder pane view|choose your preferred view(s) of the folder pane]].
+
+= Message List pane =
+The Message List pane contains the list of messages in the selected folder, including details like the date/time, subject, sender, and more. To pick which details are displayed, and how wide each column is, see [[Message List Columns]].
+
+= Header pane =
+The Header pane will show you information about the selected message, such as the ''From'', ''To'', and ''Subject'' headers, as well as the date/time of the message. 
+
+Here, you can take actions on the message, such as reply, forward, archive or delete the message, mark the message as junk or as read, open the message in conversation or a new tab, view the message source, save the message, or print it.<br/>
+Want to re-order or remove buttons? Click {button Customize}.
+Want a different header view?  Visit the headers menu (someone better than me can fill in the blanks), or install [https://addons.thunderbird.net/en-us/thunderbird/addon/compactheader/ the compactheader add-on].
+
+Click on the star beside a correspondent to add that person to your address book. If the correspondent is in your address book, the star will turn solid blue. Click on the blue star to edit or delete the address book entry.
+
+= Message pane =
+The Message pane is where you see the content of the selected message. To show/hide the Message pane, press {key F8}.
+
+= Today pane =
+The Today pane will display information from your calendar, such as any events scheduled for today, tomorrow, and upcoming events (by default within the next 5 days).
+Click on the arrows at the top of the Today pane to switch to the ''Events and Tasks'' view, which will include your calendar tasks as well as events, or the ''Tasks'' view which will only include your calendar tasks, not events.
+To hide the Today pane, click on the {button X} beside the arrows. To bring it back, click on {menu Today pane} in the status bar. You can also show/hide the Today pane, by pressing {key F11}.

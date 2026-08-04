@@ -1,0 +1,81 @@
+<!-- This article is used as context-help, opened when clicking a learn-more link from inside Thunderbird's OpenPGP Key Assistant. Please keep the primary focus of the article. See also https://bugzilla.mozilla.org/show_bug.cgi?id=1773720 -->
+
+If you attempt to send an email with enabled End-To-End Encryption (e2ee), Thunderbird may report that it cannot encrypt. This article explains the requirements for sending an encrypted an email message.
+__TOC__
+
+== Requirements List ==
+
+All of the items must be satisifed:
+* You must have a personal OpenPGP key or a personal S/MIME certificate, and you must configure Thunderbird to use it. How to do that is explained in a separate article: [[Setup your email account for using End-To-End Encryption]].
+* If you had previously configured your own key or certificate, ensure it hasn't expired, it hasn't been revoked, and you haven't deleted it.
+* Every email recipient that you added to the TO, CC or BCC fields must also own a personal OpenPGP key or personal S/MIME certificate, and they must have made the respective public key or certificate available. How you can obtain and use them is explained in the following sections in this article.
+* When using group encryption utilizing the [[OpenPGP Recipient Alias Configuration|OpenPGP recipient alias feature]], the public keys for all recipients defined for an alias email address must be available.
+* You must have keys or certificates of the same technology for all recipients including yourself, because OpenPGP and S/MIME are separate encryption technologies and cannot be mixed in a single email. Ensure you have selected the correct technology when composing an encrypted email.
+If you need a more detailed explanation of the terms mentioned in this article, and to learn how email encryption technology works in general, you might want to read the article [[Introduction to End-to-end encryption in Thunderbird]].
+
+== Obtaining OpenPGP public keys of correspondents ==
+The following mechanisms can be used to obtain an OpenPGP public key:
+* Your correspondent sends an email to you, and they attach their public key to that email. When viewing such an email, if you click the OpenPGP button shown in the header area, Thunderbird will offer you to import the key.
+* Your correspondent sends an email to you, which includes an Autocrypt header containing their public key. When viewing such an email, if you click the OpenPGP button shown in the header area, Thunderbird will offer you to import the key.
+* Your correspondent has published their public key on a web server. Your correspondent may give you a link to their public key. Or you might use a web search and find the key yourself. In both cases you download the public key to a local file, and then use Thunderbird's OpenPGP Key Manager to import the file containing the public key.
+* Your correspondent has published their public key on a server that uses the WKD protocol. When attempting to send an encrypted email, but you don't have a public key for a recipient's email address yet, Thunderbird may offer you to perform an online discovery, which is able to find public keys published using the WKD protocol.
+* Your correspondent has published their public key on a keyserver that Thunderbird supports, such as the keys.openpgp.org server. When attempting to send an encrypted email, but you don't have a public key for a recipient's email address yet, Thunderbird may offer you to perform an online discovery, which is able to find public keys published on that keyserver.
+* Your correspondent has published their public key on a keyserver that Thunderbird isn't yet able to query automatically. If your correspondent tells you which keyserver contains their key, you might be able to use a web browser to visit that keyserver, search for their public key, download it to a file, and then import that file using Thunderbird's OpenPGP Key Manager.
+If Thunderbird cannot find the key automatically, it is usually easiest to send a simple email (without encryption) to your correspondent, and ask them to send an email to you that contains their public key.
+
+With Thunderbird versions 78 and 91, if you received an email with a correspondent's key, it was necessary to interact with that email to import the key, either by using the right click menu on an attachment and asking to import it, or by clicking the OpenPGP button shown in the header area, which may report that the email contains a public key and may offer to import it.
+
+With Thunderbird versions 102 and newer, Thunderbird will automtically collect keys it sees in a cache for later use. When composing an email, and the correpondent's public key has not yet been imported, then Thunderbird may be able to automatically offer you to use public keys it has already collected.
+
+Note, it is not possible to review the cache of all keys that Thunderbird has automatically collected. If necessary, Thunderbird will offer you matching keys in the OpenPGP Key Assistant, which you can access from Thunderbird's email composer window.
+
+To review the list of already imported OpenPGP keys, you can use Thunderbird's OpenPGP Key Manager.
+
+== Obtaining S/MIME certificates of correspondents ==
+The standard way of distributing a person's certificate is to send a digitally signed email. If you have received a signed email from your correspondent, click the email to view it. If Thunderbird considers the email's signature and the sender's certificate valid, it will automatically be imported and available when you attempt to encrypt an email to that correspondent using the S/MIME technology. If you don't have a signed email from your correspondent yet, you could ask them to send a digitally signed email to you.
+
+Note that certificates issued by CAs may have a short validity period. Certificates are no longer usable after the validity period has expired. In that case your correspondent will have to obtain a new certificate. Once that happened they will be able to send you a new digitally signed email with a valid certificate.
+
+Organizations that operate an LDAP server may configure their server to store S/MIME certificates. If an LDAP server is configured, Thunderbird may automatically query the LDAP server if it needs to obtain a S/MIME certificate.
+
+To review the list of S/MIME certificates that you already have, you can use Thunderbird's Certificate Manager.
+
+== Technical validity ==
+Thunderbird only uses keys and certificates that it considers technically valid.
+
+Thunderbird requires that an OpenPGP key contains at least one valid primary or subordinate key usable for creating digital signatures, and at least one key usable for encryption.
+
+Thunderbird may refuse to use OpenPGP keys that are corrupted, or that are based on cryptographic algorithms that Thunderbird considers to be unsafe.
+
+An OpenPGP public key has an inner structure, it may contain several subordinate keys, and it also contains properties, such as the validity period and the related user names and email addresses. Such properties may be added, removed or updated. To ensure that properties were really modified by the legitimate owner of the key, the properties are digitally signed using the owner's secret key. Each digital signature uses a signature algorithm. Thunderbird may ignore properties that are based on unsafe signature algorithms.
+
+If you have obtained someone's public key, and Thunderbird refuses to import or to use it, possible reasons are:
+* After importing it the key appears to lack certain properties.
+* The key has an unexpected validity period.
+* The key might contain unsafe properties that Thunderbird decided to reject or ignore.
+
+== Matching email address ==
+In order to use an OpenPGP public key or S/MIME certificate for sending an encrypted email to an email address, Thunderbird usually requires that the inner structure of the key or certificate lists the exactly matching email address. It allows Thunderbird to automatically decide if a public key or certificate can be used for an email address.
+
+In other words, if Alice wants to send encrypted email to bob@example.com, she needs an OpenPGP public key or S/MIME certificate that claims to be for that email address. A key or certificate claiming to be for bobby@example.com wouldn't be used by Thunderbird.
+
+If Alice really wanted to use the public key or certificate listing bobby@example.com for sending email to bob@example.com, then Alice would have to have additional knowledge about Bob's email addresses, which aren't obvious. Bob would have to ask Alice to use that key despite the email address mismatch. Alice would have to ask Thunderbird to use the public key or certificate despite the mismatch.
+
+This is considered an advanced scenario, which some users might be required to use, but which most users don't need. Thunderbird currently doesn't offer an interactive solution for this.
+
+However, because some expert users have requested support for using mismatching OpenPGP public keys, Thunderbird is offering an advanced configuration mechanism, which is documented in the article [[Thunderbird and OpenPGP Alias Keys]].
+
+== Accepting ==
+If you have obtained an OpenPGP public key, and the key claims to be in the name of your correspondent, and contains your correspondent's email address, there is still a risk that it is not ''the right key''. The risk is described in detail in the article [[OpenPGP keys might be authentic or counterfeit]].
+
+Because of this risk, Thunderbird doesn't use OpenPGP public keys automatically. Rather, for each public key you'd like to use, you are required to confirm that the key is acceptable for you, as described in the above article.
+
+In other words, if Alice has obtained an OpenPGP public key that lists the email address bob@example.com, and Alice attempts to send an encrypted email to bob@example.com, Thunderbird might complain that there's no ''accepted'' key for Bob yet. Alice must follow the guidance offered on screen to review the key or keys that are available for bob@example.com, she should review it, she should ideally verify it, and she needs to mark the key as accepted.
+
+For S/MIME, technically valid certificates that are signed by a CA that has been included in Thunderbird according based on the [https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/policy/ Mozilla Root Store Policy] will automatically be accepted by Thunderbird for sending encrypted email to the address listed in the certificate.
+
+== Other resources ==
+* [[Introduction to End-to-end encryption in Thunderbird]]
+* [[OpenPGP in Thunderbird - HOWTO and FAQ]]
+* [[Setup your email account for using End-To-End Encryption]]
+* [[OpenPGP Recipient Alias Configuration]]

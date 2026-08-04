@@ -1,0 +1,38 @@
+{warning}'''Note:''' Thunderbird for Android does not collect telemetry information currently. We're figuring out the best way to give you a choice on your data and will update this article soon. Read on for more background.{/warning}
+
+__TOC__
+
+=Why telemetry?=
+Building a product that users genuinely enjoy and rely on is challenging, and it involves many decisions along the way. Telemetry helps us understand how people actually use Thunderbird, so we don’t have to wait until after making big changes to find out if they meet user needs. It also helps us avoid removing features that many users depend on simply because they might not align perfectly with a particular product vision.
+
+For telemetry data to be effective, it needs to be representative of our entire user base. If too many people opt out, we risk making decisions based on an incomplete picture, potentially leading to changes that don’t reflect what users need or want.
+
+By opting into telemetry, you’re helping us get a real-time sense of how Thunderbird fits into people’s lives, which means we can make thoughtful improvements and better prioritize updates.
+
+=What is interaction and technical data?=
+Telemetry data is made up of two data sets: interaction data and technical data.
+
+'''Interaction data''' includes information about your interactions with Thunderbird for Android, such as how many email accounts the user has, if and how certain features are used, and how often Thunderbird for Android is started.
+
+'''Technical data''' includes information about your version and language, device operating system and hardware configuration, memory, basic information about crashes and errors. When sending data to us, your IP address is temporarily collected as part of our server logs.
+
+We retain information up to 400 days by default. In order to limit the amount of data we collect, we may also reduce the period of collection for certain probes or only collect for a short period of time.
+
+You can get additional information about specific probes in our [https://dictionary.telemetry.mozilla.org/apps/thunderbird_android probe dictionary] which is publicly available for our users. Authoritative information about our data collection is available in the [https://www.thunderbird.net/privacy Thunderbird Privacy Notice].
+
+=How will I make a choice on telemetry data?=
+When you first install Thunderbird, we will ask you to support our mission by enabling telemetry. If you’ve decided against telemetry but we’ve convinced you in this article, you can do so in the application settings at any time.
+
+If you disable sending telemetry data in the settings, we will also treat this as a request to delete any data we previously collected. Data will be deleted within 30 days after you disable telemetry. If you re-enable telemetry, a new identifier will be generated to ensure it cannot be connected to your previous data.
+
+<!--
+Commenting the following out until the software is finished.
+To change your telemetry choice:
+#Select the menu at the top left of your Thunderbird for Android screen
+#;[[Image:thunderbird-android-menu|width=300]]
+#Select {menu Settings}.
+#Select {menu General settings}.
+#Select {menu Data collection}.
+#Make a choice by selecting or de-selecting '''Usage and technical data'''.
+#;[[Image:thunderbird-android-data-collection-usage|width=300]]
+-->

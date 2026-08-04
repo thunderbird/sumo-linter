@@ -1,0 +1,47 @@
+Email messages can contain remote content such as images or stylesheets. To protect your privacy, Thunderbird does not load remote content automatically, but instead shows a notification bar to indicate that it blocked remote content.
+
+__TOC__
+
+= What is remote content and why is it blocked? =
+
+Remote content are parts of a message (such as images, stylesheets, or videos) which are not included in the message itself, but are downloaded from the Internet when you view the message.
+
+Remote content is a privacy concern because it allows the message sender to know: 
+
+* each time you view the message
+* rough details about what application and what platform you are using
+* your current geographic location (a rough approximation by IP address)
+* that your email address is actually used ("active")
+
+This is almost the same information websites commonly collect about you during normal web surfing. While browsing has the same privacy implications, what makes remote content in messages different is that it is targeted at you initially, so you can assume your access is directly linkable to your email address. This is also why spam often contains remote images (also known as "web bugs") which allow the spammer to mark your address as valid if the image is ever loaded.
+
+= How does Thunderbird protect my privacy? =
+
+By default, Thunderbird blocks, and does not download, remote content so that the sender does not get any information about you. Instead, it displays a notification bar with the message '''To protect your privacy, Thunderbird has blocked remote content in this message'''.
+
+{for tb115}[[Image: Remote Content Blocked TB115]]{/for}
+{for not tb115}{for win}[[Image:Remote content blocked]]{/for}{for mac,linux}[[Image:Remote content blocked Lin]]{/for}{/for}
+
+== Display remote content for a particular message, sender or website ==
+
+If you trust the sender, you can allow remote content to be downloaded. Emails look much better with images and stylesheets turned on. To load remote content, click {button {for win}Options{/for}{for mac,linux}Preferences{/for}} in the notification bar and select one of the following options:
+
+{for tb115}{for mac,linux}[[Image:Remote Content Exceptions]]{/for}{/for}
+{for not tb45}{for win}[[Image:Remote content blocking options Win]]{/for}{for not tb115}
+[[Image:Remote content blocking options]]{/for}{/for}
+{for tb45}{for win}[[Image:Remote content blocking options Win TB45]]{/for}{/for}{for not tb115}{for mac,linux}[[Image:Remote content blocking options TB45]]{/for}{/for}
+
+* {menu Show remote content in this message} to show remote content just for this particular message.
+* {menu Edit remote content {for win}options{/for}{for mac,linux}preferences{/for}…} to display remote content by default (see next section).
+* {menu Allow remote content from <website>} to show the remote content stored on this site.
+* {menu Allow remote content from all <n> origins listed above} adds all the '''n''' websites listed above to the remote content exception list.
+* {menu Allow remote content from <email address>} adds the sender email address to the remote content exceptions list.
+
+Note however, that email addresses are easily spoofable in contrast to websites that serve remote content. As long as the network is not compromised, it is much more difficult to spoof content than email addresses.
+
+== Display remote content by default ==
+
+If you are willing to accept the privacy implications of displaying remote content for all messages, Thunderbird allows you to display remote content by default. To set it so:
+#Click {menu ≡} > {menu Settings} > {menu Privacy & Security}.
+#Check the {menu Allow remote content in messages} checkbox to have all remote content loaded by default.
+#*You can exclude specific sites from the rule. Click the {button Exceptions…} button, type the website or email address and click {button Block} or {button Allow}.

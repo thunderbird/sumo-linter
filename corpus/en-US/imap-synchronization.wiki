@@ -1,0 +1,70 @@
+__TOC__
+
+= About IMAP =
+
+IMAP stands for the Internet Message Access Protocol. It enables a mail client (such as Thunderbird) to access messages stored on a mail server. It is more modern and fully featured than POP (Post Office Protocol), which is the other major protocol for accessing mail messages. Most email providers now support IMAP. To see whether your account uses IMAP or POP, check the Server Settings page in the Account Settings:
+
+[[Image:478018a787a859bb323295c2966ba359-1269384108-224-1.jpg]]
+
+= Benefits of IMAP =
+
+The IMAP protocol supports both online and offline activity. Therefore, messages can be stored both on the local machine and on the server, enabling numerous benefits:
+
+* Multiple clients can be used to access messages. For example, a Thunderbird user with a Microsoft Live account can use both the Thunderbird application that is installed on their system and the web-based interface provided by Microsoft.
+
+* Thunderbird users can download their messages to their local system and access them even when they are not connected to the internet. 
+
+* Messages load faster when they are stored on a local drive. Search performance is much faster than searching a set of messages on a remote server. Full-text search of a message body is only possible on messages that have been downloaded.
+
+In order to provide this kind of flexibility and functionality, though, messages must be synchronized between the local machine and the email server.
+
+= Synchronization =
+
+To understand message synchronization, consider the following scenarios:
+
+* A message is downloaded to Thunderbird and deleted in Thunderbird. (The message must be deleted from both the local machine and the email server.)
+
+* A message is downloaded to Thunderbird and later deleted by a web-based client (such as Yahoo Mail or Gmail). (The message must be deleted from the Thunderbird message repository.)
+
+* A draft message is composed and saved (but not sent) in Thunderbird. (The draft must be copied from the Thunderbird message repository to the email server.)
+
+Whenever Thunderbird starts, it checks the state of synchronization between the Thunderbird message repository and the email server, and then performs any transfers that are necessary (such as downloading new messages from the server, deleting from the server any messages that have been deleted locally, etc). Thunderbird continually synchronizes with the email server as long as it is running and has access to the internet. If internet access is lost, Thunderbird will synchronize when access is reestablished.
+
+Non-synchronized messages are still accessible within Thunderbird. The only difference is that rather than downloading the entire message, only the message "headers" are downloaded. (Message headers contain information like the sender, recipient(s), subject, etc - everything except the body of the message.) The message body is not downloaded until you click on the message in the message list (which means that if you are not online, you can't read the message).
+
+Synchronization impacts performance and disk space usage.
+
+= Performance and search =
+
+Messages that are stored locally load faster than messages stored on an email server. When messages are stored on an email server, the body of the message is not downloaded until it is invoked (for example by clicking on the message in Thunderbird's message list). Before Thunderbird can display the message body, it must download it from the email server.
+
+When Thunderbird has to download many messages from the email server, it can result in a temporary performance lag. This is partially caused by the download process itself, but also caused by the indexing process (whereby the text of messages is analyzed and indexed, enabling fast and powerful message search). Once the downloading and indexing is complete, performance returns to normal. The status of the synchronization is displayed in Thunderbird's bottom left corner.
+
+[[Image:478018a787a859bb323295c2966ba359-1269384912-646-1.jpg]]
+
+Thunderbird's full-text search of the message body is only available for messages that have been synchronized (that is, downloaded). For non-synchronized messages, only the message headers are searchable.
+
+= Disk space usage =
+
+If you have a lot of email and you have space constraints on your local drive, you may not want to synchronize all your messages. As noted above, message headers will still be viewable within Thunderbird on the local machine. However, the body of messages will only be downloaded "on demand", and will not be available when you are offline.
+
+To manually configure the synchronization properties, open the Synchronization and Storage page in the Account Settings dialog ({for win,mac}{menu Tools > Account Settings...}{/for}{for linux}{menu Edit > Account Settings...}{/for}).
+
+= Configuring synchronization and disk space usage =
+
+Open the Synchronization and Storage page in the Account Settings dialog ({for win,mac}{menu Tools > Account Settings...}{/for}{for linux}{menu Edit > Account Settings...}{/for}):
+
+[[Image:478018a787a859bb323295c2966ba359-1269385173-105-1.jpg]]
+
+At the top of the page, '''Keep messages for this account on this computer''' should be checked if you want to synchronize messages between your local system and your mail server. 
+
+If this option is un-checked, you can specify individual folders for synchronization. Click the '''Advanced...''' button:
+
+[[Image:478018a787a859bb323295c2966ba359-1269385357-244-1.jpg]]
+
+The folders that are checked will be synchronized. Sub-folders are not automatically synchronized just because the parent folder is checked. Instead, you must check each folder individually.
+
+General disk space settings are configured in the lower section of the Synchronization and Storage page. You can set general synchronization preferences (such as synchronize recent messages or messages under a certain size). This part of the page also has options for batch-deleting messages (which should, of course, be used with caution).
+
+[[Image:478018a787a859bb323295c2966ba359-1269385466-73-1.jpg]]
+[[Template:ShareArticle|link=http://mzl.la/1fK7riM]]

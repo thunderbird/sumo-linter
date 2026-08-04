@@ -1,0 +1,59 @@
+__TOC__
+Attachments are files that are sent along with an email message. Almost any type of file can be sent via email, including videos, music, pictures, and documents. However, some restrictions are placed on attachments, such as a file size and permissible file extensions. 
+
+= How to Add Attachments to a Message =
+#[[Sending and Receiving Emails#w_composing-a-new-message|Compose]] a new message.
+#Click on {button Attach}.<br><br>[[Image:New Email Attach Button]] <br><br>
+#Browse to the location of the file you would like to attach.<br><br> [[Image:Browse for attachment win7]] <br><br>
+#Select the desired file and click {button Open}.
+#Repeat until all the desired files are added.
+
+Alternatively, you can drag and drop files from your desktop, file explorer and various other applications to the top right corner of a new message.
+
+==File Restrictions==
+Most email providers (including Hotmail, Gmail, and Yahoo) restrict the type and size of attachments. File type restrictions prevent malicious content from being passed along. Size limitations prevent very large attachments from being sent, which would tie up the mail servers and the client applications.
+
+File size restrictions among common email providers include:
+
+*Hotmail: 25 MB
+*Gmail: 25 MB
+*Yahoo: 25MB
+
+{note}If you want to send a large attachment, please read the [[How can I send a large attachment?]] article.{/note}
+
+Commonly restricted file types include:
+
+*"ade", "adp", "bat", "chm", "cmd", "com", "cpl", "exe", "hta", "ins", "isp", "jse", "lib", "mde", "msc", "msp", "mst", "pif", "scr", "sct", "shb", "sys", "vb", "vbe", "vbs", "vxd", "wsc", "wsf", "wsh"
+
+=Receiving Attachments=
+The attachments indicator is a paperclip. It will appear next to any message, sent or received, that has an attachment.
+
+[[Image:Attachment Icon]] 
+
+Viewing attachments:
+
+#Open the message containing the attachment(s).
+#A summary of the attachments will appear at the bottom of the message.
+#Use the {button Save} button to save the attachment.
+#The expanded menu provides the following options:
+#*'''Open''' - Opens the file with the default application associated with the file type.
+#*'''Save as...''' - Saves the file in a location of your choosing.
+#*'''Detach''' - Saves the file in a location of your choosing before prompting you to detach the file from the email.
+#*'''Delete''' - Prompts you to delete the attachment from the email. <br><br>[[Image:Attachments drop down menu]]  <br>
+
+{for not tb24}
+To manipulate all the attachments associated with a message, go to {menu File > Attachments} and select one of the following options:
+{/for}
+{for tb24}
+To manipulate all the attachments associated with a message, go to {menu Message > Attachments} and select one of the following options:
+{/for}
+
+*'''Open All...'''
+*'''Save All...'''
+*'''Detach All...'''
+*'''Delete All...'''
+
+=See Also=
+*[[How can I send a large attachment?]] 
+*[https://mail.google.com/support/bin/topic.py?topic=15057 Gmail Attachments Help]
+*[http://help.yahoo.com/l/us/yahoo/mail/classic/context/context-02.html Yahoo Attachments Help]

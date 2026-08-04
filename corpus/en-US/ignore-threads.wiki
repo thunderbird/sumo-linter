@@ -1,0 +1,22 @@
+The Ignore Thread feature is especially useful for mailing lists. It lets you skip reading the rest of a conversation you're not really interested in following, while still being able to keep up with all the other conversations.
+
+__TOC__
+
+=Ignore a thread=
+To ignore a thread, {for win,linux}right-click{/for}{for mac}hold down the {key Ctrl} key and click{/for} on it and select {menu Ignore Thread}, or simply use the  {key K} (for "kill") keyboard shortcut. That will mark all the messages in the selected conversation as ignored.
+
+The ignored messages aren't deleted, but once you come back to the folder they won't be shown on the list of messages (by default). If there are further replies to the same conversation, these replies won't trigger a new mail notification.
+
+=Ignore a subthread=
+Ignoring subthreads is similar to ignoring threads, but ignores only replies from the selected message onwards. This can be used to ignore otherwise interesting conversations that get off topic from a certain response.
+
+To ignore a subthread, {for win,linux}right-click{/for}{for mac}hold down the {key Ctrl} key and click{/for} the first of the messages you would like to ignore and select {menu Ignore Subthread}.
+
+=What if I want to see my ignored threads?=
+If you decide you do want to see ignored threads, perhaps temporarily, click the {menu View} menu, open the {menu Threads} submenu and checkmark {menu Ignored Threads}. To again stop seeing ignored threads simply uncheck {menu Ignored Threads}.
+
+To un-ignore a thread that has been marked ignored, select a message in the thread, {for win,linux}right-click{/for}{for mac}hold down the {key Ctrl} key and click{/for} on it and again select {menu Ignore Thread}.
+
+=See also=
+*[[Blocking a sender]]
+*[[Message threading in Thunderbird - keep messages grouped by conversation]]

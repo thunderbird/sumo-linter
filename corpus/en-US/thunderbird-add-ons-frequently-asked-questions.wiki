@@ -1,0 +1,78 @@
+__TOC__
+
+= What is an add-on? =
+Add-ons are extensions and other additions that add new functionality to Thunderbird or change its appearance. Thunderbird has an open, extensible design and program architecture. This enables people to create “add-ons” to Thunderbird.
+
+= Who creates add-ons? =
+Add-ons are mostly created by volunteer authors, typically '''not''' the developers of Thunderbird. Thunderbird hosts a site for the distribution of add-ons, but Thunderbird is '''not''' responsible for supporting add-ons. If you need help with an add-on, you should [[#w_what-if-my-add-on-is-broken|contact the author of the add-on]].
+
+= What and where is the Add-ons Manager? =
+The Add-ons Manager is the central interface to list, update, enable, disable, remove and install add-ons. To open the Add-ons Manager, click the menu button [[Image:Fx89menuButton]] and click {menu Add-ons and Themes}.
+
+The Add-ons Manager has multiple panels:
+* {menu Recommendations} : List of popular and recommended add-ons.
+* {menu Extensions} : List of installed extensions (add-ons adding functionality to Thunderbird).
+* {menu Themes} : List of installed themes (add-ons changing the appearance of Thunderbird).
+
+= Where do I get add-ons? =
+Most Thunderbird add-ons are distributed via the [https://addons.thunderbird.net/ Thunderbird add-ons site] (although authors can distribute their add-ons any way they choose). You can search and browse the add-ons site using a web browser. You can also open the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]] and search for add-ons by typing search terms into the search field in the top right corner, or browser the list of recommended add-ons in the {menu Recommendations} panel.
+
+= How do I see which add-ons are installed? =
+# Open the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]].
+# Switch to the {menu Extensions} or {menu Themes} panel.
+
+= How do I install an add-on? =
+See [[Installing an Add-on in Thunderbird]]
+
+= How do I configure add-ons? =
+# Open the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]].
+# Switch to the {menu Extensions} panel to see all installed extensions (only extensions can be configured).
+#;[[Image:TB102Add-onsExtensions]]
+#* If the add-on provides an options page, the extension entry will have a wrench [[Image:TB102WrenchIcon]] icon.
+# Click the wrench icon to view or change option settings for the extension.
+
+= How do I change the update behavior of an add-on? =
+The standard update behavior can be changed by toggling the {menu Update Add-ons Automatically} setting in the menu behind the gear icon of the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]].
+
+[[Image:MenuUnderCogWheel]]
+
+The update behavior of each add-on can also be set individually:
+# Open the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]].
+# Switch to the {menu Extensions} or {menu Themes} panel.
+# Click on the name of an add-on to open its management page.
+# Scroll to the {menu Allow automatic updates} entry and select ''On'' or ''Off'' instead of ''Default''.
+
+= How do I update an add-on manually? =
+# Open the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]].
+# Switch to the {menu Extensions} or {menu Themes} panel.
+# Click on the gear icon at the top-right corner and then select {menu Check for Updates}.
+# The 3-dot-icon of all add-ons which could be updated, will show a small blue dot.
+# Click on the 3-dot-icon and then select {menu Update}.
+
+= What if my add-on is broken? =
+If you updated to a newer version of Thunderbird or are using the [[Thunderbird Beta|beta version of Thunderbird]] and an add-on is not working or won't install, it is possible that the add-on author does not support that version of Thunderbird and you can contact the author as described below. But it is also possible that the add-on has been abandoned by the author. Thunderbird will inform you whether it is potentially abandoned (defined as not having been updated within the past year), and also whether an alternative add-on is available. You can also use the standalone, web based version of the [https://extension-finder.thunderbird.net/ Extension Finder] tool to find alternative add-ons.
+
+Contact the add-on author for support as documented on the add-on's management page.
+# Open the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]].
+# Switch to the {menu Extensions} or {menu Themes} panel.
+# Click on the name of the broken add-on.
+# Open the manage information.
+# In the details tab scroll to and open the {menu Homepage} entry.
+# The add-on's home page will have a support website and/or support e-mail.
+
+If you do not get a response from add-on support, please post a [https://support.mozilla.org/en-US/questions/new/thunderbird Thunderbird support question].
+
+= How do I disable an add-on? =
+# Open the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]].
+# Switch to the {menu Extensions} or {menu Themes} panel.
+# Toggle the slider on the right side of the add-on's entry to disable the add-on and to prevent it from loading.
+
+= How do I uninstall an add-on? =
+Before uninstalling an add-on, make sure to have backuped all data related to that add-on. All data stored by add-ons will be deleted upon add-on removal.
+# Open the [[#w_what-and-where-is-the-add-ons-manager|Add-ons Manager]].
+# Switch to the {menu Extensions} or {menu Themes} panel.
+# Click on the 3-dot-icon and then select {menu Remove}.
+The add-on manager will show an {menu Undo} button at the top to restore the add-on (including its data). Once the add-on manager is closed, the add-on has been removed permanently.
+
+= How do I create/develop an add-on? =
+You may find information on Thunderbird Add-on development and how to get advice at [https://developer.thunderbird.net/add-ons/ developer.thunderbird.net] (DTN).

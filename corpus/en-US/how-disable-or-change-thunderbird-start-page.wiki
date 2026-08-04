@@ -1,0 +1,32 @@
+{for win}
+[[Video:https://www.youtube.com/watch?v=vDCmpUA8qMY]]
+
+{/for}
+Every time you start Thunderbird, the message area will load your Mail Start Page. You can change the mail start page to any webpage, or set it to a blank page.
+{for win}
+[[Image:tb60-startpage|width=436]]
+{/for}
+
+__TOC__
+
+= Change the start page =
+# [[T:optionspreferences TB]]
+# Select the {menu General} panel on the left.
+# In the ''Location'' field, enter the address of your desired start page.
+[[Image:TB102-settings-general-thunderbird-start-page]]
+
+= Set it to a blank page =
+# [[T:optionspreferences TB]]
+# Select the {menu General} panel on the left.
+# Uncheck '''When Thunderbird launches, show the Start Page in the message area'''.
+
+= Restore the default start page =
+The default start page will welcome you to Thunderbird, provide information about Thunderbird, and provide links for how to get involved, where to donate, and where to get help.
+
+# [[T:optionspreferences TB]]
+# Select the {menu General} panel on the left.
+# Make sure '''When Thunderbird launches, show the start page in the message area''' is checked.
+# Click the {button Restore Default} button.
+
+= Go to the start page any time =
+{for win,linux}Click the menu button [[Image:Fx57Menu]], open the {menu Go} menu and choose {menu Mail Start Page}.{/for}{for mac}From the {menu Go} menu, choose {menu Mail Start Page}.{/for}

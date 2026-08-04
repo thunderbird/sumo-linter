@@ -1,0 +1,39 @@
+Occasionally, when a folder is [[Compacting folders|compacted]], the mail messages in the folder seem to disappear. In some cases, there is an interruption or failure to display messages or message lists, which is typically recoverable. In some cases, there may be real data loss, which is not recoverable. Some of the observed behaviours are described and explained below. Please review these items, and if you are still having difficulty, please [https://support.mozilla.org/en-US/questions/new/thunderbird/form post your issue in support].
+
+__TOC__
+=Selecting a folder while compact is in progress=
+Thunderbird can not read the index for the file while compacting is in progress, so when you select a folder, the mail in the folder will simply not be displayed until compact completes. When it does complete, the mail will reappear.
+
+=Software interruption to the process=
+Sometimes after the compact, no messages display in the folder due to an interruption of the compact process. This causes an empty index file (.msf) to be created. Some possible causes of interruption are:
+* Controlling or not allowing access to the Thunderbird profile folder for backup scans
+* Cloud syncing (which is not recommended)
+* [https://wiki.mozilla.org/Thunderbird:Testing:Antivirus_Related_Performance_Issues Antivirus software scans] (which is not recommended).
+Here's how you can cure the problem of an empty index file:
+* Right click the folder
+* Select {menu Properties...} from folder context menu
+* Use the {button Repair folder} button
+This will force a new index to be built and should recover from this situation without data loss.
+
+=Mail file has previously been deleted=
+Compact occurs and displays mail since the deletion, so the missing mail is all before a certain point in time. Whilst there have not been any known instances in the recent past, historically, antivirus products regularly scanned the mail storage file and if malware was found, deleted or quarantined the file. Due to Thunderbird using an index to fill the user interface, these types of deletions really only become obvious if an old mail is selected or a complete reindex occurs as in a compact process.
+
+=Thunderbird using too much disk space=
+See the next heading. 
+
+=nstmp files in the Thunderbird profile=
+The compact process in version 115 and older may leave nstmp files in your [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird profile directory]], which can be large. You may delete these nstmp files.
+
+=Mail file corruption=
+If the underlying MBOX file is corrupt, then compact will write a new MBOX file that can at best be described as truncated.  In this case, the mail list often retains the earliest entries, but later ones are lost from the point where the MBOX file became corrupt. Some of the more common causes are:
+* Hard disk failure
+* Memory failure
+* Software or malware corrupting memory where the data to be written to file is stored
+
+==Other symptoms of mail file corruption==
+One or more of these events may occur when the MBOX file is corrupt: 
+* Previously deleted messages reappearing
+* Messages with a date of 1969
+* Message bodies containing bits of other messages
+* Messages in the message list not matching what is displayed when clicked
+* Thunderbird may stop responding before messages in a folder are displayed

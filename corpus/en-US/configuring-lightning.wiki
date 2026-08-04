@@ -1,0 +1,35 @@
+This article describes how to change Lightning settings. Most of the general Lightning settings can be set via the Options window. Other settings have to be changed via the Config Editor.
+
+= Options window =
+
+There are 2 ways of getting to the Options window.
+*Click the {menu Tools} menu at the top of the Thunderbird window and click the {menu Add-ons} item. Select the ''Lightning'' Extension and click the {button Options} button.
+Or
+*Click the {menu {for mac}Thunderbird{/for}{for win}Tools{/for}{for linux}Edit{/for}} menu at the top of the Thunderbird window and select {menu {for mac,linux}Preferences{/for}{for win}Options{/for}}. Select the {menu Lightning} panel.
+;[[Image:940e0e75ba428edc80db17301e145f53-1298311282-461-2.png]]
+
+= Config Editor =
+The Config Editor can be accessed via the same Options window, but in a different panel. Instead of the {menu Lightning} panel, you need to select the {menu Advanced} panel, followed by the {menu General} tab.
+;[[Image:940e0e75ba428edc80db17301e145f53-1298311282-461-1.png]]
+Click the {button Config Editor} button.
+
+;[[Image:940e0e75ba428edc80db17301e145f53-1298311282-461-3.png]]
+All settings, even the ones that are represented in the Options dialogue, can be changed in this Config Editor. The following settings can only be changed in the Config Editor:
+
+*{pref calendar.itip.sendemail} (default: true) Outdated. Pre 20080819 build
+*{pref calendar.itip.notify} (default: true) As from 20080819 build
+*{pref calendar.itip.compatSendMode} (default: 0)
+
+The following setting is only available if the Google Provider plugin is installed:
+
+*{pref calendar.google.enableEmailInvitations} (default: false)
+
+This setting needs to be set to ''true'' in order for Google Calendars to show up in the selection list when accepting an invitation.
+
+= Calendar Properties =
+
+Each calendar has a set of properties that can be changed or set as well. For further information about setting Calendar properties, please refer to the [[Changing calendar preferences]] article.
+
+Following is only applicable in combination with the Google Provider extension 0.5.1.
+
+The Properties Window of a Google Calendar only shows an E-mail selection option if the calendar.google.enableEmailInvitations setting is set to TRUE (see above).

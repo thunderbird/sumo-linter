@@ -1,0 +1,74 @@
+The Mozilla Crash Reporter allows you to send a report of your crash to a collection system which assigns a Crash ID, also known as a Report ID. You will want to post your ID(s) in your bug report or support request. Thunderbird developers use reports to make future versions of Thunderbird crash less frequently. 
+
+See [[Thunderbird Crashes]] for ideas on preventing crashes.
+
+__TOC__
+
+= When Thunderbird crashes =
+When Thunderbird crashes, the Mozilla Crash Reporter window is displayed where you can supply a comment and click Quit or Restart to submit the report. Please report '''all''' of your crashes.
+
+In the comment field please state what you were doing just before Thunderbird crashed, and include your email address so developers can reach you if needed.  Also, provide your [[Mozilla Crash Reporter TB#w_viewing-crash-reports|crash report ID]] in your support and bug posting.
+{note}'''Note''': The crash reporter dialog is incorrect - your comments are NOT publicly viewable.
+{/note}
+
+;[[Image:Crash Reporter TB]]
+
+'''Tell Mozilla about this crash so they can fix it''': If this box is checked, crash data will be sent to Mozilla. Uncheck this box if you don't want to send the report.
+
+{button '''Details…'''}: Shows  information that will be automatically submitted with the crash report. Because it is automatically submitted, you do not need to view or copy this information - simply use the checkbox above and provide your crash report ID in your support and bug posting.
+
+'''Add a comment''': Use this box to write details about what you were doing when Thunderbird crashed. Please include your email address so developers can reach you if needed. 
+
+{note}'''Note''': The crash reporter dialog is incorrect - your comments are NOT publicly viewable.
+{/note}
+
+{button '''Quit Thunderbird'''}: Submit the crash report and close the dialog, but don't start Thunderbird.
+
+{button '''Restart Thunderbird'''}: Submit the crash report and close the dialog, and start Thunderbird. 
+
+If you use the checkbox to submit the crash report and click quit or restart, you should then see '''Report submitted sucessfully!'''.  If you do not see this, then you will need to take additional steps to provide your crash information.
+
+If Thunderbird crashes repeatedly, submit '''all''' your crashes and see [[Thunderbird Crashes]] for suggestions on how to prevent Thunderbird from crashing.
+
+= Viewing crash reports =
+
+Skip to [[Mozilla Crash Reporter TB#w_viewing-reports-outside-of-thunderbird|Viewing reports outside of Thunderbird]] if you can't start Thunderbird, or it crashes on startup. 
+
+If you are able to start Thunderbird, to view your crash reports:
+
+#In Thunderbird, open {for not tb115}'''More Troubleshooting Information'''{/for}{for tb115}'''Troubleshooting Information'''{/for} from the {menu Help} menu, and scroll to the "Crash Reports" section.  
+# Crashes are listed by date and time. 
+#*Successfully submitted crashes start with the characters "bp-". In the screenshot below, the report ID is "bp-24b627a1-1416-4c09-a4ab-d7f502100331".
+#*Unsubmitted crashes do not start with "bp-". Click the number to submit the crash report.
+#;[[Image:baf5041b431856d3f6f61f688f7a93e3-1270046913-257-1.png]]
+# Click on a Report ID to view the report. 
+# Please post the 'bp-...' crash report ID or full URL to the crash report in a [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird bug report] or [https://support.mozilla.org/en-US/questions/new/thunderbird/form support forum].  (As a text string please, not a screenshot.)
+
+If you don't get a crash report, see [[Mozilla Crash Reporter TB#w_if-you-dont-get-a-crash-report|If you don't get a crash report]] described later in this article.
+
+== Viewing reports outside of Thunderbird ==
+
+You can find crash information in the {filepath Crash Reports} folder on your computer without starting Thunderbird. 
+{for win}
+# Press {key [[Image:Windows Key]]}+{key R} on the keyboard. A Run dialog will open.
+# In the Run dialog, type {filepath %APPDATA%\Thunderbird\Crash Reports\} and press {key Enter}.
+{/for}
+{for mac}
+Crash reports are stored in {filepath ~/Library/Thunderbird/Crash Reports/} (show hidden folders, on Mac OS X 10.7 and above, by holding down the Option key while opening the Go menu in Finder and then selecting Library).
+{/for}
+{for linux}
+Crash reports are stored in {filepath ~/.thunderbird/Crash Reports/}.
+{/for}
+
+The folder contains two subfolders, {filepath pending} and {filepath submitted}:
+
+* {filepath pending} folder contains files for crashes that have not been received by the crash report database. There are two files for each crash, one is the crash dump, and one is the crash details.  You must submit your crashes for developers to be able to view them.  If you have not been submitting crashes, please reproduce your crash and when the crash reporter appears please be sure to submit the crash by chosing the restart or quit buttons.
+* {filepath submitted} folder contains reports that have been received by the crash report database where it can be viewed by a developer. '''Each file name is a crash ID starting with the characters "bp-", and these IDs are what a developer may request when investigating your crash. If you are receiving help in a bug or support forum, please give them your crash report ID(s) as a text string, not a screenshot.'''
+
+= If you don't get a crash report =
+If you don't get a crash report either because crash reporter failed or it doesn't work with your OS or distribution, you can get a stacktrace by using [https://firefox-source-docs.mozilla.org/contributing/debugging/stacktrace_report.html#alternative-ways-to-get-a-stacktrace How to get a stacktrace for a bug report].
+
+<!--
+= Getting help with crash reports =
+To use your crash report to get help with your Thunderbird problem, see [[Thunderbird Crashes]].
+-->

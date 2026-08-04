@@ -1,0 +1,51 @@
+There are many ways to make Thunderbird work with your accessibility needs.
+
+__TOC__
+
+=Keyboard Support=
+Thunderbird has extensive keyboard shortcuts to allow you to perform tasks inside Thunderbird faster. See the [https://support.mozilla.org/en-US/kb/keyboard-shortcuts-thunderbird Keyboard Shortcuts] support page for more information.
+
+If you use a screen reader, there are specific keyboard actions that work with your screen reader. We are updating our support documentation to list these keyboard actions for screen readers.
+
+=Screen Readers=
+<!--Documentation for keyboard actions that can be used within our [comment] this sentence ends abruptly, commenting it out as it appears to repeat above sentence-->
+==Supported Screen Readers By Operating System==
+===Windows===
+On Windows, the following screen readers have been tested to work with Thunderbird.
+*[http://www.nvaccess.org/ NVDA] (free, donation-based)
+*[https://www.freedomscientific.com/products/software/jaws/ Jaws] (commercial)
+The following screen readers have not been thoroughly tested with Thunderbird, but are available on Windows.
+*[https://support.microsoft.com/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1 Narrator] (Windows default)
+*[http://www.gwmicro.com/Window-Eyes/ Windows Eyes] (commercial)
+
+===Mac===
+The following screen readers have not been thoroughly tested with Thunderbird, but are available on macOS.
+*[https://www.apple.com/accessibility/vision/ VoiceOver] (macOS default)
+
+===Linux===
+The following screen readers have not been thoroughly tested with Thunderbird, but are available on Linux operating systems.
+*[https://help.gnome.org/users/orca/stable/ Orca] (GNOME default)
+
+=Font Size=
+==115 and greater==
+There have been significant updates in 115 to improve the ability to adjust the font size throughout the application.
+
+Here's how to change the font size:
+* Click {menu ≡} > {menu Font Size} and then click the {button +} icon to increase the font size or click the {button -} icon to decrease the font size. 
+
+==102==
+In older versions, the following add-on was recommended for increasing the font size.
+*[https://addons.thunderbird.net/thunderbird/addon/theme-font-size-changer-fixed/ Theme Font & Size Changer (fixed) add-on]
+For instructions on how to install add-ons, see [[Installing an Add-on in Thunderbird]].
+
+=Accessibility features specific for Firefox and Firefox for Android=
+To find out about Accessibility features specific to '''Firefox''', see
+[[Accessibility features in Firefox - Make Firefox and web content work for all users]].
+
+To find out more Accessibility Features for '''Firefox for Android''', see [[Mobile Accessibility Features]].
+
+=Display Options=
+In Thunderbird, you have the option to change your display options.
+* Click {menu ≡} > {menu Settings} > {button General} and then scroll down to "Language & Appearance"
+* The following screen will display:
+;[[Image:tb115-settings-language-appearance]]

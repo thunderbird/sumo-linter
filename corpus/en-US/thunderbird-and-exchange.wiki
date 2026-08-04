@@ -1,0 +1,78 @@
+{warning}
+For the best Exchange experience on desktops, we recommend Thunderbird 145 or newer.
+Thunderbird on desktop implements Exchange via EWS (Exchange Web Services), '''currently limited to email'''.
+
+Calendar and address book using EWS on desktop will follow at a later date. Also in the future is a) Exchange via '''Microsoft Graph''' and b) Exchange support on Android, so please do not file bug reports for these items at this time.
+
+Support for Exchange on desktop is new, so we very much welcome your [[#w_feedback-and-bug-reports|feedback and bug reports]]. For more technical detail, as well as things to test and look for, see the [https://wiki.mozilla.org/Thunderbird:Exchange Thunderbird:Exchange wiki page].{/warning}
+
+__TOC__
+
+=Setup=
+When creating a new account using classic account creation, choose the '''Exchange Web Services''' option. Or if using the new Account Hub, when providing an exchange email address, '''Exchange''' should be automatically detected. If Exchange is not detected, choose the first '''Exchange''' option.
+
+==Configure your Exchange account==
+Again, for the best experience, we recommend Thunderbird 145 or newer.
+
+[[UI:details_start]]
+===Thunderbird profiles with 1 or more accounts===
+If you have a [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird profile]] with one or more accounts, you will see the new Thunderbird '''Account Hub'''.
+# Click Thunderbird app menu {menu ☰} > {button New Account} > {menu Email}. The ''Account Hub'' dialog will appear.
+# Enter your name, email address, and if required, your [https://en.wikipedia.org/wiki/Multi-factor_authentication two factor authentication code] for your Exchange email account.
+# Click the {button Continue} button. The password entry dialog will appear.<br><br>{note}'''Note:''' In the first dialog box, you do not enter your account password. You will enter your password in a separate, branded panel provided by Microsoft (not Mozilla) as part of their OAuth implementation.{/note} Screenshot of that panel provided by Microsoft:
+#:[[Image:tb-141-oauth-microsoft-enter-password-win11|width=450]]
+# Enter your password and click {button Sign in}. The account type selection dialog will appear.
+#:[[Image:tb142-beta-exchange-support-button|width=450]]
+# Select the [[Image:radio_button|width=20]] ''Exchange'' radio button and click {button Continue} to use Thunderbird's built-in Exchange code.
+# Follow the prompts to finish adding your Exchange account.
+{note}'''Note:''' The {button Exchange} button only appears if the email you entered is an Exchange account.{/note}
+
+====Manual EWS Configuration====
+There are a diversity of EWS servers which could cause auto configuration of your EWS email account to fail. Here's a potential workaround for that situation:
+# In [[New in Thunderbird Desktop|145]] and newer once you enter a valid email address, you can now manually configure your email settings by clicking {menu MANUAL CONFIGURATION}. Please consult your Exchange administrator for the exact manual settings.
+# Under '''Protocol''', select {menu EWS}.
+# Follow the prompts and fill in the settings from your Exchange administrator.
+[[UI:details_end]]
+
+[[UI:details_start]]
+===Thunderbird profile with no accounts===
+If you have a [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird profile]] with no accounts, you will see the older ''Add account'' wizard.
+# Click Thunderbird app menu {menu ☰} > {button New Account} > {menu Email}. The ''Account Setup'' dialog will appear.
+# Enter your name, email address, and if required, your [https://en.wikipedia.org/wiki/Multi-factor_authentication two factor authentication code] for your Exchange email account.
+# Click the {button Continue} button. The password entry dialog will appear.<br><br>{note}'''Note:''' In the first dialog box, you do not enter your account password. You will enter your password in a separate, branded panel provided by Microsoft (not Mozilla) as part of their OAuth implementation.{/note} Screenshot of that panel provided by Microsoft:
+#:[[Image:tb-141-oauth-microsoft-enter-password-win11|width=450]]
+# Enter your password and click {button Sign in}. The account settings dialog will appear.
+#:[[Image:tb142-beta-old-pre-account-hub-flow-exchange-webservices-button]]
+# Select the [[Image:radio_button|width=20]] ''Exchange Web Services'' radio button and click {button Continue} to use Thunderbird's built-in Exchange code.
+# Follow the prompts to finish adding your Exchange account.
+{note}'''Note:''' The {button Exchange Web Services} button only appears if the email you entered is an Exchange account.{/note}
+[[UI:details_end]]
+
+=Send and receive emails with your Exchange Account=
+Once you have configured your Exchange Account in Thunderbird, you can use it to [[Send and receive messages in Thunderbird|send and receive emails]] just like an IMAP or POP account.
+
+=Limitations=
+Not yet supported:
+* Address book
+* Calendar
+* Filters (Phase 5)
+* Folder quotas (Phase 5)
+* Folder subscription (Phase 5)
+* Message retention policies (Phase 5)
+* Message download sync for offline use (Phase 5)
+* Message tagging (Phase 5)
+* NTLM authentication (Phase 5)
+* OAuth authentication with on-premise instances (Phase 5)
+* Shared mailboxes (Phase 5)
+* Star message (Phase 5)
+"Phase 5" items are on the near term road map, expected to by available/resolved by 1Q2026. The full list of phase 5 is [https://bugzilla.mozilla.org/showdependencytree.cgi?id=1995377&hide_resolved=1 this bug list].
+
+=Feedback and Bug Reports=
+To report a problem when using version 145 or newer, please [https://bugzilla.mozilla.org/enter_bug.cgi?product=MailNews%20Core&component=Networking:%20Exchange&short_desc=%5BEWS%5D%20xxxxxxxxx&blocked=1847846&bug_type=defect file a bug report].
+
+To see open bug reports and more technical detail about bug reporting, tracking bug activity, plus things to test and look for, see the [https://wiki.mozilla.org/Thunderbird:Exchange Thunderbird:Exchange wiki page].
+
+You may use Topicbox to discuss or ask questions about Exchange, either the [https://thunderbird.topicbox.com/groups/beta beta group] or the [https://thunderbird.topicbox.com/groups/enterprise enterprise group].
+
+=Microsoft hosted vs. self hosted exchange servers=
+Administrators and others interested in the details of EWS instances (Microsoft hosted, Microsoft hosted as tenant-specific, and self hosted) will want to refer to the [https://wiki.mozilla.org/Thunderbird:Exchange Thunderbird:Exchange wiki page].

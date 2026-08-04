@@ -1,0 +1,12 @@
+= I can only see the message sender's name, not address! =
+
+By default, if the sender, CC or BCC's address is in your address book, Thunderbird will display the person's name but not their email address when you view a message. 
+
+To disable this behavior, select {for win}{menu Tools > Options}{/for}{for linux}{menu Edit > Preferences}{/for}{for mac}{menu Thunderbird > Preferences}{/for}. On the {for not tb38}{menu Advanced} panel > {menu Reading & Display} tab{/for}{for tb38}{menu Display} panel > {menu Advanced} tab{/for}, uncheck "Show only display name for people in my address book".
+
+{for not tb38}
+[[Image:0bcf908851e7744a2e52b8924ebcd6c9-1289703071-506-1.JPG]]
+{/for}
+{for tb38}
+[[Image:TB60 display advanced]]
+{/for}

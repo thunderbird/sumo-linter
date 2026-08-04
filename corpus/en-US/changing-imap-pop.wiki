@@ -1,0 +1,25 @@
+As of Thunderbird 3, the new [[Automatic Account Configuration]] Wizard can help you configure your connection to your email provider, but only if your provider is in Mozilla's database of Internet Service Providers or recognized by Thunderbird. While most of the large providers are included, many smaller ones are not yet in the account configuration database.
+
+If your mail server supports both IMAP and POP, Thunderbird will use IMAP by default. POP is also supported but must be manually configured using the following instructions:
+
+This tutorial will show you how to configure a new account for POP access (rather than IMAP).
+An existing IMAP account cannot be converted. Instructions for deleting it are at the end of this article.
+
+# Select '''Tools > Account Settings... > Account Actions > Add Mail Account '''. <br> [[Image:9bc56f4c4e454d13dfc9304035498d8e-1266535905-565-1.png]]
+# Enter your username (check with your mail provider; it is your full email address) and password and click '''Continue'''. <br> [[Image:9bc56f4c4e454d13dfc9304035498d8e-1266536169-49-1.png]]
+# Thunderbird will attempt to configure your accounts settings automatically using IMAP. Click '''Stop'''. <br> [[Image:9bc56f4c4e454d13dfc9304035498d8e-1266536437-645-1.png]]
+# Enter your account details as follows: 
+#* Username: Enter your full email address (or whatever your email provider recommends, usually your full email address, although sometimes just the part before the "@").
+#* Incoming: Enter your incoming email provider's server (usually "mail.yourmailprovider.com" or "pop.yourmailprovider.com", for example  "mail.argontech.net"). 
+#* Outgoing: Enter your outgoing mail provider's server (usually "mail.domainname.com" or "smtp.domainname.com").
+#* Select "POP" from the drop-down list to the right of the incoming mail server name (the row labelled "Incoming:" in the screenshot). '''This is important because if IMAP is selected you won't be able to change it to POP later!'''
+#* Incoming port number: This depends on the email provider.
+#* Outgoing port number: This depends on the email provider.
+#* Incoming security: This depends on the email provider. 
+#* Outgoing security: This depends on the email provider.
+# Once these settings have been entered, click '''Manual Setup...''' <br> [[Image:392d0f55c47034c558c6b307a6ec6dfa-1266538243-682-1.png]].  <br> You may get an error message that says that the SMTP account already exists. Clear the message.
+# Click on '''Cancel''' to exit the Account Settings dialog. Re-open the Account Settings page and you will see that your new account has been created.  Also please check your Outgoing Server (SMTP) is correct for this account (at the bottom of the screenshot). <br> [[Image:392d0f55c47034c558c6b307a6ec6dfa-1266538477-583-1.png]]
+# Check that your incoming and outgoing mail is working correctly. 
+'''If everything is ok (i.e. you can send and receive email and see your old emails; note that some email providers may not give you access to all of your emails or all your email folders; check with your mail provider) and you accidentally created an IMAP account''', then delete the accidentally created IMAP account as follows: open '''Tools > Account Settings...''', select the accidentally created IMAP account with the IMAP server setting, then select '''Account Actions > Remove Account''' from the drop-down list underneath the account list on the left. 
+
+For more information about account connection information, see [[Configure an Account]].

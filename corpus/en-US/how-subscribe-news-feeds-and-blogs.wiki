@@ -1,0 +1,129 @@
+{note}'''NOTE''': This article applies to Thunderbird 52 and above.{/note}
+
+Websites may publish content for download by applications using one of either the RSS or Atom protocols. Such content is commonly called a "news feed" or "RSS feed" or "syndication". Feeds are often used by blogs, but more traditional websites can make any content available in this format. When you subscribe to a site's feed link, your feed reader (for example, Thunderbird) automatically checks the location and downloads the articles to local folders.
+
+When you use Thunderbird to handle your feeds, you can use the same presentation and tools (archiving, filters, search, etc.) that you are familiar with from managing your email messages.
+
+__TOC__
+
+=Step 1: Create a Feed Account=
+
+First you must create an account in Thunderbird for your feeds.
+
+# In the Menu Bar, click {menu File > New > Feed Account}. The '''Feed Account Wizard''' window appears.
+# Type a name for your Feed account in the '''Account Name''' box, then click {button Next}.
+# Click {button Finish}. Your new account will now appear in Thunderbird's folder pane.
+
+=Step 2: Subscribe to Feeds=
+
+Next, choose the feeds you want to subscribe to.
+# Use your web browser to open a website that you want to subscribe to. Most media sites and blogs that are regularly updated have feeds.
+# Look for a familiar RSS icon or text link on the site. On most sites the link appears at the bottom or on the side of the home page.
+#;[[Image:rss icon on website]]
+# Right-click on the RSS link and copy the link’s address. (If you use Mozilla Firefox, click {menu Copy Link Location} on the context menu. If you use Google Chrome, click {menu Copy link address}.)
+#;[[Image:copying rss link from website]] {note}'''NOTE''': On some large websites, the home page’s rss or feeds hyperlink is not a feed itself, but a link to a set of feeds provided by the site. For example, a major media site may have different feeds for its news, sports and entertainment sections. Just click the RSS icon on the home page, then perform Step 3 on the page that hosts all the site’s feeds.{/note}
+# In Thunderbird, click your Feed Account name in the folder pane.
+# Click '''Manage subscriptions''' to open the Feed Subscriptions dialog.
+# In the '''Feed URL''' box, right-click and paste the link address from the website.
+# Click {button Add}. Thunderbird will validate the link, create a new folder, subscribe a valid link to the new folder, and download all current articles. The new folder appears under your Feed Account in the folder pane.
+#;[[Image:rss subscriptions dialog]]
+# Feeds can also be quickly subscribed by drag and dropping links from a browser onto either the Feed Account folder or any other folder in a Feed Account, directly in the folder pane. If a new folder is created, the folder's name is derived from the feed's title.
+
+{note}'''NOTE''': Thunderbird will validate new feed urls and let you check for correct protocol syntax in an existing feed. For already added feeds, click the '''Validate''' link in the Feed Subscriptions dialog. If a feed does not Validate in Thunderbird (for example, if it is a web page), it may, however, appear to be correct in the [http://validator.w3.org/feed/ Validation Service]. This is because the Service will attempt to locate a valid link. Check that the Service's link is the same as the link you entered in Thunderbird. (A web page may have more than one feed url in it; the Service will use the first one it finds.){/note}
+
+=Step 3: Read your Feeds=
+
+Reading your feeds is as easy as using your email in Thunderbird.
+
+# Click {button Get Messages} to download all the newest feed messages, along with your regular email messages. If you right click on a specific folder and select {menu Get Messages}, only messages for that folder's subscriptions (and all of its subfolders) will be retrieved.
+# In the folder pane, click on the folder whose content you want to read. A list of unread messages from the feed appears in the message list pane.
+# Click on a message in the message list.
+# Read the article in the message body. If you’d like to see the article on the website, click the link in the message header next to '''Website''' (this will open the link in your default browser).
+#;[[Image:rss message view]]
+# You may also select the view action to perform when double clicking or hitting <enter> on a feed message selected in the list. The options are found in {menu Message > When Opening Feed Messages}. 
+
+{note}'''NOTE''': You can set whether the message displays as an article summary or the article web page in two ways:
+* In the Feed Subscriptions dialog, select the feed folder and check the '''Show the article summary instead of loading the web page''' box. This preference applies to all feeds in the folder.
+* Select a message from the message list, then click {menu View > Feed Message Body As}, and select whether to use the {menu Default Format} (folder setting above), or override the default and show {menu Summary} or {menu Web Page} globally.
+In {menu Tools > Account Settings}, select the name of your Feed Account and check the '''By default, show the article summary instead of loading the web page''' box. This selection is the default for all '''new''' feed subscriptions that create a folder in that Account.{/note}
+
+=Step 4: Organize and Manage your Feeds=
+
+==Folders and Accounts==
+
+You can create email-style folders to group individual feeds:
+
+# In the folderpane, click on your Feeds Account name to select it.
+# Click {menu File > New > Folder}. The '''New Folder''' dialog box appears.
+# Type a name for your new folder, then click {button Create Folder}. To create subfolders of your folders, first select the folder you want as the parent folder, then click {menu File > New > Subfolder}.
+# Alternatively, you can organize your feeds by creating additional Feed Accounts. Just repeat step 1 for every account you want to create, giving each one a different name. Multiple accounts are less useful now that individual feed update intervals have been implemented.
+
+{note}'''NOTE''': A Feed Account subfolder may contain zero, one, or many subscriptions. Only one unique feed url may be subscribed to per account.{/note}
+
+==The Feed Subscriptions dialog==
+
+# From a folderpane folder it is easy to go directly to managing feeds by right clicking and selecting the {menu Subscribe…} menu item.
+# The dialog will open with the folder selected and opened, showing the folder's feed subscriptions.
+# Feeds may be drag-and-dropped and otherwise organized in folders however you like. For example, it is useful to have a blog feed and its comments feed both subscribed to the same folder. (Publishers may even construct their feeds so items thread together as in email!)
+
+{note}'''NOTE''': Moving or removing a feed subscription from a folder will not affect already downloaded articles in any way. If you remove a feed url subscription, the currently active items list is also cleaned up. As a result, resubscribing the feed url will cause already downloaded messages to be stored again. Deleting a folder or moving it to trash automatically unsubscribes all feeds from the folder.{/note}
+
+==Updates==
+
+Starting in Thunderbird 60, each feed's update interval may be individually set. If the checkbox '''Check for new articles''' is unchecked, the feed is 'paused'. If all feeds in a folder are paused, the folder is paused and will appear in lower opacity. A folder may also be paused/unpaused using the context menu -- the status will apply to all feeds in the folder. The entire account may also be paused (this does not change any individual feed's pause state).
+
+You may still get updates immediately by clicking {button Get Messages} even if an account or folder is paused. 
+
+==Automatic Tagging==
+
+If the publisher adds <category> tags to feed items, you may choose to autotag feed articles with these values. A <category> value corresponds to one keyword tag in Thunderbird. A feed item may have numerous <category> tags.
+
+# In the Feed Subscriptions dialog, select the feed and check the '''Automatically create tags from feed <category> names''' box.
+# You may also add a custom prefix to better differentiate tags.
+
+The tags are stored in the '''Keywords:''' header (RFC5322 compliant) for portability. They are also tagged by Thunderbird's internal system and stored in the '''X-Mozilla-Keys:''' header of the article. As a result, tags will appear in the message header and work with the Quick Filter and Message Filters and Searches tag rules. 
+
+==Import and Export your Feeds==
+
+# If you have a list of feed urls exported in the OPML format to a file, perhaps from another feed reader, you may Import them using {menu Tools > Import > Feed Subscriptions}. Choose either a new or existing Feed Account.
+# You may also Import using the Feed Subscriptions dialog, selecting the Feed Account folder, and clicking {button Import}.
+# To Export, select the Feed Account (top folder) in the Feed Subscriptions dialog and click {button Export}. The folder structure and preferences of your feeds will be saved to a .opml file. (To Export a simple list, press {key Ctrl} then click the button).
+
+=Tips=
+
+* To quickly mark a feed folder's messages as all read, so they no longer appear in bold type, press {key Shift+C} while the folder is selected.
+* To set how often Thunderbird checks for new feed messages and other default feed properties for '''new subscriptions only''', click on {menu Tools > Account Settings} or {menu Edit > Account Settings} to open the dialog, then click on the name of your Feed Account. Set the values in the '''Default Settings for New Feeds''' section.
+* Feed article retention is managed just like for email. Click on {menu Disc Space} below your Feed Account name in {menu Account Settings} for more options.
+* Use the [[Quick Filter Toolbar|Quick Filter toolbar]] to save time if you're getting a lot of messages from a feed.
+* If you wish to use Message Filters on feed messages and filter by website, create a Custom header named ''Content-Base''. This header contains the feed message's website link.
+* Feed articles may be placed in 'the cloud' by setting up a filter to copy or move items to an IMAP account folder. This is not true syncing in any way, but may be useful in some cases. The filter bug to enable this feature has been fixed in Thunderbird 38.
+
+=Tips for Publishers=
+* The [https://tools.ietf.org/html/rfc4287 Atom specification] is strongly recommended. If you use the [http://www.rssboard.org/rss-specification RSS2.0 spec], a <guid> is recommended. Also, <title> and <link> are mandatory per spec and the feed will be rejected if they are not present. Another common error is representing unicode characters with octals. Ensure dates are represented according to the chosen specification; bad dates may cause items to be rejected. Please always '''follow the specs''' and [http://validator.w3.org/feed/ validate] and everyone will win.
+* The '''Last-Modified''' header should be returned in your server's response. Thunderbird will send this value in '''If-Modified-Since''' in its next request to your server, which you can respond to with code 304 if appropriate. This saves unnecessary bandwidth usage and processing if there are no new items or changes to your file.
+* If you use Atom and its [http://www.ietf.org/rfc/rfc4685.txt threading extension], Thunderbird will group related feed items (like comments to a post) into '''threads''' just like it does with related email messages.
+* Changes to feed urls can be detected by Thunderbird and updated automatically for users. See [https://bugzilla.mozilla.org/show_bug.cgi?id=304917 Bug 304917] for two ways of doing this.
+* New in Thunderbird 60: A '''Publisher recommends:''' update frequency is shown to the user in the Feed Subscriptions dialog if the relevant tags are included in your feed. Follow the  [http://web.resource.org/rss/1.0/modules/syndication/ Syndication specification] to advertise your desired update frequency.
+
+=Advanced Tips=
+
+* The feed update frequency in '''Check for new articles''' should be set to minimize unnecessary bandwidth usage and Thunderbird processing, if the publisher is not using '''Last-Modified''' above. If it is being used, an immediate '''There are no new articles for this feed''' message appears in the status bar when manually getting new messages for the folder twice quickly.
+* A feed url may be added without being online; '''adding in offline mode''' will bypass feed validation. If offline (to go offline, click the status bar icon), a dialog will appear asking to go online for new messages. Cancel the prompt and the feed will be added. The feed's Title will be the url and may be edited. Once back online, Thunderbird may fail the feed for invalid url or syntax, but it will exist in the database.
+* Display of a feed item summary or web page may be fine tuned by setting the following two prefs using the [[Config Editor|Config Editor]].<br/>{note}{pref rss.show.content-base}<br/>Action on double click or enter in threadpane for a feed message:<br/><code>0 - open web page in new window<br/>1 - open summary in new window<br/>2 - toggle load summary and web page in message pane<br/>3 - load web page in browser<br/>{/note}</code>{note}{pref rss.message.loadWebPageOnSelect}<br/>Additional action on feed message select:<br/><code>0 - no action<br/>1 - load web page in default browser<br/>{/note}</code>
+* New in Thunderbird 60: Users with very many feeds may choose to limit the number of feeds simultaneously being processed by setting the pref {pref rss.max_concurrent_feeds} in the [[Config Editor|Config Editor]]. The default is {pref 25}.
+* New in Thunderbird 60: Feed folders that contain a subscription url that is in error (server not reachable, feed file not found, certificate error, etc.) will be indicated with an icon. Open the Feed Subscriptions dialog, select the feed and focus the Feed URL, and click the {button Verify} button to '''check for network type problems'''.
+* Thunderbird has extensive logging of feed activity, viewable in {menu Tools > Developer Tools > Error Console}. Change the preference {pref Feeds.logging.console} to {pref debug} or {pref trace} (and restart) to see details of feed processing.
+
+=Troubleshooting FAQ=
+
+'''Q: Why are feed messages sometimes duplicated?'''
+
+A: Feed messages with identical content but different unique ids are not detected as duplicates. See [http://forums.mozillazine.org/viewtopic.php?p=13360829#p13360829 this post] for many more details. 
+
+'''Q: When viewing a feed web page, why does a browser sometimes open or a random page sometimes load in the browser?'''
+
+A: Since Thunderbird wasn't designed to be a web browser, it will send all link requests to your default browser. In this case, script on the feed web page is attempting to open a link. The best solution is to install the Adblock Plus extension. In addition to having extensive built in filters, Adblock Plus lets you configure custom urls or domains to be blocked. See also [https://bugzilla.mozilla.org/show_bug.cgi?id=524281 Bug 524281].
+
+'''Q: Why can't I see some images or video or documents or other embedded content when viewing a feed summary?'''
+
+A: This is due to JavaScript being disabled for messages (emails, newsgroup posts, feed summaries). The request to implement a user configurable option to enable JavaScript, for feed summaries only, is [https://bugzilla.mozilla.org/show_bug.cgi?id=456481 Bug 456481].

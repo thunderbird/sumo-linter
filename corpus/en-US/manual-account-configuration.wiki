@@ -1,0 +1,42 @@
+When you are configuring an email account, Thunderbird will often be able to do most of the configuration automatically. (See [[Automatic Account Configuration]] for more information.) However, you will need to manually configure your account if your email provider is not listed in Thunderbird's automatic configuration database, or if you have a non-standard email configuration. This page will show you the basic settings you need to send and receive emails.
+
+If an account that you created automatically was assigned to an IMAP rather than POP server, see the [[FAQ Changing IMAP to POP]] article.
+
+To manually configure an account, you will need to have the following details which can be supplied by your email provider.
+
+* incoming mail server and port (for example, "pop<!---->.example.com" and port 110 or "imap<!---->.example.com" and port 143)
+* outgoing mail server and port (for example, "smtp<!---->.example.com" and port 25)
+* security setting for the connection with the server (for example, "STARTTLS" or "SSL/TLS" and whether or not to use secure authentication)
+
+First, open the Account Settings: In the Thunderbird menu bar, click the {menu {for win,mac}Tools{/for}{for linux}Edit{/for}} menu and select {menu Account Settings}, or click the Application menu button [[Image:New Fx Menu]] and select {for win}{menu Options}{/for}{for mac,linux}{menu Preferences}{/for} and {menu Account Settings} from the sub-menu. Each email or newsgroup account that has already been configured is listed on the left side of the Account Settings dialog. These accounts correspond to the top-level folders displayed in the "All Folders" list.
+
+At the bottom of the left pane, click the '''Account Actions''' button and select '''Add Mail Account…'''.
+
+[[Image:e2f8e3847ad5f809e97807318a81f5b7-1263334186-885-1.jpg]]
+
+Enter your email account details and press '''Continue'''. Thunderbird will try to determine your account settings based on the domain portion of your email address (that is, the portion after the "@" symbol). Then press '''Manual Configuration''' and edit the server names, ports and IMAP/POP to manually set up the the account. Click '''Re-test''' to test your manual settings; there should be a quick response indicating the settings are valid. If not, press the '''Stop''' button to abort the lookup, then edit the server names, ports and IMAP/POP and click '''Re-test''' again. (Alternatively, you can allow the lookup to gather default account details and then manually change the settings later.)
+
+= Configure the outgoing server =
+
+Multiple email accounts can use the same outgoing SMTP server. Therefore, SMTP servers are created separately from email accounts. In the '''Account Settings''' dialog, in the left pane, select '''Outgoing Server (SMTP)''' from the bottom of the list. There may be an entry in the resulting list that was created when you entered your account details. Either edit that entry or add a new entry.
+
+[[Image:e2f8e3847ad5f809e97807318a81f5b7-1263336038-358-1.jpg]]
+
+As another example, a Gmail account is configured as follows:
+
+*Server Name: smtp<!---->.gmail.com
+*Port: 587
+*Use name and Password: checked
+*User Name: your gmail user id without "@gmail.com" extension (for example, if your email address is brian@gmail.com, then your user name is "brian"). If you are using Google Apps for Domains, use your entire address (for example, "billsmith@yourdomain.com").
+*Connection Security: STARTTLS
+
+After saving the information about the new outgoing server, select your new email account from the list. In the '''Outgoing Server (SMTP)''' field, select the SMTP server from the drop-down list. Other items on the page were automatically created when you entered the account details - alter and extend as necessary.
+
+Click on the '''Server Settings''' option under your new account. Make sure the entries in the following fields correspond to the settings given to you by your email provider:
+
+[[Image:e2f8e3847ad5f809e97807318a81f5b7-1263336519-453-1.jpg]]
+
+After saving these changes you should be able to send and receive emails. Other aspects of account configuration are optional and self-explanatory.
+
+=See Also=
+* [http://write.flossmanuals.net/thunderbird/account-set-up/ Account Setup chapter] in the Thunderbird FLOSS manual.

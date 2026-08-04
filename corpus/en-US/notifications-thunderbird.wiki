@@ -1,0 +1,63 @@
+{warning}''In-app notifications'' is available starting with Thunderbird beta 134 or newer. It is not available in older versions of Thunderbird.
+
+
+If this article loaded in your browser while you are running Thunderbird Daily or Beta, this is just a test of the notification system.
+{/warning}
+
+__TOC__
+
+=Introducing In-App Scheduled Notifications: A Powerful New Tool for Thunderbird =
+
+Thunderbird users, get ready for a game-changing feature in the next major release! As part of Thunderbird Beta 134, we're introducing In-App Scheduled Notifications, a dynamic and intelligent notification system designed to keep you informed about essential updates—without overwhelming you. Whether it’s an important security notice, a donation appeal, or a quick survey, you'll stay in the loop without interrupting your workflow.
+
+= What are In-App Scheduled Notifications? =
+
+Thunderbird will now be equipped with a brand-new notification system that allows us to push important, time-sensitive information directly to your Thunderbird desktop client. Unlike traditional notifications, which appear whenever they want, these notifications are scheduled in a smart and structured way. They are tailored to you, based on your Thunderbird version, operating system, and locale.
+
+= How Will This Benefit You? =
+
+== Stay Secure with Timely Updates ==
+
+One of the most significant benefits of this system is that you’ll get real-time security notices when they matter most. No need to sift through emails or websites for updates—Thunderbird will inform you about critical security issues right inside your application. This ensures that your system stays safe without lifting a finger!
+
+== Tailored Surveys to Improve Your Experience ==
+
+Ever had feedback about Thunderbird? With in-app notifications, you may be invited to take short surveys that help improve your experience. These surveys will be carefully targeted, meaning you’ll only see ones that are relevant to you, based on your version of Thunderbird or locale.
+
+= How Does It Work? =
+
+The notification system is designed to be both smart and respectful. Here’s how it works behind the scenes:
+* Custom-Tailored Notifications: The notifications you see are tailored to your profile. The system considers your locale, Thunderbird version, and operating system, ensuring that the messages you receive are relevant.
+* Controlled Frequency: You won’t be bombarded with notifications. Thunderbird contacts our server occasionally (not too often!) and retrieves notifications relevant to you. The frequency and scheduling are carefully managed to ensure the system isn’t intrusive.
+* Dynamic Display Timing: To avoid overwhelming all users at once, the system can stagger the release of notifications. So, while one user might see a notification today, another user might see it tomorrow—making it a seamless experience for everyone.
+* Locally Cached for Efficiency: Once retrieved, Thunderbird will cache the notification data locally, meaning you won’t miss any critical alerts even when offline.
+
+= Security First =
+
+We take your privacy seriously. These notifications are designed to respect your personal data, pulling only what's necessary for targeting specific content, like locale and operating system. No geographical location or sensitive information is shared. Plus, Thunderbird always opens any provided URLs in your default browser to ensure you're secure.
+= What Kind of Notifications Will You See? =
+
+With this system, expect to see notifications that are truly helpful and relevant:
+
+* Donation Appeals: Stay informed about how you can help fund Thunderbird’s future.
+* Security Notices: Get alerted to any security updates or patches you need to apply.
+* Surveys: Occasionally, we’ll ask for your input on new features or Thunderbird improvements.
+
+What won’t you see? Things like blog posts, office hours, or non-client-specific events are out of scope. We’re focusing on notifications that benefit you directly as a Thunderbird user.
+
+= What Makes This Feature Special? =
+
+* Smart Targeting: Based on your Thunderbird version, locale, and operating system, the notifications will be personalized for you.
+* Dynamic Notification Styling: Notifications can be customized with different levels of severity and urgency, ensuring you’re only interrupted when absolutely necessary.
+* Dismiss and Move On: Don’t want to see a notification again? Dismiss it, and Thunderbird won’t bug you with the same message repeatedly.
+* A Better Way to Stay Informed: Gone are the days of missing crucial updates. Whether it’s a security notice or a fundraising appeal, you’ll have the information you need when you need it.
+
+= Coming Soon to Thunderbird=
+
+We’re excited to bring this feature to all of our users with Thunderbird beta 134. This enhancement is just one of the many ways we’re working to improve your experience with Thunderbird.
+
+Stay tuned, and get ready to enjoy the benefits of in-app scheduled notifications. Your inbox is about to get smarter, safer, and even more powerful!
+
+= Want to Learn More? =
+
+For more information on Thunderbird's upcoming features, head over to our official release notes or check out our [https://github.com/thunderbird/thunderbird-notifications GitHub repository] if you are more technical.

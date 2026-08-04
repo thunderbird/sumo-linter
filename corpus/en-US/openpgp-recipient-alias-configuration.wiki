@@ -1,0 +1,72 @@
+This page documents the OpenPGP recipient alias feature, which has been available since Thunderbird release 78.9.1.
+
+In its default configuration, Thunderbird can send encrypted email using OpenPGP, if you have the recipient's public key, you have accepted to use the public key, and a user ID in the public key matches the recipient's email address.
+
+The alias feature allows you to send email using any OpenPGP public key that is technically acceptable to Thunderbird's OpenPGP engine, regardless of the user IDs contained in the public key.
+
+Initially no user interface is provided for managing the aliases, it's required to manually edit a text file in the JSON file format.
+
+An alias can be defined for a specific email address (higher priority), or for a all email addresses of a domain (lower priority, used if no alias is defined that exactly matches a recipient's email address). If neither an email alias nor a domain alias is found for a recipient email address, then Thunderbird will perform the regular lookup by user id for an accepted key.
+
+Alias keys can be specified by 16-character ID or by full fingerprint. All public keys defined by an alias must be available, not expired, not revoked, and support encryption. Public keys will be used even if they are still in the undecided state, the listing in the alias file is considered as an override for the usual acceptance requirement. However, public keys that are marked as rejected cannot be used. If a problem is found with any key defined in an alias, using the alias and sending the message is prevented. Problems with aliases are logged to the Thunderbird error console.
+
+To enable the use of aliases, you must manually create a text file, and must configure Thunderbird to use the file.
+
+To configure and enable an alias file, open preferences, config editor. Set preference mail.openpgp.alias_rules_file to an empty string (default) to disable the use of aliases. To use a file that you have manually copied to the profile directory, enter its filename without a path (e.g. openpgp_alias_to_keys.json, no / or \\ characters are allowed). To use a file that is stored elsewhere on your system, you may enter a full file:// URL.
+
+Note at this time the file will be read by Thunderbird, but not modified. If a future version of Thunderbird adds user interface to edit alias rules, it will overwrite the file.
+
+The file that you manually edit must follow this structure:
+
+{note}<code>
+ {
+   "description": "Thunderbird OpenPGP Alias Rules",
+   "rules": [
+     {
+       "domain": "domain1.example.com",
+       "keys": [
+         {
+           "description": "Catch-all for domain1.example.com",
+           "fingerprint": "EB85BB5FA33A75E15E944E63F231550C4F47E38E"
+         }
+       ]
+     },
+     {
+       "domain": "domain2.example.com",
+       "keys": [
+         {
+           "description": "domain2.example.com folks",
+           "fingerprint": "D1A66E1A23B182C9980F788CFBFCC82A015E7330"
+         }
+       ]
+     },
+     {
+       "email": "list@domain1.example.com",
+       "keys": [
+         {
+           "description": "John",
+           "fingerprint": "D1A66E1A23B182C9980F788CFBFCC82A015E7330"
+         },
+         {
+           "description": "Eve",
+           "id": "F231550C4F47E38E"
+         }
+       ]
+     }
+   ]
+ }
+</code>{/note}
+
+Note that descriptions are optional.
+
+After you have provided the alias configuration, you may test it in the following way:
+
+Start to compose a new message. Enter a recipient that should match one of your alias definitions. Ensure OpenPGP is selected as the technology for this message. Click the security button, to view the message security info.
+
+Look for a line that contains the recipient email address that you expect to match your alias rule. If a problem was found, the status should be shown as "Alias Problem". If the alias was found to work, you'll see status "a -> b" to indicate that the address will be mapped to something else.
+
+If it doesn't work as expected, open the error console (Menu Tools, Web Developer), it might contain additional information.
+
+If you would like to test that the correct keys are used, you may do so without actually sending the message. Use the menu command File / Send later. Then check your local folders, Outbox. Look for the message you have just prepared. Select it, and click the OpenPGP icon, and look at the recipient encryption keys. This allows you to check whic h keys will be used for encryption.
+
+See also https://bugzilla.mozilla.org/show_bug.cgi?id=1644085

@@ -1,0 +1,27 @@
+<!-- Note to localizers: Much of this is article is based on https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle -->
+
+=Overview=
+Thunderbird offers an Extended Support Release (ESR) for organizations, including schools, universities, businesses and others who need extended support for mass deployments. Thunderbird ESR can be [https://thunderbird.net/download/esr downloaded here]. The ESR release is based on the regular release cycle of Thunderbird for desktop, which follows the [https://whattrainisitnow.com/calendar/ Firefox release cycle].
+
+Thunderbird ESR receives enhancements (new features and capabilitities) annually. Users who need enhancements more frequently may want to try [[Thunderbird Release]] or [[How to select a Thunderbird release channel|other Thunderbird channels]].
+
+=Release cycle details=
+ESR releases are maintained for more than a year, with point releases that coincide with regular Thunderbird releases. These point releases contain security upgrades and stability fixes.
+
+The ESR version will also have a three cycle (at least 12 weeks) overlap between the time of a new release and the end-of-life of the previous release to permit testing and certification before you deploy the new version to your organization.
+
+We rely on Thunderbird ESR users to provide feedback for each new ESR release. Please report any bugs such as  compatibility regressions and stability issues. '''Enterprise managers are encouraged to join the [https://thunderbird.topicbox.com/groups/enterprise Enterprise topicbox discussion group] to stay informed of changes and activity, and learn about managing Thunderbird.'''
+
+Maintenance of each ESR through point releases is limited to high-risk/high-impact security vulnerabilities, major stability fixes, and in rare cases may also include off-schedule releases that address live security vulnerabilities. Backports of any functional enhancements are not in scope.
+
+At the end of the support period for an ESR version:
+* the release will reach its end-of-life
+* no further updates will be offered for that version
+* an update to the next version will be offered through the application update service
+
+<!-- You can [https://wiki.mozilla.org/Release_Management/ESR_Landing_Process read more about the ESR landing process here]. -->
+
+=Upgrade path between two ESR versions=
+An ESR version will be automatically upgraded to the subsequent ESR version. System administrators can disable automatic updates by managing ESR through their deployment system or by using [https://enterprise.thunderbird.net/manage-updates-policies-and-customization/managing-thunderbird-policies policies]. 
+
+<!-- From one major version to another, such as the version 115 to version 128 migration, the updates will be implemented only after version X.3.0 is released. For example, users of version 115 will be updated only when version 128.3.0 has been published. -->

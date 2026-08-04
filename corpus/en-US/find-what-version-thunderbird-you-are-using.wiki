@@ -1,0 +1,4 @@
+# Click the Application menu button [[Image:New Fx Menu]], then go to the {menu Help} menu and choose {menu Troubleshooting Information}. A new tab will open with information about your setup.
+#;{for win}<br>[[Image:tb52-help-troubleshooting]] <br>{/for}{for mac}<br>[[Image:tb52-help-troubleshooting-mac|width=300]] <br>{/for}
+# Under '''Application Basics''', refer to the number beside '''Version'''. That is the version of Thunderbird you are using.
+#;{for win}<br>[[Image:tb52-version]]{/for}{for mac}<br>[[Image:tb52-version-mac]]{/for}

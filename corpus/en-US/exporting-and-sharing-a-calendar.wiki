@@ -1,0 +1,28 @@
+__TOC__
+
+= Things you need =
+*[http://en.wikipedia.org/wiki/WebDAV A server supporting WebDAV]
+
+= Steps when using Lightning =
+#Open up Lightning by clicking the Calendar icon {for winxp}[[Image:calendar icon tb52 winxp]]{/for}{for not winxp}{for not tb60}[[Image:lightning agenda icon]]{/for}{for tb60}[[Image:calendar icon tb60]]{/for}{/for} in the top-right corner of the Thunderbird window.
+#Click {menu Events and Tasks}.
+#Click {menu Publish}.
+#Click the calendar you want to publish, and click {button OK}.
+#Enter your WebDAV URL.
+#Enter a username, password and other required data.
+#You're done!
+
+= Exporting a calendar under Thunderbird and Lightning =
+#Open the Thunderbird instance.
+#Click {menu Events and Tasks}.
+#Use the {menu Export} command to open a selection dialog.
+#Select the calendar you want to export, and click {button OK}.
+#Specify the file name of the exported calendar, where the exported calendar will be stored. Use the little arrow at the right of the name field to select the appropriate file location.
+#Specify the type of file to create: iCalendar (ICS) format or Web page (HTML) file.
+#Click the {button Save} button.
+
+= Using a shared folder =
+When the calendar file is stored on a shared folder, you may also have several Thunderbird instances opening the same calendar file, provided the proper extension is installed.
+
+Since a standard iCalendar protocol is used, even other calendar supporting products, such as Microsoft Outlook, may share the same calendar.
+{note}'''However, when using this method, only the first instance opening the calendar has modification rights.'''{/note}

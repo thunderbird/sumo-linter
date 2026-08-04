@@ -1,0 +1,46 @@
+This document answers questions for new users of Thunderbird 78, in particular users who have upgraded from a previous version.
+
+__TOC__
+
+== Where can I find more information on changes and new features in Thunderbird 78? ==
+
+Please refer to the following documents:
+
+* [[New in Thunderbird 78.0]]
+* [https://www.thunderbird.net/en-US/thunderbird/78.0/releasenotes/ Thunderbird 78 Release Notes]
+* [https://www.thunderbird.net/en-US/thunderbird/releases/ Thunderbird Release Notes] (all releases, including details on the latest minor releases)
+
+== After upgrading to Thunderbird 78, I cannot receive or send email messages. ==
+
+One reason why this might happen is your email provider is still using very outdated security protocols. Thunderbird is serious about protecting the privacy and security of your communications, so by default, Thunderbird 78 will not connect to servers that do not support the modern (over ten years old) [https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.2 TLS 1.2 connection security protocol]. If your email provider only supports the outdated security protocols TLS 1.0 or TLS 1.1, then downloading (receiving) and sending emails will not work. If you need to connect to mail servers with outdated security, or if you want to check if this is the cause of your problem, you can temporarily re-enable the older security protocols in Thunderbird settings using the process below.  If you still have difficulties after trying TLS changes, or you know your mail servers support TLS 1.2, see:
+* [[Cannot send messages]]
+* [[Cannot receive messages]]
+
+{note}
+=== How to enable outdated security protocols TLS 1.0 and 1.1 ===
+
+# Open [[Config Editor]] (about:config)
+#* {menu ≡} > {for win}{menu Options}{/for}{for linux,mac}{menu Preferences}{/for} > {menu Find in {for win}Options{/for}{for linux,mac}Preferences{/for}}
+#* In the searchbox, type: '''about:config''', then press {key Enter}.
+#* Click on the button {button Config Editor…} in the search result.
+# In the about:config dialog, search for: '''security.tls.version.min'''
+# Double-click on the found preference '''security.tls.version.min''' and change its value to '''1''', then press {key Enter}.
+# Restart Thunderbird and try to download your messages.
+
+If you can receive and/or send your messages after changing this preference:
+* '''Please inform your email provider to upgrade the security protocols on the server to support TLS 1.2.'''
+* Revert the preference '''security.tls.version.min''' to its original value as soon as possible by repeating the above procedure, then right-click on the preference and choose {menu Reset} from the context menu.
+{/note}
+
+== When writing a new message, how can I add, edit, or remove recipients in Thunderbird 78? ==
+
+We have redesigned the addressing area for more efficiency, transparency, and convenience. Please find more information in the following documents:
+
+* [[New in Thunderbird 78.0]]
+* [[Addressing an Email]]
+
+== Where can I find information on Thunderbird's new encryption technology, OpenPGP? ==
+
+For any questions or more information about Thunderbird's new message encryption feature, OpenPGP, please see the following document:
+
+* [[OpenPGP in Thunderbird - HOWTO and FAQ]]

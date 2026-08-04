@@ -1,0 +1,58 @@
+__TOC__
+
+= What is a scam? =
+
+A scam message contains material designed to trick the recipient into disclosing personal information. For example, a message might ask you to click a link and enter your credit card number in order to receive a prize. There is, of course, no prize. Instead, the person who sent the message collects your credit card number.
+
+These kinds of attacks are called "phishing" (a variant on the idea of "fishing" for data, such as usernames, passwords or credit card numbers). Generally, data phishers send out mass emails that cleverly imitate the look and feel of messages from legitimate businesses (such as banks, large websites or retail stores). Some look like fancy form letters with headers and company logos. Some have email addresses that look like they originated from the company they claim to represent.
+
+In addition to the credit card phishing scam described above, phishers use several other tactics:
+
+* Telling you that your account on a website will be closed unless you click a link and re-enter your username and password. (This exposes your login information to the phisher.)
+* Telling you that a software update is available, followed by a request for you to provide information or install malicious software on your computer.
+* Telling you that there has been a charge on one of your accounts, or a change to your account status and prompting you to follow the link in the message to correct the problem.
+
+= What is the difference between spam and scams? =
+
+Both spam messages and scam messages are unsolicited and unwanted messages. However, spam messages are merely unwanted advertisements and are not dangerous, only annoying. Scam messages, however, are malicious because they want your personal information for nefarious purposes (identity theft, credit card scams, bank account access, etc.).
+
+= Protecting yourself from scams =
+
+To protect yourself against scams, you must use a combination of Thunderbird's built-in scam detection tools combined with your own common sense and skepticism.
+
+== Thunderbird's automatic scam filtering ==
+
+Thunderbird uses its built-in scam filtering that is part of [[Thunderbird and Junk / Spam Messages|the junk filtering ]] functions. It looks for characteristics in messages that are common in scam messages, for example:
+
+* Links with numerical server names (http://127.0.0.1/).
+* Links where the text doesn't match the server name (for example, the text of the message might say "https://secure.example.com" but the link actually goes to "http://phishing.example.com" instead). Phishers do this to fool you into going to their site. Unfortunately some legitimate mailing lists also do this with redirectors for tracking purposes.
+* A remote image link that has different image source than the link points to (spoofing a legitimate web site, similar to the link spoofing described above).
+
+When Thunderbird detects that a message could be a potential phishing attempt, it will display a warning at the top of the message saying that "''This message may be a scam''":
+
+[[Image:scam warning]] 
+
+As a second line of defense, Thunderbird warns you when you click a link in a message that appears to be taking you to a different website than the one indicated by the URL in the message:
+
+[[Image:email scam alert]] 
+
+=== Why does Thunderbird tell me that a legitimate message is a scam? ===
+
+<!-- See also https://bugzilla.mozilla.org/show_bug.cgi?id=654502 for more details about related bugs -->
+
+Thunderbird's detection algorithm isn't perfect and, unlike its spam filter, does not learn or adapt based on your email flags. If you are getting too many false alerts, you may consider (at your own risk) disabling it:
+
+# [[Template:optionspreferences TB]]
+# Select the '''Security''' tab and then '''E-mail Scams'''.
+# Uncheck the box.
+
+[[Image:scam options]] 
+
+== Be skeptical about email messages ==
+
+Your best defense is to be aware of scam tactics and be skeptical about your email messages.
+
+* Don't click on links in emails unless you are absolutely sure that the sender is legitimate. Instead, use your browser to search for the site. For example, if you receive a message that says you should change your password on your online bank account, do not click the link in the message. Instead, use your browser to navigate to the bank's site (using the URL from your bookmarks, favorites, or from search) and check if the request is real.
+* Don't reply to a message that asks you for your personal information.
+* Use a recent version of a browser that implements a phishing filter, such as  [[How does built-in Phishing and Malware Protection work?|the one used by Firefox]].
+* Use a recent version of an email application (like Thunderbird), which has built-in protection against phishing.

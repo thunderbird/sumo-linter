@@ -1,0 +1,27 @@
+Thunderbird collects telemetry data by default. We collect this data to help improve the performance and stability of Thunderbird. Telemetry data is made up of two data sets: interaction data and technical data.
+
+__TOC__
+
+=What is interaction and technical data?=
+Interaction data includes anonymized information about your interactions with Thunderbird such as the number of filters and accounts, what protocols are used for accounts, and the number and type of installed Thunderbird Add-ons.
+
+Technical data includes information about your Thunderbird version and language, device operating system and hardware configuration, memory, basic information about crashes and errors, outcome of automated processes like updates and account setup. When Thunderbird sends data to us, your IP address is temporarily collected as part of our server logs. IP addresses are temporarily collected in our server logs but are deleted.
+
+=Where can I see what is collected?=
+If you would like to review the data collected, you can find this within Thunderbird itself. It is accessible through the menu by doing the following:
+#Click the menu button and select {menu Help}.
+#Then select the {menu Troubleshooting Information} option in the menu panel.
+#In the ''Troubleshooting Information'' tab, click the '''about:telemetry''' link.
+[[Image:Thunderbird about:telemetry link]]
+
+=How do I opt out or delete telemetry data?=
+At any time, you can choose not to have Thunderbird send any telemetry information.
+
+To opt out of sending any Thunderbird telemetry information:
+#[[Template:optionspreferences]]
+#Select the {menu Privacy & Security} panel.
+#Scroll to the ''Thunderbird Data Collection and Use'' section.
+#Deselect the '''Allow Thunderbird to send technical and interaction data to Mozilla''' checkbox.
+[[Image:thunderbird-telemetry]]
+
+To learn more about what data Mozilla receives and how it's used, see the [https://www.mozilla.org/privacy/thunderbird/ Thunderbird Privacy Notice].

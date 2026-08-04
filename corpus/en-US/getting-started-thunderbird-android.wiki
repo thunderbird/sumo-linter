@@ -1,0 +1,12 @@
+[[T:TBAndroidMore]]
+__TOC__
+=Add your email accounts=
+* The easiest way to get started is to import your email accounts from Thunderbird Desktop or K-9 or even another version of Thunderbird for Android. For full details please see: [[Import settings and data into Thunderbird for Android]]
+* If you are not an existing Thunderbird user, then like Thunderbird Desktop, your email settings should be automatically configured for most email providers.
+
+= Configure push mail =
+Set up push mail if you have email folders that you need to be updated on a more real time basis. Full details: [[Configure push email for Thunderbird for Android]]
+=Need support? Got a Feature Request? Want to contribute to Thunderbird or Mozilla?=
+* If the [https://support.mozilla.org/products/thunderbird-android support articles for Thunderbird for Android on this site] don't solve your problem and you need support please [https://support.mozilla.org/questions/new/thunderbird-android ask a question on our Thunderbird for Android Forum].
+* Please suggest feature requests and other improvements on [https://connect.mozilla.org/ Mozilla Connect].
+* Did you know that our community of Thunderbird volunteers in addition to contributing sofware patches,  answers support questions, localizes support articles and more? [https://www.thunderbird.net/participate/ Join us]!

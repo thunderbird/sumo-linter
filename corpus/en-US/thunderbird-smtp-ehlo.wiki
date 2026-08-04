@@ -1,0 +1,7 @@
+Thunderbird sends email using the Internet standard [http://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol SMTP] protocol. As part of this, the '''EHLO''' (or '''HELO''') command is used to identify the client to the mail server. This step typically includes a hostname or IP address.
+
+If Thunderbird were to send your real IP address during this handshake, it could reveal information about your location or network. This can happen even if you're using privacy tools like a VPN or proxy. In some cases, the server you’re sending mail through may include the '''EHLO''' information in the '''Received''' header of the message. This means the recipient could potentially see your original IP address.
+
+To protect your privacy, Thunderbird uses a generic hostname: '''ehlo<!-- -->.thunderbird.net'''. This address is only used as an identifier in the SMTP conversation. There is no mail server behind it. No emails are ever sent through this hostname.
+
+Using '''ehlo<!-- -->.thunderbird.net''' helps maintain protocol compliance while avoiding exposure of your real IP address. Thunderbird does not collect or store any information through this mechanism. Your email content, connections, and metadata remain private. Please see https://www.thunderbird.net/privacy for more details.

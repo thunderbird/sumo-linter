@@ -1,0 +1,17 @@
+{for win}
+[[Video:https://www.youtube.com/watch?v=MbELg6ii7MQ]]
+----
+{/for}
+
+Configure the layout of the Folder pane, message list pane, and message pane according to your preference.
+
+{|
+|[[Image:classicview]]||In '''Classic view''', the folder pane runs the entire height of the window.
+|-
+|[[Image:wideview]]||In '''Wide view''', the message pane spans across the width of both the folder pane and the message list pane.
+|-
+|[[Image:verticalview]]||In '''Vertical view''', all three panes are side-by-side.
+|}
+
+= How to change the layout =
+Click the menu button [[T:appmenu TB]], open the {menu View} menu, then go to {menu Layout} and choose a layout.

@@ -1,0 +1,194 @@
+[[T:TBMore]]
+This article introduces the most interesting new features, improvements, and changes visible to users which are available in [[Thunderbird Release|Thunderbird Release for Desktop]]. For full details, please refer to [[Thunderbird release notes - What's new and known issues]].
+
+__TOC__
+
+=Thunderbird 153 / ESR 153 “Meadow”=
+* ESR 153 “Meadow” includes all the improvements since 140, plus these version 153 highlights…
+* Unified folders display your custom account color indicator with an account name tooltip.
+*# Thunderbird app menu {menu ☰} > {menu Account Settings} > Click your email account, for example <code>nemo@thundermail.com</code>
+*# Click the {button button} underneath '''Color:''' and select a color for that account, for example pink.
+*#; [[Image:tb153-change-account-color]]
+*# You will now see an indicator with that color (in our example: pink) for that account in the message list in a unified folder. There will also be a tooltip with the account name (in our example: <code>nemo@thundermail.com</code>).
+*#; [[Image:tb-153-account-color-indicator-tooltip]]
+* [[OAuth2 for Thunderbird|OAuth]] login for email accounts (for example: Gmail, Thundermail, etc.) opens in the system default web browser. Thunderbird 152 and older versions opened the OAuth login in a Thunderbird tab.
+[[UI:details_start]]
+=Thunderbird 152=
+==Improved Thundermail configuration==
+* One-click account setup for [[Thunderbird for Desktop and Thundermail|Thundermail]] accounts.
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 151=
+==Thundermail configuration==
+* [[Thunderbird for Desktop and Thundermail|Thundermail]] configuration is now built-in to Thunderbird.
+
+==EWS OAuth improvements==
+* You can now override OAuth provider details for EWS accounts.
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 150=
+==Account hub is now the default==
+* Account hub is opened on the first run of Thunderbird. It is now the default across mail, calendar and address book.
+
+==Alphabetical sorting in Recent Destinations==
+* '''Recent Destinations''' in General Settings now supports alphabetical sorting. See: Thunderbird app menu {menu ☰} > {menu Settings} > {menu General} > Scroll down to '''Sort order:''' under '''Folder Management Options''' and choose {menu Alphabetical} or {menu Most recent}.
+
+==Custom Accent color==
+# Click Thunderbird app menu {menu ☰} > {menu Settings} > {menu Appearance}.
+# Next to '''Define the color used for primary buttons and highlighted elements:''', select one of the following buttons: {button Follow operating system}, {button Thunderbird blue}, {button Purple}, {button Orange}, {button Pink}, {button Ink} or {button Teal}.
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 149=
+==Exchange Improvements==
+* Starred Exchange messages now persist across devices.
+
+==Account Hub on for Address Books==
+* Address books are now created in Account Hub.
+
+==Dark Mode link color fixed==
+* Dark mode link colors are once more readable.
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 148=
+==NTLM support==
+* [https://en.wikipedia.org/wiki/NTLM NTLM authentication] is now supported.
+
+==Yahoo, AOL, ATT OAuth2 authentication update==
+* Thunderbird switched to a more secure authorization protocol called '''PKCE''' for Yahoo, AT&T and AOL accounts. This switch adds support for Yahoo/AOL calendars and address books. For full details, see [[Thunderbird and Yahoo]].
+
+==Dark Mode link color issue==
+* '''Known issue:''' Dark mode link colors might be hard to read. '''Workaround:''' Switch to a different theme. A fix has been developed for a future release; you can follow along in [https://bugzilla.mozilla.org/show_bug.cgi?id=2018015 bug 2018015].
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 147=
+==Reset Folder Order==
+* {menu Reset Folder Order} has been fixed (see the [[#w_thunderbird-142|142 section]]). It now restores the original location of a folder that was moved inside another parent folder.
+
+==Localization of folder names==
+* All outstanding issues with localization of folder names have been fixed. If you notice any other issues, please [https://support.mozilla.org/questions/new/thunderbird file a Thunderbird desktop support request].
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 146=
+==Drag and Drop on macOS==
+* Drag and Drop for attachments on macOS is working again.
+
+==OpenPGP Keyserver==
+* You can now add your own OpenPGP Keyserver:
+** Click Thunderbird app menu {menu ☰} > {menu Settings} > {menu Privacy & Security} > Under '''OpenPGP Keyservers''' {menu Add…} Screenshot:
+[[Image:tb146-add-open-pgp-keyserver]]
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 145=
+==DNS over HTTPS==
+* Thunderbird now supports DNS over HTTPS.
+
+==Account Hub supports manual configuration for EWS, IMAP and POP3 accounts==
+* In the '''Account Hub''', once you enter a valid email address, you can now manually configure your email settings by clicking {menu MANUAL CONFIGURATION}.
+*;[[Image:tb145-account-hub-manual-configuration]]
+* '''MANUAL CONFIGURATION''' in the '''Account Hub''' supports manual configuration of {menu EWS}, {menu IMAP} and {menu POP3} accounts.
+*;[[Image:tb145-ews-imap-pop-account-hub-manual-configuration]]
+* Manual configuration of EWS accounts is now supported as per the screenshots in the above two bullet points. For more details, see the [[Thunderbird and Exchange#w_manual-ews-configuration|Manual EWS configuration section of our Thunderbird and Exchange article]].
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 144=
+==Exchange enhancements and bug fixes==
+* Another bug fix release.
+* Various Exchange Support fixes. This release's implementation is still limited to email – account setup, folder management and writing, receiving and reading email. Please refer to [[Thunderbird and Exchange]] and our [https://wiki.mozilla.org/Thunderbird:Exchange Thunderbird:Exchange wiki page] for full instructions. We are planning a promotional splash in one of the next few releases. Getting closer!
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 143=
+==Exchange Support enhancements and bug fixes==
+* Bug fixes.
+* Various Exchange Support fixes. This release's implementation is still limited to email – account setup, folder management and writing, receiving and reading email. Please refer to [[Thunderbird and Exchange]] and our [https://wiki.mozilla.org/Thunderbird:Exchange Thunderbird:Exchange wiki page] for full instructions.
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 142=
+==Switch to the old Account Setup flow to fix issues with Hotmail and outlook&#x2E;com accounts==
+If you see: '''Exchange auth error''' or '''Authentication failed. Please check the username and password''' when adding a '''Hotmail''' or '''outlook.com''' account, here's how to switch to the old '''Account Setup''' flow to fix the problem:
+* Click Thunderbird app menu {menu ☰} > {menu Settings} > {menu General} and untick '''Create accounts in the new Account Hub''':
+*;[[Image:tb142-disable-account-hub|width=350]]
+* Please try adding the email account again. If you still have issues, please [https://support.mozilla.org/questions/new/thunderbird/form file a support request on SUMO].
+This will be fixed in a future Thunderbird release.
+
+==Reset manual folder sorting order==
+# Right-click ({key Control} + click on macOS) on the account row, for example '''nemo@thunderbird.net''' in the ''Folder Pane'' (more details: [[Getting Started with the Thunderbird main window (Supernova and newer)]]) and then:
+# Click the menu item {menu Reset Folder Order} to clear any previously defined manual sorting. '''Note:''' This feature doesn’t restore the original location of a folder that was moved into another parent folder; this will be fixed in a future release. You can follow along in [https://bugzilla.mozilla.org/show_bug.cgi?id=1979880 bug 1979880].
+#;[[Image:tb142-reset-folder-order|width=350]]
+
+==Add a visual signature to a PDF==
+Just like Firefox, you can now insert your signature into a PDF by typing, drawing or adding an image. Please refer to the Firefox article for full details: [[View and edit PDF files using Firefox’s built-in viewer#w_add-a-signature-to-a-pdf]].
+
+==Folders erroneously renamed to ‘Junk’ will be renamed back to ‘Spam’ and ‘Bulk’ in a post 142 release==
+See the [[#w_thunderbird-141|141 section]] for more details.
+
+==More stable Exchange support==
+This release's implementation is still limited to email – account setup, folder management and writing, receiving and reading email.
+
+Please refer to [[Thunderbird and Exchange]] and our [https://wiki.mozilla.org/Thunderbird:Exchange Thunderbird:Exchange wiki page] for full instructions.
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 141=
+==Archive action added to new email notifications==
+* You can now {button Archive} email from your operating system's new email native notifications (in addition to {button Mark as Read}, {button Delete}, {button Mark as Starred} and {button Mark as Spam}). Please see [[New email notifications in Thunderbird]] for further information.
+
+==Better Exchange support==
+Now, anyone can try the Exchange support in Thunderbird. For most, we recommend waiting for a future release, which will be more stable and include additional features, such as on-premises OAuth authentication (password authentication for on-premises is supported in this release).
+
+This release's implementation is still limited to email – account setup, folder management and writing, receiving and reading email.
+
+Please refer to our [https://wiki.mozilla.org/Thunderbird:Exchange Thunderbird:Exchange wiki page] for full instructions.
+
+== 31-day warning for PGP Key expiry ==
+If your PGP key expires in the next 31 days, you will receive a warning when you are composing an email. For extra security, you can choose to let it expire or you can extend your key's certificate.
+
+More info on PGP encrypted email can be found in [[Introduction to End-to-end encryption in Thunderbird]] and [[OpenPGP in Thunderbird - HOWTO and FAQ]].
+
+== Folders erroneously renamed to ‘Junk’ will be renamed back to ‘Spam’ and ‘Bulk’ in a post 142 release ==
+This is primarily a problem in the English language locales. It was discovered a few days after the release of 141. You can follow the progress of the fix in [https://bugzilla.mozilla.org/show_bug.cgi?id=1979511 bug 1979511].
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 140 / ESR 140 Eclipse=
+==Dark Message Mode==
+Thunderbird now automatically displays your messages in dark mode when enabled in your operating system settings. If there are display issues with a message in dark mode, you can disable dark mode for that message by sliding the toggle to the right to disable dark message mode.
+;[[Image:tb140-dark-mode-toggle]]
+
+==New Appearance Panel in Settings==
+The new Appearance panel, Thunderbird app menu {menu ☰} > {button Settings} > {menu Appearance}, allows you to toggle your message list layout between Card and Table view, adjust your Cards view, and set your default folder sorting order and threading options. For more details, refer to [[Appearance Panel - Layout, Message List, Card View, Table View, Sorting and Threading settings]].
+
+==Native OS Notifications==
+Thunderbird now uses your operating system's built-in notifications, whether you’re on Windows, Linux or macOS. You can now quickly delete, archive or use customizable actions directly from your notifications.
+
+==Redesigned Account hub==
+The newly redesigned Account hub makes it easier to add an account. Connect all of your emails, address books and calendars in a few easy steps. The Account hub is currently not enabled for your first account (you will see it when you add a second account). It is also not enabled by default for your address book. You can change the defaults in your Thunderbird app menu {menu ☰} > {button Settings} > {menu General} > search for '''Account hub''' (not enabled in ESR; we recommend the latest monthly release for the best experience).
+
+==Manual Folder Sorting==
+Drag and drop your folders to get the order you want.
+
+==Experimental Exchange Support for advanced users==
+Preliminary Microsoft Exchange support is available for you to try. Our current, initial implementation of Exchange is limited to email – account setup, folder management and writing, receiving and reading email.
+
+We recommend you try this in a test [[Use multiple profiles in Thunderbird|Thunderbird profile]] in [[Thunderbird Beta]] (please ensure you back up your profile before starting). Please refer to our [https://wiki.mozilla.org/Thunderbird:Exchange Thunderbird:Exchange wiki page] for full instructions.
+
+==Export for Mobile==
+Generate a QR code to quickly transfer your account settings and credentials to your Thunderbird for Android app. Please refer to [[Import settings and data into Thunderbird for Android]].
+
+==Horizontal Scroll for Table View==
+Table view now supports horizontal scrolling. This allows you to view wide messages – for example, data in a table with many columns.
+[[UI:details_end]]
+=Older Releases=
+[[UI:details_start]]
+==Thunderbird 139==
+* You can now manually sort folders by dragging and dropping them in the folder pane.
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 138==
+* Dark mode and high contrast mode improvements.
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 137==
+* Fixed Two-factor authentication via text or email for Office 365 using OAuth2.
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 136==
+* New Appearance panel, Thunderbird app menu {menu ☰} > {button Settings} > {menu Appearance}.
+[[UI:details_end]]

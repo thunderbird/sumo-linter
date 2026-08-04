@@ -1,0 +1,57 @@
+Message tags let you organize your email messages by categories. You can tag your work messages with one color and personal with another, so they are easy to distinguish. Even better, you can then use the Quick Filter bar to pick out the messages with a specific tag from the list.
+
+{for tb60}[[Image:TB60 message tags]]{/for}
+{for not tb60}{for not mac}[[Image:TB message tags]]{/for}{for mac}[[Image:TB_message_tags_mac]]{/for}{/for}
+
+__TOC__
+
+=Tag a message=
+# Select the message.
+# Click the {for not tb60}{button [[Image:TB Tag button]] Tag &#9662;}{/for}{for tb60}{button [[Image:TB60 Tag button]] Tag &#9662;}{/for} button on the toolbar.
+# Click the tag you want to add.
+
+'''To remove a tag''', follow the same steps.
+
+{for tb60}[[Image:TB60 tag a message]]{/for}{for not tb60}{for not mac}[[Image:TB tag a message]]{/for}{for mac}	[[Image:TB_tag_a_message_mac]]{/for}{/for}
+
+{note}'''Keyboard shortcut:''' See the numbers in the Tag menu? To quickly tag a message, press the respective number key. The message will be tagged with that tag.{/note}
+
+=Manage tags=
+{for tb60}
+If you want to add your own tags, rename the existing ones or simply change the colors, you can use the [[T:optionsorpreferences]] window:
+# Click the {button [[Image:TB60 Tag button]] Tag &#9662;} button on the toolbar and select {menu Manage tags} in the menu.
+# Use the buttons to the right to manage your tags.
+#;{for not mac}[[Image:TB60 tags options]]{/for}{for mac}[[Image:TB_tags_options_mac]]{/for}
+#* '''Add a new tag''': Click the {button New} button. In the dialog box, type a name for your new tag and select the color the messages will be highlighted with.
+#* '''Change the name or color for a tag''': Select the tag, then click the {button Edit} button. In the dialog box, type a new name for your tag or choose the color you want.
+#* '''Remove a tag from the list''': Select the tag, then click the {button Delete} button.
+{/for}
+
+{for not tb60}
+If you want to add your own tags, rename the existing ones or simply change the colors, you can use the [[T:optionsorpreferences]] window:
+# Click the {button [[Image:TB Tag button]] Tag &#9662;} button on the toolbar and select {menu Manage tags} in the menu.
+# Use the buttons to the right to manage your tags.
+#;{for not mac}[[Image:TB60 tags options]]{/for}{for mac}[[Image:TB_tags_options_mac]]{/for}
+#* '''Add a new tag''': Click the {button New} button. In the dialog box, type a name for your new tag and select the color the messages will be highlighted with.
+#* '''Change the name or color for a tag''': Select the tag, then click the {button Edit} button. In the dialog box, type a new name for your tag or choose the color you want.
+#* '''Remove a tag from the list''': Select the tag, then click the {button Delete} button.
+{/for}
+
+=Filter messages by tags=
+{for tb60}
+Using the [[Quick Filter Toolbar|Quick Filter Toolbar]], you can limit the display to the messages tagged with a specific tag.
+# If the Quick Filter bar is hidden, click the {button [[Image:TB60 filter icon]] Quick Filter} button in your toolbar to show it.
+# In the Quick Filter bar, click the {button [[Image:TB60 Tag button]] Tags} button. The message list will be narrowed down to all messages that contain at least one tag.
+# To limit the list to the messages with a specific tag, click that tag name in the toolbar.
+
+[[Image:TB60 quick filter by tags]]
+{/for}
+
+{for not tb60}
+Using the [[Quick Filter Toolbar|Quick Filter Toolbar]], you can limit the display to the messages tagged with a specific tag.
+# If the Quick Filter bar is hidden, click the {button [[Image:Filter icon]] Quick Filter} button in your toolbar to show it.
+# In the Quick Filter bar, click the {button [[Image:TB Tag button]] Tags} button. The message list will be narrowed down to all messages that contain at least one tag.
+# To limit the list to the messages with a specific tag, click that tag name in the toolbar.
+
+{for not mac}[[Image:TB quick filter by tags]]{/for}{for mac}	[[Image:TB_quick_filter_by_tags_mac]]{/for}
+{/for}

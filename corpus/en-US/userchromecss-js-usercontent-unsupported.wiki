@@ -1,0 +1,11 @@
+== Why is userChrome unsupported? ==
+''userChrome.css'' is a Cascading Style Sheet (CSS) that allows developers to make changes to Thunderbird’s user interface. The CSS rules in ''userChrome.css'' are applied to the user interface, and can override nearly every built-in style rule. ''userChrome.js'' allows anyone to inject JavaScript code that changes Thunderbird. ''userContent.css'' and ''userContent.js'' are similar features for websites.
+
+''userChrome.css'', ''userChrome.js'', ''userContent.css'' and ''userContent.js'' are very powerful tools, intended for testing by technical users who are familiar with JS, CSS and HTML. The Thunderbird Project does not offer support for modifications to these files. This is because Thunderbird developers are constantly making improvements to the HTML elements, which alters the CSS selectors as well as the underlying JavaScript code. These changes mean that customizations based on ''userChrome.css'', ''userChrome.js'', ''userContent.css'' and ''userContent.js'' can break Thunderbird at any time and are very difficult to troubleshoot.
+
+== How to disable and remove userChrome.css ==
+Users can disable and remove their unsupported ''userChrome.css'' file so that it does not load on Thunderbird startup by following these steps:
+# Click {menu ≡} > {menu Settings} > {menu General}
+# Scroll down to the bottom and click {button Config Editor…}
+# Enter '''toolkit.legacyUserProfileCustomizations.stylesheets''' and, if it has been changed, you will see a reset button which will look like a counter-clockwise arrow button {button [[Image:tb115-undo-16x16]]}. Click it to reset the value immediately.
+# Remove {filepath userChrome.css} inside the {filepath chrome} folder of the profile folder. To find the profile folder, see the ''How do I find my profile?'' section in [[Profiles - Where Thunderbird stores your messages and other user data]].

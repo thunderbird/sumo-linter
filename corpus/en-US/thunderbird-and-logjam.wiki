@@ -1,0 +1,18 @@
+Thunderbird 38.1.0 (and newer) and the ESR release 31.8.0 includes improvements done by the Firefox core developers to patch the Logjam common vulnerability (CVE-2015-4000) in all Mozilla products.
+
+==What does this mean to me?==
+
+Nothing, unless your mail server still uses very old cipher keys for SSL/TLS. If the server has not been patched to use a more recent set of keys (2048 bit), your connection to the server will fail with the following distinctive error message appearing in the Error console ({key Ctrl+Shift+J}).
+
+[[Image:LogJam in the error console]] 
+
+==What do I need to do?==
+
+* If a mail server you use is affected, in the first instance contact your mail provider. All servers should be updated to protect you and your information.
+
+* If you are the mail server administrator, you need to view the info published by the Working Group that detected the issue [https://weakdh.org/ here]. Note especially the [https://weakdh.org/sysadmin.html sysadmin guide].
+{note}When visiting that page, your browser will be tested to see if it is vulnerable to the attack, and you will be notified accordingly.{/note} 
+
+There is a short-term workaround for those using Thunderbird, by installing the add-on [https://addons.mozilla.org/firefox/addon/disable-dhe/ Disable DHE]. This is listed as a Firefox add-on, and therefore must be downloaded to your computer using a browser, then installed with the Thunderbird Add-ons Manager using "Install Add-on From File...". Disable DHE will not appear in the Thunderbird Add-ons Manager if you search for it from Thunderbird.
+
+The use of the add-on is not a long term solution, and is not a substitute for fixing the server. By using it, you are at risk of a man-in-the-middle attack, but it gives breathing time for the server adminstrator to generate and install better key pairs on the server.

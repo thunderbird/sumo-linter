@@ -1,0 +1,145 @@
+__TOC__
+
+{for mac}
+= Switching from Apple Mail to Thunderbird =
+Thunderbird can import your messages and OS X address book, but it cannot import your account settings. (Currently, message and address book import is only functional with Apple Mail 5.0 or earlier.)
+
+== Importing Apple Mail messages ==
+# On the menu bar, open the {menu Tools} menu and click on {menu Import}. The import wizard will open.<br><br>[[Image:mac-toolsimport]] <br><br>
+# Select '''Mail''' then click {button Next}.<br><br>[[Image:mac-importwizard]] <br><br>
+# Select '''Apple Mail''' then click {button Next}.<br><br>[[Image:mac-importmail]] <br><br>
+# You will see a log of successfully imported folders, then click {button Finish} to close the import wizard.<br><br>[[Image:mac-mailimportedsuccess]] 
+
+Your imported messages will appear in the Local Folders account, in a folder called "''Apple Mail Import''".<br>
+[[Image:mac-whereimportedmail]] 
+
+== Importing the OS X address book ==
+Thunderbird will read your OS X address book and display it in the Thunderbird address book window! From the menu bar, open the {menu Window} menu and click on {menu Address Book}. Your OS X address book will appear in the left pane.
+<br>[[Image:mac-OSXaddressbook]] 
+
+If you want to import it to the Thunderbird address book, just drag and drop entries from the Mac OS X address book folder to the Personal Address Book. 
+{note}'''Note:''' You can select all entries at once by holding down the {key command} key and pressing {key A}.{/note}
+{/for}
+
+{for win}
+= Switching from Windows Mail or Windows Live Mail to Thunderbird =
+Windows Mail is the default mail client included with Windows Vista.
+Windows Live Mail is the email client bundled with Windows Live Essentials. 
+Both client programs store emails in the .eml file format. In order to export messages from Windows Mail or Windows Live Mail to Thunderbird, you must export messages from the Windows application and import them into Thunderbird. A similar method is needed to export contacts from Windows Mail or Windows Live Mail to Thunderbird.
+
+To find the location of the email files in Windows Mail or Windows Live Mail, go to {menu Tools > Options > Advanced > Maintenance > Store Folder}. 
+
+If you do not see {menu Tools}, try {menu File > Options > Mail… > Advanced > Maintenance…} instead.
+
+== Importing Windows Mail Messages ==
+Importing Windows Mail (.eml files) into Thunderbird is enabled by the third-party add-on ImportExport Tools. [https://addons.mozilla.org/thunderbird/addon/importexporttools/ Download] and install this add-on to transfer messages from Windows Live Mail to Thunderbird.
+
+#Export your messages from Windows Mail in .eml format.
+#In Thunderbird, create a folder in "Local Folders" to hold your imported mail and select it.
+# Right click the folder and select {menu  ImportExportTools > Import all messages from a directory > also from its subdirectories}.
+#Navigate to the .eml files folder. The default location for Windows Live mail is {filepath C:\Users\<username>\AppData\Local\Microsoft\Windows Live Mail} (or \Windows Mail).
+#Click {button Open}. Your data will be imported.
+
+{note}'''Note:''' To be able to see the "AppData" folder, you must change the Folder Options to "Show hidden files, folders, and drives" first. See the Microsoft Support article [https://support.microsoft.com/en-us/help/14201/windows-show-hidden-files Show hidden files] for more information.{/note}
+
+== Importing Windows Mail Contacts ==
+In order to import Windows contacts into Thunderbird, you must export the contacts to vCard files (.vcf format) and import the files into Thunderbird. 
+# In Windows Live Mail, open the Contacts and select all the contacts you wish to export. 
+# Click on {menu Export > Business Card (.VCF)}.
+# Select an empty directory to save these to.
+
+In Thunderbird, install the [https://freeshell.de/~kaosmos/morecols-en.html MoreFunctionsForAddressBook] add-on following [[Thunderbird add-ons - frequently asked questions#w_how-do-i-install-an-add-on|these instructions]].
+
+# Click on {button Address Book}.
+# Click on the address book you wish to import the contacts into.
+# Click {menu Tools > MoreFunctionsForAddressBook > Actions for Contacts > Import vCard / VCF}.
+# Browse to the folder where you exported your contacts to.
+# Select all the contacts you wish to import.
+# Click {button Open} to import all selected contacts.
+
+Alternatively, if this does not work or is not supported in your case, you can try this:
+
+See the [https://support.office.com/en-us/article/export-contacts-from-outlook-10f09abd-643c-4495-bb80-543714eca73f Export contacts from Outlook] article at Microsoft.com for instructions on how to export contacts in Windows.
+
+After creating the required file, you can import your contacts using the import wizard:
+# In Thunderbird, go to {menu Tools > Import…}.
+# Choose Address Books and click {button Next}.
+# Choose ''Text file (LDIF, .tab, .csv, .txt)'' and click {button Next}.
+# Choose ''Comma Separated'' (or ''All files'') in the drop-down list at the bottom right, browse to the .csv file you just created, select it and click Open.
+# Wait for the import to finish and click {button Finish}.
+
+In the Import Address Book window that appears, use the Move Up and Move Down buttons to match the address book fields on the left to the correct data for import on the right, and uncheck items you do not want to import. When you are done, click OK. Your contacts should now be imported and ready for use in Thunderbird.
+
+Note that if you are having problems importing the fields properly (like when all record data to import shows up inside the first field row when inside the Import Address Book window), this is probably a result of an exported .csv file containing semicolons instead of commas, or the other way around. This usually happens because the separator in Windows Regional settings does not match the one for the Thunderbird locale, for instance when you exported a .csv file using an English Windows version and try to import it into a non-English version of Thunderbird. In this case, you should make the list separator match in your Regional settings before exporting the .csv file, or you could edit the already exported .csv file using a text editor and replace all semicolons by commas (or vice versa), and retry the import step.
+
+= Importing from Outlook and Eudora =
+The normal Thunderbird import process requires that you have Eudora or Outlook installed on your computer. If you do not have them installed, there are alternatives as noted below.
+
+To use Thunderbird's import wizard, you must use an older version of Thunderbird, because the wizard is disabled for Outlook and Eudora in Thunderbird version 38 and newer versions. Install [https://ftp.mozilla.org/pub/thunderbird/releases/31.8.0/win32/en-US/ version 31.8], import your data, then upgrade to the latest version of Thunderbird via the built-in [[Updating Thunderbird|update mechanism]].  
+
+For Eudora, if you have data problems or crashes, try an even [http://ftp.mozilla.org/pub/thunderbird/releases/17.0.9esr/win32/en-US/ older version of Thunderbird] and a tool to clean the data. An example of a data cleaning tool for Mac OS is [http://andreasamann.com/MacOSX/Eudora_Mailbox_Cleaner Eudora Mailbox Cleaner].
+
+An alternative to Thunderbird's import wizard is to find a tool to transform your data to mbox format (.mbx), and then use [https://freeshell.de//~kaosmos/mboximport-en.html Import Export Tools] add-on in Thunderbird to import the mbox files. One such mbox conversion tool for Eudora is [http://qwerky.50webs.com/eudorarescue/ Eudora Rescue].
+
+== Eudora is not installed ==
+If Eudora is not installed and you want to use the Thunderbird import wizard, you can easily change the Windows registry to point to your Eudora files, then run the import wizard.  
+* Create a [https://support.microsoft.com/en-us/kb/310516 .reg file] called eudora.reg containing the following lines. Replace H:\\SCRATCH\\Eudoradata with the location of your Eudora data. (note the double backslashes and the blank line)
+<code>
+ === Registry file, adjust file location as required ===
+ Windows Registry Editor Version 5.00
+
+ [HKEY_CURRENT_USER\Software\Qualcomm\Eudora\CommandLine]
+ "Current"="Anything H:\\SCRATCH\\Eudoradata Anything"
+ ===
+</code>
+* In a Windows command prompt, run "regedit /s eudora.reg".
+* Use the Thunderbird import wizard.
+
+<!--== Switching from Outlook 2007 to Thunderbird ==
+The following instructions describe how to import messages and contacts from Outlook 2007.
+
+== Importing Outlook 2007 Messages ==
+In order to import messages from Outlook to Thunderbird, Outlook must be the default mail client.
+
+#In Thunderbird, go to {menu Tools > Import…}. <br>
+#Choose Mail and click {button Next}. <br> <br> [[Image:1e78f7f724ed9295cabef9d653f02e6b-1280168514-828-2.png]] <br> <br>
+#Choose Outlook and click {button Next} to start the import process. <br> <br> [[Image:1e78f7f724ed9295cabef9d653f02e6b-1280168514-828-1.png]] <br> <br>
+#The Import Wizard will process the emails and display the results. Click {button Finish}. <br> <br> [[Image:1e78f7f724ed9295cabef9d653f02e6b-1280168514-828-3.png]] <br>
+The emails will now be stored in a folder called '''Outlook Import''' under the '''Local Folders''' directory. <br> <br> [[Image:1e78f7f724ed9295cabef9d653f02e6b-1280168514-828-4.png]]
+
+== Importing Outlook 2007 Contacts/Address Book ==
+#In Thunderbird, go to {menu Tools > Import…}.
+#Choose Address Books and click {button Next}. <br> <br> [[Image:1e78f7f724ed9295cabef9d653f02e6b-1280177119-49-1.png]] <br> <br>
+#Choose Outlook and click {button Next}. <br> <br> [[Image:1e78f7f724ed9295cabef9d653f02e6b-1280177119-49-2.png]] <br> <br>
+#Wait for the import to finish and click {button Finish}. <br> <br> [[Image:1e78f7f724ed9295cabef9d653f02e6b-1280177119-49-3.png]] <br>
+
+==Importing PST files==
+Thunderbird cannot import a standalone PST file. Mail import from Outlook works by using the Outlook program to source the emails, not the underlying PST file. If you are switching to Thunderbird and no longer have a copy of Outlook, then it will be necessary to convert all of your existing PST backup files to Thunderbird while you still have access to Outlook on the same computer as Thunderbird.-->
+{/for}
+
+{for linux}
+= Switching from Evolution to Thunderbird =
+The following instructions describe how to import messages and contacts from Evolution.
+
+== Importing Evolution Messages ==
+Thunderbird and Evolution use the same file format (called mbox) to store your mails, so its not difficult to import them manually.
+#Open Nautilus.
+#Open {filepath ~/.local/share/evolution/mail/local} which is where Evolution store your mails.
+#Copy all the file without extension (such as '''Inbox''', '''Outbox''',..) into the emplacement used by Thunderbird to store its mail (something like {filepath ~/.thunderbird/uk41lql0.default/Mail/Local Folders},where you need to adapt ''uk41lql0.default'' to your own installation).
+#Launch Thunderbird to check that all your mail have been correctly imported.
+
+== Importing Evolution Contacts ==
+#Open your address book in Evolution, right-click on it and choose: '''Save as vcard…''' to export it into vCard file format.
+#In Thunderbird, open the {menu Tools > Import…} menu, select '''Address Books''' and then '''vCard file (.vcf)''' and select your contact file. 
+{/for}
+
+= Switching from Web-based Email Applications to Thunderbird =
+If you are using a web-based application provided by your Internet Service Provider (ISP) to access your email, you probably only need to configure your account information to switch to Thunderbird. See [[Configure an Account]] for instructions.
+
+Once you have configured your account in Thunderbird, you should be able to access all your messages (both incoming and sent). However, your address book (contacts), mail filters and other settings will not be automatically transferred to Thunderbird. 
+
+Some web-base email applications allow you to export contacts in text or comma-separated formats. Check your ISP's documentation for more information. To import contacts into Thunderbird, select {menu Tools > Import…} and follow the instructions on the screen.
+
+=See Also=
+* [http://en.flossmanuals.net/thunderbird/account-set-up/ Account Setup chapter] in the Thunderbird FLOSS manual
+* [http://en.flossmanuals.net/thunderbird/migrating/ Migrate to Thunderbird chapter] in the Thunderbird FLOSS manual

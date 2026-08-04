@@ -1,0 +1,15 @@
+Thunderbird can merge multiple inboxes from various POP accounts to make what is called a global inbox, where all of the received mail can be displayed in one convenient place. This article demonstrates how to set up a global inbox in Thunderbird.
+
+# Select one of the accounts from the left pane to add to a global inbox. 
+# Under the ''Accounts'' heading, click on '''View settings for this account'''.
+#;[[Image:GI Step 1]]
+# A new window will open in which all accounts will be listed in a pane to the left. From that pane, select {menu Server Settings} under the account you'd like to add to the global inbox.
+# Under the ''Message Storage'' heading, click {button Advanced}.
+#;[[Image:GI Step 4]]
+# Another window will open. In this window, select the '''Inbox for different account''' option. After doing so, use the drop-down menu to select {menu Global Inbox (Local Folders)}, then click {button OK}.
+#;[[Image:GI Step 5]]
+# Thunderbird will next ask to defer the account. Click {button OK} after reading the message.
+#;[[Image:Defer Account]]
+# Thunderbird will go back to the account settings menu. Repeat the previous steps for each account that you'd like to include in the global inbox.
+# After doing so, restart Thunderbird to access the new global inbox. The chosen accounts' inboxes should be consolidated into one inbox entitled ''Local Folders''. Notice that all of the mail from the various accounts will now be displayed in that inbox and the individual email branches will be removed from the pane on the left side of the window. 
+#;[[Image:GI Step 8]]

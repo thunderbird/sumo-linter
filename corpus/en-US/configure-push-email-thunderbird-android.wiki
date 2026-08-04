@@ -1,0 +1,57 @@
+By default, push email is off for all folders. Thunderbird for Android allows you to configure a limited number of folders (IMAP only; POP is not supported.) for push email so that you can see incoming email messages immediately.
+
+__TOC__
+
+=Turn on push email for a folder=
+{warning}
+WARNING:
+* If you kill the Thunderbird for Android app, for example by swiping up on the recent task window, push email will stop working. Thunderbird needs to be running, and it needs network access for push email to work.
+* The maximum number of push folders for an account is set in the app menu {menu ≡} > Settings gear icon {button [[Image:gear icon]]} > '''your email account''' > {menu Fetching mail} > {menu Advanced} > {menu Max folders to check with push}. Thunderbird does not warn you when this limit is exceeded. Exceeding this limit will result in push email not working on some of the folders you configured for push.
+{/warning}
+# Tap the app menu {menu ≡} at the top left. If your email accounts are hidden, tap {button Show accounts} at the bottom of the screen.
+# Tap account, for example your Gmail account > tap {button Manage folders}.
+# Tap your folder of choice. For example: tap '''Inbox''' to enable push email for your Inbox.
+#;[[Image:enable-push-tb-android-8]]
+# Turn on push email for this folder by tapping until the slider is on the right for '''Enable Push'''.
+# Turn on notifications for this folder by tapping until the slider is on the right for '''Notifications'''.
+# Turn off sync for this folder by tapping until the slider is on the left for '''Enable sync'''.
+{note}The '''Enable sync''' setting is for periodic syncs and should be disabled once push is enabled.{/note}
+Once push email is enabled for at least one folder, you should see a bell icon in the Android system bar. The bell icon indicates that push email is enabled.
+;[[Image:bell-icon-android-system-bar-tb8-pushmail-notification]]
+[[UI:details_start]]
+==Alarms & reminders permission for Android 13 and above==
+{note}This section is not applicable to you if your Android version is older than Android 13.{/note}
+# On Android 13 and above, a notification will let you know you need to grant the ''Alarms & reminders'' permission. Proceed to the permissions screen by tapping the {button Missing permission to schedule alarms} notification.
+#;[[Image:missing-permission-tb8-android-pushmail]]
+# Add this permission by tapping until the slider is on the right for '''Allow setting alarms and reminders'''. If you do not grant this permission, then push email will not work.
+#;[[Image:allow-setting-alarms-reminders-tb8-android-pushmail]]
+[[UI:details_end]]
+
+=The push email service notification=
+* Once the permission is granted (or right after enabling push on older Android versions), Thunderbird for Android will display a push email service notification entitled '''Waiting for new emails''':
+*;[[Image:notification-waiting-for-new-emails]]
+* Tapping on the {button Waiting for new emails} notification will allow you to configure the notification itself ({button Configure notification}) or to disable push email altogether ({button Disable Push}):
+*;[[Image:configure-notification-or-disable-push]]
+[[UI:details_start]]
+==Hide, change or disable the push email service notification using “Configure notification”==
+You can change the display of this notification or hide it by tapping {button Configure notification}.
+;[[Image:notification-settings-tb8-android-pushmail]]
+*'''Hide the push email service notification:''' Slide '''Show notifications''' to the left. Hiding the push email service notification does not turn off push email.
+*'''Change the push email service notification:''' Minimizing the notification will hide the bell icon from the Android status bar, but still keep the notification in the notification shade. You will still be able to see the status of your push email service (for example, '''Waiting for new emails''' or '''Sleeping until network is available''').
+*'''Disable Push email from the push email service notification using “Disable Push”:'''Tap {button Disable Push} to disable push email altogether.
+[[UI:details_end]]
+
+=Turn off push email for a folder=
+# Tap the app menu {menu ≡} at the top left. If your email accounts are hidden, tap {button Show accounts} at the bottom of the screen.
+# Tap account, for example, your Gmail account > tap {button Manage folders}.
+# Tap your folder of choice. For example, tap '''Inbox''' to disable push email for your Inbox.
+# Turn off push email for this folder by tapping until the slider is on the left for '''Enable Push'''.
+# Turn on sync for this folder by tapping until the slider is on the right for '''Enable sync'''.
+
+=New Email notifications are completely separate from the push email service notification=
+The notifications for new email messages are configured separately from the push email service notification. New email notifications are configured as follows:
+* Tap the app menu {menu ≡} > Settings gear icon {button [[Image:gear icon]]} > {menu Notifications} > {menu Messages} under ''Notification categories''.
+
+=Learn more=
+* Wikipedia: [https://wikipedia.org/wiki/Push_email Push email]
+* Google: [https://support.google.com/android/answer/9079661 Control notifications on Android]

@@ -1,0 +1,89 @@
+Thunderbird includes a message indexing and search system called “Gloda”, which is short for “Global database”. It improves search performance, provides sophisticated full-text search capabilities and displays its results in faceted (categorized) form which allows you to include or exclude messages based on various criteria.
+
+Global search queries all of your messages, regardless of the account the message is associated with or the folder where the message is stored. The ''Quick Filter'', on the other hand, is used to search for messages in the current message list. (See the [[Quick Filter Toolbar]] article for information on using the Quick Filter.)
+
+__TOC__
+
+Global search is enabled by default. The global search text box is located on the right side of the toolbar above the Quick Filter bar.
+;[[Image:1449a052503b7b12b8143c64b0fc041e-1279151035-906-1.jpg]]
+
+To disable the global search, go to [[Image:Fx57Menu]], select {for win,linux}{menu Settings}{/for}{for mac}{menu Preferences}{/for} and scroll down to ''Indexing'' section. Uncheck the box next to '''Enable Global Search and Indexer'''.
+
+The search is performed in all fields in all messages: subject, message body, From address, To address, etc. The search is not case-sensitive – searching for “thunderbird” will return messages that contain both “thunderbird” and “Thunderbird”.
+
+The wildcard character “*” at the end of your search item might not work - current results are inconsistent. 
+
+Search results are displayed in a new tab, where you can [[#w_filtering-search-results|filter the results]] by various criteria (facets).
+
+= Search terms =
+Searches operate on terms. A term is a piece of text - also known as a "string". '''Terms''' are important to understand, because they affect what you can search and what your search results will look like. Gloda global search's '''indexing''' process takes a string of characters and breaks it into terms, which are affected by delimiters, string length, and stemming.
+
+'''Delimiters''', which are punctuation or spaces on either side of a string of characters, are used generate search terms. For example, a message which contains
+; <code>123.456.987 000</code>
+will cause search terms to be indexed for "123", "456" and "987". For the purposes of indexing, neither the type of punctuation used (comma, period, question mark, etc) nor its placement matters. Likewise, the search process is agnostic to the punctuation used, so searching on any of the following will find the example message above:
+; <code>456.987
+; 456!987.
+; "456!987."</code>
+
+'''Terms of one or two characters''' are not indexed. The minimum term that gloda will index is three characters. So, a message containing the following will not have "12" nor "3" indexed:
+; <code>12.3.456.987</code>
+As a result, attempts to search on "12" or "3" will not find any messages. Also, adding a short string like "22" or "32" to other search terms will not affect the search results - these short strings are in effect ignored. "22 456" will find the example message above, even though "22" is not in the message.
+
+'''Stemming''' (porter stemming) also affects how search behaves. This is perhaps the most confusing thing that causes unexpected search results, because gloda indexes on "stemmed" versions of words. The following examples are all indexed as "find":
+; <code>find
+; finds
+; finding</code>
+and searching for any of those words will show all messages that have those words.
+
+= Searching for a single term =
+Enter a term in the search box. As you type, a drop-down list will display possible matches for your term (such as email addresses that match the characters you have entered).
+;[[Image:1449a052503b7b12b8143c64b0fc041e-1279152708-365-1.jpg]]
+
+= Searching for multiple terms =
+Enter multiple terms in the search box. Thunderbird will search for messages that contain at least one occurrence of each of the specified terms. If you enclose multiple terms within quotation marks, Thunderbird will search for the words as a phrase. That is, the search results will only contain messages that have all the words in the order they are specified in the search field. These two types of searches can be combined. For example, if you enter:
+
+converting “imap pop”
+
+… Thunderbird will find emails that contain the term “converting” and the phrase “imap pop”.
+
+== Examples ==
+Search for the terms “new”, “Thunderbird” and “pages” (without any quotation marks). Results should include messages that contain at least one occurrence of each of the terms:
+;[[Image:1449a052503b7b12b8143c64b0fc041e-1279153349-746-1.jpg]]
+Search for the phrase “new Thunderbird pages”. Results should include messages that contain the entire phrase:
+;[[Image:1449a052503b7b12b8143c64b0fc041e-1279153657-603-1.jpg]]
+You can combine these two types of searches. For example, search for “New Thunderbird” and “pages” returns messages that contain the phrase “new Thunderbird” and the word “pages”:
+;[[Image:1449a052503b7b12b8143c64b0fc041e-1279153851-576-1.jpg]]
+
+= Search results =
+Search results are displayed in a new tab. There is a panel on the left that categorizes the results, showing, for example, the number of messages containing the term(s) in conversations with specific people, or in messages stored in particular mail folders, etc.
+;[[Image:1449a052503b7b12b8143c64b0fc041e-1279578647-20-1.jpg]]
+
+== Filtering search results ==
+Use the '''Filters''' fields in the left panel to filter the messages returned by the original search. If you click an item under “Folder”, “People” or “Account”, you will be given the option to specify whether the message must (or must not) contain the item.
+
+For example, say you were searching for “Thunderbird” '''AND''' “pages”. You could refine the search results by selecting messages where you were a recipient (by clicking the '''To Me''' checkbox). Then you could further refine the results by selecting specific people and mail folders associated with the message (by clicking the text in the left panel). (To remove selected people or mail folders from the filter criteria, click the text again.)
+
+<!--
+[[Image:1449a052503b7b12b8143c64b0fc041e-1257203550-792-1.png]]
+-->
+
+== Analyzing and filtering search results by date ==
+A timeline is displayed above the messages included in the search results. The timeline shows the number of messages that match the search criteria, organized in chronological order.
+;[[Image:1449a052503b7b12b8143c64b0fc041e-1279578981-634-1.jpg]]
+Click one of the bars or on the month, day or year labels to change the period of time that is displayed.
+
+If you hover over one of the filter criterion in the left panel (without actually activating the filter), a darker area in the timeline bars shows when messages related to that criteria were sent / received.
+
+Click the bar-graph icon in the top right corner to toggle the timeline display.
+
+= Message list =
+Click a message in the search results to view it. It will open in a new tab, along with other messages that have the same subject. Your original search will be left unchanged in the search tab, so you can go back and continue searching.
+;[[Image:1449a052503b7b12b8143c64b0fc041e-1279579212-593-1.jpg]]
+When the message list is displayed, you can use the Quick Filter fields to search within the list.
+
+= Searching for spam and deleted messages =
+''Trash'' and ''Spam'' folders are not searched by default. You may override this behavior for individual folders:
+#Right-click such a folder.
+#Click {menu Properties} in the context menu that opens.
+#Check the box next to '''Include messages in this folder in Global Search results'''.
+#Click {button OK}.

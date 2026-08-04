@@ -1,0 +1,88 @@
+If a Thunderbird update resulted in Lightning (calendar) not working, you might find your issue and a recommendation how to deal with it listed below. (Seamonkey users may use these instructions, but details might be slightly different.)
+
+Some linux distributions like Redhat and Fedora package (bundle) Lightning with Thunderbird, and users should be able to use the instructions below. But Linux users of other distributions who installed Lightning by using the distro's package manager may need [[#w i-am-on-linux-and-lightning-disappeared-after-thunderbird-got-updated-release-and-beta-channel|Linux package instructions]].
+
+Background: Since version 38 the Lightning calendar extension is bundled with Thunderbird, meaning the Lightning extension comes with Thunderbird and you do not need to download the extension. For versions prior to Thunderbird 38 you will want to download the extension from [https://developer.mozilla.org/en-US/docs/Mozilla/Calendar/Calendar_Versions Calendar versions].
+
+__TOC__
+
+=Lightning disappears after a Thunderbird update (release and beta versions)=
+
+This may happen if the update of the add-on is stuck. Don't worry about your calendar data, it is left untouched and will be available again if you follow these steps to restore Lightning:
+
+# Go to the {menu Advanced} section of Thunderbird [[Template:optionsorpreferences]] and click on {button Config Editor...}
+# Copy or start typing {pref extensions.installedDistroAddon.&#123;e2fda1a4-762b-4020-b5ad-a41df1933103&#125;} into the search box
+# When {pref extensions.installedDistroAddon...} is listed in the preferences list, right-click on it and choose {menu Reset} from the context menu - the preference now isn't bold anymore and its value is empty
+# Close the editor, leave the Thunderbird options, open Thunderbird's add-ons manager and switch to the list of installed extensions
+# If Lightning is listed there, click on {button Remove} to the right of the list item
+# Restart Thunderbird
+
+After Thunderbird has been relaunched, Lightning will be back and you will have access to your calendar data.
+
+=I am on Linux and Lightning disappeared after Thunderbird got updated (release and beta channel)=
+
+If you are using a Thunderbird package distributed from the Thunderbird website, this section does not apply to you and you should use the section above.
+
+Some Linux distributions do not bundle Lightning with Thunderbird, Ubuntu for example. So you had Lightning installed either from a package of your distribution or from [https://addons.thunderbird.net ATN].
+
+If the former, please consult your distribution for a compatible package. In case of ATN, it may happen that Linux distributions ship Thunderbird updates before a Lightning version compatible to that Thunderbird version became available at ATN. This will result in an incompatible Lightning, and broken calendar functionality.
+
+If you are affected, you can switch to a compatible Lightning (or Provider for Google) package if available from your distribution.
+
+Ubuntu:
+#Open Thunderbird add-ons manager
+#Delete Lightning extension
+#Install package: xul-ext-lightning: sudo apt install xul-ext-lightning
+#Restart Thunderbird and calendar should be there
+
+If the above doesn't work for you, please consult your distribution's documentation for the exact package name or the commands needed for step 3.
+
+N.B.: currently some distributions provide packages in English only. To obtain a localized package please contact your distribution.
+
+=Lightning reappears after a Thunderbird update although I opted out (release and beta versions)=
+
+If Lightning shows up for you again after a Thunderbird update and you don't want it:
+
+# Open Thunderbird's add-ons manager and switch to the list of installed extensions list your installed extensions
+# Click on the {button Remove} to the right of the Lightning list item
+# Restart Thunderbird
+
+This will stop bringing back Lightning after a Thunderbird update. If you change your mind in future, simply follow the instructions to restore a missing Lightning at the first section above (while leaving out steps 4 and 5).
+
+=After a Thunderbird update, the first day of the week in the calendar views is set to Sunday=
+
+This was related to a cross update from a bundled version to a version from [https://addons.thunderbird.net ATN] (formerly [https://addons.mozilla.org AMO]) add-ons distribution platform. This is resolved starting with Thunderbird 60.2.1. If you use a prior version and encounter this issue, please either update or reset the first day in a week to your needs:
+
+# Open the {menu Calendar} section in Thunderbird [[Template:optionsorpreferences]] and switch to the {menu Views} tab
+# Select in the {menu Start the week on} dropdown menu whatever is right for you
+
+=When I use my user profile from a previous Thunderbird version with a newer version of Thunderbird, Lightning is not updated=
+
+If you are downloading a newer Thunderbird version instead of waiting for the automatic update or e.g. you want to test something in a beta version and you don't want to setup everything from scratch, you could use a previously used user profile. When doing so, the Lightning version should be updated when starting the Thunderbird with that profile. If it doesn't, then resetting will help - this doesn't affect your calendar data.
+
+# Start Thunderbird with the selected user profile
+# Go to the {menu Advanced} section of Thunderbird [[Template:optionsorpreferences]] and click on {button Config Editor...}
+# Copy or start typing {pref extensions.installedDistroAddon.&#123;e2fda1a4-762b-4020-b5ad-a41df1933103&#125;} into the search box
+# When it is listed in the preferences list below, right-click on it and choose {menu Reset} from the context menu - the preference now isn't bold anymore and its value is empty
+# Restart Thunderbird
+
+N.B.: if you do this e.g. for testing a beta version, and you want to continue to use that copy of the [[Profiles - Where Thunderbird stores your messages and other user data|profile]] on a previous version of Thunderbird afterwards, you will have to do the same procedure on that Thunderbird version again, since downgrades always trigger this behavior. Therefore for beta testing it is recommended to [[Using Multiple Profiles|use a separate (copy of the) user profile]].
+
+=I am using Thunderbird Daily and Lightning doesn't seem to be updated, so I cannot see the latest fixes (Daily channel only!)=
+
+If you are using Thunderbird Daily, do not install Lightning using the add-ons manager.
+
+The best version of the add-on is distributed automatically on the nightly update channel. So if you install using the add-ons manager it will cause the best version that was bundled to not be used.  
+
+If you think you are affected, you can check and fix it easily:
+
+# Open the Thunderbird add-ons manager
+# Switch to the {menu Extensions} list
+# If the Lightning item in the list has an {button Remove} option, you have over-installed it (for any other addon this would be expected and doesn't require any action since doing the same would completely remove them)
+
+To correct it just:
+
+# Press {button Remove} for Lightning if present
+# Restart Thunderbird
+
+Now you are getting served with the latest and greatest version of Lightning on every Thunderbird Daily update.

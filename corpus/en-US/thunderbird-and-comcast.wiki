@@ -1,0 +1,17 @@
+Thunderbird can be used as a client for a Comcast email account. Thunderbird will download messages from the Comcast server and store them on your local system. Similarly, Thunderbird can be used to compose messages which are sent through Comcast's mail servers.
+
+This page describes Comcast-specific settings. For general information, see these topics:
+
+* [[Automatic Account Configuration]]
+* [[Manual Account Configuration]]
+* [[FAQ Changing IMAP to POP]]
+
+Comcast has several conflicting and sporadically functional recommended configurations. The settings shown below have worked for Thunderbird users. See the Comcast section on MozillaZine's [http://kb.mozillazine.org/Creating_accounts_in_Thunderbird_for_popular_email_providers Creating accounts in Thunderbird for popular email providers] for a description of the issues with various Comcast account settings. Also, refer to Comcast's [https://www.xfinity.com/support/internet/emailwebbrowsing/ email help pages].
+
+To send email via Comcast, check that your '''Outgoing Server (SMTP)''' is configured as shown below. (To access your outgoing server settings, click [[Template:accountsettings]] and then select '''Outgoing Server (SMTP)''' from the bottom of the list on the left.)
+
+[[Image:7af3869fd3b191ce9acdf6fad61e4bea-1268258220-369-1.jpg]]
+
+To receive email via Comcast, check that your account settings are configured as shown below. (To access your incoming server settings, click [[Template:accountsettings]] and then select '''Server Settings''' under your account name from the list on the left.)
+
+[[Image:7af3869fd3b191ce9acdf6fad61e4bea-1268258440-391-1.jpg]]

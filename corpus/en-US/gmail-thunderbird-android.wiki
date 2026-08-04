@@ -1,0 +1,26 @@
+__TOC__
+
+= Troubleshooting Gmail login issues for Thunderbird for Android and K-9 =
+Gmail login issues are common and can occur for various reasons, such as incorrect credentials, browser problems, or account security measures. This guide provides straightforward solutions to help you resolve these issues quickly and gain access to your account.
+
+If you cannot log in to your Gmail account using Thunderbird or K-9, please follow the steps in Google's official troubleshooting wizard: [https://support.google.com/accounts/troubleshooter/2402620 Can't sign in to your Google Account].
+
+== Working around an “App Blocked” error in K-9 ==
+This problem has been fixed in the latest versions of K-9. Please upgrade to the latest version.
+
+== Working around Google Advanced Protection errors like “admin_policy_enforced” ==
+If you see an '''admin_policy_enforced''' message, then your administrator has '''Google Advanced Protection''' enabled for your Google Workspace. Unfortunately, the only workaround at the moment is to ask your administrator to disable '''Google Advanced Protection''' by following the steps in Google's documentation: [https://support.google.com/a/answer/7281227 Control which third-party & internal apps access Google Workspace data]. Your workspace Administrator may also be able to introduce an exception for Thunderbird for Android.
+
+If you are in control of your workspace, you can temporarily remove yourself from the Google Advanced Protection program, sign in to Thunderbird for Android, and then re-enroll yourself. Note however, when a background authentication needs to be renewed, you may be required to repeat the process.
+
+We are working on becoming part of this program in the future, so this workaround will not be required.
+
+== Wrong Google Account ==
+Thunderbird for Android opens the default Android web browser as part of logging you into your Gmail Account.
+
+If you have multiple google accounts, logging into Gmail can fail if you are using the wrong account. As well, sometimes your default web browser might try to log you in with the wrong Google Account when using OAuth. Here are some possible solutions:
+* In your default web browser, log out of all Google Accounts on https://accounts.google.com/.
+* Clear your data (cache, cookies, etc.) in your web browser. If you are using Firefox for Android, please follow the instructions in [[Clear your browsing history in Firefox for Android]]. For other browsers, please consult the browser's support site.
+
+== Issues with your Android default browser ==
+If you suspect that you have issues with your default browser, try changing it to another browser (see Google's support article [https://support.google.com/android/answer/14324187 Learn how to change your default browser]).

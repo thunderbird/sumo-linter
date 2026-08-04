@@ -1,0 +1,23 @@
+A holiday calendar lists all the public holidays of a country, and displays these in Thunderbird.
+
+There are two methods to add a holiday calendar.
+* '''Store it on your computer''' - The calendar file is stored on your computer and will be available even if you are offline. You will also be able to modify it (for example, by adding provincial or state holidays to a national holiday calendar).
+* '''Subscribe to it on the internet''' - With this method, you will subscribe to a calendar file that is published on the internet. The calendar will be kept up to date by its maintainer.
+
+= Store it on your computer =
+# Visit the [https://www.thunderbird.net/calendar/holidays/ Thunderbird holiday calendar page] or another site that offers national holiday calendars. 
+# [[T:contextmenu]] the link of the holiday calendar you want to install and select {menu Save Link As}.{note}'''NOTE:''' Calendar files have the suffix ''ics''.{/note}
+# In Thunderbird,{for win,linux} click the menu button [[Image:Fx57menu]], then{/for} go to {menu File > Open > Calendar File}.
+# Select the calendar file that you have saved in step 2.
+
+You will see that a new calendar with all your holidays has been added to your calendar view.
+
+= Subscribe to it on the internet =
+
+# Visit the [https://www.thunderbird.net/en-US/calendar/holidays/ Thunderbird holiday calendar page] (or another site that offers national holiday calendars).
+# [[T:contextmenu]] the link of the holiday calendar you want to subscribe to and select {menu Copy Link Location}.
+# In Thunderbird,{for win,linux} press the {key Alt} key to display the menu bar, then{/for} go to {menu File > New > Calendar}.
+# Select {menu On the Network}, and click {button Next}.
+# [[T:contextmenu]] in the ''Location'' field and choose {menu Paste} to enter the calendar location that you copied in step 2, then click {button Find Calendars}.<!-- need a bullet to explain offline support checkbox -->
+# Optionally click {button Properties}, give the holiday calendar a name and assign it a color in which all of the holidays are highlighted. Click {button OK}.
+# Click {button Subscribe}.

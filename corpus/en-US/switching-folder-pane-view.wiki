@@ -1,0 +1,14 @@
+The folder pane is displayed on the left side of the Thunderbird window. It shows a list of your email accounts, the folders that are created by default (such as "Sent", "Trash", etc) and the folders that you have manually created to organize your messages.
+
+[[Image:default folder pane]] 
+
+There are several "views" that can be used to display in the folder pane. The view you select will determine how the folders are organized and displayed (while not affecting the actual folders or messages themselves.) Select {menu View > Folders} from the menu bar, or select {menu Folders} from the application menu, to choose the view you want to use. The following options are available:
+
+* '''All''': This is the default view shown above. It shows each email account and its folders.
+* '''Unified''': This view combines the messages in all of your accounts into similar folders. In this view, your Inbox (and Archives, and Trash, etc) will contain the messages from all of your Inboxes in all of your accounts. 
+* '''Unread''': This view only shows account and folders that contain unread messages.
+* '''Favorite''': You can make a folder a "Favorite" by selecting {menu Edit > Favorite Folder} from the menu bar, or by selecting {menu Folders > Favorite Folder} from the application menu, or by right-clicking on the folder name and selecting Favorite Folder. When you select the Favorite view, only those folders that you have specified as favorite will be displayed.
+* '''Recent''': This view will display any folders that have had activity in the last 15 days.
+
+The folder pane has a ''Folder Pane Toolbar'' on the top which comes preconfigured with the Folder Views switcher. To enable the Folder Pane Toolbar, open the {menu View} menu, go to {menu Toolbars}, and select {menu Folder Pane Toolbar}.
+;[[Image: Switcher TB52]]

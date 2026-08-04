@@ -1,0 +1,78 @@
+Message filters allow you to set up Thunderbird to organize your messages automatically. Each account  has its own set of filters. Filters can move messages to folders, delete them, forward them to other email addresses, and more.
+
+__TOC__
+
+=When do filters execute?=
+When you receive new mail - This is when ''Getting New Mail'' is selected (the default).  Filters are applied to new mail in the inbox. This can occur either before Thunderbird does its assessment of the mail as junk, or after. If you have difficulty with filtering the message body, select after classification.
+
+When you send mail - This is when you select ''After Sending''. These filters only apply to an email being sent.
+
+When you archive email - This is when you select ''Archiving'' and applies to all mail included in the archive action.
+
+Filters are executed in the order they appear in the list of filters, except when that order is not possible, in which case you will see the message ''Note: Filter actions will be run in a different order'', and the link '''''See execution order'''''. If you click the link, you will see which order is used. For example: If you have a filter that moves a message to another folder, and then further down the list a filter that replies, the reply filter will not work because the message is gone from the folder. In this case, Thunderbird will change the order, so the reply filter will be executed before the move filter.
+
+[[Image:filter order warning]]
+
+=What folders are filtered?=
+When you select to run a filter manually you can apply the filter to a specific folder. This is not possible for the automatic execution of filters.  
+
+Automatically applied filters are applied only to the inbox, with the exception of Archive and after send filters, which apply only to the mails involved in the action to send or archive.  Other folder types are not affected.
+
+=Create a new filter=
+1. Click the Application menu button [[Image:New Fx Menu]] and then {menu Tools} followed by {menu Message Filters}.
+
+2. Click {button New}. A '''Filter Rules''' dialog box will appear.
+
+3. In the "Filter Name" field, type a name for your filter.
+
+4. Under "Apply filter when", check one of the options or both.
+
+{note}'''Note''': In most cases, you won’t want to change from the default “Getting New Mail” and “Manually Run” options.{/note}
+
+5. In the "Getting New Mail: " dropdown menu, choose either ''Filter before Junk Classification'' or ''Filter after Junk Classification''.
+
+6. Choose a ''property'', a ''test ''and a ''value ''for each rule you want to apply:
+* A ''property ''is a message element or characteristic such as “Subject” or “From”
+* A ''test ''is a check on the property, such as “contains” or “is in my address book”
+* A ''value ''completes the test with a specific detail, such as an email address or keyword
+
+7. Choose one or more actions for messages that meet those criteria.
+
+[[Image:Elements of a new Filter Rules dialog-updated]] 
+
+{note}'''Note''': To add another rule, click Add a new rule {button +} at the end of the last rule. To delete a rule, click Remove this rule {button –}.{/note}
+
+8. Click OK.
+
+9. In the '''Message Filters''' dialog box, at the top line, select the account (from the dropdown list) that the filters are to apply to
+
+10.	Click {button Run Now} if you want the new filter to be applied to messages you’ve already received. The filter will automatically be applied to all new messages after it's saved.
+
+=Example filters=
+==Add a star==
+You might want to automatically add a star to all messages from your workplace domain, making them stand out from the rest of your Inbox messages. You could create this filter:
+
+[[Image:Filter example, add Star]]
+
+{note}'''Tip''': You can create a filter using a sender’s email address directly from one of that sender’s messages. In the message header, right-click on the sender’s address and click on “Create Filter From.” By default, the new filter begins with the rule From | Is | (sender’s email address).{/note}
+
+==Move to a folder==
+You may like to filter out lower-priority messages from your Inbox to reduce clutter. For example you may have chosen to receive notifications from businesses you patronize, but like to keep them in a separate folder.
+
+First, create a folder called “Promotions” (or something similar) by clicking {menu File > New > Folder}. You could then create a filter like this:
+
+[[Image:Filter example, move to "Promotions" folder]] 
+
+Because you selected the "Match any of the following option", all messages that meet any one of these criteria will be automatically be moved from the Inbox to the Promotions folder:
+* Are from the address sales@software.biz, or
+* Have “discount” in the subject line, or
+* Have the word “customer” somewhere in the address or display name (“customer.service”, “Customer Support” etc.)
+
+{note}'''Note''': While you can also use filters to catch and dispose of junk email – that is, promotions you DIDN’T sign up for – it’s not recommended. Instead, consider [[Thunderbird and Junk / Spam Messages|using Thunderbird's junk mail controls]], which were specially designed for this purpose.{/note}
+
+{note}'''Tip''': If you have trouble with one of your filters, try starting small and working your way up. For example, you might have written a filter to move certain new messages to a different folder and it doesn't seem to do anything. Modify the message filter to make it add a star to all new messages. If that works, modify the filter to add the star only for those messages that you want to move to a folder. If that works, modify the filter to move the messages instead of adding a star.{/note}
+
+=See also=
+* [[Quick Filter Toolbar]]
+* [[Using Saved Searches]]
+* [[Global Search|Global Search]]

@@ -1,0 +1,25 @@
+Changes to profile management in Thunderbird 68 will see some users presented with this error message when an older version of Thunderbird is started.
+
+[[Image:Using old version profile]] 
+
+__TOC__
+
+=What changes were made to profiles in Thunderbird 68?=
+Some users have multiple installations of Thunderbird, each in a separate {for mac, linux}application{/for}{for win}program{/for} folder. These multiple Thunderbird installations previously shared a single [[Profiles - Where Thunderbird stores your messages and other user data|profile]] by default. Beginning with Thunderbird version 68, Thunderbird by default will use a [[Dedicated profile per Thunderbird installation|dedicated profile for each installation of Thunderbird]] (including Beta and Nightly installations). This will make Thunderbird more stable when switching between installations on the same computer and will also allow you to run different Thunderbird installations at the same time.
+{note}You will not lose any personal data or customizations. Any previous profile data is saved and associated with the first Thunderbird installation that was opened after this change.{/note}
+
+=Can I change which Thunderbird install uses my previous profile?=
+Yes. You can use the Profile Manager for each installation, to set a new default profile. Directions are available in the [[Using Multiple Profiles|Using multiple profile]] acticle.
+
+=I already use separate profiles for my different Thunderbird installations=
+If you have already manually created separate profiles for different installations, you will not notice the change.
+
+=What happens to my profile if I downgrade to a previous version of Thunderbird=
+To downgrade to a previous version you must use the procedures described in [[Dedicated profile per Thunderbird installation]]. 
+
+=I need to use my old profile and I clicked the new profile button!=
+If you have done this, you must change the default profile Thunderbird uses when it starts.  At the time of introducing this change there are no known incompatabilities with using an upgraded profile with an older version of Thunderbird, other than add-ons which may need to be removed and correct versions for the version of Thunderbird in use installed.  However, Thunderbird 68.5 implements [https://bugzilla.mozilla.org/show_bug.cgi?id=1616495 non-reversible changes to password storage]. Thunderbird 78 changes the address book format, so if you downgrade using this procedure your downgraded profile will not have changes you made to your address book while using version 78.
+
+{note}The information in the article [[Using Multiple Profiles]] provides the information to invoke the Thunderbird profile manager. The expanded paths in the note will usually need to be used to locate the Thunderbird executable program. "thunderbird.exe -p" alone rarely works in a windows environment.{/note}
+
+{note}Historically Thunderbird profiles have been created with the name "default" for the first profile, so your old profile name will most likely be "default". {/note}

@@ -1,0 +1,28 @@
+For some Exchange (EWS) account emails with multiple recipients in ''To'' or ''Cc'' fields, Thunderbird may hide the {button Reply All} button in the message pane header and the message list's columns Correspndents and Recipients may not display all recipient information in Table View. This article explains why this happens and how to fix the affected messages.
+
+{note}'''Note:''' Only '''Thunderbird 152.0''' is affected and only for Microsoft Exchange accounts that use Exchange Web Services (EWS). IMAP and POP accounts are not affected, nor Thunderbird 151 or earlier. The underlying problem is corrected in '''Thunderbird 152.0.1'''.{/note}
+
+== Why the Reply All button is missing ==
+
+When Thunderbird 152.0 downloaded certain messages from an Exchange (EWS) server, some message details were not stored correctly in your local copy, including the full list of recipients. Because Thunderbird does not find more than one recipient, it does not show the {button Reply All} button for those messages nor display the correct information in the Recipients column.
+
+Whether a message is affected depends on the version of Thunderbird that last downloaded it, which is why only some messages are missing the button and others messages are not missing the button.
+
+'''Updating to Thunderbird 152.0.1 or newer avoids incorrect message downloads, but messages already downloaded with incomplete data using 152.0 need to be repaired manually using the steps below.'''
+
+== Repair an affected folder ==
+
+You must update to version 152.0.1 or newer, then repair the folder to rebuild its local index with the missing recipient information. After a repair, the {button Reply All} button appears again for all messages that have multiple recipients, and the full recipient list will display correctly in the message list.
+
+# Update to version 152.0.1 or newer. Briefly: click the Thunderbird app menu {menu ☰} > {menu Help} > {menu About Thunderbird}. If an update is available, you will see an {button Update to <version number>} button. Click to update, and when the download is finished click on {button Restart Thunderbird to Update} to complete the update. Refer to [[Update Thunderbird to the latest version]] for details.
+# In the folder pane, find the Exchange (EWS) folder that contains messages with a missing {button Reply All} button.
+# Right-click ({key Ctrl+click} on macOS) the EWS folder > {menu Properties}.
+# In the '''Folder Properties''' window, '''General information''' tab, click {button Repair Folder} and wait for the repair to finish.
+
+Repeat these steps for other Exchange folders where the {button Reply All} button is missing.
+
+== Still missing the Reply All button? ==
+
+If the {button Reply All} button is still missing after updating Thunderbird and repairing the folder, confirm that the message actually has more than one recipient in the ''To'' or ''Cc'' fields by examining the message headers by pressing {key Ctrl+U} ({key Command+U} on macOS) to view the message source. A message sent only to you will not show a {button Reply All} button.
+
+Need help? [http://support.mozilla.org/questions/new/thunderbird/form Ask for support] in our [https://support.mozilla.org/products/thunderbird Thunderbird community forum] from our global community of volunteers who have been doing most Thunderbird support for over 20 years.

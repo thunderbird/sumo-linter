@@ -1,0 +1,3 @@
+For a list of new features, fixes and known issues in the latest versions of Thunderbird:
+* See [https:///www.thunderbird.net/notes Thunderbird Desktop release notes] for a full list. Or for a summary of changes and new features, plus detailed descriptions, see [[New in Thunderbird Desktop]].
+* See [https://github.com/thunderbird/thunderbird-android/releases/ Thunderbird for Android release notes] for a full list. Or for a summary of changes and new features, plus detailed descriptions, see [[New in Thunderbird for Android]].

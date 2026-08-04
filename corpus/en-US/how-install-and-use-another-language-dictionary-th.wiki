@@ -1,0 +1,47 @@
+If you send messages in more than one language, you can install additional spell-checking dictionaries to Thunderbird. After installing a dictionary, it is easy to switch from one language to another.
+
+Language dictionaries are available as Thunderbird add-ons. See the [[Add-Ons and Extensions FAQ]] for more information.
+
+__TOC__
+
+= Install a new language dictionary =
+{for not tb60}
+# [[Template:optionspreferences TB]]
+# Select the {menu Composition} panel, followed by the {menu Spelling} tab.
+# Click '''Download More Dictionaries''', then click {button OK} to close the dialog.
+# In the opened tab, scroll through the alphabetic list of dictionaries to find the one you want.
+# Click '''Download Dictionary''' next to the language of your choice. This will open the page of the selected dictionary in your browser.
+# In the opened page of the selected dictionary, click the green {button + Download Now} button. A dialog will open.
+# Click the {button OK} button to download and save the '''.xpi''' file to your computer. {note}'''Note''': Most browsers have a default download location. Make a note of where it downloads to, and what it's called.{/note}
+# In Thunderbird, click the menu button [[Image:New Fx Menu]] and click {menu Add-ons}, or select {menu Tools > Add-ons}.
+# Click the gear icon at the top-right corner to the left of the search box and then select {menu Install Add-on From File…}
+# Browse to the location of the '''.xpi''' file of the dictionary you have downloaded, select it, and click {button Open}.
+# Click {button Install Now} once the button is available.
+# Restart Thunderbird if prompted.
+{/for}
+{for tb60}
+# [[Template:optionspreferences TB]]
+# Select the {menu Composition} panel, followed by the {menu Spelling} tab.
+# Click '''Download More Dictionaries''', then click {button OK} to close the dialog.
+# In the opened tab, scroll through the alphabetic list of dictionaries to find the one you want.
+# Click '''Download Dictionary''' next to the language of your choice.
+# In the opened page of the selected dictionary, click the green {button Add to Thunderbird} button.
+# In the Software Installation window, click {button Install Now}.
+# Restart Thunderbird if prompted.
+{/for}
+
+That's it! Your new dictionary is installed. To uninstall it, open the Add-ons Manager, find the dictionary on the {menu Dictionaries} or {menu Extensions} panel and click the {button Remove} button next to it.
+
+= Switch between different languages =
+== Select a language for one particular message ==
+[[T:contextmenu]] in the message you are writing and select a language in the {menu Languages} menu.
+
+[[Image:TB switch dictionaries]]
+
+== Set the default language for all messages ==
+# [[Template:optionspreferences TB]]
+# Select the {menu Composition} panel, followed by the {menu Spelling} tab.
+# Select the desired language from the drop-down list.
+# Click {button OK} to close the dialog.
+
+[[Image:Dictionary popup menu]]

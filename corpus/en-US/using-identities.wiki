@@ -1,0 +1,30 @@
+When you configure an account, Thunderbird creates a default '''identity''' for the account that contains information like your name, email address, the location where your messages should be stored, signature, etc. You can manually create additional identities for your account using Thunderbird. When you create (or reply) to a message, you can specify any of the identities you have configured by selecting it from the '''From''' drop-down list.
+
+
+= About identities =
+As an example of how identities are useful, consider a scenario where you have a "default" address for a domain (such as "feedback@example.com") that is published on your website. People might send messages to this address on a variety of topics: Customer and vendor inquiries, feedback on the site's technical issues, etc. 
+
+When you configure multiple identities, you can specify the identity that is used when you reply to a message. For example, you could configure an identity for "sales@example.com", with a name and email address different than "feedback@example.com". Then, when you reply, you could specify using the "sales@example.com" identity for that reply.
+
+Other uses for identities:
+
+* Using an email forwarding service that redirects messages sent to an old email account to a new one
+* Switching message configurations for specific messages (such as encryption or an SMTP server)
+
+In this article, identities refer to separate configurations for a single account. However, if you have multiple email accounts, there is a default profile configured for each account that is used in the same manner as identities configured for a single account.
+
+= Creating identities =
+To create an identity:
+# Click Thunderbird app menu {menu ☰} > {menu Account Settings} > click on the desired account in the left sidebar.
+# Click the {button Manage Identities…} button in the bottom right. This displays a list of the identities previously created for the account. To create a new identity, click {button Add}.
+
+Similar to configuring the default identity when you create a new account, the identity dialog enables you to specify various aspects:
+
+*'''Settings''': Name, address, signature, etc
+*'''Copies & Folders''': cc, bcc, and where to store messages
+*'''Composition & Addressing''': Text format, quote management, signature, etc
+
+= Using identities =
+When you create a new message, Thunderbird uses the default identity for the selected account as the message's '''From''' value. Click the drop-down list in the '''From''' field to select a different identity. The drop-down list will display both identities for the selected account and identities for other accounts.
+
+When you reply to a message or forward a message, Thunderbird scans the recipients and, if available, chooses the identity the original author used when sending the message to you (Sometimes this information is not available, such as with certain mailing lists). This identity will then be the default identity in the compose window. You may select a different identity as described above.

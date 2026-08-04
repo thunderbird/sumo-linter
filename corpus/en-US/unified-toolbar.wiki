@@ -1,0 +1,23 @@
+{note} For versions of Thunderbird prior to Thunderbird 115 Supernova, please refer to: [[How to Customize Toolbars]].{/note}
+
+For Thunderbird 115 Supernova and newer there is a “Unified Toolbar” on top of the Tabs Bar, which is fully screenreader and keyboard accessible.  
+
+This toolbar is used for all  “Spaces”, which are  Mail, Address Book, Calendar, Tasks, Chat and Settings. The toolbar is customizable by right clicking (control click on macOS) > {button Customize...}.
+<br />
+<br />
+[[Image:tb115-unified-toolbar-customize]]
+
+{button Customize...} offers a common set of  buttons available for all “Spaces”, which correspond to the [[New in Thunderbird 102#w_take-control-of-your-personal-information-new-spaces-toolbar|Spaces Toolbar Introduced in 102]]. Also available are Spaces-specific buttons for each Space. 
+
+Full keyboard navigation includes {key Tab} and arrow keys to navigate, {key Enter} to add a button to the toolbar, {key Delete} to remove it, and {key Alt} with arrow keys to move buttons around on the toolbar, in addition to mouse actions such as drag and drop. 
+
+Please refer to the following screenshot:
+[[Image:tb-115-customize-unified-toolbar-mail-space-selected]] 
+
+* 1. To select a toolbar to customize, click on one of the buttons for the desired Space you wish to customize  i.e. {button Mail},  {button Address book}, {button Calendar},  etc.
+* 2. This is the Universal Toolbar for the Space you have selected that you are customizing and its current buttons. Drag and Drop to move the buttons around, or use the Context Menu (control click on macOS, right click on Windows and Linux) to move the buttons. You can also use the keyboard: {key Tab} to select a button, {key Delete} to remove it, and {key Alt} with arrow keys to move buttons around on the toolbar, and {key Enter} to add a button to the toolbar.
+* 3. These are the buttons that are available for the specific Space you have selected.
+* 4. These are the buttons that are available for all the Spaces including the one that you have selected.
+* 5. This is the Button Style. The default is {menu Icons beside text}
+
+'''Try it out:''' Experiment with some buttons and different arrangements. Try out the Context Menus on the buttons by right clicking (control click on macOS) You can always restore the default toolbar settings by clicking {button Restore default}. When you are finished customizing, click {button Save}.

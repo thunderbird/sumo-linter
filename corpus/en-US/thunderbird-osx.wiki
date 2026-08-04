@@ -1,0 +1,12 @@
+{for win,linux}{warning}This article applies to Mac users only.{/warning}{/for}
+
+Starting with Thunderbird version 52, [https://www.mozilla.org/thunderbird/system-requirements/ Thunderbird requires] Mac OS X 10.9 (Mavericks) or higher. If you are on an earlier version of Mac OS X, there are options for you to continue using a secure version of Thunderbird.
+{note}Visit this [https://support.apple.com/HT201260 Apple Support page] to find your Mac OS version.{/note} 
+
+=Option 1: Upgrade to a Mac OS version supported by Apple=
+To ensure the safest email experience, we recommend upgrading to a Mac OS version that Apple supports. Visit this [https://support.apple.com/HT201475 Apple Support Page] to learn more about upgrading.
+
+While Thunderbird will still continue to work on unsupported versions, using Thunderbird on a supported version will provide you with the best and safest user experience.
+
+=Option 2: Download Thunderbird version 45=
+Thunderbird 45 will continue to work with Mac OS X 10.6, 10.7 and 10.8 but will not receive any further updates or security fixes. Thunderbird 45 can be downloaded from [https://ftp.mozilla.org/pub/thunderbird/releases/45.8.0/mac/ here]. First pick the folder for your locale and then download the package.

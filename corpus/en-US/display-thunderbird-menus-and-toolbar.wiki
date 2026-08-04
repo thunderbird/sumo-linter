@@ -1,0 +1,25 @@
+Whether or not the Thunderbird Menu Bar is displayed depends on your Operating System.
+
+{for win,linux}
+For Windows and Linux users, there are two cases:
+* For existing Thunderbird users, if the ''Menu Bar'' is missing, it is usually because it has been hidden accidentally.
+* For new Thunderbird users starting in any version of Thunderbird released in November 2012 or later, the ''Menu Bar'' is hidden by default.
+{/for}
+{for mac}
+For Mac users, it is not possible to hide the ''Menu Bar'', so Mac users always see the ''Menu Bar''.
+{/for}
+
+{for win,linux}
+= Hidden Menu Bar =
+If you're using any version of Thunderbird released in November 2012 or later, you now have a menu button on the top-right corner that takes the most common functions and puts them in one menu. For new Thunderbird users, the Menu Bar is hidden by default.
+;[[Image:Menu Button]]
+;[[Image:Menu Button Menu]]{/for}
+{for win}
+*To temporarily show the Menu Bar, just press the {key Alt} key.
+{/for}
+{for linux}
+*To temporarily show the Menu Bar, hit the {key F10} key.
+{/for}
+{for win,linux}
+* To have the Menu Bar shown all the time, right-click on an empty section of the Tab Strip and check {menu Menu Bar} in the pop-up menu.
+;[[Image:View Menu Bar]]{/for}

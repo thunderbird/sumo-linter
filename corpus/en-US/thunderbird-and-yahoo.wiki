@@ -1,0 +1,106 @@
+=NEW! Update to secure PKCE authentication settings, March 2026=
+{warning}You may have been asked in Thunderbird to log in your Yahoo, ATT or AOL accounts, or seen a notice with the title '''Upcoming Account Change'''. This is the result of Thunderbird, as of version 148.0 on February 22, 2026, switching to a more secure authorization protocol known as OAuth2 with [https://www.rfc-editor.org/rfc/rfc7636 PKCE]. Below are instructions to assist you in the log in process.<br><br>
+In addition to enhanced security, this update also allows you to access Yahoo, AOL, and ATT calendars and address books in Thunderbird, which is a major new benefit to users. If you need more information, see [[#w_oauth2-authorization|OAuth2 Authorization]] below.{/warning}
+
+==You have only one account==
+If you have only one account, then no change is needed in Thunderbird for PKCE to work. You just log in ("authenticate") by providing your email account and account password ('''App passwords''' do not work with OAuth2), and then confirm that Thunderbird may access data on the provider's servers (AOL, ATT, Yahoo, etc). This is a normal and safe process. If you have difficulty, please see [[#w_detailed-troubleshooting-steps|Detailed Troubleshooting Steps]] below.
+
+==You have more than one account==
+[[UI:details_start]]
+If you have more than one account, such as one AOL account and one Yahoo account, to allow PKCE to work you must:
+===Configure a Thunderbird preference to make multiple accounts work===
+More details about preferences at: [[Config Editor]].
+# Click {menu ≡} > {menu Settings} > {button General}.
+# Scroll down to the bottom and click {button Config Editor…}.
+# Click {button Accept the risk and continue} if that appears.
+# Type {pref mailnews.oauth.usePrivateBrowser} into the search box.
+# Click on the ''Toggle'' {button [[Image:Config Editor Toggle]]} button to change the value to {pref true}.
+# Quit Thunderbird Click {menu ≡} > {menu Quit} and then restart it.
+# Retry logging in to your accounts (Yahoo, ATT, AOL).
+If you have difficulties, please see [[#w_detailed-troubleshooting-steps|Detailed Troubleshooting Steps]] below.
+[[UI:details_end]]
+
+__TOC__
+
+=OAuth2 Authorization=
+OAuth2 is the default authentication method for accessing Yahoo provided services and partner providers like AOL and ATT. The  provider (not Thunderbird) presents to you several dialogs  that look like web pages, asking for account username and account password, asking for agreement to terms of service, and requesting authorization for the types of provider data you wish Thunderbird to be permitted to access, such as mail, calendar, and contacts.
+
+==OAuth2 dialog sequence==
+You will be shown dialogs for some or all of the following as part of the authentication process:
+#Provide your username, email or mobile. Username is your email address.
+#Provide your Account Password (do not use an "App Password").
+#Optionally, agree to Terms of Service.
+#Optionally, choose a method to confirm "Is it really you?" by sending a code to your phone or backup email address and then enter the code sent into a followup dialog.
+#Grant permission to '''Thunderbird Mail''' to access some or all of the following data: mail, contacts, calendar.
+
+At the end of the authentication process:
+*An access token is sent from your provider, which is then stored by Thunderbird in its list of passwords to allow future access to the server. A token is a string of characters to allow access from a specific client on a specific device - it is not a password. Tokens eventually expire, at a time determined by your provider, which requires you to again authenticate with your username and password. If you do not know your password, then you must use your provider's account pages in a web browser to create a new password, often called a "password reset".
+*Thunderbird sets the account's configuration according to the authentication settings you just provided.
+
+Note: OAuth2 also requires javascript and cookies, which are enabled by default in Thunderbird.
+<!-- @wsmwk, not sure what you had in mind here:For more information see ... information we are going to steal from https://support.mozilla.org/en-US/kb/microsoft-oauth-authentication-and-thunderbird-202.  [wsmwk] I need to think about this. -->
+
+=Mail Settings=
+==POP==
+Refer to Yahoo's help page for [https://help.yahoo.com/kb/SLN3217.html POP access settings and instructions for Yahoo Mail].
+==IMAP==
+Refer to Yahoo's help page for [https://help.yahoo.com/kb/SLN4075.html IMAP server settings for Yahoo Mail].
+==My sign-in attempt was prevented==
+If you get the '''Username or password invalid''' warning and the '''Sign-in attempt prevented''' email when you try to connect your Yahoo Mail with Thunderbird, Yahoo has blocked Thunderbird from connecting because it's a "less secure" non-Yahoo app.<br>
+Update: please read section [[#w_important-changes-to-authentication-method-notice|Important Changes to Authentication Method Notice]] below.
+
+In Thunderbird version 68.5 and up, you can change the POP server to pop.mail.yahoo.com (port 995). 
+
+==Important Changes to Authentication Method Notice==
+If you currently have a POP or IMAP mail account in Thunderbird and receive an email from Yahoo that says: <br>
+''"We’ve noticed that you’re using non-Yahoo applications (such as third-party email,calendar, or contact applications) that may use a less secure sign-in method. To protect you and your data, Yahoo will no longer support the current sign-in functionality in your application starting on 20 October 2020."''
+
+'''Check Thunderbird has cookies enabled.''' <br>
+#Click Thunderbird app menu {menu ☰} > {menu Settings} > {menu Privacy & Security}.
+#Tick {button ✓ Accept cookies from sites}.
+#Click {button Exceptions…} next to ''Accept cookies from sites'' to make sure you are not blocking cookies from sites such as ''yahoo<!---->.com'', ''aol<!---->.com'' or ''att<!---->.com''.
+
+'''Update the 'Authentication Method' for the POP3 or IMAP mail account.'''
+#Click Thunderbird app menu {menu ☰} > {menu Account Settings}.
+#Click on the mail account name in the left sidebar for example ''nemo@thunderbird.net''.
+#Bottom right: click on {button Edit outgoing server…}.
+#Set '''Authentication Method''' to {menu OAuth2}.
+#Click {button OK}.
+#Click on {menu Server Settings} in the left sidebar for your mail account.
+#Set '''Authentication Method''' to {menu OAuth2}.
+#Click on {button OK}.
+# Quit Thunderbird: click {menu ≡} > {menu Quit}, wait a few moments for background processes to complete and then start Thunderbird.
+
+There will be a prompt from your Yahoo ISP partner to log in. This is done with an OAuth 2.0 key exchange in Thunderbird which will authenticate the Thunderbird client in future logins.
+
+= Import Yahoo's Contact List to Thunderbird =
+# Open your Yahoo Mail account.
+# On the right side of the screen (left if you are using the "classic mail"), select the '''Contacts''' icon. Your contact list will open.
+# At the top of the list, click the '''Actions''' menu.
+# In the menu, select '''Export...'''.
+# Select '''Netscape/Thunderbird''' and click '''Export Now'''.
+# Save the {filepath yahoo_contacts.ldif} file to your desktop or some other place where you can find it later.
+# Open Thunderbird.
+# Under {menu Tools}, select {menu Import} and then {menu Address Books}.
+# Select '''Text file (LDIF, .tab, .csv, .txt)''', then click {button Next}.
+# Select the {filepath yahoo_contacts.ldif} file that you previously saved.
+# Your Yahoo! contacts will be imported as a separate '''yahoo_contacts''' address book.
+
+= Calendar =
+To configure the Thunderbird calendar with your Yahoo Calendar, follow the instructions at the page [https://help.yahoo.com/kb/SLN4704.html Sync or access your calendar on multiple devices and applications] on the Yahoo support site.
+
+=Detailed Troubleshooting Steps=
+{note}Please note that the following are unlikely to help resolve your problems: deleting accounts and adding them back, clearing cache, creating a new profile, and restoring your profile from backup.{/note}
+==Please check the following before asking for support==
+#With the password that failed when logging in when using Thunderbird, can you log in to your mail provider’s web interface (webmail)?  If you are unable to log in to webmail, then the password is either not an account password or is no longer valid.  The easiest way to solve this problem is to reset the account password using your provider’s website.
+#Cookies must be enabled in Thunderbird: {menu ≡} > {menu Settings} > {menu Privacy & Security} > '''Accept cookies from sites''' must be checked.
+#Can you see the entire OAuth2 dialog panel (no action buttons are missing)? And no OAuth2 dialogs are hidden behind what you currently see?
+#Are you in the country in which you normally use the account, and not using a VPN?
+#Is the authentication method in {menu ≡} > {menu Account Settings} > {menu Server Settings} set to '''OAuth2''' for all AOL, ATT, and Yahoo accounts?
+<!-- [[UI:details_start]]-->
+==How to ask for support==
+If you are still having trouble, please post a support request at: https://support.mozilla.org/questions/new/thunderbird with:
+* Thunderbird version number. For example 148.0, 140.8.0esr, 149.0b1.
+* List of all your mail providers. For example: ATT, AOL, Yahoo, etc.
+* List all the steps you tried to resolve the issue, and please confirm you have checked everything in the [[#w_please-check-the-following-before-asking-for-support|Please check the following before asking for support]] section above.
+* Screenshots showing the failed attempts or the exact error message from your mail provider.

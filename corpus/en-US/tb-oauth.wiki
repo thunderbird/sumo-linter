@@ -1,0 +1,60 @@
+=OAuth for Thunderbird=
+{note}'''NOTES''':
+* For simplicity, we will use the term [https://en.wikipedia.org/wiki/OAuth '''OAuth'''] instead of '''OAuth 2''' or '''OAuth 2.0'''. Thunderbird’s current implementation of OAuth is based on OAuth 2.0, the most common version of OAuth.
+* Prior to Thunderbird 153, the OAuth dialogues are presented in a tab inside Thunderbird. Versions 153 and higher display the OAuth dialogues externally in your system’s default web browser (Firefox, Chrome, etc.) instead.{/note}
+
+__TOC__
+
+=What is OAuth?=
+[https://en.wikipedia.org/wiki/OAuth OAuth] is a web standard that allows you to authorize an application (such as Thunderbird) or service to sign in to a provider without divulging private information, such as the password to your provider’s account.
+
+For less technical people, here is a "bank" analogy for OAuth: 
+* Instead of giving Thunderbird your '''full access password''' (the one that allows you to access all of a provider’s services), you log in to your bank's website (possibly with the bank's ads) directly. 
+* Once you are verified, the bank gives Thunderbird a temporary, laminated visitor badge ('''Access Token''') with a limited photo ID (OpenID). Thunderbird never stores your password, just this token.
+* Thunderbird presents this badge to the vault guards (email servers) to fetch your messages (and sometimes your contacts and calendars) but nothing else in the bank, all done without your full access password.
+
+[[UI:details_start]]
+==More detailed OAuth explanation for less technical people==
+The '''Bank''' analogy breaks down how this works:
+* '''The Bank &amp; Vault (Your Email Provider)''': Google, Microsoft, etc., act as the secure bank holding your valuable assets (emails, contacts, calendar).
+* '''Your All Access Password (Your Username/Password)''': This is the key to your entire safety deposit box. You only show this directly to the Bank during verification, never to random third-party apps.
+* '''Thunderbird (The Courier)''': Thunderbird is a hired courier service you use to deliver and pick up your mail from the bank.
+* '''The OAuth Token (The Temporary Badge)''': Instead of handing your password to the courier, the Bank issues Thunderbird a laminated, time-sensitive visitor badge.
+
+===How the Process Works===
+# '''Requesting Access''': When you set up a new email in Thunderbird, it asks the Bank for a badge.
+# '''The Laminated Badge''': The Bank temporarily redirects you to their secure website (the Bank’s lobby), where you verify your identity with your full access password (e.g. your Google or Microsoft account password) and perhaps Two-Factor Authentication (2FA).
+# '''Restricted Privileges''': Once verified, the Bank issues Thunderbird an Access Token. This token only grants the ability to read and send emails (and perhaps contacts and calendars) —it cannot be used for anything else (e.g. Google Photos or Microsoft’s One Drive), to change your account password, or lock you out.
+# '''Revoking Access''': If you no longer trust Thunderbird, or if your device is lost, you can call the Bank (go to your Google or Microsoft account settings) and tell them to “cancel the badge.” Thunderbird instantly loses access, but your account (for example your Google or Microsoft account) remains untouched.
+[[UI:details_end]]
+
+[[UI:details_start]]
+==That’s not technical enough. Please explain OAuth in depth!==
+OAuth is a web standard that allows you to authorize one application or service to sign in to another without divulging private information, such as passwords. '''Sign in with Google / Apple /Microsoft''' is an example of OAuth that you may have seen. Many email providers like Gmail and Outlook use OAuth to allow Thunderbird to sign in to their email services without sharing the entire email provider’s credentials with Thunderbird.
+
+OAuth is the default authentication method for Gmail, Outlook, Yahoo Mail, and many more providers. The provider (not Thunderbird) opens your system’s web browser and presents a sequence of provider-branded dialogs asking for an account username and password, agreement to a terms of service, and authorization for the types of the provider’s data you wish Thunderbird to be permitted to access, such as mail, calendar, and contacts. Any or all of these dialogs could have ads. '''Anything displayed in these dialogues (including ads) is controlled by the email provider, not Thunderbird'''.
+
+===OAuth dialog sequence===
+You will be shown dialogs for some or all of the following as part of the authentication process:
+# Provide your username, email or mobile number. The username will be your email address.
+# Provide your account password (do not use your '''app password''').
+# Optionally, agree to the Terms of Service.
+# Optionally, choose a method to confirm “Is it really you?” by sending a security code to your phone or account email address and then enter the code that was sent into a followup dialog.
+# Grant permission to '''Thunderbird''' to access some or all of the following data: Mail, contacts, calendar.
+At the end of the authentication process:
+* An '''access token''' is sent from your provider, which is then stored by Thunderbird in its list of passwords to allow future access to the server. A token is a string of characters that allows access from a specific client on a specific device - it is not a password. Tokens eventually expire at a time determined by your provider, which requires you to again authenticate with your username and password. If you do not know your password, then you must use your provider’s account page in a web browser to create a new password, often called a '''password reset.'''
+* Thunderbird sets the account’s configuration according to the authentication settings you just provided.
+[[UI:details_end]]
+
+=How do I troubleshoot OAuth issues?=
+If your email provider is using OAuth and you see authentication or authorization errors, then please follow this checklist:
+# '''OAuth requires JavaScript and cookies,''' which may not be enabled in your system web browser. They must be enabled in order for OAuth to work. Please double check they are enabled (consult your system browser’s documentation). For example, Firefox’s documentation can be found at [https://support.mozilla.org/products/firefox support.mozilla.org/products/firefox]. In particular, to turn on JavaScript (which add-ons may turn off), please refer to [[JavaScript settings and preferences for interactive web pages]], and to unblock cookies which add-ons may block), please refer to: [[Websites say cookies are blocked - Unblock them]].
+# OAuth runs a web server on your computer at port 80. If you have other software running on port 80 (for example a WebDAV client) on <code>localhost</code> or <code>127.0.0.1</code>, please disable it in order to make OAuth work.
+# Since OAuth uses the system web browser, all the normal browser troubleshooting steps apply. Consult your system browser’s official documentation for troubleshooting. For example, here are steps for Firefox: [[Troubleshoot and diagnose Firefox problems]]. Briefly:
+#* If your browser has something similar to [[Use Troubleshoot Mode in Firefox|Firefox Troubleshoot mode]], see if using it will resolve your OAuth issue.
+#* Disable extensions.
+#* Disable antivirus and other third party software.
+#* If you are on Windows, try [https://support.microsoft.com/windows/windows-startup-settings-1af6ec8c-4d4a-4b23-adb7-e76eef0b847f Windows Safe Mode].
+# Try changing your system web browser to another web browser. For example, change it from Chrome to Firefox.
+# Ask for support from your email provider first - most of the time, OAuth issues are not caused by Thunderbird. Transitioning from traditional passwords to OAuth can result in issues that only your email provider can fix.
+# Ask for [https://support.mozilla.org/questions/new/thunderbird/form support] from our wonderful worldwide community of Mozilla support volunteers who, for over 20 years, have done the majority of Thunderbird support.

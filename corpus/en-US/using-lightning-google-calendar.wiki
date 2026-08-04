@@ -1,0 +1,16 @@
+This article describes how to use Google calendars together with Thunderbird. You can use Google calendars in two ways, as a read/write calendar (with both read and write access) or as read only calendar (also known as view only access) to '''public''' calendars. 
+
+__TOC__
+
+= How to add read/write Google calendars =
+== First, select the Google calendars you want to synchronize with Thunderbird ==
+Before you start the steps below, go to https://calendar.google.com/calendar/syncselect and select the calendars you want to synchronize. If you do not select them in this step, they will not appear in Thunderbird in the next step.
+
+== Second, add your read/write calendars ==
+# Click {button ≡} > {menu New Account} > {menu Calendar} > {menu On the Network} > {button Next}.
+# Enter your Google account address in the '''Username''' field and then click {button Find Calendars}. This should start the Google sign-in flow and then present you with a list of calendars you can subcribe to.
+# Tick the calendars you would like to synchronize and then click {button Subscribe}.
+In case of errors, please retry at least once. You should be able to select any of the calendars you enabled in the previous step and add them to Thunderbird.
+
+= How to add read only Google calendars =
+If you only need read-access  to a Google calendar, you can use the link of the public ICS file which is provided by Google, as indicated on this Google Help article: [http://www.google.com/support/calendar/bin/answer.py?hl=en&answer=37648 View from other applications].

@@ -1,0 +1,32 @@
+Thunderbird's '''Export''' tool lets you create a backup of your [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird profile]] including accounts, messages, address books, and settings. The entire contents of your Thunderbird profile folder will be saved to a zip file, which you can later restore using Thunderbird's [[Import settings and data into Thunderbird|Import Tool]], typically on another computer.
+
+__TOC__
+
+{warning}'''Please note that the Export tool currently only supports backup zip files of up to 2 GB'''.
+
+If your profile folder is larger than 2 GB, please follow the steps for [[#w_creating-a-backup-of-large-profiles|Creating a backup of large profiles]] below.
+{/warning}
+
+= How to backup your profile with the Export tool =
+
+[[Image: TB102-tools-export-step1]]
+
+Creating a backup copy of your current Thunderbird profile is very simple:
+
+# Do {button ≡} > {menu Tools} > {menu Export}
+# Click on the {button Export} button.
+# In the '''Export to a ZIP file''' dialog, choose a target folder and file name, e.g. {filepath Thunderbird_profile_backup_2022-06-28.zip}.
+# Click {button Save}.
+
+Already done! You now have a backup copy of your Thunderbird profile.
+
+= Creating a backup of large profiles =
+
+If your profile folder is larger than 2 GB, you need to use your file manager and create a backup copy of your profile folder yourself.
+
+# To find your profile folder, you can use the '''Open profile folder''' link in the first step of the [[#w_how-to-backup-your-profile-with-the-export-tool|Export tool]]. You will see the contents of your profile folder in your file manager. The profile folder has a name like {filepath abc12defg.default-release}.
+# Select and copy the entire content of your profile folder.
+# Create an empty folder where you want to keep your backup, e.g. on a USB flash drive. You can choose a helpful folder name like {filepath Thunderbird_profile_backup_2022-06-28}.
+# Paste the contents of your profile folder into your empty target folder.
+
+{note}'''Note:''' You can also use a third-party file compressor that has the ability to create multiple volumes to split the archive into smaller files, such as [https://7-zip.org/ 7zip] (available for Windows, Mac, and Linux).{/note}

@@ -1,0 +1,76 @@
+When composing a message, tables can be used to display data in a structured format. Tables use columns and rows to create cells, which can contain text or images. They can also be used to control the layout, or how your signature is displayed.
+
+__TOC__
+
+= Create a Table =
+# In the Thunderbird toolbar, click the {button Write} button to start composing a message.
+# On the Menu bar, click on {menu Insert} and select {menu Table}. A small {for win}''Insert Table'' {/for}window will appear.{for win}<br/><br/>[[Image:'Insert Table' window]]<br/>{/for}
+# Type the number of rows and columns you require. You can add or remove unwanted rows and columns at a later time.
+# Choose the required width.
+# Choose the required border (measured in pixels).{note}'''Don't want a border?''' Set the number to ''0''.{/note}
+# Click on {button OK} to insert the Table.
+{for win}
+[[Image:Example of a 'Table'.]] 
+{/for}
+
+= Add or Delete a Column or Row =
+== Add a Column or Row ==
+# Click on a cell adjacent to where you wish to add a column or row.
+# On the menu bar, open the {menu Format} menu, then go to {menu Table}, then {menu Insert}, and select from the actions:
+#* {menu Row Above}
+#* {menu Row Below}
+#* {menu Column Before}
+#* {menu Column After}
+
+== Delete a Column or Row ==
+# Click on a cell within the column or row.
+# On the menu bar, open the {menu Format} menu, then go to {menu Table}, then {menu Delete}, and select from the actions:
+#* {menu Column(s)}
+#* {menu Row(s)}
+
+{note}'''To add and delete columns and rows on the fly''', use the ''x'' and ''triangle'' icons on the table edges.{for win}<br/><br/>[[Image:Add or Delete a Row or Column]]{/for}{/note}
+
+= Merge or Split Cells =
+== Merge Cells ==
+# Click and drag the mouse over the cells.
+# On the menu bar, open the {menu Format} menu, then go to {menu Table}, and select {menu Join Selected Cells}.
+
+== Split a cell ==
+# Select the merged cell.
+# On the menu bar, open the {menu Format} menu, then go to {menu Table}, and select {menu Split Cell}.
+
+== Spacing, Padding, Alignment, and other advanced properties ==
+# Click anywhere on the table.
+# On the menu bar, open the {menu Format} menu, then go to {menu Table}, and select {menu Table Properties}. The ''Table Properties'' window will open.
+#* The ''Table'' tab: Adjustments to rows, columns, borders, spacing, padding, table alignment, table caption and background color.
+#* The ''Cell'' tab: Selected cells' height, width, content alignment, cell style, text wrap and background color.
+
+= Align Text =
+# Select the cell.
+# On the Formatting Bar, click on the ''Choose Text Alignment'' icon.
+# Select one of the options shown in the drop down list.
+
+= Set font color and background color for each cell =
+# Select the cell.
+# On the Formatting Bar, click on the ''Choose color for text'' or ''Choose color for background'' icon.
+# Select the color from the pop-up window.
+# Click {button OK}.
+
+{for win} <!-- Because the text is not useful without the screenshot, I made the entire section windows-only until we have Mac/Linux screenshots. -->
+= Use tables to customize the layout of your message =
+
+Any cell can contain: 
+* Text or numerals (including lists)
+* Images
+* Links
+* Tables
+
+Here is an example of a more complicated table. It contains a three-celled table; text aligned to the left, with the exception of the header and a sub-heading for ''Agenda'', which are aligned as ''Center''. It also contains three additional tables, one is a five-cell table, and the others are two-celled tables.
+
+[[Image:Complicated Table]] 
+{/for}
+
+= Save as Template =
+If you intend to reuse the created table in further emails with the ability to adjust, you can save the email as a template in the {filepath Templates} folder.
+
+On the menu bar, open the {menu File} menu, then go to {menu Save As}, and select {menu Template}.

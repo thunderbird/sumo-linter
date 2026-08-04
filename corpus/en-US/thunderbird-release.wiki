@@ -1,0 +1,39 @@
+<!-- Note to localizers: Some of this is a copy and paste from https://support.mozilla.org/en-US/kb/thunderbird-beta/ -->
+'''If you are currently using the ESR (Extended Support Release) version of Thunderbird, you may have recently seen a notice titled "Upgrade to Thunderbird Release." We strongly recommend switching from the ESR channel to the Release channel for the best overall experience. To switch from ESR to Release, follow the instructions below.'''
+
+The new Release channel receives new features and improvements more quickly, every four weeks instead of annually, including bug fixes and security patches. It offers a good balance between new functionality and stability, making it the best choice for most users. For more details about all available Thunderbird channels, see [[How to select a Thunderbird release channel]]. <!-- note to localizers, the title of the referenced KB article has changed -->
+{note}Note: Release channel is not yet available for Microsoft Store (for Windows), Snap and Flatpak (Linux).{/note}
+
+= How do I change from ESR to Release? =
+* Bookmark this page, so you can refer to it later if you have difficulty.
+* If you do not already do backups that save your Thunderbird profile data, then we strongly recommend that you [[Profiles - Where Thunderbird stores your messages and other user data|backup the Thunderbird profile]].
+{for win,mac}
+* Visit the [https://thunderbird.net/download/release?utm_campaign=kb_release_channel&utm_medium=web&utm_source=sumo&utm_content=link_release download page] which should show ''Thunderbird Release'' under ''Release Channel'', and click the {button Download} button.
+* Run the downloaded file to install Thunderbird Release '''into the same directory where Thunderbird ESR is currently installed'''.{note}'''Note:''' If you previously installed Thunderbird ESR into a directory that is different from the default location, then you must do a custom installation to that directory.{/note}
+{/for}
+{for linux}
+* For Linux, consult the [[Install Thunderbird on Linux#w_changing-channels|Linux installation article]] for the remaining installation steps.
+{/for}
+If you have any difficulty, please [https://support.mozilla.org/questions/new/thunderbird ask a question in support].
+
+To learn what has changed since ESR 128, [https://www.thunderbird.net/thunderbird/releases/ check the release notes since version 128 (136.0…)]. To learn more about channels, see [[Choosing a Thunderbird Release Channel]].
+
+If you were '''not''' directed here by a notice in Thunderbird “Upgrade to Thunderbird Release", check whether you have WebExtension Experiment add-ons by installing and running the [https://addons.thunderbird.net/thunderbird/addon/addon-compatibility-check/ Compatibility Checker add-on].
+
+= How do I change from Release back to ESR? =
+If you switched to Release but want to switch back to ESR, for example because of [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|add-ons]], follow the steps below. Before you begin, review all steps to be certain you understand them and will be comfortable doing them. If you are uncertain, [https://support.mozilla.org/questions/new/thunderbird ask a question in support] before proceeding.<!-- the following text is not yet ready for users ... Please note, this is valid for the '''current''' Release and ESR channels, and we will update here in the event of an underlying database change in ESR that would not make this possible. -->
+* [[Profiles - Where Thunderbird stores your messages and other user data|Backup the Thunderbird profile]], as you should always do before making major changes.
+* [https://thunderbird.net/download/esr?utm_campaign=kb_choose_channel&utm_medium=web&utm_source=sumo&utm_content=link_esr Download ESR] and run the installer such that it installs into the application directory where the Thunderbird Release is installed. It will do this by default for Windows and Mac. (The application directory is shown in {menu ≡} > {menu Help} > {menu Troubleshooting Information} > '''Application Basics''' > Application Binary – on a Windows system the default directory is “Mozilla Thunderbird”.)
+* If the ESR version number you are changing to is '''lower''' (older) than the release version number you have been using, then you must use '''--allow-downgrade''' parameter for the first startup, to override downgrade protection. {for win}Open a command line in Windows in the application binary directory and run<br><code>.\thunderbird.exe --allow-downgrade</code>{/for}{for mac}Open a terminal window in the application binary directory and run<br><code>./thunderbird --allow-downgrade</code>{/for}{for linux}Open a terminal window in the application binary directory and run<br><code>./thunderbird --allow-downgrade</code>{/for}<br>(More details at [[Dedicated profile per Thunderbird installation#w_what-happens-to-my-profile-if-i-downgrade-to-a-previous-version-of-thunderbird]]. If you do not use the command line, then you will see a warning dialog, ''You are using an old version''.)
+If you have any difficulty, please [https://support.mozilla.org/questions/new/thunderbird ask a question in support].
+
+= How to install and run Release =
+* Visit the [https://www.thunderbird.net/download/release download page], and click the {button Download} button.
+* Run the downloaded installation file, which will install Thunderbird Release into its own program directory.
+* If you need more help or want to install using other sources, see [[Install Thunderbird on Windows|Windows]], [[Install Thunderbird on Mac|macOS]], [[Install Thunderbird on Linux|Linux]] and [[Well known sources for downloading the Thunderbird email software|official sources]] for additional details.
+
+= Add-ons =
+Most Thunderbird add-ons will work with the Release channel. Consult the [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|add-ons FAQ]] if you have any difficulty.
+
+= What if I want to help the Thunderbird project? =
+The [https://www.thunderbird.net/participate/ Participate page] lists many ways for you to help in the community, and places to learn more about Thunderbird. Some examples are [[Thunderbird Beta|using the Beta channel of Thunderbird]] and [https://www.thunderbird.net/donate/ donating].

@@ -1,0 +1,34 @@
+The article about [[IMAP Synchronization]] explains the benefits of IMAP, which is the most modern and widely-used email protocol. (POP is an earlier protocol with less functionality.) If you want to convert your existing POP account to an IMAP account in Thunderbird, follow these steps.
+
+__TOC__
+
+=Check that your mail provider supports IMAP=
+While most mail providers support IMAP, a few still don't. So first make sure that your mail provider supports IMAP. 
+
+If your provider does not support IMAP and you still want to use an IMAP account, you must choose a new mail account provider (for instance, [[New Email Address|those sponsored in Thunderbird]] support IMAP), create an account, and then move your messages from your old POP account to your new IMAP account, as explained below.
+
+=Disable your POP account=
+In order to avoid duplicating the checks for new messages, first go to your account settings by opening the [[Template:accountsettings]] menu, then select '''Server settings''' and un-check both '''Check for new messages at startup''' and '''Check for new messages every XX minutes'''.
+
+=Create the IMAP account=
+# Open the {menu File > New > Existing account} menu.
+# Set up your account with the help of [[Automatic Account Configuration|the assistant]].
+# When it  asks if you want to use POP or IMAP, select '''IMAP (remote folders)'''.<br>[[Image:imap account selection]] 
+# Your new IMAP account will be created and appear at the bottom of your existing mail accounts.
+# Take the time to test if everything works. Check if your special folders are correctly recognized (i.e. the folder used to store the sent mail should have its own icon, and similarly for the ''Trash'', ''Junk'' and ''Draft'' folders).
+
+=Transfer your local messages to the server=
+If you have messages or folders in your POP account that you would like to access via your IMAP account, simply select them and move them to your IMAP account by dragging and dropping.
+Depending on the number of messages that you move, it may take several minutes to be uploaded. Be patient; you are nearly finished.
+{note} Alternatively, you can also use the '''Local Folders''' account to store your old emails instead of moving them to the IMAP server, especially if the IMAP server has a limited storage capacity.{/note}
+
+=Delete your POP account=
+If you are converting your email account to IMAP from POP, you can delete the POP account when you are completely sure that you have moved all your important messages to the IMAP server (or into your Local Folders). You cannot easily undo this action, so make sure that you really don't need the messages stored in this account anymore.
+# Open your account settings by opening the menu [[Template:accountsettings]], then select your POP account.
+# Click on the {button Account actions} button at the bottom and select '''Remove Account'''.
+If you have created a new email account that uses IMAP, you cannot delete your old POP account without deleting your email address. Before deleting the POP account, you will probably want to inform people who send messages to your old account that they should switch to your new email address, and allow a period of time to pass before deleting the POP account to ensure that you don't miss any messages.
+
+=See also=
+* Learn more about [[IMAP Synchronization]]
+* If you want to do the opposite of this action, see: [[FAQ Changing IMAP to POP]]
+[[Template:ShareArticle|link=http://mzl.la/1l1HIaJ]]

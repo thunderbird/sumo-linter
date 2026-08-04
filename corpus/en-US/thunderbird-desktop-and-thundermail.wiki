@@ -1,0 +1,64 @@
+[[Template:TBproEarlyBirdInviteOnly]]
+
+__TOC__
+
+=Configure Thundermail for Thunderbird Desktop=
+{note}'''NOTE''': Thunderbird Pro requires the latest ESR or monthly release. We recommend the latest monthly release version of Thunderbird, which is documented in: [[New in Thunderbird Desktop]].{/note}
+# Click the Thunderbird menu {menu ☰} >  {menu Add Account} ({menu New Account} for older versions of Thunderbird) > {menu Email}.
+# Enter your Thundermail email address and follow the prompts to set up your Thundermail email account. For versions older than 150, please click the {button Connect} button next to '''Thundermail Address Book''' and the {button Connect} button next to '''Thundermail Calendar''' to ensure your Thundermail address book and calendar are added to Thunderbird.
+
+Thunderbird should have automatically added your Thundermail address in [[Configuration Options for Accounts|account settings]], a CalDAV calendar called '''Thundermail Calendar''' in your Thunderbird calendar [[New in Thunderbird 102#w_take-control-of-your-personal-information-new-spaces-toolbar|space]] (press {for not mac}{key Alt+3}{/for}{for mac}{key Ctrl+3}{/for}), and a CardDAV address book called '''Thundermail Address Book''' in your address book [[New in Thunderbird 102#w_take-control-of-your-personal-information-new-spaces-toolbar|space]] (press {for not mac}{key Alt+2}{/for}{for mac}{key Ctrl+2}{/for}) to check). If any of those are missing, please try changing the settings to those in the manual settings sections below, and please [https://accounts.tb.pro/contact/ create a Thunderbird Pro support ticket] if you have any issues.
+=Manual Settings=
+If Thunderbird failed to add the expected items or you need to adjust them, please try manually changing the settings by following the instructions in the sections below. If manual setup fails, please [https://accounts.tb.pro/contact/ create a Thunderbird Pro support ticket].
+
+[[UI:details_start]]
+
+==Receiving Email==
+# Switch to your Thundermail account: Thunderbird app menu {menu ☰}  > {menu Account Settings}.
+# In the left sidebar, click on your Thundermail account. For example: '''nemo@thundermail<!---->.com'''. Then, click on the chevron “&gt;” to expand the drop down menu. Finally, click on {menu Server Settings} and set the following values:
+
+* '''Server Name:''' [http://mail.thundermail.com mail.thundermail.com] '''Server Port:''' 993
+* '''Security:''' SSL/TLS
+* '''Username:''' your full Thundermail address e.g. '''nemo@thundermail<!---->.com'''
+* '''Authentication method: '''OAuth2'''
+==Sending Email==
+# Switch to your Thundermail account: Thunderbird app menu {menu ☰} > {menu Account Settings}.
+# In the left sidebar, click on your Thundermail account. For example '''nemo@thundermail<!---->.com'''. Click on {button Edit outgoing server…} and set the following values:
+ 
+* '''Server Name:''' mail.thundermail.com
+* '''Server Port:''' 465 '''Connection Security:''' SSL/TLS
+* '''Username:''' your full Thundermail address For example: '''nemo@thundermail<!---->.com'''
+* '''Authentication method:''' OAuth2
+==Thundermail Calendar==
+# Click Thunderbird app menu {menu ☰} > {menu Add Account} ({menu New Account} for older versions of Thunderbird) > {menu Calendar} > {button On the Network}.
+# For '''Username:''', enter your Thundermail address. For example '''nemo@thundermail<!---->.com'''.
+# For '''Location''', enter '''mail.thundermail.com'''.
+# Click {button Find Calendars}.
+# In the '''Create New Calendar''' dialog, select your Thundermail Calendar and click {button Subscribe}.
+==Thundermail Address Book==
+# Click Thunderbird app menu {menu ☰}  > {menu Add Account} ({menu New Account} for older versions of Thunderbird) > {menu Address Book} ({menu New Address Book} for older versions of Thunderbird) > {menu Add remote Address Book} ({button New remote Address Book} for older versions of Thunderbird).
+#  For '''Username:''', enter your Thundermail email address. For example '''nemo@thundermail<!---->.com'''.
+# For '''URL/Hostname''', enter '''https://mail.thundermail.com'''.
+# Click {button Continue}.
+# Select your Thundermail Address Book and click {button Continue}.
+
+[[UI:details_end]]
+
+=Custom Domain catch-all and custom aliases=
+How to setup Thunderbird Desktop for [https://support.tb.pro/hc/articles/51253809827347-Custom-Domains-and-DNS-Configuration custom domains] in Thundermail:
+==Send and receive email with Thundermail custom domain aliases using Thunderbird identities==
+For every [https://support.tb.pro/hc/articles/46804820453907-Setting-Up-Email-Aliases alias] you create in Thundermail, you will have to create a new [[Using Identities|identity]] in Thunderbird in order to send email with that alias. Here's how using our example custom domain <code>glamroc.com</code>, our example Thundermail address of <code>roc@thundermail.com</code>, and custom domain alias of <code>roc@glamroc.com</code>:
+# Click the Thunderbird app menu {menu ☰} > {menu Account Settings} > Click on the thundermail.com account in the left sidebar, which in our example is: <code>roc@thundermail.com</code> > {button Manage Identities…"} > {button Add…}.
+# Add your alias e.g. <code>roc@glamroc.com</code> by filling in the '''New Identity''' form, and then click {button OK} when you are done.
+# If you want this to be the default identity when composing new email, click on the new identity, and then click on {button Set Default} and {button Close}.
+Now the custom domain alias <code>roc@glamroc.com</code> is the default identity when writing new email, and you can send and receive email on both <code>roc@thundermail.com</code> and <code>roc@glamroc.com</code> by selecting the appropriate identity.
+==Send and reply to email using a Thundermail catch-all alias==
+* If you have a [https://support.tb.pro/hc/articles/51338950680467-Setting-Up-a-Catch-All-Alias catch-all alias configured in Thundermail for a custom domain], here's how to use  Thunderbird '''custom from address''' feature to reply with whatever email address on your custom domain that you want:
+*# When composing or replying to an email, click on the email address next to '''From'''.
+*# Click on {button Customize From Address…}. 
+*# Finally, type in an email address for the custom domain you created the catch-all in.
+=Send Thundermail, use your Thundermail Calendar and Thundermail Address Book, and have some fun!=
+* [[Send and receive messages in Thunderbird|Send and receive email]] with Thundermail. If you have large files, you can also use [https://support.tb.pro/hc/sections/43937747865235 '''Thunderbird Send''']. which is included with your Thunderbird Pro subscription.
+* Enjoy your Thundermail Calendar: [https://support.mozilla.org/products/thunderbird/email-and-messaging/calendar Create some events, invite people to invites, etc].
+* Use your Thundermail Address Book for [[Addressing an Email|composing email]], managing your contacts, etc.
+* New to Thunderbird? Check out [[Get started with Thunderbird]].

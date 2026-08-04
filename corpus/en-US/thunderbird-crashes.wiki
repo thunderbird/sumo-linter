@@ -1,0 +1,59 @@
+A "''crash'' " is what happens when Thunderbird closes unexpectedly. After a crash, the [[Mozilla Crash Reporter TB|Mozilla Crash Reporter]] should appear, asking if you want to send the crash information to Mozilla for processing. 
+
+<!--
+* If Thunderbird remains open but becomes unresponsive, see [[Firefox hangs]].
+-->
+
+__TOC__
+
+= Getting help with your crash =
+There are many possible causes for crashes, therefore the best way to get efficient help is to post your '''crash report ID''' or attach a stacktrace in a forum or a bug report. This will help to identify the cause of your crash.
+
+Crash reports are given an '''ID of the form BP-nnnnnn'''. Read [[Mozilla Crash Reporter TB#w_viewing-crash-reports|Viewing crash reports]] to learn how to get your crash report ID. This ID is linked in the crash database and provides our developers and support helpers with information about what happened in the crash.
+
+If the [[Mozilla Crash Reporter TB|Mozilla Crash Reporter]] didn't appear or failed to submit its crash report, see [https://firefox-source-docs.mozilla.org/contributing/debugging/stacktrace_report.html How to get a stacktrace for a bug report] and substitute ''Thunderbird '' wherever you see ''Firefox '' in the instructions.
+
+= General crash help and suggestions =
+<!--
+= Generic crash articles =
+If you are uncomfortable trying to find your crash signature, try one of the below articles for specific crash symptoms:
+-->
+
+<!--
+== Firefox crashes when you open it ==
+* If you are unable to load Firefox at all, please see [[Firefox crashes when you open it]].
+== Firefox crashes when you exit it ==
+* If you get the crash window only when trying to close Firefox and Firefox fails to shut down properly, please see [[Firefox crashes when you exit it]].
+
+-->
+
+<!--
+= If none of the above applies to you =
+The following causes of crashes apply to many crash situations:
+-->
+
+== Make sure to use the latest version of Thunderbird ==
+Thunderbird updates are regularly released and a number of the fixes in them are crash related. Make sure you are using the latest version. See [[Updating Thunderbird]] for details.
+
+== Check for problematic add-ons ==
+Thunderbird crashes can be caused by add-ons. Does Thunderbird still crash when it is started in [[Safe Mode TB|Safe Mode]]? If not, an add-on may contain a bug, or it may not have been updated to be fully compatible with an updated version of Thunderbird. See the [[Add-Ons and Extensions FAQ|Add-ons and Extensions FAQ]] for details on disabling and updating add-ons.
+
+<!--
+
+== Problematic or out of date extensions or themes ==
+Extensions and themes can often cause crashes and other errors. This is especially true if you recently installed or updated an extension. Follow the steps in the [[Troubleshooting extensions and themes]] article to determine whether an extension or theme is causing your problem.  The support articles for various specific symptoms of Thunderbird crashes include lists of extensions that may cause certain crashes.
+
+== Problematic or out of date plugins ==
+Plugins are programs that let Thunderbird display video and sound and do other things. If you find that certain, specific pages cause Thunderbird to crash every time you visit them, they may need a common plugin. Follow the steps at the [[Troubleshooting plugins]] article to determine whether a plugin is causing your problem.
+
+-->
+
+<!--
+
+== Malware: viruses or spyware ==
+A number of different viruses and spyware are known to crash Firefox. Ensure that your system is kept clean of spyware and viruses. For more information, see [[Is my Firefox problem a result of malware]].
+
+-->
+
+
+<!-- MZ credit -->

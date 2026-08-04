@@ -1,0 +1,15 @@
+Thunderbird can be used as a client for an AT&T email account. Thunderbird will download messages from the AT&T server and store them on your local system. Similarly, Thunderbird can be used to compose messages which are sent through AT&T's mail servers.
+
+=Settings=
+The following are the settings required for AT&T connection.
+* Description = Your Email Address
+* Server Name = mail.bellsouth.net, or use the one in your email address (AT&T has many different domains)
+* Port = 25 or 100 (This was supplied by my ISP/Mail)
+* User Name and Password = Unchecked
+* Connection Security = None
+
+=See Also=
+
+* [[Automatic Account Configuration]]
+* [[Configure an Account]]
+* [[FAQ Changing IMAP to POP]]

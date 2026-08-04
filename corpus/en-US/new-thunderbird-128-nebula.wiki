@@ -1,0 +1,20 @@
+[[T:TBMore]]
+
+This article introduces the most interesting new features, improvements, and changes visible to users which are available in Thunderbird 128 Nebula.
+
+__TOC__
+
+=Cards View improvements=
+* To be consistent with Table View, Cards View displays a green dot to indicate unread emails (prior versions did not display anything to indicate that the email was unread in Cards View).
+*;[[Image:TB128-cardview-unread-greendot.png]]
+* The '''starburst''' (for new messages since the last time this folder was opened) indicator for both Cards View and Table View is now a yellow diamond (previously, it was a circle for Cards View).
+*;[[Image:TB128-cardview-newsince-folder-opened-starburst.png]]
+
+=Accent Color=
+Thunderbird now offers improved theme compatibility, which is especially beneficial for our Linux users on Ubuntu and Mint. 
+
+For example, in Ubuntu if you change Ubuntu {menu Settings} > {menu Appearance} > '''Color''' to '''purple''', you will see selected emails outlined in purple as seen in the following screenshot of Cards View:
+;[[Image:TB128-purple-accent-color-ubuntu2204-cardview]]
+
+=Mailing List improvements=
+You can now unsubscribe to mailing lists, open list archives (on the web) etc. for mailing lists that support standard headers such as '''List-Unsubscribe''' and '''List-Archive''', etc.

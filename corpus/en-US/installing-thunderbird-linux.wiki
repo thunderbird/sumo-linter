@@ -1,0 +1,180 @@
+This article explains how to download and install Thunderbird on Linux. {for mac,win}This article only applies to Linux. {for mac}For instructions to install Thunderbird on Mac, see [[Install Thunderbird on Mac]]. {/for}{for win}For instructions to install Thunderbird on Windows, see [[Install Thunderbird on Windows]].{/for}{/for}
+{note}Note: if you have Thunderbird installed via multiple methods (''deb'', ''rpm'', ''flatpak'', ''snap'', etc. ) you may have multiple application icons that are identical. To avoid this, we recommend installing using only one installation method at a time.{/note}
+
+__TOC__
+
+=Install Thunderbird DEB package for Debian-based and Ubuntu-based distributions (recommended)=
+To install the'''DEB''' package through the APT repository, do the following:
+#Create a directory to store APT repository keys if it doesn't exist:
+#;<code>sudo install -d -m 0755 /etc/apt/keyrings</code>
+#Import the Mozilla APT repository signing key:
+#;<code>wget -q https://packages.mozilla<!-- -->.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null</code>
+#;If you do not have <code>wget</code> installed, you can install it with: <code>sudo apt-get install wget</code>
+#The fingerprint should be '''35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3'''.<!-- Please check with the Release Engineering team (release@mozilla.com) before changing/removing this fingerprint --> You may check it with the following command:
+#;<code>gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'</code>
+#Next, add the Mozilla APT repository to your sources.list:
+#*For Debian Bookworm/Ubuntu Noble and Older:
+#;<code>echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla<!-- -->.org/apt thunderbird-deb main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null</code>
+#*For Debian Trixie/Ubuntu Resolute and Newer
+#;<code><nowiki>sudo tee /etc/apt/sources.list.d/mozilla.sources > /dev/null << EOF</nowiki></code>
+#;<code>Types: deb</code>
+#;<code>URIs: https://packages.mozilla<!-- -->.org/apt</code>
+#;<code>Suites: thunderbird-deb</code>
+#;<code>Components: main</code>
+#;<code>Signed-By: /etc/apt/keyrings/packages.mozilla.org.asc</code>
+#;<code>EOF</code>
+#Configure APT to prioritize packages from the Mozilla repository:
+#;<code><nowiki>sudo tee /etc/apt/preferences.d/mozilla > /dev/null << EOF</nowiki></code>
+#;<code>Package: *</code>
+#;<code>Pin: origin packages.mozilla<!-- -->.org</code>
+#;<code>Pin-Priority: 1000</code>
+#;<code>EOF</code>
+#Update your package list, and install ''thunderbird'' (or one of ''thunderbird-esr'', ''-beta'', ''-nightly''):
+#;<code>sudo apt-get update</code>
+#;<code>sudo apt-get install thunderbird</code>
+
+==Use different languages on Thunderbird DEB package ==
+For those of you who would like to use Thunderbird in a different language than American English, we have also created DEB packages containing the Thunderbird language packs. To install a specific language pack, replace fr in the example below with the desired language code. In this example, we are installing the French language pack of Thunderbird.
+;<code>sudo apt-get install thunderbird-l10n-fr</code>
+To list all the available language packs, you can use this command after adding the Mozilla repository and running <code>sudo apt-get update</code>:
+;<code>apt-cache search thunderbird-l10n</code>
+Localization are also available as ''thunderbird-esr-l10n'', ''-beta-l10n'', ''-nightly-l10n'' packages for other release/edition
+
+= Install from Flatpak =
+The [https://flathub.org/apps/org.mozilla.thunderbird Thunderbird flatpak] package and tarballs are maintained directly by the Thunderbird staff. Therefore, these tend to be more quickly updated to newer stable versions than other sources.
+
+To install Thunderbird from Flatpak, you will need to install flatpak and setup flathub, if not already on your system. Flathub is the central repository for flatpaks and contains well maintained [https://flathub.org/setup instructions on setting up flatpak installs for various distributions]. 
+
+Once flatpak and flathub are all set up, you can either download and install it all from the command line, or separately download the {filepath flatpakref} file and head to the command line to install it.
+
+== How to install with the command line (easier and much cooler) ==
+;<code>flatpak install flathub org.mozilla.thunderbird</code>
+
+== How to install with the Graphical User Interface ==
+# Visit [https://flathub.org/apps/org.mozilla.thunderbird Thunderbird on Flathub].
+# Click {button Install} and follow the instructions. You can find more options in the dropdown menu next to that button, if necessary.
+
+= Install from Snap =
+The [https://snapcraft.io/thunderbird Thunderbird snap] package is maintained by Canonical and Thunderbird. 
+
+To install Thunderbird from Snap:
+# [https://snapcraft.io/docs/installing-snapd Install Snap] on your computer.
+# Visit [https://snapcraft.io/thunderbird Snapcraft's Store page].
+# Click {button Install} and follow the instructions.
+
+When you uninstall the Thunderbird snap, it is worth noting that an automatic backup of the snap data will be created. Because this backup contains all of your email downloaded over time, it can be a very large file and take a long time. To turn off this backup creation, just add the '''--purge''' flag:
+;<code>snap remove --purge thunderbird</code>
+
+= Installing from your distribution package manager =
+Linux distributions normally create packages for installing Mozilla Thunderbird easily, using tools that are included with the Linux distribution. The package may contain modifications for better integration with the operating system. Maintainers of the Linux distribution control when new updates of their Thunderbird software are made available, so there may be a delay between when your distribution provides a newest available version or update compared to when an official new version or update is available at [https://www.thunderbird.net Thunderbird.net] or in the flatpak. Your distribution may also provide Thunderbird without the Thunderbird branding.
+
+To install Thunderbird using your distribution package manager, please refer to your Linux distribution's documentation. This method has the benefit of ensuring that Thunderbird and all the required libraries are installed and configured optimally for your distribution. 
+
+= Installing Thunderbird manually for a specific release channel (for advanced users) =
+{note}'''NOTE''': This instruction set is for users that wish to install for troubleshooting purposes or to use a specific [[#w_thunderbird-channels|release channel]], for example beta or daily. Unless you know what you are doing and are familiar with using a command line, please install Thunderbird using one of the methods previously described.{/note}
+
+== Thunderbird channels ==
+Thunderbird offers four channels: '''Release''' (also known as Monthly, available March 2025), '''ESR''' (annual major releases), '''Beta''', and '''Daily'''. These are compared at [[How to select a Thunderbird release channel]], with further information and tips in the articles about [[Thunderbird Beta]], [[Thunderbird Daily]]. Please make sure your computer has the required libraries installed. Missing libraries may cause Thunderbird to be inoperable or unreliable. The requirement list can vary by channel: [https://www.thunderbird.net/thunderbird/128.8.0esr/system-requirements/ ESR requirements], [https://www.thunderbird.net/thunderbird/136.0/system-requirements/ Release, Beta, Daily requirements].
+
+==Changing channels==
+It is possible to change channels and keep using your existing Thunderbird data, for example to go from ESR to Release. But if you want to use a different channel and not change your existing Thunderbird data to that channel, see [[#w_running-multiple-channels|Running multiple channels]]. When changing channels you will want avoid complications and protect your profile data:
+* Backup your [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird profile data]].
+* Only move to a channel which offers a higher or equal version number. Therefore, the possible progressions are to go from ESR to Release, Release to Beta, and Beta to Daily. Once your profile data has been loaded with a newer version, you will not be able to load it with a lower version.
+* You must install the newer version in the '''exact same''' installation directory name as the older version. If using the '''system''' method below, do <code>rm -rf /opt/thunderbird</code> and then install the chosen download into {filepath /opt/thunderbird/}. If using the '''home''' method below, do <code>rm -rf $HOME/thunderbird</code> and then install the chosen download into {filepath $HOME/thunderbird/}.
+
+==Running multiple channels==
+It is possible to have multiple channels of Thunderbird installed, and even run them simultaneously. Each must be installed in a '''different''' installation directory, which will force [[Dedicated profile per Thunderbird installation|multiple Thunderbird data profiles to be used]] in order to protect and keep your data separated.
+
+== Installation location ==
+When installing Thunderbird manually, you can choose to install it either in the '''system''' or '''home''' folder. Below you will find instructions for both.
+
+== Installing other channels from flatpak ==
+'''Thunderbird Beta''' is available through flathub beta. Flathub maintains [https://docs.flathub.org/docs/for-users/installation instructions for adding and using the flathub beta repository]. Once configured, you can install Thunderbird Beta from the command line.
+;<code>flatpak install flathub-beta org.mozilla.thunderbird</code>
+
+'''Thunderbird ESR''' is available through flathub stable, the same our our standard release channel. It can be installed using the command line as follows:
+;<code>flatpak install flathub org.mozilla.thunderbird_esr</code>
+
+Alternatively, if you'd like to use the graphical interface:
+# Visit [https://flathub.org/apps/org.mozilla.thunderbird_esr Thunderbird ESR on Flathub].
+# Click {button Install} and follow the instructions. You can find more options in the dropdown menu next to that button, if necessary.
+
+=== System Thunderbird installation ===
+{note}
+* To install Thunderbird with this method, you '''must be''' able to login as root or execute <code>sudo</code> commands.
+* This installation will have priority over the Thunderbird version installed through your package manager. To run the version installed with your package manager, you will need to execute the binary from a terminal. To do so in most distributions, open a terminal and type: <code>/usr/bin/thunderbird</code>.
+{/note}
+#Download your choice of installation channel from the [https://thunderbird.net/download/ download page]. The file will be in the form of {filepath thunderbird-<version>.tar.xz}.
+#Open a terminal and go to the folder where your download has been saved. For example:<br><code>cd ~/Downloads</code>
+#Extract the downloaded file contents. This will create a folder named {filepath thunderbird}. After that, you can delete the archive:<br><code>sudo tar -xvf thunderbird-*.tar.xz -C /opt/<br>rm thunderbird-*.tar.xz</code>
+#Create a symlink to the Thunderbird executable:<br><code>sudo ln -s /opt/thunderbird/thunderbird /usr/local/bin/thunderbird</code>
+#Download a copy of the desktop file:
+;<code>wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/installing-thunderbird-linux/thunderbird.desktop -P /usr/local/share/applications</code>
+Alternatively, if <code>wget</code> is not installed on your computer, go to the URL mentioned above, right-click on the page to open the contextual menu and select {menu Save Page As}. After you downloaded the file, move it to {filepath /usr/local/share/applications}.
+
+To confirm everything is installed correctly, open Thunderbird from the newly created desktop file, and go to {menu ≡} > {menu Help} > {menu Troubleshooting Information}. In the ''Application Basics'' section of the ''Troubleshooting Information'' page, the value of ''Application Binary'' should be <code>/opt/thunderbird/thunderbird-bin</code>
+
+=== Home Thunderbird installation - local in a user's account ===
+If you don't have access to login as root or execute <code>sudo</code> commands, or just prefer to use a local Thunderbird in your account, you can make a local installation. You can also do this to have multiple Thunderbird installations for different builds.
+#Download your choice of installation channel from the [https://thunderbird.net/download/ download page]. The file will be in the form of {filepath thunderbird-<version>.tar.bz2}.
+#Open a terminal and go to the folder where your download has been saved. For example:<br><code>cd ~/Downloads</code>
+#Extract the downloaded file contents. This will create a folder named {filepath thunderbird}. After that, you can delete the archive:<br><code>tar xjf thunderbird-*.tar.bz2<br>rm thunderbird-*.tar.bz2</code>
+#If you have downloaded a specific build, you may want to rename the uncompressed folder accordingly. For example:<br><code>mv thunderbird thunderbird-beta</code>
+#You can leave the uncompressed folder in your {filepath download} folder, or move it to another place in your account. For example:<br><code>mv thunderbird $HOME/thunderbird</code>
+#Thunderbird is now ready to be used. You can run it directly from the terminal:<br><code>$HOME/thunderbird/thunderbird &</code>
+#Create a desktop shortcut. Note this step may be different in your Linux distribution. (Some Linux distros will allow you to right-click on the desktop and choose {menu Create launcher} from the context menu):<br><code>wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/installing-thunderbird-linux/thunderbird.desktop -P $HOME/.local/share/applications/</code>
+#Since the icon for the desktop shortcut will be found in {filepath $HOME/thunderbird/chrome/icons/default/} and the executable is in {filepath $HOME/thunderbird}, we need to change these lines in our desktop file that we just downloaded:<br><code>sed -i.bak -e "s|Exec=thunderbird %u|Exec=$HOME/thunderbird/thunderbird %u|" $HOME/.local/share/applications/thunderbird.desktop<br><br>sed -i.bak -e "s|Icon=/opt/thunderbird/chrome/icons/default/default128.png|Icon=$HOME/thunderbird/chrome/icons/default/default128.png|" $HOME/.local/share/applications/thunderbird.desktop</code>
+
+Now, your Thunderbird application icon should be found among your other applications and you can launch Thunderbird as you expect.
+
+== Set Thunderbird as the default mail application ==
+This step adds the required [https://specifications.freedesktop.org/mime-apps-spec/latest-single/#associations MIME-type associations] that enable you to select Thunderbird as the default mail application in your desktop settings.
+
+# Open {filepath ~/.config/mimeapps.list} with your text editor and scroll down to the section named <code>[Added Associations]</code>.
+# Find the MIME type <code>x-scheme-handler/mailto</code> and append <code>thunderbird.desktop</code> to it.
+
+The {filepath .desktop} file you downloaded earlier defines some extra MIME types for Thunderbird, such as <code>application/x-xpinstall</code> (for handling Thunderbird extensions); so the example below will include it. There are a number of other types commonly defined by packagers ([https://hg-edge.mozilla.org/releases/comm-release/file/tip/taskcluster/docker/tb-flatpak/org.mozilla.Thunderbird.appdata.xml.in ¹] [https://git.launchpad.net/~desktop-snappers/thunderbird/+git/snap/tree/snap/gui/thunderbird.desktop?h=stable-core24 ²] [https://gitlab.archlinux.org/archlinux/packaging/packages/thunderbird/-/blob/141.0-1/org.mozilla.Thunderbird.desktop?ref_type=tags ³]); by adding <code>text/calendar</code>, for example, the GNOME desktop will list Thunderbird as an option for ''Calendar''.
+
+;<code>[Added Associations]
+<br>
+x-scheme-handler/mailto=thunderbird.desktop;
+application/x-xpinstall=thunderbird.desktop;
+</code>
+
+So far we've only defined what Thunderbird ''can'' handle, which is enough to get it listed as an option in your desktop settings. When you select a certain app as the default handler for a task, you're actually writing to the other section named <code>[Default Applications]</code>. This can be done with a GUI provided by your desktop; by manually editing {filepath ~/.config/mimeapps.list}, as we've been doing; or on the command-line. The CLI usage is described below.
+
+;<code>
+xdg-mime default thunderbird.desktop x-scheme-handler/mailto
+xdg-mime default thunderbird.desktop application/x-xpinstall
+</code>
+
+If you skip the type associations we've manually added to the section <code>[Added Associations]</code>, the default app selection will still work, but the Thunderbird option will be gone as soon as you decide to change the default handler to something else. By following these steps, Thunderbird will always be listed as a default app candidate.
+
+== Thunderbird icon is displayed as a generic icon ==
+If you are using GNOME and the Thunderbird icon is displayed as a generic icon (e.g., a gear icon), additional configuration of the <code>thunderbird.desktop</code> launcher is required. The following ensures the correct application icon is displayed for Thunderbird.
+
+Identify the <code>wmclass</code> for Thunderbird:
+# Press <code>Alt+F2</code> while Thunderbird is running to launch the run command console.
+# Type <code>lg</code> and press Enter.
+# In the window that appears, click on <code>Windows</code> in the upper-right corner.
+# Locate Thunderbird's <code>wmclass</code> in the displayed list.
+Modify the <code>thunderbird.desktop</code> launcher:
+# Open the <code>thunderbird.desktop</code> file in a text editor.
+# In the <code>[Desktop Entry]</code> section, add or update the <code>StartupWMClass</code> key to include the <code>wmclass</code> value you found earlier. For example: 
+;<code>StartupWMClass=thunderbird-esr</code>
+
+= Troubleshooting =
+
+== Snap Profile Issues ==
+
+If you ''DO NOT'' have an already existing Thunderbird profile in your home directory, then the snap will generate and use a profile located in the Thunderbird snap location: {filepath ~/snap/thunderbird/common/.thunderbird}.
+
+If you ''DO'' have an already existing Thunderbird profile in your home directory, then the snap will use it.
+
+If for some reason you feel like your normal profile (whichever profile location you've been using) is not being used, here are some steps you can take to try and recover:
+# Remove the snap. When snapd removes a snap from your system, it automatically makes a backup of that snap and stores it in the {filepath /var/lib/snapd/snapshots/} directory. If your profile directory was inside the snap at {filepath ~/snap/thunderbird/common/.thunderbird}, then the backup can take a while (because profile directories can be quite large). Be patient while the backup is generated. (Note that this is not the only way to create a backup. You can manually intiate a backup with <code>snap save thunderbird</code>)
+# Make sure there is no existing {filepath ~/.thunderbird} profile directory:<br><code>$ mv ~/.thunderbird ~/.thunderbird-backup</code>
+# Re-install the Thunderbird snap:<br><code>$ sudo snap install thunderbird</code>
+# Restore from your snapshot. This will apply the thunderbird profile inside that snapshot to your fresh snap install. Look in the {filepath /var/lib/snapd/snapshots/} directory to locate the most recent snapshot or the one you want to use. The leading number corresponds to the snapshot number. For example if there is a {filepath /var/lib/snapd/snapshots/14_thunderbird_128.11.0esr-1_735.zip}, the restore command would be:<br><code>$ sudo snap restore 14</code>
+
+[https://snapcraft.io/docs/snapshots You can read more about snap snapshots here.]

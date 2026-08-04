@@ -54,6 +54,14 @@ navigation surfaces as `net::ERR_HTTP_RESPONSE_CODE_FAILURE`, not a status code.
 required in both the in-page fetches and `page.goto`. Bans persist for minutes; retrying
 early may prolong them. Keep `--delay` high and prefer cached corpus files.
 
+**Articles cannot be deleted on SUMO.** The available action is marking an article
+**obsolete** (previously called "Archive"). Never recommend or describe deletion of a KB
+article — the platform does not support it. Spam and misfiled content get marked obsolete.
+
+**A 404 to anonymous requests does not mean "unpublished draft."** Obsolete/archived, no
+approved revision, and otherwise restricted all look identical from outside. Distinguishing
+them requires the authenticated edit page or the SUMO admin UI.
+
 **Free oracle:** the API's rendered `html` plus scraped source gives ~156
 `(source → Kitsune's own HTML)` pairs. Useful for validating grammar assumptions without
 running Kitsune in Docker. Opt in with `--rendered` (doubles request count).

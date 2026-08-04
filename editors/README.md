@@ -65,6 +65,52 @@ call ale#linter#Define('sumo-wiki', {
 \})
 ```
 
+## Emacs
+
+`emacs/sumo-wiki-mode.el` provides syntax highlighting plus linting. Add it to your
+`load-path` and require it:
+
+```elisp
+(add-to-list 'load-path "~/path/to/sumo-linter/editors/emacs")
+(require 'sumo-wiki-mode)
+```
+
+`.sumo` files then open in `sumo-wiki-mode`. `.wiki` is also registered, but appended
+rather than prepended so it yields to any wiki mode you already use.
+
+Three ways to get diagnostics, in decreasing order of integration:
+
+- **Eglot** (built in to Emacs 29+) — registered automatically. Just `M-x eglot`.
+- **lsp-mode** — also registered automatically when lsp-mode loads.
+- **Flymake, no language server** — `M-x sumo-wiki-flymake-setup`, which pipes the buffer
+  through the `sumo-lint` CLI. Same diagnostics, no long-running process.
+
+Commands:
+
+| Key | Command | Effect |
+|---|---|---|
+| `C-c C-f` | `sumo-wiki-fix-buffer` | apply safe fixes (phase 1) |
+| `C-c C-s` | `sumo-wiki-apply-style` | apply house style (phase 2) |
+
+Both report *"nothing to fix"* / *"already consistent"* rather than appearing to do nothing,
+and both preserve point's line and column.
+
+One highlighting choice worth knowing: **lines beginning with a space are shown in a
+distinct face**, because the wiki renders them preformatted. A single stray leading space
+silently turns a paragraph into a code block, and that is invisible in a plain editor.
+
+Verify the mode after changing it:
+
+```sh
+cargo build --release
+PATH="$PWD/target/release:$PATH" \
+  /Applications/Emacs.app/Contents/MacOS/Emacs -Q --batch \
+  -l editors/emacs/test-sumo-wiki-mode.el
+```
+
+That checks mode activation, every font-lock rule, Eglot registration, both commands
+against the real binary, and the Flymake JSON path — 20 assertions.
+
 ## VS Code
 
 The extension in `vscode/` is a thin `vscode-languageclient` wrapper.

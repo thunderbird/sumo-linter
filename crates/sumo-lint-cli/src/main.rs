@@ -149,6 +149,23 @@ fn main() -> ExitCode {
     let mut fixed_files = 0usize;
     let mut json_rows: Vec<String> = Vec::new();
 
+    // When reading stdin and rewriting, stdout carries the *document* and
+    // nothing else, so the tool can be used as a filter:
+    //
+    //     sumo-lint --fix - < draft.wiki > fixed.wiki
+    //
+    // Editor integrations depend on this. Emacs, Vim/ALE and git hooks all pipe
+    // a buffer through and read the result back; interleaving diagnostics with
+    // the document on stdout silently corrupts the buffer.
+    let filtering = o.stdin && (o.fix || o.style) && !o.diff;
+    let emit = |s: String| {
+        if filtering {
+            eprintln!("{s}");
+        } else {
+            println!("{s}");
+        }
+    };
+
     for (name, src) in &inputs {
         let doc = Document::parse(src.clone());
 
@@ -179,20 +196,20 @@ fn main() -> ExitCode {
                     d.fix.as_ref().is_some_and(|f| f.applicability == Applicability::Safe)
                 ));
             } else if !o.quiet {
-                println!(
+                emit(format!(
                     "{name}:{}:{}: {} [{}] {}",
                     pos.line,
                     pos.col,
                     d.severity.as_str(),
                     d.code,
                     d.message
-                );
+                ));
                 if let Some(f) = &d.fix {
                     let tag = match f.applicability {
                         Applicability::Safe => "fix",
                         Applicability::Unsafe => "fix (unsafe)",
                     };
-                    println!("    {tag}: {}", f.description);
+                    emit(format!("    {tag}: {}", f.description));
                 }
             }
         }
@@ -238,9 +255,9 @@ fn main() -> ExitCode {
     }
 
     if o.json {
-        println!("[{}]", json_rows.join(","));
+        emit(format!("[{}]", json_rows.join(",")));
     } else {
-        println!(
+        emit(format!(
             "checked {} file{}: {errors} error{}, {warnings} warning{}{}",
             inputs.len(),
             plural(inputs.len()),
@@ -251,7 +268,7 @@ fn main() -> ExitCode {
             } else {
                 String::new()
             }
-        );
+        ));
     }
 
     if errors > 0 {

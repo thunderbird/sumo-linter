@@ -54,3 +54,6 @@ node_modules/
 
 # Playwright verification screenshots
 /*.png
+
+# Emacs byte-compiled output
+*.elc

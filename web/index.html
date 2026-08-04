@@ -1,0 +1,122 @@
+<!doctype html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+     License, v. 2.0. If a copy of the MPL was not distributed with this
+     file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sumo-lint — check SUMO Knowledge Base markup</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #15141a; --muted: #5b5b66; --line: #d7d7db;
+    --err: #c50042; --warn: #a66b00; --ok: #017a4a; --accent: #0060df;
+    --code-bg: #f0f0f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1b22; --fg: #fbfbfe; --muted: #b8b8c4; --line: #45454f;
+      --err: #ff6a8a; --warn: #ffc169; --ok: #4bd48b; --accent: #7fb6ff;
+      --code-bg: #2b2a33;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 1.5rem; background: var(--bg); color: var(--fg);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+    max-width: 68rem; margin-inline: auto;
+  }
+  h1 { font-size: 1.35rem; margin: 0 0 .25rem; }
+  .lede { color: var(--muted); margin: 0 0 1.25rem; }
+  .grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+  @media (min-width: 62rem) { .grid { grid-template-columns: 1fr 1fr; } }
+  textarea {
+    width: 100%; min-height: 26rem; padding: .75rem;
+    font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--fg); background: var(--code-bg);
+    border: 1px solid var(--line); border-radius: 6px; resize: vertical;
+  }
+  textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .bar { display: flex; gap: .5rem; align-items: center; margin: .6rem 0; flex-wrap: wrap; }
+  button {
+    font: inherit; padding: .4rem .8rem; border-radius: 5px;
+    border: 1px solid var(--line); background: var(--code-bg); color: var(--fg);
+    cursor: pointer;
+  }
+  button:hover:not(:disabled) { border-color: var(--accent); }
+  button:disabled { opacity: .5; cursor: default; }
+  #summary { font-weight: 600; }
+  .ok { color: var(--ok); } .err { color: var(--err); } .warn { color: var(--warn); }
+  #status { font-size: .85rem; color: var(--muted); margin-bottom: 1rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  #diags li {
+    display: flex; gap: .5rem; align-items: baseline; flex-wrap: wrap;
+    padding: .5rem .6rem; border-left: 3px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  #diags li.error { border-left-color: var(--err); }
+  #diags li.warning { border-left-color: var(--warn); }
+  #diags li.clean { border-left-color: var(--ok); color: var(--ok); }
+  #diags code {
+    font: 12px ui-monospace, monospace; background: var(--code-bg);
+    padding: .1rem .35rem; border-radius: 3px; color: var(--muted);
+  }
+  #diags em { color: var(--muted); font-size: .85rem; flex-basis: 100%; }
+  .loc {
+    font: 12px ui-monospace, monospace; padding: .1rem .3rem;
+    border: none; background: none; color: var(--accent);
+    text-decoration: underline; cursor: pointer;
+  }
+  footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line);
+           color: var(--muted); font-size: .85rem; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+  <h1>sumo-lint</h1>
+  <p class="lede">
+    Check SUMO Knowledge Base wiki markup for formatting errors. Paste an
+    article's source below — the kind you see in the SUMO editor's text box.
+  </p>
+  <p id="status">loading the linter…</p>
+
+  <div class="grid">
+    <section>
+      <label for="src"><strong>Wiki markup</strong></label>
+      <div class="bar">
+        <button id="sample" type="button">Load an example with errors</button>
+      </div>
+      <textarea id="src" spellcheck="false"
+        placeholder="Paste SUMO wiki markup here…"></textarea>
+    </section>
+
+    <section>
+      <strong>Problems</strong>
+      <div class="bar">
+        <span id="summary">paste some wiki markup to begin</span>
+        <button id="fixbtn" type="button" disabled>No safe fixes</button>
+      </div>
+      <ul id="diags"></ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>
+      <strong>Everything runs in your browser.</strong> Your markup is never
+      uploaded, so unpublished drafts stay private.
+    </p>
+    <p>
+      Only <em>safe</em> fixes are applied — repairs whose intent is a guess are
+      reported but left alone, because most markup errors have several plausible
+      corrections and picking wrong silently changes what an article says.
+    </p>
+    <p>
+      Source and issues:
+      <a href="https://github.com/thunderbird/sumo-linter">thunderbird/sumo-linter</a>.
+      Scoped to Thunderbird conventions.
+    </p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "comments": { "blockComment": ["<!--", "-->"] },
+  "brackets": [["[[", "]]"], ["{", "}"]],
+  "autoClosingPairs": [
+    { "open": "[[", "close": "]]" },
+    { "open": "{note}", "close": "{/note}" },
+    { "open": "{warning}", "close": "{/warning}" }
+  ]
+}

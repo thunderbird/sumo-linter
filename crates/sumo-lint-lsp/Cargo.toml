@@ -1,0 +1,18 @@
+[package]
+name = "sumo-lint-lsp"
+description = "Language Server Protocol server for SUMO Knowledge Base wiki markup."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "sumo-lint-lsp"
+path = "src/main.rs"
+
+# Hand-rolled LSP over stdio rather than tower-lsp: the server only needs
+# publishDiagnostics and formatting, and staying dependency-free keeps the whole
+# workspace buildable with nothing but a Rust toolchain.
+[dependencies]
+sumo-wiki-core.workspace = true

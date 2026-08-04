@@ -1,0 +1,18 @@
+[package]
+name = "sumo-lint-wasm"
+description = "WASM bindings for the SUMO wiki markup linter."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+# No wasm-bindgen: the interface is one string in, one JSON string out, which the
+# raw wasm32-unknown-unknown ABI handles with a few exported functions. That
+# avoids needing wasm-pack or npm in the build, so `cargo build --target
+# wasm32-unknown-unknown` is the whole story.
+[dependencies]
+sumo-wiki-core.workspace = true

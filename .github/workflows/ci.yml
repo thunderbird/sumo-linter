@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install toolchain
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup component add rustfmt clippy
+          rustup target add wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Format
+        run: cargo fmt --all --check
+      - name: Clippy
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Test
+        # Includes the corpus property tests: round-trip must hold byte-for-byte
+        # on every committed article, and safe fixes must be idempotent.
+        run: cargo test --all
+      - name: Build WASM
+        # The core crate is I/O-free precisely so this works; if it ever pulls in
+        # something native, this job is what catches it.
+        run: cargo build -p sumo-lint-wasm --release --target wasm32-unknown-unknown
+
+      - name: Lint the corpus
+        # The committed corpus has 5 known errors, all filed as issues
+        # (#223, #224, #225, #228). Exit code 1 is therefore expected; this step
+        # exists to surface the report, not to gate.
+        run: cargo run --release -p sumo-lint-cli -- corpus/en-US || true
+
+  scraper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Syntax-check the dev-only scraper
+        run: |
+          node --check tools/scrape/scrape.mjs
+          node --check tools/scrape/report.mjs

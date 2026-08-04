@@ -1,6 +1,11 @@
 [workspace]
 resolver = "2"
-members = ["crates/sumo-wiki-core", "crates/sumo-lint-cli"]
+members = [
+    "crates/sumo-wiki-core",
+    "crates/sumo-lint-cli",
+    "crates/sumo-lint-lsp",
+    "crates/sumo-lint-wasm",
+]
 
 [workspace.package]
 version = "0.1.0"

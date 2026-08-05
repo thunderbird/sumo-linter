@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="sumo-lint">
+  <!-- This Source Code Form is subject to the terms of the Mozilla Public
+       License, v. 2.0. If a copy of the MPL was not distributed with this
+       file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+
+  <!-- Near-black tile so the icon reads on both light and dark browser chrome:
+       the background travels with the glyph instead of depending on the theme. -->
+  <rect width="64" height="64" rx="14" fill="#17161e"/>
+
+  <!-- The L is drawn as geometry rather than <text>. An SVG favicon is often
+       rendered without the page's font stack, so a font-family reference can
+       silently fall back to whatever the system has and change the shape. A path
+       looks identical everywhere.
+
+       Proportions follow a bold grotesque capital: 36 units of cap height with a
+       9-unit stem (25%), which stays legible when scaled down to 16px.
+       Pink #ff3d8b on #17161e is about 5.5:1 contrast. -->
+  <path d="M20 14 H29 V41 H45 V50 H20 Z" fill="#ff3d8b"/>
+</svg>

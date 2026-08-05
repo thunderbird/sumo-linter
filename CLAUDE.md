@@ -62,7 +62,11 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   and find out. Not urgent; nothing Thunderbird-facing depends on it.
 - Phase 3: non-English locales. Locale is already threaded through; no en-US assumptions
   live in rule logic.
-- `web/` has no favicon, so the page logs a harmless 404 on load.
+- **Neither editor test runs in CI.** `editors/emacs/test-sumo-wiki-mode.el` (20
+  assertions) and `editors/vscode/test/grammar.test.mjs` (34) both have to be run by
+  hand, so they will rot. The VS Code one is plain Node and needs only
+  `npm ci && npm test` in `editors/vscode`; the Emacs one needs an Emacs on the runner
+  and the release binaries on `PATH`.
 
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
 measured; the four bugs are already filed with rendered-output evidence.
@@ -135,7 +139,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-cli` | `sumo-lint` binary: hand-rolled args, `--fix`, `--style`, `--diff`, JSON |
 | `crates/sumo-lint-lsp` | LSP over stdio: diagnostics + `textDocument/formatting` |
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
-| `editors/` | VS Code extension; Neovim and Vim 8 configuration |
+| `editors/` | VS Code extension (LSP client + TextMate grammar); Emacs mode; Neovim and Vim 8 configuration |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
 | `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS) |
 

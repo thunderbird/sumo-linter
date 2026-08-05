@@ -16,7 +16,9 @@ function activate(context) {
   client = new LanguageClient(
     'sumoLint',
     'SUMO wiki markup linter',
-    { command, transport: 1 /* stdio */ },
+    // No `transport`: an Executable server speaks stdio by default. Naming a
+    // TransportKind here is a trap — ipc only works for a forked Node module.
+    { command },
     { documentSelector: [{ scheme: 'file', language: 'sumo-wiki' }] },
   );
 

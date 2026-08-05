@@ -113,17 +113,31 @@ against the real binary, and the Flymake JSON path — 20 assertions.
 
 ## VS Code
 
-The extension in `vscode/` is a thin `vscode-languageclient` wrapper.
+The extension in `vscode/` is a thin `vscode-languageclient` wrapper plus a TextMate
+grammar. It highlights the same constructs as the Emacs mode, including the
+leading-space preformatted lines described above.
 
 ```sh
 cd editors/vscode
 npm install
+npm test                  # tokenises a fixture with vscode-textmate: 34 assertions
 npx vsce package          # produces sumo-lint-0.1.0.vsix
 code --install-extension sumo-lint-0.1.0.vsix
 ```
 
 If `sumo-lint-lsp` is not on your `PATH`, set `sumoLint.serverPath` to an
 absolute path in settings.
+
+Two things about the grammar that look like mistakes and are not:
+
+- List markers are scoped `keyword.other.list` **and**
+  `punctuation.definition.list.begin`. The latter is the semantically right name, but
+  themes only colour it under a `.markdown` suffix, so on its own the bullets come out
+  unstyled. `keyword.other` is what actually renders them blue.
+- The server options object passes **no** `TransportKind`. An `Executable` server
+  already speaks stdio; naming a kind there is how you get
+  `Transport kind ipc is not support for command executable`, because `stdio` is `0`
+  and `1` — the tempting value — is `ipc`, which needs a forked Node module.
 
 Publishing to the marketplace is deliberately out of scope — sideloading a
 `.vsix` is enough for a contributor tool, and avoids needing a publisher account.

@@ -1,0 +1,161 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "SUMO wiki markup",
+  "scopeName": "text.sumo-wiki",
+  "patterns": [
+    { "include": "#preformatted" },
+    { "include": "#comment" },
+    { "include": "#heading" },
+    { "include": "#horizontal-rule" },
+    { "include": "#list" },
+    { "include": "#table" },
+    { "include": "#for" },
+    { "include": "#callout" },
+    { "include": "#macro" },
+    { "include": "#transclusion" },
+    { "include": "#media" },
+    { "include": "#link" },
+    { "include": "#emphasis" },
+    { "include": "#toc" }
+  ],
+  "repository": {
+    "preformatted": {
+      "comment": "A leading space renders preformatted. First, so it wins over the inline rules: nothing on such a line is interpreted as markup. Both scope names are listed because themes colour one or the other.",
+      "name": "markup.raw.block.sumo-wiki markup.inline.raw.sumo-wiki",
+      "match": "^ +.*$"
+    },
+    "comment": {
+      "name": "comment.block.sumo-wiki",
+      "begin": "<!--",
+      "end": "-->",
+      "captures": { "0": { "name": "punctuation.definition.comment.sumo-wiki" } }
+    },
+    "heading": {
+      "comment": "Both '= H =' and '=H=' are valid; neither is correct. Longest first, since all six start at column 0.",
+      "patterns": [
+        {
+          "match": "^(======)([^=\\n]*)(======)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
+            "2": { "name": "markup.heading.6.sumo-wiki" },
+            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
+          }
+        },
+        {
+          "match": "^(=====)([^=\\n]*)(=====)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
+            "2": { "name": "markup.heading.5.sumo-wiki" },
+            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
+          }
+        },
+        {
+          "match": "^(====)([^=\\n]*)(====)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
+            "2": { "name": "markup.heading.4.sumo-wiki" },
+            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
+          }
+        },
+        {
+          "match": "^(===)([^=\\n]*)(===)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
+            "2": { "name": "markup.heading.3.sumo-wiki" },
+            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
+          }
+        },
+        {
+          "match": "^(==)([^=\\n]*)(==)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
+            "2": { "name": "markup.heading.2.sumo-wiki" },
+            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
+          }
+        },
+        {
+          "match": "^(=)([^=\\n]*)(=)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
+            "2": { "name": "markup.heading.1.sumo-wiki" },
+            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
+          }
+        }
+      ]
+    },
+    "list": {
+      "comment": "'*' and '#' are list markers, never emphasis or a Markdown heading. keyword.other rather than punctuation.definition.list.begin, which themes only colour for Markdown.",
+      "name": "keyword.other.list.sumo-wiki punctuation.definition.list.begin.sumo-wiki",
+      "match": "^[*#]+|^;"
+    },
+    "horizontal-rule": {
+      "name": "keyword.other.separator.sumo-wiki",
+      "match": "^----+$"
+    },
+    "table": {
+      "name": "keyword.other.table.sumo-wiki",
+      "match": "^(?:\\{\\||\\|\\}|\\|-|\\|\\+)"
+    },
+    "for": {
+      "comment": "Platform conditionals: {for win,mac}, {for not mac}, {for =fx140}.",
+      "name": "keyword.control.conditional.sumo-wiki",
+      "match": "\\{/?for(?: [^}\\n]*)?\\}"
+    },
+    "callout": {
+      "name": "entity.name.tag.callout.sumo-wiki",
+      "match": "\\{/?(?:note|warning)\\}"
+    },
+    "macro": {
+      "comment": "Inline macros. The name is highlighted, the argument left as prose.",
+      "match": "(\\{(?:key|button|menu|filepath|pref) )([^}\\n]*)(\\})",
+      "captures": {
+        "1": { "name": "support.function.macro.sumo-wiki" },
+        "3": { "name": "support.function.macro.sumo-wiki" }
+      }
+    },
+    "transclusion": {
+      "comment": "Before the generic link rule, so the prefix shows.",
+      "name": "keyword.control.import.sumo-wiki",
+      "match": "\\[\\[(?:Template|T|Include|I):[^\\]\\n]*\\]\\]"
+    },
+    "media": {
+      "name": "constant.other.media.sumo-wiki",
+      "match": "\\[\\[(?:Image|Video|V|UI):[^\\]\\n]*\\]\\]"
+    },
+    "link": {
+      "patterns": [
+        {
+          "comment": "Internal: [[Page]] or [[Page|text]].",
+          "name": "markup.underline.link.sumo-wiki",
+          "match": "\\[\\[[^\\]\\n]*\\]\\]"
+        },
+        {
+          "comment": "External: [https://example.com label].",
+          "name": "markup.underline.link.sumo-wiki",
+          "match": "\\[https?://[^\\]\\n]*\\]"
+        }
+      ]
+    },
+    "emphasis": {
+      "comment": "Five quotes is bold+italic, so it is matched first.",
+      "patterns": [
+        {
+          "name": "markup.bold.italic.sumo-wiki",
+          "match": "'''''(?:[^'\\n]|'[^'\\n])*'''''"
+        },
+        {
+          "name": "markup.bold.sumo-wiki",
+          "match": "'''(?:[^'\\n]|'[^'\\n])*'''"
+        },
+        {
+          "name": "markup.italic.sumo-wiki",
+          "match": "''(?:[^'\\n]|'[^'\\n])*''"
+        }
+      ]
+    },
+    "toc": {
+      "name": "keyword.control.toc.sumo-wiki",
+      "match": "__TOC__"
+    }
+  }
+}

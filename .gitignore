@@ -57,3 +57,6 @@ node_modules/
 
 # Emacs byte-compiled output
 *.elc
+
+# Packaged VS Code extension, rebuilt by `vsce package`
+/editors/vscode/*.vsix

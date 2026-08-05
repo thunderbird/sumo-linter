@@ -62,11 +62,10 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   and find out. Not urgent; nothing Thunderbird-facing depends on it.
 - Phase 3: non-English locales. Locale is already threaded through; no en-US assumptions
   live in rule logic.
-- **Neither editor test runs in CI.** `editors/emacs/test-sumo-wiki-mode.el` (20
-  assertions) and `editors/vscode/test/grammar.test.mjs` (34) both have to be run by
-  hand, so they will rot. The VS Code one is plain Node and needs only
-  `npm ci && npm test` in `editors/vscode`; the Emacs one needs an Emacs on the runner
-  and the release binaries on `PATH`.
+- **The Emacs test does not run in CI.** `editors/vscode/test/grammar.test.mjs` (34
+  assertions) now runs as the `vscode` job, but `editors/emacs/test-sumo-wiki-mode.el`
+  (20) still has to be run by hand, so it will rot. It needs an Emacs on the runner
+  *and* the release binaries on `PATH`, since it exercises the real CLI.
 
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
 measured; the four bugs are already filed with rendered-output evidence.

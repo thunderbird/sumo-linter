@@ -36,6 +36,25 @@ jobs:
         # exists to surface the report, not to gate.
         run: cargo run --release -p sumo-lint-cli -- corpus/en-US || true
 
+  vscode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: editors/vscode/package-lock.json
+      - name: Install
+        run: npm ci
+        working-directory: editors/vscode
+      - name: Grammar tests
+        # Tokenises a fixture with vscode-textmate, the same engine VS Code uses,
+        # and asserts the scope at given columns. A grammar that silently stops
+        # matching looks fine until someone opens a file.
+        run: npm test
+        working-directory: editors/vscode
+
   scraper:
     runs-on: ubuntu-latest
     steps:

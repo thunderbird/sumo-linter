@@ -42,6 +42,31 @@ tools/build-web.sh                        # writes web/sumo_lint_wasm.wasm (~116
 python3 -m http.server -d web 8412        # pick a free port; 8099 is often taken
 ```
 
+## Where to pick up
+
+Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
+<https://thunderbird.github.io/sumo-linter/>.
+
+**Open, on Roland's side (no deadline):**
+- Post the heading-convention consultation: `docs/heading-convention-discussion.md` plus
+  the data gist <https://gist.github.com/rtanglao/2708f762f5a4ec71c699827d8bc4071f>.
+  **This blocks nothing** — the per-article default needs no decision.
+- Fix the four filed markup bugs: knowledgebase-issues **#223, #224, #225, #228**.
+- Triage the 8 non-public drafts: knowledgebase-issues **#227** (has a checklist). Two of
+  the eight are not drafts at all — `invalid-certificates` is a misfiled support question,
+  and `troubleshoot-pdf-and-email-issues-thunderbird` reads like machine-generated filler.
+
+**Open, for a future session:**
+- sumo-linter **#1** — `[[Include:]]`, `{{{n}}}` and `REDIRECT` occur **0** times in the
+  Thunderbird corpus, so those lexer paths are untested. Scrape a sample of other products
+  and find out. Not urgent; nothing Thunderbird-facing depends on it.
+- Phase 3: non-English locales. Locale is already threaded through; no en-US assumptions
+  live in rule logic.
+- `web/` has no favicon, so the page logs a harmless 404 on load.
+
+**Do not redo:** the corpus is already scraped and committed; the heading data is already
+measured; the four bugs are already filed with rendered-output evidence.
+
 ## Hard-won facts about SUMO (verified live — do not re-derive)
 
 **The markup is not Markdown.** It's Kitsune's own wiki dialect. A Markdown parser is the

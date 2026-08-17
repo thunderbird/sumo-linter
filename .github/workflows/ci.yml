@@ -55,6 +55,31 @@ jobs:
         run: npm test
         working-directory: editors/vscode
 
+  emacs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Emacs
+        # emacs-nox is enough — the tests are batch mode and never open a frame.
+        # Noble ships 29.x, which matters: eglot is only built in from 29.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends emacs-nox
+          emacs --version | head -1
+      - name: Install toolchain
+        run: rustup toolchain install stable --profile minimal
+      - uses: Swatinem/rust-cache@v2
+      - name: Build the CLI
+        # The mode shells out to the real `sumo-lint` for fix, style and Flymake,
+        # so this test needs a binary, not a mock. That is the point of it: an
+        # argument or JSON-shape change in the CLI breaks the mode, and nothing
+        # else would notice.
+        run: cargo build --release -p sumo-lint-cli
+      - name: Mode tests
+        run: |
+          PATH="$PWD/target/release:$PATH" \
+            emacs -Q --batch -l editors/emacs/test-sumo-wiki-mode.el
+
   scraper:
     runs-on: ubuntu-latest
     steps:

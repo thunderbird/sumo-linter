@@ -62,13 +62,11 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   and find out. Not urgent; nothing Thunderbird-facing depends on it.
 - Phase 3: non-English locales. Locale is already threaded through; no en-US assumptions
   live in rule logic.
-- **The Emacs test does not run in CI.** `editors/vscode/test/grammar.test.mjs` (34
-  assertions) now runs as the `vscode` job, but `editors/emacs/test-sumo-wiki-mode.el`
-  (20) still has to be run by hand, so it will rot. It needs an Emacs on the runner
-  *and* the release binaries on `PATH`, since it exercises the real CLI.
 
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
-measured; the four bugs are already filed with rendered-output evidence. LSP quick fixes
+measured; the four bugs are already filed with rendered-output evidence. **Every test now
+runs in CI** — `rust`, `vscode` (34 grammar assertions) and `emacs` (20 mode assertions,
+against the real CLI) — so there is no by-hand test suite left to remember. LSP quick fixes
 (`textDocument/codeAction`) are implemented, tested, pushed and CI-green as of 2026-08-17;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.

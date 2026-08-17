@@ -141,7 +141,14 @@ PATH="$PWD/target/release:$PATH" \
 ```
 
 That checks mode activation, every font-lock rule, Eglot registration, both commands
-against the real binary, and the Flymake JSON path — 20 assertions.
+against the real binary, and the Flymake JSON path — 20 assertions. **CI runs it too**, as
+the `emacs` job, on `emacs-nox` from Ubuntu's archive.
+
+It exits non-zero on failure, which is not free in `--batch`: Emacs exits 0 however many
+FAILs were printed, so the summary block at the end of the file is what makes the run a
+gate rather than decoration. It also enforces a floor on the assertion count, because a
+form that stops running its body would otherwise print fewer lines and still pass — raise
+the `expected` value when you add assertions.
 
 ## VS Code
 

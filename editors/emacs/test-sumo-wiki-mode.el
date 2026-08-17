@@ -24,7 +24,14 @@
 
 (add-to-list 'load-path (expand-file-name "editors/emacs"))
 (require 'sumo-wiki-mode)
-(defun ok (label val) (princ (format "  %-46s %s\n" label (if val "PASS" "FAIL"))))
+(defvar sumo-test-total 0)
+(defvar sumo-test-failed 0)
+
+(defun ok (label val)
+  "Record assertion LABEL as passing when VAL is non-nil, and print it."
+  (setq sumo-test-total (1+ sumo-test-total))
+  (unless val (setq sumo-test-failed (1+ sumo-test-failed)))
+  (princ (format "  %-46s %s\n" label (if val "PASS" "FAIL"))))
 
 ;; 1. byte-compiles and loads
 (ok "loads" (featurep 'sumo-wiki-mode))
@@ -91,3 +98,27 @@
     (ok "flymake backend yields diagnostics"
         (and (listp got) (= 1 (length got))
              (string-match-p "SW001" (flymake-diagnostic-text (car got)))))))
+
+;;; Summary and exit status
+;;
+;; `--batch' exits 0 however many FAILs were printed, so without this the whole
+;; file is decoration: CI would go green on a broken mode. An error signalled
+;; anywhere above aborts the run with a backtrace and a non-zero status already;
+;; this handles the case where an assertion merely returns nil.
+;;
+;; The count is also a floor, because a `let' form that stops running its body
+;; would otherwise just print fewer lines and still pass. Raise it when adding
+;; assertions.
+
+(let ((expected 20))
+  (when (< sumo-test-total expected)
+    (setq sumo-test-failed (1+ sumo-test-failed))
+    (princ (format "  %-46s FAIL (ran %d)\n"
+                   (format "at least %d assertions ran" expected)
+                   sumo-test-total))))
+
+(princ (format "emacs: %d/%d assertions passed\n"
+               (- sumo-test-total sumo-test-failed) sumo-test-total))
+(kill-emacs (if (> sumo-test-failed 0) 1 0))
+
+;;; test-sumo-wiki-mode.el ends here

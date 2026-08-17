@@ -9,14 +9,46 @@ Build it first:
 cargo build --release          # produces target/release/sumo-lint-lsp
 ```
 
-Optionally put it on your `PATH`:
+Optionally put it on your `PATH`. Copy the CLI too — Emacs's commands and ALE's
+non-LSP mode shell out to `sumo-lint`, and fail with "cannot find" without it:
 
 ```sh
-cp target/release/sumo-lint-lsp ~/.local/bin/
+cp target/release/sumo-lint-lsp target/release/sumo-lint ~/.local/bin/
 ```
 
 Treat `*.sumo` and `*.wiki` as SUMO markup. Remember that SUMO itself is the
 source of truth — these are local drafts you paste back into the article editor.
+
+## Quick fixes
+
+Every diagnostic that carries a fix is offered as an LSP code action, so the
+squiggle is never a dead end:
+
+| Editor | How |
+|---|---|
+| VS Code | `Cmd+.` with the caret **on** the error, or `Cmd+.` `Enter` for the preferred fix |
+| Neovim | `:lua vim.lsp.buf.code_action()` |
+| Emacs (Eglot) | `M-x eglot-code-actions`, or `C-c C-f` for the whole buffer |
+
+Fixes are matched to the requested range, so put the cursor inside the error —
+`F8` (VS Code) or `]d` (Neovim) jumps there. There is also a document-wide
+`source.fixAll.sumo-lint` action, which applies every *safe* fix at once and can
+run on save:
+
+```json
+"[sumo-wiki]": {
+  "editor.codeActionsOnSave": { "source.fixAll.sumo-lint": "explicit" }
+}
+```
+
+Unsafe fixes appear in the menu too, marked *(needs review)* — the CLI withholds
+them behind `--unsafe-fixes` because it writes files unattended, whereas
+accepting a code action is a deliberate, undoable choice.
+
+This matters more than it looks: without a code-action provider of our own, `Cmd+.`
+on a SUMO diagnostic falls through to whatever else is installed, and an AI
+assistant asked to fix `SW009` will "correct" the markup to a Markdown link —
+`[text](url)`, the exact syntax the rule flags. SUMO wants `[url text]`.
 
 ## Neovim — configuration only, no plugin
 

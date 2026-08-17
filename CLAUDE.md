@@ -136,7 +136,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 |---|---|
 | `crates/sumo-wiki-core` | lossless lexer → rules → formatter. No fs, no network, no deps. |
 | `crates/sumo-lint-cli` | `sumo-lint` binary: hand-rolled args, `--fix`, `--style`, `--diff`, JSON |
-| `crates/sumo-lint-lsp` | LSP over stdio: diagnostics + `textDocument/formatting` |
+| `crates/sumo-lint-lsp` | LSP over stdio: diagnostics, `textDocument/formatting`, `codeAction` quick fixes |
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
 | `editors/` | VS Code extension (LSP client + TextMate grammar); Emacs mode; Neovim and Vim 8 configuration |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
@@ -151,7 +151,14 @@ It is a **token stream**, not a full CST. That is enough for phase-1 rules and p
 formatting; do not describe it as a tree.
 
 Diagnostics carry a stable code (`SW001`), severity, byte span, message, and an optional
-fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`.
+fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`. In the LSP
+both kinds are offered as quick fixes (`Unsafe` titled *(needs review)*), because accepting
+a code action is a deliberate, undoable choice, unlike a CLI writing files unattended.
+
+**A quick-fix provider is not optional.** Without one, `Cmd+.` on a SUMO diagnostic falls
+through to whatever else the editor has installed, and an AI assistant asked to fix SW009
+rewrites the markup into a *Markdown* link — the very syntax the rule flags. Measured in
+Roland's VS Code, Aug 2026.
 
 ## Conventions
 

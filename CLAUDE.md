@@ -19,7 +19,7 @@ implemented**. The corpus is 203 articles; 193 public ones are committed under `
 
 ## Current state
 
-Phases 1 and 2 are implemented and tested. `cargo test` runs 26 tests, including property
+Phases 1 and 2 are implemented and tested. `cargo test` runs 31 tests, including property
 tests over every corpus article.
 
 Linting the committed corpus reports **5 errors, all verified by hand** and all filed:
@@ -68,7 +68,10 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   *and* the release binaries on `PATH`, since it exercises the real CLI.
 
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
-measured; the four bugs are already filed with rendered-output evidence.
+measured; the four bugs are already filed with rendered-output evidence. LSP quick fixes
+(`textDocument/codeAction`) are implemented, tested, pushed and CI-green as of 2026-08-17;
+the editor-side setup they need is in `editors/README.md`, including the GhostText
+`fileExtension` setting without which the extension never activates on a SUMO textarea.
 
 ## Hard-won facts about SUMO (verified live — do not re-derive)
 

@@ -174,6 +174,30 @@ Two things about the grammar that look like mistakes and are not:
 Publishing to the marketplace is deliberately out of scope — sideloading a
 `.vsix` is enough for a contributor tool, and avoids needing a publisher account.
 
+### GhostText: set `ghostText.fileExtension` to `sumo`
+
+[GhostText](https://ghosttext.fregante.com/) edits a browser textarea in your editor,
+which is the natural way to work on a SUMO article: you stay in the wiki editor and get
+real markup tooling. But the extension only claims `*.sumo` and `*.wiki`, and GhostText
+names its scratch buffer from one global setting, so without this the buffer opens as
+plain text (or whatever else you had set) and **none of sumo-lint runs** — no
+highlighting, no diagnostics, no quick fixes:
+
+```json
+"ghostText.fileExtension": "sumo"
+```
+
+Two consequences of that setting being global, not per-site:
+
+- Every other GhostText session opens as `.sumo` too, so editing Wikipedia will highlight
+  as SUMO markup and MediaWiki-only constructs get flagged. The alternative is leaving it
+  empty and setting the language per buffer with `Cmd+K M`.
+- GhostText buffers are unsaved scratch files, so `editor.codeActionsOnSave` almost never
+  fires there. `Cmd+.` is how you apply a fix.
+
+Nothing is written back to SUMO by any of this — GhostText syncs your keystrokes into the
+textarea, and *you* still press Save in the wiki editor.
+
 ## Just the CLI
 
 No editor setup at all:

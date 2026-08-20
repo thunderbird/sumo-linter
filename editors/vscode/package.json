@@ -2,7 +2,7 @@
   "name": "sumo-lint",
   "displayName": "SUMO wiki markup linter",
   "description": "Lints SUMO Knowledge Base wiki markup via the sumo-lint-lsp language server.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   ],
   "main": "./src/extension.js",
   "scripts": {
-    "test": "node test/grammar.test.mjs"
+    "test": "node test/grammar.test.mjs && node test/link.test.mjs"
   },
   "contributes": {
     "languages": [
@@ -42,6 +42,36 @@
         "path": "./syntaxes/sumo-wiki.tmLanguage.json"
       }
     ],
+    "commands": [
+      {
+        "command": "sumoLint.insertLink",
+        "title": "Insert Link",
+        "category": "SUMO"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "sumoLint.insertLink",
+        "key": "ctrl+k ctrl+l",
+        "mac": "cmd+k cmd+l",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == sumo-wiki"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "sumoLint.insertLink",
+          "when": "editorLangId == sumo-wiki"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "sumoLint.insertLink",
+          "when": "editorLangId == sumo-wiki",
+          "group": "1_modification"
+        }
+      ]
+    },
     "configuration": {
       "title": "sumo-lint",
       "properties": {

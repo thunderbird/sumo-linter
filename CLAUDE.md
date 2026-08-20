@@ -65,9 +65,12 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
 measured; the four bugs are already filed with rendered-output evidence. **Every test now
-runs in CI** — `rust`, `vscode` (34 grammar assertions) and `emacs` (20 mode assertions,
-against the real CLI) — so there is no by-hand test suite left to remember. LSP quick fixes
-(`textDocument/codeAction`) are implemented, tested, pushed and CI-green as of 2026-08-17;
+runs in CI** — `rust`, `vscode` (34 grammar + 35 insert-link assertions) and `emacs`
+(20 mode assertions, against the real CLI) — so there is no by-hand test suite left.
+LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
+CI-green as of 2026-08-17;
+the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19 — its markup
+logic is `editors/vscode/src/link.js`, covered by 35 assertions in the `vscode` CI job;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 
@@ -139,7 +142,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-cli` | `sumo-lint` binary: hand-rolled args, `--fix`, `--style`, `--diff`, JSON |
 | `crates/sumo-lint-lsp` | LSP over stdio: diagnostics, `textDocument/formatting`, `codeAction` quick fixes |
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
-| `editors/` | VS Code extension (LSP client + TextMate grammar); Emacs mode; Neovim and Vim 8 configuration |
+| `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link`); Emacs mode; Neovim and Vim 8 configuration |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
 | `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS) |
 

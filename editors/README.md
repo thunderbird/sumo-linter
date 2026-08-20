@@ -159,13 +159,44 @@ leading-space preformatted lines described above.
 ```sh
 cd editors/vscode
 npm install
-npm test                  # tokenises a fixture with vscode-textmate: 34 assertions
-npx vsce package          # produces sumo-lint-0.1.0.vsix
-code --install-extension sumo-lint-0.1.0.vsix
+npm test                  # 34 grammar assertions + 35 insert-link assertions
+npx vsce package          # produces sumo-lint-0.2.0.vsix
+code --install-extension sumo-lint-0.2.0.vsix
 ```
 
 If `sumo-lint-lsp` is not on your `PATH`, set `sumoLint.serverPath` to an
 absolute path in settings.
+
+### Insert a link: `Cmd+K Cmd+L`
+
+`SUMO: Insert Link` (Command Palette, right-click menu, or `Cmd+K Cmd+L` /
+`Ctrl+K Ctrl+L`) asks for a target and the link text, then writes the correct
+form — because SUMO has two, and they are not interchangeable:
+
+| You type | You get |
+|---|---|
+| `https://example.org` + `Example` | `[https://example.org Example]` |
+| `Install Thunderbird on Linux` + `Linux` | `[[Install Thunderbird on Linux\|Linux]]` |
+| `#w_whitelisting` + `Whitelisting` | `[[#w_whitelisting\|Whitelisting]]` |
+
+Anything with a scheme (`http:`, `https:`, `ftp:`, `mailto:`) is external and
+takes a **space**; anything else is an internal link by article **title** — not
+slug — and takes a **pipe**. Leave the text empty for `[[Article title]]`, and a
+label identical to the title is dropped rather than duplicated.
+
+Select first and it seeds the prompts: a selected URL becomes the target, selected
+prose becomes the link text. The selection is replaced.
+
+Two deliberate choices:
+
+- The keybinding is scoped `editorLangId == sumo-wiki`, where it shadows **Toggle
+  Fold**. That chord is the near-universal "insert link" shortcut and folding is
+  of little use in an article; `Cmd+Alt+[` still folds.
+- It does not rewrite an existing link. Select `[text](url)` and the prompts come
+  up empty — the tool for that is SW009's quick fix, which knows the span.
+
+`npm test` covers the markup it produces (35 assertions, no VS Code needed); the
+prompting itself is two input boxes and an edit, and is not worth a harness.
 
 Two things about the grammar that look like mistakes and are not:
 

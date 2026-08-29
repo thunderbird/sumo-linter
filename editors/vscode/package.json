@@ -2,14 +2,14 @@
   "name": "sumo-lint",
   "displayName": "SUMO wiki markup linter",
   "description": "Lints SUMO Knowledge Base wiki markup via the sumo-lint-lsp language server.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/thunderbird/sumo-linter"
   },
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.97.0"
   },
   "categories": [
     "Linters"
@@ -79,6 +79,11 @@
           "type": "string",
           "default": "sumo-lint-lsp",
           "description": "Path to the sumo-lint-lsp binary. Use an absolute path if it is not on PATH."
+        },
+        "sumoLint.pasteUrlAsLink": {
+          "type": "boolean",
+          "default": true,
+          "description": "Pasting a URL over selected text writes [url text] instead of replacing the selection. Plain paste is unaffected."
         }
       }
     }

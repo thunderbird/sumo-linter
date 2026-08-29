@@ -159,9 +159,9 @@ leading-space preformatted lines described above.
 ```sh
 cd editors/vscode
 npm install
-npm test                  # 34 grammar assertions + 35 insert-link assertions
-npx vsce package          # produces sumo-lint-0.2.0.vsix
-code --install-extension sumo-lint-0.2.0.vsix
+npm test                  # 34 grammar assertions + 51 link assertions
+npx vsce package          # produces sumo-lint-0.3.0.vsix
+code --install-extension sumo-lint-0.3.0.vsix
 ```
 
 If `sumo-lint-lsp` is not on your `PATH`, set `sumoLint.serverPath` to an
@@ -195,8 +195,33 @@ Two deliberate choices:
 - It does not rewrite an existing link. Select `[text](url)` and the prompts come
   up empty — the tool for that is SW009's quick fix, which knows the span.
 
-`npm test` covers the markup it produces (35 assertions, no VS Code needed); the
-prompting itself is two input boxes and an edit, and is not worth a harness.
+### Paste a URL over selected text: `Cmd+V`
+
+Select some words, copy a URL, press `Cmd+V` — you get
+`[https://example.org the release notes]` instead of the selection being
+replaced. This is the same gesture Markdown mode uses, and usually the faster of
+the two: the clipboard already holds the URL, so there is nothing to type.
+
+It is a **paste handler**, not a keybinding — `Cmd+V` is still paste. It only
+rewrites the paste when *all* of these hold, and pastes normally otherwise:
+
+- the clipboard holds a single URL with a scheme and no whitespace,
+- exactly one selection, non-empty, on one line, and
+- the selection is not itself a URL (that is a correction) and has no `[` or `]`.
+
+VS Code's paste widget still offers **Paste as plain text** afterwards, and
+`sumoLint.pasteUrlAsLink: false` turns the handler off for good.
+
+Only the external form is produced. An internal link needs the article **title**,
+and a `support.mozilla.org/kb/<slug>` URL on the clipboard does not carry one —
+resolving it would take a network call, so use `Cmd+K Cmd+L` for those.
+
+The provider needs VS Code **1.97** or newer (the paste API stabilised there). On
+an older host the extension still loads; only the paste handler is skipped.
+
+`npm test` covers the markup both paths produce (51 assertions, no VS Code
+needed); the prompting itself is two input boxes and an edit, and is not worth a
+harness.
 
 Two things about the grammar that look like mistakes and are not:
 

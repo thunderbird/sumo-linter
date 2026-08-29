@@ -6,6 +6,8 @@
 // ('vscode')` so it runs under plain node in test/link.test.mjs — the editor
 // half is two input boxes, the part worth testing is the syntax.
 //
+// Also the paste handler, which is the same markup reached a different way.
+//
 // SUMO has two link forms and they are not interchangeable:
 //   [https://example.org label]   external, scheme required, space-separated
 //   [[Article title|label]]       internal, by *title* (not slug), pipe-separated
@@ -68,4 +70,42 @@ function seedFromSelection(selection) {
   return isUrl(s) ? { target: s, label: '' } : { target: '', label: s };
 }
 
-module.exports = { isUrl, buildLink, validateTarget, validateLabel, seedFromSelection };
+// Paste-over-selection, the way Markdown mode does it: select some words,
+// paste a URL, get a link. Returns undefined for every case that is not
+// unambiguously that gesture, and undefined means "let VS Code paste normally"
+// — a paste handler that guesses is worse than no paste handler, because the
+// thing it silently mangles is whatever was on the clipboard.
+function linkFromPaste(pasted, selected) {
+  const url = (pasted || '').trim();
+  const text = (selected || '').trim();
+
+  // A URL never contains whitespace, so anything that does is prose that merely
+  // starts with a scheme, and pasting it over a selection is a plain replace.
+  if (!isUrl(url) || /\s/.test(url)) {
+    return undefined;
+  }
+  // No selection: there is no link text, so this is an ordinary paste. Markdown
+  // mode draws the line in the same place ("smartWithSelection").
+  if (!text) {
+    return undefined;
+  }
+  // Replacing one URL with another is a correction, not a link.
+  if (isUrl(text)) {
+    return undefined;
+  }
+  // A multi-line selection has no sensible label, and brackets would close the
+  // link early. `|` is safe here: it only separates in the [[internal]] form.
+  if (/[\n[\]]/.test(text)) {
+    return undefined;
+  }
+  return `[${url} ${text}]`;
+}
+
+module.exports = {
+  isUrl,
+  buildLink,
+  validateTarget,
+  validateLabel,
+  seedFromSelection,
+  linkFromPaste,
+};

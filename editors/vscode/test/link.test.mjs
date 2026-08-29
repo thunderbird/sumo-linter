@@ -12,7 +12,7 @@ import assert from 'node:assert/strict';
 // CommonJS module: the default import is its `module.exports` object.
 import link from '../src/link.js';
 
-const { buildLink, isUrl, seedFromSelection, validateLabel, validateTarget } = link;
+const { buildLink, isUrl, linkFromPaste, seedFromSelection, validateLabel, validateTarget } = link;
 
 let failed = 0;
 let checks = 0;
@@ -81,9 +81,33 @@ check('undefined selection seeds nothing', seedFromSelection(undefined), { targe
 check('selected markup seeds nothing', seedFromSelection('[[Config Editor|here]]'), { target: '', label: '' });
 check('multi-line selection seeds nothing', seedFromSelection('one\ntwo'), { target: '', label: '' });
 
+// --- linkFromPaste ----------------------------------------------------------
+// Paste a URL over a selection, Markdown-style. undefined means "paste
+// normally", and getting that wrong destroys whatever was on the clipboard,
+// so the negative cases matter more here than the positive one.
+check('URL over prose becomes a link', linkFromPaste('https://example.org', 'the release notes'), '[https://example.org the release notes]');
+check('surrounding whitespace is trimmed', linkFromPaste('  https://example.org\n', '  release notes  '), '[https://example.org release notes]');
+check('a query string survives', linkFromPaste('https://e.org/a?b=1&c=2', 'here'), '[https://e.org/a?b=1&c=2 here]');
+check('mailto counts as a URL', linkFromPaste('mailto:a@b.org', 'write to us'), '[mailto:a@b.org write to us]');
+check('a pipe in the label is fine externally', linkFromPaste('https://example.org', 'a|b'), '[https://example.org a|b]');
+
+check('no selection pastes normally', linkFromPaste('https://example.org', ''), undefined);
+check('undefined selection pastes normally', linkFromPaste('https://example.org', undefined), undefined);
+check('non-URL clipboard pastes normally', linkFromPaste('some words', 'the release notes'), undefined);
+check('empty clipboard pastes normally', linkFromPaste('', 'the release notes'), undefined);
+check('undefined clipboard pastes normally', linkFromPaste(undefined, 'x'), undefined);
+check('prose starting with a scheme pastes normally', linkFromPaste('https://example.org and more', 'x'), undefined);
+check('multi-line clipboard pastes normally', linkFromPaste('https://a.org\nhttps://b.org', 'x'), undefined);
+check('URL over a URL pastes normally', linkFromPaste('https://b.org', 'https://a.org'), undefined);
+check('multi-line selection pastes normally', linkFromPaste('https://example.org', 'one\ntwo'), undefined);
+check('selection with brackets pastes normally', linkFromPaste('https://example.org', '[[Config Editor]]'), undefined);
+
+// Same rule as buildLink: never Markdown.
+check('paste never produces markdown', /\]\(/.test(linkFromPaste('https://example.org', 'here')), false);
+
 // A floor on the count: a file that stops running its body would otherwise
 // print no failures and pass.
-const expected = 35;
+const expected = 51;
 if (checks < expected) {
   console.error(`\nonly ${checks} link assertions ran, expected at least ${expected}`);
   process.exit(1);

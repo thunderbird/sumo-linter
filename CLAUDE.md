@@ -65,12 +65,13 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
 measured; the four bugs are already filed with rendered-output evidence. **Every test now
-runs in CI** — `rust`, `vscode` (34 grammar + 35 insert-link assertions) and `emacs`
+runs in CI** — `rust`, `vscode` (34 grammar + 51 link assertions) and `emacs`
 (20 mode assertions, against the real CLI) — so there is no by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
-the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19 — its markup
-logic is `editors/vscode/src/link.js`, covered by 35 assertions in the `vscode` CI job;
+the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19, and
+paste-a-URL-over-a-selection (`Cmd+V`, sumo-linter #2) on 2026-08-28 — both live in
+`editors/vscode/src/link.js`, covered by 51 assertions in the `vscode` CI job;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 
@@ -142,7 +143,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-cli` | `sumo-lint` binary: hand-rolled args, `--fix`, `--style`, `--diff`, JSON |
 | `crates/sumo-lint-lsp` | LSP over stdio: diagnostics, `textDocument/formatting`, `codeAction` quick fixes |
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
-| `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link`); Emacs mode; Neovim and Vim 8 configuration |
+| `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + URL-paste handler); Emacs mode; Neovim and Vim 8 configuration |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
 | `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS) |
 
@@ -158,6 +159,16 @@ Diagnostics carry a stable code (`SW001`), severity, byte span, message, and an 
 fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`. In the LSP
 both kinds are offered as quick fixes (`Unsafe` titled *(needs review)*), because accepting
 a code action is a deliberate, undoable choice, unlike a CLI writing files unattended.
+
+**`Cmd+V` for links is a paste provider, never a keybinding.** Markdown mode's
+paste-a-URL-over-a-selection is a `DocumentPasteEditProvider`, not a rebind — `Cmd+V` must
+keep pasting. Binding it to a command would replace paste in `.sumo` files with input
+boxes. The handler fires only on the unambiguous gesture (single non-empty single-line
+selection, clipboard is one whitespace-free URL, selection isn't itself a URL or
+bracketed) and returns `undefined` otherwise, because a paste handler that guesses
+silently mangles the clipboard. External form only: internal links go by article *title*,
+which a `/kb/<slug>` URL does not carry. Needs VS Code 1.97+ (`engines.vscode` was bumped),
+guarded so an older host loses the handler rather than failing to activate.
 
 **A quick-fix provider is not optional.** Without one, `Cmd+.` on a SUMO diagnostic falls
 through to whatever else the editor has installed, and an AI assistant asked to fix SW009

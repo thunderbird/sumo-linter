@@ -15,6 +15,11 @@ set nocompatible
 let s:root = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
 execute 'set runtimepath^=' . fnameescape(s:root)
 filetype plugin on
+" `plugin/` is sourced at startup, which already happened -- `-u NONE` means
+" nothing was loaded and the runtimepath was set afterwards. Source it by hand,
+" or the global <Plug> mappings are simply absent and <LocalLeader>l is a
+" mapping to nothing.
+runtime! plugin/sumo-wiki.vim
 
 let s:total = 0
 let s:failed = 0
@@ -179,9 +184,120 @@ call s:ok('the opt-out restores plain pasting', getline(1),
       \ 'See https://example.org for details.')
 unlet g:sumo_wiki_paste_url_as_link
 
+" --- insert_link -----------------------------------------------------------
+" The type-it-in half. Producing `[text](url)` here would be the worst possible
+" bug: it is the exact syntax SW009 flags.
+call s:ok('external with label',
+      \ sumo_wiki#build_link('https://example.org', 'Example'),
+      \ '[https://example.org Example]')
+call s:ok('external without label',
+      \ sumo_wiki#build_link('https://example.org', ''), '[https://example.org]')
+call s:ok('internal with label',
+      \ sumo_wiki#build_link('Install Thunderbird on Linux', 'Linux'),
+      \ '[[Install Thunderbird on Linux|Linux]]')
+call s:ok('internal without label',
+      \ sumo_wiki#build_link('Config Editor', ''), '[[Config Editor]]')
+call s:ok('label equal to the title is dropped',
+      \ sumo_wiki#build_link('Config Editor', 'Config Editor'), '[[Config Editor]]')
+call s:ok('anchor on this page',
+      \ sumo_wiki#build_link('#w_whitelisting', 'Whitelisting'),
+      \ '[[#w_whitelisting|Whitelisting]]')
+call s:ok('a slug-looking target is still internal',
+      \ sumo_wiki#build_link('install-thunderbird', 'here'),
+      \ '[[install-thunderbird|here]]')
+call s:ok('surrounding space is trimmed',
+      \ sumo_wiki#build_link('  https://example.org ', '  Example  '),
+      \ '[https://example.org Example]')
+call s:ok('build_link never produces markdown',
+      \ (sumo_wiki#build_link('https://e.org', 'x')
+      \  . sumo_wiki#build_link('Config Editor', 'x')) =~# '](', 0)
+
+" '' means accepted.
+call s:ok('empty target rejected',
+      \ empty(sumo_wiki#validate_target('   ')), 0)
+call s:ok('bracket in target rejected',
+      \ empty(sumo_wiki#validate_target('a]b')), 0)
+call s:ok('pipe in target rejected',
+      \ empty(sumo_wiki#validate_target('T|t')), 0)
+call s:ok('ordinary title accepted', sumo_wiki#validate_target('Config Editor'), '')
+call s:ok('empty label accepted', sumo_wiki#validate_label('', 'Config Editor'), '')
+call s:ok('bracket in label rejected',
+      \ empty(sumo_wiki#validate_label('a]b', 'Config Editor')), 0)
+call s:ok('pipe in internal label rejected',
+      \ empty(sumo_wiki#validate_label('a|b', 'Config Editor')), 0)
+call s:ok('pipe in external label accepted',
+      \ sumo_wiki#validate_label('a|b', 'https://example.org'), '')
+
+call s:ok('a selected URL seeds the target',
+      \ sumo_wiki#seed_from_selection('https://example.org'),
+      \ {'target': 'https://example.org', 'label': ''})
+call s:ok('selected prose seeds the label',
+      \ sumo_wiki#seed_from_selection('the release notes'),
+      \ {'target': '', 'label': 'the release notes'})
+call s:ok('nothing selected seeds nothing',
+      \ sumo_wiki#seed_from_selection(''), {'target': '', 'label': ''})
+call s:ok('selected markup seeds nothing',
+      \ sumo_wiki#seed_from_selection('[[Config Editor|here]]'),
+      \ {'target': '', 'label': ''})
+
+" End to end through the real prompts: feedkeys with the 'x' flag types into
+" input(), which is the only way to drive it headlessly.
+function! s:insert_link(text, keys, answers) abort
+  enew!
+  setfiletype sumo-wiki
+  call setline(1, a:text)
+  call feedkeys(a:keys . a:answers, 'x')
+  return join(getline(1, '$'), "\n")
+endfunction
+
+" `5|` puts the cursor on the second space of 'See  for details.', and the link
+" goes in before the character under the cursor, like `i`.
+call s:ok('normal-mode insert-link inserts at the cursor',
+      \ s:insert_link('See  for details.', "5|:call sumo_wiki#insert_link(0)\<CR>",
+      \               "https://example.org\<CR>the release notes\<CR>"),
+      \ 'See [https://example.org the release notes] for details.')
+" Selected prose seeds the label prompt, so only the title needs typing and a
+" bare <CR> accepts the prefill.
+call s:ok('visual-mode insert-link seeds the label',
+      \ s:insert_link('See the release notes for details.',
+      \               "0wv3e:\<C-u>call sumo_wiki#insert_link(1)\<CR>",
+      \               "Thunderbird Release Notes\<CR>\<CR>"),
+      \ 'See [[Thunderbird Release Notes|the release notes]] for details.')
+" <C-u> clears the prefill, giving the bare [[Title]] form.
+call s:ok('clearing the label gives the bare title form',
+      \ s:insert_link('See the release notes for details.',
+      \               "0wv3e:\<C-u>call sumo_wiki#insert_link(1)\<CR>",
+      \               "Thunderbird Release Notes\<CR>\<C-u>\<CR>"),
+      \ 'See [[Thunderbird Release Notes]] for details.')
+" An empty target is how you cancel, since input() cannot tell it from Esc.
+call s:ok('an empty target leaves the buffer alone',
+      \ s:insert_link('See the release notes for details.',
+      \               ":call sumo_wiki#insert_link(0)\<CR>", "\<CR>"),
+      \ 'See the release notes for details.')
+" A pipe in the target would split it, so it must be re-asked, not accepted.
+call s:ok('an invalid target is re-asked',
+      \ s:insert_link('x', ":call sumo_wiki#insert_link(0)\<CR>",
+      \               "bad|target\<CR>Config Editor\<CR>\<CR>"),
+      \ '[[Config Editor]]x')
+
+enew!
+setfiletype sumo-wiki
+" maparg() does not find a <Plug> lhs in either form, so ask :nmap/:xmap
+" instead -- which also pins that each mode reaches the right variant.
+call s:ok('<Plug> insert-link is defined in normal mode',
+      \ execute('nmap <Plug>(sumo-wiki-insert-link)') =~# 'insert_link(0)', 1)
+call s:ok('<Plug> insert-link is defined in visual mode',
+      \ execute('xmap <Plug>(sumo-wiki-insert-link)') =~# 'insert_link(1)', 1)
+" <LocalLeader> defaults to `\`, and the rhs must be the <Plug> target so a
+" vimrc remapping it takes effect.
+call s:ok('LocalLeader l reaches the <Plug> mapping in normal mode',
+      \ maparg('\l', 'n') =~# 'sumo-wiki-insert-link', 1)
+call s:ok('LocalLeader l reaches the <Plug> mapping in visual mode',
+      \ maparg('\l', 'x') =~# 'sumo-wiki-insert-link', 1)
+
 " A floor on the count: a file that stops running its body would otherwise
 " print no failures and pass.
-let s:expected = 31
+let s:expected = 61
 if s:total < s:expected
   let s:failed += 1
   call s:say(printf('  only %d assertions ran, expected at least %d', s:total, s:expected))

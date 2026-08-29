@@ -23,4 +23,16 @@ endif
 xnoremap <silent><buffer> p :<C-u>call sumo_wiki#visual_paste('p')<CR>
 xnoremap <silent><buffer> P :<C-u>call sumo_wiki#visual_paste('P')<CR>
 
+" The type-it-in half, and the only way to write an internal [[Title|text]]
+" link. <LocalLeader>l by ftplugin convention; hasmapto means an explicit
+" mapping to the <Plug> target in a vimrc wins instead of being shadowed.
+if !hasmapto('<Plug>(sumo-wiki-insert-link)', 'n')
+  nmap <buffer> <LocalLeader>l <Plug>(sumo-wiki-insert-link)
+endif
+if !hasmapto('<Plug>(sumo-wiki-insert-link)', 'x')
+  xmap <buffer> <LocalLeader>l <Plug>(sumo-wiki-insert-link)
+endif
+
 let b:undo_ftplugin .= ' | silent! xunmap <buffer> p | silent! xunmap <buffer> P'
+      \ . ' | silent! nunmap <buffer> <LocalLeader>l'
+      \ . ' | silent! xunmap <buffer> <LocalLeader>l'

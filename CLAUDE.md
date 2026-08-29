@@ -66,14 +66,13 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
 measured; the four bugs are already filed with rendered-output evidence. **Every test now
 runs in CI** — `rust`, `vscode` (34 grammar + 51 link assertions), `emacs`
-(38 mode assertions, against the real CLI) and `vim` (31 plugin assertions, run under
+(63 mode assertions, against the real CLI) and `vim` (61 plugin assertions, run under
 both Vim and Neovim) — so there is no by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
 the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19, and
-paste-a-URL-over-a-selection (sumo-linter #2) on 2026-08-28 — in all three editors:
-`Cmd+V` in VS Code, `C-y` in Emacs, visual-mode `p`/`P` in Vim, each with its own copy of
-the same guard conditions;
+paste-a-URL-over-a-selection (sumo-linter #2) on 2026-08-28, and insert-link in Emacs and
+Vim the same day, which brought the three editors to parity;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 
@@ -185,6 +184,45 @@ under `-es`, so the test writes to `/dev/stdout`.
 through to whatever else the editor has installed, and an AI assistant asked to fix SW009
 rewrites the markup into a *Markdown* link — the very syntax the rule flags. Measured in
 Roland's VS Code, Aug 2026.
+
+## Editor parity is a requirement, not a nice-to-have
+
+Roland's instruction, 2026-08-28: keep the VS Code, Emacs and Vim SUMO markup modes
+**synchronised — the same features in all three, as far as each editor allows.** They are
+peers, not a primary plus two ports. He uses more than one himself, and these features are
+about muscle memory, which does not survive being available in one editor only.
+
+| Feature | VS Code | Emacs | Vim / Neovim |
+|---|---|---|---|
+| Diagnostics | LSP client | Eglot / lsp-mode / Flymake | native LSP / ALE |
+| Quick fixes | `Cmd+.` | `M-x eglot-code-actions` | `vim.lsp.buf.code_action()` |
+| Fix / style whole buffer | code action, `codeActionsOnSave` | `C-c C-f` / `C-c C-s` | CLI |
+| Syntax highlighting | TextMate grammar | font-lock | *(none yet)* |
+| Insert link (prompts) | `Cmd+K Cmd+L` | `C-c C-l` | `<LocalLeader>l` |
+| Paste URL over selection | `Cmd+V` | `C-y` | visual `p`/`P` |
+
+Idiom per editor, gesture in common: a VS Code paste provider, an Emacs `yank` remap and a
+Vim visual mapping are the *same* feature even though the keystrokes differ. Do not chase
+identical keybindings.
+
+Keep each editor's decision logic a **pure function** — `link.js`,
+`sumo-wiki--build-link` / `--link-from-paste`, `sumo_wiki#build_link` /
+`#link_from_paste` — so it is testable headlessly and lands in CI. Linting itself lives
+once in `sumo-lint-lsp` and is never duplicated; only editing gestures are. The remaining
+gap is **syntax highlighting in Vim**: VS Code has a TextMate grammar and Emacs has
+font-lock, Vim has no syntax file yet.
+
+Headless-test traps, all measured, one per editor:
+- **Emacs** — `transient-mark-mode` is nil under `--batch` but t interactively, so a region
+  test must bind it or pass vacuously. Stub prompts by `cl-letf`-ing `read-string`.
+- **Vim** — `:echo` prints nothing under `-es`, so write to `/dev/stdout`. `feedkeys(...,
+  'x')` is the only way to answer `input()`, which is why `insert_link` must **not** call
+  `inputsave()`/`inputrestore()`: they clear the typeahead buffer the answers live in and
+  the prompt blocks forever. `plugin/` is not sourced when the runtimepath is set after
+  startup — `runtime!` it by hand. `maparg()` never finds a `<Plug>` lhs; ask `:nmap`
+  through `execute()`.
+- **VS Code** — grammar and link logic are tested under plain Node; nothing needs a VS Code
+  harness, and it should stay that way.
 
 ## Conventions
 

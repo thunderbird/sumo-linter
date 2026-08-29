@@ -23,6 +23,7 @@
 ;;; Code:
 
 (add-to-list 'load-path (expand-file-name "editors/emacs"))
+(require 'cl-lib)
 (require 'sumo-wiki-mode)
 (defvar sumo-test-total 0)
 (defvar sumo-test-failed 0)
@@ -206,6 +207,109 @@
     (ok "delsel behaves normally otherwise"
         (eq (sumo-wiki--yank-delete-selection) 'yank))))
 
+;; 8. sumo-wiki-insert-link -- the type-it-in half, and the only route to an
+;; internal [[Title|text]] link, since a title cannot be derived from a URL.
+;; Producing `[text](url)' here would be the worst possible bug: it is the exact
+;; syntax SW009 flags.
+(ok "external with label"
+    (equal (sumo-wiki--build-link "https://example.org" "Example")
+           "[https://example.org Example]"))
+(ok "external without label"
+    (equal (sumo-wiki--build-link "https://example.org" "")
+           "[https://example.org]"))
+(ok "internal with label"
+    (equal (sumo-wiki--build-link "Install Thunderbird on Linux" "Linux")
+           "[[Install Thunderbird on Linux|Linux]]"))
+(ok "internal without label"
+    (equal (sumo-wiki--build-link "Config Editor" "") "[[Config Editor]]"))
+(ok "label equal to the title is dropped"
+    (equal (sumo-wiki--build-link "Config Editor" "Config Editor")
+           "[[Config Editor]]"))
+(ok "anchor on this page"
+    (equal (sumo-wiki--build-link "#w_whitelisting" "Whitelisting")
+           "[[#w_whitelisting|Whitelisting]]"))
+(ok "a slug-looking target is still internal"
+    (equal (sumo-wiki--build-link "install-thunderbird" "here")
+           "[[install-thunderbird|here]]"))
+(ok "surrounding space is trimmed"
+    (equal (sumo-wiki--build-link "  https://example.org " "  Example  ")
+           "[https://example.org Example]"))
+(ok "insert-link never produces markdown"
+    (null (string-match-p "\\](" (concat
+                                  (sumo-wiki--build-link "https://e.org" "x")
+                                  (sumo-wiki--build-link "Config Editor" "x")))))
+
+;; nil means accepted, matching VS Code's validateInput contract.
+(ok "empty target rejected" (stringp (sumo-wiki--validate-target "   ")))
+(ok "bracket in target rejected" (stringp (sumo-wiki--validate-target "a]b")))
+(ok "pipe in target rejected" (stringp (sumo-wiki--validate-target "T|t")))
+(ok "ordinary title accepted" (null (sumo-wiki--validate-target "Config Editor")))
+(ok "empty label accepted" (null (sumo-wiki--validate-label "" "Config Editor")))
+(ok "bracket in label rejected"
+    (stringp (sumo-wiki--validate-label "a]b" "Config Editor")))
+(ok "pipe in internal label rejected"
+    (stringp (sumo-wiki--validate-label "a|b" "Config Editor")))
+(ok "pipe in external label accepted"
+    (null (sumo-wiki--validate-label "a|b" "https://example.org")))
+
+(ok "a marked URL seeds the target"
+    (equal (sumo-wiki--seed-from-selection "https://example.org")
+           '("https://example.org" . "")))
+(ok "marked prose seeds the label"
+    (equal (sumo-wiki--seed-from-selection "the release notes")
+           '("" . "the release notes")))
+(ok "nothing marked seeds nothing"
+    (equal (sumo-wiki--seed-from-selection nil) '("" . "")))
+(ok "marked markup seeds nothing"
+    (equal (sumo-wiki--seed-from-selection "[[Config Editor|here]]") '("" . "")))
+
+;; The command itself, with the prompts stubbed. `read-string' is what
+;; `sumo-wiki--read-validated' calls, so this also exercises the re-ask loop.
+(defun sumo-test-answers (answers)
+  "Return a `read-string' replacement that returns ANSWERS in order."
+  (lambda (&rest _) (or (pop answers) "")))
+
+(let ((transient-mark-mode t))
+  (with-temp-buffer
+    (sumo-wiki-mode)
+    (insert "See the release notes for details.")
+    (goto-char (point-min))
+    (search-forward "the release notes")
+    (push-mark (match-beginning 0) t t)
+    (cl-letf (((symbol-function 'read-string)
+               (sumo-test-answers '("Thunderbird Release Notes" ""))))
+      (sumo-wiki-insert-link))
+    (ok "insert-link replaces the region, keeping the label typed"
+        (equal (buffer-string)
+               "See [[Thunderbird Release Notes]] for details."))))
+
+(with-temp-buffer
+  (sumo-wiki-mode)
+  (insert "See  for details.")
+  (goto-char (point-min))
+  (search-forward "See ")
+  (cl-letf (((symbol-function 'read-string)
+             (sumo-test-answers '("https://example.org" "the release notes"))))
+    (sumo-wiki-insert-link))
+  (ok "insert-link with no region inserts at point"
+      (equal (buffer-string)
+             "See [https://example.org the release notes] for details.")))
+
+;; An invalid target must be re-asked, not accepted.
+(with-temp-buffer
+  (sumo-wiki-mode)
+  (cl-letf (((symbol-function 'read-string)
+             (sumo-test-answers '("" "bad|target" "Config Editor" ""))))
+    (sumo-wiki-insert-link))
+  (ok "insert-link re-asks until the target is valid"
+      (equal (buffer-string) "[[Config Editor]]")))
+
+(with-temp-buffer
+  (sumo-wiki-mode)
+  (ok "keymap has C-c C-l"
+      (eq (lookup-key sumo-wiki-mode-map (kbd "C-c C-l"))
+          'sumo-wiki-insert-link)))
+
 ;;; Summary and exit status
 ;;
 ;; `--batch' exits 0 however many FAILs were printed, so without this the whole
@@ -217,7 +321,7 @@
 ;; would otherwise just print fewer lines and still pass. Raise it when adding
 ;; assertions.
 
-(let ((expected 38))
+(let ((expected 63))
   (when (< sumo-test-total expected)
     (setq sumo-test-failed (1+ sumo-test-failed))
     (princ (format "  %-46s FAIL (ran %d)\n"

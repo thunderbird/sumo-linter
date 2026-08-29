@@ -265,6 +265,101 @@ is produced: an internal link goes by article *title*, which a
 
 (put 'sumo-wiki-yank 'delete-selection #'sumo-wiki--yank-delete-selection)
 
+(defun sumo-wiki--build-link (target label)
+  "Return SUMO markup linking to TARGET with link text LABEL.
+
+Anything with a scheme is external and takes a space; anything else is an
+internal link by article *title* -- not slug -- and takes a pipe.  LABEL
+may be empty, which is meaningful for both forms: `[[Article title]]'
+renders the title and a bare `[url]' renders the URL."
+  (let ((t* (string-trim (or target "")))
+        (l (string-trim (or label ""))))
+    (if (sumo-wiki--url-p t*)
+        (if (string-empty-p l) (format "[%s]" t*) (format "[%s %s]" t* l))
+      ;; A label identical to the title adds nothing but localizer diff noise.
+      (if (or (string-empty-p l) (equal l t*))
+          (format "[[%s]]" t*)
+        (format "[[%s|%s]]" t* l)))))
+
+(defun sumo-wiki--validate-target (target)
+  "Return a complaint about TARGET, or nil when it is usable."
+  (let ((t* (string-trim target)))
+    (cond
+     ((string-empty-p t*)
+      "Enter a URL, an article title, or a #w_anchor on this page.")
+     ((string-match-p "[][]" t*) "A link target cannot contain [ or ].")
+     ;; In `[[Title|text]]' the pipe is the separator, so one here would split
+     ;; the target.
+     ((string-match-p "|" t*)
+      "A link target cannot contain | -- that separates the target from the text.")
+     (t nil))))
+
+(defun sumo-wiki--validate-label (label target)
+  "Return a complaint about LABEL for TARGET, or nil when it is usable."
+  (let ((l (string-trim label)))
+    (cond
+     ((string-match-p "[][]" l) "Link text cannot contain [ or ].")
+     ;; External links have no pipe syntax, so there it is just a character.
+     ((and (string-match-p "|" l) (not (sumo-wiki--url-p (string-trim target))))
+      "Link text cannot contain | in an internal link.")
+     (t nil))))
+
+(defun sumo-wiki--seed-from-selection (selection)
+  "Split SELECTION into a starting (TARGET . LABEL) for the prompts.
+
+So the common cases -- mark a URL, or mark the words you want linked --
+need only one thing typed.  Marked markup seeds nothing: it would seed
+unusable values, and rewriting an existing link is SW009's quick fix,
+which knows the span."
+  (let ((s (string-trim (or selection ""))))
+    (cond
+     ((or (string-empty-p s) (string-match-p "[]\n[|]" s)) (cons "" ""))
+     ((sumo-wiki--url-p s) (cons s ""))
+     (t (cons "" s)))))
+
+(defun sumo-wiki--read-validated (prompt initial validate)
+  "Read a string with PROMPT and INITIAL, re-asking until VALIDATE passes.
+
+VALIDATE follows the same contract as VS Code's `validateInput': a string
+is the complaint, nil means accepted.  `C-g' aborts the whole command,
+which is the counterpart of dismissing the input box."
+  (let ((value nil) (complaint nil))
+    (while (progn
+             (setq value (read-string (if complaint
+                                          (concat complaint "  " prompt)
+                                        prompt)
+                                      initial))
+             (setq complaint (funcall validate value))))
+    value))
+
+;;;###autoload
+(defun sumo-wiki-insert-link ()
+  "Insert a link, asking for the target and the link text.
+
+The counterpart of `SUMO: Insert Link' in VS Code, and the other half of
+`sumo-wiki-yank': use this one when there is nothing on the clipboard
+to paste, and it is the only way to write an internal `[[Title|text]]'
+link, since an article title cannot be derived from a URL.
+
+The region, if any, seeds the prompts and is replaced."
+  (interactive "*")
+  (let* ((seed (sumo-wiki--seed-from-selection
+                (and (use-region-p)
+                     (buffer-substring-no-properties
+                      (region-beginning) (region-end)))))
+         (target (sumo-wiki--read-validated
+                  "Link target (URL, article title, or #w_anchor): "
+                  (car seed) #'sumo-wiki--validate-target))
+         (label (sumo-wiki--read-validated
+                 (if (sumo-wiki--url-p (string-trim target))
+                     "Link text (empty shows the URL itself): "
+                   "Link text (empty shows the article title): ")
+                 (cdr seed)
+                 (lambda (value) (sumo-wiki--validate-label value target)))))
+    (when (use-region-p)
+      (delete-region (region-beginning) (region-end)))
+    (insert (sumo-wiki--build-link target label))))
+
 ;;;###autoload
 (defun sumo-wiki-fix-buffer ()
   "Apply safe fixes to the current buffer via `sumo-lint --fix'.
@@ -350,6 +445,7 @@ Use this instead of Eglot if you would rather not run a language server."
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c C-f") #'sumo-wiki-fix-buffer)
     (define-key map (kbd "C-c C-s") #'sumo-wiki-apply-style)
+    (define-key map (kbd "C-c C-l") #'sumo-wiki-insert-link)
     ;; A remap rather than a key, so this follows `yank' wherever it is bound —
     ;; `C-y', and `s-v' on macOS — instead of guessing at one of them.
     (define-key map [remap yank] #'sumo-wiki-yank)

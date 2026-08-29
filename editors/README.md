@@ -94,6 +94,23 @@ leaves `sumo_wiki#visual_paste()` for you to map yourself. Only the external for
 produced — an internal link goes by article **title**, which a `/kb/<slug>` URL does not
 carry.
 
+### Insert a link: `<LocalLeader>l`
+
+The type-it-in half, for when there is nothing on the clipboard — and the only way to write
+an internal `[[Title|text]]` link, since an article title cannot be derived from a URL. It
+asks for the target, then the link text, re-asking on invalid input. An **empty target
+cancels**: `input()` cannot tell Esc from an empty line, so emptiness is the abort. In
+visual mode the selection seeds both prompts and is replaced.
+
+`<LocalLeader>` is `\` unless you have changed it, so `\l` by default. Both modes go
+through `<Plug>(sumo-wiki-insert-link)`, and `hasmapto` means your own mapping to that
+target wins rather than being shadowed:
+
+```vim
+nmap <Leader>k <Plug>(sumo-wiki-insert-link)
+xmap <Leader>k <Plug>(sumo-wiki-insert-link)
+```
+
 Verify the plugin after changing it:
 
 ```sh
@@ -101,11 +118,21 @@ vim  -es -Nu NONE -S editors/vim/test/test-sumo-wiki.vim
 nvim -es -u NONE  -S editors/vim/test/test-sumo-wiki.vim
 ```
 
-31 assertions, run against both editors in CI as the `vim` job: the pure link function, the
-real `p` mapping driven through `:normal`, filetype detection, `'selection'` both ways, a
-multibyte label, and that the register survives. Two things to know if you add cases —
-`:echo` prints nothing under `-es`, so results go to stdout via `writefile`; and `:edit`
-after a paste case aborts with E37 unless you `enew!` first.
+61 assertions, run against both editors in CI as the `vim` job: the pure link and paste
+functions, the real `p` and insert-link mappings driven end to end, filetype detection,
+`'selection'` both ways, a multibyte label, and that the register survives. Four things to
+know if you add cases:
+
+- `:echo` prints nothing under `-es`, so results go to stdout via `writefile`.
+- `:edit` after a paste case aborts with **E37** unless you `enew!` first.
+- `feedkeys(..., 'x')` is the only way to answer an `input()` prompt headlessly — which is
+  why `sumo_wiki#insert_link` does **not** call `inputsave()`/`inputrestore()`. Those save
+  *and clear* the typeahead buffer, which is where `feedkeys` put the answers, so the prompt
+  blocks forever. The mappings have no trailing keys to protect, so nothing is lost.
+- `plugin/` is sourced at startup, before the test sets the runtimepath, so the test does
+  `runtime! plugin/sumo-wiki.vim` by hand. Without it the `<Plug>` mappings are absent and
+  `<LocalLeader>l` is a mapping to nothing. `maparg()` will not find a `<Plug>` lhs in
+  either notation; ask `:nmap`/`:xmap` through `execute()` instead.
 
 ## Neovim LSP — configuration only
 
@@ -182,10 +209,16 @@ Commands:
 |---|---|---|
 | `C-c C-f` | `sumo-wiki-fix-buffer` | apply safe fixes (phase 1) |
 | `C-c C-s` | `sumo-wiki-apply-style` | apply house style (phase 2) |
+| `C-c C-l` | `sumo-wiki-insert-link` | ask for a target and text, write the link |
 | `C-y` | `sumo-wiki-yank` | yank a URL over the region → a link |
 
 The first two report *"nothing to fix"* / *"already consistent"* rather than appearing to do
 nothing, and both preserve point's line and column.
+
+`sumo-wiki-insert-link` is the counterpart of `SUMO: Insert Link` in VS Code, and the only
+way to write an internal `[[Title|text]]` link — an article title cannot be derived from a
+URL. It asks twice, re-asking on invalid input; `C-g` aborts, and the region seeds both
+prompts and is replaced.
 
 `sumo-wiki-yank` is the same gesture as `Cmd+V` in VS Code: mark some words, copy a URL,
 yank, and you get `[https://example.org the words]` instead of the region replaced. It
@@ -216,12 +249,12 @@ PATH="$PWD/target/release:$PATH" \
   -l editors/emacs/test-sumo-wiki-mode.el
 ```
 
-That checks mode activation, every font-lock rule, Eglot registration, both commands
-against the real binary, the Flymake JSON path and the yank-as-link gesture — 38
-assertions. **CI runs it too**, as the `emacs` job, on `emacs-nox` from Ubuntu's archive.
+That checks mode activation, every font-lock rule, Eglot registration, the CLI commands
+against the real binary, the Flymake JSON path, and both link paths — 63 assertions. **CI runs it too**, as the `emacs` job, on `emacs-nox` from Ubuntu's archive.
 
-One wrinkle if you add cases: `transient-mark-mode` is nil under `--batch` but t in any
-interactive Emacs, so a region test must bind it or it passes vacuously.
+Two wrinkles if you add cases: `transient-mark-mode` is nil under `--batch` but t in any
+interactive Emacs, so a region test must bind it or it passes vacuously; and the prompts are
+driven by stubbing `read-string` with `cl-letf`.
 
 It exits non-zero on failure, which is not free in `--batch`: Emacs exits 0 however many
 FAILs were printed, so the summary block at the end of the file is what makes the run a

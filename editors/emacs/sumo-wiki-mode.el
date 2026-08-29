@@ -55,6 +55,15 @@
   :type 'string
   :group 'sumo-wiki)
 
+(defcustom sumo-wiki-paste-url-as-link t
+  "Whether yanking a URL over an active region writes a link.
+
+With this on, selecting some words and yanking a URL gives
+`[https://example.org the words]' instead of replacing the selection.
+Set to nil to make yanking always yank."
+  :type 'boolean
+  :group 'sumo-wiki)
+
 ;;; Faces
 
 (defface sumo-wiki-macro-face
@@ -181,6 +190,81 @@ Signals an error if the program is missing or exits unexpectedly."
           (with-current-buffer out (buffer-string)))
       (kill-buffer out))))
 
+(defun sumo-wiki--url-p (string)
+  "Return non-nil when STRING carries a URL scheme SUMO links externally."
+  (string-match-p "\\`\\(?:https?\\|ftp\\|mailto\\):" (downcase string)))
+
+(defun sumo-wiki--link-from-paste (pasted selected)
+  "Return the link markup for yanking PASTED over SELECTED, or nil.
+
+nil means \"just yank\", and every case that is not unambiguously
+select-words-then-yank-a-URL returns it: a yank handler that guesses is
+worse than no yank handler, because what it silently mangles is whatever
+was on the clipboard.  Kept as a pure function of two strings so the
+tests need no buffer."
+  (let ((url (string-trim (or pasted "")))
+        (text (string-trim (or selected ""))))
+    (when (and
+           ;; A URL never contains whitespace, so anything that does is prose
+           ;; that merely starts with a scheme, and yanking it is a replace.
+           (sumo-wiki--url-p url)
+           (not (string-match-p "[ \t\n]" url))
+           ;; Nothing selected means no link text, so this is an ordinary yank.
+           (not (string-empty-p text))
+           ;; Replacing one URL with another is a correction, not a link.
+           (not (sumo-wiki--url-p text))
+           ;; A multi-line region has no sensible label, and brackets would
+           ;; close the link early.  `|' is safe: it only separates in [[...]].
+           (not (string-match-p "[]\n[]" text)))
+      (format "[%s %s]" url text))))
+
+(defun sumo-wiki--kill-text ()
+  "Return the head of the kill ring without rotating it, or nil if empty."
+  (condition-case nil
+      (current-kill 0 t)
+    (error nil)))
+
+;;;###autoload
+(defun sumo-wiki-yank (&optional arg)
+  "Yank, or write a link when yanking a URL over an active region.
+
+Select some words, copy a URL, yank: you get `[url the words]' rather
+than the selection replaced.  This is the same gesture VS Code and
+Markdown mode use, and it is usually the faster of the two ways to write
+a link, since the clipboard already holds the URL.
+
+Everything else yanks exactly as before, with ARG passed through, so
+this stays safe on whatever `yank' is bound to.  Only the external form
+is produced: an internal link goes by article *title*, which a
+`/kb/<slug>' URL does not carry."
+  (interactive "*P")
+  (let ((link (and sumo-wiki-paste-url-as-link
+                   (use-region-p)
+                   (sumo-wiki--link-from-paste
+                    (sumo-wiki--kill-text)
+                    (buffer-substring-no-properties
+                     (region-beginning) (region-end))))))
+    (if (not link)
+        (yank arg)
+      (delete-region (region-beginning) (region-end))
+      (insert link))))
+
+;; `delete-selection-mode' deletes the region in `pre-command-hook', which would
+;; leave `sumo-wiki-yank' with nothing to use as link text.  A function-valued
+;; property is the supported way to say "not this time": nil suppresses the
+;; deletion, `yank' asks for the ordinary behaviour.
+(defun sumo-wiki--yank-delete-selection ()
+  "Tell `delete-selection-mode' whether to delete the region before a yank."
+  (if (and sumo-wiki-paste-url-as-link
+           (use-region-p)
+           (sumo-wiki--link-from-paste
+            (sumo-wiki--kill-text)
+            (buffer-substring-no-properties (region-beginning) (region-end))))
+      nil
+    'yank))
+
+(put 'sumo-wiki-yank 'delete-selection #'sumo-wiki--yank-delete-selection)
+
 ;;;###autoload
 (defun sumo-wiki-fix-buffer ()
   "Apply safe fixes to the current buffer via `sumo-lint --fix'.
@@ -266,6 +350,9 @@ Use this instead of Eglot if you would rather not run a language server."
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c C-f") #'sumo-wiki-fix-buffer)
     (define-key map (kbd "C-c C-s") #'sumo-wiki-apply-style)
+    ;; A remap rather than a key, so this follows `yank' wherever it is bound —
+    ;; `C-y', and `s-v' on macOS — instead of guessing at one of them.
+    (define-key map [remap yank] #'sumo-wiki-yank)
     map)
   "Keymap for `sumo-wiki-mode'.")
 

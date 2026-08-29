@@ -65,13 +65,15 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
 measured; the four bugs are already filed with rendered-output evidence. **Every test now
-runs in CI** — `rust`, `vscode` (34 grammar + 51 link assertions) and `emacs`
-(20 mode assertions, against the real CLI) — so there is no by-hand test suite left.
+runs in CI** — `rust`, `vscode` (34 grammar + 51 link assertions), `emacs`
+(38 mode assertions, against the real CLI) and `vim` (31 plugin assertions, run under
+both Vim and Neovim) — so there is no by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
 the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19, and
-paste-a-URL-over-a-selection (`Cmd+V`, sumo-linter #2) on 2026-08-28 — both live in
-`editors/vscode/src/link.js`, covered by 51 assertions in the `vscode` CI job;
+paste-a-URL-over-a-selection (sumo-linter #2) on 2026-08-28 — in all three editors:
+`Cmd+V` in VS Code, `C-y` in Emacs, visual-mode `p`/`P` in Vim, each with its own copy of
+the same guard conditions;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 
@@ -143,7 +145,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-cli` | `sumo-lint` binary: hand-rolled args, `--fix`, `--style`, `--diff`, JSON |
 | `crates/sumo-lint-lsp` | LSP over stdio: diagnostics, `textDocument/formatting`, `codeAction` quick fixes |
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
-| `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + URL-paste handler); Emacs mode; Neovim and Vim 8 configuration |
+| `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
 | `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS) |
 
@@ -160,15 +162,24 @@ fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`.
 both kinds are offered as quick fixes (`Unsafe` titled *(needs review)*), because accepting
 a code action is a deliberate, undoable choice, unlike a CLI writing files unattended.
 
-**`Cmd+V` for links is a paste provider, never a keybinding.** Markdown mode's
-paste-a-URL-over-a-selection is a `DocumentPasteEditProvider`, not a rebind — `Cmd+V` must
-keep pasting. Binding it to a command would replace paste in `.sumo` files with input
-boxes. The handler fires only on the unambiguous gesture (single non-empty single-line
-selection, clipboard is one whitespace-free URL, selection isn't itself a URL or
-bracketed) and returns `undefined` otherwise, because a paste handler that guesses
-silently mangles the clipboard. External form only: internal links go by article *title*,
-which a `/kb/<slug>` URL does not carry. Needs VS Code 1.97+ (`engines.vscode` was bumped),
-guarded so an older host loses the handler rather than failing to activate.
+**Paste-a-URL-over-a-selection hooks paste, never rebinds it.** In all three editors the
+gesture is "select words, paste a URL, get `[url words]`", and in all three the paste key
+must keep pasting: VS Code uses a `DocumentPasteEditProvider` (not a `Cmd+V` binding, which
+would replace paste in `.sumo` files with input boxes), Emacs remaps `yank` (so it follows
+`C-y` *and* `s-v`), Vim maps visual-mode `p`/`P` buffer-locally. Each falls through to the
+ordinary paste unless the gesture is unambiguous — single non-empty single-line selection,
+register/clipboard is one whitespace-free URL, selection isn't itself a URL or bracketed —
+because a paste handler that guesses silently mangles the clipboard. External form only:
+internal links go by article *title*, which a `/kb/<slug>` URL does not carry.
+
+Per-editor traps, all measured: VS Code needs **1.97+** (`engines.vscode` was bumped),
+guarded so an older host loses the handler rather than failing to activate. Emacs
+`delete-selection-mode` deletes the region in `pre-command-hook`, so the command needs a
+function-valued `delete-selection` property to keep its link text — and `transient-mark-mode`
+is **nil under `--batch`**, so a region test must bind it or pass vacuously. Vim must not
+read the selection by yanking it: under `clipboard=unnamed` that overwrites the very URL
+being pasted, so the plugin slices the line with `setline` instead; `:echo` prints nothing
+under `-es`, so the test writes to `/dev/stdout`.
 
 **A quick-fix provider is not optional.** Without one, `Cmd+.` on a SUMO diagnostic falls
 through to whatever else the editor has installed, and an AI assistant asked to fix SW009

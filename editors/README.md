@@ -50,7 +50,64 @@ on a SUMO diagnostic falls through to whatever else is installed, and an AI
 assistant asked to fix `SW009` will "correct" the markup to a Markdown link —
 `[text](url)`, the exact syntax the rule flags. SUMO wants `[url text]`.
 
-## Neovim — configuration only, no plugin
+## Vim and Neovim
+
+`vim/` is a plain Vim-script plugin directory, shared by Vim 8+ and Neovim. It carries the
+editing helper only — diagnostics still come from `sumo-lint-lsp`, configured below.
+
+Add it to your runtimepath, however your plugin manager spells that:
+
+```vim
+set runtimepath^=~/path/to/sumo-linter/editors/vim
+filetype plugin on
+```
+
+```lua
+-- lazy.nvim
+{ dir = '~/path/to/sumo-linter/editors/vim' }
+```
+
+`.sumo` and `.wiki` then get the `sumo-wiki` filetype — `.wiki` via `:setfiletype`, so it
+yields to any wiki plugin you already use.
+
+### Paste a URL over a selection
+
+Select some words, copy a URL, press `p` (or `P`): you get
+`[https://example.org the words]` instead of the selection being replaced. Same gesture as
+`Cmd+V` in VS Code and `C-y` in the Emacs mode.
+
+The mappings are **buffer-local to `sumo-wiki`** and fall through to the ordinary paste on
+anything ambiguous, because a paste mapping that guesses destroys what was in your register:
+
+| Falls through when | Why |
+|---|---|
+| the register is not one whitespace-free URL | prose that starts with a scheme is a replace |
+| the register is linewise or blockwise | that is text you meant to place, not a URL you copied |
+| a count was given (`2p`) | one link is not "paste it twice" — the count is carried through |
+| the selection spans lines, or is not charwise | no single sensible label |
+| the selection is itself a URL | replacing one URL with another is a correction |
+| the selection contains `[` or `]` | they would close the link early |
+
+`let g:sumo_wiki_paste_url_as_link = 0` turns it off; `b:sumo_wiki_paste_url_as_link`
+overrides per buffer; `let g:sumo_wiki_no_mappings = 1` skips the mappings entirely and
+leaves `sumo_wiki#visual_paste()` for you to map yourself. Only the external form is
+produced — an internal link goes by article **title**, which a `/kb/<slug>` URL does not
+carry.
+
+Verify the plugin after changing it:
+
+```sh
+vim  -es -Nu NONE -S editors/vim/test/test-sumo-wiki.vim
+nvim -es -u NONE  -S editors/vim/test/test-sumo-wiki.vim
+```
+
+31 assertions, run against both editors in CI as the `vim` job: the pure link function, the
+real `p` mapping driven through `:normal`, filetype detection, `'selection'` both ways, a
+multibyte label, and that the register survives. Two things to know if you add cases —
+`:echo` prints nothing under `-es`, so results go to stdout via `writefile`; and `:edit`
+after a paste case aborts with E37 unless you `enew!` first.
+
+## Neovim LSP — configuration only
 
 ```lua
 vim.filetype.add({ extension = { sumo = 'sumo-wiki', wiki = 'sumo-wiki' } })
@@ -68,7 +125,9 @@ vim.api.nvim_create_autocmd('FileType', {
 ```
 
 Diagnostics then appear through Neovim's built-in LSP client. `:lua
-vim.diagnostic.open_float()` shows the message under the cursor.
+vim.diagnostic.open_float()` shows the message under the cursor. The `vim.filetype.add`
+line is redundant if you already have `editors/vim` on the runtimepath — its `ftdetect`
+does the same thing.
 
 ## Vim 8 with ALE
 
@@ -123,9 +182,26 @@ Commands:
 |---|---|---|
 | `C-c C-f` | `sumo-wiki-fix-buffer` | apply safe fixes (phase 1) |
 | `C-c C-s` | `sumo-wiki-apply-style` | apply house style (phase 2) |
+| `C-y` | `sumo-wiki-yank` | yank a URL over the region → a link |
 
-Both report *"nothing to fix"* / *"already consistent"* rather than appearing to do nothing,
-and both preserve point's line and column.
+The first two report *"nothing to fix"* / *"already consistent"* rather than appearing to do
+nothing, and both preserve point's line and column.
+
+`sumo-wiki-yank` is the same gesture as `Cmd+V` in VS Code: mark some words, copy a URL,
+yank, and you get `[https://example.org the words]` instead of the region replaced. It
+**remaps `yank`** rather than binding a key, so it follows whatever you have yank on — `C-y`,
+and `s-v` on macOS. Everything else yanks exactly as before, including the prefix argument.
+
+It only rewrites the yank when the gesture is unambiguous, and yanks normally otherwise:
+the kill is a single scheme-bearing URL with no whitespace, the region is non-empty, on one
+line, not itself a URL, and free of `[` and `]`. `sumo-wiki-paste-url-as-link` set to nil
+turns it off. Only the external form is produced — an internal link goes by article
+**title**, which a `/kb/<slug>` URL does not carry.
+
+`delete-selection-mode` deletes the region in `pre-command-hook`, which would leave the
+command with no link text, so the command carries a function-valued `delete-selection`
+property that suppresses the deletion for exactly this case. If you turn
+`transient-mark-mode` off, `use-region-p` is nil and you get a plain `C-y` — deliberately.
 
 One highlighting choice worth knowing: **lines beginning with a space are shown in a
 distinct face**, because the wiki renders them preformatted. A single stray leading space
@@ -141,8 +217,11 @@ PATH="$PWD/target/release:$PATH" \
 ```
 
 That checks mode activation, every font-lock rule, Eglot registration, both commands
-against the real binary, and the Flymake JSON path — 20 assertions. **CI runs it too**, as
-the `emacs` job, on `emacs-nox` from Ubuntu's archive.
+against the real binary, the Flymake JSON path and the yank-as-link gesture — 38
+assertions. **CI runs it too**, as the `emacs` job, on `emacs-nox` from Ubuntu's archive.
+
+One wrinkle if you add cases: `transient-mark-mode` is nil under `--batch` but t in any
+interactive Emacs, so a region test must bind it or it passes vacuously.
 
 It exits non-zero on failure, which is not free in `--batch`: Emacs exits 0 however many
 FAILs were printed, so the summary block at the end of the file is what makes the run a

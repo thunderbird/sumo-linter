@@ -80,6 +80,27 @@ jobs:
           PATH="$PWD/target/release:$PATH" \
             emacs -Q --batch -l editors/emacs/test-sumo-wiki-mode.el
 
+  vim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Vim and Neovim
+        # Both, because the plugin is plain Vim script shared by the two and
+        # they disagree often enough to be worth catching here rather than in
+        # someone's editor.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends vim-nox neovim
+          vim --version | head -1
+          nvim --version | head -1
+      - name: Plugin tests
+        # `-u NONE` so nothing from the runner's config is in play; the script
+        # puts editors/vim on the runtimepath itself. Assertions go to stdout
+        # via writefile, because :echo prints nothing under -es.
+        run: |
+          vim -es -Nu NONE -S editors/vim/test/test-sumo-wiki.vim
+          nvim -es -u NONE -S editors/vim/test/test-sumo-wiki.vim
+
   scraper:
     runs-on: ubuntu-latest
     steps:

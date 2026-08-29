@@ -99,6 +99,113 @@
         (and (listp got) (= 1 (length got))
              (string-match-p "SW001" (flymake-diagnostic-text (car got)))))))
 
+;; 7. yanking a URL over an active region writes a link
+;;
+;; The pure half first: nil means "just yank", and getting that wrong destroys
+;; whatever was on the clipboard, so the negative cases matter most.
+(ok "URL over prose becomes a link"
+    (equal (sumo-wiki--link-from-paste "https://example.org" "the release notes")
+           "[https://example.org the release notes]"))
+(ok "whitespace around both is trimmed"
+    (equal (sumo-wiki--link-from-paste "  https://example.org\n" " release notes ")
+           "[https://example.org release notes]"))
+(ok "mailto counts as a URL"
+    (equal (sumo-wiki--link-from-paste "mailto:a@b.org" "write to us")
+           "[mailto:a@b.org write to us]"))
+(ok "no region yanks normally"
+    (null (sumo-wiki--link-from-paste "https://example.org" "")))
+(ok "non-URL kill yanks normally"
+    (null (sumo-wiki--link-from-paste "some words" "the release notes")))
+(ok "prose starting with a scheme yanks normally"
+    (null (sumo-wiki--link-from-paste "https://example.org and more" "x")))
+(ok "URL over a URL yanks normally"
+    (null (sumo-wiki--link-from-paste "https://b.org" "https://a.org")))
+(ok "multi-line region yanks normally"
+    (null (sumo-wiki--link-from-paste "https://example.org" "one\ntwo")))
+(ok "region with brackets yanks normally"
+    (null (sumo-wiki--link-from-paste "https://example.org" "[[Config Editor]]")))
+(ok "never produces markdown"
+    (null (string-match-p "\\](" (sumo-wiki--link-from-paste
+                                 "https://example.org" "here"))))
+
+;; Then the command, in a real buffer with a real kill ring.
+;;
+;; `transient-mark-mode' is nil under --batch but t in any interactive Emacs,
+;; and `use-region-p' consults it -- deliberately, so that anyone who turns the
+;; mode off keeps a plain `C-y'. Bind it here or the region is invisible to the
+;; command and these cases pass vacuously.
+(let ((transient-mark-mode t))
+  (with-temp-buffer
+    (sumo-wiki-mode)
+    (insert "See the release notes for details.\n")
+    (goto-char (point-min))
+    (search-forward "the release notes")
+    (push-mark (match-beginning 0) t t)
+    (kill-new "https://example.org")
+    (sumo-wiki-yank)
+    (ok "sumo-wiki-yank writes the link"
+        (equal (buffer-string)
+               "See [https://example.org the release notes] for details.\n"))))
+
+;; A non-URL kill over a region is an ordinary yank, region and all.
+(let ((transient-mark-mode t))
+  (with-temp-buffer
+    (sumo-wiki-mode)
+    (insert "See the release notes.\n")
+    (goto-char (point-min))
+    (search-forward "the release notes")
+    (push-mark (match-beginning 0) t t)
+    (kill-new "some words")
+    (sumo-wiki-yank)
+    (ok "a non-URL kill over a region just yanks"
+        (equal (buffer-string) "See the release notessome words.\n"))))
+
+(with-temp-buffer
+  (sumo-wiki-mode)
+  (insert "See  for details.\n")
+  (goto-char (point-min))
+  (search-forward "See ")
+  (kill-new "https://example.org")
+  (sumo-wiki-yank)
+  (ok "sumo-wiki-yank with no region is a plain yank"
+      (equal (buffer-string) "See https://example.org for details.\n")))
+
+(let ((transient-mark-mode t))
+  (with-temp-buffer
+    (sumo-wiki-mode)
+    (insert "See the release notes.\n")
+    (goto-char (point-min))
+    (search-forward "the release notes")
+    (push-mark (match-beginning 0) t t)
+    (kill-new "https://example.org")
+    (let ((sumo-wiki-paste-url-as-link nil))
+      (sumo-wiki-yank))
+    (ok "the opt-out restores plain yanking"
+        (equal (buffer-string) "See the release noteshttps://example.org.\n"))))
+
+;; `yank' is remapped rather than bound to a key, so this follows whatever the
+;; user has yank on -- C-y, and s-v on macOS.
+(with-temp-buffer
+  (sumo-wiki-mode)
+  (ok "yank is remapped in the mode map"
+      (eq (lookup-key sumo-wiki-mode-map [remap yank]) 'sumo-wiki-yank))
+  (ok "C-y resolves to it" (eq (key-binding (kbd "C-y")) 'sumo-wiki-yank)))
+
+;; delete-selection-mode deletes the region in pre-command-hook, which would
+;; leave the command with no link text. The property has to say "not this time".
+(let ((transient-mark-mode t))
+  (with-temp-buffer
+    (sumo-wiki-mode)
+    (insert "the release notes")
+    (push-mark (point-min) t t)
+    (goto-char (point-max))
+    (kill-new "https://example.org")
+    (ok "delsel is suppressed for a link yank"
+        (null (sumo-wiki--yank-delete-selection)))
+    (kill-new "just some text")
+    (ok "delsel behaves normally otherwise"
+        (eq (sumo-wiki--yank-delete-selection) 'yank))))
+
 ;;; Summary and exit status
 ;;
 ;; `--batch' exits 0 however many FAILs were printed, so without this the whole
@@ -110,7 +217,7 @@
 ;; would otherwise just print fewer lines and still pass. Raise it when adding
 ;; assertions.
 
-(let ((expected 20))
+(let ((expected 38))
   (when (< sumo-test-total expected)
     (setq sumo-test-failed (1+ sumo-test-failed))
     (princ (format "  %-46s FAIL (ran %d)\n"

@@ -55,6 +55,22 @@ jobs:
         run: npm test
         working-directory: editors/vscode
 
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Web app tests
+        # The page applies a fix by splicing the textarea at byte offsets the
+        # linter reports, so the byte<->UTF-16 arithmetic is the one piece that
+        # can silently corrupt an article. It is pure, so it tests under plain
+        # Node with no browser.
+        run: |
+          node --check web/app.js
+          node --check web/fixes.js
+          node web/test/fixes.test.mjs
+
   emacs:
     runs-on: ubuntu-latest
     steps:

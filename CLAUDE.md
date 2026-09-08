@@ -19,7 +19,7 @@ implemented**. The corpus is 203 articles; 193 public ones are committed under `
 
 ## Current state
 
-Phases 1 and 2 are implemented and tested. `cargo test` runs 33 tests, including property
+Phases 1 and 2 are implemented and tested. `cargo test` runs 34 tests, including property
 tests over every corpus article.
 
 Linting the committed corpus reports **5 errors, all verified by hand** and all filed:
@@ -66,8 +66,9 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 **Do not redo:** the corpus is already scraped and committed; the heading data is already
 measured; the four bugs are already filed with rendered-output evidence. **Every test now
 runs in CI** — `rust`, `vscode` (34 grammar + 51 link assertions), `emacs`
-(63 mode assertions, against the real CLI) and `vim` (61 plugin assertions, run under
-both Vim and Neovim) — so there is no by-hand test suite left.
+(63 mode assertions, against the real CLI), `vim` (61 plugin assertions, run under
+both Vim and Neovim) and `web` (23 assertions on the fix arithmetic) — so there is no
+by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
 the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19, and
@@ -146,7 +147,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
 | `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
-| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS) |
+| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js` and tested under Node |
 
 **Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an
 unmodified parse is byte-identical. This is asserted in the lexer, property-tested over
@@ -159,7 +160,12 @@ formatting; do not describe it as a tree.
 Diagnostics carry a stable code (`SW001`), severity, byte span, message, and an optional
 fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`. In the LSP
 both kinds are offered as quick fixes (`Unsafe` titled *(needs review)*), because accepting
-a code action is a deliberate, undoable choice, unlike a CLI writing files unattended.
+a code action is a deliberate, undoable choice, unlike a CLI writing files unattended. The
+web app follows the same rule with a **Fix** button on each diagnostic, and earns the
+"undoable" half of that claim: it edits the textarea through `execCommand('insertText')`,
+deprecated but still the only way to keep a textarea's native undo stack — assigning
+`.value` throws the history away. It also refuses to splice if the text changed since the
+lint that produced the offsets, because linting is debounced and a click can arrive first.
 
 **Paste-a-URL-over-a-selection hooks paste, never rebinds it.** In all three editors the
 gesture is "select words, paste a URL, get `[url words]`", and in all three the paste key

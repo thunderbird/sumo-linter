@@ -66,7 +66,11 @@
     font: 12px ui-monospace, monospace; background: var(--code-bg);
     padding: .1rem .35rem; border-radius: 3px; color: var(--muted);
   }
-  #diags em { color: var(--muted); font-size: .85rem; flex-basis: 100%; }
+  #diags em { color: var(--muted); font-size: .85rem; }
+  .fixrow { flex-basis: 100%; display: flex; gap: .5rem; align-items: center; }
+  button.fix { font-size: .85rem; padding: .15rem .55rem; }
+  /* Dashed, so "this repair is a guess" is visible and not only in the label. */
+  button.fix.review { border-style: dashed; border-color: var(--warn); }
   .loc {
     font: 12px ui-monospace, monospace; padding: .1rem .3rem;
     border: none; background: none; color: var(--accent);
@@ -119,9 +123,11 @@
       volunteer localizers.
     </p>
     <p>
-      Only <em>safe</em> fixes are applied — repairs whose intent is a guess are
-      reported but left alone, because most markup errors have several plausible
-      corrections and picking wrong silently changes what an article says.
+      <strong>Applying safe fixes</strong> in bulk only touches repairs whose
+      intent is certain. A repair marked <em>needs review</em> is a guess — most markup
+      errors have several plausible corrections — so it is never applied in bulk,
+      but you can apply one from its own <strong>Fix</strong> button and check the
+      result. Every fix is undoable with the usual keystroke.
     </p>
     <p>
       Source and issues:
@@ -130,6 +136,7 @@
     </p>
   </footer>
 
+  <script src="./fixes.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

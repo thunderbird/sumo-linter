@@ -14,7 +14,9 @@
 //!   1. `alloc(len)` → pointer to a `len`-byte buffer
 //!   2. copy UTF-8 source into it
 //!   3. `lint(ptr, len)` or `fix(ptr, len, unsafe_fixes)` → pointer to a
-//!      NUL-terminated UTF-8 JSON result, owned by the module
+//!      NUL-terminated UTF-8 JSON result, owned by the module. Each diagnostic
+//!      carries its fix's span and replacement, so the caller can apply one
+//!      fix by itself rather than all the safe ones at once.
 //!   4. `dealloc(ptr, len)` to release the input buffer
 //!
 //! The result buffer is leaked deliberately and reclaimed on the next call, so
@@ -79,10 +81,17 @@ pub unsafe extern "C" fn lint(ptr: *const u8, len: usize) -> *const u8 {
                 d.severity.as_str(),
                 json_str(&d.message),
                 match d.fix.as_ref() {
+                    // `start`/`end`/`replacement` are the fix's own span, which
+                    // is not always the diagnostic's: they let the page apply one
+                    // fix on its own, the way an editor applies a single
+                    // TextEdit, without another export to do it here.
                     Some(f) => format!(
-                        r#"{{"safe":{},"description":{}}}"#,
+                        r#"{{"safe":{},"description":{},"start":{},"end":{},"replacement":{}}}"#,
                         f.applicability == Applicability::Safe,
-                        json_str(&f.description)
+                        json_str(&f.description),
+                        f.span.start,
+                        f.span.end,
+                        json_str(&f.replacement)
                     ),
                     None => "null".to_string(),
                 }
@@ -227,6 +236,26 @@ mod tests {
                 .into_owned()
         };
         assert!(json.contains(r#""applied":0"#), "{json}");
+    }
+
+    /// The browser applies a single fix itself, so the span and replacement have
+    /// to survive the JSON round trip — including an unsafe one, which the bulk
+    /// `fix` export deliberately will not touch.
+    #[test]
+    fn lint_reports_each_fix_span_and_replacement() {
+        let src = "==Asymmetric ===\n";
+        let json = unsafe {
+            let p = lint(src.as_ptr(), src.len());
+            std::ffi::CStr::from_ptr(p as *const i8)
+                .to_string_lossy()
+                .into_owned()
+        };
+        assert!(json.contains(r#""safe":false"#), "{json}");
+        assert!(json.contains(r#""start":0,"end":16"#), "{json}");
+        assert!(
+            json.contains(r#""replacement":"== Asymmetric ==""#),
+            "{json}"
+        );
     }
 
     #[test]

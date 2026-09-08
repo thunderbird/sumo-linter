@@ -9,6 +9,9 @@
  * npm, no build step beyond `cargo build --target wasm32-unknown-unknown`. The
  * ABI is four exported functions; see crates/sumo-lint-wasm/src/lib.rs.
  *
+ * The byte-offset arithmetic lives in fixes.js so it can be tested under plain
+ * Node; everything here touches the DOM.
+ *
  * Everything runs client-side. Nothing is uploaded, which matters because people
  * will paste unpublished draft articles in here.
  */
@@ -60,15 +63,52 @@ function call(fn, text, ...extra) {
   }
 }
 
-/** Map a byte offset to a UTF-16 index, so highlighting lines up. */
-function byteToCharIndex(text, byteOffset) {
-  const enc = new TextEncoder();
-  let bytes = 0;
-  for (let i = 0; i < text.length; i++) {
-    if (bytes >= byteOffset) return i;
-    bytes += enc.encode(text[i]).length;
+/**
+ * Replace a UTF-16 range of the textarea, keeping its native undo stack.
+ *
+ * `execCommand` is deprecated but it is still the only way to edit a textarea
+ * undoably: assigning `.value` discards the history, which matters most for the
+ * needs-review fixes — accepting one is meant to be a decision you can take back
+ * with Cmd+Z, exactly as in an editor. Falls back to assignment where it fails.
+ */
+function replaceRange(ta, start, end, text) {
+  ta.focus();
+  ta.setSelectionRange(start, end);
+  let undoable = false;
+  try {
+    undoable =
+      text === ''
+        ? document.execCommand('delete')
+        : document.execCommand('insertText', false, text);
+  } catch {
+    undoable = false;
   }
-  return text.length;
+  if (!undoable) {
+    ta.value = ta.value.slice(0, start) + text + ta.value.slice(end);
+  }
+  ta.setSelectionRange(start, start + text.length);
+}
+
+/**
+ * Apply one diagnostic's fix, safe or not.
+ *
+ * `snapshot` is the text the offsets were measured against. Linting is debounced,
+ * so a click can land after an edit and before the re-lint; splicing stale byte
+ * offsets into edited text would corrupt it, so re-lint instead.
+ */
+function applyOne(fix, snapshot) {
+  const ta = document.getElementById('src');
+  if (ta.value !== snapshot) {
+    run();
+    return;
+  }
+  replaceRange(
+    ta,
+    byteToCharIndex(snapshot, fix.start),
+    byteToCharIndex(snapshot, fix.end),
+    fix.replacement,
+  );
+  run();
 }
 
 function run() {
@@ -78,6 +118,8 @@ function run() {
   const list = document.getElementById('diags');
   const summary = document.getElementById('summary');
 
+  // Everything rendered below refers to byte offsets in *this* text.
+  const snapshot = text;
   const errors = diags.filter((d) => d.severity === 'error').length;
   const warnings = diags.length - errors;
   const fixable = diags.filter((d) => d.fix && d.fix.safe).length;
@@ -127,11 +169,27 @@ function run() {
 
     li.append(loc, code, msg);
     if (d.fix) {
+      // Both kinds get a button, on the same reasoning as the LSP quick fixes:
+      // clicking one is a deliberate, undoable choice, unlike `--fix` rewriting
+      // files unattended. The unsafe ones say so rather than being hidden.
+      const row = document.createElement('div');
+      row.className = 'fixrow';
+
+      const apply = document.createElement('button');
+      apply.type = 'button';
+      apply.className = d.fix.safe ? 'fix' : 'fix review';
+      apply.textContent = d.fix.safe ? 'Fix' : 'Fix (needs review)';
+      apply.title = d.fix.safe
+        ? `Apply: ${d.fix.description}`
+        : `Apply, then check it: ${d.fix.description}. The intended markup is a `
+          + `guess here, so this may not be the repair you want.`;
+      apply.addEventListener('click', () => applyOne(d.fix, snapshot));
+
       const tag = document.createElement('em');
-      tag.textContent = d.fix.safe
-        ? `fix: ${d.fix.description}`
-        : `fix needs review: ${d.fix.description}`;
-      li.append(tag);
+      tag.textContent = d.fix.description;
+
+      row.append(apply, tag);
+      li.append(row);
     }
     list.append(li);
   }
@@ -149,7 +207,7 @@ function applyStyle() {
   const result = call(wasm.style, ta.value, 0);
   const note = document.getElementById('stylenote');
   if (result.changed) {
-    ta.value = result.text;
+    replaceRange(ta, 0, ta.value.length, result.text);
     note.textContent = 'house style applied';
     run();
   } else {
@@ -161,7 +219,7 @@ function applyFixes() {
   const ta = document.getElementById('src');
   const result = call(wasm.fix, ta.value, 0);
   if (result.applied > 0) {
-    ta.value = result.text;
+    replaceRange(ta, 0, ta.value.length, result.text);
     run();
   }
 }
@@ -179,6 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('sample').addEventListener('click', () => {
     ta.value = [
       '= Example article =',
+      '',
+      '==Asymmetric heading ===',
       '',
       "{for win}This has an unclosed platform block.",
       '',

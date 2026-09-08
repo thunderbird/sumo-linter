@@ -40,6 +40,25 @@ function byteToCharIndex(text, byteOffset) {
 }
 
 /**
+ * Whether a fix from the lint JSON carries enough to apply.
+ *
+ * GitHub Pages serves with `max-age=600`, so app.js and the `.wasm` are cached
+ * independently and a returning visitor can get new JS against a ten-minute-old
+ * module — measured on the live site, not hypothetical. That module describes its
+ * fixes but reports no span, so the button must not be offered at all rather than
+ * throwing when it is pressed.
+ */
+function isApplicable(fix) {
+  return (
+    !!fix &&
+    typeof fix.replacement === 'string' &&
+    Number.isInteger(fix.start) &&
+    Number.isInteger(fix.end) &&
+    fix.end >= fix.start
+  );
+}
+
+/**
  * Apply one fix to `text`, returning the new text and the UTF-16 range the
  * replacement now occupies so the caller can show what changed.
  */
@@ -56,5 +75,5 @@ function applyFixToText(text, fix) {
 // Loaded as a plain <script> in the browser, where these are globals; required
 // as CommonJS by the test.
 if (typeof module !== 'undefined') {
-  module.exports = { byteToCharIndex, applyFixToText, utf8Len };
+  module.exports = { applyFixToText, byteToCharIndex, isApplicable, utf8Len };
 }

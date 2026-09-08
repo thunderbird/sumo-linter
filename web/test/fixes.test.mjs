@@ -13,7 +13,7 @@ import assert from 'node:assert/strict';
 // CommonJS module: the default import is its `module.exports` object.
 import fixes from '../fixes.js';
 
-const { applyFixToText, byteToCharIndex, utf8Len } = fixes;
+const { applyFixToText, byteToCharIndex, isApplicable, utf8Len } = fixes;
 
 let failed = 0;
 let checks = 0;
@@ -88,9 +88,22 @@ for (const src of ['=h1\n', '日本語=h1\n', '🐦=h1\n']) {
   check(`round trip outside the span for ${JSON.stringify(src)}`, out.text, `${src.slice(0, -1)}=\n`);
 }
 
+// --- isApplicable -----------------------------------------------------------
+// The guard against a page that outlives the module it was deployed with: Pages
+// caches app.js and the .wasm independently for ten minutes, so new JS really can
+// meet an old module, whose fixes have a description and no span.
+check('a full fix', isApplicable({ safe: true, description: 'x', start: 3, end: 3, replacement: '=' }), true);
+check('a deletion is applicable', isApplicable({ start: 4, end: 5, replacement: '' }), true);
+check('an older module reports no span', isApplicable({ safe: true, description: 'x' }), false);
+check('no replacement', isApplicable({ start: 0, end: 1 }), false);
+check('no fix at all', isApplicable(null), false);
+check('undefined', isApplicable(undefined), false);
+check('a backwards span', isApplicable({ start: 5, end: 4, replacement: '=' }), false);
+check('a non-integer offset', isApplicable({ start: 0.5, end: 1, replacement: '=' }), false);
+
 // A floor on the count: a file that stops running its body would otherwise
 // print no failures and pass.
-const expected = 23;
+const expected = 31;
 if (checks < expected) {
   console.error(`\nonly ${checks} web assertions ran, expected at least ${expected}`);
   process.exit(1);

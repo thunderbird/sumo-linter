@@ -23,7 +23,11 @@ let wasm = null;
 async function boot() {
   const status = document.getElementById('status');
   try {
-    const res = await fetch(WASM_URL);
+    // `no-cache` revalidates rather than trusting the cached copy. Pages serves
+    // `max-age=600`, and app.js and the module are cached independently: without
+    // this, a returning visitor within ten minutes of a deploy runs new JS against
+    // an older module. Measured live — it presented as a Fix button that threw.
+    const res = await fetch(WASM_URL, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const { instance } = await WebAssembly.instantiate(await res.arrayBuffer(), {});
     wasm = instance.exports;
@@ -168,7 +172,15 @@ function run() {
     msg.textContent = d.message;
 
     li.append(loc, code, msg);
-    if (d.fix) {
+    if (d.fix && !isApplicable(d.fix)) {
+      // An older module than this page: describe the repair, offer no button.
+      const tag = document.createElement('em');
+      tag.className = 'wide';
+      tag.textContent = d.fix.safe
+        ? `fix: ${d.fix.description}`
+        : `fix needs review: ${d.fix.description}`;
+      li.append(tag);
+    } else if (d.fix) {
       // Both kinds get a button, on the same reasoning as the LSP quick fixes:
       // clicking one is a deliberate, undoable choice, unlike `--fix` rewriting
       // files unattended. The unsafe ones say so rather than being hidden.

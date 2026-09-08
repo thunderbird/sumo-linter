@@ -67,7 +67,7 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 measured; the four bugs are already filed with rendered-output evidence. **Every test now
 runs in CI** — `rust`, `vscode` (34 grammar + 51 link assertions), `emacs`
 (63 mode assertions, against the real CLI), `vim` (61 plugin assertions, run under
-both Vim and Neovim) and `web` (23 assertions on the fix arithmetic) — so there is no
+both Vim and Neovim) and `web` (31 assertions on the fix arithmetic) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
@@ -166,6 +166,14 @@ web app follows the same rule with a **Fix** button on each diagnostic, and earn
 deprecated but still the only way to keep a textarea's native undo stack — assigning
 `.value` throws the history away. It also refuses to splice if the text changed since the
 lint that produced the offsets, because linting is debounced and a click can arrive first.
+
+**Pages caches `app.js` and the `.wasm` independently** (`max-age=600`), so for ten minutes
+after a deploy a returning visitor can run new JS against the previous module. Measured on
+the live site, where it presented as a Fix button that threw. Two guards, both needed: the
+module is fetched with `cache: 'no-cache'` so it revalidates, and a fix without a span is
+rendered as description-only rather than as a button. Test a change to the JSON shape by
+building the previous module and serving it under the new page — the failure is invisible
+otherwise, because a local build always ships both halves at once.
 
 **Paste-a-URL-over-a-selection hooks paste, never rebinds it.** In all three editors the
 gesture is "select words, paste a URL, get `[url words]`", and in all three the paste key

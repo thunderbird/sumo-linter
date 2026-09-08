@@ -282,6 +282,58 @@ mod tests {
         assert_eq!(d.apply_fixes(false).1, 0);
     }
 
+    /// The case a typist actually hits: `=h1` with no closing run at all. The
+    /// level is unambiguous, so unlike the asymmetric case this one is offered
+    /// as a safe fix and the editors get a quick fix for it.
+    #[test]
+    fn unclosed_heading_is_fixed_safely() {
+        for (src, want) in [
+            ("=h1\n* fi\n", "=h1=\n* fi\n"),
+            ("= h1\n", "= h1 =\n"),
+            ("=== Deep heading\n", "=== Deep heading ===\n"),
+            // Trailing whitespace is the whitespace pass's business, not ours.
+            ("==h2   \n", "==h2==   \n"),
+            // No trailing newline at end of file.
+            ("=h1", "=h1="),
+        ] {
+            let d = Document::parse(src);
+            let sw005 = d
+                .diagnostics()
+                .into_iter()
+                .find(|x| x.code == "SW005")
+                .unwrap_or_else(|| panic!("SW005 for {src:?}"));
+            assert_eq!(
+                sw005.fix.as_ref().unwrap().applicability,
+                Applicability::Safe
+            );
+            let (fixed, n) = d.apply_fixes(false);
+            assert_eq!(n, 1, "{src:?}");
+            assert_eq!(fixed, want, "{src:?}");
+            // The result must be clean, lossless and stable.
+            let redo = Document::parse(&fixed);
+            assert!(redo.is_lossless(), "{fixed:?}");
+            assert!(
+                !redo.diagnostics().iter().any(|x| x.code == "SW005"),
+                "{fixed:?}"
+            );
+        }
+    }
+
+    /// Markup that only looks like a heading stays untouched: space-indented and
+    /// `<pre>` regions are opaque, so a `.reg` sample is never "closed" for us.
+    #[test]
+    fn preformatted_lines_are_not_unclosed_headings() {
+        for src in [" =not a heading\n", "<pre>\n=not a heading\n</pre>\n"] {
+            let d = Document::parse(src);
+            assert!(
+                !d.diagnostics().iter().any(|x| x.code == "SW005"),
+                "{src:?}: {:?}",
+                d.diagnostics()
+            );
+            assert_eq!(d.apply_fixes(false).0, src);
+        }
+    }
+
     #[test]
     fn fixes_never_break_round_trip() {
         let d = Document::parse("* \n**bold** [x](http://y)\n");

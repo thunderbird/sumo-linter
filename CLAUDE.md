@@ -19,7 +19,7 @@ implemented**. The corpus is 203 articles; 193 public ones are committed under `
 
 ## Current state
 
-Phases 1 and 2 are implemented and tested. `cargo test` runs 31 tests, including property
+Phases 1 and 2 are implemented and tested. `cargo test` runs 33 tests, including property
 tests over every corpus article.
 
 Linting the committed corpus reports **5 errors, all verified by hand** and all filed:
@@ -256,7 +256,10 @@ Measured on the 203-article corpus:
 - **`trailing_whitespace` defaults to false.** It quadruples churn for zero rendered
   benefit. Opt in per invocation with `--strip-trailing-whitespace`.
 - Asymmetric headings are **skipped** by the formatter: which level the author meant is a
-  guess, so it stays a phase-1 error (SW005) for a human to resolve.
+  guess, so it stays a phase-1 error (SW005) with an *Unsafe* fix for a human to resolve.
+  A heading with **no** closing run (`=h1`) is a different case — the opening run is the
+  only evidence, so that fix is *Safe* and closes with a run mirroring the opening
+  spacing (`=h1` → `=h1=`, `= h1` → `= h1 =`), taking no side in the spacing question.
 - Properties enforced over the whole corpus: formatting is **idempotent**, output still
   **round-trips**, and the **line count never changes** (localizers diff by line).
 

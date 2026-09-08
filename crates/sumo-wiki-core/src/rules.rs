@@ -234,12 +234,38 @@ fn headings(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
                 );
             }
             None => {
-                out.push(Diagnostic::new(
-                    "SW005",
-                    Severity::Error,
-                    "heading has no closing `=`",
-                    tokens[i].span.clone(),
-                ));
+                // Unlike the asymmetric case, the level here is not a guess: the
+                // opening run is the only evidence and nothing contradicts it. So
+                // this fix is safe, and it is the one people hit while typing.
+                let open_end = tokens[i].span.end;
+                let line_end = tokens.get(j).map_or(input.len(), |t| t.span.start);
+                let content = &input[open_end..line_end];
+                let at = open_end + content.trim_end().len();
+                let eq = "=".repeat(open);
+                // Mirror the opening spacing (`=h1` -> `=h1=`, `= h1` -> `= h1 =`)
+                // rather than imposing a house style: which of the two is correct
+                // is exactly the question still out for community consultation.
+                let replacement = if content.starts_with(|c: char| c.is_whitespace()) {
+                    format!(" {eq}")
+                } else {
+                    eq
+                };
+                out.push(
+                    Diagnostic::new(
+                        "SW005",
+                        Severity::Error,
+                        "heading has no closing `=`",
+                        tokens[i].span.clone(),
+                    )
+                    .with_fix(Fix {
+                        // An insertion, so any trailing whitespace on the line is
+                        // left for the whitespace pass rather than silently eaten.
+                        span: at..at,
+                        replacement,
+                        applicability: Applicability::Safe,
+                        description: format!("close the heading with {open} `=`"),
+                    }),
+                );
             }
             _ => {}
         }

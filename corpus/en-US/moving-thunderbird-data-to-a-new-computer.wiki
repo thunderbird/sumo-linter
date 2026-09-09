@@ -44,8 +44,8 @@ This section assumes you have a default Windows installation and will work on co
 # Locate the master profile folder on the destination computer as above.
 # Note out of interest that your username (indicated by ~ below) on the two computers might be different due to legacy issues, but it will make no difference with a manual transfer as below.
 # Close Thunderbird in both computers.
-# On the source computer, copy the Thunderbird folders in both {filepath Windows(C:)/Users/~/AppData/Roaming} and {filepath Windows(C:)/Users/~/AppData/Local} to your transfer media, in separate folders so you do not overwrite them.
-# On the destination computer, remove (or rename if you need a data backup or to preserve an old profile) any Thunderbird folders in the destination folders {filepath Windows(C:)/Users/~/AppData/Roaming} and {filepath Windows(C:)/Users/~/AppData/Local} directories.
-# Copy from your transfer media the correct Thunderbird folders into the two folders above to replace the ones you have removed or renamed.
+# On the source computer, copy the Thunderbird folder under C:\Users\~\AppData\Roaming to your transfer media.
+# On the destination computer, remove (or copy if you need a data backup or to preserve an old profile) the Thunderbird folder under C:\Users\~AppData\Roaming.
+# Copy from your transfer media the source C:\Users\~\AppData\Roaming folder to the destination's C:\Users\~\AppData\Roaming folder.
 # Restart Thunderbird on the destination computer and test it, noting that your inbox tab should be identical to source, but that other tabs may have opened with Thunderbird messages.
 {/for}

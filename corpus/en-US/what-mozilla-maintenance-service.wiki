@@ -6,16 +6,16 @@ Firefox and Thunderbird install an optional service called the Mozilla Maintenan
 When Firefox or Thunderbird downloads an application update, the Mozilla Maintenance Service gets permission from Windows to allow the update to be applied, without requiring you to click {button Yes} in the Windows User Account Control (UAC) dialog. Until that time, the service doesn't run, so it doesn't use any computer resources and, once the update process begins, the service quits. For more details, see [https://wiki.mozilla.org/Windows_Service_Silent_Update this Mozilla Wiki page].
 {note}'''Note:''' Firefox also has a feature you can enable that will automatically install updates, even when Firefox is not running. See [[Enable background updates on Firefox for Windows when Firefox is not running|this article]] for details.{/note}
 
-=Disabling the Mozilla Maintenance Service=
-If you'd like to be prompted to authorize updates, you can disable the Mozilla Maintenance Service as follows:
-
+=Disabling the Mozilla Maintenance Service in Thunderbird=
+<!-- "Use a background service to install updates" setting was removed in Firefox 123 (bug 1461755)
 ==Firefox==
 #[[Template:optionspreferences]]
 #Click the {for not fx152}{menu General}{/for}{for fx152}{menu About Firefox}{/for} page.
 #Scroll down to {for not fx152}''Firefox Updates''{/for}{for fx152}''Firefox updates''{/for}. ('''Tip:''' You can also search for '''updates''' in the search box.)
 #Uncheck the box next to '''Use a background service to install updates'''.
+-->
 
-==Thunderbird==
+If you'd like to be prompted to authorize updates, you can disable the Mozilla Maintenance Service as follows:
 #[[Template:optionspreferences TB]]
 #In the {menu General} panel, scroll down to the ''Updates'' section.
 #Uncheck the box next to '''Use a background service to install updates'''.

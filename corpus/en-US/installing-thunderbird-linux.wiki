@@ -3,7 +3,7 @@ This article explains how to download and install Thunderbird on Linux. {for mac
 
 __TOC__
 
-=Install Thunderbird DEB package for Debian-based and Ubuntu-based distributions (recommended)=
+=Install the DEB package for Debian-based and Ubuntu-based distributions (recommended)=
 To install the'''DEB''' package through the APT repository, do the following:
 #Create a directory to store APT repository keys if it doesn't exist:
 #;<code>sudo install -d -m 0755 /etc/apt/keyrings</code>
@@ -33,7 +33,7 @@ To install the'''DEB''' package through the APT repository, do the following:
 #;<code>sudo apt-get update</code>
 #;<code>sudo apt-get install thunderbird</code>
 
-==Use different languages on Thunderbird DEB package ==
+==Non English Thunderbird DEB packages ==
 For those of you who would like to use Thunderbird in a different language than American English, we have also created DEB packages containing the Thunderbird language packs. To install a specific language pack, replace fr in the example below with the desired language code. In this example, we are installing the French language pack of Thunderbird.
 ;<code>sudo apt-get install thunderbird-l10n-fr</code>
 To list all the available language packs, you can use this command after adding the Mozilla repository and running <code>sudo apt-get update</code>:
@@ -164,9 +164,7 @@ Modify the <code>thunderbird.desktop</code> launcher:
 ;<code>StartupWMClass=thunderbird-esr</code>
 
 = Troubleshooting =
-
 == Snap Profile Issues ==
-
 If you ''DO NOT'' have an already existing Thunderbird profile in your home directory, then the snap will generate and use a profile located in the Thunderbird snap location: {filepath ~/snap/thunderbird/common/.thunderbird}.
 
 If you ''DO'' have an already existing Thunderbird profile in your home directory, then the snap will use it.

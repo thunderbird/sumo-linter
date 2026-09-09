@@ -60,3 +60,6 @@ node_modules/
 
 # Packaged VS Code extension, rebuilt by `vsce package`
 /editors/vscode/*.vsix
+
+# Where a batched scrape stopped. Local run state, not content.
+.batch-state

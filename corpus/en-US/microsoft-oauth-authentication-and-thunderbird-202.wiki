@@ -49,7 +49,7 @@ For [https://outlook.com outlook.com], [https://hotmail.com hotmail.com], Micros
 * If that doesn’t work, please [https://support.mozilla.org/questions/new/thunderbird/form ask for support].
 
 ==IMAP/POP3 works, but SMTP does not work==
-* If you have a Microsoft 365 business account, ensure that SMTP authentication is enabled or ask your IT administrator to check and turn it on if disabled. Read Microsoft’s article [https://learn.microsoft.com/, exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission Enable or disable authenticated client SMTP submission (SMTP AUTH) in Exchange Online] for instructions.
+* If you have a Microsoft 365 business account, ensure that SMTP authentication is enabled or ask your IT administrator to check and turn it on if disabled. Read Microsoft’s article [https://learn.microsoft.com/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission Enable or disable authenticated client SMTP submission (SMTP AUTH) in Exchange Online] for instructions.
 * If you have a Microsoft 365/Hotmail/etc. '''personal''' account, use basic authentication (read Microsoft’s guide [https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040 POP, IMAP, and SMTP settings for Outlook.com] for instructions).
 
 ==Calendar does not work==

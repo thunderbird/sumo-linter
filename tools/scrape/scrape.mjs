@@ -29,6 +29,12 @@
  *   node scrape.mjs --login    # opens a window; you sign in by hand, once
  *   node scrape.mjs            # fetches the corpus, resumable
  *   node scrape.mjs --limit 3  # trial run
+ *   node scrape.mjs --force    # re-fetch even what is already cached
+ *   node scrape.mjs --list-only # enumerate slugs; no login needed
+ *   node scrape.mjs --products '*' --list-only   # every article in the KB
+ *   node scrape.mjs --list-only --profile /tmp/anon  # what anonymous users see
+ *   node scrape.mjs --products firefox --out corpus-other --limit 40
+ *                              # sample another product, kept out of corpus/
  */
 
 import { chromium } from 'playwright';
@@ -58,9 +64,21 @@ const CONFIG = {
   // Does NOT help with rate limiting (that's IP-based) and picks up no login
   // from your personal profile. Bundled Chromium is the tested default.
   channel: flag('channel', null),
-  profileDir: resolve(REPO, '.auth/chromium-profile'),
-  outDir: resolve(REPO, 'corpus'),
+  // A throwaway `--profile` is how you ask the site what an anonymous visitor
+  // sees. That is the definition of "public" this corpus uses: the signed-in
+  // listing returns 192 Thunderbird articles, the anonymous one 185, and the
+  // difference is exactly the unpublished drafts that must never be committed.
+  profileDir: resolve(REPO, String(flag('profile', '.auth/chromium-profile'))),
+  // `--out` exists so a scrape of *other* products cannot land in `corpus/`.
+  // That directory is the Thunderbird test corpus: the Rust property tests walk
+  // every .wiki in it, and corpus/README.md documents exactly what it contains.
+  // A Firefox article dropped in there would silently join both.
+  outDir: resolve(REPO, String(flag('out', 'corpus'))),
   loginOnly: argv.includes('--login'),
+  // Enumerating needs no login — only fetching *source* does. Listing on its own
+  // answers "what changed since the last snapshot" without a session, which is
+  // how you find out whether a rescrape needs new .gitignore entries.
+  listOnly: argv.includes('--list-only'),
   force: argv.includes('--force'),
 };
 
@@ -211,7 +229,10 @@ async function login(ctx, page) {
  */
 async function listArticles(ctx, page, product) {
   const out = [];
-  let path = `/api/1/kb/?product=${encodeURIComponent(product)}`;
+  // `*` means the whole KB: omit the param entirely rather than sending an empty
+  // one. That is the only way to see articles belonging to no product — Template:
+  // pages, which are where `{{{n}}}` lives (sumo-linter #1).
+  let path = product === '*' ? '/api/1/kb/' : `/api/1/kb/?product=${encodeURIComponent(product)}`;
   while (path) {
     const r = await fetchPath(ctx, page, path);
     if (r.status !== 200) throw new Error(`list ${path} -> HTTP ${r.status}`);
@@ -286,11 +307,15 @@ async function main() {
       }
       return;
     }
-    if (!signedIn) {
+    if (!signedIn && !CONFIG.listOnly) {
       throw new Error('Not signed in. Run `npm run login` first (opens a window for you to sign in).');
     }
-    const who = await whoami(ctx, page);
-    console.log(`Signed in as: ${who.username ?? '(username not detected)'}`);
+    if (signedIn) {
+      const who = await whoami(ctx, page);
+      console.log(`Signed in as: ${who.username ?? '(username not detected)'}`);
+    } else {
+      console.log('Not signed in — listing only, which needs no session.');
+    }
 
     // Enumerate. A slug can belong to both products, so dedupe.
     const bySlug = new Map();
@@ -306,6 +331,11 @@ async function main() {
     }
     const articles = [...bySlug.values()].slice(0, CONFIG.limit);
     console.log(`${articles.length} unique articles to fetch.\n`);
+
+    if (CONFIG.listOnly) {
+      for (const a of articles) console.log(`${a.slug}\t${a.products.join(',')}\t${a.title}`);
+      return;
+    }
 
     const srcDir = resolve(CONFIG.outDir, CONFIG.locale);
     const renderedDir = resolve(CONFIG.outDir, 'rendered', CONFIG.locale);

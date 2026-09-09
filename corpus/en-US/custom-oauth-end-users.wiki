@@ -1,0 +1,31 @@
+__TOC__
+
+End users have some OAuth configuration possibilities. Here are some examples:
+
+= Custom TenantID and AppID for Microsoft Exchange =
+
+When creating an Exchange account in Thunderbird, end users can override their TenantID and AppID as follows:
+
+# Create your Exchange account as normal on the first run or Thunderbird app menu {menu ☰} > {menu Add Account} > {menu Email}.
+# Enter your full name and any valid Exchange email address.
+# Click '''MANUAL CONFIGURATION''' on the bottom left. ('''NOTE''': Do not click {button Continue} which will trigger our autoconfig process to detect settings.)
+# In the middle, click  {button Microsoft} > {button Set up account}.
+# Type your service URL in the '''Enter the service URL''' field and then click on {button Find settings}. Here are some common service URLs:
+#* Office 365 using EWS - https://outlook.office365.com/EWS/Exchange.asmx
+#* Office 365 using Graph - https://graph.microsoft.com/
+#* Ask your administrator for the correct service URL if you are unsure or using another service (for example Government High GCC or 21Vianet China, etc.).
+# Select '''Authentication Method'''  {menu OAuth2}.
+# Uncheck '''Use default Microsoft 365 Copilot authentication settings'''.
+# Scroll down and then enter your custom '''Tenant ID''' and '''AppID''' in the relevant fields and then click {button Connect}.
+
+= Need more control over your OAuth2 configuration? =
+
+The Tenant ID and AppID options above are intended to make common Microsoft 365 configurations easy to set up.
+
+If you need to customize additional OAuth2 settings for Exchange, IMAP or POP accounts, you can instead create the account using OAuth2 and then configure its OAuth2 settings through Advanced Account Settings.
+
+This allows advanced users to customize settings such as the authorization and token endpoints, scopes, redirect URI, PKCE, and browser authentication method.
+
+See [[Custom OAuth for advanced users]] for per-account advanced configuration and other ways to customize OAuth2 in Thunderbird.
+
+See [[Custom OAuth for Thunderbird]] for the other ways to customize OAuth2 in Thunderbird.

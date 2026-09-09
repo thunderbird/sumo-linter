@@ -54,7 +54,7 @@ There are several ways of marking messages as '''Not Junk'''.
 * Click on the red junk icon in the '''Junk''' column of the [[Getting Started with the Thunderbird main window (Supernova and newer)#w_7-message-list-pane|Message List Pane]] to toggle the junk status of a message:
 *;[[Image: TB115-thread-pane-unmark-junk-column|width=300]]
 * Or press {key Shift}+{key J} on your keyboard to mark one or more messages as '''Not Junk'''.
-{note}Once you un-mark a message as junk, the email will disappear from the current folder. Don't worry the email is still there! It will be in its original folder; the folder it was in before it was marked as junk.{/note}
+{note}Once you un-mark a message as junk, the email will disappear from the current folder. Don't worry, the email is still there! It will be in its original folder; the folder it was in before it was marked as junk.{/note}
 == Repeated training ==
 You should '''regularly''' train the filter by marking a number of '''good''' messages as not junk - messages in your Inbox ''and'' messages that have been filtered into other folders. In this case, you can only use the keyboard shortcut {key Shift}+{key J}, because the {button Not Junk} button appears only for messages that have already been marked as junk. Marking several messages per week will be sufficient, and you can select many messages and mark all of them at the same time. 
 
@@ -74,5 +74,3 @@ You can also use an external filter service to help classify email and block jun
 # Enable the {pref Trust junk mail headers set by} option.
 # Choose an external filter service in the drop-down menu.
 #;[[Image:TB115-Trust_junk_mail_headers_set_by|width=400]]
-
-<!-- Also, a better understanding of how the adaptive filter works can help you understand why message are and are not flagged as junk. The [http://mesquilla.com/extensions/junquilla/ JunQuilla] addon can help in that regard. -->

@@ -1,1 +1,30 @@
-stub only for now (see github issue [https://github.com/thunderbird/knowledgebase-issues/issues/218 #218])
+This article covers custom OAuth configuration for Thunderbird 155 and newer. See [[OAuth2 for Thunderbird]] for an overview.
+
+{note}'''NOTE''': For most Thunderbird users, Thunderbird's built-in OAuth2 support for many common providers (like Google, Microsoft, Yahoo and, AOL) is sufficient. If you don't need to customize your OAuth configuration, you can safely ignore this article.{/note}
+__TOC__
+= Overview of custom OAuth =
+
+Thunderbird provides several ways for organizations or individuals to use custom OAuth2 configurations, whether you need to configure a single account, deploy organization-specific settings across many users, or integrate with an identity provider that Thunderbird does not support by default.
+
+<!-- POP3 was added in 156, IMAP and Exchange were added in 155 -->
+Custom OAuth configurations for IMAP, POP and Exchange email accounts can be created with a Thunderbird add-on or by manual configuration without code changes starting in Thunderbird 156. It is possible to do this for any OAuth provider that supports Exchange, POP or IMAP. 
+
+If you need help configuring OAuth2 for a specific provider, please contact the provider's support team to get the configuration details (Thunderbird support cannot provide provider-specific configuration details). Use the information provided by the provider to configure Thunderbird manually or via an add-on.
+
+Administrators can deploy OAuth2 settings centrally using an add-on, while advanced users can configure OAuth2 settings for individual accounts. This article explains the available options and helps you choose the approach that best fits your organization.
+
+Custom OAuth is new and there may be issues. If you need help, please do not hesitate to [https://support.mozilla.org/questions/new/thunderbird ask for support in the Thunderbird support forum]. For Enterprise deployments, please ask in the [https://thunderbird.topicbox.com/groups/enterprise Thunderbird Enterprise group].
+
+For all the details, please read one or more of the following:
+* [[Custom OAuth for end users]]
+* [[Custom OAuth for advanced users]]
+* [[Custom OAuth for administrators]]
+
+= Future standards, like PACC and DCR, will eliminate most OAuth custom configurations =
+
+Thunderbird is considering implementing emerging standards intended to reduce the amount of manual OAuth2 configuration required, including:
+
+* [https://datatracker.ietf.org/doc/draft-ietf-mailmaint-pacc/ PACC (Provisioning and Configuration Capabilities)]
+* [https://datatracker.ietf.org/doc/draft-ietf-mailmaint-dcr/ DCR (Dynamic Client Registration)]
+
+Over time, these standards should allow Thunderbird to discover or negotiate OAuth2 configurations automatically with compatible servers, reducing (or potentially eliminating) the need to distribute client IDs or manually configure OAuth settings.

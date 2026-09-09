@@ -6,7 +6,7 @@
     "thunderbird-android"
   ],
   "note": "Public articles only; non-public drafts excluded by design.",
-  "count": 193,
+  "count": 196,
   "articles": [
     {
       "id": 8917,
@@ -16,8 +16,11 @@
         "thunderbird"
       ],
       "locale": "en-US",
-      "status": "cached",
-      "source": "corpus/en-US/how-do-i-create-screenshot-my-problem.wiki"
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 7653,
+      "source": "corpus/en-US/how-do-i-create-screenshot-my-problem.wiki",
+      "rendered": null
     },
     {
       "id": 9240,
@@ -27,8 +30,11 @@
         "thunderbird"
       ],
       "locale": "en-US",
-      "status": "cached",
-      "source": "corpus/en-US/what-mozilla-maintenance-service.wiki"
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 2975,
+      "source": "corpus/en-US/what-mozilla-maintenance-service.wiki",
+      "rendered": null
     },
     {
       "id": 17008,
@@ -38,8 +44,11 @@
         "thunderbird"
       ],
       "locale": "en-US",
-      "status": "cached",
-      "source": "corpus/en-US/signatures.wiki"
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 6184,
+      "source": "corpus/en-US/signatures.wiki",
+      "rendered": null
     },
     {
       "id": 17010,
@@ -443,7 +452,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 20153,
+      "bytes": 20129,
       "source": "corpus/en-US/installing-thunderbird-linux.wiki",
       "rendered": null
     },
@@ -499,7 +508,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 6681,
+      "bytes": 6446,
       "source": "corpus/en-US/moving-thunderbird-data-to-a-new-computer.wiki",
       "rendered": null
     },
@@ -541,7 +550,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 4724,
+      "bytes": 5360,
       "source": "corpus/en-US/protect-your-thunderbird-passwords-primary-password.wiki",
       "rendered": null
     },
@@ -1031,7 +1040,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 7466,
+      "bytes": 7236,
       "source": "corpus/en-US/thunderbird-and-junk-spam-messages.wiki",
       "rendered": null
     },
@@ -1079,7 +1088,7 @@
     },
     {
       "id": 17194,
-      "title": "Thunderbird\u2019s Scam Detection",
+      "title": "Thunderbird’s Scam Detection",
       "slug": "thunderbirds-scam-detection",
       "products": [
         "thunderbird"
@@ -1633,7 +1642,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 6683,
+      "bytes": 6724,
       "source": "corpus/en-US/thunderbird-beta.wiki",
       "rendered": null
     },
@@ -2053,7 +2062,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 7292,
+      "bytes": 7290,
       "source": "corpus/en-US/microsoft-oauth-authentication-and-thunderbird-202.wiki",
       "rendered": null
     },
@@ -2419,7 +2428,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 7002,
+      "bytes": 6990,
       "source": "corpus/en-US/thunderbird-desktop-and-thundermail.wiki",
       "rendered": null
     },
@@ -2504,7 +2513,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 3768,
+      "bytes": 3772,
       "source": "corpus/en-US/account-hub-thunderbird-desktop.wiki",
       "rendered": null
     },
@@ -2546,8 +2555,50 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 106,
+      "bytes": 2831,
       "source": "corpus/en-US/tb-custom-oauth.wiki",
+      "rendered": null
+    },
+    {
+      "id": 78269,
+      "title": "Custom OAuth for end users",
+      "slug": "custom-oauth-end-users",
+      "products": [
+        "thunderbird"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 2122,
+      "source": "corpus/en-US/custom-oauth-end-users.wiki",
+      "rendered": null
+    },
+    {
+      "id": 78270,
+      "title": "Custom OAuth for administrators",
+      "slug": "custom-oauth-administrators",
+      "products": [
+        "thunderbird"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 5225,
+      "source": "corpus/en-US/custom-oauth-administrators.wiki",
+      "rendered": null
+    },
+    {
+      "id": 78272,
+      "title": "Custom OAuth for advanced users",
+      "slug": "custom-oauth-advanced-users",
+      "products": [
+        "thunderbird"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 5027,
+      "source": "corpus/en-US/custom-oauth-advanced-users.wiki",
       "rendered": null
     },
     {
@@ -2700,7 +2751,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 5531,
+      "bytes": 5629,
       "source": "corpus/en-US/thundermail-and-thunderbird-android.wiki",
       "rendered": null
     }

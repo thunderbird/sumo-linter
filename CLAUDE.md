@@ -158,7 +158,12 @@ It is a **token stream**, not a full CST. That is enough for phase-1 rules and p
 formatting; do not describe it as a tree.
 
 Diagnostics carry a stable code (`SW001`), severity, byte span, message, and an optional
-fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`. In the LSP
+fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`. **`Safe`
+means the author's intent is unambiguous, not that rendering is unchanged** — SW009 and
+SW010 turn inert Markdown into a real link and real bold, and `=h1` → `=h1=` turns a
+literal line into a heading. What makes a fix `Unsafe` is a real choice between plausible
+repairs: `==H ===` could have meant either level, and picking one silently changes what the
+article says. Apply that test to every new rule. In the LSP
 both kinds are offered as quick fixes (`Unsafe` titled *(needs review)*), because accepting
 a code action is a deliberate, undoable choice, unlike a CLI writing files unattended. The
 web app follows the same rule with a **Fix** button on each diagnostic, and earns the

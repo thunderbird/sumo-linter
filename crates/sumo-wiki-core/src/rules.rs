@@ -49,7 +49,7 @@ pub fn check(input: &str, tokens: &[Token]) -> Vec<Diagnostic> {
     bold_balance(input, tokens, &mut out);
     headings(input, tokens, &mut out);
     image_params(input, tokens, &mut out);
-    brackets(tokens, &mut out);
+    brackets(input, tokens, &mut out);
     empty_list_items(input, tokens, &mut out);
     markdown_syntax(input, tokens, &mut out);
     empty_macros(input, tokens, &mut out);
@@ -321,21 +321,51 @@ fn image_params(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
 // SW007 — bracket balance
 // ---------------------------------------------------------------------------
 
-fn brackets(tokens: &[Token], out: &mut Vec<Diagnostic>) {
-    for t in tokens.iter().filter(|t| !is_opaque(t)) {
-        if let TokenKind::DanglingBracket { open } = t.kind {
-            out.push(Diagnostic::new(
-                "SW007",
-                Severity::Error,
-                if open {
-                    "`[[` with no closing `]]`"
-                } else {
-                    "`]]` with no opening `[[`"
-                },
-                t.span.clone(),
-            ));
+fn brackets(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
+    for (i, t) in tokens.iter().enumerate() {
+        if is_opaque(t) {
+            continue;
         }
+        let TokenKind::DanglingBracket { open } = t.kind else {
+            continue;
+        };
+        if !open && has_escaped_opener_on_line(input, tokens, i) {
+            continue;
+        }
+        out.push(Diagnostic::new(
+            "SW007",
+            Severity::Error,
+            if open {
+                "`[[` with no closing `]]`"
+            } else {
+                "`]]` with no opening `[[`"
+            },
+            t.span.clone(),
+        ));
     }
+}
+
+/// Did the author write a literal `[[` inside an opaque region earlier on this
+/// line? Then the `]]` at `idx` is deliberate, not unmatched.
+///
+/// Articles that *document* the markup escape only the opening delimiter —
+/// `<nowiki>[[</nowiki>Image:Quantum Logo]]` renders as literal text and is
+/// exactly what the author meant. Measured over 895 documents: all 10 real
+/// occurrences of this shape are false positives of SW007, every one with a
+/// literal `[[` inside an opaque region earlier on its line, and the only
+/// genuine unmatched `]]` in the whole corpus has neither. So this suppression
+/// is tied to the mechanism, not correlated with it — unlike "ignore any line
+/// containing `<nowiki>`", which separates the same cases today but would also
+/// hide a real error that happened to share a line with an unrelated `<nowiki>`.
+///
+/// Deliberately one-directional: escaping only the *closing* delimiter has no
+/// observed instances, and a mirror case with no evidence behind it is a guess.
+fn has_escaped_opener_on_line(input: &str, tokens: &[Token], idx: usize) -> bool {
+    tokens[..idx]
+        .iter()
+        .rev()
+        .take_while(|t| t.kind != TokenKind::Newline)
+        .any(|t| is_opaque(t) && t.text(input).contains("[["))
 }
 
 // ---------------------------------------------------------------------------

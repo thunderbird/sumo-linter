@@ -386,6 +386,45 @@ mod tests {
         assert_eq!(d.tokens()[0].kind, TokenKind::ListMarker);
     }
 
+    /// SW007 must not fire on markup that *documents* markup.
+    ///
+    /// Real lines from `how-to-use-for` and `using-templates`, which escape only
+    /// the opening delimiter so Kitsune renders it literally. Measured over 895
+    /// documents: 10 hits of this shape, all false positives, against exactly one
+    /// genuine unmatched `]]` — the planted one in the selftest fixture.
+    #[test]
+    fn documented_markup_is_not_an_unmatched_bracket() {
+        for src in [
+            "<nowiki>[[</nowiki>Image:Quantum Logo]]\n",
+            "<code><nowiki>#</nowiki><nowiki>[[</nowiki>T:List]]<br>\n",
+            "<nowiki>[[</nowiki>Image:Windows Logo]]<nowiki>[[</nowiki>Image:Quantum Logo]]\n",
+        ] {
+            let ds = Document::parse(src).diagnostics();
+            assert!(
+                !ds.iter().any(|d| d.code == "SW007"),
+                "{src:?} should not report SW007: {ds:?}"
+            );
+        }
+
+        // The genuine cases still fire: no escaped opener anywhere on the line.
+        for src in ["[[Unclosed link\n", "stray ]] here\n"] {
+            let ds = Document::parse(src).diagnostics();
+            assert!(
+                ds.iter().any(|d| d.code == "SW007"),
+                "{src:?} should report SW007: {ds:?}"
+            );
+        }
+
+        // The escape must be on the *same* line to count — a `<nowiki>[[` two
+        // paragraphs earlier says nothing about this `]]`.
+        let ds = Document::parse("<nowiki>[[</nowiki>x]]\n\nstray ]] here\n").diagnostics();
+        assert_eq!(
+            ds.iter().filter(|d| d.code == "SW007").count(),
+            1,
+            "only the second line is unmatched: {ds:?}"
+        );
+    }
+
     #[test]
     fn fixes_never_break_round_trip() {
         let d = Document::parse("* \n**bold** [x](http://y)\n");

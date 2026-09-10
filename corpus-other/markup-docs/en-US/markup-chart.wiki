@@ -1,0 +1,337 @@
+This is the wiki and special markup available on SUMO.
+
+= Markup common to articles and forum posts =
+{|
+!Description
+!What it looks like
+!Wiki Syntax
+|-
+| '''Typeface'''
+|
+|
+|-
+|Bold
+|'''bold'''
+|<code><nowiki>'''bold'''</nowiki></code>
+|-
+|Italics
+|''italics''
+|<code><nowiki>''italics''</nowiki></code>
+|-
+|Underline
+|<u>underline</u>
+|<code>&lt;u&gt;underline&lt;/u&gt;</code>
+|-
+|Superscript
+|Text in <sup>superscript</sup>
+|<code>Text in &lt;sup&gt;superscript&lt;/sup&gt;</code>
+|-
+|Subscript
+|Text in <sub>subscript</sub>
+|<code>Text in &lt;sub&gt;subscript&lt;/sub&gt;</code>
+|-
+|Strikeout
+|<s>Strikeout</s> or <del>Strikeout</del>
+|<code>&lt;s&gt;Strikeout&lt;/s&gt; or &lt;del&gt;Strikeout&lt;/del&gt;</code>
+|-
+|Code
+|<code>code</code>
+|<code>&lt;code&gt;code&lt;/code&gt;</code>
+|-
+|<br>'''Quoting'''
+|
+|
+|-
+|Blockquote
+|<blockquote>blockquote</blockquote>
+|<code>&lt;blockquote&gt;blockquote&lt;/blockquote&gt;</code>
+|-
+|Preformatted text (start each line with a space)
+|
+ This    is
+ preformatted
+|<pre> This   is<br> preformatted</pre>
+|-
+|<br>'''Text breaks'''
+|
+|
+|-
+|Line break
+|line
+break
+|<code>line
+break</code>
+|-
+|Line break within tables, lists, etc.
+|line<br>break
+|<code>line&lt;br&gt;break</code>
+|-
+|Horizontal rule
+|text above
+----
+text below
+|<pre><nowiki>text above
+----
+text below</nowiki></pre>
+|-
+| <br>'''Links'''
+|
+|
+|-
+|Link to other articles
+|[[Page Title]]
+|<code><nowiki>[[Page Title]]</nowiki></code>
+|-
+|Link specific text to other articles
+|[[Page Title|text]]
+|<code><nowiki>[[Page Title|text]]</nowiki></code>
+|-
+|Link specific text to anchor in the same article
+|[[#w_ anchor|text]]
+|<code><nowiki>[[#w_anchor|text]]</nowiki></code>
+|-
+|Link specific text to anchor in other articles
+|[[Page Title#w_ anchor|text]]
+|<code><nowiki>[[Page Title#w_anchor|text]]</nowiki></code>
+|-
+|External link
+|[http://www.mozilla.com/]
+|<code><nowiki>[http://www.mozilla.com/]</nowiki></code>
+|-
+|External link with text
+|[http://www.mozilla.com/ Mozilla]
+|<code><nowiki>[http://www.mozilla.com/ Mozilla]</nowiki></code>
+|-
+|Redirect (replace the article's content with the following markup)
+|<code>REDIRECT [[Page title]]</code>
+|<code><nowiki>REDIRECT [[Page title]]</nowiki></code>
+|-
+| <br>'''Lists'''
+|
+|
+|-
+|Numbered list
+|
+# Item 1
+# Item 2
+# Item 3
+|<code># Item 1<br># Item 2<br># Item 3</code>
+|-
+|Unordered list
+|
+* Item A
+* Item B
+* Item C
+|<code>* Item A<br>* Item B<br>* Item C</code>
+|-
+|Unordered sub-list within a numbered list
+|
+# Item 1
+# Item 2
+#* Item 2a
+#* Item 2b
+# Item 3
+|<code># Item 1<br># Item 2<br>#* Item 2a<br>#* Item 2b<br># Item 3</code>
+|-
+|Mixed sub-lists<br> (You can mix and match <br>multiple list types) 
+|
+* Item A
+*# Item A.1
+*#* Item A.1.a
+*## Item A.1.1
+|<code>* Item A<br>*# Item A.1<br>*#* Item A.1.a<br>*## Item A.1.1</code>
+|-
+|<br>'''Tables'''
+|
+|
+|-
+|Table with caption, column headings and multiple rows
+|
+{|
+|+ Table caption
+!col 1!!col 2
+|-
+|A||B
+|-
+|C||D
+|}
+|<pre><nowiki>
+{|
+|+ Table caption
+!col 1!!col 2
+|-
+|A||B
+|-
+|C||D
+|}</nowiki></pre>
+|-
+|<br>'''Media'''
+|
+|
+|-
+|Image
+|''An image''
+|<nowiki>[[Image:</nowiki><code>Image Title</code><nowiki>]]</nowiki>
+|-
+|Image resized
+|''Image with a width of 300px''
+|<nowiki>[[Image:</nowiki><code>Image Title</code><nowiki>|width=300</nowiki><nowiki>]]</nowiki>
+|-
+<!--|Video
+|''A video''
+|<nowiki>[[Video:</nowiki><code>Video Title</code><nowiki>]]</nowiki><br><nowiki>[[V:</nowiki><code>Video Title</code><nowiki>]]</nowiki>
+|--->
+|YouTube video
+|''An embedded YouTube video''
+|<nowiki>[[Video:</nowiki><code>youtube_video_link</code><nowiki>]]</nowiki><br><nowiki>[[V:</nowiki><code>youtube_video_link</code><nowiki>]]</nowiki>
+|-
+|<br>'''Miscellaneous'''
+|
+|
+|-
+|Escape wiki parsing
+|<nowiki>[[Not a link]]</nowiki>
+|<code>&lt;nowiki&gt;<nowiki>[[Not a link]]</nowiki>&lt;/nowiki&gt;</code>
+|-
+|Hidden comments
+|
+|<code>&lt;!-- comment --&gt;</code>
+|}
+
+
+= Markup for articles =
+== Article Wiki markup ==
+{|
+|+
+!Description
+!What it looks like
+!Wiki Syntax
+|-
+| '''Headings'''
+|
+|
+|-
+|Table of Contents
+|''Table of Contents'' <br> (list of article headings)
+|<code><nowiki>__TOC__</nowiki></code>
+|-
+|Indicates a level 1 heading
+|
+= Level 1 =
+|<code>= Level 1 =</code>
+|-
+|Indicates a level 2 heading
+|
+== Level 2 ==
+|<code>== Level 2 ==</code>
+|-
+|Indicates a level 3 heading
+|
+=== Level 3 ===
+|<code>=== Level 3 ===</code>
+|-
+|Indicates a level 4 heading
+|
+==== Level 4 ====
+|<code>==== Level 4 ====</code>
+|-
+|Indicates a level 5 heading
+|
+===== Level 5 =====
+|<code>===== Level 5 =====</code>
+|-
+|Indicates a level 6 heading
+|
+====== Level 6 ======
+|<code>====== Level 6 ======</code>
+|-
+|<br>'''Customized styling'''
+|
+|
+|-
+|-
+|Note
+|{note}text{/note}
+|<code>{<!-- -->note}text{<!-- -->/note}</code>
+|-
+|Warning
+|{warning}text{/warning}
+|<code>{<!-- -->warning}text{<!-- -->/warning}</code>
+|-
+|Preference name / value
+|{pref text}
+|<code>&#123;pref text&#125;</code>
+|-
+|File name / path
+|{filepath file}
+|<code>{<!-- -->filepath file}</code>
+|-
+|Keyboard shortcut
+|{key Ctrl+T}
+|<code>{<!-- -->key Ctrl+T}</code>
+|-
+|Menu path
+|{menu Firefox}
+|<code>{<!-- -->menu Firefox}</code>
+|-
+|Button
+|{button Button}
+|<code>{<!-- -->button Button}</code>
+|-
+|Menu button
+|&#9776;
+|<code><nowiki>&#9776;</nowiki></code>
+|-
+|<br>'''Indent text'''
+|
+|
+|-
+|Definition list
+|
+; Term
+: Definition
+; Term
+: Definition a
+: Definition b
+:: Reference
+|<code>; Term<br>: Definition<br>; Term<br>: Definition a<br>: Definition b<br>:: Reference</code>
+|-
+|<br>'''Media'''
+|
+|
+|-
+|Image
+|''An image''
+|<nowiki>[[Image:</nowiki><code>Image Title</code><nowiki>]]</nowiki>
+|-
+|Image resized
+|''Image with a width of 300px''
+|<nowiki>[[Image:</nowiki><code>Image Title</code><nowiki>|width=300</nowiki><nowiki>]]</nowiki>
+|-
+<!--|Video
+|''A video''
+|<nowiki>[[Video:</nowiki><code>Video Title</code><nowiki>]]</nowiki><br><nowiki>[[V:</nowiki><code>Video Title</code><nowiki>]]</nowiki>
+|--->
+|YouTube video
+|''An embedded YouTube video''
+|<nowiki>[[Video:</nowiki><code>youtube_video_link</code><nowiki>]]</nowiki><br><nowiki>[[V:</nowiki><code>youtube_video_link</code><nowiki>]]</nowiki>
+|
+|
+|-
+|<br>'''Collapsible sections'''
+|
+|
+|-
+|Add a collapsible section
+|[[UI:details_start]]
+==H2 or H3 heading==
+Text
+[[UI:details_end]]
+|<nowiki>[[UI:details_start]]</nowiki><br><nowiki>==H2 or H3 heading==</nowiki><br><nowiki>Text</nowiki><br><nowiki>[[UI:details_end]]</nowiki>
+|}
+
+== <nowiki>{</nowiki>for<nowiki>}</nowiki> ==
+<code><nowiki>{</nowiki>for<nowiki>}</nowiki></code> doesn't get any special styling. It's useful for specifying that content only applies to certain operating systems or Firefox versions. See '''[[How to use "For" tags]]''' for details.
+
+== Templates ==
+Templates are a way of reusing small pieces of content. Instead of writing a message twice, you can create and update it in one place, and then refer to it in other pages. The other pages will stay up-to-date with changes to the Template automatically! See '''[[How to use Templates]]''' for details.

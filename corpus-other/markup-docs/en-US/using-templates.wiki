@@ -1,0 +1,129 @@
+Templates are a way of reusing pieces of content in Knowledge Base articles. Instead of writing a set of instructions multiple times, you can create and update it in one place, and then refer to it in other pages. The other pages will stay up-to-date with changes to the Template automatically!
+
+{warning}'''Localizers''': when localizing templates, do not translate the name of the page - just use the original one! So, if the template is named ''Template:browsersettings'', do not translate any of the elements in the name - just use ''Template:browsersettings'' in your locale. This is important to have the templates function properly.{/warning}
+
+__TOC__
+
+= What are Templates =
+A Template is just a special wiki page whose name starts with "Template:". It has all the features of a wiki page: it can be localized, it has a history, it understands wiki markup.
+
+{note}Templates are listed on [/en-US/contributors/kb-overview?category=60 this page]. An alphabetical list of existing Templates can be found [/en-US/kb/category/60 here].{/note}
+
+=How to make a Template=
+#[/en-US/kb/new Create a new KB article]. Try it out by [https://support.allizom.org/en-US/kb/new creating a new KB article on our test server].
+#Make sure the name begins with "Template:" - for example, [/en-US/kb/Template:aboutconfig Template:aboutconfig].
+#Set the Category to "Template".
+#Continue writing the Template the same way you would any other Knowledge Base article.
+
+= How to include a Template in an Article =
+To use a template in a wiki page, all you have to do is "link" to the template.
+
+For example:
+
+<code><nowiki>[[Template:Some Template]]</nowiki></code>
+or
+<code><nowiki>[[T:Some Template]]</nowiki></code>
+
+
+Instead of creating a link, the content of '''Template:Some Template''' will be included into the current page. Any wiki markup in the template will be rendered.
+
+=Templates and numbered lists=
+For most purposes, using a numbered list in a template works exactly the same way as it does in any other Knowledge Base document. There is one important exception — '''if your template is a numbered list that will be used as part of a larger numbered list, the numbering will break.'''
+
+'''Workaround:'''<br>
+'''Don't''' use "#" on any of the steps and '''Do''' add <nowiki><li></nowiki> <nowiki></li></nowiki> around the second and subsequent steps, like this:
+
+<code>This is the first step in your list<br>
+<nowiki><li></nowiki>This is the second step<nowiki></li></nowiki><br>
+<nowiki><li></nowiki>This is the third step<nowiki></li></nowiki><br></code>
+
+Then, when adding the template to an article, add the "#" before the template:
+
+<code><nowiki>#</nowiki><nowiki>[[</nowiki>T:List]]<br>
+<nowiki>#</nowiki>This is another step that's not part of the template</code>
+
+It will look like this:
+#This is the first step in your list
+#This is the second step
+#This is the third step
+#This is another step that's not part of the template
+
+Another important piece - you can't use [[How to use For#w_inline-and-block-level-contexts|block level <nowiki>{</nowiki>for}]] in these templates. For example:<br>
+'''Bad:'''<br>
+<code><nowiki>{</nowiki>for not fx10}<br>
+First step - Firefox 9 and lower<br>
+<nowiki>{</nowiki>/for}<br>
+<nowiki>{</nowiki>for fx10}<br>
+First step - Firefox 10 and higher<br>
+<nowiki>{</nowiki>/for}<br>
+<nowiki><li></nowiki>This is the second step<nowiki></li></nowiki></code>
+
+'''Good:'''<br>
+<code><nowiki>{</nowiki>for not fx10}First step - Firefox 9 and lower<nowiki>{</nowiki>/for}<nowiki>{</nowiki>for fx10}<br>
+First step - Firefox 10 and higher<nowiki>{</nowiki>/for}<br>
+<nowiki><li></nowiki>This is the second step<nowiki></li></nowiki></code>
+
+= Using arguments with a Template =
+Templates support passing in arguments, to let you reuse content that is ''almost'' the same.
+
+Say, for example, you had a standard notice that told users that a document only applied to Firefox 4, and another version that said it only applied to Firefox 3.6. The text of those notices might be identical except for the Firefox version: a perfect time to use a template!
+
+'''Template:OnlyVersionX''':
+
+ {<!-- -->note}This document or section only applies to <nowiki>'''Firefox {{{1}}}'''</nowiki>!{<!-- -->/note}
+
+
+Then, in one wiki page, you could do this:
+
+ <nowiki>[[Template:OnlyVersionX|4]]</nowiki>
+
+
+And in another page, you could do:
+
+ <nowiki>[[Template:OnlyVersionX|3.6]]</nowiki>
+
+
+You can use multiple arguments or the same argument twice, too!
+
+'''Template:XLikesY''':
+
+<pre><nowiki># {{{2}}} likes {{{1}}}.
+# {{{3}}} likes {{{2}}}.
+# Class! Nobody likes {{{2}}}!</nowiki></pre>
+
+
+Then to use it:
+
+ <nowiki>[[Template:XLikesY|Lisa|Milhouse|Janey]]</nowiki>
+
+
+This would result in:
+
+<blockquote>
+# Milhouse likes Lisa.
+# Janey likes Milhouse.
+# Class! Nobody likes Milhouse!
+</blockquote>
+
+
+Keeping track of all those numbers can get confusing, so you can also ''name'' arguments to a template:
+
+'''Template:XPrecededY''':
+
+ First comes {{{first}}}, then comes {{{second}}}.
+
+
+And using it:
+
+ <nowiki>[[Template:XPrecededY|first=love|second=marriage]]</nowiki>
+
+
+With named arguments, you don't need to worry about the order when you use the template:
+
+ <nowiki>[[Template:XPrecededY|second=marriage|first=love]]</nowiki>
+
+
+Both examples of using '''Template:XPrecededY''' will have the same result.
+
+= Knowledge Base guidelines =
+More guidelines on Knowledge Base contribution can be found [https://support.mozilla.org/en-US/products/contributor/kb here].

@@ -1,0 +1,126 @@
+= Commonly used markup =
+
+{note}
+This is a list of the most commonly used wiki markup in support articles. For more complete documentation, see:
+*[[Markup chart]]
+*[[How to use "For" tags]]
+*[[Using Templates]]
+{/note}
+
+{|
+!Description
+!What it looks like
+!Wiki Syntax
+|-
+|Bold text
+|'''bold'''
+|<code><nowiki>'''bold'''</nowiki></code>
+|-
+|Italic text
+|''italic''
+|<code><nowiki>''italic''</nowiki></code>
+|-
+|Link to another article
+|[[Name of article]]
+|<code><nowiki>[[Name of article]]</nowiki></code>
+|-
+|Link specific text to another article
+|[[Name of article|text]]
+|<code><nowiki>[[Name of article|text]]</nowiki></code>
+|-
+|Link to another site
+|[http://www.mozilla.org]
+|<code><nowiki>[http://www.mozilla.org]</nowiki></code>
+|-
+|Link specific text to another site
+|[http://www.mozilla.org Mozilla]
+|<code><nowiki>[http://www.mozilla.org Mozilla]</nowiki></code>
+|-
+|Numbered list
+|
+# Item 1
+# Item 2
+# Item 3
+|<code># Item 1<br># Item 2<br># Item 3</code>
+|-
+|Unordered list
+|
+* Item A
+* Item B
+* Item C
+|<code>* Item A<br>* Item B<br>* Item C</code>
+|-
+|Unordered sub-list within a numbered list
+|
+# Item 1
+# Item 2
+#* Item 2a
+#*Item 2b
+# Item 3
+|<code>#Item 1<br>#Item 2<br>#* Item 2a<br>#*Item 2b<br>#Item 3</code>
+|-
+|Table of Contents
+|''Table of Contents'' <br> (list of article headings)
+|<code><nowiki>__TOC__</nowiki></code>
+|-
+|Indicates a level 1 heading
+|
+= Level 1 =
+|<code>= Level 1 =</code>
+|-
+|Indicates a level 2 heading
+|
+== Level 2 ==
+|<code>== Level 2 ==</code>
+|-
+|Image
+|[[Image:Name of image]]
+|<code><nowiki>[[Image:Name of image]]</nowiki></code>
+|-
+|Image resized
+|''Image with a width of 300px''
+|<code><nowiki>[[Image:Name of image|width=300]]</nowiki></code>
+|-
+|Image as part of an ordered list step (indented properly)
+|
+#Click the disconnect button
+#;[[Image:DevicesDisconnect]]
+|<code>#Click the disconnect button<br><nowiki>#;[[Image:Name of image]]</nowiki></code>
+|-
+|Video
+|[[Video:https://youtu.be/4RZ7rd6DPpU]]
+|<code><nowiki>[[Video:https://youtu.be/4RZ7rd6DPpU]]</nowiki></code>
+|-
+|Note
+|{note}'''Note:''' Text{/note}
+|<code>{<!-- -->note}<nowiki>'''</nowiki>Note:<nowiki>'''</nowiki> Text{<!-- -->/note}</code>
+|-
+|Warning
+|{warning}'''Warning:''' Text{/warning}
+|<code>{<!-- -->warning}<nowiki>'''</nowiki>Warning:<nowiki>'''</nowiki> Text{<!-- -->/warning}</code>
+|-
+|Keyboard shortcut
+|{key Ctrl+T}
+|<code>{<!-- -->key Ctrl+T}</code>
+|-
+|Button
+|{button Button}
+|<code>{<!-- -->button Button}</code>
+|-
+|Menu item
+|{menu Settings}
+|<code>{<!-- -->menu Settings}</code>
+|-
+|Collapsible sections
+|[[UI:details_start]]
+==H2 or H3 heading==
+Text
+[[UI:details_end]]
+|<nowiki>[[UI:details_start]]</nowiki><br><nowiki>==H2 or H3 heading==</nowiki><br><nowiki>Text</nowiki><br><nowiki>[[UI:details_end]]</nowiki>
+|}
+
+= Complete Localization guidelines =
+To see more guidelines about how to localize support articles, see [https://support.mozilla.org/products/contributor/l10n these localization articles].
+
+= Complete Knowledge Base guidelines =
+To see more guidelines about Knowledge Base contribution, see [https://support.mozilla.org/en-US/products/contributor/kb these articles for Knowledge Base contributors].

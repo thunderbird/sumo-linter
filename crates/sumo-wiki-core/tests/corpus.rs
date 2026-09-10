@@ -28,7 +28,42 @@ fn template_files() -> Vec<PathBuf> {
 fn other_product_files() -> Vec<PathBuf> {
     let mut v = wiki_files("../../corpus-other/templates/en-US");
     v.extend(wiki_files("../../corpus-other/en-US"));
+    v.extend(wiki_files("../../corpus-other/markup-docs/en-US"));
     v
+}
+
+/// The articles that *document* the markup. Adversarial input for a linter by
+/// nature, and the reason SW007 no longer fires on an escaped `[[`.
+fn markup_doc_files() -> Vec<PathBuf> {
+    wiki_files("../../corpus-other/markup-docs/en-US")
+}
+
+/// Markup documentation must lint clean. These four articles are the dialect's
+/// own reference — CLAUDE.md cites them as authoritative — so a rule that
+/// flags them is wrong about SUMO, not about the articles.
+#[test]
+fn markup_documentation_lints_clean() {
+    let files = markup_doc_files();
+    if files.is_empty() {
+        eprintln!("markup docs not present; skipping");
+        return;
+    }
+    assert!(files.len() >= 3, "expected the markup-documentation set");
+    for f in &files {
+        let src = std::fs::read_to_string(f).unwrap();
+        let name = f.file_name().unwrap().to_string_lossy().to_string();
+        let ds = Document::parse(&src).diagnostics();
+        assert_eq!(ds, vec![], "{name} should lint clean, got {ds:#?}");
+    }
+    // `how-to-use-for` lives with the Firefox articles but is the same category:
+    // 9 of the 10 measured false positives were in it.
+    let hu =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("../../corpus-other/en-US/how-to-use-for.wiki");
+    if let Ok(src) = std::fs::read_to_string(hu) {
+        let ds = Document::parse(&src).diagnostics();
+        assert_eq!(ds, vec![], "how-to-use-for should lint clean, got {ds:#?}");
+    }
+    eprintln!("{} markup-documentation articles lint clean", files.len());
 }
 
 fn wiki_files(rel: &str) -> Vec<PathBuf> {

@@ -68,6 +68,28 @@ repository's MPL-2.0 licence — see
 <https://www.mozilla.org/foundation/licensing/website-content/>. A snapshot, never the
 source of truth: edit articles on SUMO.
 
+## Markup documentation
+
+`markup-docs/en-US/` holds `markup-chart`, `markup-cheat-sheet` and `using-templates` — the
+articles that *document* the dialect, which `CLAUDE.md` cites as authoritative sources.
+`how-to-use-for` is the fourth of that family and sits with the Firefox articles.
+
+They are here because **markup documentation is adversarial input for a markup linter**, and
+it is edited by exactly the people who would run this tool. Fetching them measured the cost
+of the four options in issue #7 instead of guessing:
+
+- Only 2 of the 4 escape markup in the way that trips SW007 — `<nowiki>` around the
+  *opening* delimiter alone, leaving `]]` bare. `markup-chart` and `markup-cheat-sheet`
+  wrap the whole construct and were already clean, which is why 49 `<nowiki>` uses in
+  `markup-chart` produce no hits at all.
+- Across all 895 documents there were 10 hits of that shape, every one a false positive,
+  and exactly **one** genuine unmatched bracket (the planted one in
+  `tests/fixtures/selftest-known-bad.wiki`).
+- All 10 false positives had a literal `[[` inside an opaque region earlier on the same
+  line; the true positive had none. So the suppression is tied to the mechanism rather
+  than correlated with it, and all four markup-documentation articles now lint clean while
+  the planted error still fires.
+
 ## Articles
 
 `en-US/` holds all **475 public `firefox` articles**, 2.9 MB of source. Fetched with

@@ -24,6 +24,12 @@ and why it cannot be inferred from the API.
 Phases 1 and 2 are implemented and tested. `cargo test` runs 34 tests, including property
 tests over every corpus article.
 
+The corpus is no longer Thunderbird-only: `corpus-other/` holds 475 public Firefox
+articles, 207 other-product templates and the 3 markup-documentation articles — 895
+documents of en-US source in total, all round-tripped in CI. It exists for lexer coverage
+*and* for the markup-aware search in issue #6. Thunderbird **style** still applies only to
+`corpus/`.
+
 Linting the committed corpus reports **4 errors, all verified by hand** and all filed:
 issues #223, #224, #225 (unbalanced `'''`) and #228 (two `{for}` bugs in
 `keyboard-shortcuts-thunderbird` that the earlier regex audit could not detect, because the
@@ -62,9 +68,13 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   and `troubleshoot-pdf-and-email-issues-thunderbird` reads like machine-generated filler.
 
 **Open, for a future session:**
-- sumo-linter **#1** — `[[Include:]]`, `{{{n}}}` and `REDIRECT` occur **0** times in the
-  Thunderbird corpus, so those lexer paths are untested. Scrape a sample of other products
-  and find out. Not urgent; nothing Thunderbird-facing depends on it.
+- sumo-linter **#1 is answered** (2026-09-09), and the answers are in
+  `corpus-other/README.md`: `{{{n}}}` does not exist but `{{{name}}}` does (31 uses, all
+  named); `REDIRECT` is real but appears once, bare, with no leading `#`; and
+  `[[Include:]]` occurs **nowhere** in 895 documents, so that path has no production markup
+  to test against — a finding, not a gap. The same sweep found 21 real unbalanced-`{for}`
+  errors in Firefox articles (correctness rules are product-neutral, now with evidence) and
+  the SW007 false positive fixed in #7.
 - Phase 3: non-English locales. Locale is already threaded through; no en-US assumptions
   live in rule logic.
 - A **markup-aware search engine** over the KB — Roland's stated goal, 2026-09-09. SUMO's
@@ -124,6 +134,14 @@ early may prolong them. Keep `--delay` high and prefer cached corpus files.
 **obsolete** (previously called "Archive"). Never recommend or describe deletion of a KB
 article — the platform does not support it. Spam and misfiled content get marked obsolete.
 
+**A template's slug cannot be derived from its title, and the API does not list templates
+at all.** A `# COMPLETE` anonymous enumeration of `/api/1/kb/` returns 1325 public en-US
+articles and zero templates. The KB contains `templatesharearticle` (colon dropped,
+lowercased), `templateopenProfileFolderTB` (case kept) and `Template:optionspreferences`
+(colon kept) — three conventions, so 44 guessed candidates all 404ed. Kitsune resolves
+`[[Template:X]]` by *title*, so fetching one needs a title→slug map, and `/en-US/kb/all`
+(`--all-docs`, 5299 documents, 221 templates) is the only index with both.
+
 **A 404 to anonymous requests does not mean "unpublished draft."** Obsolete/archived, no
 approved revision, and otherwise restricted all look identical from outside. Distinguishing
 them requires the authenticated edit page or the SUMO admin UI.
@@ -145,8 +163,34 @@ npm run report              # writes corpus/report.md
 ```
 
 Read-only by construction: GETs only, never submits a form, defaults to staging
-(`--base https://support.mozilla.org` to switch). `corpus/` and `.auth/` are gitignored —
-never commit scraped SUMO content or an authenticated session.
+(`--base https://support.mozilla.org` to switch). `.auth/` is gitignored; **public** en-US
+source is committed (see `corpus/README.md` and `corpus-other/README.md` for the rule and
+the exclusions) — never commit an authenticated session or a non-public article.
+
+Other modes, each added because nothing else could answer the question: `--force`
+(re-fetch cached), `--list-only` (enumerate without a login), `--profile <dir>` (a throwaway
+profile, i.e. what an *anonymous* visitor sees), `--only <listing>` (fetch nothing outside
+an allow-list), `--slugs <file>` (`slug<TAB>name`, for documents no listing exposes),
+`--all-docs` (page `/en-US/kb/all`, the only index containing templates), `--probe <file>`
+(which slugs exist, by status code, no login, never fetches a body), `--path <p>` (one
+arbitrary path through the same challenge/429/5xx handling), `--out <dir>`.
+`batch.sh <product|--slugs FILE> <outdir> [batch] [allow-list]` paces a long scrape.
+
+**Two tooling lessons, each of which cost a run on 2026-09-09:**
+
+- **"Nothing left to do" and "nothing was done" are opposite outcomes that look identical
+  from inside a loop.** This bit three times in one session: a two-file `awk` whose empty
+  first file made every slug read as already-done (and reported success having probed
+  nothing); `batch.sh` stopping because a pass *fetched* nothing when on a resume its whole
+  batch was merely cached — it announced "firefox is complete" at 180 of 475 and deleted the
+  state file that would have shown otherwise; and a truncated listing that would have filed
+  every unreached article as an unpublished draft. Every such loop now compares what it
+  recorded against what it asked for, and says which case it hit — hence the `# COMPLETE` /
+  `# INCOMPLETE` marker that `public-index.mjs` refuses to run without.
+- **Review the recovery path as carefully as the main one.** The resume line `batch.sh`
+  wrote on failure omitted the allow-list, so following its own instructions would have
+  dropped `--only` and started fetching drafts — the recovery path reintroducing exactly the
+  hazard the flag exists to prevent.
 
 ## Architecture
 

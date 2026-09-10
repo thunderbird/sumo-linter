@@ -8,6 +8,7 @@ markup behind them, and templates are where two of them live.
 - **Locale:** en-US
 - **Snapshot taken:** 2026-09-09
 - **Templates:** 207 public (of 209 fetched)
+- **Articles:** all 475 public `firefox` articles
 
 Thunderbird's own 12 templates are **not** here — they are in `../corpus/templates/en-US/`,
 and this set deliberately excludes them so there is no second copy to drift.
@@ -18,8 +19,16 @@ and this set deliberately excludes them so there is no second copy to drift.
 Thunderbird house style applies only there. Firefox and other non-MZLA products keep their
 own conventions and are **out of scope for style** — see the repository `CLAUDE.md`.
 
-These files are here as *lexer input*, nothing more: the property tests round-trip them, so
-markup no Thunderbird contributor would write still has to survive the lexer byte-for-byte.
+These files are here as *lexer input*: the property tests round-trip them, so markup no
+Thunderbird contributor would write still has to survive the lexer byte-for-byte.
+
+They also serve a second, longer-term purpose (Roland, 2026-09-09): a **markup-aware search
+engine** over the KB. SUMO's own search indexes *rendered* text, so it cannot answer
+"which articles reference `[[Template:optionspreferences TB]]`" or "which use this
+construct" — the markup is gone before indexing. That is why these are complete sets rather
+than samples: an article missing from the index is invisible to a search over it. It is also
+why `sumo-wiki-core`'s token stream is the right substrate — queries go over token kinds,
+not regexes over text. Nothing is built yet.
 
 ## What it found
 

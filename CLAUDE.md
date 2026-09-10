@@ -67,6 +67,12 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   and find out. Not urgent; nothing Thunderbird-facing depends on it.
 - Phase 3: non-English locales. Locale is already threaded through; no en-US assumptions
   live in rule logic.
+- A **markup-aware search engine** over the KB — Roland's stated goal, 2026-09-09. SUMO's
+  search indexes *rendered* text, so it cannot answer "which articles reference
+  `[[Template:X]]`" or "which use this construct". Nothing is built; the point for now is
+  that it makes corpus scrapes **complete sets, not samples** — `corpus-other/` exists for
+  round-trip coverage *and* for this — and that the lossless token stream is already the
+  right substrate: queries over token kinds rather than regexes over text.
 
 **Do not redo:** the corpus is already scraped and committed (rescraping is cheap to *ask*
 for and expensive to *run* — a full pass is ~200 signed-in page fetches and reliably earns

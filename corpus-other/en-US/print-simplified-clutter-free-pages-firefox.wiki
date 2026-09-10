@@ -1,0 +1,19 @@
+Firefox lets you print pages in a simplified format that strips away clutter like buttons, ads, and background images, for better readability and paper/ink savings.
+*For more information on printing in Firefox, see [[How to print web pages in Firefox]].
+Use one of these methods to print clutter-free pages in Firefox:
+=Select Simplified format in print settings=
+#Click on the menu button [[Image:Fx89menuButton]] and then click {menu Print…}. A print preview and print settings will be displayed.
+#;[[Image:Fx91PrintPreview]]
+#Click on {menu More settings} in the right panel to see additional print settings.
+#Go down to {menu Format} settings and select '''Simplified'''. The print preview will change to a simplified version.
+#;[[Image:Fx91PrintPreview-Simplified]]
+#Click {button Print}.
+{note}'''Note:''' {menu Format} settings will be missing if a simplified version of the page is unavailable or if you have turned on [[Firefox Reader View for clutter-free web pages|Reader View]] for the page before printing.{/note}
+
+=Turn on Reader View before printing=
+To get a print-friendly view, turn on [[Firefox Reader View for clutter-free web pages|Reader View]] for the page before printing:
+# If a page is available in Reader View, the Reader View icon [[Image:Reader view icon - inactive]]{/for} will appear in the address bar.
+#;[[Image:Fx89ReaderViewIconURL]]
+#Click on the Reader View icon [[Image:Reader view icon - inactive]]. The icon will turn blue when the page is in Reader View.
+#[[Template:fx29menu]]
+#Click {menu Print} to preview the page and print it.

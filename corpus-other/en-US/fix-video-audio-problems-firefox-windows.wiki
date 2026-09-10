@@ -1,0 +1,34 @@
+{for not win}[[T:WindowsOnly]]{/for}
+
+Windows versions designated as Windows N and KN editions are missing Windows Media Player and related technologies needed to decode and play videos and music properly. Microsoft offers a ''Windows Media Feature Pack'' that you can download and install, to add this functionality. 
+
+{note}'''Note:''' Downloads for Windows 7 and earlier Windows versions are no longer available from Microsoft.{/note} 
+
+Here are some problems that people have reported when the Windows Media Feature Pack is missing:
+*"Why is YouTube video blurry, low resolution, or black?"
+*"Why doesn't Vimeo work?"
+*"Why do I get a Netflix error that Microsoft Silverlight is required?" <!-- bug 1379161 --> 
+
+=Solution=
+To resolve this, please install the Media Feature Pack that's appropriate for your version of Windows. See
+Microsoft's [http://windows.microsoft.com/windows/which-operating-system support article] to find your Windows version. 
+
+{warning}If you update Windows to a newer version, you'll need to install the newer version of the Media Feature Pack even though you installed it for the previous Windows version.{/warning}
+
+'''Windows 11''':
+
+On Windows 11 the latest Media Feature Pack can be added as an Optional Feature from Windows Settings. To add the Media Feature Pack:<!--https://support.microsoft.com/en-us/windows/media-feature-pack-for-windows-n-8622b390-4ce6-43c9-9b42-549e5328e407-->
+Select the '''Start''' button, then select '''Settings''' > '''Apps''' > '''Optional features'''. Select '''View features''' next to '''Add an optional feature''', and then select the '''Media Feature Pack''' in the list of available optional features. For more information, see [https://support.microsoft.com/en-us/windows/media-feature-pack-for-windows-n-8622b390-4ce6-43c9-9b42-549e5328e407 Microsoft's Media Feature Pack article].
+
+'''Windows 10''':
+
+On Windows 10 version 1903 (May 2019) and later, the latest Media Feature Pack can be added as an Optional Feature from Windows Settings. To add the Media Feature Pack:
+Select the '''Start''' button, then select '''Settings''' > '''Apps''' > '''Apps and Features''' > '''Optional features''' > '''Add a feature'''. Find the '''Media Feature Pack''' in the list of available optional features. For more information, see [https://support.microsoft.com/en-us/windows/media-feature-pack-for-windows-n-8622b390-4ce6-43c9-9b42-549e5328e407 Microsoft's Media Feature Pack article].
+
+To download the Media Feature Pack for earlier Windows 10 versions and for information about all available Media Feature Packs, see Microsoft's [https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions Media Feature Pack list for Windows N editions].
+
+'''Windows 8.1''':
+*[http://www.microsoft.com/download/details.aspx?id=42503 Windows 8.1: N and KN editions] (Microsoft Support article [https://support.microsoft.com/en-us/kb/2929699 KB2929699]) 
+
+'''Windows 8''':
+*[http://www.microsoft.com/download/details.aspx?id=30685 Windows 8: N and KN editions] (Microsoft Support article [https://support.microsoft.com/en-us/kb/2703761 KB2703761])

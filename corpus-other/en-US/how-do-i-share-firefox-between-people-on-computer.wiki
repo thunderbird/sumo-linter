@@ -1,0 +1,53 @@
+If you share your computer with other people, you may want to prevent them from logging in to your social network account, viewing your stored passwords and changing your bookmarks in Firefox. This article describes basic protections to take.
+
+__TOC__
+
+= Use individual user accounts =
+You should create individual user accounts for each person who regularly uses your computer. This allows each user to have his or her own customization such as the wallpaper and visual style, and his or her own document folders such as the [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile]] that stores your form history, Internet usernames and passwords, bookmarks, and other personal settings. Each person accesses his or her user account with a username and password.
+
+To create a user account:
+{for win10,win11}
+* See [https://support.microsoft.com/windows/create-a-local-user-or-administrator-account-in-windows-20de74e0-ac7f-3502-a866-32915af2a34d Create a local user or administrator account in Windows] at microsoft.com
+{/for}
+{for win7,win8}
+* See [https://web.archive.org/web/20240603141821/https://support.microsoft.com/en-us/windows/create-a-user-account-in-windows-4fac6fd5-74c0-9737-69b8-6e77e00422dc Create a user account in Windows] at microsoft.com
+{/for}
+{for mac}
+* See [https://support.apple.com/guide/mac-help/mtusr001/mac New user or group setup on Mac] at apple.com
+{/for}
+{for linux}
+* <u>Gnome</u>: See [https://help.gnome.org/gnome-help/user-add.html Add a new user account] at gnome.org
+* <u>KDE</u>:  See [https://userbase.kde.org/KUser KUser] at kde.org
+{/for}
+For more information on choosing secure passwords, see [[Choose a strong password]].
+
+= Lock your computer when you are away from it =
+When you leave your computer, you should lock the screen to prevent other people from using your desktop and accessing your files. You will still be logged in and all your applications will keep running, but you will have to enter your password to use your computer again. You can lock the screen manually, but you can also have the screen lock automatically.
+{for win}
+{for win10}
+* '''Lock after a period of inactivity:'''
+** See [https://support.microsoft.com/windows/change-your-screen-saver-settings-a9dc2a0c-dc8e-9161-d270-aaccc252082a Change your screen saver settings] at microsoft.com
+{/for}
+{for win8}
+* '''Lock after a period of inactivity:'''
+** See [http://windows.microsoft.com/en-us/windows-8/using-screen-savers How to use screen savers] at microsoft.com
+{/for}
+{for win7}
+* '''Lock after a period of inactivity:'''
+**<u>Windows 7</u>: See [http://windows.microsoft.com/en-US/windows7/Use-your-Windows-password-for-your-screen-saver-password Use your Windows password for your screen saver password] at microsoft.com
+{/for}
+* '''Manual lock:''' Press {key [[Image:Windows Key]]+L}.
+{/for}
+{for mac}
+* '''Lock:'''
+** See [https://support.apple.com/guide/mac-help/mchl8e8b6a34/mac Lock the screen of your Mac] at apple.com
+* '''Sleep and idle modes:'''
+**See [https://support.apple.com/guide/mac-help/mchlp1168/mac Change Energy settings on a Mac desktop computer] at apple.com
+{/for}
+{for linux}
+* <u>Gnome</u>: See [https://help.gnome.org/gnome-help/privacy-screen-lock.html Automatically lock your screen] and [https://help.gnome.org/gnome-help/shell-exit.html#lock-screen Lock the screen] at gnome.org
+* <u>KDE</u>:  See [https://userbase.kde.org/System_Settings/Screen_Locking Screen Locking] at kde.org
+{/for}
+
+= Set a Firefox Primary Password =
+In case someone would access Firefox if you forgot to lock your computer, you can also set a Firefox Primary Password. For more information, see [[Use a Primary Password to protect stored logins and passwords]].

@@ -1,0 +1,14 @@
+You can use Firefox to create a shortcut on your computer's desktop to a page you've visited:
+# Resize the Firefox window so you can see both your computer's desktop and the Firefox window on the same screen.
+# Click the padlock icon on the left of the address bar (where the URL is shown).
+#;{for not fx138}[[Image:Fx89AddressBarPadlock]]{/for}{for fx138}[[Image:Fx138AddressBarPadlock]]{/for}
+# While still holding the mouse button down, move the pointer to the desktop, then release the mouse button. The shortcut will be created.
+#;[[Image:shortcut desktop 57]]
+
+{for win}{note}'''Note:''' If drag and drop doesn't work in Firefox, see the article [[Drag and Drop errors with Firefox Launcher Process enabled and Windows UAC disabled - How to Fix]].{/note}{/for}
+
+You can also drag and drop items to the desktop from the Bookmarks menu and the Library window to create shortcuts.
+
+If you open the shortcut you made, your '''default browser''' will open, and display the page for which you made the shortcut. If you want to make Firefox your default browser, see [[Make Firefox your default browser]].
+
+[[T:amo]]

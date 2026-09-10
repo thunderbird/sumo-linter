@@ -1,0 +1,74 @@
+This article describes how to uninstall an [[Find and install add-ons to add features to Firefox|extension]] or [[Use themes to change the look of Firefox|theme]] that can't be removed by following the instructions in [[Disable or remove Add-ons]] or [[Remove a toolbar that has taken over your Firefox search or home page]].
+{note}'''Note:''' [[Template:reset-fx]]{/note}
+
+__TOC__
+
+=Uninstall add-ons from Firefox Troubleshoot Mode=
+
+If you can't access the Add-ons Manager or if the option to remove a certain add-on is disabled, you may need to uninstall it from Firefox [[Use Troubleshoot Mode in Firefox|Troubleshoot Mode]].
+#[[T:safemode]]
+#In the Firefox Troubleshoot Mode dialog, click {button Open}.
+
+Once Firefox has started in Troubleshoot Mode, try removing the add-on again and then restarting Firefox.
+
+{for win}
+=Uninstall add-ons from the Windows Control Panel=
+Some add-ons are installed by other programs. You may be able to remove the add-on from the Windows [https://support.microsoft.com/help/13764/windows-where-is-control-panel Control Panel]{for win10, win11} or Settings page{/for}.
+
+{for win7}
+*See Microsoft's article, [https://support.microsoft.com/help/2601726 Windows 7 – How to properly uninstall programs].
+{/for}
+
+{for win8}
+*See [https://answers.microsoft.com/en-us/windows/forum/windows_8-files/how-do-i-delete-or-uninstall-a-program-in-windows/a4cbeb29-2ca3-46f0-855f-ba5e8df2436c this Microsoft Community post] for more help.
+{/for} 
+
+{for win10}
+*See Microsoft's article, [https://support.microsoft.com/windows/repair-apps-and-programs-in-windows-e90eefe4-d0a2-7c1b-dd59-949a9030f317#ID0EBD=Windows_10 Repair apps and programs in Windows].
+{/for}
+{for win11}
+*See Microsoft's article, [https://support.microsoft.com/windows/repair-apps-and-programs-in-windows-e90eefe4-d0a2-7c1b-dd59-949a9030f317#ID0EBD=Windows_11 Repair apps and programs in Windows].
+{/for}
+{/for}
+
+=Manage extensions installed by other software=
+Sometimes installing or updating other software will add an extension that can't be removed from within the Add-ons Manager because the option to remove it is disabled or not functional.
+
+The software that added the Firefox extension may include an option to remove it. You should visit the support site of the software provider for more information. As an alternative, simply disable the extension in the Add-ons manager if you no longer wish to use it. To disable the extension, click the blue toggle.
+
+[[Image:Facebook extension disable fx72]]
+
+=Uninstall manually=
+If you can't remove an extension from Firefox using the other methods described above, you can manually remove it. First navigate to the folder where extensions are installed:
+#[[T:profileFolder]]
+#Open the {filepath extensions} folder inside your profile folder. Inside the {filepath extensions} folder there are folders or XPI files for each extension and theme that you have installed.
+#To determine which folder or XPI file corresponds to the extension you want to uninstall, return to Firefox and the {menu Troubleshooting Information} tab.
+#In the '''Extensions''' section, find the extension you want to remove and note the string in the '''ID''' column.
+#[[T:closeFirefox]]
+#Delete the folder or XPI file that corresponds to the extension ID you noted above.
+
+==Manage globally installed extensions==
+In rare cases, extensions are installed globally into the Firefox installation folder or using the [https://extensionworkshop.com/documentation/enterprise/enterprise-distribution/#installation-using-windows-registry Windows registry]. See [https://extensionworkshop.com/documentation/publish/distribute-sideloading/ this article on Extension Workshop] for more information. Follow these steps to remove a globally installed extension:
+{for win}
+#[[T:closeFirefox]]
+#To find the sideloading directory, go to the {filepath C:\Users\<user name>\AppData\Roaming\Mozilla\} folder and open the {filepath Extensions\{ec8030f7-c20a-464f-9b0e-13a3a9e97384}} folder.
+#Follow the steps above to locate and delete the appropriate folder or XPI file.
+{/for}
+{for mac}
+#[[T:closeFirefox]]
+#To find the sideloading directory, go to {filepath Library/Application Support/Mozilla/} and open the {filepath Extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}} folder.
+#Follow the steps above to locate and delete the appropriate folder or XPI file.
+{/for}
+{for linux}
+#[[T:closeFirefox]]
+#Go to the following folders:
+#*{filepath /usr/lib/mozilla/extensions/&#123;ec8030f7-c20a-464f-9b0e-13a3a9e97384&#125;/ }
+#*{filepath /usr/lib64/mozilla/extensions/&#123;ec8030f7-c20a-464f-9b0e-13a3a9e97384&#125;/ }
+#*{filepath /usr/share/mozilla/extensions/&#123;ec8030f7-c20a-464f-9b0e-13a3a9e97384&#125;/ }
+#Follow the steps above to locate and delete the appropriate folder or XPI file.
+{/for}
+
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Uninstalling_add-ons Uninstalling add-ons (mozillaZine KB)]'''''

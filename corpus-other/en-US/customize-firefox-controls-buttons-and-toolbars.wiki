@@ -1,0 +1,53 @@
+There are many ways to customize Firefox, such as [[Find and install add-ons to add features to Firefox|adding features to Firefox with add-ons]] and [[Customize your New Tab page to hide or display content|customizing the New Tab page]]. You can also customize Firefox controls, buttons and toolbars. Do you miss something you use a lot? The Firefox toolbar is easy to customize. Is there something you don't use all the time? Try adding it to the overflow menu. We'll show you how.
+{note}'''Note:''' These instructions apply to Firefox desktop (Windows, macOS, Linux). If you’re using Firefox for Android or iOS, see [[Customize Firefox Home on iOS]] or [[Customize the Firefox home screen|Customize the Firefox home screen for Android]]. Also, Menu options may look different on Linux with certain desktop environments.{/note}
+
+__TOC__
+
+=Customize the overflow menu or the toolbar=
+You can rearrange the items that appear in the overflow menu or on your toolbar.
+#Click the menu button [[Image:IG main menu]] in the top-right corner, click {menu More Tools}, and choose the {menu Customize toolbar…} option.
+#;[[Image:FxMenu-MoreTools-CustomizeToolbar|width=300]]
+#;{note}'''Tip:''' Another way to open the Customize Firefox tab: [[Template:contextmenu]] on a blank spot in the tab strip or toolbar and choose {menu Customize Toolbar…} from the context menu.{for mac} You can also go to the Menu bar at the top of your screen,{/for}{for win,linux} If the [[Restore the Menu bar in Firefox|Menu bar is enabled]], you can also{/for} click {menu View}, click {menu Toolbars}, and then select the {menu Customize Toolbar…} option.{/note}
+#;A special tab will open that allows you to drag and drop items in or out of the overflow menu and the toolbar. If you're using the keyboard, you can use the {key Tab} and {key Shift+Tab} keys to focus buttons and other customizable items, and then open the context menu to add or remove it from the toolbar.
+#;*Note that some items, such as the menu [[Image:IG main menu]] button, cannot be moved into the overflow menu.
+#;{for win}{for not fx154}[[Image:Fx112CustomizeFirefox-win]]{/for}{for fx154}[[Image:Fx154CustomizeFirefox-win]]{/for}{/for}{for linux}[[Image:Fx112CustomizeFirefox-linux]]{/for}{for mac}[[Image:Fx111CustomizeFirefox-mac]]{/for}
+#When you are done, click the {button Done} button or select the &#10005; to close.
+#If you do not see the Title Bar checkbox or Bookmarks Toolbar dropdown in the ''Customize toolbar…'' screen, check if you are in full screen mode (press F11 to exit).
+{for win}
+=Turn on the Title bar, Menu bar or Bookmarks toolbar=
+#Click the menu button [[Image:IG main menu]], click {menu More Tools} and choose {menu Customize toolbar…}.
+#*'''To turn on the Title bar:''' Put a check mark next to '''Title Bar''' in the lower left.
+#*'''To turn on the Menu bar or Bookmarks toolbar:''' Click the {menu Toolbars} dropdown menu at the bottom of the screen and choose the toolbars you want to display.
+#;[[Image:Fx134-CustomizeToolbars-win]]{note}'''Note:''' The [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks Toolbar]] can be set to {menu Always Show}, {menu Never Show} or {menu Only Show on New Tab}.{/note}
+#Click the {button Done} button or select the &#10005; to close.
+{/for}
+{for mac}
+=Turn on the Title bar or Bookmarks toolbar=
+#Click the menu button [[Image:IG main menu]], click {menu More Tools} and choose {menu Customize toolbar…}.
+#*'''To turn on the Title bar:''' Put a check mark next to '''Title Bar''' in the lower left.
+#*'''To turn on the Bookmarks toolbar:''' Click the {menu Toolbars} dropdown menu at the bottom of the screen and select {menu Bookmarks Toolbar}.
+#;[[Image:Fx134-CustomizeToolbars-mac]]{note}'''Note:''' The [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks Toolbar]] can be set to {menu Always Show}, {menu Never Show} or {menu Only Show on New Tab}.{/note}
+#Click the {button Done} button or select the &#10005; to close.
+{note}'''Note:''' You can also turn the Bookmarks toolbar on or off from the menu bar at the top of the screen: Click {menu View}, go down to {menu Toolbars}, and select {menu Bookmarks Toolbar}.{/note}
+{/for}
+{for linux}
+=Turn on the Title bar, Menu bar or Bookmarks toolbar=
+#Click the menu button [[Image:IG main menu]], click {menu More Tools} and choose {menu Customize toolbar…}.
+#*'''To turn on the Title bar:''' Put a check mark next to '''Title Bar''' in the lower left.
+#Click the {menu Toolbars} dropdown menu at the bottom of the screen and choose the toolbars you want to display.
+#;[[Image:Fx134-CustomizeToolbars-linux]]{note}'''Note:''' The [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks Toolbar]] can be set to {menu Always Show}, {menu Never Show} or {menu Only Show on New Tab}.{/note}
+#Click the {button Done} button or select the &#10005; to close.
+{/for}
+
+=Having problems?=
+Try to restore the default set of buttons and toolbars by clicking the {button Restore Defaults} button while in customize mode. 
+{warning}'''Warning:''' This will revert [[Use the sidebar to access tools and vertical tabs#w_turn-on-vertical-tabs| vertical tabs, if enabled]] to horizontal tabs and will reset the default [[Use themes to change the look of Firefox|theme]].{/warning}
+If that doesn't help, try these:
+*'''[[Use the sidebar to access tools and vertical tabs|Customize the sidebar]]''' to access bookmarks and other tools.
+*'''Restore the ''Reload'' button:''' Drag it from the ''Customize Toolbar'' palette to the left of the address bar.
+*'''Clear “Recent Bookmarks” list:''' Right-click a bookmark and choose {menu Delete}; there’s no bulk hide option without an add-on.
+*'''Change toolbar font size:''' Change your system font size or use an extension.
+*'''Toolbar missing entirely:''' Right-click toolbar area and select the bars you want to display (Menu, Bookmarks, Title).
+You can also try the instructions in the resources below:
+*[[Refresh Firefox - reset add-ons and settings]]
+*[[Troubleshoot Firefox issues caused by malware]]

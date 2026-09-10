@@ -1,0 +1,56 @@
+A theme is a type of Firefox add-on that changes the visual appearance of Firefox. This article describes how to find, install and manage themes in Firefox.
+
+__TOC__
+
+=What are themes?=
+A theme changes the appearance of Firefox, such as the color scheme and background image of the toolbars. The color scheme of menus and built-in pages will follow, based on whether the text color on your toolbar is light or dark. Some websites also will follow the same color scheme.
+[[Image:Fx96 Light Theme menu and new tab]]
+[[Image:Fx96 Dark Theme menu and new tab]]
+
+Firefox comes with a default System theme and optional {for =fx106,=fx107,=fx108}[[Personalize Firefox with Colorways|Colorways]], {/for}Light, Dark, and Alpenglow themes, but you can always install new themes.
+{note}'''Note:''' All themes are lightweight (background) themes. Complete themes are no longer supported. See [[Built-in themes in Firefox - alternative to complete themes]].{/note}
+
+=Installing themes=
+#[[T:Open Add-ons|type=Recommendations or Themes]]
+#Scroll through the suggested themes or visit [https://addons.mozilla.org/firefox/themes/ addons.mozilla.org] to browse more themes.
+#Click on the theme's author to see more information about it.
+#Click the {button + Install Theme} button.
+#;[[Image:theme card add-ons manager]]
+#*To install a theme from [https://addons.mozilla.org/firefox/themes/ addons.mozilla.org], click on the theme and select the {button + Install Theme} button on the resulting page.
+#;[[Image:themes fx57 2]]
+#;Firefox will download the requested theme and may notify you that it has been installed.
+{note}
+'''Note:''' If you simply want to change the color scheme, [https://addons.mozilla.org/firefox/collections/4757633/colorways/ Colorways by Firefox] is a collection of themes you can choose from.
+
+You can also install Mozilla's [https://addons.mozilla.org/firefox/addon/firefox-color/ Firefox Color] extension to change the color of tabs and toolbars, add a custom background, and more. See the [https://color.firefox.com Firefox Color Homepage] for details.
+{/note}
+
+=Managing themes=
+[[T:Open Add-ons|type=Themes]]
+*The theme being used will be shown at the top, under ''Enabled''.
+*Other available themes will be listed beneath, under {for not fx103}''Disabled''{/for}{for fx103}''Saved Themes''{/for}.
+;{for not fx103}[[Image:Fx101ManageThemes]]{/for}{for fx103}[[Image:Fx103ManageThemes]]{/for}
+
+==Reset theme to default==
+#[[T:Open Add-ons|type=Themes]]
+#*If the ''Enabled'' theme is an optional or added theme, it will have a {menu Disable} option.
+#Click '''Disable'''. The default System theme will be enabled.
+
+==Switch themes==
+#[[T:Open Add-ons|type=Themes]]
+#Scroll through the list of themes.
+#Click '''Enable''' to use that theme.
+#;{for not fx103}[[Image:Fx101EnableTheme]]{/for}{for fx103}[[Image:Fx103SwitchTheme]]{/for}
+
+==Remove themes==
+{note}'''Note:''' You cannot remove themes that come with Firefox (System, Light, Dark and Alpenglow themes), but you can disable them by switching themes or resetting the theme to the default (see above).{/note}
+To remove an installed theme that you previously added to Firefox:
+#[[T:Open Add-ons|type=Themes]]
+#Click the ellipsis [[Image:Fx107-Addons-3dotIcon]] (3-dot) icon that displays for the theme that you want to remove and then select '''Remove'''.
+#;{for not fx103}[[Image:Fx101RemoveTheme]]{/for}{for fx103}[[Image:Fx103RemoveTheme]]{/for}
+{note}'''Note:''' If you remove the ''Enabled'' theme, the default System theme will become enabled.{/note}
+'''If you are not able to remove a theme, see [[Cannot remove an add-on (extension or theme)]].'''
+
+=Troubleshooting =
+*If you have a problem with Firefox, it may be caused by your theme or your theme's interaction with other add-ons. For troubleshooting instructions, see [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]].
+*If you cannot install a theme, see [[Unable to install add-ons or extensions]].

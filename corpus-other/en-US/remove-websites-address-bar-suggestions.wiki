@@ -1,0 +1,35 @@
+When you start typing into the address bar, Firefox displays a drop-down list of suggested sites. This article describes how to clear single items or all items from the address bar history.
+*To control what suggestions are shown when you type into the address bar, see [[Address bar autocomplete suggestions in Firefox]] and [[Search suggestions in Firefox]].
+{note}'''Note:''' Clicking on the address bar displays a drop-down of Shortcuts (most visited sites) by default. See [[Customize items on your Firefox New Tab page#w_customize-your-shortcuts|Customize your Shortcuts]] to learn more. {/note}
+
+__TOC__
+
+= Clear a single item from the address bar history =
+{for fx112}
+<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1827904 -->
+To remove a single item from the list of suggested sites, click the three-dot [[Image:Fx113urlbar3-dot]] button next to an address bar suggestion and select {menu Remove from history} from the menu.
+
+[[Image:Fx113urlbar-3dotResultMenu]]
+{note}'''Note:''' This feature will be rolled out gradually and enabled by default starting in [[Find what version of Firefox you are using|Firefox version]] 113.{/note}
+{/for}
+{for fx112}You can also clear a single item using your keyboard. {/for}This works for both browsing history and search history entries.
+# Type or paste enough text for Firefox to show the item in the drop-down.
+# Press the {key ↓} down arrow key to highlight the item.
+# Hold down the {key Shift} key and press {key Delete} on your keyboard.
+
+= Clear all items for a single site =
+# [[T:OpenHistoryLibrary]]
+# In the top right corner, type the name of the website you wish to forget in the ''Search History'' field, and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.
+# [[T:contextmenu]] the site you wish to forget in the resulting list and select {menu Forget About This Site}.
+#;{for win}[[Image:History Win6]]{/for}{for mac}[[Image:Fx112 Mac Library History Forget Page]]{/for}{for linux}[[Image:History Lin6]]{/for}{note}'''Note:''' Using {menu Forget About This Site} will remove all traces of that site from your history. For more information, see [[Delete browsing, search and download history on Firefox]].{/note}
+# Close the ''Library'' window.
+
+= Clear all items in the address bar history =
+{note}'''Note:''' If you see items with a star, those are [[Bookmarks in Firefox|bookmarks]] and not part of your browsing history. This is part of the Firefox [[Address bar autocomplete suggestions in Firefox|address bar autocomplete]] feature. If you don't want bookmarks or other content to appear in address bar suggestions, see [[Address bar autocomplete suggestions in Firefox#w_how-can-i-control-what-results-the-address-bar-shows-me|Changing your address bar settings]].{/note}
+# Click the menu button [[Image:Fx89menuButton]] and then click {menu History}.
+# Click {menu Clear Recent History…} to open the dialog window.
+# In the ''Clear Recent History'' window, set '''Time range to clear:''' to '''Everything'''.
+# To remove browsing history, make sure '''Browsing & Download History''' has a check mark next to it. To remove search history, check the box next to '''Form & Search History'''.
+#;{note}'''Tip:''' Be sure to remove the check mark next to any other items that you do not want to be cleared. See [[Delete browsing, search and download history on Firefox]] for more information.{/note}
+#;{for win}[[Image:Clear Recent History - Everything - Browsing and Download History]]{/for}
+# To clear all items in the address bar history, click {button OK}.

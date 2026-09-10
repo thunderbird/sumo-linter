@@ -1,0 +1,19 @@
+Screen sharing is a powerful new feature that lets you share what’s on your computer screen with a website, so you can co-browse with a friend, or allow a technician to diagnose a problem on your computer remotely.
+
+;[[Image:screenshare]]
+
+{warning}Screen sharing can be risky if you share a browser window or your whole screen with '''websites you don't trust'''.{/warning}
+
+=What are the risks of sharing with sites I don't trust?=
+Firefox will warn you not to share when a browser window is visible on your screen unless you trust that website. These are the reasons:
+*When sharing a window, a website may passively record what you’re doing, including things you didn’t intend to share.
+*Websites can actively control browser windows, popping up private information from other websites you never intended to share. It can do this quickly and discreetly. If you share your screen with a malicious website, that website now has the ability to browse as you, using any login information you may have already entered or stored, and to steal your private data.
+
+=What causes these risks?=
+Websites and ads have always been able to display content from other sites, but websites normally can’t read the pixels that make up the content on other sites. For more technical information, see [https://en.wikipedia.org/wiki/Same-origin_policy same-origin policy]. It’s an important web security mechanism that exists in all browsers.
+
+Once you share a browser window with a site, you’re allowing that site to see the results of other sites it summons, including your private information. You no longer have that important web security mechanism in place.
+
+'''Example:''' A user who doesn't log out of the banking site before closing the tab, and shares the screen with a malicious site afterwards. That site can now display and capture personal account information immediately or when the user is not looking or steps away from the computer (based on inactivity or looking at the web camera, if shared).
+
+{note}For more information, see [https://blog.mozilla.org/webrtc/share-browser-windows-entire-screen-sites-trust/ this Mozilla blog post].{/note}

@@ -1,0 +1,117 @@
+This article describes how to uninstall the Firefox application for supported operating systems. If you are planning to uninstall and reinstall Firefox to fix problems you may be having, you should first read [[Troubleshoot and diagnose Firefox problems]].
+
+__TOC__
+
+=Uninstall Firefox=
+{for mac}
+To uninstall Firefox, follow these steps:
+#Close Firefox (if Firefox is open): [[T:closeFirefox]]
+#Open the Applications folder in Finder.
+#Drag the Firefox application to the Trash.
+Your uninstall of Firefox is finished.
+{/for}
+{for linux}
+*If you installed Firefox with the distro-based package manager, you should use the same way to uninstall it – see [[Installing Firefox on Linux]] for details.
+*If you downloaded and installed the binary package from the [http://getfirefox.com/ Firefox download page], simply remove the folder ''firefox'' in your home directory to uninstall Firefox.
+{/for}
+{for winxp}
+#Close Firefox (if it is opened): [[T:closeFirefox]]
+#Click the Windows {button Start} button and select {menu Control Panel}.<br>[[Image:Control Panel - WinXP]]
+#In the ''Control Panel'' window, click '''Add or Remove Programs'''. The ''Add or Remove Programs'' window will open.
+#Select '''Mozilla Firefox''' from the list of currently installed programs.
+#To begin the uninstallation, click the {button Remove} button to the right of '''Mozilla Firefox'''. The ''Mozilla Firefox Uninstall Wizard'' window will open.{note}If the ''Uninstall Wizard'' does not run, you can start it manually by running {filepath helper.exe}, which is located by default in {filepath C:\Program Files\Mozilla Firefox\uninstall\helper.exe}.{/note}
+#In the ''Mozilla Firefox Uninstall Wizard'' window, click {button Next}.
+#Click {button Uninstall}.
+#Click {button Finish}.
+#To remove other files and folders that may not be removed by the uninstallation, you must manually delete the Firefox installation folder, which is located by default in {filepath C:\Program Files\Mozilla Firefox}.
+{/for}
+
+{for win7, win8, win10, win11}
+==Start the Mozilla Firefox uninstall==
+To begin the process of uninstalling Firefox, follow these steps:
+{for win7}
+#Close Firefox (if it is opened): [[T:closeFirefox]]
+#Click the Windows ''Start'' button or press the {key [[Image:Windows Key]]} key.
+#In the ''Start'' Menu select {menu Control Panel}.<br>[[Image:Control Panel - Win7]]
+#In the ''Control Panel'' window, click the '''Uninstall a program''' link under the ''Programs'' section.<br>[[Image:Uninstall a program - Win7]]
+#Select '''Mozilla Firefox''' from the list of currently installed programs.
+#To begin the uninstallation, click the {button Uninstall} button at the top of the list. The ''Mozilla Firefox Uninstall'' window will open.{note}If the ''Mozilla Firefox Uninstall'' window does not open, you can start it manually by running {filepath helper.exe}, which is normally found in one of these locations by default:<br>{filepath C:\Program Files\Mozilla Firefox\uninstall\helper.exe}<br>{filepath C:\Program Files (x86)\Mozilla Firefox\uninstall\helper.exe}{/note}
+{/for}
+{for win8}
+#Close Firefox (if it is opened): [[T:closeFirefox]]
+#On the ''Start'' screen, click the '''Desktop''' tile. The ''Desktop'' view will open.
+#On the Desktop, hover in the lower right-hand corner to access the '''Charms'''.
+#Select {menu Control Panel} from the {menu Settings} charm.
+#*The ''Control Panel'' window will open.<br>[[Image:Control Panel - Win8]]
+#In the ''Control Panel'' window, click the '''Uninstall a program''' link under the ''Programs'' section.<br>[[Image:Uninstall a program - Win7]]
+#Select '''Mozilla Firefox''' from the list of currently installed programs.
+#To begin the uninstallation, click the {button Uninstall} button at the top of the list. The ''Mozilla Firefox Uninstall'' window will open.{note}If the ''Mozilla Firefox Uninstall'' window does not open, you can start it manually by running {filepath helper.exe}, which is normally found in one of these locations by default:<br>{filepath C:\Program Files\Mozilla Firefox\uninstall\helper.exe}<br>{filepath C:\Program Files (x86)\Mozilla Firefox\uninstall\helper.exe}{/note}
+{/for}
+{for win10}
+#Close Firefox (if it is opened): [[T:closeFirefox]]
+#Click the Windows ''Start'' button or press the {key [[Image:Windows Key]]} key.<!-- The next two steps are from Microsoft's article, https://support.microsoft.com/en-us/windows/uninstall-or-remove-apps-and-programs-in-windows-10-4b55f974-2cc6-2d2b-d092-5905080eaf98 -->
+#In the ''Start'' menu, select {menu Settings}.
+#In the ''Settings'' window, select {menu Apps} to open the {menu Apps & features} list.
+#Select '''Mozilla Firefox''' from the list of currently installed programs.
+#;[[Image:Win10-UninstallFirefox]]
+#To begin the uninstallation, click {button Uninstall}. The ''Mozilla Firefox Uninstall'' window will open.{note}If the ''Mozilla Firefox Uninstall'' window does not open, you can start it manually by running {filepath helper.exe}, which is normally found in one of these locations by default:<br>{filepath C:\Program Files\Mozilla Firefox\uninstall\helper.exe}<br>{filepath C:\Program Files (x86)\Mozilla Firefox\uninstall\helper.exe}{/note}
+{/for}
+{for win11}
+#Close Firefox (if it is opened): [[T:closeFirefox]]
+#Click the Windows ''Start'' button or press the {key [[Image:Windows Key]]} key.
+#In the ''Start'' menu, select {menu Settings}.
+#In the ''Settings'' window, select {menu Apps} and then {menu Installed apps}.<br>[[Image:Win11InstalledApps]]
+#Find '''Mozilla Firefox''' in the list of currently installed programs.
+#To begin the uninstallation, click the three-dot [[Image:horizontal3-dot]] icon and click {button Uninstall} in the drop-down menu.
+#;The ''Mozilla Firefox Uninstall'' window will open.{note}If the ''Mozilla Firefox Uninstall'' window does not open, you can start it manually by running {filepath helper.exe}, which is normally found in one of these locations by default:<br>{filepath C:\Program Files\Mozilla Firefox\uninstall\helper.exe}<br>{filepath C:\Program Files (x86)\Mozilla Firefox\uninstall\helper.exe}{/note}
+{/for}
+[[Image:Fx79Uninstaller-Refresh]]
+{note}'''Note:''' Instead of uninstalling Firefox, you can try the [[Refresh Firefox - reset add-ons and settings|Refresh Firefox]] option included in the uninstaller, which can fix many issues. To bypass this option, click the {button Next} button to continue with the uninstall.{/note}
+
+==Complete the Mozilla Firefox uninstall==
+After you click {button Next} in the ''Mozilla Firefox Uninstall'' window shown above, the following window will open showing the location of the Firefox program that will be uninstalled.
+;[[Image:Fx79Uninstaller2]]
+To finish uninstalling Firefox:
+#Click {button Uninstall}.
+#Click {button Finish} to complete the uninstallation.
+#To remove other files and folders that may not be removed by the uninstallation, you must manually delete the Firefox program folder from the location shown in the ''Uninstall Mozilla Firefox'' window (usually {filepath C:\Program Files\Mozilla Firefox} or {filepath C:\Program Files (x86)\Mozilla Firefox}).
+{/for}
+
+=Remove user data and settings=
+Uninstalling Firefox does not remove any user data such as bookmarks, history, passwords and cookies{for linux} (unless you are using snap on Ubuntu){/for}. If you also want to remove this information, you should delete the {filepath Firefox} folder containing your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|user profile]]:
+{note}'''Note:''' To back up your bookmarks, passwords, cookies and other user data and settings, see [[Back up and restore information in Firefox profiles]].{/note}
+{for mac}
+#Click the '''Finder''' icon in the dock.
+#In the menu bar, click the {menu Go} menu, hold down the {key option} or {key Alt} key and select {menu Library}. A window will open containing your ''Library'' folder.
+#Open the {filepath Application Support} folder.
+#Delete the {filepath Firefox} folder.
+{/for}
+{for linux}
+#'''Ubuntu:''' Click the {menu Places} menu on the top right of the screen and select {menu Home Folder}. A ''File Browser'' window will open.
+#Click the {menu View} menu and select {menu Show Hidden Files} if it isn't already checked.
+#Open the folder marked {filepath .mozilla}.
+#Delete the folder marked {filepath firefox}.
+{/for}
+{for winxp}
+#Click the Windows {button Start} button and select {menu Run…} A ''Run'' dialog will open.
+#*Alternatively, you can press {key [[Image:Windows Key]]+R} to open a ''Run'' dialog.
+#Type in {filepath %APPDATA%\Mozilla\} and click {button OK}. A window will open containing the ''Firefox'' folder.
+#Delete the ''Firefox'' folder.
+{/for}
+{for win8}
+#On the ''Start'' screen, click the '''Desktop''' tile. The ''Desktop'' view will open.
+#On the Desktop, hover in the lower right-hand corner to access the '''Charms'''.
+#Select the {menu Search} charm. The ''Search'' sidebar will open.
+#Type {filepath %APPDATA%\Mozilla\} in the search field and press {key Enter}. A window will open containing the ''Firefox'' folder.
+#Delete the ''Firefox'' folder.
+{/for}
+{for win7, win10, win11}
+#Click the ''Start'' button or press the {key [[Image:Windows Key]]} key.
+#Type {filepath %APPDATA%\Mozilla\} in the search field and press {key Enter}. A window will open containing the ''Firefox'' folder.
+#Delete the ''Firefox'' folder.
+{note}Alternatively, you can press {key [[Image:Windows Key]]+R} to open a ''Run'' dialog, type in {filepath %APPDATA%\Mozilla\} and press {key Enter} to open the ''Mozilla'' folder, then delete the ''Firefox'' folder.{/note}
+{/for}
+
+<!-- MZ credit -->
+<br><br>
+'''''Based on information from [https://kb.mozillazine.org/Uninstalling_Firefox Uninstalling Firefox (mozillaZine KB)]'''''

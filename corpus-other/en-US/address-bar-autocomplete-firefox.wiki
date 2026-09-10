@@ -1,0 +1,77 @@
+The Firefox address bar displays the [https://wikipedia.org/wiki/URL URL] (web address) for the page that you are visiting. When you type into this field to enter a URL or search term, Firefox remembers the pages that you have visited and shows page suggestions in the address bar drop-down, such as sites you've bookmarked, tagged, visited before or have open in tabs. This article explains how the address bar autocomplete feature works.
+
+__TOC__
+
+= How do I use the autocomplete list? =
+Just start typing in the address bar. Suggestions from your browsing history, bookmarks, and tabs will be listed, underneath what you've typed. (If you click on the address bar without typing into it, a drop-down list of your [[Search with the Firefox address bar#w_access-your-top-sites-from-the-address-bar|most visited or pinned sites]] will be displayed instead.)
+
+;[[Image:Fx94AutocompleteDropdownFirefoxSuggest]]
+
+The autocomplete drop-down when you type into the address bar may include the following. These will be listed under a ''Firefox Suggest'' label (see [[Customize Firefox Suggest settings]]).
+* Page titles and web addresses from your browsing history.
+* Page titles, web addresses and [[Bookmark Tags - Categorize bookmarks to make them easy to find|tags]] from your bookmarks.
+* Pages you currently have open in other tabs (see below under [[#w_switch-to-tab|Switch to tab]]).
+* [[View synced tabs from other devices|Sync'ed tabs]] from other devices.
+A blue star [[Image:BlueStarBookmarksIcon]] icon will indicate that a matching result is a bookmark; the text ''Switch to Tab'' will indicate an open tab. When you see the page you want, just click on it or use the up and down arrows on your keyboard to highlight it and then press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.
+{note}'''Note:''' Popular search suggestions from your default search engine may also be listed, either before or after suggestions from browsing history, bookmarks and tabs, depending on your [[Manage Firefox search settings#w_search-suggestions|search settings]]. If search suggestions are enabled, those will be marked with a magnifying glass [[Image:MagnifyingGlassIcon]] icon. Suggestions from search history will be marked with a clock [[Image:SearchHistoryClockIcon]] icon. To learn more, see [[Search suggestions in Firefox]].{/note}
+The address bar suggestions adjust based on your browsing behavior, such as how frequently and recently you visited a web page and what result you chose based on what was typed. This way, pages you visit all the time will show up at the top of the list, often after typing only one character.
+
+== URL autocomplete ==
+In addition to the autocomplete drop-down list, Firefox will also complete the URL in the address bar. For example, if you type "suppo", Firefox may fill in "rt.mozilla<!-- -->.org/" to complete the address "support.mozilla<!-- -->.org" if you've visited that site before. Pressing {for win,,linux}{key Enter}{/for}{for mac}{key Return}{/for} in this case would take you directly to that address.
+;[[Image:URLAutocomplete75]]
+
+== Switch to tab ==
+The address bar also searches through your open tabs, displaying results with the text ''Switch to Tab''. Selecting these results will switch you to the already open tab instead of creating a duplicate.
+;[[Image:Fx89Autocomplete-SwitchToTab]]
+{note} '''To turn off the ''Switch to tab'' option temporarily''', press the {key Alt} key or {key Ctrl} key while clicking on the page in the autocomplete list that appears below your address bar. Instead of switching to an existing one, with {key Alt} your page will open in the current tab, with {key Ctrl} in a new tab.{/note}
+
+== What can I do to get the best results? ==
+* When you want to go to a web page you've visited before, type a few letters from its web address or page title. Scroll through the autocomplete entries and find the page in the list (type in another letter if you don't see it listed). Press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} to go to the selected web address. Firefox will give this entry/result combination higher weight in the future.
+* Do not clear the browsing history – usually the richest source of autocomplete entries is from the title/web address combination. [[Delete browsing, search and download history on Firefox|Clearing browsing history]] will remove these entries from the results.
+* Bookmark and tag frequently used pages. The address bar will match on the name you give the bookmark and also tags associated with the bookmark. See the [[Bookmarks in Firefox]] article for more information on how to use bookmarks in Firefox. You can improve your autocomplete results by tagging pages with easily-typed tag names.
+
+= How can I control what results the address bar shows me? =
+== Changing your address bar settings ==
+To turn off the address bar autocomplete feature or restrict it to exclude certain results:
+# [[T:optionspreferences]]
+# Select {menu Search} on the left.
+# Under the {for not fx151}''Address Bar''{/for}{for fx151}''Firefox Suggest''{/for} section, select or deselect any of the following:{for not fx151}{note}'''Note:''' Users in the U.S.  will see an '''Address Bar — Firefox Suggest''' section instead, with additional settings. To learn more, see [[Customize Firefox Suggest settings]].{/note}{/for}
+#;{for not fx151}[[Image:Fx140ESRsettings-FirefoxSuggest]]{/for}{for =fx151}[[Image:Fx151settings-FirefoxSuggest]]{/for}{for fx152}[[Image:fx152firefoxsuggest]]{/for}
+* '''Browsing history''': suggests pages that you've previously visited.
+* '''Bookmarks''': suggests pages that you've bookmarked.
+* '''Open tabs''': suggests pages that you have open in another tab.
+* '''Shortcuts''': suggests your most visited sites (if Shortcuts are enabled in your [[Customize items on your Firefox New Tab page|New Tab page settings]]) when you click in the address bar.
+* '''Search engines''': suggests results that include search engines. <!--https://firefox-source-docs.mozilla.org/browser/urlbar/preferences.html browser.urlbar.suggest.engines -->
+
+== Removing autocomplete results ==
+<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1827904 -->
+To remove a result from the autocomplete list, click the three-dot [[Image:Fx113urlbar3-dot]] button next to the entry and select {menu Remove from history} from the menu.
+
+[[Image:Fx113urlbar-3dotResultMenu]]
+
+You can also clear a single item from the autocomplete list using your keyboard. This works for both browsing history and search history entries.
+# Type or paste enough text for Firefox to show the item in the drop-down.
+# Press the {key ↓} down arrow key to highlight the item.
+# Hold down the {key Shift} key and press {key Delete} on your keyboard.
+{note}'''Note:''' Autocomplete items from bookmarks will not be removed from the results if you attempt to delete them or clear the browsing history. These items have a star. To remove these items, [[Bookmarks in Firefox|delete the associated bookmark]], or [[#w_changing-your-address-bar-settings|exclude bookmarks in the address bar settings]].{/note}
+
+== Changing results on the fly ==
+By default, when you type search terms in the address bar, the list under it shows search suggestions from the default search engine, and pages (bookmarks, history, open tabs) where every search term is part of the title, part of a tag or part of the web address (URL).
+
+If you are looking for a specific type of result, like a bookmark or open tab, you can speed up the process of finding it by typing in special characters in the address bar separated by spaces:
+* Add '''<nowiki>^</nowiki>''' to show only matches in your browsing history.
+* Add '''*''' to show only matches in your bookmarks.
+* Add '''+''' to show only matches in bookmarks you've tagged.
+* Add '''%''' to show only matches in your currently open tabs.
+* Add '''#''' to show only matches where every search term is part of the title or part of a tag.
+* Add '''$''' to show only matches where every search term is part of the web address (URL). The text “https://” or “http://” in the URL is ignored, but not “file:///”.
+* Add '''?''' to show only search suggestions.
+For example, if you're looking for a page you bookmarked called ''Mozilla Firefox Support'', you might type ''mozilla''. The autocomplete results appear, but might not show the page you want.
+
+You can narrow your results down to bookmarks only by making your search string ''mozilla *'' or ''* mozilla''.
+
+= Related articles =
+* [[Remove websites from the address bar suggestions]]
+* [[Search with the Firefox address bar]]
+* [[How to search IMDB, Wikipedia and more from the address bar]]
+* [[Search suggestions in Firefox]]

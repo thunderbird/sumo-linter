@@ -1,0 +1,31 @@
+This article explains how to set which [[Find and install add-ons to add features to Firefox#w_what-types-of-add-ons-can-i-install|extensions]] are allowed to run in [[Private Browsing - Use Firefox without saving history|Private Browsing]] windows.
+{note}'''Note:''' Not all extensions can be allowed in private windows.{/note}
+
+__TOC__
+
+=Extensions in private windows=
+An extension that runs in private browsing windows could be problematic if it has access to information you would rather keep private. Firefox lets you decide which extensions are allowed to run in private windows. Additionally, an extension is not enabled for private browsing by default. You must grant it permission, either during installation or later through the extension's settings.
+
+If you do not give an extension permission to run in private browsing, it should still work normally in non-private browsing, unless the extension explicitly uses features that require private browsing access (like opening new tabs in a private window).
+
+=Granting permission on installation=
+{for fx129}
+When you install a new extension, you will see a prompt asking for permission to add the extension and whether to allow it to run in private windows.
+;[[Image:Add-on Run in Private Window permission]]
+*If you would like the extension to work in private browsing, check the box next to '''Allow extension to run in private windows''' and click on the {button Add} button to confirm.
+*If you '''do not''' want the extension to have access to your data in private browsing windows, leave the box unchecked.
+{/for}
+{for not fx129}
+After you install a new extension, you will see a prompt notifying you that the extension was added and asking whether to allow it to run in private windows.
+;[[Image:Fx128ExtensionAdded-PrivateWindowsPrompt]]
+*If you would like the extension to work in private browsing, click on the box next to '''Allow this extension to run in Private Windows''' to add a check mark and then click on the {button Okay} button.
+*If you do not want the extension to have access to your data in private browsing windows, leave the box unchecked.
+{/for}
+
+=Enabling or disabling extensions in private windows=
+#[[Template:openextensions]]
+#Click on the extension that you would like to manage.
+#*This will open a panel where you can manage extension settings.
+#;[[Image:Manage extensions that can run in private windows]]
+#Next to '''Run in Private Windows''', select {menu Allow} to permit the extension to work in private browsing or select {menu Don’t Allow} to disable it in private browsing.
+#Once you have made your choice, you can close the Add-ons Manager tab.

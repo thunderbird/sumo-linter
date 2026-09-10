@@ -1,0 +1,14 @@
+Modernizing Firefox required a new internal design for Firefox's accessibility functionality. We’ve worked very hard to make sure users of assistive technology can continue to enjoy Firefox but we do expect some issues. Please help us improve Firefox by reporting any problems to us.
+
+=Can I update to the latest Firefox?=
+If you are using Freedom Scientific's [http://www.freedomscientific.com/Products/Blindness/JAWS JAWS] screen reader versions 18 or lower, Firefox 57 and above are not considered compatible with these JAWS versions. To [[Update Firefox to the latest version|update Firefox to the latest version]], you must first [http://www.freedomscientific.com/Downloads/JAWS download the latest version of the JAWS screen reader] and install the new JAWS version. JAWS 2018 includes improvements necessary for users who move to Firefox version 60 or above. For more information, see [http://www.freedomscientific.com/downloads/JAWS/JAWSWhatsNew#Enhancements What's New in JAWS 2018 Screen Reading Software].
+
+For all other screen reading software clients, Firefox will install and operate normally. If you encounter any issues see the section below.
+
+=What should I do if my screen reader doesn't work well?=
+We are continually trying to improve Firefox with your help. If you're still having problems, try the following:
+*Have a fall back browser or more recent screen reader handy.
+*Please report any problems you experience with Firefox accessibility:
+**Submit feedback on the [https://support.mozilla.org/en-US/questions/new/desktop Mozilla support site].
+**[https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Reporting_a_Performance_Problem Report a performance problem] through the Mozilla Developer Network. If you are uncomfortable creating a performance profile, you can still submit the feedback and provide the steps you took to encounter the problem.
+**[https://bugzilla.mozilla.org/ Submit a bug report], or use our guided feedback.

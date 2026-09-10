@@ -1,0 +1,9 @@
+{for not linux}{warning}This article applies to Linux systems only.{/warning}{/for}
+
+If you are using Linux, your file system has to be encoded in UTF-8 or Firefox won't understand it and it will generate error messages such as "Error: The profile path is not valid UTF-8. Unable to continue."
+
+If you're not able to configure your filesystem as UTF-8, we recommend using only the letters a-z in the name of the Firefox profile and the download directory.
+
+To change the way your file system is encoded, please consult the documentation for your Linux distribution.
+
+{note}For more information about UTF-8, see [https://developer.mozilla.org/en-US/docs/Glossary/UTF-8 UTF-8 on the Mozilla Developer Network (MDN)].{/note}

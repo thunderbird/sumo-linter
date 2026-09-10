@@ -1,0 +1,7 @@
+Facebook Containers specifically isolates Facebook and works automatically.  The Firefox [[Multi-Account Containers]] is a more general extension that allows you to create containers and determine which sites open in each container.
+
+You can use Multi-Account Containers to create a container for Facebook and assign facebook.com to it.  Multi-Account Containers will then make sure to only open facebook.com in the Facebook Container.  However, unlike Facebook Container, Multi-Account Containers doesn’t prevent you from opening non-Facebook sites in your Facebook Container.  So users of Multi-Account Containers need to take a bit extra care to make sure they leave the Facebook Container when navigating to other sites.  In addition, Facebook Container assigns some Facebook-owned sites like Instagram and Messenger to the Facebook Container.  With Multi-Account Containers, you will have to assign these in addition to facebook.com.
+
+Facebook Container also deletes Facebook cookies from your regular container on install and when you restart the browser, to clean up any potential Facebook trackers.  Multi-Account Containers does not do that for you.
+
+{warning}Mozilla created and supports [https://addons.mozilla.org/firefox/addon/facebook-container/ Facebook Container] and [https://addons.mozilla.org/firefox/addon/multi-account-containers/ Firefox Multi-Account Containers]. Other container  extensions are not maintained by Mozilla. If you are experiencing issues with these other extensions, please contact the developer directly.{/warning}

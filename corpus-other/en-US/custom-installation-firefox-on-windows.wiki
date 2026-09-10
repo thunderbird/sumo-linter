@@ -1,0 +1,53 @@
+When you use the simplified online Firefox Installer described in the [[How to install Firefox on Windows]] article, you can't make any changes to the installation, such as the program folder where Firefox is installed. This article explains how to customize your Firefox installation with the full, offline installer.
+
+__TOC__
+
+= Where to download Firefox for a custom installation =
+You can download the Firefox Setup file in your language, from [https://www.firefox.com/download/all/desktop-release/?utm_medium=referral&utm_source=support.mozilla.org this Firefox download page].
+*On the download page, click {menu Edit} if you prefer a different Firefox desktop version (such as Firefox Beta or  Extended Support Release), choose the operating system and language, then download the setup file.
+;[[Image:firefoxplatform149|width=800]]
+{note}<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1336042#c11 -->'''Note:''' You can install the 32-bit version of Firefox on 64-bit Windows but [https://www.firefox.com/more/windows-64-bit/ 64-bit Firefox is recommended]. On 32-bit systems, only the 32-bit version of Firefox can be installed.{/note}
+
+= How to install Firefox with custom settings =
+When you run the Firefox Setup file, the Mozilla Firefox Setup Wizard will open.
+;[[Image:FirefoxSetup-Welcome]]
+After clicking {button Next} you can choose a ''Standard'' or ''Custom'' installation. The standard setup will be selected by default.
+;[[Image:FirefoxSetup-Type]]
+A custom setup lets you choose the folder where Firefox program files will be installed, as well as which shortcuts to create. These options are not available in a standard setup. Select the '''Custom''' setup type and click {button Next}.
+
+== Choose where Firefox is installed ==
+The next step is where you can choose the location of the folder where the Firefox program will be installed.
+;[[Image:FirefoxSetup-Location]]
+{filepath C:\Program Files\Mozilla Firefox\} is the default folder path on 32-bit Windows. It's also the default location on 64-bit Windows when the 64-bit Firefox version is installed.
+
+When the 32-bit Firefox version is installed on 64-bit Windows, the default folder path is {filepath C:\Program Files (x86)\Mozilla Firefox\}.
+
+You can change the folder where Firefox will be installed either by manually typing the location of another folder on your computer, or you can click {button Browse…} to select a new folder.
+* '''Space required:''' The amount of space on your hard drive that's needed to install Firefox.
+* '''Space available:''' The amount of space available on your hard drive.
+Click {button Next} to continue.
+
+== Choose optional components ==
+;[[Image:FirefoxSetup-Optional]]
+In the next screen, you can choose whether to install the optional '''Mozilla Maintenance Service''' which allows application updates to occur in the background, without requiring you to click {button Yes} in the Windows User Account Control (UAC) dialog. For more information, see [[What is the Mozilla Maintenance Service?]]
+{note}'''Note:''' This option may be missing in some cases, as when installing Firefox with a limited user account or when the Mozilla Maintenance Service is already installed.{/note}
+
+== Choose shortcuts ==
+[[Image:FirefoxSetup-Shortcuts]]
+*''' On my desktop:''' You can choose to create a Firefox shortcut icon on the Windows desktop.
+*'''In my Start menu Programs folder:''' This will create a Firefox shortcut icon in the Windows Start menu Programs folder.
+After choosing which Firefox program shortcuts to create, click {button Next}.
+{note}'''Note:''' If you already have a Firefox shortcut from another installation you wish to keep, you should rename the existing shortcut before you finish installing Firefox; otherwise, it will be overwritten.{/note}
+
+= Summary =
+The Summary that comes up next will show the folder location where Firefox will be installed.
+;[[Image:FirefoxSetup-Summary]]
+{for winxp,win7}
+Check mark '''Use Firefox as my default web browser''' if you want Firefox to start up when you open a link in your mail application, an Internet shortcut or HTML document. This option will be missing if you don't have permission to set Windows registry keys or if you are installing Firefox over an existing version and Firefox is already the default browser. For more information, see [[Make Firefox your default browser]].
+{/for}
+
+If you are reinstalling Firefox over an existing version, you will see an {button Upgrade} button instead of an {button Install} button. Click {button Install} or {button Upgrade} to complete the installation. When Firefox is finished installing, the ''Completing the Mozilla Firefox Setup Wizard'' screen will appear.
+;[[Image:FirefoxSetup-Complete]]
+Click {button Finish}. This will start Firefox unless you first clear the ''Launch Firefox now'' checkbox.
+
+'''Congratulations, you are done installing Firefox!'''

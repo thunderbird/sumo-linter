@@ -1,0 +1,74 @@
+[[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] in Firefox automatically protects your privacy while you browse. It blocks cookies and trackers that follow you around online to collect information about your browsing habits and interests. With [[Introducing Total Cookie Protection in Standard Mode|Total Cookie Protection]] within Enhanced Tracking Protection enabled, Firefox will block third-party cookies to prevent tracking companies from tracking your browsing from site to site. However, this may cause some websites not to work correctly, which is referred to as site breakage.
+
+The following FAQs can help you understand how cookies work, how Mozilla helps protect your privacy, and how to identify if a website isn’t working correctly due to Total Cookie Protection.
+
+__TOC__
+
+=What is a cookie?=
+Cookies are small files that collect information about your activity on websites you visit. They often store your login information and your preferred language or location. When you return to a website you’ve previously visited, cookies store your login information and preferences. Cookies also store other information that can be used to identify you and track your online activity.
+
+=What are third-party cookies?=
+Third-party cookies are cookies set by a website other than the one you are currently on and that are stored on your computer. Third-party cookies can track you across websites to learn from your online activity to personalize your content based on preferences.
+
+=What is Enhanced Tracking Protection?=
+Enhanced Tracking Protection is a Firefox feature that blocks trackers that follow you around online to collect information about your browsing habits and interests.
+
+=What is Total Cookie Protection?=
+Total Cookie Protection is an advancement built into Enhanced Tracking Protection that works by maintaining a separate “cookie jar” for each website you visit. Any time a website, or third-party content embedded in a website, deposits a cookie in your browser, that cookie is confined to the cookie jar assigned to that website, such that it is not allowed to be shared with any other website.
+
+[[Image:TCPFx86|width=600]]
+
+Total Cookie Protection is enabled by default in Firefox to all users worldwide. To learn more, see [https://blog.mozilla.org/en/products/firefox/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/ this Mozilla Blog post].
+
+=What is the difference between Enhanced Tracking Protection and Total Cookie Protection?=
+Enhanced Tracking Protection blocks cookies from companies that have been identified as trackers. Total Cookie Protection is an additional privacy protection built into Enhanced Tracking Protection. Total Cookie Protection provides more comprehensive protections against cookie-based tracking to ensure that no cookies can be used to track you from site to site as you browse the web.
+
+{for not fx152}[[Image:ETPsettings|width=600]]{/for}{for fx152}[[Image:fx152enhancedprotection]]{/for}
+
+=How do I access the Enhanced Tracking Protection settings?=
+To access the Enhanced Tracking Protection settings, follow the steps below:
+#[[Template:optionspreferences]]
+#Click on the {for not fx152}{menu Privacy & Security} panel{/for}{for fx152}{menu Privacy and security} page{/for} to the left side of the screen.
+
+=Why does Total Cookie Protection cause site breakage?=
+Total Cookie Protection divides a website's third-party storage into different partitions in order to isolate cookies, so they can't track you across websites. When this happens, sites can break because website developers don't expect third-party storage to be split in this way. The breakage occurs when the first-party website tries to retrieve information from the third-party storage that has been partitioned.
+
+=What kind of breakages does Total Cookie Protection cause?=
+Breakage caused by Total Cookie Protection appears in three forms:
+*'''An error message:''' When a website identifies a problem with a third-party iframe, an error message is frequently displayed to warn the user of the problem.
+*'''Site breakage after login:''' Even if the site login works, certain website functionality may be broken.
+*'''Unsuccessful login:''' The site's login process is never completed. It will return to the logged-out status and prompt users to log in again.
+
+=How do I know if the site breakage is caused by Total Cookie Protection?=
+Total Cookie Protection is not the only feature of Firefox that can break a website. Frequently, the website's failure has nothing to do with Total Cookie Protection. Therefore, we need to make sure that Total Cookie Protection is actually breaking the site before reporting the problem to the support staff.
+*Disable Enhanced Tracking Protection by clicking the toggle in the shield panel next to the address bar, and then test the breakage. If this fixes the problem, it’s a Total Cookie Protection-related issue.
+*Advanced users can visit the ''about:config'' page and check if the preference {pref network.cookie.cookieBehavior} is set to {pref 4} or {pref 5}. Changing the preference value to {pref 4} will disable Total Cookie Protection while still blocking Cross-Site Tracking Cookies (third party cookies from known tracking servers). If this fixes the breakage, it’s a Total Cookie Protection-related issue. [[Template:aboutconfigwarning]]
+
+=Can I disable Total Cookie Protection without disabling Enhanced Tracking Protection?=
+Yes. To disable Total Cookie Protection, follow these steps:
+{for not fx152}
+#[[Template:optionspreferences]]
+#Select the {menu Privacy & Security} panel on the left side of the screen.
+#Under ''Enhanced Tracking Protection'', select the '''Custom''' setting.
+#Set the drop-down menu next to ''Cookies'' to '''Cross-Site Tracking Cookies'''.
+This will disable Total Cookie Protection but keep Enhanced Tracking Protection enabled.
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Select the {menu Privacy and security} page on the left side of the screen.
+#Under ''Enhanced Tracking Protection'', select the '''Custom''' setting, and then click on '''Customize tracking protection'''.
+#In the ''Customize tracking protection'' subpage that opens, either toggle '''Cookies to off''' or select '''Allow all cookies''' within the drop-down menu below.
+This will disable Total Cookie Protection but keep Enhanced Tracking Protection enabled.
+{/for}
+
+=If I disable Total Cookie Protection to fix the breakage, will third-party cookies be able to track me?=
+Disabling Total Cookie Protection will make it easier for sites to track you. But Enhanced Tracking Protection will still provide some baseline protection in standard mode.
+
+=A website asked me to disable cookie protections to work correctly. Is this safe?=
+If users disable the protections, they will effectively allow sites to track them. Therefore, if you still want to visit the site, you should disable Enhanced Tracking Protection for that specific site only.
+
+=How do I report site breakage caused by Total Cookie Protection?=
+Once you’ve confirmed that Total Cookie Protection causes the issue, you can report it to the AntiTracking Engineering team.
+
+'''Open an AntiTracking Bugzilla Bug'''<br>
+Opening a bug on Bugzilla using our [https://bugzilla.mozilla.org/enter_bug.cgi?assigned_to=nobody%40mozilla.org&blocked=1602922&bug_ignored=0&bug_severity=--&bug_status=NEW&bug_type=defect&cf_a11y_review_project_flag=---&cf_fission_milestone=---&cf_fx_iteration=---&cf_fx_points=---&cf_root_cause=---&cf_status_firefox96=---&cf_status_firefox97=---&cf_status_firefox98=---&cf_status_firefox_esr91=---&cf_status_thunderbird_esr91=---&cf_tracking_firefox96=---&cf_tracking_firefox97=---&cf_tracking_firefox98=---&cf_tracking_firefox_esr91=---&cf_tracking_firefox_relnote=---&cf_tracking_firefox_sumo=---&cf_tracking_thunderbird_esr91=---&cf_webcompat_priority=---&comment=Environment%3A%0D%0ABrowser%20%2F%20Version%3A%20%5Be.g.%20Firefox%20Nightly%2097.0a1%20%282021-12-29%29%5D%0D%0AOperating%20System%3A%20%5Be.g.%20Windows%2010%20Pro%5D%0D%0A%0D%0APrerequisites%3A%0D%0A%5BAnything%20we%20need%20to%20set%20up%20before%20reproducing%20the%20issue%5D%0D%0A%0D%0ASteps%20to%20Reproduce%3A%0D%0A%0D%0AExpected%20Behavior%3A%0D%0A%0D%0AActual%20Behavior%3A%0D%0A%0D%0ANotes%3A&component=Privacy%3A%20Anti-Tracking&contenttypemethod=list&contenttypeselection=text%2Fplain&defined_groups=1&filed_via=standard_form&flag_type-203=X&flag_type-37=X&flag_type-41=X&flag_type-607=X&flag_type-721=X&flag_type-737=X&flag_type-787=X&flag_type-799=X&flag_type-800=X&flag_type-803=X&flag_type-846=X&flag_type-855=X&flag_type-863=X&flag_type-864=X&flag_type-930=X&flag_type-936=X&flag_type-937=X&flag_type-947=X&form_name=enter_bug&maketemplate=Remember%20values%20as%20bookmarkable%20template&op_sys=Unspecified&priority=--&product=Core&rep_platform=Unspecified&short_desc=%5BDescribe%20the%20breakage%20component%5D%20on%20%5BThe%20broken%20site%5D%20with%20ETP%20-%20Standard%20Enabled%20&target_milestone=---&version=unspecified bug template] helps us diagnose the issue more quickly. Please provide detailed information regarding the breakage, such as a screenshot of the breakage or clear steps to reproduce the issue. You can also provide troubleshooting information from the ''about:support'' page. This helps us to reproduce the problem locally.

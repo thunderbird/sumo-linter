@@ -1,0 +1,8 @@
+For a summary of new features, fixes and known issues in the latest versions of Firefox, see:
+
+*[https://www.firefox.com/firefox/notes Firefox release notes]
+*[https://www.firefox.com/firefox/android/notes Firefox for Android release notes]
+*[https://www.firefox.com/firefox/ios/notes Firefox for iOS release notes]
+
+See also:
+*[[Where to find release notes for Firefox for Enterprise]]

@@ -1,0 +1,10 @@
+[[How do I set up Sync on my computer?|Sync]] allows you to sync your bookmarks, your browsing history, your saved passwords and more across multiple devices. When you're no longer using a device, you can remove it from your Mozilla account.
+
+{note}'''Note''': If you just want to disable Sync for a device without signing out of your Mozilla account, see [[Disable Firefox Sync]].{/note}
+#Go to your [https://accounts.firefox.com/settings Mozilla account settings] (you may need to sign in).
+#Click {menu Connected Services} on the left side of the page.
+#Find the device or service you want to remove and click {button Sign out} next to that device.
+#Select the main reason why you are disconnecting the device in the notification window that appears.
+# Click {button Sign out}.
+
+Firefox will disconnect from your account but won't delete any browsing information.

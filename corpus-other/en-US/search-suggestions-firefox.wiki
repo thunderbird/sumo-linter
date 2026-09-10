@@ -1,0 +1,40 @@
+As you type into the [[Search with the Firefox address bar|address bar]] or Search bar, Firefox suggests relevant search terms or solution buttons related to the task or answer you may be looking for. When search suggestions are enabled, the text you type is sent to your default search engine. This search engine analyzes the words and displays a list of popular results based on the search term.
+
+[[Image:Fx140SearchSuggestions]]
+
+__TOC__
+
+=How search suggestions work=
+If you see a search suggestion that matches what you are looking for, click on it to see results for that search term. This can save time and help you find what you’re looking for with less typing.
+
+Enabling search suggestions will send the keywords you type in a search field to the default search engine – ''unless'' you appear to be typing a URL or hostname.
+
+Searches can be entered into:
+* the address bar
+* the [[Add the Search bar to your Firefox toolbar|Search bar on the Firefox toolbar, if enabled]]
+* the Search bar on the [[New Tab page in Firefox|New Tab page]]
+The default search engine may collect that information according to the terms of their privacy policy. Users concerned about this information being collected may not wish to enable search suggestions, or may choose another default search engine that has a different privacy policy.
+{note}'''Note:''' Address bar search suggestions will also include matching results from your browsing history, bookmarks and open tabs. See [[Address bar autocomplete suggestions in Firefox]] for more information.{/note}
+Search suggestions are disabled by default in [[Private Browsing - Use Firefox without saving history|Private Browsing mode]]. You must explicitly turn them on in a Private Browsing window to enable them in that mode. You can enable search suggestions for all Private Browsing windows in your [[Manage Firefox search settings|Firefox search settings]] panel (see below).
+
+=Enabling or disabling search suggestions=
+You can enable or disable Search suggestions at any time. [[T:optionspreferences]] Select {menu Search} on the left, go to the {for fx148}''Search engine suggestions''{/for}{for not fx148}''Search Suggestions''{/for} section and check or uncheck the '''Show search suggestions''' box.
+
+{for fx148}[[Image:Fx148SearchEngineSuggestions]]{/for}{for not fx148}[[Image:Fx128settings-SearchSuggestions]]{/for}
+
+*To show search suggestions before your browsing history, put a check mark next to '''Show search suggestions {for fx148}before{/for}{for not fx148}ahead of{/for} browsing history in address bar results'''.
+*To show search suggestions in Private Browsing windows, put a check mark next to {for not fx148}'''Show search{/for}{for fx148}Search{/for} suggestions in {for fx148}private windows{/for}{for not fx148}Private Windows{/for}'''.
+*(U.S. only) To show [[Use Google Trending Search in the Firefox address bar|trending searches]] in address bar results, put a check mark next to '''{for fx148}Trending{/for}{for not fx148}Show trending{/for} search suggestions'''.
+{/for}
+
+=Search history suggestions=
+When Firefox finds a match in your previous searches, it may show search history suggestions above the suggestions freshly retrieved from your search site. The suggestions are marked with a clock icon, as shown below in the optional Search bar on the Firefox toolbar: 
+;[[Image:Fx140SearchBarSuggestions]]
+In [[Address bar autocomplete suggestions in Firefox|address bar autocomplete]] matches, Firefox may replace up to two of the search engine suggestions with search history suggestions. The dynamic suggestions are marked with a magnifying glass icon.
+;[[Image:Fx140SearchSuggestions-Autocomplete]]
+For steps to delete individual search history suggestions, or to clear all search history entries, see [[Clear recent searches from the Search bar]]. If you do not want Firefox to store previous search terms in search history, you can turn off Firefox's form & search history using the steps in [[Control whether Firefox automatically fills in forms#w_turn-off-auto-form-fill-and-prevent-firefox-from-storing-more-form-entries]] (“Turn off Auto form fill and prevent Firefox from storing more form entries”).
+
+=Firefox solution button suggestions=
+When you type certain tasks into the address bar, such as to download or update Firefox, suggestions may include a solution button to complete that task directly from the search bar. For example, if you type '''update firefox''' a solution button will appear to update.
+;[[Image:Update Firefox address bar]]
+{note}'''Note:''' Firefox solution buttons are currently only available in English.{/note}

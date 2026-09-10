@@ -1,0 +1,67 @@
+{warning}'''Important Update:''' The Review Checker feature has shut down and is no longer available after June 10, 2025.{/warning}
+
+Explore Review Checker, a Firefox feature that enables you to know whether reviews are reliable when you shop online with Amazon.com, BestBuy.com and Walmart.com. This article will guide you through what this feature offers and how to make the most of it.
+
+__TOC__
+
+=About Review Checker=
+Firefox's Review Checker is a feature to help you make informed purchasing decisions. Powered by [https://www.fakespot.com/our-mission Fakespot by Mozilla], this feature assesses the quality of product reviews by helping you know whether the reviews are likely from real customers or whether they’re from biased or paid reviewers.
+
+==How it works==
+Review Checker uses AI technology to analyze reviews on Amazon, Best Buy and Walmart. It assigns each product's reviews a '''letter grade''', ranging from A to F, indicating their reliability.
+*'''A and B:''' Reliable reviews. We believe the reviews are likely from real customers who left honest, unbiased reviews.
+*'''C:''' We believe there’s a mix of reliable and unreliable reviews.
+*'''D and F:''' Unreliable reviews. We believe the reviews are likely fake or from biased reviewers.
+The '''adjusted rating''' in Review Checker is based only on reviews we believe to be reliable. '''Highlights''' are from the retailer’s reviews within the last 80 days that we believe to be reliable.
+
+==How review quality is determined==
+Fakespot's AI technology undergoes continuous improvement as it analyzes more data. It scrutinizes reviews, searching for patterns that indicate fake or unreliable content, and applies various tests to ensure accuracy. We place a strong emphasis on reviews from real consumers who have purchased and used a product as the most reliable source of feedback.
+
+=How to use Review Checker=
+#When you're on a product detail page on Amazon, Best Buy or Walmart, look for the price tag icon in the address bar.
+#;[[Image:Fx129OpenReviewChecker-AddressBarIcon]]
+#Click the price tag icon [[Image:Fx129OpenReviewCheckerIcon|width=20]].
+#Select [[Image:Yes try it button|width=80]] to turn the Review Checker on.
+#;[[Image:Review checker for desktop]]
+To close the Review Checker, click the &#10005; icon in the upper right corner of the sidebar. Alternatively, click the blue price tag icon [[Image:review checker icon|width=30]] in the address bar.
+
+==Turn off Review Checker==
+In the ''Settings'' section at the bottom of the Review Checker, choose {menu Turn off Review Checker}.
+
+==Turn Review Checker back on==
+*To use Review Checker again after you’ve turned it off, visit a product detail page on one of the supported retailers.
+*Click the price tag icon [[Image:Fx129OpenReviewCheckerIcon|width=20]] and select [[Image:Yes try it button|width=80]] to turn Review Checker back on.
+
+=Protect your privacy=
+Firefox is committed to empowering you with information about review reliability while respecting your privacy. We use [https://blog.mozilla.org/en/products/firefox/partnership-ohttp-prio/ Oblivious HTTP (OHTTP)] for Review Checker.
+
+When Review Checker is turned on, we use information about the products you visit on Amazon, Best Buy and Walmart to analyze the reviews, but by using OHTTP we ensure Mozilla cannot link you or your device to the products you have viewed. OHTTP uses encryption and a third party intermediary server, so all Mozilla learns from this network request is that someone, somewhere, looked at a given product.
+
+=Recommended and sponsored products=
+Related products will sometimes appear in Review Checker, under ''More to consider''. These can be sponsored or non-sponsored products. Either way, our goal is to make the content helpful to your shopping experience.
+
+All products (both sponsored and non-sponsored):
+*'''Are highly relevant to the product you're viewing'''. We do not display products based on a stored history of searches. For example, if you’re currently viewing a standing desk, we may show a recommendation for another standing desk.
+*'''Have reliable reviews''' (an A or B letter grade) and an adjusted rating of at least 3.5 stars.
+*'''Protect your privacy'''. We use Oblivious HTTP (OHTTP) to prevent Firefox and our partners from tracking the products you view. Learn more in the [[#w_protect-your-privacy|Protect your privacy]] section above.
+Sponsored products will say ''sponsored'' underneath.
+
+If you prefer to not see related products (both sponsored and non-sponsored), simply go to {menu Settings} at the bottom of ''Review Checker'':
+;[[Image:Fx131ReviewCheckerSettings]]
+Click the '''Show recommendations and sponsored content''' toggle to switch it off [[Image:Review checker toggle off]].
+
+=Frequently asked questions=
+==What is the difference between review quality and product quality?==
+Review Checker is designed to evaluate the authenticity of product reviews on e-commerce websites. It assigns letter grades to reviews to help you identify reliable and unreliable feedback, and assess the likelihood that feedback and ratings come from real customers. It does not assess the quality of the product itself, which involves evaluating its actual features, performance and durability. Review Checker focuses solely on review quality and does not provide insights into the product's performance or features.
+
+==Will Review Checker affect my browsing speed or performance?==
+Review Checker is designed to be lightweight and should not impact your browsing speed or overall browser performance. It operates in the background and does not consume substantial system resources.
+
+==Can I customize Review Checker's settings?==
+Currently, Review Checker does not offer customization options. It operates based on predefined algorithms to assess review quality automatically.
+
+==Can I use Review Checker on websites other than Amazon, Best Buy and Walmart?==
+Currently, Review Checker only supports three US-based retailers: Amazon, Best Buy and Walmart. We are working on expanding this feature to other locales and retailers.
+
+=Related articles=
+*[[How Review Checker preserves user privacy]]

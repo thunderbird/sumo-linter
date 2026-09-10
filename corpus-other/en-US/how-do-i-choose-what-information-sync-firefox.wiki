@@ -1,0 +1,42 @@
+Mozilla's [[Sync Firefox data|Sync]] feature lets you synchronize bookmarks, add-ons, browsing history and other information across multiple devices, on a per device basis. This article shows you how to choose these settings. For information on starting a Sync account or managing your devices, see [[How do I set up Sync on my computer?]]
+
+__TOC__
+
+=What information can I share across my devices?=
+You can choose to sync the following information on your devices:
+*'''Bookmarks:''' this allows you to access all your favorite sites on all your synchronized devices.
+*'''History:''' this allows you to access sites you have visited in the past on all your synchronized devices.
+*'''Open tabs:''' this allows you to view your open tabs from other devices. See the [[View synced tabs from other devices]] article for details.
+*'''Passwords:''' this synchronizes the usernames and passwords you use to log in to websites. If you use a [[Use a Primary Password to protect stored logins and passwords|Primary Password]], see [[Use a Primary Password with Sync]] for important information on how Sync and the Primary Password interact.
+*'''Addresses:''' this synchronizes the addresses you use to fill in web forms. See [[Automatically fill in your address on web forms]].<!-- "Addresses" has been reintroduced as a sync choice since at least fx60-->
+*'''Payment methods:''' this synchronizes the credit and debit card payment methods data you saved to Firefox. See [[Automatically fill in credit card information on Firefox for Android]] and [[Automatically fill in credit and debit card payment methods data on web forms]].
+*'''Add-ons/extensions:''' select this checkbox if you want to synchronize your add-ons/extensions across your devices. Add-ons/extensions for the desktop version of Firefox cannot be synchronized with the mobile versions of Firefox.
+*'''[[Template:optionsorpreferences]]:''' this synchronizes Firefox preference settings you've changed, such as your [[How to set the home page|home page]], across desktop devices.
+
+= Manage Sync information on a computer=
+#[[Template:optionspreferences]]
+#Click {for not fx152}'''Sync '''{/for}{for fx152}{menu Account and sync}{/for} from the menu options to open the sync settings panel.
+#*If the Sync section shows '''Syncing: ON''', click {button Manage Sync…}
+#**Click the {button Disconnect…} button to disable syncing.
+#***You will be prompted to confirm this action. On the ''Disconnect?'' dialog, click {button Disconnect}.
+#*If it shows '''Syncing: OFF''', click {button Turn on Syncing…} to turn Sync on.
+#In the {for not fx140}''Choose What To Sync''{/for}{for fx140}''Manage what syncs on all your connected devices''{/for} dialog that opens, select the checkboxes next to the types of information you want to sync.
+#;{for not fx140}[[Image:Choose what to sync panel|width=600]]{/for}{for fx140}{for not fx152}[[Image:Fx140ManageSync|width=600]]{/for}{/for}{for fx152}[[Image:fx152sync]]{/for}
+#Click {for not fx140}{button Save Changes}{/for}{for fx140}{button Save}{/for}.
+
+=Manage Sync information on an Android device=
+#[[Template:menupreview]]
+#Tap [[Image:IG profile]]. It should show your name or email address.
+#Select the checkboxes next to the types of information you want to synchronize.
+#;[[Image:Fenix_149_Sync_choose-info-types|width=300]]
+#*Your changes will save automatically when you exit settings.
+
+=Manage Sync information on an iOS device=
+#Tap the menu button at the bottom of the screen (the menu will be at the top right if you're using an iPad).
+#;[[Image:firefoxiosnewmenu|width=400]]
+#Tap {menu [[Image:IG settings]] Settings}.
+#Ensure you're signed in to your [[Access Mozilla services with a Mozilla account|Mozilla account]] (your name will be displayed next to [[Image:IG profile]]).
+#;[[Image:syncnow|width=400]]
+#Adjust the toggle for the data categories you want to synchronize.
+#;[[Image:syncsettingsios|width=400]]
+#*Your changes will save automatically when you exit settings.

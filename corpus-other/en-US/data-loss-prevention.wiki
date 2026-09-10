@@ -1,0 +1,20 @@
+{for not win}{warning}This article only applies to Firefox desktop on Windows.{/warning}{/for}
+Keeping sensitive data safe from unauthorized access, leaks or misuse is crucial for any organization. Data Loss Prevention (DLP) helps by controlling how data is handled, shared and accessed. [[How is Firefox for Enterprise different from normal Firefox?|Firefox for Enterprise]] supports DLP by integrating with third-party software to detect accidental or inappropriate sharing of company data. When enabled, operations such as file uploads and pasting of data can be checked by DLP software.
+
+=DLP icon=
+When you see the DLP icon in the Firefox tab bar, it means Firefox is set up to work with an [[See active policies on Firefox for Enterprise|Enterprise Policy]] to share browsing data with third-party DLP software, which can potentially limit activities like uploading or sharing information.
+;[[Image:DLP icon|width=800]]
+{note}
+'''Note:''' Even when the DLP icon is not displayed, third-party software can be installed on your machine to monitor browsing activity using DLL injection. For details, see [[Identify problems caused by third-party modules in Firefox for Windows]].
+{/note}
+
+=Can I disable DLP?=
+DLP is typically used on managed computers set up by IT administrators in organizations and can be turned on or off by them. If you see the DLP icon on your personal computer, it might mean that third-party software was installed by mistake or an Enterprise Policy was applied incorrectly. If this applies to you, [https://support.mozilla.org/questions/new/desktop/form ask a question] on the Firefox support forum to get help from the Mozilla Community.
+
+=Check the path of connected DLP software=
+When DLP is enabled and Firefox is connected to a DLP agent, information about the agent can be found on the ''Troubleshooting Information'' page under the heading ''Content Analysis (DLP)''. To access the page:
+#At the top right, click the application menu button [[Image:IG main menu]].
+#From the dropdown, select {menu Help} and then {menu More Troubleshooting Information}.
+#Scroll down until you see the ''Content Analysis (DLP)'' section.
+#;<br>[[Image:DLP details|width=800]]
+;If the DLP icon is displayed, but there is no ''Agent Path'' listed, it indicates that Firefox has been configured to use DLP via an Enterprise Policy, but is not connected to any DLP agent software on the computer.

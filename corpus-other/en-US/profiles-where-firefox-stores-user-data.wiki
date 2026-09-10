@@ -1,0 +1,122 @@
+All of the changes you make in Firefox, such as your home page, what toolbars you use, extensions you have installed, saved passwords and your bookmarks, are stored in a special folder called a ''profile''.  Your profile folder is stored in a separate place from the Firefox program so, if something ever goes wrong with Firefox, your data and settings will still be there. It also means that you can [[Uninstall Firefox from your computer|uninstall Firefox]] without losing your personal information and that you don't have to reinstall Firefox to clear your settings or troubleshoot a problem. 
+
+__TOC__
+
+= How do I find my profile? =
+You can find your profile location and open it from the [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information]] (about:support) page:
+[[T:OpenProfileFolder]]
+
+==Finding your profile without opening Firefox==
+<!-- DO NOT RENAME OR REMOVE THIS SECTION! It's linked from Template:OpenProfileFolder (see discussion). --> 
+{for win}
+{for not winxp}
+Firefox stores your profile folder in this location on your computer, by default:<br>
+{filepath C:\Users\<your Windows login username>\AppData\Roaming\Mozilla\Firefox\Profiles\}<br>
+Windows hides the {filepath AppData} folder by default but you can find your profile folder as follows:
+{for win11,win10}
+# Press the ''Windows'' key {for win10}{key [[Image:windowskey-win10|width=15]]}{/for}{for win11}{key [[Image:Windows11Key|width=15]]}{/for}+{key R} on the keyboard. A Run dialog will open.
+#* Alternatively, you can press {for win10}{key [[Image:windowskey-win10]]}{/for}{for win11}{key [[Image:Windows11Key|width=15]]}{/for} on the keyboard and use the search box or you can right-click the ''Windows Start'' {for win10}[[Image:Windows10StartButton|width=15]]{/for}{for win11}[[Image:Windows11StartButton|width=15]]{/for} button on the taskbar and select {menu Run}.
+# Type in:<br>'''%APPDATA%\Mozilla\Firefox\Profiles\'''
+# Click {button OK}. A window will open containing profile folders.
+# Open the profile folder you wish. If you only have one profile, its folder would have "default" in the name.
+<!--
+bug 1731753 workaround, see:
+https://bugzilla.mozilla.org/show_bug.cgi?id=1731753
+https://support.mozilla.org/en-US/questions/1460897
+-->
+{note} The MSIX (Microsoft Store) Firefox version stores its profiles in a different location. To check if you are using this version:
+# Open the [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information page]] by entering '''about:support''' in the Firefox address bar.
+# In the ''Application Basics'' section, check the ''Distribution ID'' line.
+# If it contains ''mozilla-MSIX'', this means you are using the MSIX (Microsoft Store) Firefox version.
+To find the profile folder for this version:
+# Press the ''Windows'' key {for win10}{key [[Image:windowskey-win10|width=15]]}{/for}{for win11}{key [[Image:Windows11Key|width=15]]}{/for}+{key R} on the keyboard. A Run dialog will open.
+# Type in:<br>'''%LOCALAPPDATA%\Packages\Mozilla.Firefox'''<br> without pressing Enter. A list of an only folder will appear.
+# Click on the suggested folder. Then add:<br>'''\LocalCache\Roaming\Mozilla\Firefox\Profiles\'''
+# Click {button OK}. A window will open containing profile folders.
+{/note}
+{/for}
+{for win8}
+# From the Start Screen, click the '''Desktop''' tile. The Desktop view will open.
+# From the Desktop, hover in the lower right-hand corner to access the Charms.
+# Select the {menu Search} charm. The Search sidebar will open.
+# In the search box, type in:<br>'''%APPDATA%\Mozilla\Firefox\Profiles\'''<br>without pressing Enter. A list of profile folders will appear.
+# Click on the profile folder you wish to open (it will open in a window). If you only have one profile, its folder would have "default" in the name.
+{/for}
+{for win7}
+# Click the Windows {button Start} button.  The Start menu will open.
+# In the Search box at the bottom of the Start menu, type:<br>'''%APPDATA%\Mozilla\Firefox\Profiles\'''<br>without pressing Enter. A list of profiles will appear at the top of the Start menu.
+# Click on the profile folder you wish to open (it will open in a window). If you only have a single profile, its folder would have "default" in the name.
+#;[[Image:ab167bec686b081a25849c98d6bf9ea7-1258940859-69-1.png]]
+{/for}
+{note}'''Note:''' To set Windows to show the {filepath AppData} folder and other hidden files and folders, see {for win7,win8}[https://support.microsoft.com/help/14201/windows-show-hidden-files Show hidden files - Windows Help]{/for}{for win10}[https://support.microsoft.com/windows/file-explorer-in-windows-ef370130-1cca-9dc5-e0df-2f7416fe1cb1#WindowsVersion=Windows_10 File Explorer in Windows - Microsoft Support]{/for}{for win11}[https://support.microsoft.com/windows/file-explorer-in-windows-ef370130-1cca-9dc5-e0df-2f7416fe1cb1#WindowsVersion=Windows_11 File Explorer in Windows - Microsoft Support]{/for}.{/note}
+{/for}
+{for winxp}
+# Click the Windows {button Start} button, and select {menu Run…}.
+#;[[Image:win-run.png]]
+# Type in:<br>'''%APPDATA%\Mozilla\Firefox\Profiles\'''<br>then click {button OK}. A window will open containing profile folders.
+#;[[Image:win-rundialog.png]]
+# Open the profile folder you wish. If you only have one profile, its folder would have "default" in the name.
+{/for}
+{/for}
+{for mac}
+# Click the '''Finder''' icon in the dock. On the menu bar, click the {menu Go} menu, hold down the {key option} or {key alt} key and select {menu Library}. A window will open containing your Library folder. 
+# Open the {filepath Application Support} folder, then open the {filepath Firefox} folder, and then the {filepath Profiles} folder. 
+# Your profile folder is within this folder.  If you only have one profile, its folder would have "default" in the name.
+{/for} 
+{for linux}
+# '''(Ubuntu)''' Click the {menu Places} menu on the top right of the screen and select {menu Home Folder}. A File Browser window will appear.
+# Click the {menu View} menu and select {menu Show Hidden Files} if it isn't already checked.
+# Double click the folder marked {filepath .mozilla}.
+# Double click the folder marked {filepath firefox}. Your profile folder is within this folder. If you only have one profile, its folder would have "default" in the name.
+{/for}
+
+= What information is stored in my profile? =
+{note}'''Note:''' This is not a complete list. Only important information is described.{/note}
+<!-- If file names are updated for a new Firefox version, also review the https://support.mozilla.org/en-US/kb/about-your-important-data-and-their-files article and update, if necessary. -->
+'''Bookmarks, Downloads and Browsing History:'''
+*{filepath places.sqlite}<br>This file contains all your Firefox bookmarks and lists of all the files you've downloaded and websites you’ve visited.
+*{filepath bookmarkbackups}<br>This folder stores bookmark backup files, which can be used to restore your bookmarks.
+*{filepath favicons.sqlite}<br>This file contains all of the favicons for your Firefox bookmarks.
+For more information, see [[Bookmarks in Firefox]] and [[Restore bookmarks from backup or move them to another computer]].<br>
+<br>
+'''Passwords:'''
+*{filepath key4.db}
+*{filepath logins.json}<br><br>Your passwords are stored in these two files. For more information, see [[Password Manager - Remember, delete and edit logins and passwords in Firefox]].
+'''Site-specific preferences:'''
+*{filepath permissions.sqlite}
+*{filepath content-prefs.sqlite}<br><br>These two files store many of your Firefox permissions (for instance, which sites are allowed to display popups) or zoom levels that are set on a site-by-site basis (see [[Font size and zoom - increase the size of web pages]]).
+'''Search engines:'''
+* {filepath search.json.mozlz4}<br>This file stores user-installed search engines. For more information, see [[Add or remove a search engine in Firefox]].
+'''Personal dictionary:'''
+*{filepath persdict.dat}<br>This file stores any custom words you have added to Firefox's dictionary. For more information, see [[How do I use the Firefox spell checker?]].
+'''Autocomplete history:'''
+*{filepath formhistory.sqlite}<br>This file remembers what you have searched for in the Firefox search bar and what information you’ve entered into forms on websites. For more information, see [[Control whether Firefox automatically fills in forms]].
+'''Cookies:'''
+*{filepath cookies.sqlite}<br>A [[Cookies - Information that websites store on your computer|cookie]] is a bit of information stored on your computer by a website you’ve visited. Usually, this is something like your site preferences or login status. Cookies are all stored in this file.
+'''DOM storage:'''<br>
+DOM Storage is designed to provide a larger, more secure, and easier-to-use alternative to storing information in cookies.
+*{filepath webappsstore.sqlite}<br>Information is stored in this file for websites
+*{filepath chromeappsstore.sqlite}<br>This file stores information for [http://kb.mozillazine.org/About_protocol_links about:*] pages.
+'''Extensions:'''
+*{filepath extensions}<br>This folder, if it exists, stores files for any added [https://addons.mozilla.org/firefox/extensions/ extensions] and [https://addons.mozilla.org/firefox/themes/ themes] you have installed. To learn more about Firefox extensions, themes and other add-ons, see [[Find and install add-ons to add features to Firefox]].
+'''Security certificate settings:'''
+*{filepath cert9.db}<br>This file stores all your security certificate settings and any SSL certificates you have imported into Firefox.
+'''Security device settings:''' <!-- is this entry really needed? We don't mention Security device settings, secmod.db, or security module database in any other KB article. --> 
+*{filepath pkcs11.txt}<br>This file stores security module configuration.
+'''Download actions:'''
+*{filepath handlers.json}<br>This file stores your preferences that tell Firefox what to do when it comes across a particular type of file. For example, these are the settings that tell Firefox to open a PDF file with Acrobat Reader when you click on it. For more information, see [[Manage file types and download actions in Firefox]].
+'''Stored session:'''
+*{filepath sessionstore.jsonlz4}<br>This file stores the currently open tabs and windows. For more information, see [[Restore previous session - Configure when Firefox shows your most recent tabs and windows]].
+'''Window positions and dialog settings:'''
+*{filepath xulstore.json}<br>This file stores the size and position of the main Firefox window and Library window, selected columns in the Library window, and expanded folders in the Bookmarks Sidebar and History Sidebar.
+'''User preferences:'''
+*{filepath prefs.js}<br>This file stores customized user preference settings, such as changes you make in Firefox [[Template:optionsorpreferences]] dialogs and in customizing toolbars ([[Customize Firefox controls, buttons and toolbars]]). The optional {filepath user.js} file, if one exists,  will override any modified preferences. 
+'''Containers:'''
+*{filepath containers.json}<br>This file stores the details of containers used by the [[How to use Firefox containers|Container Tabs feature]], including those created by extensions such as [[Facebook Container - Prevent Facebook from tracking you on other websites|Facebook Container]].
+
+= Working with profiles =
+*[[Manage Firefox profiles]] explains how to create and manage profiles using the new profile management system.
+*[[Profile Manager - Create, remove or switch Firefox profiles]] explains how to do things like creating a new profile, setting a new default profile and deleting an old profile with the original Profile Manager, which can also be accessed when Firefox is closed.
+*[[Recover user data missing after Firefox update or reinstall]] explains how to use the Profile Manager to switch profiles, if multiple profiles exist. 
+*[[Back up and restore information in Firefox profiles]] explains how to back up and restore a profile. It also explains how to move your profile information to a different location on your hard drive or to another computer.
+*[[Restore bookmarks, passwords and data from an old Firefox profile]] explains how to copy files to a new profile.

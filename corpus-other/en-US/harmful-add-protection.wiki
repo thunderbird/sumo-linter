@@ -1,0 +1,10 @@
+When an add-on that you have installed triggers the opening of a website that has been reported as a deceptive site (sometimes called a “phishing” page) as a source of unwanted software or as an attack site designed to harm your computer, Firefox will clearly advise you that the site has been blocked for your safety.
+
+When you select {button See details} in the warning message that is displayed you should be able to determine the add-on that is causing this to happen and may wish to disable or remove this add-on. This support article should help [[Disable or remove Add-ons]]
+
+The list of malicious websites is maintained by Mozilla to protect users of Firefox. If you are the developer of a legitimate add-on that opens a website that is being blocked in error, please contact Mozilla via your developer hub on [https://addons.mozilla.org].
+
+=Related content=
+*[[Why does Mozilla disable some add-ons from running in Firefox?]]
+*[[How does built-in Phishing and Malware Protection work?]]
+*[[Block deceptive content and dangerous downloads in Firefox]]

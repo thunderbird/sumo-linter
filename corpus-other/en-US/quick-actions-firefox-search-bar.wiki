@@ -1,0 +1,86 @@
+Firefox’s Quick Actions are buttons that appear when you type in the address bar. They let you instantly perform common browser tasks—like clearing history or opening settings—without navigating menus.
+;[[Image:Fx140NewTabQuickActions]]
+This article explains what Quick Actions are, when they appear, how to use them, and how to turn them off if you don’t find them helpful. If this feature isn’t available in your version of Firefox yet, it may be coming soon.
+
+__TOC__
+
+=What are Quick Actions?=
+Quick Actions are shortcuts that appear '''below the address bar''' when you start typing. They let you quickly complete tasks using just your keyboard.
+
+{| class="wikitable"
+|+ '''Examples of available actions'''
+!Action!!What it does
+|-
+|Clear recent history||Deletes your recent browsing history
+|-
+|View downloads||Opens your Downloads panel
+|-
+|Manage settings||Takes you directly to Firefox Settings
+|-
+|View Add-ons||Opens the Add-ons Manager
+|-
+|Open Firefox View||Opens the recent browsing panel
+|-
+|Manage passwords||Opens your saved logins in Password Manager
+|-
+|Translate|| Opens a new tab with a text translation tool
+|}
+
+==Available Quick Actions==
+To see which Quick Actions are available, enter {key >} in the Firefox address bar and press the space bar, or else open the [[New Tab page in Firefox|New Tab]] page and select {menu Actions} from the address bar drop-down menu.
+;[[Image:Fx150QuickActions]]
+{note}'''Note:''' These options may vary depending on your region, Firefox version or language.{/note}
+
+=How to use Quick Actions?=
+#Click in the address bar or start typing a related command (such as “settings” or “history”).
+#Firefox will show suggested Quick Actions.
+#Click on a suggestion or use the arrow keys to navigate, then press {key Enter}.
+
+=How to turn off Quick Actions?=
+If you prefer not to use this feature, you can disable it in Firefox Settings, as follows:
+{for not fx152}
+#[[Template:optionspreferences]]
+#Select the {menu Search} panel.
+#Deselect the '''Quick actions''' option in the ''Address Bar — Firefox Suggest'' section.
+#;[[Image:Fx140SearchSettings-DisableQuickActions]]
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Select the {menu Search} page on the left.
+#Scroll down to '''Firefox Suggest'''.
+#Deselect the '''Quick actions''' option.
+#[[Image:fx152firefoxsuggest]]
+{/for}
+{note}'''Tip:''' You can still use traditional menus or keyboard shortcuts for all actions that Quick Actions support.{/note}
+
+=Troubleshoot Quick Actions=
+==I don’t see Quick Actions==
+*This feature is still being rolled out. Make sure you're using the [[Update Firefox to the latest release|latest version of Firefox]].
+*Some regional or localized Firefox versions may not have this feature enabled yet.
+
+==Quick Actions don’t work or behave inconsistently==
+*If Quick Actions are not responsive or only appear sometimes, try restarting Firefox.
+*Check for interfering extensions:
+*#Restart in [[Use Troubleshoot Mode in Firefox|Troubleshoot Mode]]: Click the menu button [[Image:Fx89menuButton]], click {menu Help}, select {menu Troubleshoot Mode…} and click {button Restart} in the ''Restart Firefox in Troubleshoot Mode?'' dialog.
+*#Test Quick Actions again.
+*#If they appear, an add-on may be interfering. [[Disable or remove Add-ons#w_disabling-extensions|Disable extensions]] one by one to isolate the issue.
+
+=Frequently asked questions=
+==Why was this feature added?==
+Quick Actions aim to make common tasks faster and easier. However, we understand that new features can disrupt established workflows. That’s why Firefox gives you the option to turn them off.
+
+==This feature wasn’t in my settings before—did Firefox change something?==
+Yes. Quick Actions were introduced in a recent Firefox version and may be enabled by default. You can customize this behavior using the steps above.
+
+==Can I suggest new Quick Actions?==
+We’re collecting feedback on this feature. Visit [https://connect.mozilla.org/ Mozilla Connect] to submit your ideas or concerns (learn [[What is Mozilla Connect?|how to use Mozilla Connect]]).
+
+==I'm seeing unrelated suggestions like AI or tab groups. What’s going on?==
+If you're seeing suggestions not related to Quick Actions, those may be address bar search results or other experimental features. If you want to share feedback:
+#Click the menu button [[Image:Fx89menuButton]].
+#Click {menu Help} and select {menu Share Ideas and Feedback…}
+
+=Related articles=
+* [[Address bar autocomplete suggestions in Firefox]]
+* [[Search with the Firefox address bar]]
+* [[Refresh Firefox - reset add-ons and settings]]

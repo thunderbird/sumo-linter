@@ -1,0 +1,47 @@
+The zoom controls allow you to increase or decrease either the size of a whole web page or just the size of all the text in order to improve readability. We'll explain how it works.
+
+__TOC__
+
+= Zoom in and out of a website =
+Here's how you can zoom in and out of individual websites.
+# Click the menu button [[Image:Fx89menuButton]] on the right. The Firefox menu will open, and you will see the zoom controls at the bottom.
+#;[[Image:Fx103MenuPanel]]
+# Use the {button +} button to zoom in, and the {button -} button to zoom out. The number in the middle is the current zoom level – click it to reset the zoom to the default zoom level. You can also see the current zoom level in the address bar:
+;[[Image:Fx103addressBarZoomLevel]]
+{note}'''Keyboard shortcuts:''' You can also use the zoom controls without a mouse. Press and hold {for mac}{key Command}{/for}{for win,linux}{key Ctrl}{/for} while pressing {key &#43;} to zoom in, {key -} to zoom out, or {key 0} to reset.{/note}
+
+The zoom level is saved per hostname, even after you close Firefox. For example, all pages on [https://support.mozilla.org support.mozilla.org] share the same zoom level setting, but it is different from the zoom level setting of the pages on [https://blog.mozilla.org blog.mozilla.org].
+
+=Pinch to zoom=
+This feature allows users to zoom in and out of pages by using a pinch motion without affecting the layout of the page.
+
+The pinch action is currently supported on Windows and Linux through touchscreen and high precision touchpads, and on Mac through touchpads.
+
+= How to only change the size of the text =
+Instead of changing the size of everything, you can just change the size of the text.
+#{for win,linux}Press the {key Alt} key to temporarily bring up the traditional Firefox menu. {/for}On the menu bar at the top of the screen, click {menu View}, then go to {menu Zoom}.
+#Select {menu Zoom Text Only}. This makes the controls only change the size of text; not images.
+
+= Set a default zoom level for all websites =
+You can enlarge or reduce the size of all web content, as follows:
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go to the {menu Language and Appearance} section{/for}{for fx 152}Go to the {menu Accessibility} panel{/for}.
+#;{for not fx152}[[Image:Fx100settings-LanguageAndAppearance]]{/for}{for fx152}[[Image:fx152accessibility]]{/for}
+# Use the drop-down menu for '''Default zoom''' to select a zoom level for all pages. Firefox will still remember individual site zoom levels you set.
+#* To set a zoom level for text only, select the '''Zoom text only''' checkbox.
+{for fx152}{note}'''Note''': You can always restore the settings by clicking {button Restore defaults}.{/note}{/for}
+
+= Set a minimum text size=
+You can set Firefox to automatically display all text at a minimum font size. If a web page contains text that is smaller, Firefox increases the font size of the text to this minimum.
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go to the {menu Language and Appearance} section{/for}{for fx 152}Go to the {menu Accessibility} panel{/for}. 
+# Under ''Fonts'', click {button Advanced settings…}
+#;[[Image:Fx100settings-FontsAdvanced]]
+# In the '''Minimum Font Size''' drop-down, select the minimum size in pixels in which all text must be displayed.
+# Click {button OK} to save your changes.
+For more information, see [[Change the fonts and colors websites use]].
+<!--
+{note}'''Alternate method:'''<br>If you can't access your font settings through the menu button:
+#[[T:aboutconfig]]
+#Search for the {pref font.minimum-size} preference and change the value to '''{pref 0}'''.{/note}
+-->

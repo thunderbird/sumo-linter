@@ -1,0 +1,26 @@
+Firefox has a feature that lets you see how much memory and CPU resources are being used by tabs, extensions and other processes. This ''Process Manager'' feature can be useful for diagnosing and solving [[Fix Firefox using too much memory or CPU resources|high memory or CPU usage]] in Firefox. 
+
+__TOC__
+
+=Process Manager=
+To open the Process Manager, click the menu button [[Image:IG main menu]], click {menu More Tools} and select {menu Task Manager} from the menu. The ''about:processes'' page will open in a new tab.
+
+You can also enter '''about:processes''' in the address bar or use the keyboard shortcut {key Shift+Esc} to open this page.
+
+[[Image:Fx129ProcessManager|width=750]]
+
+==Information in the Process Manager==
+Information is displayed in multiple columns:
+*'''Name:''' A list of processes that Firefox is running and ID numbers that identify each process. For technical information about process types, see [https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html Process Model] in Firefox Source documentation.
+*'''Memory:''' A rough estimate of how much computer memory each process is using.
+*'''CPU:''' A rough estimate of how much of your computer's processing power each process is using.
+*'''[[Image:Fx113ProcessManager-GearIcon]] (gear icon):''' This column displays an action [[Image:Fx113ProcessManager-ActionButton]] button when you hover over an item, to allow actions such as closing a tab or killing a process.
+You can click on the ''Memory'' or ''CPU'' headers to sort the list in descending order. Click again to reverse the order.
+{note}'''Note:''' The '''Extensions''' process entry shows memory and CPU usage for all enabled extensions, since all extensions share a single content process.{/note}
+
+==Perform actions in the Process Manager==
+Hovering over an item in the Process Manager can show a profiler icon next to its name and ID. The action button will also appear on the right side.
+
+You can use the profiler [[Image:Fx113ProcessManager-ProfilerIcon]] icon to evaluate a process performance. It will start recording a profile, gathering data from all threads of the process for 5 seconds, and then will launch the [https://profiler.firefox.com/ Firefox Profiler] in a new tab showing the recorded profile.
+
+The action [[Image:Fx113ProcessManager-ActionButton]] button can be used to close a tab or leave it open but unload its contents and kill associated processes.

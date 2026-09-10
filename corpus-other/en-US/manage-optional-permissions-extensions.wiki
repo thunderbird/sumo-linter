@@ -1,0 +1,23 @@
+When you install an extension on Firefox, you may see a message asking for permission to access data or features.
+
+{for fx129}[[Image:Permissions request add-ons|width=1000]]{/for}{for not fx129}[[Image:Fx128AddExtensionPermissions|width=1000]]{/for}
+{for fx129}{note}'''Note:''' See [[Extensions in Private Browsing]] regarding the ''Run in Private Windows'' checkbox.{/note}{/for}
+
+Extensions may also request optional permissions to support additional functionality. The first time the extension tries to access those features, you will see a message asking for you to allow or deny those optional permissions.
+
+[[Image:Optional permissions request on Firefox for desktop]] 
+
+In the Firefox Add-ons Manager, you can also change access to data or features to your installed extensions at any time.
+
+=View and manage optional extension permissions=
+#[[T:Open Add-ons|type=Extensions]]
+#Click the name of an installed extension to see more details about that extension.
+#;{for not fx151}[[Image:ExpandedExtensionCard]]{/for}{for fx151}[[Image:fx151extensionsoptional]]{/for}
+#Select {for not fx151}{menu Permissions}{/for}{for fx151}{menu Permissions and data}{/for} to see all permissions requested by the extension.
+#;{for not fx151}[[Image:ExpandedExtensionPermissions]]{/for}{for fx151}[[Image:fx151permissionsanddata]]{/for}
+#If an extension has optional permissions, they will be shown under {for not fx151}''Optional permissions for added functionality''{/for}{for fx151}''Optional''{/for}. Turn each optional permission on or off with the toggle switch.
+#;{for not fx151}[[Image:ExtensionOptionalToggle]]{/for}{for fx151}[[Image:fx151readandmodify]]{/for}
+
+=Related content=
+*[[About permission request messages for Firefox extensions]]
+*[[Manage your extensions using the extensions button in the toolbar]]

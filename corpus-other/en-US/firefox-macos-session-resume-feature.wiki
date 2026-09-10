@@ -1,0 +1,8 @@
+Starting with [[Find what version of Firefox you are using|Firefox version]] 132, macOS users will experience automatic session resume. When Firefox is active at the time of a macOS restart due to a system update or shutdown, the browser will automatically reopen upon system startup, restoring any open tabs and active sessions. This feature is designed to enhance browsing continuity, saving users the step of manually reopening Firefox.
+
+=How it works=
+The session resume feature detects when Firefox is active during a macOS system restart. After such a restart, Firefox automatically launches, returning to the last browsing session.
+
+=Additional information=
+*This feature is enabled by default; no setup is needed.
+*For manual session management options, see [[Restore previous session - Configure when Firefox shows your most recent tabs and windows]].

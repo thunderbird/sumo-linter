@@ -1,0 +1,21 @@
+You can import login and password information from a ''.csv'' (comma separated values) file, using either one of these methods:
+=Import from Firefox Settings=
+#[[Template:optionspreferences]]
+#In the {for not fx152}General{/for}{for fx152}{menu Account and sync}{/for} page, click on {for not fx151}{button Import Data}{/for}{for fx151}{button Import data}{/for} under the {for not fx151}''Import Browser Data''{/for}{for fx151}''Import browser data''{/for} section.
+#;{for not fx151}[[Image:Import from file 1|width=800]]{/for}{for =fx151}[[Image:Fx151ImportBrowserData]]{/for}{for fx152}[[Image:Fx152ImportBrowserData]]{/for}
+#Select {menu Passwords from CSV file} from the drop-down menu.
+#;[[Image:Import from file 2|width=350]]
+#Select the .csv file that contains the login data you wish to import and click {button Open}.
+#;[[Image:Import from file choose file|width=600]]
+#All set! Click {button Done} to wrap up the import.
+#;[[Image:Import from file 3|width=350]]
+
+=Import from Logins menu=
+#[[Template:fx29menu]]
+#[[Template:openlockwise70]]
+#*The Firefox ''about:logins'' page will open in a new tab.
+#Click the 3-dot menu icon, then click {menu Import from a File…}.
+#;[[Image:FxLoginsMenuImport-Simplified]]
+#Select the .csv file that contains the login data you wish to import and click {button Open}.
+#Click {button Done} to complete the import.
+{note}'''Note:''' Firefox does not save or sync login data from another browser or file unless you choose to import it. This data is stored locally in a readable form on your computer by the other browser.{/note}

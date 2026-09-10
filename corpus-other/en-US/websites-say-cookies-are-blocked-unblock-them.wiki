@@ -1,0 +1,40 @@
+This article describes how to troubleshoot problems that involve websites reporting that cookies are blocked or disabled.  For more information on cookies, see [[Cookies - Information that websites store on your computer]].
+
+__TOC__
+
+= Check cookie settings =
+Firefox can be set to not accept cookies. To turn on cookies:
+#[[T:optionspreferences]]
+#Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} on the left{for fx152} and click {menu Advanced settings}{/for}. This is where you can view and change your settings for '''[[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]]''', which includes cookies.
+#;{for not fx152}{for fx148}[[Image:Fx148settings-ETP]]{/for}{for not fx148}[[Image:Fx108settings-ETP]]{/for}{/for}{for fx152}[[Image:Fx152settings-EnhancedTrackingProtectionAdvanced]]{/for}
+#*If {menu Standard} is selected, this is the default setting and, except for trackers, all cookies are allowed. For more information, see [[Trackers and scripts Firefox blocks in Enhanced Tracking Protection]] and [[Introducing Total Cookie Protection in Standard Mode]].
+#*If {menu Strict} is selected, either choose {menu Standard} or switch to {menu Custom}.
+#*If {menu Custom} is selected, either uncheck '''Cookies''' (this will allow all cookies) or select the setting to only block ''Cross-site tracking cookies, and isolate other cross-site cookies''.
+#;[[Image:Fx111settings-ETPcustom]]
+#Select the [[Image:reload all tabs retina|width=150]]<!--{button Reload All Tabs}--> button (shown when multiple tabs are open) to apply your new setting.
+
+= Check sites that are blocked from setting cookies =
+#[[T:optionspreferences]]
+#Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} on the left and scroll down to the {for not fx152}'''Cookies and Site Data'''{/for}{for fx152}'''Browsing data'''{/for} section.
+#;{for not fx152}{for fx148}[[Image:Fx148settings-CookiesAndSiteData]]{/for}{for not fx148}[[Image:Fx79CookiesAndSiteData]]{/for}{/for}{for fx152}[[Image:fx152browsingdata]]{/for}
+#Click {for fx148}{menu Manage exceptions}.{/for}{for not fx148}{button Manage Exceptions…}{/for}
+#*The ''Exceptions - Cookies and Site Data'' dialog box that opens will show you which sites you have blocked from storing cookies.
+#Make sure the site you are trying to access is not listed.
+#*If it is, click on its entry and click {button Remove Website}.
+#[[T:closeOptionsPreferences]]
+
+= Clear history for that site =
+The cookies and temporary data already stored on your computer may be causing the problem. Delete them, then test for your problem:
+#[[T:OpenHistoryLibrary]]
+#Search for the website you want to remove from your history by typing its name in the '''Search History''' field in the top-right corner and then pressing {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.
+#Then, in the search results, {for win,linux}right-click{/for}{for mac}hold down the {key Ctrl} key while you click{/for} on the site you want to remove, and select {menu Forget About This Site}.{warning}'''All history items (browsing and download history, cookies, cache, active logins, passwords, saved form data, exceptions for cookies, images, pop-ups) for that site will be removed.'''{/warning}<br>{for win}[[Image:History Win6]]{/for}{for mac}[[Image:History Mac6]]{/for}{for linux}[[Image:History Lin6]]{/for}
+#Finally, close the Library window.
+
+= Clear all cookies and the cache =
+If deleting cookies for the site with the problem did not fix the error, clear all the cookies stored on your computer and clear the Firefox cache:
+[[T:clearCookiesCache]]
+
+
+<!-- MZ credit -->
+<br> <br>
+'''''Based on information from [http://kb.mozillazine.org/Websites_report_cookies_are_disabled Websites report cookies are disabled (mozillaZine KB)]'''''

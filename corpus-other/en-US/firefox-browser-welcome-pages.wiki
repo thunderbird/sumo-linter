@@ -1,0 +1,38 @@
+Firefox Browser welcome pages are available after reaching certain milestones to help you get the most out of Firefox. Learn more about these pages in this FAQ.
+
+__TOC__
+
+=What is this content?=
+When you open the Firefox Browser after reaching a certain user milestone — say, on your fifth day after downloading the browser or on your one-year anniversary of joining Firefox — you’re shown a page in a new tab. This page is known as a Firefox Browser welcome page.
+
+=Why am I seeing a Firefox Browser welcome page?=
+Firefox will show you a welcome page after installation or when you create a new profile, after having used Firefox for a while, and at various times as a Firefox user. The page seeks to highlight other Mozilla services, so you can have the most secure and privacy preserving experience on the web.
+
+=Do Firefox Browser welcome pages ever feature ads or sponsored content?=
+Firefox Browser welcome pages will never feature ads or sponsored content. These pages will only feature Firefox content or content that promotes other Mozilla products and services.
+
+=How do Firefox Browser welcome pages get delivered?=
+The content delivered in a Firefox Browser welcome page is based on your latest Firefox installation, which contains details about the browser's build, locale, operating system that it’s installed on, and Firefox type (such as Nightly, Developer Edition, Beta, or regular). It is not based on your behavior or personal details.
+
+If you’d like to know more, here are the specifics:
+* Firefox regularly fetches a collection of Firefox Browser welcome pages from our servers. The collection is tailored to the technical parameters of your copy of Firefox, including version, locale, and distribution channel.
+* When you restart Firefox after becoming eligible for a Firefox Browser welcome page, Firefox automatically opens a new tab showing the page.
+* If you opt out of all recommendations from Firefox, you will not see a Firefox Browser welcome page unless you update your browser settings to allow recommendations. Here is [[Recommendations from Firefox#w_how-do-i-opt-out-of-recommendations-in-firefox|more information about opting out]].
+
+=What information is collected, and what control do I have over what’s shared?=
+The [https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice] explains the data that Mozilla receives from Firefox, including default technical and interaction data that Firefox uses to improve performance, set your default search provider, and display Firefox Browser welcome pages. We collect information about how many times these pages appear and whether or not you interact with them. However, this information is not associated with any of the other technical and interaction information about you or your copy of the Firefox browser.<!-- Learn more about the data we collect.<!-- It seems that a link is missing here. -->
+
+=I don’t like a specific Firefox Browser welcome page. What should I do?=
+If you don’t like a Firefox Browser welcome page, you can simply close the page. If you want to hide all Firefox Browser welcome pages, then you’ll need to update your browser preferences. To hide all Firefox Browser welcome pages, see the next section.
+
+=How do I hide all Firefox Browser welcome pages?=
+If you prefer to not see Firefox Browser welcome pages, you can hide them. They are currently shown when the Browsing ''Recommend'' preference settings are selected.
+
+In order to hide Firefox Browser welcome pages, you need to do the following:
+#[[Template:optionspreferences]]
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Tabs and browsing}{/for} page, go down to the {for not fx152}'''Browsing'''{/for}{for fx152}'''Recommendations'''{/for} section.
+#Remove the checkmarks from the boxes next to ''Recommend extensions as you browse'' and ''Recommend features as you browse'' (both boxes must be unchecked).
+#;{for not fx152}[[Image:Fx91Browsing-Recommend]]{/for}{for fx152}[[Image:fx152recommendations]]{/for}
+
+=Are Firefox Browser welcome pages from Firefox available in my country?=
+Firefox Browser welcome pages are available only in certain countries.

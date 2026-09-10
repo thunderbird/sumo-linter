@@ -1,0 +1,33 @@
+In earlier versions of Firefox, you could use '''Smart keywords''' to search for site-specific content from the address bar, instead of going to the targeted website to use their search. In [[Find what version of Firefox you are using|Firefox version]] 140, this feature has been replaced with custom search engines.
+
+Firefox has a Unified Search button with the icon of your default search engine, which appears when you start typing a search term in the address bar of any website.
+;[[Image:Fx140UnifiedSearchButton]]
+When you click on this button, it opens a drop-down menu where you can choose a different search engine to perform your search.
+;[[Image:Fx140UnifiedSearchDropdown]]
+
+=Add a custom search engine from the search field of a supported website=
+You can right-click on the search field of a supported website and select {menu Add Search Engine} from the context menu.
+;{for not fx153}[[Image:Fx140SearchContextMenu-AddSearchEngine-IMDB]]{/for}{for fx153}[[Image:Fx153IMDbAddSearchEngine]]{/for}
+For example, suppose you search [http://www.imdb.com/ The Internet Movie Database (IMDB)] regularly. You can add it as a custom search engine, and it will appear in the Unified Search button's drop-down menu.
+
+=Add a custom search engine in Settings=
+You can add custom search engines from websites in Firefox, even if they’re not supported.
+#[[Template:optionspreferences]]
+#Select {menu Search} in the left panel.
+#;{for not fx152}[[Image:searchshortcut|width=500]]{/for}{for fx152}[[Image:Fx152SearchSettings-AddSearchEngine]]{/for}
+# {for not fx152}Go down to ''Search Shortcuts'' and click {button Add}{/for}{for fx152}Under ''Additional search engines'', click {button Add search engine}{/for}.
+#* The '''Add Search Engine''' dialog box will open.
+#Fill in '''Search engine name''' with a name for your custom search engine.
+#;[[Image:AddSearchEngine-IMDB|width=500]]
+#In the '''URL''' box, copy & paste the search URL for the custom search engine.
+#*For example: ''https:<!---->//www<!---->.imdb<!---->.com/find/?q=ZZZZZZ''
+#Replace the URL’s search tag with '''%s'''.
+#*For example: ''https:<!---->//www<!---->.imdb<!---->.com/find/?q=%s''
+#Add a '''Keyword''' (this is optional).
+#Click {button Add Engine} to save.
+{note}'''Note:''' You can find the URL’s search tag by performing a unique search with an easy-to-spot word, such as “ZZZZZZ”. The “ZZZZZZ” in the URL is that URL’s search tag. For example, if you search for ''tangled'' on IMBD, the link is going to look like this: <code>https://www.imdb.com/find/?q=tangled</code><br>Replace ''tangled'' with '''%s'''.{/note}
+
+=Related articles=
+*[[Search with the Firefox address bar]]
+*[[Add custom search engines in Firefox]] 
+*[[Add or remove a search engine in Firefox]]

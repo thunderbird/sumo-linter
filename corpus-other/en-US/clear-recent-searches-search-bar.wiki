@@ -1,0 +1,21 @@
+Firefox includes a Search bar on the [[New Tab page in Firefox|New Tab page]], an Address bar that you can use to enter search terms and an optional [[Add the Search bar to your Firefox toolbar|Search bar]] located to the right of the Address bar. When you [[Search with the Firefox address bar|search the Web with Firefox]], the Search history can grow quite large over time. This article explains how to clear items from your Firefox Search history.
+* If you want to clear address bar search suggestions (other than Search history entries indicated by a clock icon), see [[Remove websites from the address bar suggestions]].
+* If you want to clear search terms on websites, see [[Control whether Firefox automatically fills in forms]].
+
+= Clearing all search items =
+#Click the menu [[Image:Fx89menuButton]] button, click {menu History} and select {menu Clear recent history…} from the History menu.
+#;[[Image:Fx115History-ClearRecentHistory]]
+#From the {for not fx128}''Time range to clear:''{/for}{for fx128}''When:''{/for} dropdown menu, select {menu Everything}.
+#;{for not fx128}[[Image:Fx115ClearAllHistory-cookies|width=500]]{/for}{for fx128}[[Image:Fx128ClearBrowsingDataAndCookies-Everything|width=400]]{/for} 
+#Make sure that {for not fx128}{menu Form & Search History}{/for}{for fx128}''History''{/for} is checked, and remove check marks for any items you don't want to clear.
+#;{for fx128}[[Image:History dialog|width=450]]{/for}<!--{for not fx 128}{/for}-->
+#Click the {for not fx128}{button Clear Now}{/for}{for fx128}{button Clear}{/for} button to finish.
+
+= Clearing individual search items =
+To clear '''individual''' items from the Search history, click on the Address bar or Search bar input field where you have entered a search term. Press the {key ↓} and {key ↑} keys to scroll the list of items. To delete the highlighted item, press {key Shift+Delete}.
+
+* If you have problems deleting a search item using the optional Search bar, you can type the search term into the Address bar and select the item you wish to delete from the drop-down list.
+
+[[Image:Fx128AddressBarDropDown-RemoveSearchHistoryItem]]
+
+You can then click the three-dot icon on the right and select {menu Remove from history}.

@@ -1,0 +1,26 @@
+If you want to back up your saved usernames and passwords or move them to a different application, the [[Password Manager - Remember, delete and edit logins and passwords in Firefox|Firefox password management feature]] allows you to export this data to a <code>.csv</code> (comma separated values) file.
+{warning}'''Warning:''' Your passwords in the exported file will not be encrypted and will be in a readable form to anyone who can view this file. Do not upload online, email or share the exported file. Delete this file when finished.{/warning}
+You can also [[Import data from another browser|import login data from another browser]]{for fx116}, or [[Import login and password data from a file|import login and password data from a file]]{/for}.
+
+=Export your login data from Firefox=
+{for not fx122}
+#[[Template:fx29menu]]
+#[[Template:openlockwise70]] The Firefox ''about:logins'' page will open in a new tab.
+#Click the menu [[Image:Three dot menu|width=40]] icon in the top-right corner of the page.
+#Select {menu Export Logins…} from the dropdown.
+#;{for not fx116}[[Image:Fx89logins3-dotMenuExport-win]]{/for}{for fx116}[[Image:Fx121LoginsMenuExport-Simplified]]{/for}
+#A confirmation dialog will appear explaining that your passwords will be exported in readable form. Click {button Export…} to proceed.
+#;[[Image:Fx121ExportLoginsWarning|width=400]]
+#You may be prompted to enter your [[Use a Primary Password to protect stored logins and passwords|Primary Password]], if enabled,<!-- or [[Firefox asks for authentication (password, voice, face or fingerprint) when accessing passwords|operating system authentication may be required]]--> when accessing stored passwords. 
+#You can choose the file name and location where this exported data will be saved.
+{/for}
+{for fx122}
+#[[Template:fx29menu]]
+#[[Template:openlockwise70]] The Firefox ''about:logins'' page will open in a new tab.
+#Click the menu [[Image:Three dot menu|width=40]] icon, then click {menu Export Passwords…}
+#;[[Image:Export passwords option|width=400]] 
+#A dialog box will appear to remind you that passwords are saved as readable text. Click the {button Continue with export} button to continue.
+#;[[Image:Confirm password export|width=400]] 
+#*You may be prompted to enter your [[Use a Primary Password to protect stored logins and passwords|Primary Password]], if enabled, {for win, mac, fx127}or [[Secure Firefox passwords with device sign-in|operating system authentication may be required]]{/for} when accessing stored passwords. 
+#Choose a file name and location, then click Save to export your logins as a .csv file.
+{/for}

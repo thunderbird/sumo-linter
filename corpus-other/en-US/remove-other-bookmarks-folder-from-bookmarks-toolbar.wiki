@@ -1,0 +1,8 @@
+<!-- The Other Bookmarks folder was not added to the Bookmarks toolbar until Firefox version 84 - see https://bugzilla.mozilla.org/show_bug.cgi?id=1664053 -->
+
+Your bookmarks Library contains a folder called "''Other Bookmarks''". (To learn more, see the [[Bookmarks in Firefox]] article.) An ''Other Bookmarks'' folder will appear at the end of the [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks toolbar]] if the "''Other Bookmarks''" folder in your Library contains any bookmarks. This is done to make it easier to find bookmarks stored in this folder.
+
+If you'd like to remove the ''Other Bookmarks'' folder from the Bookmarks toolbar, use these instructions:
+#[[Template:contextmenu]] on a blank spot in the Bookmarks toolbar (or on the ''Other Bookmarks'' folder icon) to open the context menu.
+#;[[Image:Fx85BookmarksToolbarContextMenu]]
+#Click on the {menu Show Other Bookmarks} menu item to remove the check mark.

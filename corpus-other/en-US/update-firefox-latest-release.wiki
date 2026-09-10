@@ -1,0 +1,34 @@
+{for linux}
+{note}'''Note:''' If you use your Linux distribution's packaged version of Firefox, you will need to wait for an updated package to be released to its package repository. This article only applies if you installed Firefox manually (without using your distribution's package manager).{/note}
+{/for}
+{for win10,win11}
+{note}'''Note:''' This article only applies if you installed Firefox by downloading it from Mozilla. If you [[Download Firefox on Windows from the Microsoft Store|installed Firefox from the Microsoft Store]], then you will receive Firefox updates through the Microsoft Store. To check for Firefox updates on the Microsoft Store, see [https://support.microsoft.com/account-billing/get-updates-for-apps-and-games-in-microsoft-store-a1fe19c0-532d-ec47-7035-d1c5a1dd464f this Microsoft article].{/note}
+{/for}
+Firefox updates automatically in most cases, but you can manually check for and install updates if needed. Keeping Firefox up to date ensures you have the latest features, security improvements and compatibility with websites.
+
+=Update Firefox=
+#{for win,linux}Click the menu button [[Image:IG main menu]] at the right side of the Firefox toolbar, go to {menu Help}, and select {menu About Firefox}.{/for}{for mac}In the menu bar, open the {menu Firefox} menu and choose {menu About Firefox}.{/for} The {for win,linux}''About Mozilla Firefox''{/for}{for mac}''About Firefox''{/for} window will open.
+#Firefox will check for updates automatically. If an update is available, it will be downloaded.
+#;{for win}[[Image:fx91AboutDownloadingUpdate|width=700]]{/for}{for linux}[[Image:fx70Linux-AboutFirefox-Downloading|width=500]]{/for}{for mac}[[Image:fx71macOS-AboutFirefox-Downloading|width=700]]{/for}
+#;{note}'''Note:''' Firefox may still be downloading the latest update in the background even if the ''About Firefox'' window says it’s up to date. Updates are applied after restarting Firefox.{/note}
+#When the download is complete, click {button Restart to update Firefox}.
+#;{for win}[[Image:fx91AboutRestartUpdate|width=700]]{/for}{for linux}[[Image:fx70Linux-AboutFirefox-Restart|width=500]]{/for}{for mac}[[Image:fx71macOS-AboutFirefox-Restart|width=700]]{/for}
+{for linux}{note}'''Note:''' If you're using a version of Firefox installed through your Linux distribution’s package manager, Firefox updates are managed by your system’s software updates. You won’t see update options in the Firefox settings.{/note}{/for}
+
+=Configure how Firefox installs updates=
+#[[T:optionspreferences]]
+#{for not fx152}In the {menu General} panel, go to the ''Firefox Updates'' section{/for}{for fx152}Select {menu About Firefox} on the left. The ''About Firefox'' settings page will open{/for}.
+;{for not win}{for not fx152}[[Image:Firefox desktop update section]]{/for}{for fx152}[[Image:Fx152settingsAboutFirefox-notwin]]{/for}{/for}{for win}{for not fx152}[[Image:Fx132updatesettings-win]]{/for}{for fx152}[[Image:Fx152AboutFirefox-win]]{/for}{/for}
+{for win}{note}'''Note:''' To learn about the option to install updates when Firefox is not running, see [[Enable background updates on Firefox for Windows when Firefox is not running]].{/note}{/for}
+
+=Troubleshooting update problems=
+If you updated Firefox but cannot open the application or the update does not install properly, try the following:
+*Download the [https://www.firefox.com/browsers/desktop/ Firefox installer], then close Firefox and run the installer. All of your data will be preserved.
+*Follow the steps in [[Firefox won't start - find solutions]].
+*Restart Firefox, and restart your computer.
+
+=Related articles=
+*[[How to fix the Update Failed error message when updating Firefox]]
+*[[Manage Firefox updates]]
+*[[Best practices for installing and updating Firefox]]
+*[[I found a fake Firefox update]]

@@ -1,0 +1,48 @@
+Firefox can alert you when a website you visit has experienced a known data breach. These alerts appear in the '''Unified Trust Panel''' and help you understand whether your information may be at risk and what actions you can take to protect yourself.
+;[[Image:monitorintegration]]
+Breach alerts work together with Mozilla Monitor to help you stay informed about compromised accounts and passwords.
+{note}'''Note:''' This feature is being introduced gradually, starting in [[Find what version of Firefox you are using|Firefox version]] 152, and may not yet be available to all Firefox users.{/note}
+
+__TOC__
+
+=What are breach alerts?=
+Breach alerts notify you when Firefox detects that a website you visit has been involved in a known data breach. Mozilla Monitor can help you determine whether your information was affected and provide recommendations for protecting your accounts. 
+
+Alerts appear inside the '''Unified Trust Panel''' (the shield icon near the address bar).
+
+=What actions can I take?=
+Depending on the breach, Mozilla Monitor  may recommend actions such as:
+*Changing your password for the affected website
+*Reviewing saved credentials in Firefox
+*Visiting the affected website to learn more about the breach and any steps they recommend
+*Protecting your email address with [https://relay.firefox.com/ Relay]
+If you use Mozilla Monitor, you may also receive additional breach-specific recommendations through that service. Learn more about Mozilla Monitor: [[Get started with Mozilla Monitor]]
+
+=How Firefox uses breach information=
+Firefox uses data from Mozilla Monitor and known breach databases to determine whether alerts should appear. When you visit a website, we’ll check Mozilla Monitor to determine if the site was part of a known data breach in the past year. This check is based on publicly known breach information about the site, not your personal data.
+
+Firefox does not display sensitive breach details in the Unified Trust Panel.
+
+=Frequently asked questions=
+==Will Firefox notify me about every breach?==
+No. Firefox only shows alerts for relevant breaches that occurred in the past year, especially those involving exposed passwords. Breach alerts are currently only shown to non-Monitor users.
+
+==I have signed up for Mozilla Monitor, but why am I not seeing alerts in Firefox?==
+The current Mozilla Monitor will continue to receive Monitor breach alerts in their inbox and, in the near future, will also receive them in the browser.
+
+==Should I stop using a website if it’s been part of a breach?==
+Not necessarily. A breach doesn’t always mean a website is unsafe to use, but it is a sign to take precautions. If one of your accounts was affected, update your password immediately, enable two-factor authentication if available, and avoid reusing that password on other sites.
+
+==Why do I still see a breach alert after visiting the site?==
+If you have not dismissed the notification or resolved the issue, Firefox may continue showing the alert.
+
+==What happens if I dismiss a breach alert?==
+Firefox will stop showing the alert for that breach.
+
+==What if my information was not found in the breach?==
+Firefox may still notify you that a breach occurred to help you stay informed and encourage safer browsing habits.
+
+=Related articles=
+*[[How do I tell if my connection to a website is secure?]]
+*[[Integrate Firefox Relay into the Firefox Password Manager]]
+*[[Manage your logins with the Firefox Password Manager]]

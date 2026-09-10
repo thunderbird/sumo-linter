@@ -1,0 +1,14 @@
+{for not fx61}[[Template:update fx desktop]]{/for}
+
+=How do I know if I have hidden tabs?=
+When you hide a tab for the first time using an extension, Firefox will alert you. From here, you can keep the tab hidden or unhide it and disable the extension.
+
+Clicking [[Image:hidden tabs icon 61]] will also show you what tabs you have hidden.
+
+=How do I access my hidden tabs?=
+Access your hidden tabs by clicking the [[Image:hidden tabs icon 61]] icon on the toolbar. 
+;[[Image:hidden tabs 61]]
+
+=How do I find a hidden tab that is playing audio?=
+When a hidden tab is playing sound, the speaker icon will show up on the hidden tab icon [[Image:hidden tab audio 61]]. If you click on the icon, the audio indicator will also show which hidden tab from the list is playing audio.
+;[[Image:hidden tab audio list 61]]

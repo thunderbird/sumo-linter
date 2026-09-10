@@ -1,0 +1,48 @@
+The Firefox [https://wikipedia.org/wiki/Web_cache cache] temporarily stores images, scripts, and other parts of websites you visit in order to speed up your browsing experience. This article describes how to clear the cache.
+* To clear your history (cookies, browsing history, cache, etc.) all at once, see [[Delete browsing, search and download history on Firefox]].
+
+__TOC__
+
+= Clear the cache =
+# [[T:optionspreferences]]
+# Select the {for not fx151}{menu Privacy & Security}{/for}{for fx151}{menu Privacy and security}{/for} panel.
+# In the {for not fx152}'''Cookies and Site Data'''{/for}{for fx152}'''Browsing data'''{/for} section, click {for not fx145}{button Clear Data…}{/for}{for fx145}{button Clear browsing data}{/for}.
+#* The ''Clear browsing data and cookies'' dialog will open.
+#;{for not fx152}[[Image:Fx128CookiesAndSiteData-ClearData-TemporaryCachedFiles]]{/for}{for fx152}[[Image:fx152browsingdata]]{/for}
+# On the dropdown next to '''When:''', choose '''Everything'''. Make sure that only '''Temporary cached files and pages''' is check marked.
+#* For more information about managing site data, see [[Manage local site storage settings]].
+# Click the {button Clear} button.
+# [[T:closeOptionsPreferences]]
+{note}
+'''Tip:''' Here's another way to clear the Firefox cache:
+# [[Template:fx29menu]]
+# Click {menu History} and select {menu Clear Recent History…}
+# Next to '''When:''', choose '''Everything''' from the drop-down menu, select '''Temporary cached files and pages'''{/for} in the items list, make sure other items you want to keep are not selected, then click the  {button Clear} button.
+See [[Delete browsing, search and download history on Firefox#w_how-do-i-clear-my-history|this article]] for details.
+{/note}
+
+= Automatically clear the cache =
+You can set Firefox to automatically clear the cache when Firefox closes:
+{for not fx152}
+# [[T:optionspreferences]]
+# [[Template:customhistory]]
+#;{for not fx151}[[Image:Fx100Custom-ClearHistoryWhenFirefoxCloses]]{/for}{for fx151}[[Image:Fx151settings-CustomizeHistoryClear]]{/for}
+# Select the check box for '''Clear history when Firefox closes'''.
+# Click the {button Settings…} button. The ''Clear browsing data and cookies'' dialog will open.
+#;[[Image:Fx128ClearHistoryWhenFirefoxCloses-TemporaryCachedFiles]]
+# Put a check mark next to '''Temporary cached files and pages''' and make sure other items you want to keep are not selected.
+#* For more information about other settings, see [[Delete browsing, search and download history on Firefox]].
+# Click {button Save Changes} to close the ''Clear browsing data and cookies'' dialog.
+# [[T:closeOptionsPreferences]]
+{/for}
+{for fx152}
+# [[T:optionspreferences]]
+# [[Template:customhistory]]
+#;[[Image:Fx152HistoryAdvanced-ClearHistoryWhenFirefoxCloses|width=500]]
+# Select the check box for '''Clear history when Firefox closes'''.
+# Click the {button Settings…} button. The ''Clear browsing data and cookies'' dialog will open.
+#;[[Image:Fx128ClearHistoryWhenFirefoxCloses-TemporaryCachedFiles]]
+# Put a check mark next to '''Temporary cached files and pages''' and make sure other items you want to keep are not selected.
+#* For more information about other settings, see [[Delete browsing, search and download history on Firefox]].
+# Click {button Save Changes} to close the ''Clear browsing data and cookies'' dialog.
+{/for}

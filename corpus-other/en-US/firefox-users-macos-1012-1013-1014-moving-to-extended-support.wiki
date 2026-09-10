@@ -1,0 +1,21 @@
+[[Find what version of Firefox you are using|Firefox version]] 115 is the last supported version for users of macOS 10.12 (Sierra), macOS 10.13 (High Sierra) and macOS 10.14 (Mojave). If you have been using Firefox on these macOS versions, you will be moved to the Firefox [https://www.firefox.com/browsers/enterprise/ Extended Support Release] (ESR) channel through an application update.
+
+If you visit the Firefox download page at https://www.firefox.com/ while using macOS 10.12 (Sierra), macOS 10.13 (High Sierra) or macOS 10.14 (Mojave), you will be prompted to download Firefox Extended Support Release (ESR) to install the latest Firefox 115 ESR version.
+{warning}Mozilla will provide security updates for Firefox 115 ESR until March 2027. It was previously announced that support would end after August 2026, but in order to ensure our users can continue to browse the web, we will extend support another six months and re-evaluate. After that, if support is not extended, users should upgrade their operating system to continue receiving Firefox security and feature updates.{/warning}
+;[[Image:DownloadFirefoxESR-mac|width=800]]
+
+=Will Firefox further extend support for macOS 10.12, 10.13 and 10.14 users?=
+It was previously announced that support would end after August 2026, but in order to ensure our users can continue to browse the web, we will extend support for Firefox for these operating systems for another six months and then re-evaluate.
+
+While Apple doesn’t have an official policy governing security updates for older macOS releases, its ongoing practice has been to support the three most recent releases. The last security update for macOS 10.14 was in July 2021. Unsupported operating systems receive no security updates and are vulnerable to known exploits. With no official support from Apple, maintaining Firefox for obsolete operating systems becomes costly for Mozilla and dangerous for users.
+
+<!-- needs review: Chrome, Edge still supported on High Sierra (10.13) and later – see discussion
+=Will switching to a different browser keep me protected?=
+No. Most browsers, including Google Chrome, Microsoft Edge and Apple Safari, have already ended support for macOS 10.12, 10.13 and 10.14.
+-->
+
+=Can I still browse safely with Firefox on macOS 10.12, 10.13 or 10.14?=
+Mozilla is providing critical security updates through the [https://www.firefox.com/browsers/enterprise/ Firefox ESR] channel up until the end of ESR version 115 as of March 2027. After this, no security updates will be provided and you are strongly encouraged to upgrade to a supported macOS version.
+
+=How can I get the newest features of Firefox?=
+To keep your Firefox up to date with all the latest features and updates, you need to upgrade your operating system to macOS 10.15 or higher. In some cases, Apple may require newer hardware to support the newer operating system. After upgrading, you can easily reinstall Firefox and [[Back up and transfer your Firefox data to a new device|keep all of your settings]].

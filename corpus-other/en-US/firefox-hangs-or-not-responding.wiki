@@ -1,0 +1,78 @@
+When Firefox '''hangs''', it stops responding to your clicks and keystrokes and doesn't seem to be doing anything. {for win}Also, a "(Not Responding)" label is displayed in the title bar and the mouse cursor becomes a spinning wheel when it's over the Firefox window.{/for}{for not win}Also, the mouse becomes a spinning wait cursor when it's over the Firefox window.{/for} This article gives you solutions to Firefox hangs depending on when they happen.
+* If Firefox does not start at all, see [[Firefox won't start - find solutions]].
+* If Firefox uses a lot of computer resources, see [[Fix Firefox using too much memory or CPU resources]].
+* If you get an "unresponsive script" warning, see [[Warning Unresponsive script - What it means and how to fix it]].
+* If Firefox closes unexpectedly, see [[Troubleshoot Firefox crashes (closing or quitting unexpectedly)]].
+To resolve problems not specifically mentioned in this article, or if the suggested solutions do not solve the problem, see [[Troubleshoot and diagnose Firefox problems]].
+{note}'''Note:''' If you [[Send performance data to Mozilla to help improve Firefox|send performance data]], Mozilla will gather data including hangs for your Firefox, which will help making Firefox better for future versions.{/note}
+
+__TOC__
+
+{for win}
+= Firefox hangs as soon as it opens =
+Interactions between certain Internet security software (firewall or anti-virus) can cause Firefox startup hangs on some systems. A [[Update Firefox to the latest release|Firefox update]] or security software update may resolve this problem. You can also try to [[Configure firewalls so that Firefox can access the Internet|reconfigure your firewall]] or disable your antivirus software temporarily, to see if the problem goes away. If your Internet security software is causing the issue, contact the software provider's support site or switch to a different product.
+{/for}
+
+= Firefox hangs at random times =
+If Firefox seems to hang randomly and not after a specific action (for example, downloading a file or quitting Firefox), try the solutions in this section.
+
+==Create a new ''places'' database==
+If hangs are '''periodic''', it may be caused by a corrupted ''places'' database. 
+{note}'''Information''': The "places" files store the annotations, bookmarks, favorite icons, input history, keywords, and browsing history (a record of visited pages). 
+{/note}
+To create a new ''places'' database, do the following:
+{warning}'''Warning:''' This will clear your browsing history and remove bookmarks of the day.{/warning}
+#[[Template:profileFolder]]
+#[[T:closeFirefox]] Wait until Firefox has completely quit.
+# In the Firefox profile folder, find and rename the files '''places.sqlite''' to '''places.sqlite.old''' and '''places.sqlite-journal''' to '''places.sqlite-journal.old''' (if it exists).
+#* To rename a file, {for win,linux}right-click on it and select rename from the menu{/for}{for mac}click on it once to select it and then click a second time on the file name to make it editable{/for}. Then add .old to the end of its name.
+# Finally, reopen Firefox.
+#* When Firefox reopens it will create a new ''places'' database. Your browsing history will be lost but Firefox will automatically import your bookmarks from the most recent backup file.
+
+==Turn off hardware acceleration==
+With some graphics card and graphics driver setups, Firefox may hang when using hardware acceleration. You can try turning off hardware acceleration to see if it fixes the problem.
+
+[[Template:DisableHWAFirefox]]
+
+If the problem is no longer happening, then hardware acceleration was likely the cause.  You can try [[Upgrade your graphics drivers to use hardware acceleration and WebGL|updating your graphics drivers]] to see if that fixes it or simply run without hardware acceleration.
+
+==Change the PAC implementation==
+If you're using a proxy auto-config file (PAC), Firefox may hang when you attempt to load sites that don't exist or that you haven't opened recently. To determine if you use an automatic proxy configuration file, check your [[Connection settings in Firefox|connection settings in Firefox]]:
+#[[T:optionspreferences]]
+#{for not fx152}In the {menu General} panel, go to the {for not fx149}''Network Settings''{/for}{for fx149}''Proxy settings''{/for} section{/for}{for fx152}Select {menu Privacy and security}, go to the ''Connection and software security''  section and click {menu Advanced settings}{/for}.
+#{for fx152}Go to '''Proxy settings''' and click{/for}{for not fx152}Click{for not fx149} {menu Settings…}{/for}{/for}{for fx149} {menu Configure proxy}{/for}. The Connection Settings dialog will open.
+#If '''Automatic proxy configuration URL''' is selected, you are using an automatic proxy configuration file. Do not disable this setting, which will prevent you from accessing the Internet. Instead, provide [https://bugzilla.mozilla.org/show_bug.cgi?id=235853#c216 this workaround] to your network administrator.
+#Click {button Cancel}.
+
+= Firefox hangs after using it for a long time =
+Firefox may hang if left open for long periods of time. To fix the issue, restart Firefox.
+
+If you regularly leave Firefox open so that you return to where you left off, you may want to use Firefox's Session Restore feature. For more information, see [[Restore previous session - Configure when Firefox shows your most recent tabs and windows#w_configuring-session-restore|Configuring session restore]].
+
+= Firefox hangs when downloading files or saving images =
+If Firefox hangs when you attempt to download a file or save an image, try these solutions:
+
+==Clear download history==
+Firefox may hang when downloading files if your download history has grown too large. To clear the download history:
+#Open the Library window using one of these methods:
+#*Click the Downloads button [[Image:Screenshots down arrow icon fx55]] on the toolbar, if it's available, and click {menu Downloads} from the menu.
+#*[[Template:OpenDownloadsLibrary]]
+#Click the {button Clear Downloads} button at the top of the Library window.
+# Download some sample files to see if the hanging has stopped.
+{note}For more information about managing your downloads, see [[Where to find and manage downloaded files in Firefox]].{/note}
+
+==Choose a different download folder==
+Firefox may hang if the last download folder location (such as a shared volume or USB drive) is no longer available. To fix this:
+#[[T:optionspreferences]] 
+# {for not fx152}In the {menu General} panel, go to the ''Files and Applications'' section{/for}{for fx152}Select {menu Downloads} on the left{/for}.
+# Under '''Downloads''' ''Save files to'', click the {for mac}{button Choose}{/for}{for win,linux}{button Browse}{/for} button.
+# In the {for not fx145}''Choose Download Folder''{/for}{for fx145}''Select Folder''{/for} window, choose a new folder location.
+# [[T:closeOptionsPreferences]]
+See if you are now able to download files or save images. If this works, you can go back to your Firefox settings, if you wish, and select {for not fx152}{menu Always ask you where to save files}{/for}{for fx152}{menu Ask where to save files before downloading}{/for}.
+
+= Firefox hangs when you quit it =
+Sometimes when you close Firefox, it may stop responding and remain in memory, even though no Firefox windows are open. This can prevent Firefox from working properly the next time you open it or you may see a "Close Firefox" dialog box with an error message, {for win,linux}''Firefox is already running, but is not responding.''{/for}{for mac}''A copy of Firefox is already open.''{/for}  You must then end all Firefox processes or restart the computer before you can reopen Firefox (see [["Firefox is already running but is not responding" error message - How to fix it]] for other causes and solutions).
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Firefox_hangs Firefox hangs (mozillaZine KB)]'''''

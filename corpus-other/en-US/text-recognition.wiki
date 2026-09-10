@@ -1,0 +1,44 @@
+Text Recognition allows you to extract text from a selected image on your current webpage. Whether it is a memorable caption in a meme or contact information in a screenshot event flyer, you can copy that text to share, store, or look up without needing to manually retype everything.
+
+This feature is also compatible with VoiceOver, the built-in macOS screen reader. 
+
+{note}Note: 
+*Text recognition is available in [[Find what version of Firefox you are using|Firefox version]] 106 and above.
+*At this time, this feature is only supported on macOS 10.15 (Catalina) or higher. 
+*If you are using macOS 10.15 (Catalina), Text Recognition only supports English. However, if you are using macOS 11.0 (Big Sur) or higher, Text Recognition is available in the following languages at different recognition levels:
+
+'''More Accurate Recognition:''' English, Chinese, Portuguese, French, Italian, German, and Spanish 
+
+'''Faster Recognition: '''English, Portuguese, French, Italian, German, and Spanish
+{/note}
+__TOC__
+=Using Text Recognition=
+To copy text from an image, simply right-click on it and select {menu Copy Text from Image} from the menu that appears. 
+
+Don't see the menu after right-clicking? Try holding {button Shift} while right-clicking, or double-right-clicking on the image to bring it up.
+
+{note}Note: With this feature, you can copy text from any .jpg, .png, and .webp image. Please note that the {menu Copy Text from Image} command will not work on images that were intentionally designed to disable text copying.{/note}
+[[Image:CopyTextImageMacOS|width=600]]
+
+=Pop-up=
+Once you prompt Text Recognition from the menu, you will see a modal popup with a loading animation as Firefox analyzes the image.<br>
+[[Image:MacOStextfromimage|width=600]]
+
+It might take a few more seconds for the feature to load if there’s longer, more complex text in the image you selected.
+
+[[Image:TextfromImageScrollbar|width=600]]
+
+The feature automatically copies all of the extracted text to your clipboard. However, if you’d like to copy only a portion of the text, you will be able to select, highlight, and copy your preferred excerpt with {key command + C}.
+
+To close the modal, you can either click on the {button Close} button or press {key esc}.
+=Data collection=
+We won’t collect any of your personal data apart from the following:
+#Whether or not you prompt the feature via the context menu.
+#Whether or not you use a screen reader for the feature.
+=Screen Reader=
+Text Recognition is compatible with VoiceOver. Once you prompt the feature, the modal will be read as usual by the screen reader. See [[Accessibility features in Firefox - Make Firefox and web content work for all users|Accessibility features in Firefox]]  for more information.
+[[Image:ScreenreaderMacOS|width=800]]
+=Troubleshooting=
+As Text Recognition is a work in progress, you may encounter some text errors if the image has more complex text. If Text Recognition does not work, you will see an error message in the pop-up.
+
+If you encounter any errors with the feature, please [https://bugzilla.mozilla.org/ file a bug on Bugzilla] and try the feature on another image. We hope to improve Text Recognition based on your feedback.

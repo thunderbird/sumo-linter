@@ -1,0 +1,15 @@
+Mozilla ended official support of the Lightbeam extension in October 2019 and has no plans to resume maintenance of it in the future. 
+
+Starting with Firefox 70, you can use [[Enhanced Tracking Protection in Firefox for desktop]] to discover what trackers have been detected and blocked by Firefox. 
+
+__TOC__
+
+=History=
+Lightbeam, which was first published as an experimental release named Collusion, is an extension for Firefox and was released by Mozilla in 2013 to help users understand the array of first and third party companies people interact with every day across the Web. 
+
+Once installed, Lightbeam created a real-time visualization of the websites you visit and all third-party trackers active on those pages. 
+
+When the tracking reports were integrated with Firefox 70 as part of the [[Enhanced Tracking Protection in Firefox for desktop]], Mozilla decided to end official support for the Lightbeam extension. 
+
+=Source Code=
+The Lightbeam [https://github.com/mozilla/lightbeam-we source code] is freely available and distributed under the [https://github.com/mozilla/lightbeam-we/blob/master/LICENSE Mozilla Public License v. 2.0]. You are welcome to [https://developer.mozilla.org/docs/Glossary/Fork fork this project].

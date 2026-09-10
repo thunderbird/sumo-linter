@@ -1,0 +1,35 @@
+Internet Service Providers (ISPs) in Kazakhstan have been prompting users to install a government-issued root certificate on their devices. Many users were not aware that the certificate was being used to intercept their network communications, enabling a [https://wikipedia.org/wiki/Man-in-the-middle_attack Man-in-the-Middle (MITM) attack].
+
+The security and privacy of HTTPS encrypted communications in Firefox and other browsers relies on trusted Certificate Authorities (CAs) to issue website certificates only to someone that controls the domain name or website. However, if you install a root certificate manually, you are choosing to trust a certificate that doesn’t necessarily have to follow any privacy and security standards.
+
+For your security, Firefox will block the use of the Kazakhstan root CA certificate, considering it invalid even if you’ve installed it. 
+
+See [https://blog.mozilla.org/blog/2019/08/21/mozilla-takes-action-to-protect-users-in-kazakhstan/ the Mozilla Blog] for more information.
+
+__TOC__
+
+=How do I know if Firefox has blocked the Kazakhstan root CA certificate?=
+If you attempt to access a site that responds with this certificate, you will get an error message saying the certificate cannot be trusted.
+
+=How do I remove this certificate?=
+{for not fx152}
+#[[Template:optionspreferences]]
+#Go to the {menu Privacy & Security} panel.
+#Scroll down to the end and click {button View Certificates}.
+#Under ''Authorities'', select '''Qaznet Trust network''' from the list and click {button Delete}.
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Select {menu Privacy and security}{/for} on the left.
+#Go down to the ''Connection and software security'' section and click {button Advanced settings}.
+#Go down to the {/for}''Certificates'' section.
+#;[[Image:fx152certificates]]{/for}
+#Click on {button Manage certificates}.
+#Under ''Authorities'', select '''Qaznet Trust network''' from the list and click {button Delete}.
+{/for}
+{note}You may have also installed the root certificate into the operating system (e.g. Windows, Android) of your device. If so, you must also follow instructions specific to your operating system to remove it, or else Firefox may not protect you from this threat.{/note}
+
+=What can I do to protect my privacy?=
+*If you installed the root CA certificate, remove it immediately.
+*Change your passwords to a strong, unique password for each of your online accounts.
+*Research the use of virtual private network (VPN) software, or the [https://www.torproject.org/download/ Tor Browser], to access the Web. The Electronic Frontier Foundation provides helpful guidance on choosing a VPN (see [https://ssd.eff.org/en/module/choosing-vpn-thats-right-you Choosing the VPN That's Right for You]).

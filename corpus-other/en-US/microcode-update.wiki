@@ -1,0 +1,30 @@
+Modern processors are complex devices that can have bugs. Furthermore, instead of executing x86 instructions directly, modern x86 processors contain internal code that implements support for the x86 instruction set. The internal code is called microcode. Microcode can be updated to fix or mitigate CPU bugs.
+
+Some CPU bugs can make Firefox crash. For example, Firefox 57 and later is known to occasionally crash on Broadwell-U CPUs with old microcode in a manner not seen with newer Broadwell-U microcode versions.
+
+Microcode updates can be loaded onto the CPU by firmware (usually called BIOS even on computers that technically have UEFI firmware instead of old-style BIOS) or by the operating system. Microcode updates do not persist across reboot, so in the case of a dual-boot system, if the microcode update isn't delivered via BIOS, both operating systems have to provide the update.
+
+{for mac}
+On Mac, to have an up-to-date system, apply all OS X system updates and Apple firmware updates offered in the Updates pane of the App Store app.
+{/for}
+
+{for win}
+To allow Windows to load updated microcode onto the CPU, make sure Windows Update is enabled and set to install updates.
+
+To see the processor microarchitecture and which microcode revision is in use, run the command 
+<code>reg query HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\CentralProcessor\0</code> in the Windows command prompt. (You can open the command prompt by pressing {key Windows+R}, typing <code>cmd</code> and pressing {key Return}.) The line labeled "VendorIdentifier" shows the CPU vendor (GenuineIntel for Intel or AuthenticAMD for AMD). The line labeled "Identifier" gives the microarchitecture as three numbers: "Family", "Model" and "Stepping". These are relevant in identifying if a particular CPU bug may be relevant to the CPU in your computer. The line labeled "Update Revision" shows the current microcode revision (for the particular microarchitecture) with zeros on both sides. For example, <code>Update Revision    REG_BINARY    000000001E000000</code> means that the revision is 1E (hexadecimal). The line labeled "Previous Update Revision" shows the microcode revision loaded from BIOS.
+
+If the vendor is GenuineIntel, family is 6, model is 61 and stepping is 4, to avoid crashes with Firefox 57 or later, the microcode revision needs to be 1A or higher.
+{/for}
+
+{for linux}
+Whether microcode updates are in use by default depends on the Linux distribution and can differ for Intel and AMD CPUs.
+
+* On Debian-based distributions, including Ubuntu, microcode updates for Intel processors are provided by the <code>intel-microcode</code> package and microcode updates for AMD processors are provided by the <code>amd64-microcode</code> package.
+* On Arch, AMD microcode updates are installed by default, but Intel microcode updates [https://wiki.archlinux.org/index.php/Microcode require special steps].
+* On Fedora, microcode updates are installed by default.
+
+To see the processor microarchitecture and which microcode revision is in use, run the command <code>less /proc/cpuinfo</code> in terminal.  The line labeled "vendor_id" shows the CPU vendor (GenuineIntel for Intel or AuthenticAMD for AMD). The microarchitecture is given as three numbers on lines labeled "cpu family", "model" and "stepping". These are relevant in identifying if a particular CPU bug may be relevant to the CPU in your computer. The line labeled "microcode" shows the microcode revision number (for the particular microarchitecture) in hexadecimal.
+
+If the vendor is GenuineIntel, family is 6, model is 61 and stepping is 4, to avoid crashes with Firefox 57 or later, the microcode revision needs to be 0x1A or higher.
+{/for}

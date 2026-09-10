@@ -1,0 +1,41 @@
+Firefox automatically chooses performance settings based on your computer’s hardware and operating system. These recommended settings work well for most users, but you can adjust them for better speed, lower memory usage, or improved stability.
+
+To change your performance settings:
+#[[T:optionspreferences]]
+#{for not fx152}In the {menu General} panel,{/for}{for fx152}Select {menu Tabs and browsing} on the left and{/for} go down to the ''Performance'' section.
+#Uncheck the box next to '''Use recommended performance settings'''.
+
+{for not fx152}[[Image:Fx94PerformanceSettings]]{/for}{for fx152}[[Image:Fx152settings-PerformanceHWA]]{/for}
+
+You will then be able to change the following:
+
+'''Hardware acceleration:''' Lets Firefox use your computer’s graphics processor (GPU) to display videos, games and animations, reducing load on the main processor (CPU).
+
+Turning this off can help if you experience:
+*Video playback issues or flickering
+*High GPU temperature while browsing
+*Crashes related to graphics drivers
+
+Restart Firefox after changing this setting.
+
+<!-- This - see discussion.
+'''Content process limit:''' Controls how many processes Firefox uses for web content.
+
+Higher limits: Can make pages more responsive, especially with many tabs open, but use more memory.
+
+Lower limits: Save memory on older or low-RAM computers, but may slow down very heavy sites.
+
+Drag the slider to choose between 1 and 8 processes.
+-->
+
+=If you don’t see these options=
+{for linux}
+*If Firefox was installed through your Linux distribution’s package manager, updates and some settings may be controlled by your system.
+{/for}
+*Firefox hides hardware acceleration if your graphics driver isn’t compatible.
+*If using an older or [[Firefox ESR release cycle|ESR]] version of Firefox, the interface may look different. Make sure you’re using the latest release from [https://www.firefox.com/ firefox.com]. For mobile devices, these settings are not available on Android or iOS.
+
+=Related articles=
+*[[Firefox takes a long time to start up]]
+*[[Quick fixes if your Firefox slows down]]
+*[[Firefox starts automatically when I restart Windows]]

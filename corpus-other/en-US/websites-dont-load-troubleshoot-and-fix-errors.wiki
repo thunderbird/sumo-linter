@@ -1,0 +1,102 @@
+'''Are you having trouble getting a website to load?''' Don't worry – we're here to help. This article will show you how to fix the problem so you can get back to surfing the web.
+[[Template:MixedContent]]
+
+__TOC__
+
+=First, let's figure out where the problem is=
+''With a little detective work, we can narrow down the cause of the problem.''
+#Open a new tab and check to see if you can load another website like google<!-- -->.com or mozilla<!-- -->.org.
+#*If you can open another site, skip down to [[#w_the-problem-only-happens-with-certain-websites|The problem only happens with certain websites]].
+#*If you can't open another site, continue on to the next step.
+#Launch another browser, such as {for win}Google Chrome or Microsoft Edge{/for}{for mac}Safari{/for}{for linux}Google Chrome{/for}, and try to open the site you were having problems with.
+#*If the site works in another browser, see [[#w_the-problem-only-happens-in-firefox|The problem only happens in Firefox]].
+#*If the site doesn't work in another browser, check out [[#w_the-problem-happens-in-all-web-browsers|The problem happens in all web browsers]].
+
+=The problem only happens with certain websites=
+If you see any of these error messages, it might just be a problem with Firefox's cache:
+*'''The connection was interrupted'''
+*'''The connection was reset'''
+*'''The connection has timed out'''
+
+==Try clearing Firefox's cookies and cache==
+''Do these steps and then reload the website you're having trouble with.''
+[[T:clearCookiesCache]]
+If clearing Firefox's cookies and cache didn't work, it's probably a sign that there is a problem with the website itself. In that case, you'll just have to wait for it to get fixed. With big sites like Twitter or Facebook, this may only be a few minutes.
+
+'''If you don't see any of the error messages above, check to see if any of the specific problems below match what you see:'''
+
+==The website loads but doesn't work properly==
+If the website doesn't look right or doesn't work the way it's supposed to, you should check out the following articles:
+{for win}
+*[[Websites look wrong or appear differently than they should]]
+*[[Fix problems that cause images to not show]]
+*[[Fix common audio and video issues]]
+*[[Websites show a spinning wheel and never finish loading]]
+*[[Fix login issues on websites that require a username and password]]. You may receive an error similar to ''We were unable to process your login request'' or ''An unspecified error has occurred'' when you attempt to sign in to websites with your username and password, or the login may simply fail.
+{/for}
+{for mac,linux}
+*[[Websites look wrong or appear differently than they should]]
+*[[Fix problems that cause images to not show]]
+*[[Fix common audio and video issues]]
+*[[Fix login issues on websites that require a username and password]]. You may receive an error similar to ''We were unable to process your login request'' or ''An unspecified error has occurred'' when you attempt to sign in to websites with your username and password, or the login may simply fail.
+{/for}
+
+==The problem only happens on a secure (https) website==
+Check if you see one of the following error messages:
+*For a {for not fx149}''Warning: Potential Security Risk Ahead''{/for}{for fx149}''Warning: Security Risk''{/for} error page, see the articles [[What do the security warning codes mean?]] and [[Troubleshoot security error codes on secure websites]].
+*{for fx149}If the Advanced section of the ''Warning: Security Risk''{/for}{for not fx149}For a ''Your Computer Clock is Wrong'' error page, or if the ''Warning: Potential Security Risk Ahead''{/for} error page refers to an expired certificate or computer clock, see [[Troubleshoot time-related errors on secure websites]].
+*For a ''Secure Connection Failed'' error page, see [[Secure connection and security warning error pages in Firefox]].
+
+=The problem only happens in Firefox=
+If another web browser works just fine, one of following solutions should fix things:
+*[[Firefox can't load websites but other browsers can]] – if you can view websites in browsers other than Firefox.
+*[[Fix problems connecting to websites after updating Firefox]] – if you experience connection problems after updating Firefox.
+If you see the following error messages, Firefox is trying to access the Internet through a [http://en.wikipedia.org/wiki/Proxy_server proxy server]:
+*'''The proxy server is refusing connections'''
+*'''Unable to find the proxy server'''
+{for win}See [https://support.microsoft.com/en-us/windows/use-a-proxy-server-in-windows-03096c53-0554-4ffe-b6ab-8b1deee8dae1 Use a proxy server in Windows] at Microsoft Support{/for}{for mac}See [https://support.apple.com/guide/mac-help/mchlp2591/mac Enter proxy server settings on Mac] at Apple Support{/for} for more information on proxy settings.
+
+To check your [[Connection settings in Firefox|connection settings in Firefox]]:
+{for not fx152}
+#[[T:optionspreferences]]
+#In the {menu General} panel, go to the {for not fx149}''Network Settings''{/for}{for fx149}'''Proxy settings'''{/for} section.
+#Click {for not fx149}{menu Settings…}{/for}{for fx149}{menu Configure proxy}{/for}. The ''Connection Settings'' dialog will open.
+#Change your proxy settings:
+#*If you don't connect to the Internet through a proxy (or don't know whether you connect through a proxy), select '''No Proxy'''.
+#Close the ''Connection Settings'' dialog.
+#[[T:closeOptionsPreferences]]
+{/for}
+{for fx152}
+#[[T:optionspreferences]]
+#Select {menu Privacy and security} on the left and go to the ''Connection and software security''  section.
+#;[[Image:Fx152settings-ConnectionAndSoftwareSecurity]]
+#Click {menu Advanced settings} and go to '''Proxy settings'''. 
+#;[[Image:Fx152ProxySettings|width=500]]
+#Click {menu Configure proxy}. The ''Connection Settings'' dialog will open.
+#Change your proxy settings:
+#*If you don't connect to the Internet through a proxy (or don't know whether you connect through a proxy), select '''No Proxy'''.
+#Close the ''Connection Settings'' dialog.
+#[[T:closeOptionsPreferences]]
+{/for}
+
+=The problem happens in all web browsers=
+This is probably a problem with your Internet connection. See [[Firefox and other browsers can't load websites]] for some troubleshooting suggestions.
+
+=Other, less common problems=
+*'''A website reports that Firefox is outdated, incompatible or not supported''' – see [[How to reset the default user agent on Firefox]].
+*'''Malicious website errors''' – if you see a ''Suspected Attack Site!'' or ''Suspected Web Forgery!'' warning, Firefox has blocked access to the website you're visiting to protect you from [http://en.wikipedia.org/wiki/Malware malware] or [http://en.wikipedia.org/wiki/Phishing web forgery (phishing)]. For more information, see [http://www.mozilla.org/firefox/phishing-protection/ Phishing and Malware Protection (Mozilla.org)].
+*'''Offline mode''' – if you see a message about offline mode, you may have set Firefox not to use your network connection. Make sure your computer has a network connection and then:
+**{for not fx89}Click the menu button [[Image:New Fx Menu]], click {menu More} and make sure {menu Work Offline} is unchecked.{/for}{for fx89}Click '''File''' in the Menu bar {for win,linux}(you can press and release the {key Alt} key to temporarily show the Menu bar){/for}, then make sure {menu Work offline} is unchecked.{/for}
+*'''The page isn't redirecting properly''' – this problem can be caused by problems with cookies. See [[Websites say cookies are blocked - Unblock them]] for more information.
+*If you get a '''File not found''' error, try the troubleshooting steps in these articles:
+**[[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]]
+**[[Troubleshoot Firefox issues caused by malware]]
+*'''Content Encoding Error''' – if you get the error message ''Content Encoding Error'' or ''The page you are trying to view cannot be shown because it uses an invalid or unsupported form of compression'', use these steps to diagnose and fix them:
+*#Check the settings of any Internet security applications you use (including firewalls, antivirus or anti-spyware programs, and privacy protection programs). You should try to remove any permissions those applications have for Firefox, and then add them again. For program-specific instructions for a number of applications, see [[Configure firewalls so that Firefox can access the Internet]].
+*#Follow the [[Troubleshoot and diagnose Firefox problems|Standard troubleshooting steps]].
+*'''This address is restricted''' – this error occurs when you are attempting to connect to a web server on a [http://en.wikipedia.org/wiki/Port_%28computer_networking%29 port] that is reserved for another application. If the website you are trying to visit contains a colon followed by a number in its address (for example, ''https://website<!-- -->.com:23''), try removing that portion '''https://website<!-- -->.com''' or replacing it with ''':80''' (''https://website<!-- -->.com:80''). If this doesn't work, you may have been given an incorrect address.
+*'''DNS cache is invalid''' – DNS is the service that converts a website's domain name into the IP address that Firefox uses to connect to a website. This information is saved to your computer's DNS cache in order to improve speeds. However, if the DNS cache record is corrupt or the website has changed IP address, Firefox may be directed to the incorrect server. The [[Firefox and other browsers can't load websites#w_dns-cache]] article explains how to flush the DNS cache. For additional information, see [https://www.whatsmydns.net/flush-dns.html].
+
+<!-- MZ credit -->
+<br><br>
+'''''Based on information from [http://kb.mozillazine.org/Error_loading_websites Error loading websites (mozillaZine KB)]'''''

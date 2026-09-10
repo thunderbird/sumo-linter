@@ -1,0 +1,37 @@
+When you visit a website, the {for not fx149}Site Identity button (a padlock){/for}{for fx149}Unified Trust Panel icon (a shield){/for} appears in the address bar to the left of the web address. You can quickly find out if the connection to the website you are viewing is encrypted, and, in some cases, who owns the website. This should help you avoid malicious websites that are trying to obtain your personal information.
+;{for fx149}[[Image:Fx149UnifiedTrustAddressbar-Secure]]{/for}{for not fx149}[[Image:Fx138AddressBarPadlock]]{/for}
+{for not fx149}When viewing a secure website, the Site Identity button will be a padlock [[Image:Fx89Padlock]]. In a few cases, however, you may see a padlock with a warning triangle [[Image:Fx89Padlock-Triangle]] or a padlock with a red strike over it [[Image:Fx89Padlock-RedLine]].{/for}
+{note}Clicking the {for fx149}shield{/for}{for not fx149}padlock{/for} to the left of the address bar brings up the [[Site Information panel|Site Information panel]], which allows you to view more detailed information about the security status of the connection.{/note}
+{warning}'''Warning:''' You should never send any sensitive information (such as bank information, credit card data or social security numbers) to a website if the address bar shows a {for not fx149}padlock with a [[Image:Fx89Padlock-Triangle]] warning triangle or [[Image:Fx89Padlock-RedLine]] {/for}{for fx149}shield [[Image:Fx149UnifiedTrustIcon-NotSecure]] with a{/for} red strike over it. In such cases, you may not be communicating with the intended website and your data isn't safe against eavesdropping!{/warning}
+
+__TOC__
+{for not fx149}
+=Padlock=
+A padlock [[Image:Fx89Padlock]] with no red strike over it indicates that:
+*You’re definitely connected to the website whose address is shown in the address bar and the connection hasn’t been intercepted.
+*The connection between Firefox and the website is encrypted to prevent eavesdropping.
+Click the padlock to find out if the website is using an [https://wikipedia.org/wiki/Extended_Validation_Certificate Extended Validation (EV) certificate]. An EV certificate is a special type of site certificate that requires a significantly more rigorous identity verification process than other types of certificates.<!-- test page: https://www.ssl.com/article/dv-ov-and-ev-certificates/ --> For sites using EV certificates, the legal company or organization name and location of the website owner displays when you click the padlock.
+
+=Padlock with a warning triangle=
+A padlock with a warning triangle [[Image:Fx89Padlock-Triangle]] appears for [[What do the security warning codes mean?|website certificate warnings]], such as for sites with self-signed certificates or certificates that aren’t issued by a trusted authority. This is a problem the site developer needs to resolve.
+{note}Do not send any sensitive information to sites where the Site Identity button is a padlock with a warning triangle.{/note}
+
+=Padlock with a red strike over it=
+A padlock with a red strike over it [[Image:Fx89Padlock-RedLine]] indicates that the connection between Firefox and the website is delivered using an insecure protocol (HTTP). The site doesn't prevent against eavesdropping or [https://wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle attacks].
+{note}Do not send any sensitive information to sites where the Site Identity button is a padlock with a red strike over it.{/note}
+{/for}
+{for fx149}
+=Shield with a check mark=
+A shield [[Image: Fx149UnifiedTrustIcon-Secure]] with a check mark indicates that:
+*You’re definitely connected to the website whose address is shown in the address bar and the connection hasn’t been intercepted.
+*The connection between Firefox and the website is encrypted to prevent eavesdropping.
+Click the shield icon and then click {button Connection secure} at the top of the panel that opens, to find out if the website is using an [https://wikipedia.org/wiki/Extended_Validation_Certificate Extended Validation (EV) certificate].<!-- test page: https://www.ssl.com/article/dv-ov-and-ev-certificates/ --> An EV certificate is a special type of site certificate that requires a significantly more rigorous identity verification process than other types of certificates. For sites using EV certificates, the ''Connection'' panel will display the legal company or organization name and location of the website owner.
+{note}'''Note:''' A shield with a check mark also indicates that [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] is on for the website and is [[Trackers and scripts Firefox blocks in Enhanced Tracking Protection|blocking trackers and scripts]].{/note}
+
+=Shield with an x mark=
+A shield with an x mark [[Image: Fx149UnifiedTrustIcon-ETPoff]] will appear when you turn off [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] (ETP) for a website. If a site seems broken, disabling ETP might fix the issue by allowing trackers and scripts on just that website. You can click the shield icon and toggle the switch to turn protection back on for the site.
+
+=Shield with a red strike over it=
+A shield with a red strike over it [[Image: Fx149UnifiedTrustIcon-NotSecure]] indicates that the connection between Firefox and the website is delivered using an insecure protocol. The site doesn't prevent against eavesdropping or [https://wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle attacks]. It also appears for [[What do the security warning codes mean?|website certificate warnings]], such as for sites with self-signed certificates or certificates that aren’t issued by a trusted authority. This is a problem the site developer needs to resolve.
+{note}Do not send any sensitive information to sites where the Unified Trust Panel icon is a shield with a red strike over it.{/note}
+{/for}

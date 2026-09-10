@@ -1,0 +1,26 @@
+Help improve Sync by reporting errors to Mozilla.
+
+__TOC__
+
+=Sync error logs=
+#Enter '''about:sync-log''' in the Firefox address bar.
+#The page that opens should look something like this: [[Image:about:sync-log]]
+#Click the most recent error log. Save this information for inclusion in the report. Your error log should resemble this text:
+ 1418768368623	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+ 1418768369296	Sync.Tracker.Clients	DEBUG	Saving changed IDs to clients
+ 1418768369581	Sync.Tracker.Bookmarks	DEBUG	Saving changed IDs to bookmarks
+ 1418768371196	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+ 1418768371261	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+ 1418769415642	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+ 1418781030950	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+ 1419283703026	Sync.Service	DEBUG	User-Agent: Firefox/34.0.5 FxSync/1.36.0.20141126041045.
+ 1419283703161	Sync.Service	INFO	Starting sync at 2014-12-22 13:28:22
+ 1419283704123	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+ 1419283704124	Sync.Status	INFO	Resetting Status.
+ 1419283704124	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+ 1419283776848	Sync.Status	DEBUG	Status.sync: success.sync => error.login.reason.network
+ 1419283776848	Sync.Status	DEBUG	Status.service: success.status_ok => error.sync.failed
+ 1419283776849	Sync.SyncScheduler	DEBUG	Next sync in 86400000 ms.
+
+=Filing a bug=
+Mozilla uses Bugzilla to report and fix issues. If you have, or wouldn't mind creating, a Bugzilla account, you can file the bug [https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox&component=Sync directly here].

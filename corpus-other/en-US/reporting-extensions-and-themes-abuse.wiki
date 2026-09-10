@@ -1,0 +1,80 @@
+__TOC__
+
+=What constitutes abuse for an extension or theme?=
+Every extension and theme distributed for use in Firefox is subject to [https://extensionworkshop.com/documentation/publish/add-on-policies/ Mozilla’s add-on policies], which also require compliance with the [https://www.mozilla.org/about/legal/acceptable-use/ acceptable use policy] for Mozilla services. These policies and conditions have been created to protect you from inappropriate content or behavior in extensions and themes for Firefox. The types of content and behavior that are considered inappropriate, and therefore constitute abuse, generally fall into these categories:
+
+'''Damages your computer or data'''
+*Injects a virus, worm or other type of malware
+*Steals identifying or sensitive information
+**For example: logins and passwords, credit card and bank information, authentication tokens, social media profile information, bookmarks and cookies
+*Sends spam links to people in your contact list
+*Steals bandwidth
+*Is difficult or impossible to uninstall
+*Requests or uses your data in ways that don’t match the extension’s description or privacy policy
+**For example, it collects pages you visit without your knowledge or permission, or when it isn’t necessary for the extension to function
+*Mimics warnings and functionality from Firefox or your operating system
+'''Creates spam or advertising'''
+*Inserts advertisements on webpages, especially pages that didn’t previously have ads on them
+*For themes: Inserts irrelevant advertisements in the theme’s background image, or includes unrelated advertisements in the description
+**For example: Includes something like, “Download free movies at www.website<!-- -->.com”
+'''Changed search engine, homepage, or new tab without informing or asking you'''
+*For example: You may have Google as your default search engine, and the extension changed it to something else without informing you or asking for your permission
+{note}'''Note:''' If the extension ''did'' inform you of this change, or ask for your permission to do it, this likely isn’t a case of abuse. You can adjust the settings on your own:
+*[[Manage Firefox search settings|Change your default search settings]]
+*[[How to set the home page|Change your homepage]]
+{/note}
+'''Pretends to be something it’s not'''
+*The description and imagery are false or misleading<br>''Examples:''<br>
+**The description contains random, clickbaity keywords
+**The description didn’t specify the need for payment, and now you are being asked for money
+*Includes features that aren’t necessary for the extension’s purpose, or uses your data in ways that don’t match the extension’s description or privacy policy<br>''Examples:''<br>
+**An extension that collects pages you visit when it isn’t necessary, or without your knowledge and permission
+**A YouTube extension that collects your visited URLs or redirects your searches through an ad network
+'''Doesn’t work, breaks websites, or slows Firefox down'''
+*Doesn’t perform the function described in its description
+*Doesn’t work well
+*Features are slow or hard to use
+*Websites look broken or unusual; parts of websites don’t load, such as forms, comments or widgets
+*Can’t log in or complete a form or transaction
+*Can’t view a video, for example a Facebook Live or YouTube video
+*Social media sharing or buttons don’t work
+*Customer support chats don’t load
+*Text and browser features disappear
+*Negatively impacts Firefox’s performance
+{note}'''Note:''' These kinds of issues might be bugs, rather than instances of abuse. The best way to get a functionality issue resolved is to contact the extension developer. If the extension was installed via [https://addons.mozilla.org addons.mozilla.org] (AMO), return to extension’s product page on AMO to get the developer’s contact information. Otherwise, try searching the web for the developer’s contact information.{/note}
+'''Hateful, violent, sexual or illegal content'''
+*Includes graphic depictions of sexuality or violence
+*Contains abusive or threatening content that targets people based upon race, ethnicity, gender, sexual orientation, religion, disability, age, etc.
+*Contains content that threatens or bullies other people
+*Promotes illegal activities, such as gambling or pornography
+{note}'''Note:''' Copyright and trademark issues must be reported in a separate process. [https://www.mozilla.org/about/legal/report-infringement/ Use these instructions] to report a problem. {/note}
+'''Never wanted this extension and can’t get rid of it'''
+*You don’t remember installing the extension, or you were tricked or forced into installing it from a website
+**For example: The extension trapped you in full-screen mode, or an application installed it without your permission
+*It’s difficult or impossible to uninstall
+'''Some things that don’t constitute abuse include'''
+*A lack of functionality compared to the extension’s description
+*Poorly working or difficult-to-use features
+*Slow functioning features, as long as these don’t affect the overall performance of Firefox
+{note}'''Note:''' These kinds of issues might be bugs, rather than instances of abuse. The best way to get a functionality issue resolved is to contact the extension developer. If the extension was installed via [https://addons.mozilla.org addons.mozilla.org] (AMO), return to extension’s product page on AMO to get the developer’s contact information. Otherwise, try searching the web for the developer’s contact information.{/note}
+
+=How do I report an extension or theme?=
+You can report an extension or theme directly in Firefox or on the [https://addons.mozilla.org/firefox/ AMO product page] for the extension or theme.
+
+'''To submit a report in Firefox:'''
+#[[T:Open Add-ons|type=Extensions or Themes]]
+#Select the extension or theme you would like to report.
+#Click the ellipsis (3-dot) icon and select '''Report'''.<br>[[Image:fx72 report extensions|width=250]]<br>
+#Select a reason for reporting the extension and click '''Next'''.
+#;[[Image:Report add-on abuse|width=900]]
+#Provide more information about your report (optional).
+#Click '''Submit'''.
+'''To submit a report on the extension or theme’s [https://addons.mozilla.org/firefox/ AMO product page]:'''
+#Go to the [https://addons.mozilla.org/firefox/ Firefox Add-ons] page for the extension or theme and click {button Report this add-on for abuse}.
+#;[[Image:report addon button]]
+#Select a reason for reporting the extension and click '''Next'''.
+#Provide more information about your report (optional).
+#Click '''Submit'''.
+
+=What happens next?=
+Your abuse report is sent to the Firefox add-ons team for review. If they confirm that the extension or theme is abusing the Mozilla add-on policies or conditions of use, the extension or theme is removed from [https://addons.mozilla.org addons.mozilla.org] until the developer fixes the issues. Depending on the history and severity of the abuse, the add-ons team may issue a block that prevents the extension or theme from loading in Firefox. For more information, see [[Why does Mozilla disable some add-ons from running in Firefox?]]

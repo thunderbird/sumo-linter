@@ -1,0 +1,40 @@
+We have received reports from many users who were interrupted in their browsing experience and who got redirected to a fake page pretending to provide an "important", "urgent" or "critical" update. Some people have also reported seeing ads prompting them to download a Firefox update or occurrences of fake ''Firefox requires a manual update'' pages that try to trick them into installing a malicious extension.<!-- https://support.mozilla.org/en-US/questions/1212814#answer-1098064 --> These are scam tactics to trick you into installing malware!
+
+__TOC__
+
+=What is a fake Firefox update notice?=
+To our knowledge, fake update notices are a form of "[https://en.wikipedia.org/wiki/Malvertising malvertising]". Those fake notices get triggered by code contained in ads that are displayed on otherwise legitimate websites you are visiting and get spread through advertisement networks.
+
+This is an example of what a fake Firefox update notice might look like.  These are hosted on randomly generated and quickly changing domains:
+
+[[Image:Fake Important Firefox Update available]]
+
+Firefox has an automated background update mechanism that will never prompt you to manually download and execute a file, except in the case of a Heartbeat notification (see below). You can always manually check for Firefox updates – to learn how, see [[Update Firefox to the latest release]].
+
+==Heartbeat notifications==
+[[Image:Heartbeat-Fx55CriticalUpdatePrompt]]
+<!-- L10N Note: This notification is part of the Heartbeat shield study (https://wiki.mozilla.org/Firefox/Shield/Heartbeat), targeting only limited set of locales (en-US, es, de and few others). See https://support.mozilla.org/en-US/forums/contributors/712991 --><br>
+If you start Firefox and see a notification bar with a Heartbeat [[Image:HeartbeatIcon]] icon, the message ''Your Firefox is critically out of date. An update is required to stay secure'' and an {button Update Now} button, this is a legitimate Firefox update notice and you should update Firefox. To learn more about the "Heartbeat" feature, see the article [[Rate your Firefox experience, surveys and out of date messages (Heartbeat)]] and [https://wiki.mozilla.org/Firefox/Shield/Heartbeat this Mozilla Wiki page]. <!--https://support.mozilla.org/en-US/questions/1192712-->
+
+=What you can do if you spot a fake update notice?=
+* Never click on these fake update notices.
+* Never save or open/run unsolicited files!
+* Install an ad-blocking add-on from [https://addons.mozilla.org/firefox/extensions/privacy-security/ addons.mozilla.org] to avoid such kind of malvertising in the future.
+* Report the page to [https://www.google.com/safebrowsing/report_phish/?tpl=mozilla Google Safe Browsing].
+
+=What you can do to prevent malware on your computer=
+* Run a malware scan on your computer to make sure your computer was not infected. (See [[Troubleshoot Firefox issues caused by malware]].)
+* Avoid downloads from unreliable sources in the future.
+
+=To learn more about malware and protection=
+* [https://www.avg.com/en/signal/what-is-malware What Is Malware? The Ultimate Guide to Malicious Software] (''AVG Signal Blog'')
+{for win}
+* [https://www.microsoft.com/en-us/microsoft-365-life-hacks/privacy-and-safety/what-is-malware-and-how-can-you-protect-yourself What Is Malware And How Can You Protect Yourself?] (''Microsoft 365 Life Hacks'')
+
+* [https://support.microsoft.com/windows/protect-my-pc-from-viruses-b2025ed1-02d5-1e87-ba5f-71999008e026 Protect my PC from viruses] (''Microsoft Support'')
+{/for}
+{for mac}
+* [https://discussions.apple.com/thread/5285635?tstart=0 Apple Forums advice on if you have malware]
+{/for}
+
+Fake updates have been spotted for other popular browsers. Although we cannot root out every bad actor on the web, we are continuing to improve Firefox's defenses against malware. Knowing how to recognize and report such frauds helps us keep the Internet open and safer.

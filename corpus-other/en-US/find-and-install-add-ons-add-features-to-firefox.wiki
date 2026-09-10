@@ -1,0 +1,43 @@
+Add-ons let you add bells and whistles to Firefox. You can get add-ons that compare prices, check the weather, change the look of Firefox, listen to music, or even update your Facebook profile. This article covers the different types of add-ons available and how to find and install them.
+
+__TOC__
+
+= What types of add-ons can I install? =
+These general types of add-ons can be installed:
+* '''[https://addons.mozilla.org/firefox/extensions/ Extensions]'''<br>Extensions add new features to Firefox or modify existing ones. There are extensions that allow you to block advertisements, download videos from websites, integrate Firefox with websites like e-mail or Facebook, check your grammar and spelling, and so on. Community-created extensions can be found on [https://addons.mozilla.org/firefox/extensions/ addons.mozilla.org].
+* '''[[Use themes to change the look of Firefox|Themes]]'''<br>Themes change the visual appearance of Firefox by setting a custom background image in the browser's header section and the colors used in the tab strip, address bar, menus, and so on. Firefox includes built-in themes and others created by the community can be found on [https://addons.mozilla.org/firefox/themes/ addons.mozilla.org]. For more information on built-in themes, see [[Built-in themes in Firefox - alternative to complete themes]].
+* '''Plugins'''<br>Firefox automatically downloads and installs the Google Widevine CDM for watching [[Watch DRM content on Firefox|Digital Rights Management (DRM) controlled content]] and an [[Why is there an OpenH264 plugin in Firefox?|OpenH264 plugin]] for video calls. 
+* '''[https://addons.mozilla.org/firefox/language-tools/ Dictionaries]'''<br>[[How do I use the Firefox spell checker?|Firefox can check your spelling]], but not all locales come with a dictionary installed for licensing reasons. You can [https://addons.mozilla.org/firefox/language-tools/ find and install a dictionary] for your language.
+* '''[https://addons.mozilla.org/firefox/language-tools Language Packs]'''<br>Language packs change the language of Firefox's user interface. You can [[Use Firefox in another language|change languages in Firefox's settings menu]] and community-created language packs can be found on [https://addons.mozilla.org/firefox/language-tools/ addons.mozilla.org].
+* '''[[Change your default search settings in Firefox|Search engines]]'''<br>Firefox comes with a number of search engines already installed. You can access them from the [[Add the Search bar to your Firefox toolbar|Search bar (if enabled)]] or directly from the address bar. If you want additional search engines, you can [[Add or remove a search engine in Firefox|install them]] on the websites directly or from [https://addons.mozilla.org/firefox/search-tools/ addons.mozilla.org].<!-- L10n note: If there is a list of recommended search modules for your region (e.g. a collection on AMO), you can link it from here. -->
+
+== Viewing and managing your installed add-ons ==
+Most types of add-ons can be managed directly from Firefox's Add-on Manager. To access the Add-on Manager: 
+#Click the menu button [[Image:IG main menu]], click {menu Extensions and Themes}. The Add-ons Manager tab will open.
+# Select the panel for the type of add-on you wish to view or manage, such as the {menu Extensions} or {menu Themes} panel.
+Search engines can be viewed and managed in the [[Manage Firefox search settings|Search panel]] in Firefox [[T:optionsorpreferences]].
+
+For detailed information on disabling or removing add-ons, see [[Disable or remove Add-ons]].
+
+= How do I find and install add-ons? =
+Here is an overview to get you started:
+# Firefox may offer [[Personalized extension recommendations|personalized recommendations]]. [[T:Open Add-ons|type=Recommendations]]
+# To install a recommended add-on, click the blue {button + Install Theme} or {button + Add to Firefox} button, depending on the type of add-on.
+At the bottom of the list of recommended add-ons, there's also a {button Find more add-ons} button you can click. It will take you to [https://addons.mozilla.org?utm_source=support.mozilla.org&utm_medium=support-article&utm_content=find-and-install-add-ons-add-features-to-firefox addons.mozilla.org] where you can search for specific add-ons.
+{note}'''For advanced users:''' You can also install a signed add-on from a file. When you install an extension from [https://addons.mozilla.org/ addons.mozilla.org] or a developer's website, Firefox will automatically download and install a file with a .xpi extension. If you save this file to your computer, you can later install the add-on using the gear icon [[Image:Fx91GearIcon]] in the upper-right area of the Add-ons Manager {menu Extensions} panel. Select {menu Install Add-on from file…} from the menu, then find and select the file.<!-- See also: https://support.mozilla.org/en-US/kb/unable-install-add-ons-extensions-or-themes#w_you-are-asked-to-download-the-add-on-rather-than-installing-it -->{/note}
+Once an extension has been installed, you can pin its icon to the toolbar for easy access. See [[Manage your extensions using the extensions button in the toolbar]] for details.
+
+= Troubleshooting add-ons =
+For information on troubleshooting problems with extensions or themes, see the articles below.
+
+== Problems with installing or uninstalling add-ons ==
+* [[Unable to install add-ons or extensions]]
+* [[Cannot uninstall an add-on]]
+
+== Problems caused by add-ons ==
+* [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]]
+* [[Troubleshoot Firefox issues caused by malware]]
+* [[Remove a toolbar that has taken over your Firefox search or home page]]
+* [[Re-enable add-ons that were disabled when updating Firefox]]
+* [[Why does Mozilla disable some add-ons from running in Firefox?]]
+* [[Add-on signing in Firefox]]

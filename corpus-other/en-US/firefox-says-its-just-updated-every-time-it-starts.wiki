@@ -1,0 +1,14 @@
+This article describes what to do if you get a tab named "''Firefox Updated''" or see the message "''You've been updated to the latest version of Firefox.''" every time you start Firefox even if you haven't updated Firefox.
+
+There are two possible causes for this. You may have that tab saved accidentally as your home page (which Firefox opens each time you start) or Firefox may be having trouble saving to your settings file which results in it not realizing you have already seen the "You've been updated" message.
+
+= "Firefox Updated" tab saved to your homepage =
+# [[T:optionspreferences]]
+# Select the {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} page.
+# Highlight the text in the text field in the {for not fx152}'''Homepage and new windows''' area{/for}{for fx152}'''Homepage''' section{/for}.
+# If it includes something similar to <code>http://www.mozilla.com/en-US/firefox/4.0/whatsnew/</code> then you have accidentally added the "Firefox Updated" page to the sites that Firefox loads on startup.
+# You can fix this by clicking {button Restore to Default}. To change your home page to something else, see the [[How to set the home page]] article.
+#;{for not fx152}[[Image:Fx140ESRsettings-Homepage]]{/for}{for fx152}[[Image:fx152homepage]]{/for}
+
+= Firefox is unable to save your preferences =
+Firefox changes a setting in its preferences file to determine whether you've seen the "Firefox Updated" tab. If you are having problems with that file then Firefox will be unable to save this information and will show you the "Firefox Updated" tab each time you start it. You may also notice that {for win}options{/for}{for mac,linux}preferences{/for} you select in your [[T:optionsorpreferences]] tab are not kept after you close Firefox. To correct this, use the steps outlined in the [[How to fix preferences that won't save]] article.

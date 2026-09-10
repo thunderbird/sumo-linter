@@ -1,0 +1,21 @@
+This article explains how to export your bookmarks to an HTML file for backup or importing into another web browser.
+
+Here are the differences between a backup and an export:
+*'''Backup (JSON/JSONLZ4):''' Used for restoring bookmarks in Firefox only (keeps structure, can overwrite).
+*'''Export (HTML):''' Used for transferring bookmarks to other browsers or computers.
+{note}'''Note:''' To do this on mobile, you must use Firefox Sync. See [[How do I set up Sync on my computer?]] to learn how to set up Sync and connect additional mobile devices.{/note}
+First, [[Update Firefox to the latest release|make sure Firefox is up to date]]. To do this, {for mac}select {menu Firefox} in the Menu bar at the top of the screen, choose {menu About Firefox}{/for}{for win,linux}click the menu button [[Image:IG main menu]] at the right side of the toolbar, click {menu Help}, select {menu About Firefox}{/for} and click '''Restart to update Firefox''' if the option appears. Then follow these steps:
+[[Template:ExportHTMLBookmarks]]
+''Your bookmarks are now successfully exported from Firefox. The bookmarks HTML file you saved is now ready to be imported into another web browser or a new device.''
+
+If you don’t see your bookmarks on the bookmarks bar after importing:
+#[[T:fx29menu]]
+#Click {menu More tools}.
+#Select {menu Customize toolbar…}
+#Click {button Toolbars} located at the bottom-left of the window.
+#Select {menu Bookmarks Toolbar} and click {menu Always Show}.
+#Click the {button Done} button located at the bottom-right of the window. A bookmarks bar with your saved bookmarks will appear below the toolbar.
+
+= Related articles =
+* For instructions on how to back up and restore your bookmarks or move them to another installation of Firefox, see [[Restore bookmarks from backup or move them to another computer]].
+* For instructions on how to back up and restore your Firefox profile data and settings, see [[Back up and restore information in Firefox profiles]].

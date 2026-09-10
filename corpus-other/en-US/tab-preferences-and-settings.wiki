@@ -1,0 +1,66 @@
+Tabs are an essential part of your browsing experience in Firefox, allowing you to keep multiple websites open in a single window. Firefox provides several options to customize how tabs work to suit your preferences. This article will guide you through these settings.
+
+=Review and change tab settings=
+#[[T:optionspreferences]]
+#{for not fx152}In the {menu General} panel,{/for}{for fx152}Select {menu Tabs and browsing} on the left and{/for} go to the '''Tabs''' section.
+;{for fx152}{for win}[[Image:Fx152settings-Tabs]]{/for}{for not win}[[Image:fx152tabs]]{/for}{/for}
+{for =fx151}{for win}[[Image:Fx151settingsTabs-win]]{/for}{for not win}[[Image:Fx151settingsTabs-mac]]{/for}{/for}
+{for not fx151}{for fx142}{for win}[[Image:Fx142TabSettings-win]]{/for}{for mac}[[Image:Fx142TabSettings-mac]]{/for}{for linux}[[Image:Fx142TabSettings-linux]]{/for}{/for}
+{for not fx142}{for win}[[Image:Fx140ESRsettingsTabs-win]]{/for}{for not win}[[Image:Fx140ESRsettingsTabs-mac]]{/for}{/for}
+{for not fx151}
+*'''Ctrl+Tab cycles through tabs in recently used order:''' Select this setting if you want to use the {for win,linux}{key Ctrl+Tab}{/for}{for mac}{key Control+Tab}{/for} keyboard shortcut to switch through open tabs in the order you viewed them rather than in the order they appear in the Firefox window.{note}'''Note:''' If you want to use {for win,linux}{key Ctrl+Tab}{/for}{for mac}{key Control+Tab}{/for} to switch to the tab next to the current tab and {for win,linux}{key Ctrl+Shift+Tab}{/for}{for mac}{key Control+Shift+Tab}{/for} to switch to the previous tab, deselect this setting (clear the checkbox).{/note}
+*'''Open links in tabs instead of new windows:''' This setting controls whether links from other applications or from web pages which request to open them in new windows are opened in a new window or a new tab in the most recent window.{note}'''Note:''' If you have chosen to open pages in new tabs, Firefox will ignore this {for win}option{/for}{for mac,linux}preference{/for} and will open a new window from a link if the page author specified that the new window should have a specific size, because some pages can only be displayed correctly at a specific size.{/note}
+*'''When you open a link, image or media in a new tab, switch to it immediately:''' When you middle-click on a Web link (or hold down {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} while clicking with the left mouse button), the page will be opened in a new tab. That new tab will be in the background (the selected tab will not change). The same thing happens when opening a web link, image or video in a new tab using the context menu. Check this setting to load and display the page in a new foreground tab instead.
+*'''Ask before closing multiple tabs:''' Select this setting to enable a warning dialog to confirm your choice to close a window with multiple tabs (shown below) to prevent accidentally closing the entire window when you only intend to close the current tab. To learn more, see [[How to configure Close Tab warnings in Firefox]].
+;[[Image:fx89-warn-on-close]]
+{for mac}
+*'''Ask before quitting with ⌘Q:''' On macOS, you can also exit Firefox using the {key Command ⌘+Q} keyboard shortcut. If you want to disable close multiple tabs warnings for when you use this shortcut, uncheck this setting.
+{/for}
+{for linux}
+*'''Ask before quitting with Ctrl+Q:''' On Linux, you can also exit Firefox using the {key Ctrl+Q} keyboard shortcut. Deselect this setting if you want to disable close multiple tabs warnings when you use this shortcut.
+{/for}
+*''(If applicable)'' '''Warn you when opening multiple tabs might slow down Firefox:''' This setting is only shown if you disabled the warning dialog Firefox displays to confirm your choice to open multiple tabs at once (shown below). Check this setting to re-enable the warning, to prevent accidentally slowing down Firefox while loading a large number of tabs.
+;[[Image:fx89-warn-on-open]]
+{for win}
+* '''Show tab previews in the Windows taskbar:''' When you move your pointer over the Firefox icon in the Windows taskbar, Windows will show you a preview of the Firefox window. With this option check marked, Windows will show you a separate preview for each tab.
+{/for}
+*'''Show an image preview when you hover on a tab:''' When you move your pointer over a tab, Firefox will show a thumbnail preview image. To disable the preview images, uncheck this setting.
+;[[Image:tab hover over preview|width=500]] 
+{for fx142}
+*'''Use AI to suggest tabs and a name for tab groups:''' With the [[How to use AI-enhanced tab groups|AI-enhanced tab groups]] feature, AI will suggest names and tabs based on similar open tabs in a single window. This feature is part of a progressive rollout and may not be available to all users.
+{/for}
+{/for}
+{for fx151}
+==Opening==
+*'''Open links in tabs instead of new windows:''' This setting controls whether links from other applications or from web pages which request to open them in new windows are opened in a new window or a new tab in the most recent window.{note}'''Note:''' If you have chosen to open pages in new tabs, Firefox will ignore this {for win}option{/for}{for mac,linux}preference{/for} and will open a new window from a link if the page author specified that the new window should have a specific size, because some pages can only be displayed correctly at a specific size.{/note}
+*{for fx152}'''When opening links or media in a new tab, switch to it immediately:'''{/for}{for not fx152}'''When you open a link, image or media in a new tab, switch to it immediately:'''{/for} When you middle-click on a Web link (or hold down {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} while clicking with the left mouse button), the page will be opened in a new tab. That new tab will be in the background (the selected tab will not change). The same thing happens when opening a web link, image or video in a new tab using the context menu. Check this setting to load and display the page in a new foreground tab instead.
+*'''Open links from apps next to your active tab:''' Select this setting if you want external links to open next to the active tab instead of at the end of the tab strip. <!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1984234-->
+*''(If applicable)'' '''Warn you when opening multiple tabs might slow down Firefox:''' This setting is only shown if you disabled the warning dialog Firefox displays to confirm your choice to open multiple tabs at once (shown below). Check this setting to re-enable the warning, to prevent accidentally slowing down Firefox while loading a large number of tabs.
+;[[Image:fx89-warn-on-open]]
+
+==Interaction==
+*'''Ctrl+Tab cycles through tabs in recently used order:''' Select this setting if you want to use the {for win,linux}{key Ctrl+Tab}{/for}{for mac}{key Control+Tab}{/for} keyboard shortcut to switch through open tabs in the order you viewed them rather than in the order they appear in the Firefox window.{note}'''Note:''' If you want to use {for win,linux}{key Ctrl+Tab}{/for}{for mac}{key Control+Tab}{/for} to switch to the tab next to the current tab and {for win,linux}{key Ctrl+Shift+Tab}{/for}{for mac}{key Control+Shift+Tab}{/for} to switch to the previous tab, deselect this setting (clear the checkbox).{/note}
+*'''Show an image preview when you hover on a tab:''' When you move your pointer over a tab, Firefox will show a thumbnail preview image. To disable the preview images, uncheck this setting.
+;[[Image:tab hover over preview|width=500]]
+*'''Use AI to suggest tabs and a name for tab groups:''' With the [[How to use AI-enhanced tab groups|AI-enhanced tab groups]] feature, AI will suggest names and tabs based on similar open tabs in a single window. This feature is part of a progressive rollout and may not be available to all users.
+*'''Drag tabs together to create tab groups:''' See [[Tab groups in Firefox]].
+{for win}
+* '''Show tab previews in the Windows taskbar:''' When you move your pointer over the Firefox icon in the Windows taskbar, Windows will show you a preview of the Firefox window. With this option check marked, Windows will show you a separate preview for each tab.
+{/for}
+
+==Closing==
+*'''Ask before closing multiple tabs:''' Select this setting to enable a warning dialog to confirm your choice to close a window with multiple tabs (shown below) to prevent accidentally closing the entire window when you only intend to close the current tab. To learn more, see [[How to configure Close Tab warnings in Firefox]].
+;[[Image:fx89-warn-on-close]]
+{for mac}
+*'''Ask before quitting with ⌘Q:''' On macOS, you can also exit Firefox using the {key Command ⌘+Q} keyboard shortcut. If you want to disable close multiple tabs warnings for when you use this shortcut, uncheck this setting.
+{/for}
+{for linux}
+*'''Ask before quitting with Ctrl+Q:''' On Linux, you can also exit Firefox using the {key Ctrl+Q} keyboard shortcut. Deselect this setting if you want to disable close multiple tabs warnings when you use this shortcut.
+{/for}
+{/for}
+
+=Related articles=
+*[[Use tabs to organize lots of websites in a single window]] 
+*[[Tab overview menu]] 
+*[[Tab context menu]]
+*[[Use the sidebar to access tools and vertical tabs]]

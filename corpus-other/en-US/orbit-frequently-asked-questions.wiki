@@ -1,0 +1,52 @@
+{warning}'''Important:''' Orbit is no longer available as of June 26, 2025.{/warning}
+Orbit is a free Firefox add on that allows you to quickly summarize emails, docs, articles, and video transcripts across the web without sacrificing your privacy. Orbit also lets you interact with the content, meaning you can pose specific questions and get quick responses based on the page’s information.
+
+Orbit works directly on websites including Google Docs, Gmail, Wikipedia, NY Times, YouTube, and more, so you don’t have to copy and paste text into another tool or switch between tabs.
+
+__TOC__
+
+=How does Orbit work?=
+Orbit uses AI to summarize and answer queries about web content, such as articles and video transcripts. When a user asks Orbit to summarize or query content, Orbit gathers the context (for example text, images, videos, etc.) of the page the user is viewing and provides a summary or answer.
+
+The current version of Orbit uses a Mistral LLM (Mistral 7B) hosted within Mozilla’s GCP instance.
+
+=How do I install Orbit?=
+You can install Orbit from [https://addons.mozilla.org/firefox/addon/orbit-summarizer/ the Firefox Add-on store] – it's free!
+
+=What languages does Orbit support?=
+The beta version of Orbit currently only supports English, though we’re working on adding support for more languages.
+
+=How does Orbit maintain my privacy?=
+Orbit maintains your privacy in several ways:
+* It does not require account creation to use.
+* No personal information is tied to your sessions.
+* The context of the data we capture when you summarize a page is always encrypted.
+* The moment you move away from the page, that data is destroyed/purged.
+* Your data is not used to tune/train the AI models that power Orbit.
+* Even the feedback provided while using the extension is shared anonymously.
+
+=Does Orbit save the content of the pages I visit or content summaries generated?=
+No, it does not.
+
+When you use Orbit, we receive a payload back that contains the contents of your query; information about the model queried (such as the name and version number); information about technical problems with processing the query, if any; the number of tokens required to process the query; and the model outputs in response to the query. We do not store this data beyond temporarily caching it to process your query and return the outputs to you.
+
+Orbit summaries are only available on the page that you are actually on. As soon as you navigate away from that page, Orbit erases the session.
+
+=Do I need to create an account to use Orbit?=
+No, you can use Orbit without creating an account.
+
+=Is my personal information used to train the AI models?=
+No, it is not. The Mistral 7B LLM used to support Orbit is hosted by Mozilla, and the queries are never shared with Mistral or any other services.
+
+=If you don't train the models, how will the service improve?=
+We have built Orbit to remain agnostic about which model we use, and we are constantly benchmarking the most recent open source models available. This allows us to easily swap out models as technology improves.
+
+=How does Orbit make money?=
+The beta version of Orbit does not currently drive revenue for Mozilla. We are presently focused on building, testing and improving the free product to make it as helpful as possible to users. In the future, we may provide a Premium version of Orbit in addition to the free version to recuperate our operating expenses.
+
+=Why is Mozilla building an AI content summarizer?=
+The internet is an incredible resource, but it can also be overwhelming. Every day, we’re bombarded with long-winded articles, endless email threads, dense research papers and video transcripts that feel like they go on forever.
+
+We built Orbit as a way to help filter the noise so that our users can focus on what is most important to them. There are very technical AI models and solutions available in the market today for a wide range of use cases.
+
+Orbit’s focus is limited because we wanted to build an AI tool that was simple, safe, and most importantly, private.

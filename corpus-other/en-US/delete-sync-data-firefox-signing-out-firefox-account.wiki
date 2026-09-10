@@ -1,0 +1,29 @@
+If you're no longer using your Mozilla account on a particular device (especially when you're giving access to your computer to someone else), you should sign out of your Mozilla account to help ensure that no one can access your synced bookmarks, passwords, add-ons and browsing history.
+
+You can also delete your synced data from that device when you sign out.
+
+=Sign out of your Mozilla account on a device=
+#[[Template:fx29menu]]
+#Click on your Mozilla account (email address).
+#;[[Image:FxA Login panel Fx88|width=250]]
+#Click {menu Sign Out}.
+#To delete your synced information from Firefox on that device, put a checkbox next to '''Delete data from this device (logins, passwords, history, bookmarks, etc.)''' 
+
+=What does “Delete data from this device” do?=
+{note}'''Note:''' This will not delete your information from other synced devices – only the device you're using to sign out. To delete your Mozilla account altogether, see [[How do I delete my Mozilla account?]]{/note}
+'''If you select this checkbox when signing out, you will delete your Firefox data on the device, including:'''
+*Synced data from the computer:
+**Logins 
+**Bookmarks
+**Passwords
+**History
+**Add-ons
+*Cookies and Cache
+*Browsing and download history
+This button will '''not delete''' the following information from the device:
+*Website permissions
+*Modified preferences 
+*Download actions
+*Toolbar customization
+*Security certificates
+If you’d also like to remove this information, see [[Refresh Firefox - reset add-ons and settings]].

@@ -1,0 +1,29 @@
+[https://blog.mozilla.org/security/2021/03/23/introducing-smartblock/ SmartBlock] stands in for common tracking scripts, which are blocked in [[Private Browsing - Use Firefox without saving history|Private Browsing mode]] and in [[Enhanced Tracking Protection in Firefox for desktop#w_adjust-your-global-enhanced-tracking-protection-settings|Enhanced Tracking Protection '''strict''' level]]. By doing so, it lets pages load more fully, with less breakage, without you having to do anything – all while keeping those tracking scripts blocked.
+
+__TOC__
+
+The difference can be dramatic:
+;[[Image:Smartblock off|width=400]][[Image:Smartblock on|width=400]]
+
+=Log in with Facebook when you visit third-party sites=
+SmartBlock lets you log in with your Facebook account when visiting third-party sites in Private Browsing mode without compromising your privacy while avoiding website breakages. Just click the Facebook login button to log in as you normally would, and SmartBlock will allow only the required Facebook scripts, only when you log in by clicking the login button, and will only allow them for that website.
+
+{for fx136}
+=Enabling embedded content=
+Firefox allows you to unblock trackers to access certain embedded content without leaving the strict level of Enhanced Tracking Protection or Private Browsing mode. When you navigate to a website with supported embedded content, you will see a placeholder on the page in place of the previously blocked content.
+;[[Image:Smartblock placeholder|width=400]]
+Clicking the placeholder directs you to the protections panel, where you can unblock the content you wish to see by selecting the appropriate option under ''Tracking Content''.
+;[[Image:Smartblock controls|width=400]]
+Content can be reblocked at a later date by deselecting the option.
+
+Your choice of unblocked content persists throughout your browsing session and is reset when your session ends.
+
+Currently, support is available for Instagram and TikTok embeds with further support coming in the near future.
+
+{/for}
+=Disabling SmartBlock=
+If you're a website developer or advanced user and you wish to disable SmartBlock, you may do so from the [[Configuration Editor for Firefox|Firefox Configuration Editor]].
+[[Template:aboutconfigwarning]]
+#[[Template:aboutconfig]]
+#Find the {pref extensions.webcompat.enable_shims} preference.
+#Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to the preference to set it to {pref false}.

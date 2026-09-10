@@ -1,0 +1,14 @@
+Firefox's built-in Eyedropper tool allows users to easily identify and copy the Hex (hexadecimal) values of colors found on web pages. This guide provides clear, step-by-step instructions for accessing and using this feature, making it simpler for creators to incorporate exact colors into their projects.
+[[Image:Firefox Eyedropper 2]]
+
+=Access the Eyedropper tool=
+#At the top right, click the menu button [[Image:Menu hamburguer button|width=30]]
+#From the dropdown menu, navigate to {menu More Tools} to find additional options.
+#Click on {menu Eyedropper}. Your cursor will change to indicate the Eyedropper tool is active.
+
+=Sample Colors from your screen=
+After activating the Eyedropper tool, follow these steps to sample a color:
+#Move your cursor to the area of the webpage with the color you wish to sample. The Eyedropper will display a magnified view for precise selection.
+#Click on the color you desire. Upon clicking, the Eyedropper tool automatically copies the color's Hex value.
+#The Hex value is now on your clipboard, ready to be pasted and used in your projects.
+;[[Image:Firefox Eyedropper|width=240]]

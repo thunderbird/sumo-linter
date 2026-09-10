@@ -1,0 +1,73 @@
+[[Template:FirefoxPrivacyNotice]]
+Firefox balances privacy with performance by collecting limited data, such as usage trends, crash reports, and system details, to improve stability and functionality. 
+
+This article provides an overview of what’s included in your system settings, where you can control data collection and usage on desktop; guidance is also available for [[Mobile - Manage Firefox data collection and privacy settings|mobile]].
+
+__TOC__
+
+=Manage settings involving data collection on desktop=
+To manage technical and interaction data, studies, the daily usage ping and the automatic sending of crash reports:
+
+==First, open Firefox settings for data collection and use==
+#[[Template:optionspreferences]]
+#On the left-hand side, click {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for}.
+#Scroll down to the {for not fx151}'''Firefox Data Collection and Use'''{/for}{for fx151}'''Firefox data collection and use'''{/for} section.
+#;{for not fx148}[[Image:Fx140esrDataCollection]]{/for}{for =fx148, =fx149, =fx150}[[Image:Fx148DataCollection]]{/for}{for =fx151}[[Image:Fx151DataCollection]]{/for}{for fx152}[[Image:Fx152settings-DataCollection]]{/for}
+
+==Next, choose what to share==
+Uncheck or check the following options based on your preferences:
+*'''Send technical and interaction data to Mozilla''' – Helps improve Firefox features, performance and stability. For details, see [[Manage technical and interaction data collection settings in Firefox]].<br>''This setting also enables the following two options:''
+**'''Allow personalized extension recommendations''' – Provides tailored extension suggestions.
+**{for not fx151}'''Install and run studies'''{/for}{for fx151}'''Allow Firefox to run feature studies'''{/for}  – Allows Mozilla to test experimental features before public release. For details, see [[About Studies]].
+{for fx148}
+*'''Allow Firefox to improve features, performance, and stability between updates''' - Lets Firefox automatically install  fixes and feature changes. For details, see [[Manage remote improvements settings in Firefox]].
+{/for}
+*'''Send daily usage ping to Mozilla''' – Helps Mozilla estimate the number of active users. For details, see [[Manage daily usage ping data collection settings in Firefox]].
+*'''Automatically send crash reports''' – Sends crash data to help diagnose and fix browser issues. For details, see [[Crash reports in Firefox for Desktop]].
+{note}'''Note:''' Changes save automatically. Close the Settings tab when you're done.{/note}
+
+=Manage sponsored content data, recent activity and weather=
+==First, open the New Tab content settings==
+Click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}pencil [[Image:Fx141NewTabCustomizeIcon]]{/for} icon on the bottom right corner of your [[New Tab page in Firefox|New Tab page]]. A panel will open, showing content you can customize.
+
+==Next, choose your New Tab content==
+Click the toggle next to a section to switch it on [[Image:Fx89Personalize-ToggleOn]] or off [[Image:Fx89Personalize-ToggleOff]] to show or hide that section.
+*'''Weather''' – Provides the ability to turn on or off the weather widget. For details, see [[Customize items on your Firefox New Tab page#w_weather|Customize items on your Firefox New Tab page - Weather]].
+*'''Shortcuts''' – Provides the ability to turn on or off shortcuts on the New Tab page. For details, see [[Customize items on your Firefox New Tab page#w_shortcuts|Customize items on your Firefox New Tab page - Shortcuts]].
+*'''Recommended stories''' – Provides the ability to turn on or off recommended stories on the New Tab page. For details, see [[Customize items on your Firefox New Tab page#w_recommended-stories|Customize items on your Firefox New Tab page - Recommended stories]].
+;{for not fx145}[[Image:Fx140PersonalizeNewTab-NoWallpaper|width=300]]{/for}{for fx145}[[Image:Fx145CustomizeNewTab-NoWallpaper|width=300]]{/for}
+===Opt in or opt out of sponsored content and recent activity===
+{for not fx145}
+#Click '''[[Image:IG settings]] Manage more settings''' at the bottom of the panel.
+#*The {menu Home} panel will open, with ''Firefox Home Content'' settings you can customize.
+#;[[Image:Fx140HomeContentSettings]]
+#Check or uncheck items in the '''Shortcuts''' and  '''Recommended stories''' sections.
+#*'''Sponsored shortcuts''' – Provides the ability to turn on or off sponsored shortcuts on the New Tab page. For details, see [[Sponsors on the home page and New Tab page#w_sponsored-shortcuts|Sponsors on the home page and New Tab page - Sponsored shortcuts]].
+#*'''Sponsored stories''' – Provides the ability to turn on or off sponsored stories on the New Tab page. For details, see [[Sponsors on the home page and New Tab page#w_sponsored-stories|Sponsors on the home page and New Tab page - Sponsored stories]]
+#Check or uncheck items in the '''Recent activity''' section:
+#*'''Recent activity''' – Provides the ability to turn on or off thumbnails displaying recent downloads, sites or bookmarks. For details, see [[Customize items on your Firefox New Tab page#w_recent-activity|Customize items on your Firefox New Tab page - Recent Activity]].
+{/for}
+{for fx145}
+#Click the '''[[Image:IG settings]] Manage more settings''' link at the bottom of the panel.
+#*The {menu Home} panel will open, with ''Firefox Home Content'' settings you can customize.
+#;{for not fx148}[[Image:Fx145HomeContentSettings]]{/for}{for fx148}[[Image:Fx149HomeContentSettings]]{/for}
+#Check or uncheck items in the '''Support Firefox''' section:
+#*'''Sponsored shortcuts''' – Provides the ability to turn on or off sponsored shortcuts on the New Tab page. For details, see [[Sponsors on the home page and New Tab page#w_sponsored-shortcuts|Sponsors on the home page and New Tab page - Sponsored shortcuts]].
+#*'''Sponsored stories''' – Provides the ability to turn on or off sponsored stories on the New Tab page. For details, see [[Sponsors on the home page and New Tab page#w_sponsored-stories|Sponsors on the home page and New Tab page - Sponsored stories]]
+# Check or uncheck items in the '''Recent activity''' section:
+#* '''Recent activity''' – Provides the ability to turn on or off thumbnails displaying recent downloads, sites or bookmarks. For details, see [[Customize items on your Firefox New Tab page#w_recent-activity|Customize items on your Firefox New Tab page - Recent Activity]].
+{/for}
+
+<!--
+==Manage Suggest==
+#Open Firefox Settings: [[Template:optionspreferences]]
+#In the left-hand menu, select '''Search'''.
+#Uncheck or check the options for '''Suggestions from Firefox''' and '''Suggestions from sponsors''', based on your preference.
+#Toggle on or off the '''Improve the Firefox Suggest experience''', based on your preference. 
+-->
+
+=Related articles=
+*[[Mobile - Manage Firefox data collection and privacy settings]]
+*[[Manage technical and interaction data collection settings in Firefox]]
+**[[About Studies]]
+*[[Crash reports in Firefox for Desktop]]

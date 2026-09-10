@@ -1,0 +1,67 @@
+Private Browsing does not save your browsing information, such as history and cookies, and leaves no trace after you end the session. By default, when you browse in private windows, you're shielded from third-party cookies and content trackers. Our [https://wiki.mozilla.org/Security/Anti_tracking_policy anti-tracking policy] reflects our commitment to protecting your privacy and keeping you secure. Firefox also has [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]], which prevents hidden trackers from collecting your data across multiple sites and slowing down your browsing.
+{note}Want to learn more? See the [[SmartBlock for Enhanced Tracking Protection]] article.{/note}
+[[Video:https://youtu.be/TZ6stqlsVsI]]
+{warning}'''Important:''' Private Browsing does not make you anonymous on the Internet. Your Internet service provider, employer, or the sites themselves can still gather information about pages you visit. Private Browsing also doesn't protect you from [https://wikipedia.org/wiki/Keylogger keyloggers] or [https://wikipedia.org/wiki/Spyware spyware] that may be installed on your computer. To learn more, see [[Common Myths about Private Browsing]].{/warning}
+
+__TOC__
+
+= How do I open a new Private Window? =
+There are two ways to open a new Private Window:
+
+'''Open a new Private Window from the Firefox menu'''
+*Click the menu button [[Image:Fx89menuButton]] and then click {button New private window}.
+*;[[Image:New private window]]
+The Private Browsing home page will open in a new window.
+
+'''Open a link in a new Private Window'''
+*[[T:contextmenu]] any link and choose {menu Open Link in New Private Window} from the context menu.
+*;[[Image:Open link in private]]
+{note}'''Tip:''' Private Browsing windows have a purple mask at the top.{/note}
+;[[Image:windows11 private browsing]]
+
+{for fx151}
+= How do I close a Private Browsing session? =
+Starting with [[Find what version of Firefox you are using|Firefox version]] 151, Private Browsing mode now allows users to instantly clear all data from their current session without closing the entire browser. When you click the {for not fx152}End{/for}{for fx152}Clear{/for} Private Session button [[Image:Fx151 End Private Session|width=25]] (the fire icon) to the right of the address bar, Firefox will ask you to confirm to clear your session.
+;[[Image:Fx151PrivateBrowsing-ClearPrivateSession]]
+If you select {button Clear private session}, it will wipe all of your private browsing data and open a fresh new private session for you.
+{/for}
+
+= What does Private Browsing not save? =
+* '''Visited pages:''' Pages will not be added to the list of sites in the History menu, the Library window's history list, nor in the [[Address bar autocomplete suggestions in Firefox|address bar]] drop-down list.
+* '''Form and Search Bar entries:''' Nothing you enter into text boxes on web pages nor the [[Add the Search bar to your Firefox toolbar|Search bar]] will be saved for [[Control whether Firefox automatically fills in forms|Form autocomplete]].
+* '''Download List entries:''' Files you download will not be listed in the [[Where to find and manage downloaded files in Firefox|Downloads Library]] after you turn off Private Browsing.
+* '''Cookies:''' [[Cookies - Information that websites store on your computer|Cookies]] store information about websites you visit, such as site preferences and login status. Cookies can also be used by third parties to track you across websites.{for not fx135} See the [[How do I turn on the Do Not Track feature?]] article to learn more about tracking.{/for} Cookies set in private windows are held temporarily in memory, separate from regular window cookies and discarded at the end of your private session (after the last private window is closed).
+* '''Cached Web Content''' and '''Offline Web Content and User Data:''' Temporary Internet files ([https://wikipedia.org/wiki/Web_cache cached] files) and files that websites save for offline use will not be saved.
+{note}
+'''Note:'''
+* New [[Password Manager - Remember, delete and edit logins and passwords in Firefox|passwords]] and [[Bookmarks in Firefox|bookmarks]] you create while using Private Browsing will be saved.
+* Any files you download to your computer while using Private Browsing will be saved.
+{/note}
+
+=Can I set Firefox to always use Private Browsing?=
+Firefox is set to remember history by default, but you can change this setting in your Firefox Privacy [[T:optionsorpreferences]]:
+{for not fx152}
+#[[Template:optionspreferences]]
+#[[Template:customhistory]]
+# Check the '''Always use private browsing mode''' setting.
+#* Alternatively, you can select '''Never remember history''' from the drop-down menu, which is equivalent to always being in Private Browsing mode.
+# Restart Firefox.
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#[[Template:customhistory]]
+#Check the '''Always use private browsing mode''' setting.
+#* Alternatively, you can select '''Never remember history''' from the ''History'' section, which is equivalent to always being in Private Browsing mode.
+# Restart Firefox.
+{/for}
+{warning}'''Important:''' When Firefox is set to '''Always use private browsing mode''' or to '''Never remember history''', you won't see a purple mask at the top of each window, even though you are in Private Browsing mode. To restore normal browsing, go to your {menu Privacy & Security} settings for ''History'', as explained above, and uncheck '''Always use private browsing mode''' (or select '''Remember history'''{for not fx152} from the drop-down menu{/for}) and restart Firefox.{/warning}
+{for win}
+You can also '''pin Firefox in Private Browsing mode to the Windows taskbar''' for easy access:
+#Click the menu [[Image:Fx89menuButton]] button and select {menu New Private Window}. A new Firefox icon with a small purple mask will show in the Windows taskbar, this is the Private Browsing mode icon.
+#Right-click the Firefox in Private Browsing mode icon in the taskbar.
+#Click '''Pin to taskbar'''.
+{/for}
+
+=Other ways to control what information Firefox saves=
+*You can always [[Delete browsing, search and download history on Firefox|remove recent browsing, search and download history]] after visiting a site.
+*Read more articles on [/products/firefox/privacy-and-security Firefox privacy and security].

@@ -1,0 +1,43 @@
+Firefox lets you import your Favorites (called Bookmarks in Firefox), saved logins, passwords, browsing history and other data from Microsoft Edge, saving you from having to configure them yourself. This article gives you step-by-step instructions for getting it done.
+
+__TOC__
+
+=Start the import process=
+Use one of these methods to import bookmarks and other data from Microsoft Edge into Firefox:
+
+==Import data from Firefox Settings==
+#[[Template:optionspreferences]]
+#In the {for not fx152}{menu General} panel{/for}{for fx152}{menu Account and sync} page{/for}, click {button Import Data} under the ''Import browser data'' section.
+#;{for not fx151}[[Image:Import data|width=800]]{/for}{for fx151}{for not fx152}[[Image:Fx151ImportBrowserData]]{/for}{/for}{for fx152}[[Image:fx152importdata]]{/for}
+#The Import Wizard will open.
+#;[[Image:Import from Microsoft Edge|width=300]]
+#;From here, you can select Microsoft Edge and the profile from which you wish to import data to complete the process ([[#w_choose-data-and-complete-the-import|see below]]).
+
+==Import data from the Library==
+You can also start the import process from the Bookmarks Library window.
+#Click the Firefox menu button [[Image:Menu button 1]] to open the menu panel. Click {menu Bookmarks} and then click {menu Manage bookmarks} at the bottom. The Library window will open.
+#;{for mac}[[Image:macOS import]]{/for}{/for}{for win,linux}[[Image:Fx110BookmarksLibrary-ImportData-win]]{/for}
+#From the toolbar in the Library window, click {for mac}[[Image:import-export-arrows]]{/for}{for not mac}{menu [[Image:import-export-arrows]]Import and Backup}{/for} and choose {menu Import Data from Another Browser…} The Import Wizard will open.
+{note}'''Tip:''' Another way to import from another browser is to {for not mac}[[Restore the Menu bar in Firefox|enable the Menu bar]] (press {key Alt} on the keyboard to enable it temporarily),{/for} click {menu File} in Menu bar at the top of the screen and select {menu Import from Another Browser…}{/note}
+
+=Choose data and complete the import=
+#In the Import Wizard that appears, select the Microsoft Edge profile and data you wish to import.
+#*To choose the data you want to import, click the {button +} button to make your selection.
+#;[[Image:Import from Microsoft Edge 2|width=300]]
+#Click the {button Import} button.
+#The import will start. You may be prompted to add your system password to proceed.
+#;[[Image:Importing data 1|width=300]]
+#All set! Click {button Done} to wrap up the import.
+#;The import process will transfer the following data to Firefox:
+#;*'''Bookmarks:''' Web pages you have saved in your bookmarks.
+#;*'''Saved Logins and Passwords:''' Your usernames and passwords.
+#;*'''Browsing History:''' Information on the sites you have visited.
+#;*'''Saved Form history:''' Information you use to populate online forms.
+#;[[Image:Importing data 2|width=300]]
+Your imported favorites from Microsoft Edge will appear as a folder in your [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks Toolbar]] and Bookmarks menu.
+{note}'''Note:''' The Bookmarks Menu button [[Image:Bookmarks Menu button - Proton]] is not shown by default. To learn how to add it to your Firefox toolbar and for more information on using bookmarks in Firefox, see [[Bookmarks in Firefox]].{/note}
+
+=Related content=
+*To import passwords from a CSV file, see [[Import login and password data from a file]].
+*To import bookmarks you have saved in an HTML file, see [[Import Bookmarks from an HTML file]].
+*To import your information from another browser, see [[Import data from another browser]].

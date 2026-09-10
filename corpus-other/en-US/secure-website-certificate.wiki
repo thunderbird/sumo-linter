@@ -1,0 +1,93 @@
+[https://developer.mozilla.org/docs/Web/Security/Transport_Layer_Security Transport Layer Security] (TLS) secure website certificates verify the ownership and the integrity of the information of websites you visit. This article explains how it works.
+
+__TOC__
+
+=What websites use certificates?=
+Websites whose addresses start with '''https''' use TLS server certificates. Websites using TLS server certificates provide assurance of two things:
+* The website administrator owns or has control over the domain name, ensuring users connect to the legitimate site and not a spoofed or malicious copy the website.
+* Encrypted data exchange over TLS between the browser and the website is protected against eavesdropping or from being tampered with by unauthorized parties.
+
+=Chain of trust=
+Browsers such as Firefox verify certificates through a hierarchy called a '''chain of trust''', which typically consists of at least three certificates:
+* The root '''(trust anchor)''' certificate
+* One or more intermediate certificates
+* The TLS server '''(end entity)''' certificate
+;[[Image:Chain of trust diagram]]  <!-- Localizers: "chain-of-trust" image is optional -->
+The root certificate belongs to a [https://wikipedia.org/wiki/Certificate_authority Certificate Authority] (CA) that is trusted by the browser to issue other certificates. Typically, a root certificate issues one or more intermediate certificates that are then used to issue TLS server certificates to organizations that can demonstrate control over website domains specified by those certificates.
+
+Certificates rely on public key cryptography, in which an asymmetric key pair has two mathematically related keys:
+* '''Private Key:''' This key is kept secret by its owner and is used for cryptographic operations such as signing data (including certificates) or decrypting information encrypted with the public key
+* '''Public Key:''' This key is shared publicly and is used to verify signatures created by the private key or to encrypt information that only the private key can decrypt
+Public key certificates contain the following information:
+* Details about the Certificate Authority (CA) that issued the certificate
+* A public key belonging to the organization that received the certificate
+* Identifying details about the organization that holds the private key (see [[#w_certificate-content|Certificate content]] below. For TLS server certificates, this is primarily the domain name of the website)
+
+Now, we can describe how Firefox determines whether a website is secure. 
+
+==How does Firefox verify certificate integrity?==
+This is how Firefox uses the chain of trust to verify TLS server certificates:
+# Firefox downloads the certificate of the website you visited.
+# Firefox checks the certificate against its internal database of trusted Certificate Authorities (CAs).
+#* It uses the public key of the root CA certificate to ensure that the root certificate and intermediate certificates have been properly signed down the chain to the TLS server certificate that the website has provided.
+# Firefox checks the information in the certificate to ensure that the website you're connected to matches the website listed in the certificate.
+# Firefox generates a symmetric key for encrypting HTTP traffic for the connection.
+# Firefox encrypts the symmetric key with the public key of the server, which is found in the server certificate.
+# The private key, which is on the web server, decrypts the necessary connection data to complete what is known as the ''TLS handshake''.
+Secure communication can then occur between Firefox and the website. 
+
+=Viewing a certificate=
+To view a certificate, follow these steps:
+# Click the {for not fx149}padlock icon [[Image:Fx89Padlock]]{/for}{for fx149}shield icon [[Image:Fx149UnifiedTrustIcon-Secure]] {/for}to the left of the address bar.
+# In the {for not fx149}[[Site Information panel|Site Information panel]]{/for}{for fx149}Unified Trust panel{/for} that opens, click {button Connection secure}.
+#; {for not fx149}[[Image:Fx134SiteInfo-ConnectionSecure]]{/for}
+# In the next panel, click {for not fx149}{button More information}{/for}{for fx149}{button More site information}{/for}.
+#; {for not fx149}[[Image:Fx134SiteInfo-MoreInfo]]{/for}{for fx149}[[Image:Fx149ConnectionProtection]]{/for}
+# In the [[View site information with Page Info|Page Info window]] that opens, click {button View Certificate}.
+#; [[Image:Fx134SiteInfo-ViewCert]]
+Firefox will now open the ''about:certificate'' page to display information about the certificate for the website you're on:
+;[[Image:Fx134SiteInfo-AboutCert]]
+The three tabs show, from left to right, the TLS server certificate, the intermediate certificate and the root certificate.
+
+=Certificate content=
+TLS server certificates contain the following information:
+* '''Subject:''' Contains optional attributes, such as the website name and other information about the organization owning the certificate.
+* '''Issuer:''' Identifies the CA entity that issued the certificate.
+* '''Validity:''' Shows how long the certificate is valid for.
+* '''Subject Alt Name Extension:''' Lists the website addresses that the certificate is valid for.
+* '''Public Key Info:''' Lists attributes of the public key of the certificate.
+* '''Serial Number:''' Uniquely identifies the certificate.
+* '''Signature Algorithm:''' Algorithm used to create the Signature.
+* '''Fingerprints:''' Hash of the certificate file in [https://wiki.openssl.org/index.php/DER DER] binary format.
+* '''Key-Usage''' and '''Extended Key Usage''': Specify how people can use the certificate, such as for performing TLS web server authentication.
+* '''Subject Key ID:''' An identifier generated from the TLS certificate's public key as a way to identify the certificate.
+* '''Authority Key ID:''' An identifier generated from the CA's public key as a way to identify the public key corresponding to the private key used to sign the certificate.
+* '''CRL Endpoints:''' The locations of the [https://csrc.nist.gov/glossary/term/certificate_revocation_list Certificate Revocation List] (CRL) of the issuing CA.
+* '''Authority Info:''' Contains the validation method for the certificate authority and the intermediate certificate file.
+* '''Certificate Policies:''' Contains pointers to the type of TLS certificate it is (e.g. information verified when the certificate was issued).
+* '''Embedded SCTs:''' Lists the [https://www.globalsign.com/en/blog/what-is-certificate-transparency Signed Certificate Timestamps] (SCTs).
+
+=Problematic certificates=
+When you visit a website whose address starts with '''https''' and a problem with the TLS certificate is detected, the browser will display an error page. The [[What do the security warning codes mean?]] article describes common certificate errors.
+
+To view the problematic certificate, follow these steps:
+# On the warning page, click {button Advanced…}.
+#;{for not fx149}[[Image:Fx134SecurityWarning]]{/for}{for fx149}[[Image:Fx149WarningSecurityRisk-ClickAdvanced]]{/for}
+# Click {for not fx149}''View Certificate''{/for}{for fx149}''View the site's certificate''{/for}.
+#; {for not fx149}[[Image:Fx134SecurityWarning-ViewCert]]{/for}{for fx149}[[Image:Fx149WarningSecurityRisk-ViewCertificate]]{/for}
+The bad certificate will now display.
+
+<!-- see discussion
+=Delete Certificates=
+You can delete certificates by doing the following:
+# [[Template:optionspreferences]]
+# Click {menu Privacy & Security} in the left panel.
+# Scroll to the '''Certificates''' section.
+# Click the {button View Certificates…} button.
+#;The '''Certificate Manager''' pop-up displays with the {menu Your Certificates} tab selected by default, which contains a list of associated certificates.
+# Click a certificate from the list.
+# Click the {button Delete…} button at the bottom of the pop-up.
+#; A confirmation pop-up displays. 
+# Click the {button OK} button.
+#;The certificate no longer displays in the {menu Your Certificates} tab.
+-->

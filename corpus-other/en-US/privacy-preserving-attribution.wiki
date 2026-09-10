@@ -1,0 +1,32 @@
+{warning}'''This page is a historical reference about a feature that no longer exists in Firefox.'''{/warning}
+
+Privacy-preserving attribution (PPA) was an experimental feature in [[Find what version of Firefox you are using|Firefox version]] 128 which was never activated and was later removed.
+
+__TOC__
+
+Mozilla prototyped this feature in order to inform an emerging Web standard designed to help sites understand how their ads perform without collecting data about individual people. By offering sites a non-invasive alternative to cross-site tracking, we would hope to achieve a significant reduction in this harmful practice across the web.
+
+The experiment was intended to run only on two Mozilla-operated websites. The experiment was delayed past the point at which the results would have been useful to inform the W3C work, so it no longer served a purpose and was subsequently removed.
+
+=What is attribution?=
+Attribution is how advertisers learn whether their advertising works. Attribution measures how many people saw an ad on a website and then later visited the advertiser’s website to do something the advertiser cared about. For example, maybe someone sees an ad for a sale on a product, then buys that product. Attribution counts how many people do that.
+
+Attribution is very important to advertisers. Sadly, [https://wiki.mozilla.org/Security/Anti_tracking_policy tracking] is the only way to perform attribution without help from the browser. Tracking is terrible for privacy, because it gives companies detailed information about what you do online. While Firefox includes many privacy protections that make it more difficult for sites to track you online ([[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]], [[Introducing Total Cookie Protection in Standard Mode|Total Cookie Protection]], [https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html Query Parameter Stripping] and [https://www.mozilla.org/firefox/features/private/ many other measures]), there’s a huge incentive for sites to find ways around these in order to perform attribution.  A privacy-preserving attribution solution would give sites a real alternative to objectionable practices like tracking.
+
+=How does privacy-preserving attribution protect my data?=
+PPA does not involve websites tracking you. Instead, your browser is in control. This means strong privacy safeguards, including the option to not participate.
+
+Privacy-preserving attribution works as follows:
+#Websites that show you ads can ask Firefox to remember these ads. When this happens, Firefox stores an “impression” which contains a little bit of information about the ad, including a destination website.
+#If you visit the destination website and do something that the website considers to be important enough to count (a “conversion”), that website can ask Firefox to generate a report. The destination website specifies what ads it is interested in.
+#Firefox creates a report based on what the website asks, but does not give the result to the website. Instead, Firefox encrypts the report and anonymously submits it using the [https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap Distributed Aggregation Protocol (DAP)] to an “aggregation service”.
+#Your results are combined with many similar reports by the aggregation service. The destination website periodically receives a summary of the reports. The summary includes noise that provides [https://en.wikipedia.org/wiki/Differential_privacy differential privacy].
+This approach has a lot of advantages over legacy attribution methods, which involve many companies learning a lot about what you do online.
+
+PPA does not involve sending information about your browsing activities to anyone. This includes Mozilla and our DAP partner ([https://www.isrg.org/ ISRG]). Advertisers only receive aggregate information that answers basic questions about the effectiveness of their advertising.
+
+If you want to understand the specifics of how this feature protects your privacy, you can dive into the technical details in our [https://blog.mozilla.org/en/mozilla/privacy-preserving-attribution-for-advertising/ February 2022 announcement], this [https://blog.mozilla.org/netpolicy/2024/08/22/ppa-update/ August 2024 blog post] and this [https://github.com/mozilla/explainers/tree/main/ppa-experiment technical explanation].
+
+=Related articles=
+*[[Firefox privacy and security features]]
+*[[Enhanced Tracking Protection in Firefox for desktop]]

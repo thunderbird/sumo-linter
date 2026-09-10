@@ -1,0 +1,16 @@
+The [[About Picture-in-Picture in Firefox|Picture-in-picture feature]] allows you to pop videos out of their webpages and watch them in floating windows while you work in other tabs. 
+<!--copied from Template:enablep2p, which we no longer need (dee discussion)-->
+If you don’t want to see the controls while hovering, you can hide that option in Firefox. (Note: You can still turn on picture-in-picture view by right-clicking a video.) Or you can use this to re-enable the control when you want to use it again.
+{for not fx152}
+#[[Template:optionspreferences]]
+# In the {menu General} panel, scroll down to the ''Browsing'' section.
+#Clear the check mark for '''Enable picture-in-picture video controls'''.
+#;[[Image:Fx111settings-UncheckPIP]]
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+# Select {menu Tabs and browsing} on the left and scroll down to the ''Media'' section.
+#Clear the check mark for '''Use Picture-in-Picture'''.
+#;[[Image:fx152media]]
+{/for}
+If you later want to re-enable the controls, simply add back the check mark.

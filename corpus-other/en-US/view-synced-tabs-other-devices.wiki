@@ -1,0 +1,18 @@
+Firefox Sync lets you access open tabs across your desktop, laptop and mobile devices that use Firefox.
+{note}Before you begin, set up Sync on all devices that use Firefox. See [[How do I set up Sync on my computer?]] for more information. Make sure that '''Open tabs''' are checked in the Sync settings.{/note}
+
+=View your synced tabs=
+There are several ways to access your tabs from other devices on desktop:
+* Click the menu button [[Image:IG main menu]] and then select your Mozilla account name. All synced tabs will appear right under the {menu Sign out…} menu item in the ''Mozilla account'' panel.
+* [[Use the sidebar to access tools and vertical tabs|Use the Firefox Sidebar]] to access synced tabs. Select the laptop and phone button [[Image:IG synced tabs]] in the sidebar to view and manage the tabs.
+* Open [[Firefox View - View all tabs from your recent browsing and history|Firefox View]] from the Tools menu in the Firefox Menu bar{for win,linux}, [[Restore the Menu bar in Firefox|if the Menu bar is enabled]],{/for} or by clicking the {for fx154} ''List all tabs'' icon [[Image:tab icon 2|width=16]] at the end of the tab strip and selecting {menu View All Tabs}{/for}{for not fx154}Firefox View icon [[Image:Firefox View icon]]{/for}, then select {menu Tabs from other devices}.
+
+=Manage your synced tabs=
+Here's what you can do with your synced tabs:
+* To open a tab, just click it.
+* To close a tab on a synced device, click the cross {button &#10005;} button next to it (in the sidebar, you'll have to hover over the tab for this button to appear). To undo the closing, select the {button Undo} button that appears.
+* To see more options, right-click a tab if you use the sidebar or click the three-dot [[Image:IG 3-dot horizontal]] button next to the tab if you use Firefox View.
+
+=Access synced tabs on other devices=
+* [[View synced tabs from other devices in Firefox for Android]]
+* [[View synced tabs from other devices in Firefox for iOS]]

@@ -1,0 +1,76 @@
+HTTPS-Only Mode in Firefox forces all connections to websites to use a secure encrypted connection called HTTPS. Most websites already support HTTPS; some support both HTTP and HTTPS. Enabling this mode guarantees that all of your connections to websites are upgraded to use HTTPS and hence secure. Learn more about the benefits and how to enable HTTPS-Only Mode.
+
+__TOC__
+
+=What is the difference between HTTP and HTTPS?=
+[https://wikipedia.org/wiki/Hypertext_Transfer_Protocol HTTP] stands for Hypertext Transfer Protocol. It is the fundamental protocol for the web and encodes basic interactions between browsers and web servers. The problem with the regular HTTP protocol is that the data transferring from server to browser is not encrypted, meaning data can be viewed, stolen or altered. [https://wikipedia.org/wiki/HTTPS HTTPS] protocols fix this by using a Transport Layer Security (TLS) certificate. This creates a secure encrypted connection between the server and the browser, which protects sensitive information.
+
+=About HTTPS-Only Mode=
+When you use HTTPS-Only Mode, this ensures all of your connections are encrypted and secure. So you have peace of mind that no one can snoop on the content of the pages you visit or hack into your connection to a website to steal your passwords, credit card information or other personal information. This is especially useful when you are using a public Wi-Fi, where you can’t be sure of the integrity of your internet connection.
+
+For example, when HTTPS-Only Mode is active and a site is visited such as <code>http://example.<!-- -->com</code>, Firefox will silently upgrade to <code>https://example.<!-- -->com</code>:
+;[[Image:ConnectionUpgradeExample]]
+
+=Enable/Disable HTTPS-Only Mode=
+{for not fx152}
+#[[T:optionspreferences]]
+#Select {menu Privacy & Security} from the left menu.
+#Scroll down to ''HTTPS-Only Mode''.
+#Use the radio button to select whether to enable or disable HTTPS-Only Mode, or select to only enable it for [[Private Browsing - Use Firefox without saving history|private windows]].
+#;[[Image:Fx136settings-HTTPSOnlyMode]]
+{/for}
+{for fx152}
+#[[T:optionspreferences]]
+#Select {menu Privacy and security} from the left menu.
+#Scroll down to the ''Connection and software security'' section and click '''Advanced settings'''.
+#In the HTTPS-Only Mode section, select whether to enable or disable HTTPS-Only Mode, or select to only enable it for [[Private Browsing - Use Firefox without saving history|private windows]].
+#;[[Image:Fx152settingsConnectionSecurityHTTPS-OnlyMode|width=500]]
+{/for}
+To learn more about upgrades to secure connections, see [[Firefox connection upgrades - HTTP to HTTPS]] and [[HTTPS-First upgrades to secure connections]].
+
+=“Secure Site Not Available” page=
+Some websites only support HTTP and the connection cannot be upgraded. If HTTPS-Only Mode is enabled and an HTTPS version of a site is not available, you will see a ''Secure Site Not Available'' page.
+;{for not fx149}[[Image:Fx140esrHTTPS-OnlyModeAlert]]{/for}{for fx149}[[Image:Fx149HTTPS-OnlyModeAlert]]{/for}
+*Click {button Continue to HTTP Site} to accept the risk, and visit an HTTP version of the site. HTTPS-Only Mode will be turned off temporarily for that site.
+*Click {button Go Back} if you want to avoid any unencrypted connections.
+
+=Turn off HTTPS-Only Mode for certain sites=
+If HTTPS-Only Mode is enabled, and you frequently visit a website that does not support HTTPS or does not seem to be rendering certain elements of the page correctly, you can turn off HTTPS-Only Mode for that site.
+
+<!-- Dropdown shows "Automatically upgrade this site to a secure connection" in fx128 and above -->
+{for fx149}
+#Click the shield [[Image:Fx149UnifiedTrustIcon-Secure]] icon in the address bar.
+#Click the padlock [[Image:IG lock red strike]] in the Unified Trust Panel that opens.
+#;[[Image:Fx149UnifiedTrust-HTTPSOnly|width=600]]
+#In the next panel, select {button Off} in the dropdown under ''Automatically upgrade this site to a secure connection''.
+#;[[Image:Fx149HTTPS-OnlyAutomaticallyUpgradeDropdown|width=600]]
+{/for}
+{for not fx149}
+#Click the padlock [[Image:IG lock red strike]] icon in the address bar. The Site Information panel will open.
+#Use the dropdown under ''Automatically upgrade this site to a secure connection'' and select {menu Off}.
+#;[[Image:Fx140esrHTTPS-OnlyAutomaticallyUpgradeDropdown|width=600]]
+{/for}
+
+=Add exceptions for HTTP websites when you’re in HTTPS-Only Mode=
+If a website isn’t displaying correctly, and it’s one you trust and want to visit, you can turn off HTTPS-Only Mode for that site. Exceptions allow you to visit an HTTP version of a website while you’re browsing in HTTPS-Only Mode. Exceptions can be applied temporarily for a single browsing session, or permanently. To add an exception for a website:
+{for not fx152}
+#[[T:optionspreferences]]
+#Select {menu Privacy & Security} from the left menu.
+#Scroll down to ''HTTPS-Only Mode''.
+#Click {menu Manage Exceptions…} to open the ''Exceptions'' dialog.
+#;[[Image:Fx90HTTPS-OnlyModeExceptions]]
+#Type in the exact address of the HTTP website for which you want to turn off HTTPS-Only Mode.
+#Select {menu Turn Off} to permanently turn off HTTPS-Only Mode for that website, or select {menu Turn Off Temporarily} to turn it off for your current browsing session.
+#Click {button Save Changes}.
+{/for}
+{for fx152}
+#[[T:optionspreferences]]
+#Select {menu Privacy and security} from the left menu.
+#Scroll down to the ''Connection and software security'' section and click '''Advanced settings'''.
+#In the ''HTTPS-Only Mode'' section, click {menu Manage Exceptions…} to open the ''Exceptions'' dialog.
+#;[[Image:Fx90HTTPS-OnlyModeExceptions]]
+#Type in the exact address of the HTTP website for which you want to turn off HTTPS-Only Mode.
+#Select {menu Turn Off} to permanently turn off HTTPS-Only Mode for that website, or select {menu Turn Off Temporarily} to turn it off for your current browsing session.
+#Click {button Save Changes}.
+{/for}
+{note}'''Note:''' Exceptions cannot be added for [[Private Browsing - Use Firefox without saving history|private windows]]. If you want to learn more about HTTPS connections in private windows, visit [https://blog.mozilla.org/security/2021/08/10/firefox-91-introduces-https-by-default-in-private-browsing/ HTTPS by Default in Private Browsing Mode].{/note}

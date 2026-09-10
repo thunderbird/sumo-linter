@@ -1,0 +1,58 @@
+{for mac,linux}[[Template:WindowsOnly]]{/for}
+
+Third-party applications (such as antivirus software, archiving software, and other tools) may load modules into Firefox. Sometimes, these applications load harmful modules that cause Firefox crashes, reduced performance, or compatibility issues. You may not notice that a malicious or unexpected module has been loaded and it may cause problems that appear to be Firefox issues.
+
+The Firefox ''about:third-party'' page gives users information about third-party modules that have been injected into Firefox.
+__TOC__
+=Accessing the about:third-party page=
+Type '''about:third-party''' in the address bar and press {key Enter}. This will take you to the ''Third-party module Information'' page. This page shows users a list of modules that have been loaded into the browser, new modules loaded and modules that are slow to load.
+
+If you see a {button Reload with system info} button on top of the page, click on it to reload the page and see more useful information about any modules that are installed.
+
+[[Image:ReloadSystemInfo_button]]
+
+The {button Copy raw data to clipboard} button will copy a text version of all data shown in the list, in JSON format, to the clipboard. You can then paste the data to a text file to analyze or add it to a Mozilla Support question.  
+
+=Module information=
+The ''about:third-party'' page shows the following information for each module:
+
+*'''Module name'''.
+*Application name/publisher, if provided by the third-party vendor or developer.
+*File version.
+*Vendor info.
+*Number of occurrences.
+*Average blocking time, in milliseconds.
+*Optional module status icons and other information:
+**An''' unsigned icon''' [[Image:Fx89Padlock-RedLine]] (padlock with a red strike over it) will appear next to the name of the module, if the module has not been digitally signed.
+**A '''warning triangle''' [[Image:Warning_icon|width=35]] will appear next to the name of a module, if it has been identified as causing a Firefox crash with the current Firefox profile.
+**Module type (“IME”, “Shell Extension”).
+*A folder button [[Image:folder]] to show the module’s file in Windows Explorer.
+*A dropdown button [[Image:arrow-dropdown]] to expand '''detailed table of loading events''' which is collapsed by default:
+**Target process (the Firefox process type, limited to “browser”, “tab”, or “RDD”).
+**Loading duration.
+**Background label if it was loaded in a background thread.
+**Status (Loaded or Blocked).
+{for fx110}
+=Block modules that cause Firefox to crash=
+There are some third-party modules that may cause Firefox to crash. A warning triangle [[Image:Warning_icon|width=40]]  will be displayed next to its name if a module has been identified as causing a crash before. To check if a third-party module is causing a crash, try temporarily disabling it and see if the problem is fixed. 
+
+Follow these steps to manually block the module:
+#Type '''about:third-party''' in the address bar and press {key Enter}.
+#Find the module that you think is causing the crash.
+#Click the block icon next to the module.
+#;[[Image:block_module_settings]]
+A dialog box will appear, asking you to restart Firefox in order for the changes to take effect. If this fixes the issue, you can continue to use Firefox without uninstalling the third-party module.
+{note}'''Note:''' Blocking the module will disable it permanently. To unblock the third-party module, click the icon next to the module again (the icon turns red when the module is blocked).{/note}
+
+==Don't see the block icon?==
+If you are experiencing an issue where the block icon is not appearing next to a particular module, first check if the {button Reload with system info} button is present. If it is, click it to see if that resolves the issue.
+
+If the block icon still doesn't appear, the [https://wiki.mozilla.org/Platform/Integration/InjectEject/Launcher_Process/ Launcher Process], a Firefox security-related feature, may not be active. To check this:
+#Type '''about:support''' in the address bar and press {key Enter}. This will take you to the [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information]] page.
+#Look for the '''Launcher Process''' entry under the '''Application Basics''' section. If it shows as ''Disabled'', you will need to re-enable the Launcher Process.
+To re-enable the Launcher Process:
+#[[T:aboutconfig]]
+#Find the {pref browser.launcherProcess.enabled} preference. 
+#Toggle it to {pref false}, then toggle it back to {pref true}.
+#Restart Firefox to have the Launcher Process take effect.
+{/for}

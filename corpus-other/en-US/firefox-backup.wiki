@@ -1,0 +1,128 @@
+{for not fx154}
+<!--modified [[T:progressiverollout]]-->
+{note}'''Note:''' {for not fx150}For your Firefox version, the ability to create backup files is only available to users on Windows 10 and the ability to restore backup files is available on Windows 10 and 11. Additionally, if you have [[Manage Firefox profiles|created profiles]] via the Firefox menu{for not fx148} or have Firefox configured to [[Delete browsing, search and download history on Firefox#w_how-do-i-make-firefox-clear-my-history-automatically|clear history automatically]]{/for}, backup and restore are not yet available. Update your Firefox for broader support.{/for}{for =fx150}Firefox Backup is available to users on Windows 10 and 11. This feature will be available to Linux users starting in [[Find what version of Firefox you are using|Firefox version]] 151, and to macOS users starting in [[Find what version of Firefox you are using|Firefox version]] 154.{/for}{for fx151}Firefox Backup is available to users on Windows 10, Windows 11 and Linux. This feature will be available to macOS users starting in [[Find what version of Firefox you are using|Firefox version]] 154.{/for}<!--https://bugzilla.mozilla.org/show_bug.cgi?id=2010390 https://www.firefox.com/en-US/firefox/151.0/releasenotes/ https://bugzilla.mozilla.org/show_bug.cgi?id=2033325 -->{/note}
+{/for}
+
+While [[How to perform Sync on Firefox desktop|Firefox Sync]] is an easy and reliable way to keep your data backed up across all your devices, if you prefer not to use Sync you can create an automatic backup file for extra options. Sync automatically updates Firefox [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile data]] such as bookmarks, history, passwords and settings whenever you sign in with your Mozilla account.  However, the automatic backup feature allows you to store a copy of your Firefox data on your computer or in the cloud for safekeeping.
+
+The backup file contains profile data such as bookmarks, settings and passwords, to help you easily move your data to a new computer or any time you need to reinstall a fresh copy of Firefox. When enabled, Firefox automatically creates a backup file, which you can store locally or in the cloud. The backup file is refreshed every day with your latest browsing data.
+
+__TOC__
+
+=Create a Firefox backup file=
+{for not fx152}
+Turn on backup to create a backup file that is updated daily.
+#[[Template:optionspreferences]]
+#Select {menu Sync}.
+#Scroll down to {menu Backup}, and click {button Manage backup}.
+#Choose the location to save the backup file.
+#*If you’re using a Windows device, consider saving it to your OneDrive, since files in your OneDrive will be available when you set up a new Windows device.
+#Click {button Turn on backup}.
+#;[[Image:firefoxbackùp1]]
+{/for}
+{for fx152}
+Turn on backup to create a backup file that is updated daily.
+#[[Template:optionspreferences]]
+#Go to {menu Account and sync}.
+#Scroll down to {menu Backup your data}, and click on the {button Turn on backup} option.
+#;[[Image:fx152backupdata]]
+#Choose the location to save the backup file.
+#*If you’re using a Windows device, consider saving it to your OneDrive, since files in your OneDrive will be available when you set up a new Windows device.
+#Click {button Turn on backup}.
+{/for}
+
+=Protect your sensitive data with a password=
+You can include passwords and payment methods, and encrypt your entire backup file with a password:
+#Check the {button Back up your sensitive data} box.
+#Enter a password in the {menu Password} field.
+#Confirm it in the {menu Repeat password} field.
+#Click {button Turn on backup}.
+#;[[Image:firefoxbackup2]]
+{note}'''Note:''' Use a secure, unique password. Read [[Choose a strong password|our guide]] for tips.{/note}
+
+=Turn off backup=
+#[[Template:optionspreferences]]
+#Select {for not fx152}{menu Sync}{/for}{for fx152}{menu Account and sync}{/for}.
+#Scroll down to {menu Backup}.
+#Click {button Manage backup}.
+#Click {button Turn off and delete backup}.
+#;[[Image:firefoxbackup3]]
+{warning}'''Warning:''' Turning off backup will also delete your backup file.{/warning}
+
+=Restore Firefox with your backup file=
+#[[Template:optionspreferences]]
+#Select {menu Sync}.
+#Select {menu Restore your data}.
+#;[[Image:firefoxbackup4a]]
+#Click {button Browse…} and select your backup file.
+#;[[Image:firefoxbackup4b]]
+
+=Restore from a backup during Firefox setup=
+When you install Firefox on a new device, it will try to find a backup in your files. If a backup is found, an option to restore Firefox will be shown automatically.
+;[[Image:firefoxbackup5]]
+#Information about the detected backup file is shown. You can browse for a different backup file by clicking the {button Choose…} button.
+#If the backup file is encrypted with a password, type the password in the {button Password} box.
+#Click {button Restore and restart}. Firefox will close and then reopen with all your data and settings restored.
+#;[[Image:firefoxbackup6]]
+#Once Firefox restarts, choose your default and pinning preferences and click {button Save and continue}.
+
+=What does the backup file save=
+The backup file saves data such as:
+*Bookmarks
+*Settings
+*History
+*Passwords
+*Payment methods
+*Extensions
+*Other browsing data
+Sensitive data such as passwords, payment methods or credit card numbers is encrypted and protected by a password.
+
+You can choose to back up:
+*Basic data, and you won’t have to use a password.
+*All data, including sensitive data, but you’ll have to use a password.
+When you install Firefox on a new device, you can restore all your browsing data.
+
+=Troubleshoot problems with backing up or restoring your data=
+If you’re having trouble creating or restoring your Firefox backup, try the suggestions below. These common issues can often be fixed with a few simple steps.
+
+==Firefox couldn’t restore your backup==
+This may happen for a few reasons:
+#'''The file is not a valid backup'''.
+#*Make sure you’re selecting a file that was created by Firefox’s backup system.
+#*Backup files have a specific structure and may not work if they’ve been modified or renamed.
+#*You can also try searching your computer for: '''“Firefox backup”''' or '''“restore Firefox”'''.
+#'''The selected folder or file was moved or deleted'''.
+#*If the backup file or folder was moved, Firefox may not be able to find it.
+#*Use {button Choose backup file} during restore and browse to the current file location manually.
+{note}'''Tip:''' Look for backups saved in common locations like your Documents folder, OneDrive, Dropbox or anywhere you normally store your personal files.{/note}
+
+==Backup failed or stopped==
+#'''Your device ran out of storage space'''.
+#*Firefox can’t complete a backup if there isn’t enough space on your device.
+#*Try clearing space on your hard drive and then turn backup off and on again:
+#**[[Template:optionspreferences]]
+#** {for not fx152}Select {menu Sync}{/for}{for fx152}Go to {menu Account and sync}{/for}.
+#**{for not fx152}Click {button Manage backup}{/for}{for fx152}Scroll down to {menu Backup your data}{/for}.
+#**Click {button Turn off and delete backup}, and then re-enable it.
+#'''Backup was interrupted due to repeated errors'''.
+#*If Firefox detects too many errors, it may stop backing up temporarily.
+#*Turning the backup off and back on can often resolve this.
+
+==Issues with passwords or settings==
+#'''You entered a password that doesn’t meet backup guidelines'''.
+#*When setting a backup password, follow the password strength and format requirements shown in the setup screen.
+#*Try a secure combination of letters, numbers and symbols.
+
+=Frequently asked questions=
+==Do I need a Mozilla account to use backup?==
+No, but we recommend creating a Mozilla account and using Firefox Sync as an even more convenient and reliable way to back up your data. Firefox Sync stores your data securely with Mozilla, so that it can be accessed from any new device just by signing in.
+
+==Can I back up to the cloud?==
+Yes. You can choose a cloud location (like OneDrive or Dropbox) when selecting where to save your backup file.
+
+=Related articles=
+*[[Manually back up and restore Firefox profile data]]
+*[[Back up and transfer your Firefox data to a new device]] 
+*[[Sync Firefox data]]
+*[[Install Firefox on Windows]]
+*[[Update Firefox to the latest release]]

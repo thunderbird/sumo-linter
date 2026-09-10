@@ -1,0 +1,53 @@
+Facebook Container is a Firefox add-on that helps you set boundaries with Facebook and other Meta websites. This extension isolates Meta sites (including Facebook, Instagram, and Messenger) from the rest of the web to limit where the company can track you.
+{note}To learn more about Containers in general, see [[Multi-Account Containers|Firefox Multi-Account Containers]].{/note}
+
+__TOC__
+
+=How does Facebook Container work?=
+The Facebook like and share buttons that appear on shopping, news and other sites contain Facebook trackers. Even if you don’t use them, Facebook uses these buttons to track you. Facebook Container blocks these trackers and will display a purple fence icon to show you where these trackers were removed.
+
+When you visit a Meta site – like Facebook, Instagram or Messenger – the extension loads it in the special Facebook container, and the fence icon appears in your address bar. This puts Facebook and other Meta sites in their own boundary. You can allow other sites into the Facebook Container boundary, but this will allow Facebook to track more of your web browsing.
+
+[[Image:Facebook Container SS1]]
+
+When you visit a non-Facebook site that has Facebook trackers, Facebook Container alerts you of those trackers and blocks them.
+
+You can add other websites to Facebook Container, if you prefer Facebook to see your activity on that site.
+#Go to the website that you will add to the Facebook Container.
+#Click the Facebook Container toolbar fence icon. This will open the extension panel.
+#Select {menu Allow Site in Facebook Container} at the bottom of the panel.
+#Confirm your choice by clicking on {button Allow} in the panel.
+Follow the same steps to '''Remove Site from Facebook Container'''.
+
+=How do I install Facebook Container?=
+#[https://addons.mozilla.org/firefox/addon/facebook-container/ Install Facebook Container] from Mozilla Add-on website.
+#;This will log you out of supported Meta websites and delete the cookies they set so far in Firefox.
+#Access Facebook, Messenger or Instagram from your Firefox browser.
+#;Firefox will automatically switch to the Facebook Container. If you click a link to a page outside of Meta websites or type in another website in the address bar, Firefox will load them outside the Facebook Container. If a website has Facebook trackers, Facebook Container will block them and alert you.
+
+=Facebook Container isn't working as expected=
+First, make sure the add-on is installed, enabled and up to date by checking your installed add-ons.
+#[[Template:Open Add-ons|type=Extensions]]
+#Ensure that installation was completed: If Facebook Container appears on the list, it was successfully installed, and you can move on to the next step.
+#Make sure it is enabled: If it is disabled, switch the toggle next to “Facebook Container (disabled)”.
+#Update Facebook Container: See [[How to update add-ons]].
+For more information, see [[Facebook Container isn't working]].
+
+=What happens when I log in to other sites using my Facebook account?=
+Facebook login buttons on other sites contain Facebook trackers. You can still log in, but this allows Facebook to track your activity there. Allowing a site into the Facebook Container boundary allows Meta/Facebook to build a fuller picture of your online life.
+
+=How does this affect Facebook’s features?=
+You can still use Facebook as you normally would on facebook.com. Facebook Container removes their trackers on other sites. The following will not work:
+*'''Facebook like, share and comment buttons on other websites'''. Facebook Container removes their trackers and functionality.
+*'''Logging in or creating accounts on other websites using Facebook'''. To log in using your Facebook account, you need to first allow the site inside Facebook Container.
+
+=Will this add-on protect me from Meta/Facebook completely?=
+This add-on does not prevent Facebook and its holding company Meta from mishandling the data it already has or permitted others to obtain about you. Meta/Facebook still has access to everything that you do while you are on facebook.com or in the Facebook app, including your Facebook comments, photo uploads, likes and any data you share with Facebook connected apps. Meta also has access to what you do on Messenger and Instagram, which the company also owns.
+
+Other ad networks may try to link your Facebook activities with your regular browsing. In addition to using this add-on, there are other things you can do to maximize your protection, including changing your Facebook settings, using [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] and/or using the [https://addons.mozilla.org/firefox/addon/multi-account-containers/ Firefox Multi-Account Containers] extension to further limit tracking.
+
+=How do I use Containers for other websites?=
+Good news! Containers aren’t just for Meta/Facebook. When you install Facebook Container, you might also see other containers. To get the best experience, install [https://addons.mozilla.org/firefox/addon/multi-account-containers/ Firefox Multi-Account Containers] in addition to Facebook Container.
+
+To learn more about how Multi-Account Containers work, see the [[Multi-Account Containers]] article.
+{warning}Mozilla created and supports [https://addons.mozilla.org/firefox/addon/facebook-container/ Facebook Container] and [https://addons.mozilla.org/firefox/addon/multi-account-containers/ Firefox Multi-Account Containers]. Other container extensions are not maintained by Mozilla. If you are experiencing issues with these other extensions, please contact the developer directly.{/warning}

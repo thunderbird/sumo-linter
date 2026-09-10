@@ -1,0 +1,13 @@
+{warning}
+'''Starting in [[Find what version of Firefox you are using|Firefox version]] 135, the “Do Not Track” setting has been  removed. ''' Many sites do not respect this indication of a person's privacy preferences and, in some cases, it can reduce privacy. If you wish to ask websites to respect your privacy, you can use the “Tell websites not to sell or share my data” setting built on top of the Global Privacy Control (GPC) feature. GPC is respected by increasing numbers of sites and enforced with legislation in some regions. To learn more, please read [[Global Privacy Control]].
+{/warning}
+
+Please see [[Tips to protect your online privacy]] for other ways to keep your browsing private.
+
+=Tracking=
+
+The Do Not Track option was removed in Firefox version 135.  Please refer to the above content highlighted in yellow for more information.
+
+To learn more about how Firefox protects you from trackers in [[Private Browsing - Use Firefox without saving history|Private Windows]], see [[SmartBlock for Enhanced Tracking Protection]].
+
+<!--{note}'''Do Not Track''': If [[Tracking Protection in Private Browsing]] is enabled, Firefox will tell websites that you do not want to be tracked, regardless of your ''Do Not Track'' setting.{/note}-->

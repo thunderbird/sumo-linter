@@ -1,0 +1,63 @@
+This article describes enhancements made to how downloads are handled since [[Find what version of Firefox you are using|Firefox version]] 98 and answers some frequently asked questions.
+
+__TOC__
+
+=Firefox no longer asks what to do for each file by default=
+You are not prompted to choose a helper application or save to disk before downloading a file, unless you have [[Manage file types and download actions in Firefox#w_changing-download-actions|changed your setting]] for that type of file, for Firefox to always ask what action to take:
+;[[Image:Fx78OpeningFLVfile|width=400]]
+
+=Downloads panel automatically opens=
+Every time you start a download, Firefox will automatically bring up the Downloads panel by default, so you can experience minimal interruptions and easily find your downloaded files (to avoid having to close it several times, the panel won't show if there are multiple downloads in progress).
+;[[Image:Fx97DownloadFile|width=400]]
+
+To hide this panel when a download begins, right-click on the downloads button [[Image:Fx91DownloadsButton]], and uncheck the option {menu Show Panel When Download Begins}.
+;[[Image:Downloads_ContextM|width=250]]
+
+=Downloaded files are saved to disk=
+The files you download will be immediately saved on your disk. Depending on the current configuration, they will be saved in your preferred download folder, or you will be asked to select a location for each download. Windows and Linux users will find their downloaded files in the destination folder (this is usually the Downloads folder). They are not put in the Temp folder first.{note}'''Note:''' You can delete downloaded files directly from the Downloads panel or [[Where to find and manage downloaded files in Firefox#w_see-downloads-history|Downloads Library window]].<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1745624--> [[Template:contextmenu]] the file entry and select {menu Delete} from the context menu.{/note}
+If you have security software installed on your system, such as an antivirus, it can scan any files you download. If you notice that downloading large files takes a while to complete, sometimes increasing the CPU usage, this is not done by Firefox, but by the security software.
+
+=Set a default app to open a file type=
+When you [[Manage file types and download actions in Firefox|set an application to open files of a specific type]] in your Firefox preference settings, those files will open automatically, even files served by the website with ''content-disposition: attachment''. The same applies to PDF files that are set to open in Firefox by default.<!--https://support.mozilla.org/en-US/questions/1370450--> This is a fix to [https://bugzilla.mozilla.org/show_bug.cgi?id=453455 bug 453455].
+
+=“Always Open Similar Files” and other Downloads panel options=
+When you download a file that can be opened with an installed application, you can [[Manage file types and download actions in Firefox#w_adding-download-actions|add a preference]] to always open similar files, from the Downloads panel context menu for the file. [[Template:contextmenu]] the file to see this menu item and other available options for that download. (The ''Always Open Similar Files'' option is also available for files listed in the [[Where to find and manage downloaded files in Firefox#w_see-downloads-history|Downloads Library window]].)
+;[[Image:Fx98Downloads-FileContextMenu]]
+The following options are available. You will not see some of these options for files that have been deleted, renamed or moved from the download folder.
+*'''Always Open Similar Files:''' Make Firefox automatically open downloaded files of the same type with the system default application. (<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1738918 https://bugzilla.mozilla.org/show_bug.cgi?id=1759374-->This option may be missing in some cases, such as files served by the website with the wrong content type, or executable files.)
+*'''Show In Folder:''' Open the folder that contains your downloaded files and select the file used to open the context menu.
+*'''Go To Download Page:''' Open in a new tab the page from which the file was downloaded, even after leaving the site or closing the tab.
+*'''Copy Download Link:''' Copy the download link to share it, save it, or for any applicable use.
+*'''Delete:''' Remove a downloaded file from your disk. It will appear in the list as ''File deleted''.
+*'''Remove From History:''' Remove a file from your list of downloaded files. The downloaded file is not deleted from your disk.
+*'''Clear Preview Panel:''' Clear the list of downloaded items in the preview panel that opens when you start a download.
+To learn more about managing downloads, see the article [[Where to find and manage downloaded files in Firefox]].
+
+=Frequently asked questions=
+'''The ''What should Firefox do with this file?'' dialog was a helpful way to see when something downloaded. How do I notice this now?'''<br>
+The Downloads panel will show automatically after you start a download.
+
+'''I want to approve each download before it happens, is there a way to do this?'''<br>
+Firefox no longer shows the dialog by default because downloads are usually intentional. Having to click a second time for a download to start is usually unnecessary. Once a content type has been set up on the Settings page, you can change its action from '''Save file''' to '''Always ask'''. The steps are listed below under “I want to configure a different behavior for some files. How do I do that without the dialog?”
+
+If you prefer to have Firefox ask you what to do with files that do '''not''' have an action defined on the Settings page, you can go to {for fx152} the {menu Downloads} page within {menu Settings}, then go to{/for} the bottom of the {for not fx152}''Applications''{/for}{for fx152}''Files and applications''{/for} section under ''What should Firefox do with other files?'' and select '''Ask whether to open or save files'''.
+;{for not fx152}[[Image:Fx101settings-Applications-OtherFiles]]{/for}{for fx152}[[Image:fx152firefoxdowithfiles]]{/for}
+When you choose the setting ''Ask whether to open or save files'', you will see a ''What should Firefox do with this file?'' prompt when you download any file that has no defined content type.
+
+'''Why does Firefox keep asking me where to save files?'''<br>
+This will happen if you have configured your Firefox settings to always ask you where to save files. To check your download settings:
+#[[T:optionspreferences]]
+#{for not fx152}In the {menu General} panel, find the '''Downloads''' section under ''Files and Applications''{/for}{for fx152}In the {menu Downloads} page, find the ''Downloads'' section{/for}.
+#;{for win}{for not fx152}[[Image:Fx101ChangeDownloadLocation-win]]{/for}{/for}
+See [[Where to find and manage downloaded files in Firefox#w_change-where-downloads-are-saved|Change where downloads are saved]] for more information.
+
+'''When I open a file with an application, why is it also saved to my Downloads folder?'''<br>
+Before Firefox version 98, files you opened in Firefox with an application were also saved to the system Temp folder on Windows and Linux, even though you may not have been aware of it. Firefox no longer saves files to a temporary folder because of the downsides to saving files in a location that is hard to discover. Instead, files are saved to the ''Save files to'' folder location shown in Firefox settings, in the {menu General} panel '''Downloads''' section under ''Files and Applications''. (Firefox will not ask you to choose a folder when opening files if you have selected the ''Always ask you where to save files'' setting, to prevent unnecessary interruptions.)<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1738916 https://bugzilla.mozilla.org/show_bug.cgi?id=1738574 -->
+
+'''I want to configure a different behavior for some files. How do I do that without the dialog?'''<br>
+When you select ''Always Open Similar Files'' in the context menu for a downloaded file, it will set Firefox to always open that type of file with the system default application. If you want a different behavior:
+#[[T:optionspreferences]]
+#{for not fx152}In the {menu General} panel, go to the '''Applications''' section{/for}{for fx152}In the {menu Downloads} page, find the ''Files and applications'' section{/for}.
+#;{for not fx152}[[Image:Fx97ChangeDownloadActions]]{/for}{for fx152}[[Image:fx152filesandapplications]]{/for}
+# Select the type of file you wish to change and use the drop-down menu to change the download action, such as using another application to open that type of file or having Firefox always ask you what to do.
+For more information, see [[Manage file types and download actions in Firefox]].

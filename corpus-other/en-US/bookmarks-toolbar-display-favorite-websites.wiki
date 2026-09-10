@@ -1,0 +1,98 @@
+Firefox's Bookmarks toolbar gives you quick access to often-used bookmarks. This article describes how to use the Bookmarks toolbar and how to hide it.
+;[[Image:Fx155Toolbar-Bookmarks]]
+For more information on bookmarks, see the [[Bookmarks in Firefox]] article.
+
+__TOC__
+
+=Show or hide the Bookmarks toolbar=
+The Bookmarks toolbar is shown by default on the [[New Tab page in Firefox|New Tab page]] but you can also show it on all pages, or it can be hidden.
+
+To show or hide the Bookmarks toolbar:
+{for win, linux}
+#[[T:customizefx29]]
+#Click the {menu Toolbars} button at the bottom of the screen.
+#;{for win}[[Image:Fx85BetaCustomizeToolbars-win]]{/for}
+#Go to the {menu Bookmarks Toolbar} menu and choose one of these settings:
+#*{menu Always Show} will show the Bookmarks toolbar on all pages.
+#*{menu Never Show} will hide it on all pages.
+#*{menu Only Show on New Tab} will show the Bookmarks toolbar only on the New Tab page.
+#Click {button Done}.
+{note}'''Tip:''' Another way to show or hide the Bookmarks Toolbar is to right-click a blank spot on the Tab bar at the top of the Firefox window, find {menu Bookmarks Toolbar} in the context menu and choose your preferred setting.{/note}
+{/for}
+{for mac}
+#Click {menu View} in the Firefox menu bar at the top of the screen.
+#Go down to the {menu Toolbars} menu and select {menu Bookmarks Toolbar}.
+#;[[Image:Fx155Mac-View-Toolbars-Bookmarks]]
+#Choose one of these settings:
+#*{menu Always Show} will show the Bookmarks toolbar on all pages.
+#*{menu Never Show} will hide it on all pages.
+#*{menu Only Show on New Tab} will show the Bookmarks toolbar only on the New Tab page.
+{note}'''Note:''' You can also use the [[Customize Firefox controls, buttons and toolbars|Customize]] menu to show or hide the Bookmarks toolbar.{/note}
+{/for}
+
+==Remove or restore Other Bookmarks folder==
+If the Other Booksmarks folder in your Bookmarks Library contains any bookmarks, an '''Other Bookmarks folder''' icon will appear at the end of the Bookmarks toolbar by default.
+To remove it from the Bookmarks toolbar:
+#[[Template:contextmenu]] on a blank spot at the end of the Bookmarks toolbar (or on the ''Other Bookmarks'' folder icon) to open the context menu.
+#;[[Image:Fx91BookmarksToolbarContextMenu]]
+#Click on the {menu Show Other Bookmarks} menu item to remove the check mark.
+To later restore the Bookmarks toolbar ''Other Bookmarks'' folder icon, {for win,linux}right-click{/for}{for mac}hold down the {key control} key while you click{/for} on a blank spot at the end of the Bookmarks toolbar and then click on the {menu Show Other Bookmarks} menu item to add back the check mark.
+
+=Add bookmarks to the Bookmarks toolbar=
+#Set the Bookmarks toolbar to {menu Always Show} ([[#w_show-or-hide-the-bookmarks-toolbar|see above]]) so that you can see it on all pages.
+#Go to the page you want to add to the Bookmarks toolbar.
+#In the address bar, click and drag the padlock icon onto the Bookmarks toolbar.
+#;[[Image:AddBookmarkToolbar]]
+After adding bookmarks, you can reset the Bookmarks toolbar to your preferred setting.
+
+=Re-order bookmarks on the Bookmarks toolbar=
+To change the position of an item on the Bookmarks toolbar, click and hold the bookmark or folder you want to move and then drag it into position.
+
+=Add toolbar items to the Bookmarks toolbar=
+The Bookmarks toolbar can have items other than bookmarks added to it. For more information, see [[Customize Firefox controls, buttons and toolbars]].
+
+=Bookmarks toolbar not showing=
+If the bookmarks toolbar is still not visible after following the steps in the [[#w_show-or-hide-the-bookmarks-toolbar|Show or hide the Bookmarks toolbar]] section, try the following solutions.
+
+==Check if Firefox is in Full Screen mode==
+The toolbar is hidden by default in Full Screen mode. To check if Firefox is in Full Screen mode:
+#{for win, linux}Press {key F11}{/for}{for mac}Press the keyboard shortcut {key Control+Command+F}{/for} to exit Full Screen mode.
+#Move the cursor to the top of the screen. If the toolbar appears, Full Screen mode was likely the cause.
+
+==Check if the Bookmarks Toolbar is set to {menu Only show on new tab}==
+Sometimes the toolbar is set to appear only on new tabs. To check this setting:
+#Right-click an empty area of the toolbar or tab bar.
+#Hover over the {menu Bookmarks Toolbar} menu and select {menu Always Show} from the displayed options.
+
+==Restore default toolbar settings==
+A custom configuration may be hiding the toolbar. To restore the default toolbar settings:
+#Right-click an empty area of the toolbar or tab bar.
+#Select {menu Customize Toolbar…}.
+#Click the {button Restore Defaults} button in the bottom-right corner of the window.
+#Click the {button Done} button.
+
+==Restart Firefox or check for updates==
+An outdated or corrupted session may prevent changes from taking effect.
+
+===Restart Firefox===
+Close and reopen Firefox.
+
+===Update Firefox===
+To check for updates:
+#{for win, linux}Press the {key Alt} key. In the menu bar that appears, click {menu Help}{/for}{for mac}In the menu bar, click {menu Firefox}{/for} and select {menu About Firefox}. The ''About Firefox'' window will open. If an update is available, it will be installed.
+#Click the {button Restart to update Firefox} button after the update is installed.
+#If Firefox is up to date, close the window.
+
+==Check extensions or themes that may interfere==
+Some extensions or themes may affect toolbar visibility. To check installed extensions:
+#Click the Firefox menu [[Image:firefoxmenu]] and select {menu Add-ons and themes}. The Add-ons Manager (''about:addons'') will open with the ''Extensions'' panel active.
+#Disable extensions one by one to check if any of them is causing the issue.
+
+To check installed themes:
+#Click {menu Themes} in the left panel of the Add-ons Manager.
+#If a custom theme is in use, switch back to the system theme.
+
+=Related articles=
+*[[Export Firefox bookmarks to an HTML file to back up or transfer bookmarks]]
+*[[Bookmarks in Firefox]]
+*[[Remove the Other Bookmarks folder from the Bookmarks Toolbar]]

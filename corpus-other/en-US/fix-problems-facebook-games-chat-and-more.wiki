@@ -1,0 +1,44 @@
+This article describes how to troubleshoot problems you might encounter while using Facebook in Firefox.
+{note}
+'''Note:'''
+*If you share your computer with other people and '''don't want them to log in to your Facebook account''', read [[How do I share Firefox between people on a computer?]]
+*If you want to prevent Facebook from tracking your browsing activity on other sites, check out [https://support.mozilla.org/kb/facebook-container-prevent-facebook-tracking Facebook Container: Prevent Facebook from tracking your visits to other websites].
+{/note}
+
+__TOC__
+
+= Cannot connect to Facebook =
+If you cannot connect to the Facebook website at all in Firefox:
+*Check to see if you can connect in another browser such as {for win}Microsoft Edge{/for}{for mac}Safari{/for}{for linux}Epiphany{/for}.
+** If you can connect in another browser, but not in Firefox:
+**# Follow the troubleshooting steps below, starting with the [[#w_clear-cookies-and-cache|Clear cookies and cache]] section.
+**# Check to make sure your Internet security software (such as a firewall, antivirus or anti-spyware program) is set to allow Firefox. For instructions on configuring specific firewall programs, see [[Configure firewalls so that Firefox can access the Internet]].
+* If you cannot connect in any browser, the Facebook site may be down.
+
+= Other Facebook problems =
+You can visit the [http://www.facebook.com/help Facebook Help Center] or the [https://www.facebook.com/help/community Facebook Help Community] to see if your issue is a known Facebook website problem. If you can't find a solution, follow the troubleshooting steps below.
+
+== Clear cookies and cache ==
+Clearing your stored cookies and the Firefox cache can solve several common problems with Facebook, such as Farmville issues.
+[[T:clearCookiesCache]]
+
+== Check cookie settings ==
+If you receive an error message that mentions [[Cookies - Information that websites store on your computer|cookies]] after clearing your cookies and cache:
+# [[T:optionspreferences]]
+# {for not fx152}Select the {menu Privacy & Security} panel and go to the ''Cookies and Site Data'' section{/for}{for fx152}Select {menu Privacy and security} on the left and go to the ''Browsing data'' section{/for}.
+#;{for not fx152}[[Image:CookiesandSiteD]]{/for}{for fx152}[[Image:fx152browsingdata]]{/for}
+# Click {button Manage Exceptions…}
+# Make sure '''facebook.<!-- -->com''' is not listed.
+#* If it is listed, click on its entry, then click {button Remove Website}.
+
+== Check if JavaScript is being blocked==
+You should check whether you have an extension (such as NoScript) or Internet security program (such as a firewall, antivirus, or anti-spyware program) that can block JavaScript.
+
+== Check extensions and themes ==
+If the steps above did not fix your problem with Facebook, determine whether an extension or theme is causing your problem. See [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] for instructions.
+
+== Check for malware ==
+Certain types of malicious software can cause problems with connecting to Facebook. See [[Troubleshoot Firefox issues caused by malware]] for instructions on troubleshooting malware problems with Firefox.
+
+= Changes to Facebook =
+Facebook is known to make changes to its system regularly. Check [http://developers.facebook.com/blog Facebook Developer Blog] for changes that have recently been made.

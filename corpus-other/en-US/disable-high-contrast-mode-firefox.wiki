@@ -1,0 +1,17 @@
+If {for win}Windows{/for} high contrast mode is making it difficult to view some web pages, you can disable it in Firefox:
+
+{for not fx152}
+#[[Template:optionspreferences]]
+#Select the {menu General} panel and scroll down to ''Language and Appearance''.
+#Under '''Colors''', click the {button Manage Colors…} button. 
+#;[[Image:ColorsPanel_Settings|width=400]]
+#In the drop-down menu under ''Override the colors specified by the page with your selections above'' choose {menu Never}.
+#;[[Image:high contrast fx desktop|width=400]]
+#Click {button OK} to save your changes.
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Select the {menu Accessibility} page and scroll down to ''Website contrast''.
+#Under '''Override colors''', click the {button Off} radio button. 
+#;[[Image:fx152websitecontrast]]
+{/for}

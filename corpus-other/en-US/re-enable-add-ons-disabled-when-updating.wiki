@@ -1,0 +1,22 @@
+When you update Firefox, it automatically checks your add-ons and updates them to compatible versions when possible. If an add-on can't be updated and is no longer compatible, Firefox turns it off. This article shows you how to update those add-ons and get them working again.
+{note}'''Note:''' If an add-on is disabled and displays a message, ''(Add-on name) could not be verified for use in Firefox'', see [[Add-on signing in Firefox]] and [[Update Firefox to prevent add-ons issues from root certificate expiration]].{/note}
+
+__TOC__
+
+= Check for new versions of your add-ons =
+Firefox checks for new versions of your add-ons once a day and updates them automatically. You can manually check for new versions at any time.
+# Click on the menu button [[Image:Fx89menuButton]] to expand the menu panel.
+# {for not fx140}Click {menu Add-ons and themes}. The ''Add-ons Manager'' page will open.{/for}{for fx140}Click {menu Extensions and themes}. The ''Add-ons Manager'' page will open.{/for}
+# Click [[Image:Fx91UpdateAddonIcon]] on the ''Add-ons Manager'' page and select {menu Check for Updates}. If Firefox finds updates, they will be downloaded automatically.
+# Click {button Update Now} or restart Firefox to complete the update.
+
+== Search for updates on the add-on's website ==
+Some add-on authors have different versions of their add-on for different versions of Firefox, so updating through the Add-on Manager doesn't work. In this case, an update might be available on the add-on's website.
+# In the Add-ons Manager, find the incompatible add-on on the list.
+# Click the ellipsis [[Image:Fx107-Addons-3dotIcon]] (3-dot) icon and select {menu Manage} to see details about that add-on.
+# Click on the link next to ''Homepage''. You will be taken to the home page for that add-on.
+# Download the latest version of the add-on from the add-on home page.
+{note}'''Note:''' If there isn't a version of the add-on available that works, it might help to contact the makers of the add-on while you are on their website.{/note}
+
+= Search for alternatives =
+There may be other add-ons with similar features that are compatible with your version of Firefox. The [https://addons.mozilla.org Add-ons site] is a good place to find alternatives.

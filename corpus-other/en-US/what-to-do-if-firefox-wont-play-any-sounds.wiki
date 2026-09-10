@@ -1,0 +1,35 @@
+This article describes what to do when you can't hear sound in Firefox.
+*To allow autoplay of media with sound, see [[Allow or block media autoplay in Firefox]].
+
+{for win}
+__TOC__
+
+= Check the Volume Mixer =
+# Open Firefox and play content that should play sound, such as this [http://youtu.be/LtOGa5M8AuU Firefox video].
+# {for win7,win8}Click{/for}{for win10,win11}Right-click{/for} the volume icon in the Windows taskbar.
+# Click {for win7,win8}'''Mixer'''{/for}{for win10,win11}'''Open Volume Mixer'''{/for}. The Volume Mixer window will appear.
+# Make sure the slider for ''Mozilla Firefox'' is not muted or at the bottom.<!-- Volume Mixer while playing Flash audio content on Windows 7 in Firefox 82. Test page: http://comp.cast.org/audiotest/ -->
+;{for win7}[[Image:VolumeMixer-Win7]]{/for}{for win8,win10,win11}[[Image:Win10 Volume Mixer]]{/for}
+
+= Check your audio device =
+Make sure that the audio device (such as speakers or headphones) are turned on and connected to the computer properly. 
+
+= Other solutions =
+Check out whether other applications on your computer can play sounds. If they can't:
+* Follow Microsoft's [https://support.microsoft.com/en-ca/help/4026994/windows-fix-sound-problems Fix sound problems] tutorial.
+If Firefox is the only application that you can't hear sound in:
+* Try the solutions in [[Video or audio does not play]].
+{/for}
+{for mac}
+Make sure other applications on your computer can play sounds. If Firefox is the only application that you can't hear sounds in:
+* Try the solutions in [[Video or audio does not play]].
+If no application can play sounds:
+* See Apple's [http://support.apple.com/kb/ts1574 Troubleshooting issues with no audio from built-in speakers on Macs].
+* If you have an external audio device, check whether it's turned on and connected properly.
+{/for}
+{for linux}
+Make sure other applications on your computer can play sounds. If Firefox is the only application that doesn't play sounds:
+* Try the solutions in [[Video or audio does not play]].
+If you can't hear sounds in any other applications:
+* Make sure that the audio device (such as speakers or headphones) are turned on and connected to the computer properly.
+{/for}

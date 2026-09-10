@@ -1,0 +1,17 @@
+After configuring the Mozilla VPN preferences for different websites, you may want to review them to confirm they meet your expectations. Follow these steps to do so:
+#In the top right corner of your browser, click the Mozilla VPN extension icon.
+#;[[Image:extension icon|width=350]]
+#In the top right corner of the extension, click the gear icon to access the extension settings.
+#;[[Image:Extension setting|width=350]]
+#Select '''Website preferences''' from the menu.
+#;[[Image:Website preferences|width=350]]
+#A new window opens and displays the website preferences.
+#;[[Image:Website preferences abc|width=720]]
+;*[[Image:VPN letter A]]: The search bar allows you to look for a website from the list.
+;*[[Image:VPN letter B]]: The VPN status column indicates which websites are exempt from the VPN protection.
+;*[[Image:VPN letter C]]: The VPN location column displays the set country preference for accessing each website.
+
+=Related articles=
+*[[Get started with the Mozilla VPN extension]]
+*[[Disable VPN protection for a specific website]]
+*[[A program on your computer interferes with the Mozilla VPN extension]]

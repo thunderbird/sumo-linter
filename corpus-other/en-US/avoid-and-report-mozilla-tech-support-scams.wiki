@@ -1,0 +1,20 @@
+Mozilla does not provide telephone support, does not charge for downloads, upgrades or technical support and does not endorse any company that does. Companies that ask for payment or personal information for installing, updating or providing support for Firefox or Thunderbird are not affiliated with Mozilla and should be avoided.
+
+__TOC__
+
+=Common technical support scams=
+*Virus warnings that tell you to call a phone number, download software or allow a virus scan.
+*Companies that use Mozilla brand names and logos to charge you for installing, fixing and updating Firefox or Thunderbird.
+*Phone calls from "Mozilla representatives" pressuring you into paying for a service or granting access to your computer.
+If you encounter any of these scams, visit the [https://www.consumer.ftc.gov/articles/0346-tech-support-scams Federal Trade Commission (USA)] or [https://www.econsumer.gov/ Econsumer.gov (international)]. 
+
+=Protect yourself from scams=
+*Visit the official Mozilla Support site (https://support.mozilla.org) or [[Get community support|other recognized resources]] for all technical support issues. '''There are no other Mozilla-endorsed technical support agencies''' and any that use the Mozilla name or logos to claim affiliation with Mozilla should be reported [https://www.mozilla.org/about/legal/fraud-report/ here]. External links in the support forums on https://support.mozilla.org are vetted by moderators and are safe to visit.
+*Mozilla does not offer telephone support. Do not call or give information to agents claiming to represent Mozilla. Mozilla will never ask you to provide your login credentials via a pop up or notification on your device. 
+*Download Mozilla software from official sources only. 
+**[https://www.mozilla.org/firefox/new/ Official Firefox download page]
+**[https://www.thunderbird.net/ Official Thunderbird download page]
+**When downloading anything with the Firefox logo on your phone or tablet, check the developer information and make sure it really is released by Mozilla.
+
+=Report trademark violations=
+Help stop scammers. If you see others using the Firefox or Thunderbird name or logo to represent Mozilla, [https://www.mozilla.org/about/legal/fraud-report/ submit a fraud report].

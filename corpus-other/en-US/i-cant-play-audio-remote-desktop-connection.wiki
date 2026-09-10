@@ -1,0 +1,9 @@
+If you are on a Remote Desktop Connection (RDP) on Windows, audio playback will be disabled due to increased security restrictions. This is a known issue since Firefox version 56 that we are working hard to fix. 
+
+In the meantime, you can reduce the sandbox security level by following these steps:
+[[Template:aboutconfigwarning]]
+# [[Template:aboutconfig]]
+# Search for the {pref security.sandbox.content.level} preference.
+# Click the ''Edit'' [[Image:Fx71aboutconfig-EditButton]] button next to the preference and set its value to {pref 2}.
+# Click on the checkmark [[Image:Fx71aboutconfig-Checkmark]] to save the change.
+# Restart Firefox on the remote device.

@@ -1,0 +1,73 @@
+__TOC__
+
+=What is Firefox View?=
+{for not fx154}
+Firefox View allows you to easily access pages from your open and recently closed tabs, browsing history and even tabs from other devices. To use this feature, click the Firefox View icon on the left side of the tab strip.
+;{for not fx149}{for mac}[[Image:Firefox View 1]]{/for}{for not mac}[[Image:Fx119FirefoxView-win]]{/for}{/for}{for fx149}[[Image:Fx153FirefoxViewIcon-win]]{/for}
+{/for}
+Whether you're picking up an article on your desktop that you started on your phone or trying to retrieve a page you closed just moments ago, Firefox View has you covered. Here's a breakdown of what you can access:
+*'''Recent Browsing:''' View your active and recently closed tabs at a glance.
+*'''Open Tabs:''' See all your current tabs organized for clear navigation.
+*'''Recently Closed Tabs:''' Quickly retrieve any tabs you've mistakenly closed.
+*'''Tabs from Other Devices:''' Sync with your Mozilla account to access tabs across all your devices effortlessly.
+*'''History:''' View pages from your browsing history, which can be sorted by date visited or by site.
+{note}'''Note:''' Firefox View does not appear in [[Private Browsing - Use Firefox without saving history|Private Browsing]] windows.{/note}
+
+{for fx154}
+=How do I access Firefox View?=
+Firefox View can be accessed from the Tools menu in the Firefox Menu bar{for win,linux}, [[Restore the Menu bar in Firefox|if the Menu bar is enabled]],{/for} or by selecting {menu View All Tabs} in the ''List all tabs'' menu at the end of the tab strip:
+;[[Image:Fx154TabOverview-ViewAllTabs]]
+You can also add a ''Firefox View'' [[Image:IG firefox view]] icon to your toolbar, tab strip or overflow menu as follows:
+#[[Template:contextmenu]] the toolbar or an empty spot next to the tab strip and select {menu Customize Toolbar…} {note}'''Tip:''' You can also click the menu button [[Image:IG main menu]], click {menu More Tools} and select {menu Customize toolbar…}{/note}
+#Drag the Firefox View icon to wherever you like.
+;[[Image:Fx119Customize-FirefoxView]]
+To learn more, see [[Customize Firefox controls, buttons and toolbars]].
+{/for}
+
+[[UI:details_start]]
+=Set up Firefox View for other devices=
+While Firefox View is instantly functional, there are steps to maximize its potential when using other devices.
+
+==Step 1: Sign up or sign in to a Mozilla account==
+To get the best experience, either sign in or sign up for a Mozilla account to synchronize across devices. An account unlocks access to your open tabs and other synced data across your devices.
+#Click the Firefox View icon [[Image:IG firefox view]]{for not fx154} to the left of the tab strip{/for} to open the Firefox View panel. Firefox View can also be accessed via the Tools menu in the Firefox menu bar{for win,linux}, [[Restore the Menu bar in Firefox|if the Menu bar is enabled]]{/for}{for fx154}, or by selecting {menu View All Tabs} in the ''List all tabs'' menu at the end of the tab strip{/for}.
+#Select the '''Tab from other devices''' section to sign in to your Mozilla account (or to sign up if you don't have it already).
+#;[[Image:Firefox View 2]]
+#After signing in, go back to the Firefox View panel.
+
+==Step 2: Install Firefox mobile==
+In order to access the tabs that are open on your mobile device from your laptop or desktop, you need to use Firefox on your phone and [[How do I set up Sync on my computer?#w_connect-additional-devices-to-sync|be signed in to your Mozilla account]] on '''both devices'''.
+*If you do not already have Firefox on another device logged into your account, you will see a suggestion to synchronize your cell phone or tablet. Click {button Get Firefox for mobile} to install Firefox on your mobile device by scanning a QR code. You can also install it by following the steps for [[Install Firefox on an Android device using Google Play|Android]] or [[Install Firefox on your iPad, iPhone or iPod|iOS]].
+Once you have installed Firefox mobile, you are ready to sign in to your account there to sync devices.
+
+==Step 3: Enable tab syncing on Firefox mobile==
+This is the final step in completing the Firefox View setup. Once your account is set up and you’ve installed the mobile app, you can sync your devices. After this process is completed, go back to the Firefox View panel where you will see your synced tabs.
+*On Firefox desktop:
+*#[[Template:fx29menu]]
+*#Click on your Mozilla account email or display name (you might need to sign in first).
+*#Select '''Connect another device…'''
+*#Click {button Sync your device} to show a QR code for your Mozilla account.
+*#;[[Image:SyncQR|width=300]]
+*Enable Sync on Firefox mobile:
+*#{for mac}[[Template:iosmenu]]{/for}{for not mac}[[Template:menupreview]]{/for}
+*#{for mac}[[Template:settingsios]]{/for}{for not mac}[[Template:fenixsettings]]{/for}
+*#Tap {menu Sync and save data}.
+*#Tap {button Ready to scan} and capture the QR code to sign in to your Mozilla account and start syncing your data.
+Once Sync is enabled, the most recent tabs and closed pages from your other devices will show under '''Tab pickup''' and '''Recently closed'''. Click the &#10005; next to a recently closed page to remove it from the list of Recently closed items.
+;[[Image:Firefox View 3]]
+[[UI:details_end]]
+
+=How do I remove the Firefox View icon?=
+To remove the Firefox View icon from your toolbar:
+#[[Template:contextmenu]] the Firefox View [[Image:IG firefox view]] icon.
+#Select {menu Remove from Toolbar}. (You can also choose {menu Pin to Overflow Menu}.)
+;{for mac}[[Image:Firefox View 4]]{/for}{for not mac}[[Image:Fx119FirefoxViewRemove-win]]{/for}
+
+{for not fx154}
+=How do I re-add the Firefox View icon?=
+You can still access Firefox View from the Tools menu in the Firefox Menu bar{for win,linux}, [[Restore the Menu bar in Firefox|if the Menu bar is enabled]]{/for}, even when you remove the icon.  You can always add back the Firefox View icon, as follows:
+#[[Template:contextmenu]] the toolbar or an empty spot next to the tab strip and select {menu Customize Toolbar…} (or click the menu button [[Image:IG main menu]], click {menu More Tools} and select {menu Customize toolbar…}).
+#Drag the Firefox View icon to wherever you like.
+;[[Image:Fx119Customize-FirefoxView]]
+To learn more about how to customize your toolbar, see [[Customize Firefox controls, buttons and toolbars]].
+{/for}

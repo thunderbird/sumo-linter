@@ -1,0 +1,18 @@
+Are you experiencing an issue with your email service? This article will show you how to find help.
+
+__TOC__
+
+= You're getting your emails through webmail =
+Most email providers offer a web-based service, which allows users to log in to their account using a web browser like Firefox in order to send and receive email. Questions about the functionality, features or the interface of your webmail service might not be specific to the web browser you're using though. 
+
+Your webmail provider will likely provide a support section on its website which answers the most frequent questions and offers a way to report technical problems.
+
+Here you can find help for some popular webmail services:
+* '''Gmail/Google Mail:''' https://support.google.com/mail/ 
+* '''Yahoo Mail:''' http://help.yahoo.com/kb/index?page=product&y=PROD_MAIL_ML
+* '''Outlook/Hotmail:''' http://go.microsoft.com/fwlink/p/?LinkId=260870
+
+If you're having a particular problem with your webmail only while using Firefox but not in other browsers, see [[Websites look wrong or appear differently than they should]] for common solutions.
+
+= Thunderbird =
+If you are using Mozilla's Thunderbird email application and are looking for help, head over [/products/thunderbird here] to the dedicated support section for Thunderbird.

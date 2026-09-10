@@ -1,0 +1,38 @@
+If you're signed in with your Mozilla account but Sync isn’t turned on yet, this article will help you activate it. Sync allows you to securely back up your bookmarks, passwords, browsing history and more across your devices.
+
+Follow these quick steps to turn on and manage Sync in Firefox.
+;[[Image:Image:Sync1]]
+{note}'''Before you begin:''' Sign up for a free [[Access Mozilla services with a Mozilla account|Mozilla account]] if you don't already have one.{/note}
+
+=Sign in to Sync=
+# Click your ''profile icon'' [[Image:IG profile]] in the top-right corner of the Firefox toolbar.
+# Choose the {menu Sign in to Sync} option.
+# Enter your password.
+You will receive an email with an authorization code; once you've entered the code back into the sign-in screen, you are officially signed in.
+
+=Turn on Sync=
+{warning}Please note that the following steps only apply if you log in to Mozilla account through Firefox Relay, where Firefox Sync is turned off by default.{/warning}
+# Click your ''profile icon'' [[Image:IG profile]] in the top-right corner of the Firefox toolbar.
+# Click {menu Turn on} in the menu. If you're signed in to the browser, you'll be redirected to your Sync settings.
+# Choose what you’d like to sync (for example, passwords, bookmarks and history), and click {button Save}.
+#;[[Image:Image:Sync2]]
+# Firefox will confirm that Sync is on. You can also confirm by clicking your ''profile icon'' again and looking for '''Sync is on''' next to your account.
+#;[[Image:Image:Sync3]]
+
+=Manage what Sync backs up=
+# Click the menu button ☰ in the top-right corner of the Firefox toolbar, and choose {menu Settings}.
+# In the left-hand panel, click [[Image:Image:syncbutton]]. You might be asked to sign in again.<br>If the Sync panel shows:
+#* '''Syncing: ON''', click the {button Manage Sync} button to manage your synced data.
+#* '''Syncing: OFF''', click the toggle to turn Sync on, if [[Disable Firefox Sync|Sync has been disabled]].
+# Then, click {button Manage sync}.
+# In the ''Choose What To Sync'' panel, check the boxes for the data you want to sync (for example, Passwords).
+# Click [[Image:Image:savechangesbutton]].
+
+=Force a manual Sync=
+Mozilla accounts will sync at regular intervals, but you can also force a manual sync.
+# Click your ''profile icon'' [[Image:IG profile]] in the top-right corner of the Firefox toolbar.
+# Click {menu Sync now}.
+
+=Related articles=
+*[[Sync Firefox data]]
+*[[Disable Firefox Sync]]

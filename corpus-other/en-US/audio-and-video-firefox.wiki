@@ -1,0 +1,226 @@
+Firefox handles many types of audio and video content on web pages, and can also open links to MP3 files and some other types of media. This article explains which media formats you can play and how to control, save, and open them.
+
+This article explains which media formats you can play and how to control, save, and open them. 
+
+__TOC__
+
+= Supported audio and video formats =
+Firefox uses your operating system’s built-in media libraries and codecs to play supported formats. Below is a breakdown of popular formats and their availability across platforms. To learn more, see [https://developer.mozilla.org/docs/Web/Media/Guides/Formats/ this guide to media types and formats] and [https://developer.mozilla.org/docs/Web/Media/Guides/Formats/Containers this guide to container formats] at MDN Web Docs.
+
+==Audio codecs==
+
+{|
+!Codec
+!File types
+!Firefox support
+!OS support
+!Free to use
+|-
+|MP3||.mp3||All versions||Windows<br>
+macOS<br>
+Linux<br> 
+Android
+||Yes
+|-
+|AAC||.m4a<br> .mp4<br> .m4p<br> .m4b<br> .m4r<br> .m4v||All versions||Windows<br>
+macOS<br>
+Linux<br>
+Android
+||Yes
+|-
+|Opus/Vorbis||.ogg<br> .opus<br> .oga<br> .ogv<br> .ogx<br> .spx||All versions||Windows<br>
+macOS<br>
+Linux<br>
+Android
+||Yes
+|-
+|FLAC||.flac||All versions||Windows<br>
+macOS<br>
+Linux<br>
+Android
+||Yes
+|-
+|WAV||.wav<br> .wave||All versions||Windows<br>
+macOS<br>
+Linux<br>
+Android
+||Yes
+|}
+
+
+==Video codecs==
+
+{|
+!Codec
+!File types
+!Firefox support
+!OS support
+!Free to use
+|-
+|AV1||.mp4<br> .webm|| Firefox 67+<br> 
+Android 113+
+||Windows<br>
+macOS<br>
+Linux<br>
+Android
+||Yes
+|-
+|H.264 (AVC)
+||.mp4<br> .3gp||All versions||Windows<br>
+macOS<br> 
+Android
+||No
+|-
+|H.265 (HEVC)||.mp4||Firefox 120+ (limited)||Windows 10+<br>
+macOS<br>
+Linux 
+||No
+|-
+|VP8/VP9||.webm<br> .ogg<br> .3gp||All versions||Windows<br>
+macOS<br>
+Linux<br> 
+Android
+||Yes
+|-
+|Theora||.ogg||Firefox 3.5–126||Windows<br>
+macOS<br>
+Linux<br> 
+Android
+||Yes
+|-
+|MPEG-4 Visual (MP4V-ES)||.3gp<br> .mp4||All versions (3gp only)||Windows<br>
+macOS<br>
+Linux<br> 
+Android
+||Yes
+|-
+|MPEG-1 / MPEG-2||.mpeg<br> .mp4<br> .mov||Not supported||Not available||Some patents expired
+|-
+|H.263 / HEVC mkv / HEVC HDR 10-bit||.3gp<br> .mkv||Not supported or not rendered properly||Limited OS support||Yes
+|}
+
+== Important things to know ==
+*Some codecs, such as MP3 and WebM, are available for free, but those restricted by patents, like AAC or H.264, require a fee to be installed.
+*HEVC 10-bit HDR videos are supported, but currently Firefox won’t render them properly.
+*Firefox supports WebM/VP9 video on systems that don't support MP4/H.264. In order to test your system, some sample video files are available in the [https://tekeye.uk/html/html5-video-test-page HTML5 Video Test Page] at [https://tekeye.uk/ tekeye.uk].
+*Some Windows systems can play H.265 (HEVC) video in Firefox natively. Others need additional software from the Microsoft Store.
+**Windows versions that automatically support H.265 (HEVC)
+***Windows 10 versions: 1507, 1511, 1607, 1703, 1709
+***Windows 11: 22H2, 23H2, 24H2
+**Windows versions that don’t support H.265 (HEVC) by default
+***Windows 10: 1803, 1809, 1903, 1909, 2004, 20H2, 21H1, 22H2
+***Windows 11: 21H2
+**You’ll need to install these codecs manually:
+***[https://apps.microsoft.com/detail/9n4wgh0z6vhq HEVC Video Extensions from Device Manufacturer] (Free)
+***[https://apps.microsoft.com/detail/9nmzlz57r3t7 HEVC Video Extensions] (Not available for free)
+
+{note}'''Note''': You can use [https://test-videos.co.uk/bigbuckbunny/mp4-h265 this site] to test your system.{/note}
+
+= Audio and video controls =
+== Control bar ==
+When you follow a link to open a supported audio or video file in Firefox or when you visit a website that includes supported media, you will see controls for managing playback. 
+
+Controls for video will appear when you hold the mouse pointer over the media on the page.
+
+[[Image:Fx124Win10VideoControls]]
+
+{|
+!Icon!!Name!!Action
+|-
+|[[Image:Fx124Win10VideoPlay]]||'''Play button'''||Starts playback
+|-
+|[[Image:Fx124Win10VideoPause]]||'''Pause button'''||Pauses playback
+|-
+|[[Image:Fx124Win10VideoPositionSlider]]||'''Position slider'''||Indicates how much time has elapsed since the beginning of the file<br>Drag the slider left or right to go back or forward
+|-
+|[[Image:Fx124Win10VideoSoundSlider]]||'''Volume control'''||Click the loudspeaker to mute or unmute.<br>Hover and drag the slider left or right to adjust the volume
+|-
+|[[Image:Fx124Win10VideoFullscreen]]||'''Full-screen button'''||Toggles full screen when in default size
+|-
+|[[Image:Fx124Win10VideoDefaultSize]]||'''Default size button'''||Restores the default size when in fullscreen
+|}
+
+== Use the context menu controls ==
+The context menu (accessible via {for win,linux}right-click{/for}{for mac}Ctrl-click{/for}) includes the above controls except the sliders, and also let you:
+* '''Accelerate or reduce the playback rate''': Select {menu Speed} and then one of the available speeds.
+* '''Play video over and over''': Select {menu Loop} so that the video will play over and over automatically.
+* '''Hide controls''': Select {menu Hide Controls} so that the bottom control bar never show up. To show them, select {menu Show Controls}.
+
+== Keyboard controls ==
+After you click the media on a web page, to give it focus, you can control the playback with your keyboard.
+{|
+!Command
+!Shortcut
+|-
+|Toggle Play / Pause
+|{key Space bar}
+|-
+|Decrease volume
+|{key &#8595;}
+|-
+|Increase volume
+|{key &#8593;}
+|-
+|Mute audio
+|{for win,linux}{key Ctrl+&#8595;}{/for}{for mac}{key Command+&#8595;}{/for}
+|-
+|Unmute audio
+|{for win,linux}{key Ctrl+&#8593;}{/for}{for mac}{key Command+&#8593;}{/for}
+|-
+|Seek back 5 seconds
+|{key &#8592;}
+|-
+|Seek back 10%
+|{for win,linux}{key Ctrl+&#8592;}{/for}{for mac}{key Command+&#8592;}{/for}
+|-
+|Seek forward 5 seconds
+|{key &#8594;}
+|-
+|Seek forward 10%
+|{for win,linux}{key Ctrl+&#8594;}{/for}{for mac}{key Command+&#8594;}{/for}
+|-
+|Seek to the beginning
+|{key Home}
+|-
+|Seek to the end
+|{key End}
+|}
+
+= Saving media files =
+==Save an audio file from a web page to your computer==
+# [[T:contextmenu]] the audio controls and select {menu Save Audio As…}
+# Select a location on your computer to save the file.
+
+==Save a video file from a web page to your computer==
+# [[T:contextmenu]] the video controls and select {menu Save Video As…}
+#* Select {menu Take Snapshot…} if you only want to save the video snapshot.
+# Select a location on your computer to save the file.
+
+= Opening saved files =
+The media files you save from web pages may not play in your normal media player. To open these types of files:
+# Open Firefox.
+# Click {for win,linux}{key Ctrl+O}{/for}{for mac}{key Command+O}{/for}.
+# Navigate to the folder that contains the file you want to play, select the file, and click {button Open}.
+
+=FAQ=
+
+'''Q: Why can't I hear audio in Firefox?'''
+
+A: Make sure your system volume is not muted and that Firefox has permission to play sound. See [[What to do if Firefox won't play any sounds|this guide]] for more information.
+
+'''Q: How do I enable support for AAC audio?'''
+
+A: AAC support depends on your operating system. If your system lacks the codec, install it manually. Firefox will detect it automatically.
+
+'''Q: What should I do if a video doesn't play?'''
+
+A: Make sure you have installed the right codecs, or Firefox supports the format of the video. If that’s not the case, then the issue might be caused by something else. Check out [[Fix common audio and video issues|this guide]] for more details.
+
+'''Q: Why can Firefox use OpenH264 for video calls but not to play videos?'''
+
+A: Firefox uses the OpenH264 plugin to support WebRTC-based video calls, and the browser automatically installs it for this purpose. However, for general video playback (such as streaming videos on websites), Firefox does not use the OpenH264 plugin. Instead, it relies on the operating system's native H.264 codec support. The reasons have to do with technical and licensing aspects, since the OpenH264 plugin is developed by Cisco.
+
+=Related articles=
+* [[Fix common audio and video issues]]
+* [[What to do if Firefox won't play any sounds]]
+* [[Watch DRM content on Firefox]]

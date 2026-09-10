@@ -1,0 +1,35 @@
+The customizable Firefox New Tab page can display shortcuts (sites you save or visit the most), popular articles and your recent activity (including recently visited pages or bookmarks). The New Tab page is the default Firefox start page, unless you have [[How to set the home page|set a different home page]].
+
+{for not fx141}[[Image:Firefox new tab page]]{/for}{for not fx151}{for fx141}{for not fx145}[[Image:Fx141NewTab]]{/for}{for fx145}[[Image:newtabfirefox]]{/for}{/for}{/for}{for fx151}[[Image:firefoxhomenova]]{/for}
+
+__TOC__
+
+=Shortcuts=
+The '''Shortcuts''' section displays sites you save or visit frequently on Firefox. You may also see [[Sponsors on the home page and New Tab page|sponsored shortcuts]], if enabled in your settings. These sites will also appear when you click in the address bar to start a search.
+
+When you first use Firefox, you’ll see links to top-ranking websites and popular search engines. Over time, these are replaced with links to sites you visit often and recently, based on your browsing history.
+
+You can customize by adding multiple rows of Shortcuts, pinning specific sites, and other ways. See [[Customize items on your Firefox New Tab page#w_shortcuts|this page section]] for more details.
+
+=Weather and Widgets=
+Firefox Home can display [[How it works - Firefox Weather|your local weather]] in the upper right corner, so you can quickly check conditions while browsing. This feature is available worldwide.
+
+You may also see additional [[Use widgets on your Firefox New Tab page|widgets]], such as Lists and a Timer, being released in various markets. In that case, the weather widget can also be configured to an expanded forecast.
+
+=Recommended stories=
+The [[Recommended stories on the Firefox New Tab page - FAQ|Recommended stories]] section displays content curated by Firefox’s recommendations team and custom machine learning tools. These stories are not informed by your browsing data. You can view or bookmark stories, remove them, or open them in a new window.
+
+Recommended stories on the Firefox New Tab page is a feature currently available in the U.S., Canada, the U.K., Ireland, Germany, Austria, Switzerland, Italy, France, Spain and India. We’re working to bring it to other countries.
+
+=Recent activity=
+The '''Recent activity''' section may include your recently visited pages, bookmarks and most recent downloads. In each tile, Firefox will show a download [[Image:GreenDownloadIcon]] icon, the bookmark [[Image:BlueBookmarkIcon]] star or the recent visit clock [[Image:ClockIcon]] icon.
+;[[Image:Fx113NewTabRecentActivity]]
+
+=Customize your New Tab page to hide or display content=
+Click the {for not fx141}gear [[Image:IG settings]]{/for}{for fx141}pencil [[Image:IG edit 2]]{/for} icon in the bottom right corner of the New Tab page. A panel will open, showing content you can customize. Click the toggle next to a section to switch it on [[Image:Fx89Personalize-ToggleOn]] or off [[Image:Fx89Personalize-ToggleOff]], to show or hide that section. Other settings are available by clicking the '''Manage more settings''' link at the bottom of the panel.
+
+=Learn more=
+*To learn how to customize your New Tab page with a selection of wallpapers, change the Weather display and more, see [[Customize items on your Firefox New Tab page]].
+*For information about sponsored content, see [[Sponsors on the home page and New Tab page]].
+*To personalize your New Tab page, see [[Control Firefox New Tab personalization]].
+*To learn more about the widgets and how to use them, see [[Use widgets on your Firefox New Tab page]].

@@ -1,0 +1,24 @@
+Since [[Find what version of Firefox you are using|Firefox version]] 52 was released March 7, 2017, installed [https://blog.mozilla.org/futurereleases/2015/10/08/npapi-plugins-in-firefox/ NPAPI plugins] have not been supported in Firefox, except for Adobe Flash Player. Some of the plugins that no longer load in Firefox, even though they may be installed on your computer, include Java, Microsoft Silverlight and Adobe Acrobat.
+
+[[Template:flashEOLdesktop]]
+
+{note}'''Note''': The [[Watch DRM content on Firefox|Widevine CDM]] and [[Why is there an OpenH264 plugin in Firefox?|OpenH264 Video Codec]] plugins are not NPAPI plugins and are still supported.{/note}
+
+Over the past few years, Firefox has implemented various Web APIs so that websites can do the same things they’ve always done without plugins, so you will most likely not notice any change to your browsing experience.
+
+=Why did Firefox do this?=
+The internet is full of websites that go beyond static pages, such as video, sound and games. While NPAPI plugins, especially Flash, have helped enable these interactive pages, they also make your browsing slower, less secure and more likely to crash.
+
+[https://blog.mozilla.org/futurereleases/2016/07/20/reducing-adobe-flash-usage-in-firefox/ Over the past few years], Firefox has worked hard to build replacements for these plugins, these replacements are called Web APIs. Web APIs are designed to replace the function of the NPAPI plugins without undermining your internet security, stability and performance.
+
+Before, while these Web APIs weren’t quite ready, Firefox started to transition by making plugins load manually ([[Why do I have to click to activate plugins?|click to activate]]).
+
+Now, many sites have adopted Web APIs, and almost all your favorite pages can be enjoyed without using old and insecure plugins. Firefox joins other modern browsers like Google Chrome and Microsoft Edge by removing support for these NPAPI plugins.
+
+=What if I'm on an older version of Firefox?=
+
+We recommend that you [[Update Firefox to the latest release|update Firefox]] if you can.
+
+Every update of Firefox includes important fixes and improvements, including improvements that help keep you secure on the Internet. Using an old version of any browser, including Firefox, puts your personal data and even your computer at risk.
+
+Firefox has [https://blog.mozilla.org/futurereleases/2015/10/08/npapi-plugins-in-firefox/ expanded to support features that used to require extra plugins]. Plugins, on top of that, are also kept up-to-date automatically and managed through [[Why does Mozilla disable some add-ons from running in Firefox?|blocklisting]] for added security. So you can stay current with just one [[Update Firefox to the latest release|Firefox update]].

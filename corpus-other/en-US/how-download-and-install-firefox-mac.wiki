@@ -1,0 +1,36 @@
+This article explains how to download and install Firefox on macOS. Before you download Firefox, you can review the [https://www.mozilla.org/firefox/system-requirements system requirements].
+
+{for win,linux}{note}'''Note:''' This article only applies to Mac. {for win}For Windows instructions, see [[How to install Firefox on Windows]].{/for}{for linux}For Linux instructions, see [[Install Firefox on Linux]].{/for}{/note}{/for}
+
+__TOC__
+
+= Download and install Firefox on Mac =
+To download and install Firefox on Mac:
+#Visit the [https://www.firefox.com/browsers/desktop/mac/?utm_medium=referral&utm_source=support.mozilla.org Firefox download page] in any browser (for example, Safari). It will automatically detect the language on your device and recommend the best version of Firefox for you.
+#Click {for not fx149}{button Download Now}{/for}{for fx149}{button Download Firefox for Mac}{/for}.
+{for fx149}
+;[[Image:firefoxdownloadmac149]]
+;[[Image:firefoxmacos149]]
+{/for}
+;{note}'''Note:''' If you want to select a different language for your Firefox installation, click the [https://www.firefox.com/download/all/desktop-release/ Download a different platform or language] link instead.
+#After completing the download, the file (Firefox.dmg) may open a Finder window containing the Firefox application. Drag the Firefox icon to the Applications folder.{/note}
+#;{note}'''Note:''' If you don't see this window, open the Firefox.dmg file you downloaded.{/note}
+#;{for not fx149}[[Image:Install Firefox on Mac 1]]{/for}{for fx149}[[Image:firefoxinstalling149]]{/for}
+#Hold down the {key control} key while clicking in the window and select {menu Eject “Firefox”} from the menu.
+#;[[Image:Install Firefox on Mac 2]]
+#To add Firefox to your dock, open your Applications folder and drag Firefox to the dock.
+#;[[Image:Dragging Firefox to Dock]]
+Firefox is now ready for use. Click the Firefox icon in the dock or Applications folder to open the browser.
+{warning}'''Complete the steps above before running Firefox.''' Do not open Firefox directly from the Firefox.dmg file or drag the icon directly to your desktop to install, as this can result in issues such as lost data and settings.{/warning}
+
+= Open Firefox for the first time =
+When you open Firefox for the first time:
+#Click {button Open} in the prompt: '''“Firefox” is an app downloaded from the internet. Are you sure you want to open it?'''
+#;[[Image:Firefox Downloaded Security Check Mac 10.15]]
+#If you want to set Firefox as your default browser, click {button Use Firefox as my default browser}. If you don't want to set Firefox as your default browser, click {button Not now}. Your selected default browser is automatically used when opening a web page or link from a different application.
+#;[[Image:Firefox 72 as Default Browser Mac]]
+
+= Related links =
+*[[Make Firefox your default browser]]
+*[[Update Firefox to the latest release]]
+*[[Firefox users on macOS 10.12, 10.13 and 10.14 moving to Extended Support Release]]

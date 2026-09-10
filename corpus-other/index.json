@@ -1,0 +1,5318 @@
+{
+  "base": "https://support.mozilla.org",
+  "locale": "en-US",
+  "products": [
+    "firefox"
+  ],
+  "articles": [
+    {
+      "id": 485,
+      "title": "Fix problems that cause images to not show",
+      "slug": "fix-problems-images-not-show",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/fix-problems-images-not-show.wiki"
+    },
+    {
+      "id": 489,
+      "title": "How to save a web page",
+      "slug": "how-save-web-page",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-save-web-page.wiki"
+    },
+    {
+      "id": 490,
+      "title": "How to search IMDB, Wikipedia and more from the address bar",
+      "slug": "how-search-from-address-bar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-search-from-address-bar.wiki"
+    },
+    {
+      "id": 498,
+      "title": "Fix common audio and video issues",
+      "slug": "fix-common-audio-and-video-issues",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/fix-common-audio-and-video-issues.wiki"
+    },
+    {
+      "id": 511,
+      "title": "Custom installation of Firefox on Windows",
+      "slug": "custom-installation-firefox-on-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/custom-installation-firefox-on-windows.wiki"
+    },
+    {
+      "id": 523,
+      "title": "Import bookmarks and other data from Google Chrome",
+      "slug": "import-bookmarks-google-chrome",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/import-bookmarks-google-chrome.wiki"
+    },
+    {
+      "id": 528,
+      "title": "Import data from another browser",
+      "slug": "import-data-another-browser",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/import-data-another-browser.wiki"
+    },
+    {
+      "id": 571,
+      "title": "View site information with Page Info",
+      "slug": "firefox-page-info-window",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-page-info-window.wiki"
+    },
+    {
+      "id": 575,
+      "title": "Secure connection and security warning error pages in Firefox",
+      "slug": "secure-connection-failed-firefox-did-not-connect",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/secure-connection-failed-firefox-did-not-connect.wiki"
+    },
+    {
+      "id": 577,
+      "title": "Fix Firefox using too much memory or CPU resources",
+      "slug": "firefox-uses-too-much-memory-or-cpu-resources",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-uses-too-much-memory-or-cpu-resources.wiki"
+    },
+    {
+      "id": 580,
+      "title": "Change the fonts and colors websites use",
+      "slug": "change-fonts-and-colors-websites-use",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/change-fonts-and-colors-websites-use.wiki"
+    },
+    {
+      "id": 583,
+      "title": "Websites look wrong or appear differently than they should",
+      "slug": "websites-look-wrong-or-appear-differently",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/websites-look-wrong-or-appear-differently.wiki"
+    },
+    {
+      "id": 598,
+      "title": "Why does Mozilla disable some add-ons from running in Firefox?",
+      "slug": "add-ons-cause-issues-are-on-blocklist",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/add-ons-cause-issues-are-on-blocklist.wiki"
+    },
+    {
+      "id": 600,
+      "title": "Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window",
+      "slug": "bookmarks-toolbar-display-favorite-websites",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/bookmarks-toolbar-display-favorite-websites.wiki"
+    },
+    {
+      "id": 602,
+      "title": "Use bookmark folders to organize your bookmarks",
+      "slug": "bookmark-folders-organize-your-bookmarks",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/bookmark-folders-organize-your-bookmarks.wiki"
+    },
+    {
+      "id": 604,
+      "title": "How to fix the Update Failed error message when updating Firefox",
+      "slug": "update-failed-error-message-when-updating",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/update-failed-error-message-when-updating.wiki"
+    },
+    {
+      "id": 605,
+      "title": "Restore the default Smart Bookmarks Folders",
+      "slug": "restore-default-smart-bookmarks-folders",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/restore-default-smart-bookmarks-folders.wiki"
+    },
+    {
+      "id": 607,
+      "title": "How to let Firefox use the internet on your Windows computer",
+      "slug": "configure-windows-firewall-allow-firefox-access",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/configure-windows-firewall-allow-firefox-access.wiki"
+    },
+    {
+      "id": 609,
+      "title": "How do I delete a bookmark?",
+      "slug": "how-do-i-delete-bookmark",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-delete-bookmark.wiki"
+    },
+    {
+      "id": 612,
+      "title": "Firefox takes a long time to start up",
+      "slug": "firefox-takes-long-time-start-up",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-takes-long-time-start-up.wiki"
+    },
+    {
+      "id": 616,
+      "title": "Search with the Firefox address bar",
+      "slug": "search-firefox-address-bar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/search-firefox-address-bar.wiki"
+    },
+    {
+      "id": 619,
+      "title": "What to do if Firefox won't play any sounds",
+      "slug": "what-to-do-if-firefox-wont-play-any-sounds",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/what-to-do-if-firefox-wont-play-any-sounds.wiki"
+    },
+    {
+      "id": 626,
+      "title": "Control whether Firefox automatically fills in forms",
+      "slug": "control-whether-firefox-automatically-fills-forms",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/control-whether-firefox-automatically-fills-forms.wiki"
+    },
+    {
+      "id": 632,
+      "title": "Block and unblock websites with parental controls on Firefox",
+      "slug": "block-and-unblock-websites-parental-controls-firef",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/block-and-unblock-websites-parental-controls-firef.wiki"
+    },
+    {
+      "id": 633,
+      "title": "Disable or remove Add-ons",
+      "slug": "disable-or-remove-add-ons",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/disable-or-remove-add-ons.wiki"
+    },
+    {
+      "id": 639,
+      "title": "Restore bookmarks, passwords and data from an old Firefox profile",
+      "slug": "restore-bookmarks-passwords-and-data-from-an-old-firefox-profile",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/restore-bookmarks-passwords-and-data-from-an-old-firefox-profile.wiki"
+    },
+    {
+      "id": 640,
+      "title": "Troubleshoot and diagnose Firefox problems",
+      "slug": "troubleshoot-and-diagnose-firefox-problems",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/troubleshoot-and-diagnose-firefox-problems.wiki"
+    },
+    {
+      "id": 641,
+      "title": "How to fix preferences that won't save",
+      "slug": "how-to-fix-preferences-wont-save",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-to-fix-preferences-wont-save.wiki"
+    },
+    {
+      "id": 644,
+      "title": "Cannot remove an add-on (extension or theme)",
+      "slug": "cannot-remove-add-on-extension-or-theme",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/cannot-remove-add-on-extension-or-theme.wiki"
+    },
+    {
+      "id": 646,
+      "title": "Unable to install add-ons (extensions or themes)",
+      "slug": "unable-install-add-ons-extensions-or-themes",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/unable-install-add-ons-extensions-or-themes.wiki"
+    },
+    {
+      "id": 647,
+      "title": "Firefox hangs or is not responding - How to fix",
+      "slug": "firefox-hangs-or-not-responding",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-hangs-or-not-responding.wiki"
+    },
+    {
+      "id": 650,
+      "title": "Pop-up blocker settings, exceptions and troubleshooting",
+      "slug": "pop-blocker-settings-exceptions-troubleshooting",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/pop-blocker-settings-exceptions-troubleshooting.wiki"
+    },
+    {
+      "id": 651,
+      "title": "Reset Firefox preferences to troubleshoot and fix problems",
+      "slug": "reset-preferences-fix-problems",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/reset-preferences-fix-problems.wiki"
+    },
+    {
+      "id": 654,
+      "title": "Import Bookmarks from an HTML file",
+      "slug": "import-bookmarks-html-file",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/import-bookmarks-html-file.wiki"
+    },
+    {
+      "id": 655,
+      "title": "Uninstall Firefox from your computer",
+      "slug": "uninstall-firefox-from-your-computer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/uninstall-firefox-from-your-computer.wiki"
+    },
+    {
+      "id": 656,
+      "title": "Import Bookmarks and other data from Microsoft Edge",
+      "slug": "import-bookmarks-and-other-data-microsoft-edge",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/import-bookmarks-and-other-data-microsoft-edge.wiki"
+    },
+    {
+      "id": 658,
+      "title": "Create a desktop shortcut to a website",
+      "slug": "create-desktop-shortcut-website",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/create-desktop-shortcut-website.wiki"
+    },
+    {
+      "id": 660,
+      "title": "Sort your bookmarks to quickly find the ones you want",
+      "slug": "sort-bookmarks-quickly-find-ones-you-want",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/sort-bookmarks-quickly-find-ones-you-want.wiki"
+    },
+    {
+      "id": 661,
+      "title": "Use a Primary Password to protect stored logins and passwords",
+      "slug": "use-primary-password-protect-stored-logins",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/use-primary-password-protect-stored-logins.wiki"
+    },
+    {
+      "id": 664,
+      "title": "How do I tell if my connection to a website is secure?",
+      "slug": "how-do-i-tell-if-my-connection-is-secure",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-tell-if-my-connection-is-secure.wiki"
+    },
+    {
+      "id": 668,
+      "title": "Change Firefox options, preferences and settings",
+      "slug": "firefox-options-preferences-and-settings",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-options-preferences-and-settings.wiki"
+    },
+    {
+      "id": 670,
+      "title": "Cookies - Information that websites store on your computer",
+      "slug": "cookies-information-websites-store-on-your-computer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/cookies-information-websites-store-on-your-computer.wiki"
+    },
+    {
+      "id": 674,
+      "title": "Remove websites from the address bar suggestions",
+      "slug": "remove-websites-address-bar-suggestions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/remove-websites-address-bar-suggestions.wiki"
+    },
+    {
+      "id": 675,
+      "title": "Address bar autocomplete suggestions in Firefox",
+      "slug": "address-bar-autocomplete-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/address-bar-autocomplete-firefox.wiki"
+    },
+    {
+      "id": 676,
+      "title": "Bookmark Tags - Categorize bookmarks to make them easy to find",
+      "slug": "categorizing-bookmarks-make-them-easy-to-find",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/categorizing-bookmarks-make-them-easy-to-find.wiki"
+    },
+    {
+      "id": 679,
+      "title": "Changes to toolbars and window sizes are not saved",
+      "slug": "changes-toolbars-and-window-sizes-are-not-saved",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/changes-toolbars-and-window-sizes-are-not-saved.wiki"
+    },
+    {
+      "id": 681,
+      "title": "Install an older version of Firefox",
+      "slug": "install-older-version-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/install-older-version-firefox.wiki"
+    },
+    {
+      "id": 685,
+      "title": "How to stop Firefox from making automatic connections",
+      "slug": "how-stop-firefox-making-automatic-connections",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-stop-firefox-making-automatic-connections.wiki"
+    },
+    {
+      "id": 686,
+      "title": "Troubleshoot Firefox issues caused by malware",
+      "slug": "troubleshoot-firefox-issues-caused-malware",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/troubleshoot-firefox-issues-caused-malware.wiki"
+    },
+    {
+      "id": 688,
+      "title": "Use Troubleshoot Mode in Firefox",
+      "slug": "diagnose-firefox-issues-using-troubleshoot-mode",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/diagnose-firefox-issues-using-troubleshoot-mode.wiki"
+    },
+    {
+      "id": 690,
+      "title": "Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems",
+      "slug": "troubleshoot-extensions-themes-to-fix-problems",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/troubleshoot-extensions-themes-to-fix-problems.wiki"
+    },
+    {
+      "id": 691,
+      "title": "Usernames and passwords are not saved",
+      "slug": "usernames-and-passwords-are-not-saved",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/usernames-and-passwords-are-not-saved.wiki"
+    },
+    {
+      "id": 693,
+      "title": "Mozilla Crash Reporter",
+      "slug": "mozillacrashreporter",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/mozillacrashreporter.wiki"
+    },
+    {
+      "id": 697,
+      "title": "Find and install add-ons to add features to Firefox",
+      "slug": "find-and-install-add-ons-add-features-to-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/find-and-install-add-ons-add-features-to-firefox.wiki"
+    },
+    {
+      "id": 701,
+      "title": "Find what version of Firefox you are using",
+      "slug": "find-what-version-firefox-you-are-using",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/find-what-version-firefox-you-are-using.wiki"
+    },
+    {
+      "id": 702,
+      "title": "Third-party cookies and Firefox tracking protection",
+      "slug": "third-party-cookies-firefox-tracking-protection",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/third-party-cookies-firefox-tracking-protection.wiki"
+    },
+    {
+      "id": 703,
+      "title": "Clear cookies and site data in Firefox",
+      "slug": "clear-cookies-and-site-data-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/clear-cookies-and-site-data-firefox.wiki"
+    },
+    {
+      "id": 704,
+      "title": "Block websites from storing cookies and site data in Firefox",
+      "slug": "block-websites-storing-cookies-site-data-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/block-websites-storing-cookies-site-data-firefox.wiki"
+    },
+    {
+      "id": 706,
+      "title": "Change the program used to open email links",
+      "slug": "change-program-used-open-email-links",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/change-program-used-open-email-links.wiki"
+    },
+    {
+      "id": 708,
+      "title": "What to do if you can't download or save files",
+      "slug": "cant-download-or-save-files",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/cant-download-or-save-files.wiki"
+    },
+    {
+      "id": 712,
+      "title": "Firefox and other browsers can't load websites",
+      "slug": "firefox-and-other-browsers-cant-load-websites",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-and-other-browsers-cant-load-websites.wiki"
+    },
+    {
+      "id": 720,
+      "title": "Manually back up and restore Firefox profile data",
+      "slug": "back-and-restore-information-firefox-profiles",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/back-and-restore-information-firefox-profiles.wiki"
+    },
+    {
+      "id": 721,
+      "title": "Websites show a spinning wheel and never finish loading",
+      "slug": "websites-show-spinning-wheel-never-finish-load",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/websites-show-spinning-wheel-never-finish-load.wiki"
+    },
+    {
+      "id": 724,
+      "title": "Restore previous session - Configure when Firefox shows your most recent tabs and windows",
+      "slug": "restore-previous-session",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/restore-previous-session.wiki"
+    },
+    {
+      "id": 727,
+      "title": "Re-enable add-ons that were disabled when updating Firefox",
+      "slug": "re-enable-add-ons-disabled-when-updating",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/re-enable-add-ons-disabled-when-updating.wiki"
+    },
+    {
+      "id": 728,
+      "title": "Export Firefox bookmarks to an HTML file to back up or transfer bookmarks",
+      "slug": "export-firefox-bookmarks-to-backup-or-transfer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/export-firefox-bookmarks-to-backup-or-transfer.wiki"
+    },
+    {
+      "id": 729,
+      "title": "How to install Firefox on Windows",
+      "slug": "how-install-firefox-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-install-firefox-windows.wiki"
+    },
+    {
+      "id": 730,
+      "title": "Install Firefox on Linux",
+      "slug": "install-firefox-linux",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/install-firefox-linux.wiki"
+    },
+    {
+      "id": 734,
+      "title": "Password Manager - Remember, delete and edit logins and passwords in Firefox",
+      "slug": "password-manager-remember-delete-edit-logins",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/password-manager-remember-delete-edit-logins.wiki"
+    },
+    {
+      "id": 735,
+      "title": "Update Firefox to the latest release",
+      "slug": "update-firefox-latest-release",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/update-firefox-latest-release.wiki"
+    },
+    {
+      "id": 747,
+      "title": "Manage file types and download actions in Firefox",
+      "slug": "change-firefox-behavior-when-open-file",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/change-firefox-behavior-when-open-file.wiki"
+    },
+    {
+      "id": 748,
+      "title": "Restore bookmarks from backup or move them to another computer",
+      "slug": "restore-bookmarks-from-backup-or-move-them",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/restore-bookmarks-from-backup-or-move-them.wiki"
+    },
+    {
+      "id": 750,
+      "title": "Bookmarks in Firefox",
+      "slug": "bookmarks-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/bookmarks-firefox.wiki"
+    },
+    {
+      "id": 757,
+      "title": "How to print web pages in Firefox",
+      "slug": "how-print-web-pages-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-print-web-pages-firefox.wiki"
+    },
+    {
+      "id": 758,
+      "title": "Warning Unresponsive script - What it means and how to fix it",
+      "slug": "warning-unresponsive-script",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/warning-unresponsive-script.wiki"
+    },
+    {
+      "id": 760,
+      "title": "Firefox can't load websites but other browsers can",
+      "slug": "firefox-cant-load-websites-other-browsers-can",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-cant-load-websites-other-browsers-can.wiki"
+    },
+    {
+      "id": 761,
+      "title": "How to clear the Firefox cache",
+      "slug": "how-clear-firefox-cache",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-clear-firefox-cache.wiki"
+    },
+    {
+      "id": 766,
+      "title": "Firefox doesn't save web form entries",
+      "slug": "firefox-doesnt-save-web-form-entries",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-doesnt-save-web-form-entries.wiki"
+    },
+    {
+      "id": 770,
+      "title": "Make Firefox your default browser",
+      "slug": "make-firefox-your-default-browser",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/make-firefox-your-default-browser.wiki"
+    },
+    {
+      "id": 771,
+      "title": "How do I use the Firefox spell checker?",
+      "slug": "how-do-i-use-firefox-spell-checker",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-use-firefox-spell-checker.wiki"
+    },
+    {
+      "id": 772,
+      "title": "Websites don't load - troubleshoot and fix error messages",
+      "slug": "websites-dont-load-troubleshoot-and-fix-errors",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/websites-dont-load-troubleshoot-and-fix-errors.wiki"
+    },
+    {
+      "id": 781,
+      "title": "Customize Firefox controls, buttons and toolbars",
+      "slug": "customize-firefox-controls-buttons-and-toolbars",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/customize-firefox-controls-buttons-and-toolbars.wiki"
+    },
+    {
+      "id": 788,
+      "title": "View and edit PDF files using Firefox’s built-in viewer",
+      "slug": "view-pdf-files-firefox-or-choose-another-viewer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/view-pdf-files-firefox-or-choose-another-viewer.wiki"
+    },
+    {
+      "id": 791,
+      "title": "Fix problems with Facebook games, chat and more",
+      "slug": "fix-problems-facebook-games-chat-and-more",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/fix-problems-facebook-games-chat-and-more.wiki"
+    },
+    {
+      "id": 792,
+      "title": "Setting Firefox as the default browser does not work - What to do",
+      "slug": "setting-firefox-default-browser-does-not-work",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/setting-firefox-default-browser-does-not-work.wiki"
+    },
+    {
+      "id": 802,
+      "title": "Profile Manager - Create, remove or switch Firefox profiles",
+      "slug": "profile-manager-create-remove-switch-firefox-profiles",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/profile-manager-create-remove-switch-firefox-profiles.wiki"
+    },
+    {
+      "id": 803,
+      "title": "Use themes to change the look of Firefox",
+      "slug": "use-themes-change-look-of-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/use-themes-change-look-of-firefox.wiki"
+    },
+    {
+      "id": 805,
+      "title": "Firefox won't start - find solutions",
+      "slug": "firefox-wont-start-find-solutions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-wont-start-find-solutions.wiki"
+    },
+    {
+      "id": 807,
+      "title": "Recover lost or missing Bookmarks",
+      "slug": "recover-lost-or-missing-bookmarks",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/recover-lost-or-missing-bookmarks.wiki"
+    },
+    {
+      "id": 817,
+      "title": "Send plugin crash reports to help Mozilla improve Firefox",
+      "slug": "send-plugin-crash-reports-help-improve-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/send-plugin-crash-reports-help-improve-firefox.wiki"
+    },
+    {
+      "id": 821,
+      "title": "Server Not Found - Troubleshoot connection problems",
+      "slug": "server-not-found-connection-problem",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/server-not-found-connection-problem.wiki"
+    },
+    {
+      "id": 825,
+      "title": "Firefox says it's just updated every time it starts - how to fix",
+      "slug": "firefox-says-its-just-updated-every-time-it-starts",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-says-its-just-updated-every-time-it-starts.wiki"
+    },
+    {
+      "id": 830,
+      "title": "Certificate contains the same serial number as another certificate",
+      "slug": "Certificate-contains-the-same-serial-number-as-another-certificate",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/Certificate-contains-the-same-serial-number-as-another-certificate.wiki"
+    },
+    {
+      "id": 833,
+      "title": "How to set the home page",
+      "slug": "how-to-set-the-home-page",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-to-set-the-home-page.wiki"
+    },
+    {
+      "id": 834,
+      "title": "Delete browsing, search and download history on Firefox",
+      "slug": "delete-browsing-search-download-history-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/delete-browsing-search-download-history-firefox.wiki"
+    },
+    {
+      "id": 847,
+      "title": "Export bookmarks to Safari",
+      "slug": "export-bookmarks-safari",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/export-bookmarks-safari.wiki"
+    },
+    {
+      "id": 851,
+      "title": "How to download and install Firefox on Mac",
+      "slug": "how-download-and-install-firefox-mac",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-download-and-install-firefox-mac.wiki"
+    },
+    {
+      "id": 852,
+      "title": "Websites say cookies are blocked - Unblock them",
+      "slug": "websites-say-cookies-are-blocked-unblock-them",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/websites-say-cookies-are-blocked-unblock-them.wiki"
+    },
+    {
+      "id": 855,
+      "title": "Accessibility features in Firefox - Make Firefox and web content work for all users",
+      "slug": "accessibility-features-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/accessibility-features-firefox.wiki"
+    },
+    {
+      "id": 856,
+      "title": "Where to find and manage downloaded files in Firefox",
+      "slug": "where-find-and-manage-downloaded-files-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/where-find-and-manage-downloaded-files-firefox.wiki"
+    },
+    {
+      "id": 858,
+      "title": "Use mouse shortcuts to perform common tasks in Firefox",
+      "slug": "mouse-shortcuts-perform-common-tasks",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/mouse-shortcuts-perform-common-tasks.wiki"
+    },
+    {
+      "id": 859,
+      "title": "Use tabs to organize lots of websites in a single window",
+      "slug": "tabs-organize-websites-single-window",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/tabs-organize-websites-single-window.wiki"
+    },
+    {
+      "id": 860,
+      "title": "Font size and zoom - increase the size of web pages",
+      "slug": "font-size-and-zoom-increase-size-of-web-pages",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/font-size-and-zoom-increase-size-of-web-pages.wiki"
+    },
+    {
+      "id": 861,
+      "title": "Audio and video files in Firefox",
+      "slug": "audio-and-video-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/audio-and-video-firefox.wiki"
+    },
+    {
+      "id": 862,
+      "title": "Tab preferences and settings",
+      "slug": "tab-preferences-and-settings",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/tab-preferences-and-settings.wiki"
+    },
+    {
+      "id": 863,
+      "title": "Fix login issues on websites that require a username and password",
+      "slug": "fix-login-issues-on-websites-require-passwords",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/fix-login-issues-on-websites-require-passwords.wiki"
+    },
+    {
+      "id": 864,
+      "title": "How to search the contents of the current page for text or links",
+      "slug": "search-contents-current-page-text-or-links",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/search-contents-current-page-text-or-links.wiki"
+    },
+    {
+      "id": 867,
+      "title": "Use the Troubleshooting Information page to help fix Firefox issues",
+      "slug": "use-troubleshooting-information-page-fix-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/use-troubleshooting-information-page-fix-firefox.wiki"
+    },
+    {
+      "id": 868,
+      "title": "Keyboard shortcuts - Perform common Firefox tasks quickly",
+      "slug": "keyboard-shortcuts-perform-firefox-tasks-quickly",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/keyboard-shortcuts-perform-firefox-tasks-quickly.wiki"
+    },
+    {
+      "id": 869,
+      "title": "Get started with Firefox - An overview of the main features",
+      "slug": "get-started-firefox-overview-main-features",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/get-started-firefox-overview-main-features.wiki"
+    },
+    {
+      "id": 873,
+      "title": "Firefox does not work - Common fixes to get you back up and running",
+      "slug": "firefox-does-not-work-common-fixes",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-does-not-work-common-fixes.wiki"
+    },
+    {
+      "id": 874,
+      "title": "Quick fixes if your Firefox slows down",
+      "slug": "quick-fixes-if-your-firefox-slows-down",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/quick-fixes-if-your-firefox-slows-down.wiki"
+    },
+    {
+      "id": 889,
+      "title": "Fix \"The bookmarks and history system will not be functional\" error message",
+      "slug": "fix-bookmarks-and-history-will-not-be-functional",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/fix-bookmarks-and-history-will-not-be-functional.wiki"
+    },
+    {
+      "id": 896,
+      "title": "JavaScript settings and preferences for interactive web pages",
+      "slug": "javascript-settings-for-interactive-web-pages",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/javascript-settings-for-interactive-web-pages.wiki"
+    },
+    {
+      "id": 899,
+      "title": "How do I restore my tabs from last time?",
+      "slug": "how-do-i-restore-my-tabs-last-time",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-restore-my-tabs-last-time.wiki"
+    },
+    {
+      "id": 901,
+      "title": "Private Browsing - Use Firefox without saving history",
+      "slug": "private-browsing-use-firefox-without-history",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/private-browsing-use-firefox-without-history.wiki"
+    },
+    {
+      "id": 903,
+      "title": "\"Firefox is already running but is not responding\" error - How to fix",
+      "slug": "firefox-already-running-not-responding",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-already-running-not-responding.wiki"
+    },
+    {
+      "id": 908,
+      "title": "Clear recent searches from the Search bar",
+      "slug": "clear-recent-searches-search-bar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/clear-recent-searches-search-bar.wiki"
+    },
+    {
+      "id": 909,
+      "title": "Restore the Menu bar in Firefox",
+      "slug": "restore-menu-bar-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/restore-menu-bar-firefox.wiki"
+    },
+    {
+      "id": 922,
+      "title": "Fix problems connecting to websites after updating Firefox",
+      "slug": "fix-problems-connecting-websites-after-updating",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/fix-problems-connecting-websites-after-updating.wiki"
+    },
+    {
+      "id": 923,
+      "title": "Configure firewalls so that Firefox can access the Internet",
+      "slug": "configure-firewalls-so-firefox-can-access-internet",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/configure-firewalls-so-firefox-can-access-internet.wiki"
+    },
+    {
+      "id": 925,
+      "title": "Profiles - Where Firefox stores your bookmarks, passwords and other user data",
+      "slug": "profiles-where-firefox-stores-user-data",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/profiles-where-firefox-stores-user-data.wiki"
+    },
+    {
+      "id": 5771,
+      "title": "Pinned Tabs - keep favorite websites open and just a click away",
+      "slug": "pinned-tabs-keep-favorite-websites-open",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/pinned-tabs-keep-favorite-websites-open.wiki"
+    },
+    {
+      "id": 5927,
+      "title": "How to use \"For\" tags",
+      "slug": "how-to-use-for",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-to-use-for.wiki"
+    },
+    {
+      "id": 6097,
+      "title": "How do I set up Sync on my computer?",
+      "slug": "how-do-i-set-sync-my-computer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-set-sync-my-computer.wiki"
+    },
+    {
+      "id": 6664,
+      "title": "How do I turn on the Do Not Track feature?",
+      "slug": "how-do-i-turn-do-not-track-feature",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-turn-do-not-track-feature.wiki"
+    },
+    {
+      "id": 7142,
+      "title": "Upgrade your graphics drivers to use hardware acceleration and WebGL",
+      "slug": "upgrade-graphics-drivers-use-hardware-acceleration",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/upgrade-graphics-drivers-use-hardware-acceleration.wiki"
+    },
+    {
+      "id": 7449,
+      "title": "Disable Firefox Sync on a lost phone or tablet",
+      "slug": "disable-firefox-sync-lost-phone-or-tablet",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/disable-firefox-sync-lost-phone-or-tablet.wiki"
+    },
+    {
+      "id": 8075,
+      "title": "How do I choose what information to sync on Firefox?",
+      "slug": "how-do-i-choose-what-information-sync-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-choose-what-information-sync-firefox.wiki"
+    },
+    {
+      "id": 8172,
+      "title": "I've lost my Firefox Sync account information - What to do",
+      "slug": "ive-lost-my-firefox-sync-account-information",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/ive-lost-my-firefox-sync-account-information.wiki"
+    },
+    {
+      "id": 8191,
+      "title": "Refresh Firefox - reset add-ons and settings",
+      "slug": "refresh-firefox-reset-add-ons-and-settings",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/refresh-firefox-reset-add-ons-and-settings.wiki"
+    },
+    {
+      "id": 8603,
+      "title": "Use Firefox in Full Screen mode",
+      "slug": "how-make-firefox-and-websites-go-full-screen",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-make-firefox-and-websites-go-full-screen.wiki"
+    },
+    {
+      "id": 8917,
+      "title": "How do I create a screenshot of my problem?",
+      "slug": "how-do-i-create-screenshot-my-problem",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-create-screenshot-my-problem.wiki"
+    },
+    {
+      "id": 9195,
+      "title": "Remove a toolbar that has taken over your Firefox search or home page",
+      "slug": "remove-toolbar-has-taken-over-your-firefox-search",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/remove-toolbar-has-taken-over-your-firefox-search.wiki"
+    },
+    {
+      "id": 9211,
+      "title": "How do I share Firefox between people on a computer?",
+      "slug": "how-do-i-share-firefox-between-people-on-computer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-share-firefox-between-people-on-computer.wiki"
+    },
+    {
+      "id": 9240,
+      "title": "What is the Mozilla Maintenance Service?",
+      "slug": "what-mozilla-maintenance-service",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/what-mozilla-maintenance-service.wiki"
+    },
+    {
+      "id": 9373,
+      "title": "Customize items on your Firefox New Tab page",
+      "slug": "customize-items-on-firefox-new-tab-page",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/customize-items-on-firefox-new-tab-page.wiki"
+    },
+    {
+      "id": 11338,
+      "title": "Where are my logins stored?",
+      "slug": "where-are-my-logins-stored",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/where-are-my-logins-stored.wiki"
+    },
+    {
+      "id": 11340,
+      "title": "How to stay safe on the web",
+      "slug": "how-stay-safe-web",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-stay-safe-web.wiki"
+    },
+    {
+      "id": 12612,
+      "title": "Mixed content blocking in Firefox",
+      "slug": "mixed-content-blocking-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/mixed-content-blocking-firefox.wiki"
+    },
+    {
+      "id": 14922,
+      "title": "How does built-in Phishing and Malware Protection work?",
+      "slug": "how-does-phishing-and-malware-protection-work",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-does-phishing-and-malware-protection-work.wiki"
+    },
+    {
+      "id": 16578,
+      "title": "Secure website certificate",
+      "slug": "secure-website-certificate",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/secure-website-certificate.wiki"
+    },
+    {
+      "id": 18577,
+      "title": "New Tab page in Firefox",
+      "slug": "about-new-tab-page",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/about-new-tab-page.wiki"
+    },
+    {
+      "id": 19903,
+      "title": "How to reset the default user agent on Firefox",
+      "slug": "how-reset-default-user-agent-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-reset-default-user-agent-firefox.wiki"
+    },
+    {
+      "id": 21907,
+      "title": "I'm having problems confirming my Mozilla account",
+      "slug": "im-having-problems-confirming-my-firefox-account",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/im-having-problems-confirming-my-firefox-account.wiki"
+    },
+    {
+      "id": 22087,
+      "title": "Use Firefox in another language",
+      "slug": "use-firefox-another-language",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/use-firefox-another-language.wiki"
+    },
+    {
+      "id": 22096,
+      "title": "Where to go for developer support",
+      "slug": "where-go-developer-support",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/where-go-developer-support.wiki"
+    },
+    {
+      "id": 22504,
+      "title": "Access Mozilla services with a Mozilla account",
+      "slug": "access-mozilla-services-firefox-account",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/access-mozilla-services-firefox-account.wiki"
+    },
+    {
+      "id": 22779,
+      "title": "Frequently Asked Questions",
+      "slug": "frequently-asked-questions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/frequently-asked-questions.wiki"
+    },
+    {
+      "id": 23113,
+      "title": "Forget button - quickly delete your browsing history on Firefox",
+      "slug": "forget-button-quickly-delete-your-browsing-history",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/forget-button-quickly-delete-your-browsing-history.wiki"
+    },
+    {
+      "id": 23135,
+      "title": "Firefox crashes - asking for support",
+      "slug": "firefox-crashes-asking-support",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-crashes-asking-support.wiki"
+    },
+    {
+      "id": 23528,
+      "title": "Get help with Firefox Developer Edition",
+      "slug": "get-help-firefox-developer-edition",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/get-help-firefox-developer-edition.wiki"
+    },
+    {
+      "id": 25045,
+      "title": "Watch DRM content on Firefox",
+      "slug": "enable-drm",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/enable-drm.wiki"
+    },
+    {
+      "id": 25489,
+      "title": "Firefox Reader View for clutter-free web pages",
+      "slug": "firefox-reader-view-clutter-free-web-pages",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-reader-view-clutter-free-web-pages.wiki"
+    },
+    {
+      "id": 26183,
+      "title": "Why is there an OpenH264 plugin in Firefox?",
+      "slug": "open-h264-plugin-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/open-h264-plugin-firefox.wiki"
+    },
+    {
+      "id": 26230,
+      "title": "What is search hijacking?",
+      "slug": "what-search-hijacking",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/what-search-hijacking.wiki"
+    },
+    {
+      "id": 26303,
+      "title": "Add-on signing in Firefox",
+      "slug": "add-on-signing-in-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/add-on-signing-in-firefox.wiki"
+    },
+    {
+      "id": 27154,
+      "title": "Avoid and report Mozilla tech support scams",
+      "slug": "avoid-and-report-mozilla-tech-support-scams",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/avoid-and-report-mozilla-tech-support-scams.wiki"
+    },
+    {
+      "id": 27202,
+      "title": "Rate your Firefox experience, surveys and out of date messages (Heartbeat)",
+      "slug": "rate-your-firefox-experience-heartbeat",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/rate-your-firefox-experience-heartbeat.wiki"
+    },
+    {
+      "id": 27569,
+      "title": "Add or remove a search engine in Firefox",
+      "slug": "add-or-remove-search-engine-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/add-or-remove-search-engine-firefox.wiki"
+    },
+    {
+      "id": 27868,
+      "title": "Configuration Editor for Firefox",
+      "slug": "about-config-editor-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/about-config-editor-firefox.wiki"
+    },
+    {
+      "id": 27897,
+      "title": "Make Firefox your default browser on Windows",
+      "slug": "how-change-your-default-browser-firefox-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-change-your-default-browser-firefox-windows.wiki"
+    },
+    {
+      "id": 28120,
+      "title": "Search suggestions in Firefox",
+      "slug": "search-suggestions-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/search-suggestions-firefox.wiki"
+    },
+    {
+      "id": 28895,
+      "title": "Manage Firefox search settings",
+      "slug": "change-your-default-search-settings-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/change-your-default-search-settings-firefox.wiki"
+    },
+    {
+      "id": 29396,
+      "title": "Mute sound in Firefox tabs",
+      "slug": "mute-sound-firefox-tabs",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/mute-sound-firefox-tabs.wiki"
+    },
+    {
+      "id": 29485,
+      "title": "Site Information panel",
+      "slug": "site-information-panel",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/site-information-panel.wiki"
+    },
+    {
+      "id": 29526,
+      "title": "Insecure connection password warning in Firefox",
+      "slug": "insecure-password-warning-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/insecure-password-warning-firefox.wiki"
+    },
+    {
+      "id": 29615,
+      "title": "I'm having problems with my Mozilla account",
+      "slug": "im-having-problems-my-firefox-account",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/im-having-problems-my-firefox-account.wiki"
+    },
+    {
+      "id": 29640,
+      "title": "Web Push notifications in Firefox",
+      "slug": "push-notifications-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/push-notifications-firefox.wiki"
+    },
+    {
+      "id": 29861,
+      "title": "What do the security warning codes mean?",
+      "slug": "what-does-your-connection-is-not-secure-mean",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/what-does-your-connection-is-not-secure-mean.wiki"
+    },
+    {
+      "id": 30337,
+      "title": "Manage the devices linked to your Mozilla account",
+      "slug": "fxa-managing-devices",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/fxa-managing-devices.wiki"
+    },
+    {
+      "id": 31025,
+      "title": "Accessibility not available during multi-process support",
+      "slug": "accessibility-and-ppt",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/accessibility-and-ppt.wiki"
+    },
+    {
+      "id": 31325,
+      "title": "Troubleshoot security error codes on secure websites",
+      "slug": "error-codes-secure-websites",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/error-codes-secure-websites.wiki"
+    },
+    {
+      "id": 31361,
+      "title": "How do I tell if I have the 32-bit or 64-bit Firefox?",
+      "slug": "how-do-i-tell-if-32-bit-or-64-bit",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-tell-if-32-bit-or-64-bit.wiki"
+    },
+    {
+      "id": 31487,
+      "title": "Access your add-ons with a Mozilla account",
+      "slug": "access-your-add-ons-firefox-accounts",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/access-your-add-ons-firefox-accounts.wiki"
+    },
+    {
+      "id": 32071,
+      "title": "View synced tabs from other devices",
+      "slug": "view-synced-tabs-other-devices",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/view-synced-tabs-other-devices.wiki"
+    },
+    {
+      "id": 32854,
+      "title": "Change your Mozilla account password",
+      "slug": "change-your-firefox-accounts-password",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/change-your-firefox-accounts-password.wiki"
+    },
+    {
+      "id": 32934,
+      "title": "Suspicious activity on my Mozilla account",
+      "slug": "suspicious-activity-my-firefox-account",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/suspicious-activity-my-firefox-account.wiki"
+    },
+    {
+      "id": 33175,
+      "title": "Troubleshoot time-related errors on secure websites",
+      "slug": "troubleshoot-time-errors-secure-websites",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/troubleshoot-time-errors-secure-websites.wiki"
+    },
+    {
+      "id": 33512,
+      "title": "Re-enable multi-process support disabled by Windows utilities",
+      "slug": "re-enable-multi-process-disabled-windows-utilities",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/re-enable-multi-process-disabled-windows-utilities.wiki"
+    },
+    {
+      "id": 34541,
+      "title": "Multi-Account Containers",
+      "slug": "containers",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/containers.wiki"
+    },
+    {
+      "id": 34542,
+      "title": "I found a fake Firefox update",
+      "slug": "i-found-fake-firefox-update",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/i-found-fake-firefox-update.wiki"
+    },
+    {
+      "id": 35619,
+      "title": "Share browser windows or your screen with sites you trust",
+      "slug": "screenshare-safety",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/screenshare-safety.wiki"
+    },
+    {
+      "id": 35620,
+      "title": "Use a Primary Password with Sync",
+      "slug": "using-primary-password-sync",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/using-primary-password-sync.wiki"
+    },
+    {
+      "id": 35625,
+      "title": "My sign in was blocked for security reasons on Mozilla account",
+      "slug": "accounts-blocked",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/accounts-blocked.wiki"
+    },
+    {
+      "id": 35893,
+      "title": "Why do Java, Silverlight, Adobe Acrobat and other plugins no longer work?",
+      "slug": "npapi-plugins",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/npapi-plugins.wiki"
+    },
+    {
+      "id": 35930,
+      "title": "Firefox has ended support for Windows XP and Vista",
+      "slug": "end-support-windows-xp-and-vista",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/end-support-windows-xp-and-vista.wiki"
+    },
+    {
+      "id": 36688,
+      "title": "Firefox's performance settings",
+      "slug": "performance-settings",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/performance-settings.wiki"
+    },
+    {
+      "id": 36700,
+      "title": "View mobile bookmarks on your computer",
+      "slug": "view-mobile-bookmarks-your-computer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/view-mobile-bookmarks-your-computer.wiki"
+    },
+    {
+      "id": 36798,
+      "title": "How do I delete my Mozilla account?",
+      "slug": "how-do-i-delete-my-firefox-account",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-delete-my-firefox-account.wiki"
+    },
+    {
+      "id": 36811,
+      "title": "Manage local site storage settings",
+      "slug": "storage",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/storage.wiki"
+    },
+    {
+      "id": 36903,
+      "title": "64-bit Firefox crashes with Citrix's XenApp VM",
+      "slug": "64-bit-firefox-crashes-citrixs-xenapp-vm",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/64-bit-firefox-crashes-citrixs-xenapp-vm.wiki"
+    },
+    {
+      "id": 36964,
+      "title": "Take screenshots in Firefox",
+      "slug": "take-screenshots-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/take-screenshots-firefox.wiki"
+    },
+    {
+      "id": 37514,
+      "title": "How to update add-ons",
+      "slug": "how-update-add-ons",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-update-add-ons.wiki"
+    },
+    {
+      "id": 37517,
+      "title": "Built-in themes in Firefox - alternative to complete themes",
+      "slug": "built-themes-firefox-alternative-complete-themes",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/built-themes-firefox-alternative-complete-themes.wiki"
+    },
+    {
+      "id": 37590,
+      "title": "About Studies",
+      "slug": "shield",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/shield.wiki"
+    },
+    {
+      "id": 37661,
+      "title": "Automatically fill in your address on web forms",
+      "slug": "automatically-fill-your-address-web-forms",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/automatically-fill-your-address-web-forms.wiki"
+    },
+    {
+      "id": 37831,
+      "title": "I can’t play audio on a Remote Desktop Connection",
+      "slug": "i-cant-play-audio-remote-desktop-connection",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/i-cant-play-audio-remote-desktop-connection.wiki"
+    },
+    {
+      "id": 38010,
+      "title": "Connection settings in Firefox",
+      "slug": "connection-settings-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/connection-settings-firefox.wiki"
+    },
+    {
+      "id": 38171,
+      "title": "Add the Search bar to your Firefox toolbar",
+      "slug": "add-search-bar-firefox-toolbar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/add-search-bar-firefox-toolbar.wiki"
+    },
+    {
+      "id": 38205,
+      "title": "Updating processor microcode",
+      "slug": "microcode-update",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/microcode-update.wiki"
+    },
+    {
+      "id": 38228,
+      "title": "Crash on Broadwell-U with old microcode",
+      "slug": "broadwell-u-microcode",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/broadwell-u-microcode.wiki"
+    },
+    {
+      "id": 38301,
+      "title": "Can I use my screen reader with the new Firefox?",
+      "slug": "can-i-use-my-screen-reader-new-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/can-i-use-my-screen-reader-new-firefox.wiki"
+    },
+    {
+      "id": 38355,
+      "title": "Switch from Chrome to Firefox",
+      "slug": "switching-chrome-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/switching-chrome-firefox.wiki"
+    },
+    {
+      "id": 38604,
+      "title": "An extension changed my New Tab page or home page",
+      "slug": "extension-changed-my-new-tab-page",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/extension-changed-my-new-tab-page.wiki"
+    },
+    {
+      "id": 38910,
+      "title": "Print simplified, clutter-free pages in Firefox",
+      "slug": "print-simplified-clutter-free-pages-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/print-simplified-clutter-free-pages-firefox.wiki"
+    },
+    {
+      "id": 39272,
+      "title": "File system paths on Linux are always treated as UTF-8",
+      "slug": "utf-8-only-file-paths",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/utf-8-only-file-paths.wiki"
+    },
+    {
+      "id": 39295,
+      "title": "Does Firefox share my location with websites?",
+      "slug": "does-firefox-share-my-location-websites",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/does-firefox-share-my-location-websites.wiki"
+    },
+    {
+      "id": 39313,
+      "title": "Tips for assessing the safety of an extension",
+      "slug": "tips-assessing-safety-extension",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/tips-assessing-safety-extension.wiki"
+    },
+    {
+      "id": 39316,
+      "title": "About permission request messages for Firefox extensions",
+      "slug": "permission-request-messages-firefox-extensions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/permission-request-messages-firefox-extensions.wiki"
+    },
+    {
+      "id": 39419,
+      "title": "Videos don't have sound on Citrix",
+      "slug": "videos-dont-have-sound-citrix",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/videos-dont-have-sound-citrix.wiki"
+    },
+    {
+      "id": 39454,
+      "title": "How to add the translate add-on to Firefox",
+      "slug": "how-add-translate-feature-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-add-translate-feature-firefox.wiki"
+    },
+    {
+      "id": 39532,
+      "title": "Firefox's protection against fingerprinting",
+      "slug": "firefox-protection-against-fingerprinting",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-protection-against-fingerprinting.wiki"
+    },
+    {
+      "id": 39663,
+      "title": "Protect privacy while using Web Authentication",
+      "slug": "privacy-web-authentication",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/privacy-web-authentication.wiki"
+    },
+    {
+      "id": 39837,
+      "title": "Facebook Container isn't working",
+      "slug": "facebook-container-isnt-working",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/facebook-container-isnt-working.wiki"
+    },
+    {
+      "id": 39863,
+      "title": "How is Facebook Container different from Multi-account Containers?",
+      "slug": "how-facebook-container-different-multi-account-con",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-facebook-container-different-multi-account-con.wiki"
+    },
+    {
+      "id": 39872,
+      "title": "Playing 4K (Ultra-High Definition) YouTube videos in Firefox",
+      "slug": "firefox-4k-ultra-high-definition-youtube-videos",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-4k-ultra-high-definition-youtube-videos.wiki"
+    },
+    {
+      "id": 39974,
+      "title": "Set up two-factor authentication on your Mozilla account",
+      "slug": "secure-firefox-account-two-step-authentication",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/secure-firefox-account-two-step-authentication.wiki"
+    },
+    {
+      "id": 40071,
+      "title": "Access hidden tabs in Firefox",
+      "slug": "access-hidden-tabs-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/access-hidden-tabs-firefox.wiki"
+    },
+    {
+      "id": 40695,
+      "title": "Report extensions and themes for abuse",
+      "slug": "reporting-extensions-and-themes-abuse",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/reporting-extensions-and-themes-abuse.wiki"
+    },
+    {
+      "id": 40919,
+      "title": "Firefox starts automatically when I restart Windows",
+      "slug": "firefox-starts-automatically-when-i-restart-window",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-starts-automatically-when-i-restart-window.wiki"
+    },
+    {
+      "id": 40939,
+      "title": "Allow or block media autoplay in Firefox",
+      "slug": "block-autoplay",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/block-autoplay.wiki"
+    },
+    {
+      "id": 40983,
+      "title": "Feed reader replacements for Firefox",
+      "slug": "feed-reader-replacements-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/feed-reader-replacements-firefox.wiki"
+    },
+    {
+      "id": 40990,
+      "title": "Remove a synced device from your Mozilla account",
+      "slug": "remove-synced-device-firefox-accounts",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/remove-synced-device-firefox-accounts.wiki"
+    },
+    {
+      "id": 41011,
+      "title": "How do I report a broken site in Firefox desktop?",
+      "slug": "report-breakage-due-blocking",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/report-breakage-due-blocking.wiki"
+    },
+    {
+      "id": 41090,
+      "title": "Recommendations from Firefox",
+      "slug": "recommendations-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/recommendations-firefox.wiki"
+    },
+    {
+      "id": 41477,
+      "title": "How to use collections on addons.mozilla.org",
+      "slug": "how-use-collections-addonsmozillaorg",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-use-collections-addonsmozillaorg.wiki"
+    },
+    {
+      "id": 42026,
+      "title": "Personalized extension recommendations",
+      "slug": "personalized-extension-recommendations",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/personalized-extension-recommendations.wiki"
+    },
+    {
+      "id": 42311,
+      "title": "Common Myths about Private Browsing",
+      "slug": "common-myths-about-private-browsing",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/common-myths-about-private-browsing.wiki"
+    },
+    {
+      "id": 42320,
+      "title": "Windows in S mode won't let me install Firefox",
+      "slug": "windows-s-mode-wont-let-me-install-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/windows-s-mode-wont-let-me-install-firefox.wiki"
+    },
+    {
+      "id": 42589,
+      "title": "Assign shortcuts to search engines",
+      "slug": "assign-shortcuts-search-engines",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/assign-shortcuts-search-engines.wiki"
+    },
+    {
+      "id": 42674,
+      "title": "Choose display languages for multilingual web pages",
+      "slug": "choose-display-languages-multilingual-web-pages",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/choose-display-languages-multilingual-web-pages.wiki"
+    },
+    {
+      "id": 42757,
+      "title": "What if I'm locked out of Two-Step Authentication?",
+      "slug": "what-if-im-locked-out-two-step-authentication",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/what-if-im-locked-out-two-step-authentication.wiki"
+    },
+    {
+      "id": 42861,
+      "title": "Third-party trackers",
+      "slug": "third-party-trackers",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/third-party-trackers.wiki"
+    },
+    {
+      "id": 42929,
+      "title": "Extensions in Private Browsing",
+      "slug": "extensions-private-browsing",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/extensions-private-browsing.wiki"
+    },
+    {
+      "id": 42930,
+      "title": "Disable high contrast mode in Firefox",
+      "slug": "disable-high-contrast-mode-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/disable-high-contrast-mode-firefox.wiki"
+    },
+    {
+      "id": 43052,
+      "title": "Dedicated profiles per Firefox installation",
+      "slug": "dedicated-profiles-firefox-installation",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/dedicated-profiles-firefox-installation.wiki"
+    },
+    {
+      "id": 43056,
+      "title": "Task Manager - see whether tabs or extensions are slowing down Firefox",
+      "slug": "task-manager-tabs-or-extensions-are-slowing-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/task-manager-tabs-or-extensions-are-slowing-firefox.wiki"
+    },
+    {
+      "id": 43687,
+      "title": "Search open tabs in Firefox",
+      "slug": "search-open-tabs-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/search-open-tabs-firefox.wiki"
+    },
+    {
+      "id": 43689,
+      "title": "Manage extension shortcuts in Firefox",
+      "slug": "manage-extension-shortcuts-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/manage-extension-shortcuts-firefox.wiki"
+    },
+    {
+      "id": 43709,
+      "title": "How do I know the status of my sync?",
+      "slug": "how-do-i-know-status-my-sync",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-do-i-know-status-my-sync.wiki"
+    },
+    {
+      "id": 43916,
+      "title": "Drag and Drop errors with Firefox Launcher Process enabled and Windows UAC disabled - How to Fix",
+      "slug": "windows-administrator-launcher-process-error-fix",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/windows-administrator-launcher-process-error-fix.wiki"
+    },
+    {
+      "id": 44032,
+      "title": "Review installed extensions",
+      "slug": "review-installed-extensions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/review-installed-extensions.wiki"
+    },
+    {
+      "id": 44203,
+      "title": "Understanding the risks of installing self-hosted extensions",
+      "slug": "understanding-risks-unlisted-extensions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/understanding-risks-unlisted-extensions.wiki"
+    },
+    {
+      "id": 44296,
+      "title": "Access toolbar functions using the keyboard",
+      "slug": "access-toolbar-functions-using-keyboard",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/access-toolbar-functions-using-keyboard.wiki"
+    },
+    {
+      "id": 44469,
+      "title": "Recommended Extensions program",
+      "slug": "recommended-extensions-program",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/recommended-extensions-program.wiki"
+    },
+    {
+      "id": 44480,
+      "title": "How to manage your camera and microphone permissions with Firefox",
+      "slug": "how-manage-your-camera-and-microphone-permissions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-manage-your-camera-and-microphone-permissions.wiki"
+    },
+    {
+      "id": 44562,
+      "title": "Send Tab from Firefox desktop to other devices",
+      "slug": "send-tab-firefox-desktop-other-devices",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/send-tab-firefox-desktop-other-devices.wiki"
+    },
+    {
+      "id": 44770,
+      "title": "How Firefox securely saves passwords",
+      "slug": "how-firefox-securely-saves-passwords",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-firefox-securely-saves-passwords.wiki"
+    },
+    {
+      "id": 44778,
+      "title": "How to perform Sync on Firefox desktop",
+      "slug": "sync-firefox-desktop",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/sync-firefox-desktop.wiki"
+    },
+    {
+      "id": 44782,
+      "title": "Manage your logins with the Firefox Password Manager",
+      "slug": "manage-your-logins-firefox-password-manager",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/manage-your-logins-firefox-password-manager.wiki"
+    },
+    {
+      "id": 44783,
+      "title": "Edit or delete a login with the Firefox Password Manager",
+      "slug": "edit-or-delete-login-firefox-password-manager",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/edit-or-delete-login-firefox-password-manager.wiki"
+    },
+    {
+      "id": 44784,
+      "title": "Add a login with the Firefox Password Manager",
+      "slug": "add-login-firefox-password-manager",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/add-login-firefox-password-manager.wiki"
+    },
+    {
+      "id": 44803,
+      "title": "How to disable the Enterprise Roots preference",
+      "slug": "how-disable-enterprise-roots-preference",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-disable-enterprise-roots-preference.wiki"
+    },
+    {
+      "id": 45118,
+      "title": "Facebook Container - Prevent Facebook from tracking you on other websites",
+      "slug": "facebook-container-prevent-facebook-tracking",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/facebook-container-prevent-facebook-tracking.wiki"
+    },
+    {
+      "id": 45195,
+      "title": "Firefox keeps asking me for Primary Password",
+      "slug": "firefox-keeps-asking-me-primary-password",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-keeps-asking-me-primary-password.wiki"
+    },
+    {
+      "id": 45403,
+      "title": "Recover user data missing after Firefox update or reinstall",
+      "slug": "recover-user-data-missing-after-firefox-update",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/recover-user-data-missing-after-firefox-update.wiki"
+    },
+    {
+      "id": 45427,
+      "title": "Sync custom preferences",
+      "slug": "sync-custom-preferences",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/sync-custom-preferences.wiki"
+    },
+    {
+      "id": 45586,
+      "title": "Mozilla service providers and partners",
+      "slug": "firefox-subprocessor-list",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-subprocessor-list.wiki"
+    },
+    {
+      "id": 45740,
+      "title": "Firefox DNS over HTTPS",
+      "slug": "firefox-dns-over-https",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-dns-over-https.wiki"
+    },
+    {
+      "id": 45793,
+      "title": "Why is each open Firefox tab showing up in the Windows volume mixer?",
+      "slug": "open-firefox-tab-windows-volume-mixer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/open-firefox-tab-windows-volume-mixer.wiki"
+    },
+    {
+      "id": 45907,
+      "title": "Turn picture-in-picture mode controls on and off",
+      "slug": "turn-picture-picture-mode",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/turn-picture-picture-mode.wiki"
+    },
+    {
+      "id": 45920,
+      "title": "\"Certificate cannot be trusted\" warning in Kazakhstan",
+      "slug": "certificate-cannot-be-trusted-warning-kazakhstan",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/certificate-cannot-be-trusted-warning-kazakhstan.wiki"
+    },
+    {
+      "id": 45950,
+      "title": "How Firefox Sync keeps your data safe even if TLS fails",
+      "slug": "how-firefox-sync-keeps-your-data-safe-even-if-tls-fails",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-firefox-sync-keeps-your-data-safe-even-if-tls-fails.wiki"
+    },
+    {
+      "id": 46006,
+      "title": "Autofill logins on Firefox",
+      "slug": "autofill-logins-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/autofill-logins-firefox.wiki"
+    },
+    {
+      "id": 46012,
+      "title": "Configure networks to disable DNS over HTTPS",
+      "slug": "configuring-networks-disable-dns-over-https",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/configuring-networks-disable-dns-over-https.wiki"
+    },
+    {
+      "id": 46067,
+      "title": "Enhanced Tracking Protection in Firefox for desktop",
+      "slug": "enhanced-tracking-protection-firefox-desktop",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/enhanced-tracking-protection-firefox-desktop.wiki"
+    },
+    {
+      "id": 46068,
+      "title": "Trackers and scripts Firefox blocks in Enhanced Tracking Protection",
+      "slug": "trackers-and-scripts-firefox-blocks-enhanced-track",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/trackers-and-scripts-firefox-blocks-enhanced-track.wiki"
+    },
+    {
+      "id": 46109,
+      "title": "Firefox Browser welcome pages - helping you get more from Firefox products and services",
+      "slug": "firefox-browser-welcome-pages",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-browser-welcome-pages.wiki"
+    },
+    {
+      "id": 46154,
+      "title": "Change your two-step authentication device for your Mozilla account",
+      "slug": "changing-your-two-step-authentication-device-firefox-account",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/changing-your-two-step-authentication-device-firefox-account.wiki"
+    },
+    {
+      "id": 46296,
+      "title": "Canary domain - use-application-dns.net",
+      "slug": "canary-domain-use-application-dnsnet",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/canary-domain-use-application-dnsnet.wiki"
+    },
+    {
+      "id": 46408,
+      "title": "DNS over HTTPS (DoH) FAQs",
+      "slug": "dns-over-https-doh-faqs",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/dns-over-https-doh-faqs.wiki"
+    },
+    {
+      "id": 46409,
+      "title": "Firefox Password Manager - Alerts for breached websites",
+      "slug": "firefox-password-manager-alerts-breached-websites",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-password-manager-alerts-breached-websites.wiki"
+    },
+    {
+      "id": 46452,
+      "title": "Unable to download files in Windows 10 when Parental Controls are on",
+      "slug": "unable-download-files-windows-10-parental-controls",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/unable-download-files-windows-10-parental-controls.wiki"
+    },
+    {
+      "id": 46522,
+      "title": "Browsing history in Firefox - View the websites you have visited",
+      "slug": "browsing-history-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/browsing-history-firefox.wiki"
+    },
+    {
+      "id": 46560,
+      "title": "Lightbeam extension for Firefox is no longer supported",
+      "slug": "lightbeam-extension-firefox-no-longer-supported",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/lightbeam-extension-firefox-no-longer-supported.wiki"
+    },
+    {
+      "id": 46951,
+      "title": "Disable Firefox Sync",
+      "slug": "disable-firefox-sync",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/disable-firefox-sync.wiki"
+    },
+    {
+      "id": 47031,
+      "title": "About Picture-in-Picture in Firefox",
+      "slug": "about-picture-picture-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/about-picture-picture-firefox.wiki"
+    },
+    {
+      "id": 47214,
+      "title": "My privacy settings were changed from Custom to Standard",
+      "slug": "my-privacy-settings-were-changed-custom-standard",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/my-privacy-settings-were-changed-custom-standard.wiki"
+    },
+    {
+      "id": 47327,
+      "title": "WebXR Permission Info Page",
+      "slug": "webxr-permission-info-page",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/webxr-permission-info-page.wiki"
+    },
+    {
+      "id": 47828,
+      "title": "Importing Safari data into Firefox",
+      "slug": "importing-safari-data-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/importing-safari-data-firefox.wiki"
+    },
+    {
+      "id": 47833,
+      "title": "Generate a secure password in Firefox",
+      "slug": "how-generate-secure-password-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-generate-secure-password-firefox.wiki"
+    },
+    {
+      "id": 47945,
+      "title": "How to pin and unpin Firefox from the taskbar on Windows 10 and Windows 11",
+      "slug": "how-pin-and-unpin-firefox-taskbar-windows-10-and-windows-11",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-pin-and-unpin-firefox-taskbar-windows-10-and-windows-11.wiki"
+    },
+    {
+      "id": 48632,
+      "title": "Secure Firefox passwords with device sign-in",
+      "slug": "firefox-password-authentification-prompt",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-password-authentification-prompt.wiki"
+    },
+    {
+      "id": 49041,
+      "title": "Fix error “Website will not allow Firefox to display the page.”",
+      "slug": "xframe-neterror-page",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/xframe-neterror-page.wiki"
+    },
+    {
+      "id": 49117,
+      "title": "Compatibility with Exploit protection on Windows",
+      "slug": "compatibility-exploit-protection-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/compatibility-exploit-protection-windows.wiki"
+    },
+    {
+      "id": 49133,
+      "title": "Run Firefox on ChromeOS",
+      "slug": "run-firefox-chromeos",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/run-firefox-chromeos.wiki"
+    },
+    {
+      "id": 49197,
+      "title": "Firefox Mac OS X 10.9, 10.10 and 10.11 users move to Extended Support Release",
+      "slug": "firefox-mac-osx-users-esr",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-mac-osx-users-esr.wiki"
+    },
+    {
+      "id": 49217,
+      "title": "Automatically fill in credit and debit card payment methods data on web forms",
+      "slug": "credit-card-autofill",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/credit-card-autofill.wiki"
+    },
+    {
+      "id": 49219,
+      "title": "Tab context menu",
+      "slug": "tab-context-menu",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/tab-context-menu.wiki"
+    },
+    {
+      "id": 49257,
+      "title": "Export login data from Firefox",
+      "slug": "export-login-data-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/export-login-data-firefox.wiki"
+    },
+    {
+      "id": 49534,
+      "title": "What happened to Firefox Send?",
+      "slug": "what-happened-firefox-send",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/what-happened-firefox-send.wiki"
+    },
+    {
+      "id": 49535,
+      "title": "HTTPS-Only Mode in Firefox",
+      "slug": "https-only-prefs",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/https-only-prefs.wiki"
+    },
+    {
+      "id": 49987,
+      "title": "Telemetry collection - Windows default browser trends",
+      "slug": "telemetry-collection-windows-default-browser-trend",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/telemetry-collection-windows-default-browser-trend.wiki"
+    },
+    {
+      "id": 50051,
+      "title": "Import login and password data from a file",
+      "slug": "import-login-data-file",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/import-login-data-file.wiki"
+    },
+    {
+      "id": 50557,
+      "title": "Delete sync data from Firefox by signing out of your Mozilla account",
+      "slug": "delete-sync-data-firefox-signing-out-firefox-account",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/delete-sync-data-firefox-signing-out-firefox-account.wiki"
+    },
+    {
+      "id": 50558,
+      "title": "Control audio or video playback with your keyboard",
+      "slug": "control-audio-or-video-playback-your-keyboard",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/control-audio-or-video-playback-your-keyboard.wiki"
+    },
+    {
+      "id": 50669,
+      "title": "Windows 10 warns me to use a \"Microsoft-verified\" app",
+      "slug": "windows-10-warns-me-use-microsoft-verified-app",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/windows-10-warns-me-use-microsoft-verified-app.wiki"
+    },
+    {
+      "id": 50670,
+      "title": "About Add-on Badges",
+      "slug": "add-on-badges",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/add-on-badges.wiki"
+    },
+    {
+      "id": 50917,
+      "title": "Sponsors on the home page and New Tab page",
+      "slug": "sponsor-privacy",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/sponsor-privacy.wiki"
+    },
+    {
+      "id": 51002,
+      "title": "Troubleshoot issues related to add-ons",
+      "slug": "troubleshoot-issues-related-to-add-ons",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/troubleshoot-issues-related-to-add-ons.wiki"
+    },
+    {
+      "id": 51283,
+      "title": "End of support for Adobe Flash",
+      "slug": "end-support-adobe-flash",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/end-support-adobe-flash.wiki"
+    },
+    {
+      "id": 51362,
+      "title": "Manage optional permissions for Firefox extensions",
+      "slug": "manage-optional-permissions-extensions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/manage-optional-permissions-extensions.wiki"
+    },
+    {
+      "id": 52176,
+      "title": "Remove the Other Bookmarks folder from the Bookmarks Toolbar",
+      "slug": "remove-other-bookmarks-folder-from-bookmarks-toolbar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/remove-other-bookmarks-folder-from-bookmarks-toolbar.wiki"
+    },
+    {
+      "id": 52257,
+      "title": "Mozilla Voice Server Proxy Retiring",
+      "slug": "mozilla-voice-server-proxy-retiring",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/mozilla-voice-server-proxy-retiring.wiki"
+    },
+    {
+      "id": 52328,
+      "title": "Captive portal detection",
+      "slug": "captive-portal",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/captive-portal.wiki"
+    },
+    {
+      "id": 52802,
+      "title": "SmartBlock for Enhanced Tracking Protection",
+      "slug": "smartblock-enhanced-tracking-protection",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/smartblock-enhanced-tracking-protection.wiki"
+    },
+    {
+      "id": 53236,
+      "title": "Compact mode workaround in Firefox",
+      "slug": "compact-mode-workaround-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/compact-mode-workaround-firefox.wiki"
+    },
+    {
+      "id": 53365,
+      "title": "How to fix an error when trying to open Telegram or Slack on Firefox",
+      "slug": "how-fix-error-when-trying-open-telegram-or-slack",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-fix-error-when-trying-open-telegram-or-slack.wiki"
+    },
+    {
+      "id": 53517,
+      "title": "Text Encoding no longer available in the Firefox menu panel",
+      "slug": "text-encoding-no-longer-available-firefox-menu",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/text-encoding-no-longer-available-firefox-menu.wiki"
+    },
+    {
+      "id": 53693,
+      "title": "Site Permissions panel",
+      "slug": "site-permissions-panel",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/site-permissions-panel.wiki"
+    },
+    {
+      "id": 54072,
+      "title": "Solutions for \"Can not create temp folder archive\" error when installing Firefox (Windows 10)",
+      "slug": "solutions-can-not-create-temp-folder-archive-error",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/solutions-can-not-create-temp-folder-archive-error.wiki"
+    },
+    {
+      "id": 54428,
+      "title": "Enable background updates on Firefox for Windows when Firefox is not running",
+      "slug": "enable-background-updates-firefox-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/enable-background-updates-firefox-windows.wiki"
+    },
+    {
+      "id": 54431,
+      "title": "Identify problems caused by third-party modules in Firefox for Windows",
+      "slug": "identify-problems-third-party-modules-firefox-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/identify-problems-third-party-modules-firefox-windows.wiki"
+    },
+    {
+      "id": 54435,
+      "title": "How to enable Windows SSO login in Firefox",
+      "slug": "windows-sso",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/windows-sso.wiki"
+    },
+    {
+      "id": 54543,
+      "title": "Customize Firefox Suggest settings",
+      "slug": "firefox-suggest",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-suggest.wiki"
+    },
+    {
+      "id": 54929,
+      "title": "How to configure Close Tab warnings in Firefox",
+      "slug": "how-configure-close-tab-warnings-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-configure-close-tab-warnings-firefox.wiki"
+    },
+    {
+      "id": 55004,
+      "title": "How to share URLs on Firefox for macOS",
+      "slug": "how-share-urls-firefox-macos",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-share-urls-firefox-macos.wiki"
+    },
+    {
+      "id": 55150,
+      "title": "How to restore a browsing session from backup",
+      "slug": "how-restore-browsing-session-backup",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-restore-browsing-session-backup.wiki"
+    },
+    {
+      "id": 55532,
+      "title": "Firefox advanced customization and configuration options",
+      "slug": "firefox-advanced-customization-and-configuration",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-advanced-customization-and-configuration.wiki"
+    },
+    {
+      "id": 55535,
+      "title": "Unload inactive tabs to save system memory in Firefox",
+      "slug": "unload-inactive-tabs-save-system-memory-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/unload-inactive-tabs-save-system-memory-firefox.wiki"
+    },
+    {
+      "id": 55680,
+      "title": "Personalize Firefox with colorways",
+      "slug": "personalize-firefox-colorways",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/personalize-firefox-colorways.wiki"
+    },
+    {
+      "id": 55781,
+      "title": "Download Firefox on Windows from the Microsoft Store",
+      "slug": "download-firefox-windows-microsoft-store",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/download-firefox-windows-microsoft-store.wiki"
+    },
+    {
+      "id": 56766,
+      "title": "How file downloads are handled in Firefox",
+      "slug": "manage-downloads-preferences-using-downloads-menu",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/manage-downloads-preferences-using-downloads-menu.wiki"
+    },
+    {
+      "id": 57139,
+      "title": "My default search engine changed after updating Firefox",
+      "slug": "search-engine-removal",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/search-engine-removal.wiki"
+    },
+    {
+      "id": 57208,
+      "title": "Total Cookie Protection and website breakage FAQ",
+      "slug": "total-cookie-protection-and-website-breakage-faq",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/total-cookie-protection-and-website-breakage-faq.wiki"
+    },
+    {
+      "id": 57488,
+      "title": "Difficulties opening or using a website in Firefox 100",
+      "slug": "difficulties-opening-or-using-website-firefox-100",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/difficulties-opening-or-using-website-firefox-100.wiki"
+    },
+    {
+      "id": 57530,
+      "title": "Introducing Total Cookie Protection in Standard Mode",
+      "slug": "introducing-total-cookie-protection-standard-mode",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/introducing-total-cookie-protection-standard-mode.wiki"
+    },
+    {
+      "id": 57889,
+      "title": "Change website appearance settings in Firefox",
+      "slug": "change-website-appearance-settings-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/change-website-appearance-settings-firefox.wiki"
+    },
+    {
+      "id": 58394,
+      "title": "What is Mozilla Connect?",
+      "slug": "what-mozilla-connect",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/what-mozilla-connect.wiki"
+    },
+    {
+      "id": 58817,
+      "title": "Firefox View - View all tabs from your recent browsing and history",
+      "slug": "how-set-tab-pickup-firefox-view",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-set-tab-pickup-firefox-view.wiki"
+    },
+    {
+      "id": 58974,
+      "title": "Firefox Translations Add-on",
+      "slug": "firefox-translations-add-on",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-translations-add-on.wiki"
+    },
+    {
+      "id": 59064,
+      "title": "Copy text from images on Firefox for MacOS",
+      "slug": "text-recognition",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/text-recognition.wiki"
+    },
+    {
+      "id": 59114,
+      "title": "Firefox privacy and security features",
+      "slug": "firefox-privacy-and-security-features",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-privacy-and-security-features.wiki"
+    },
+    {
+      "id": 59160,
+      "title": "Recommended Firefox privacy and security settings for families",
+      "slug": "recommended-firefox-privacy-and-security-settings-families",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/recommended-firefox-privacy-and-security-settings-families.wiki"
+    },
+    {
+      "id": 59161,
+      "title": "Recommended Firefox extensions for families and students",
+      "slug": "recommended-firefox-extensions-families-and-students",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/recommended-firefox-extensions-families-and-students.wiki"
+    },
+    {
+      "id": 59162,
+      "title": "Disable password saving in Firefox",
+      "slug": "disable-password-saving-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/disable-password-saving-firefox.wiki"
+    },
+    {
+      "id": 59163,
+      "title": "Disable credit card and payment method syncing across devices",
+      "slug": "disable-credit-card-syncing-across-devices",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/disable-credit-card-syncing-across-devices.wiki"
+    },
+    {
+      "id": 59164,
+      "title": "Block deceptive content and dangerous downloads in Firefox",
+      "slug": "block-deceptive-content-and-dangerous-downloads-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/block-deceptive-content-and-dangerous-downloads-firefox.wiki"
+    },
+    {
+      "id": 59174,
+      "title": "Quick actions in the Firefox search bar",
+      "slug": "quick-actions-firefox-search-bar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/quick-actions-firefox-search-bar.wiki"
+    },
+    {
+      "id": 60013,
+      "title": "Firefox update notifications on Windows",
+      "slug": "firefox-update-notifications-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-update-notifications-windows.wiki"
+    },
+    {
+      "id": 60033,
+      "title": "Firefox hangs when copying with Suggested Actions enabled on Windows 11 - What to do",
+      "slug": "firefox-hangs-when-copying-suggested-actions-windows-11",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-hangs-when-copying-suggested-actions-windows-11.wiki"
+    },
+    {
+      "id": 60125,
+      "title": "Site Permission Add-ons",
+      "slug": "site-permission-add-ons",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/site-permission-add-ons.wiki"
+    },
+    {
+      "id": 60199,
+      "title": "Block cookie banners on Firefox",
+      "slug": "cookie-banner-reduction",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/cookie-banner-reduction.wiki"
+    },
+    {
+      "id": 60329,
+      "title": "Manage your extensions using the extensions button in the toolbar",
+      "slug": "extensions-button",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/extensions-button.wiki"
+    },
+    {
+      "id": 60715,
+      "title": "X-Mouse Button Control in Firefox 110",
+      "slug": "x-mouse-button-control-firefox-110",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/x-mouse-button-control-firefox-110.wiki"
+    },
+    {
+      "id": 60870,
+      "title": "How to use Firefox containers",
+      "slug": "how-use-firefox-containers",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-use-firefox-containers.wiki"
+    },
+    {
+      "id": 60882,
+      "title": "Add Firefox Relay to the Firefox password manager",
+      "slug": "relay-integration",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/relay-integration.wiki"
+    },
+    {
+      "id": 61309,
+      "title": "Why do I get a harmful download message when downloading Firefox on Windows?",
+      "slug": "why-do-i-get-harmful-download-message-when-downloading-firefox-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/why-do-i-get-harmful-download-message-when-downloading-firefox-windows.wiki"
+    },
+    {
+      "id": 61357,
+      "title": "Recommended stories on the Firefox New Tab page - FAQ",
+      "slug": "recommendations-firefox-new-tab",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/recommendations-firefox-new-tab.wiki"
+    },
+    {
+      "id": 61388,
+      "title": "Firefox Translations",
+      "slug": "website-translation",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/website-translation.wiki"
+    },
+    {
+      "id": 61455,
+      "title": "Back up and transfer your Firefox data to a new device",
+      "slug": "switching-devices",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/switching-devices.wiki"
+    },
+    {
+      "id": 61456,
+      "title": "Why aren’t my add-ons working on some websites?",
+      "slug": "addons-restricted-domains",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/addons-restricted-domains.wiki"
+    },
+    {
+      "id": 61460,
+      "title": "Configure DNS over HTTPS protection levels in Firefox",
+      "slug": "dns-over-https",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/dns-over-https.wiki"
+    },
+    {
+      "id": 61471,
+      "title": "Why are some add-ons not allowed on sites restricted by Mozilla?",
+      "slug": "quarantined-domains",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/quarantined-domains.wiki"
+    },
+    {
+      "id": 61499,
+      "title": "Firefox users on macOS 10.12, 10.13 and 10.14 moving to Extended Support Release",
+      "slug": "firefox-users-macos-1012-1013-1014-moving-to-extended-support",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-users-macos-1012-1013-1014-moving-to-extended-support.wiki"
+    },
+    {
+      "id": 61500,
+      "title": "Firefox support for Windows 7, 8 and 8.1",
+      "slug": "firefox-users-windows-7-8-and-81-moving-extended-support",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-users-windows-7-8-and-81-moving-extended-support.wiki"
+    },
+    {
+      "id": 61557,
+      "title": "How to reset your password without Account Recovery Keys and regain access to your data",
+      "slug": "how-reset-your-password-without-account-recovery-keys-access-data",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-reset-your-password-without-account-recovery-keys-access-data.wiki"
+    },
+    {
+      "id": 61646,
+      "title": "Get your local weather forecast from the Firefox address bar",
+      "slug": "get-your-local-weather-forecast-firefox-address-bar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/get-your-local-weather-forecast-firefox-address-bar.wiki"
+    },
+    {
+      "id": 61918,
+      "title": "Global Privacy Control",
+      "slug": "global-privacy-control",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/global-privacy-control.wiki"
+    },
+    {
+      "id": 62180,
+      "title": "Shop online with more confidence using Firefox Review Checker",
+      "slug": "review-checker-review-quality",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/review-checker-review-quality.wiki"
+    },
+    {
+      "id": 62242,
+      "title": "Understand Encrypted Client Hello (ECH)",
+      "slug": "understand-encrypted-client-hello",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/understand-encrypted-client-hello.wiki"
+    },
+    {
+      "id": 62244,
+      "title": "Encrypted Client Hello (ECH) - Frequently asked questions",
+      "slug": "faq-encrypted-client-hello",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/faq-encrypted-client-hello.wiki"
+    },
+    {
+      "id": 62255,
+      "title": "Why can’t I use Firefox sync with my Google or Apple ID?",
+      "slug": "why-cant-i-use-firefox-sync-my-google-or-apple-id",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/why-cant-i-use-firefox-sync-my-google-or-apple-id.wiki"
+    },
+    {
+      "id": 62256,
+      "title": "Unlink your Google or Apple ID from your Mozilla account",
+      "slug": "unlink-google-or-apple-id-your-account",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/unlink-google-or-apple-id-your-account.wiki"
+    },
+    {
+      "id": 62257,
+      "title": "Sign in to a Mozilla account using 3rd-party authentication",
+      "slug": "sign-in-accounts-using-3rd-party-auth",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/sign-in-accounts-using-3rd-party-auth.wiki"
+    },
+    {
+      "id": 62313,
+      "title": "Use Google Trending Search in the Firefox address bar",
+      "slug": "use-google-trending-search-firefox-address-bar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/use-google-trending-search-firefox-address-bar.wiki"
+    },
+    {
+      "id": 62314,
+      "title": "Open Firefox automatically when you start your computer",
+      "slug": "open-firefox-automatically-when-you-start-computer",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/open-firefox-automatically-when-you-start-computer.wiki"
+    },
+    {
+      "id": 62713,
+      "title": "Automatically trust third-party root certificates",
+      "slug": "automatically-trust-third-party-certificates",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/automatically-trust-third-party-certificates.wiki"
+    },
+    {
+      "id": 63942,
+      "title": "Sync Firefox data",
+      "slug": "sync",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/sync.wiki"
+    },
+    {
+      "id": 64562,
+      "title": "Use the Eyedropper tool in Firefox to sample colors",
+      "slug": "use-eyedropper-tool-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/use-eyedropper-tool-firefox.wiki"
+    },
+    {
+      "id": 64684,
+      "title": "Data Loss Prevention",
+      "slug": "data-loss-prevention",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/data-loss-prevention.wiki"
+    },
+    {
+      "id": 64725,
+      "title": "Privacy-Preserving Attribution",
+      "slug": "privacy-preserving-attribution",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/privacy-preserving-attribution.wiki"
+    },
+    {
+      "id": 65072,
+      "title": "Tab overview menu",
+      "slug": "tab-overview-menu",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/tab-overview-menu.wiki"
+    },
+    {
+      "id": 65377,
+      "title": "Add alt text to images in your PDFs using Firefox",
+      "slug": "pdf-alt-text",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/pdf-alt-text.wiki"
+    },
+    {
+      "id": 65432,
+      "title": "Update Firefox to prevent add-ons issues from root certificate expiration",
+      "slug": "root-certificate-expiration",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/root-certificate-expiration.wiki"
+    },
+    {
+      "id": 65667,
+      "title": "Choose your preferred PDF viewer in Firefox",
+      "slug": "choose-your-preferred-pdf-viewer-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/choose-your-preferred-pdf-viewer-firefox.wiki"
+    },
+    {
+      "id": 65671,
+      "title": "Back up your Firefox installation folder",
+      "slug": "back-your-firefox-installation-folder",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/back-your-firefox-installation-folder.wiki"
+    },
+    {
+      "id": 65681,
+      "title": "Resolve “The installation seems to be incomplete/corrupt” error in Firefox on Windows",
+      "slug": "resolve-installation-error-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/resolve-installation-error-windows.wiki"
+    },
+    {
+      "id": 65689,
+      "title": "Firefox Labs - Explore experimental features in Firefox",
+      "slug": "firefox-labs-explore-experimental-features-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-labs-explore-experimental-features-firefox.wiki"
+    },
+    {
+      "id": 65709,
+      "title": "Manage Firefox profiles",
+      "slug": "profile-management",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/profile-management.wiki"
+    },
+    {
+      "id": 65754,
+      "title": "How Review Checker preserves user privacy",
+      "slug": "how-review-checker-preserves-user-privacy",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-review-checker-preserves-user-privacy.wiki"
+    },
+    {
+      "id": 65811,
+      "title": "Integrate Firefox Relay into the Firefox Password Manager",
+      "slug": "integrate-firefox-relay-firefox-password-manager",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/integrate-firefox-relay-firefox-password-manager.wiki"
+    },
+    {
+      "id": 65863,
+      "title": "Firefox blocked by macOS 15 Sequoia firewall - What you need to know",
+      "slug": "firefox-blocked-macos-15-sequoia-firewall-what-you",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-blocked-macos-15-sequoia-firewall-what-you.wiki"
+    },
+    {
+      "id": 65900,
+      "title": "Access AI chatbots in Firefox",
+      "slug": "ai-chatbot",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/ai-chatbot.wiki"
+    },
+    {
+      "id": 66004,
+      "title": "Resist Fingerprinting",
+      "slug": "resist-fingerprinting",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/resist-fingerprinting.wiki"
+    },
+    {
+      "id": 66034,
+      "title": "Manage daily usage ping data collection settings in Firefox",
+      "slug": "usage-ping-settings",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/usage-ping-settings.wiki"
+    },
+    {
+      "id": 66108,
+      "title": "Address screen sharing issues with Firefox on macOS 15 Sequoia",
+      "slug": "screen-sharing-warning-macos-15-sequoia",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/screen-sharing-warning-macos-15-sequoia.wiki"
+    },
+    {
+      "id": 66201,
+      "title": "Firefox macOS session resume feature",
+      "slug": "firefox-macos-session-resume-feature",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-macos-session-resume-feature.wiki"
+    },
+    {
+      "id": 66480,
+      "title": "Get started with the Mozilla VPN extension",
+      "slug": "get-started-mozilla-vpn-extension",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/get-started-mozilla-vpn-extension.wiki"
+    },
+    {
+      "id": 66481,
+      "title": "Disable Mozilla VPN protection for a specific website",
+      "slug": "disable-vpn-protection-specific-website",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/disable-vpn-protection-specific-website.wiki"
+    },
+    {
+      "id": 66484,
+      "title": "Change your location for a specific website",
+      "slug": "change-your-location-specific-website",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/change-your-location-specific-website.wiki"
+    },
+    {
+      "id": 66486,
+      "title": "How will DNS work when using the VPN extension?",
+      "slug": "how-will-dns-work-when-using-vpn-extension",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-will-dns-work-when-using-vpn-extension.wiki"
+    },
+    {
+      "id": 66487,
+      "title": "A program on your computer interferes with the Mozilla VPN extension",
+      "slug": "program-your-computer-interferes-mozilla-vpn-exten",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/program-your-computer-interferes-mozilla-vpn-exten.wiki"
+    },
+    {
+      "id": 66488,
+      "title": "What to do if another extension interferes with the Mozilla VPN extension",
+      "slug": "if-another-extension-interferes-mozilla-vpn",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/if-another-extension-interferes-mozilla-vpn.wiki"
+    },
+    {
+      "id": 66490,
+      "title": "Manage the Mozilla VPN extension preferences",
+      "slug": "manage-vpn-extension-preferences",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/manage-vpn-extension-preferences.wiki"
+    },
+    {
+      "id": 66500,
+      "title": "Manage technical and interaction data collection settings in Firefox",
+      "slug": "technical-and-interaction-data",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/technical-and-interaction-data.wiki"
+    },
+    {
+      "id": 66501,
+      "title": "Manage marketing data settings in Firefox for Desktop",
+      "slug": "marketing-data",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/marketing-data.wiki"
+    },
+    {
+      "id": 66504,
+      "title": "Crash reports in Firefox for Desktop",
+      "slug": "crash-report",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/crash-report.wiki"
+    },
+    {
+      "id": 66669,
+      "title": "Firefox connection upgrades - HTTP to HTTPS",
+      "slug": "https-upgrades",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/https-upgrades.wiki"
+    },
+    {
+      "id": 66671,
+      "title": "HTTPS-First upgrades to secure connections",
+      "slug": "https-first",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/https-first.wiki"
+    },
+    {
+      "id": 66886,
+      "title": "Firefox security features warning on Linux",
+      "slug": "linux-security-warning",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/linux-security-warning.wiki"
+    },
+    {
+      "id": 66916,
+      "title": "Oblivious HTTP (OHTTP) explained",
+      "slug": "ohttp-explained",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/ohttp-explained.wiki"
+    },
+    {
+      "id": 66983,
+      "title": "Use the sidebar to access tools and vertical tabs",
+      "slug": "use-sidebar-access-tools-and-vertical-tabs",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/use-sidebar-access-tools-and-vertical-tabs.wiki"
+    },
+    {
+      "id": 67002,
+      "title": "Manage Firefox data collection and privacy settings",
+      "slug": "manage-firefox-data-collection-privacy-settings",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/manage-firefox-data-collection-privacy-settings.wiki"
+    },
+    {
+      "id": 67160,
+      "title": "Tab groups in Firefox",
+      "slug": "tab-groups",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/tab-groups.wiki"
+    },
+    {
+      "id": 67202,
+      "title": "How it works - Firefox Weather",
+      "slug": "how-it-works-firefox-weather",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-it-works-firefox-weather.wiki"
+    },
+    {
+      "id": 67270,
+      "title": "Orbit Frequently Asked Questions",
+      "slug": "orbit-frequently-asked-questions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/orbit-frequently-asked-questions.wiki"
+    },
+    {
+      "id": 67315,
+      "title": "How to use AI-enhanced tab groups",
+      "slug": "how-use-ai-enhanced-tab-groups",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/how-use-ai-enhanced-tab-groups.wiki"
+    },
+    {
+      "id": 67529,
+      "title": "Make reading easier with Firefox's contrast control settings",
+      "slug": "firefox-contrast-control",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-contrast-control.wiki"
+    },
+    {
+      "id": 67551,
+      "title": "On-device AI models in Firefox",
+      "slug": "on-device-models",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/on-device-models.wiki"
+    },
+    {
+      "id": 67578,
+      "title": "Solve math calculations directly in your Firefox address bar",
+      "slug": "solve-math-calculations-directly-your-firefox-addr",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/solve-math-calculations-directly-your-firefox-addr.wiki"
+    },
+    {
+      "id": 67713,
+      "title": "Set Firefox as your mail-to default on Windows",
+      "slug": "set-firefox-mail-default-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/set-firefox-mail-default-windows.wiki"
+    },
+    {
+      "id": 67769,
+      "title": "Troubleshoot Firefox updates and the Helper tool",
+      "slug": "firefox-helper-tool-macos",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-helper-tool-macos.wiki"
+    },
+    {
+      "id": 67799,
+      "title": "Firefox Terms of Use FAQ",
+      "slug": "firefox-terms-of-use-faq",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-terms-of-use-faq.wiki"
+    },
+    {
+      "id": 67817,
+      "title": "Unload tabs to reduce system memory usage in Firefox",
+      "slug": "unload-tabs-reduce-memory-usage-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/unload-tabs-reduce-memory-usage-firefox.wiki"
+    },
+    {
+      "id": 67874,
+      "title": "Add custom search engines in Firefox",
+      "slug": "add-custom-search-engine-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/add-custom-search-engine-firefox.wiki"
+    },
+    {
+      "id": 68163,
+      "title": "Use built-in VPN in Firefox",
+      "slug": "built-in-vpn",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/built-in-vpn.wiki"
+    },
+    {
+      "id": 68337,
+      "title": "About your important data and their files",
+      "slug": "about-your-important-data-and-their-files",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/about-your-important-data-and-their-files.wiki"
+    },
+    {
+      "id": 68363,
+      "title": "Control personal device and local network permissions in Firefox",
+      "slug": "control-personal-device-local-network-permissions-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/control-personal-device-local-network-permissions-firefox.wiki"
+    },
+    {
+      "id": 68412,
+      "title": "What Windows 10 end of support means for Firefox users",
+      "slug": "firefox-support-windows-10-end-support",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-support-windows-10-end-support.wiki"
+    },
+    {
+      "id": 68441,
+      "title": "Manage Enhanced Tracking Protection exceptions",
+      "slug": "manage-enhanced-tracking-protection-exceptions",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/manage-enhanced-tracking-protection-exceptions.wiki"
+    },
+    {
+      "id": 68473,
+      "title": "Understand unexpected script warnings in Firefox",
+      "slug": "unexpected-script-load",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/unexpected-script-load.wiki"
+    },
+    {
+      "id": 68488,
+      "title": "How the Firefox desktop launcher works",
+      "slug": "firefox-desktop-launcher",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-desktop-launcher.wiki"
+    },
+    {
+      "id": 68494,
+      "title": "Use widgets on your Firefox New Tab page",
+      "slug": "firefox-new-tab-widgets",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-new-tab-widgets.wiki"
+    },
+    {
+      "id": 68513,
+      "title": "Control Firefox New Tab personalization",
+      "slug": "firefox-new-tab-personalization",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-new-tab-personalization.wiki"
+    },
+    {
+      "id": 68576,
+      "title": "Extension data collection",
+      "slug": "extension-data-collection",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/extension-data-collection.wiki"
+    },
+    {
+      "id": 68743,
+      "title": "Use web apps in Firefox for Windows",
+      "slug": "web-apps-firefox-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/web-apps-firefox-windows.wiki"
+    },
+    {
+      "id": 68745,
+      "title": "Get custom suggestions in the Firefox address bar",
+      "slug": "custom-suggestions-firefox-address-bar",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/custom-suggestions-firefox-address-bar.wiki"
+    },
+    {
+      "id": 68746,
+      "title": "Firefox has ended support for 32-bit Linux",
+      "slug": "firefox-has-ended-support-32-bit-linux",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-has-ended-support-32-bit-linux.wiki"
+    },
+    {
+      "id": 68757,
+      "title": "Preview webpages in Firefox with link preview",
+      "slug": "use-link-previews-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/use-link-previews-firefox.wiki"
+    },
+    {
+      "id": 68890,
+      "title": "Search the web via images in Firefox with Google Lens",
+      "slug": "search-web-images-firefox-google-lens",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/search-web-images-firefox-google-lens.wiki"
+    },
+    {
+      "id": 68971,
+      "title": "How it Works - Respectful Ads @ Mozilla",
+      "slug": "respectful-ads-mozilla",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/respectful-ads-mozilla.wiki"
+    },
+    {
+      "id": 68984,
+      "title": "Why Firefox says \"Your browser is being managed by your organization.\"",
+      "slug": "managed-browser-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/managed-browser-firefox.wiki"
+    },
+    {
+      "id": 68995,
+      "title": "Unsent crash reports in Firefox",
+      "slug": "unsent-crash-reports-in-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/unsent-crash-reports-in-firefox.wiki"
+    },
+    {
+      "id": 70744,
+      "title": "Firefox Homepage Lift Studies",
+      "slug": "firefox-homepage-lift-studies",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-homepage-lift-studies.wiki"
+    },
+    {
+      "id": 70966,
+      "title": "Restore your Firefox browsing data with a backup file",
+      "slug": "firefox-backup",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-backup.wiki"
+    },
+    {
+      "id": 72104,
+      "title": "Manage remote improvements settings in Firefox",
+      "slug": "remote-improvements",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/remote-improvements.wiki"
+    },
+    {
+      "id": 72150,
+      "title": "Customize keyboard shortcuts in Firefox",
+      "slug": "customize-keyboard-shortcuts-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/customize-keyboard-shortcuts-firefox.wiki"
+    },
+    {
+      "id": 72315,
+      "title": "Block generative AI features with Firefox AI controls",
+      "slug": "firefox-ai-controls",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/firefox-ai-controls.wiki"
+    },
+    {
+      "id": 72417,
+      "title": "Harmful add-on protection",
+      "slug": "harmful-add-protection",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/harmful-add-protection.wiki"
+    },
+    {
+      "id": 72668,
+      "title": "Tab Notes in Firefox",
+      "slug": "tab-notes-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/tab-notes-firefox.wiki"
+    },
+    {
+      "id": 72841,
+      "title": "Split View in Firefox",
+      "slug": "split-view-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/split-view-firefox.wiki"
+    },
+    {
+      "id": 73247,
+      "title": "Use breach alerts in Firefox",
+      "slug": "breach-alerts-privacy-panel",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/breach-alerts-privacy-panel.wiki"
+    },
+    {
+      "id": 73250,
+      "title": "Statistics for Firefox Homepage Sponsors",
+      "slug": "statistics-firefox-homepage-sponsors",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/statistics-firefox-homepage-sponsors.wiki"
+    },
+    {
+      "id": 73305,
+      "title": "Get started with Smart Window",
+      "slug": "smart-window",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/smart-window.wiki"
+    },
+    {
+      "id": 73306,
+      "title": "Memories in Smart Window",
+      "slug": "smart-window-memories",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "cached",
+      "source": "corpus-other/en-US/smart-window-memories.wiki"
+    },
+    {
+      "id": 73357,
+      "title": "Custom Models in Smart Window - Bring your own endpoint",
+      "slug": "smart-window-byom",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 3902,
+      "source": "corpus-other/en-US/smart-window-byom.wiki",
+      "rendered": null
+    },
+    {
+      "id": 73361,
+      "title": "Model choices in Smart Window",
+      "slug": "smart-window-models",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 9393,
+      "source": "corpus-other/en-US/smart-window-models.wiki",
+      "rendered": null
+    },
+    {
+      "id": 73362,
+      "title": "Is Smart Window safe and private",
+      "slug": "smart-window-safety",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 3404,
+      "source": "corpus-other/en-US/smart-window-safety.wiki",
+      "rendered": null
+    },
+    {
+      "id": 73473,
+      "title": "Change your default browser",
+      "slug": "change-your-default-browser",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 3232,
+      "source": "corpus-other/en-US/change-your-default-browser.wiki",
+      "rendered": null
+    },
+    {
+      "id": 73519,
+      "title": "Fix “Support ending for Intel-based Apps” warning in Firefox for macOS",
+      "slug": "firefox-rosetta-macos",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 3860,
+      "source": "corpus-other/en-US/firefox-rosetta-macos.wiki",
+      "rendered": null
+    },
+    {
+      "id": 73593,
+      "title": "Send feedback about Smart Window",
+      "slug": "smart-window-user-feedback",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 4369,
+      "source": "corpus-other/en-US/smart-window-user-feedback.wiki",
+      "rendered": null
+    },
+    {
+      "id": 73782,
+      "title": "Unable to find the built-in VPN in Firefox",
+      "slug": "unable-find-built-vpn-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 2192,
+      "source": "corpus-other/en-US/unable-find-built-vpn-firefox.wiki",
+      "rendered": null
+    },
+    {
+      "id": 74803,
+      "title": "Troubleshoot network errors when TLS key logging is enabled",
+      "slug": "sslkeylogfile-warning",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 6234,
+      "source": "corpus-other/en-US/sslkeylogfile-warning.wiki",
+      "rendered": null
+    },
+    {
+      "id": 76336,
+      "title": "Share a webpage with a QR code in Firefox Desktop",
+      "slug": "share-webpage-qr-code-firefox-desktop",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 2574,
+      "source": "corpus-other/en-US/share-webpage-qr-code-firefox-desktop.wiki",
+      "rendered": null
+    },
+    {
+      "id": 77501,
+      "title": "About Firefox Referrals and your data",
+      "slug": "firefox-referrals",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 3510,
+      "source": "corpus-other/en-US/firefox-referrals.wiki",
+      "rendered": null
+    },
+    {
+      "id": 78438,
+      "title": "Launch-at-login for Windows",
+      "slug": "launch-login-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 2208,
+      "source": "corpus-other/en-US/launch-login-firefox.wiki",
+      "rendered": null
+    },
+    {
+      "id": 78482,
+      "title": "Change the Firefox icon on Windows",
+      "slug": "change-firefox-icon-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 1292,
+      "source": "corpus-other/en-US/change-firefox-icon-windows.wiki",
+      "rendered": null
+    },
+    {
+      "id": 719,
+      "title": "What to do when searches take you to the wrong search website",
+      "slug": "searches-take-you-to-wrong-search-website",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 2418,
+      "source": "corpus-other/en-US/searches-take-you-to-wrong-search-website.wiki",
+      "rendered": null
+    },
+    {
+      "id": 820,
+      "title": "Troubleshoot Firefox crashes (closing or quitting unexpectedly)",
+      "slug": "troubleshoot-firefox-crashes-closing-or-quitting",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 7357,
+      "source": "corpus-other/en-US/troubleshoot-firefox-crashes-closing-or-quitting.wiki",
+      "rendered": null
+    },
+    {
+      "id": 478,
+      "title": "Firefox is stuck in Troubleshoot Mode",
+      "slug": "firefox-stuck-troubleshoot-mode",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 1111,
+      "source": "corpus-other/en-US/firefox-stuck-troubleshoot-mode.wiki",
+      "rendered": null
+    },
+    {
+      "id": 717,
+      "title": "Firefox repeatedly opens empty tabs or windows after you click on a link",
+      "slug": "firefox-repeatedly-opens-empty-tabs-or-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 3357,
+      "source": "corpus-other/en-US/firefox-repeatedly-opens-empty-tabs-or-windows.wiki",
+      "rendered": null
+    },
+    {
+      "id": 480,
+      "title": "Reset your Primary Password if you've forgotten it",
+      "slug": "reset-your-primary-password-if-youve-forgotten-it",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 798,
+      "source": "corpus-other/en-US/reset-your-primary-password-if-youve-forgotten-it.wiki",
+      "rendered": null
+    },
+    {
+      "id": 623,
+      "title": "Fix printing problems in Firefox",
+      "slug": "fix-printing-problems-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 2196,
+      "source": "corpus-other/en-US/fix-printing-problems-firefox.wiki",
+      "rendered": null
+    },
+    {
+      "id": 872,
+      "title": "Avoid crashes - Tips and tricks",
+      "slug": "avoid-crashes-tips-and-tricks",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 3345,
+      "source": "corpus-other/en-US/avoid-crashes-tips-and-tricks.wiki",
+      "rendered": null
+    },
+    {
+      "id": 15534,
+      "title": "Problems with email and how to find help",
+      "slug": "problems-with-email-how-to-find-help",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 1291,
+      "source": "corpus-other/en-US/problems-with-email-how-to-find-help.wiki",
+      "rendered": null
+    },
+    {
+      "id": 22547,
+      "title": "Firefox keeps crashing at startup",
+      "slug": "firefox-keeps-crashing-startup",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 4842,
+      "source": "corpus-other/en-US/firefox-keeps-crashing-startup.wiki",
+      "rendered": null
+    },
+    {
+      "id": 22806,
+      "title": "Wrong home page opens when I start Firefox - How to fix",
+      "slug": "wrong-home-page-opens-when-i-start-firefox-how-fix",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 1030,
+      "source": "corpus-other/en-US/wrong-home-page-opens-when-i-start-firefox-how-fix.wiki",
+      "rendered": null
+    },
+    {
+      "id": 24491,
+      "title": "How do I submit a bug for Firefox Sync?",
+      "slug": "how-do-i-submit-bug-firefox-sync",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 1790,
+      "source": "corpus-other/en-US/how-do-i-submit-bug-firefox-sync.wiki",
+      "rendered": null
+    },
+    {
+      "id": 25047,
+      "title": "Fix video and audio problems on Firefox for Windows N editions",
+      "slug": "fix-video-audio-problems-firefox-windows",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 3133,
+      "source": "corpus-other/en-US/fix-video-audio-problems-firefox-windows.wiki",
+      "rendered": null
+    },
+    {
+      "id": 637,
+      "title": "Home page with pipe character opens extra tabs when Firefox starts",
+      "slug": "home-page-pipe-character-opens-extra-tabs-firefox",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 1246,
+      "source": "corpus-other/en-US/home-page-pipe-character-opens-extra-tabs-firefox.wiki",
+      "rendered": null
+    },
+    {
+      "id": 731,
+      "title": "Can't add, change or save bookmarks - How to fix",
+      "slug": "cant-add-change-or-save-bookmarks",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 4202,
+      "source": "corpus-other/en-US/cant-add-change-or-save-bookmarks.wiki",
+      "rendered": null
+    },
+    {
+      "id": 11820,
+      "title": "Firefox release notes - What's new and known issues",
+      "slug": "firefox-release-notes-whats-new-and-known-issues",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 386,
+      "source": "corpus-other/en-US/firefox-release-notes-whats-new-and-known-issues.wiki",
+      "rendered": null
+    },
+    {
+      "id": 21867,
+      "title": "How to run Firefox when your profile is missing or inaccessible",
+      "slug": "how-run-firefox-when-profile-missing-inaccessible",
+      "products": [
+        "firefox"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 7251,
+      "source": "corpus-other/en-US/how-run-firefox-when-profile-missing-inaccessible.wiki",
+      "rendered": null
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{note}'''Note:''' This article addresses an issue specific to Firefox on Windows.{/note}
+When using Firefox on Windows, you might encounter an error message that reads, ''The installation seems to be incomplete/corrupt. Please check your hardware and disk setup and/or re-install.''<!-- do not localize the error message --> This error typically occurs when Firefox detects an issue with the installation files on your computer. Additionally, it could be due to issues with your hardware or disk being full. Here’s what you can do to resolve it.
+
+__TOC__
+
+=Why this error occurs=
+This error can appear for several reasons, including:
+*'''Incomplete installation:''' The initial installation process might not have completed successfully, leaving some necessary files missing or corrupted.
+*'''Corrupted files:''' Some of the Firefox installation files might have become corrupted due to disk errors or other issues with your system.
+*'''Hardware or disk setup issues:''' Problems with your computer’s hardware or disk setup, such as a failing or full hard drive, can interfere with Firefox’s ability to install or run properly.
+{note}'''Help us improve!''' We’d love to hear more about what happened. If you have any thoughts or details to share, such as a comment, screenshot or anything else, please add them to ''[https://bugzilla.mozilla.org/show_bug.cgi?id=1909700 bug 1909700] – Monitor for startup failure NS_ERROR_OMNIJAR_CORRUPT/_MISSING (aka “The installation seems to be corrupt/incomplete.”)''. You’ll need a Bugzilla account to do this. If you encountered any hardware problems, please include that information as well.{/note}
+
+=Steps to resolve the error=
+{warning} Before trying the steps below, consider backing up your installation and [[Back up and restore information in Firefox profiles#w_locate-your-profile-folder|profile]] folders.{/warning}
+#'''Check your hardware and disk setup:'''
+#;*Ensure that your hard drive is functioning correctly and has enough free space. You can use built-in Windows tools like ''Check Disk'' ([https://learn.microsoft.com/windows-server/administration/windows-commands/CHKDSK chkdsk]) to scan your disk for errors.
+#;*If your disk is full, try freeing up some space by deleting unnecessary files.
+#;*If you suspect hardware issues, consider running diagnostics provided by your computer’s manufacturer or using third-party tools to check the health of your hardware components.
+#'''Re-install Firefox:'''
+#;*Uninstall the current version of Firefox. To do this, go to <code>Control Panel > Programs > Uninstall a program</code>, find Firefox in the list, and select {button Uninstall}.
+#;*After uninstalling, [https://www.mozilla.org/firefox/new/ download] the latest version of Firefox from the Mozilla website.
+#;*[[How to install Firefox on Windows|Install]] Firefox by running the installer and following the on-screen instructions.
+#'''Perform a clean installation:'''
+#;*If the error persists after a standard re-installation, try performing a clean installation:
+#;*After uninstalling Firefox, delete the remaining Firefox installation folder typically located at:<br><code>C:\Program Files\Mozilla Firefox\</code>
+#;*Restart your computer.
+#;*[https://www.mozilla.org/firefox/new/ Download] and [[How to install Firefox on Windows|install]] Firefox again.
+#'''Check for system updates:'''
+#;*Ensure that your Windows operating system is [https://support.microsoft.com/windows/update-windows-3c5ae7fc-9fb6-9af1-1984-b5e0412c556a up to date]. Sometimes, missing system updates can cause compatibility issues with software installations.
+#'''Contact our support forum:'''
+#;*If the error persists, you’re welcome to share your experience on the Mozilla Firefox desktop [https://support.mozilla.org/questions/new/ support forum], where our amazing community is ready to assist you!
+
+=Related articles=
+*[[How to install Firefox on Windows]] 
+*[[Uninstall Firefox from your computer]]

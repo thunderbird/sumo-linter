@@ -1,0 +1,12 @@
+{note}'''Note:''' At the moment, weather updates are only available to users in most regions across the world. For more information, see [[Customize Firefox Suggest settings]]{/note}
+Weather features in the Firefox address bar and [[New Tab page in Firefox|New Tab page]] show the current weather of the closest city or town.
+
+In some countries, such as in the European Union, Firefox New Tab prompts the user to use their location for weather, or to choose not to. If accepted, the weather feature will be enabled to detect your location and provide weather automatically. If declined, the user can also remove the weather entirely.
+
+Firefox uses your IP address to determine the closest city or town. Firefox then separately fetches current weather conditions for that location. Weather conditions are sourced from [https://accuweather.com/ AccuWeather] (a 3rd party partner) without sharing your device’s IP address or other identifiable information with AccuWeather. If you click on the weather results to see more information, you will navigate directly to the AccuWeather website and your information will be processed according to [https://www.accuweather.com/en/privacy AccuWeather's Privacy Policy].
+
+If you change your location manually by searching for a city, Firefox uses your IP address to detect your country and suggest cities matching your search query from AccuWeather. Your search query and country are shared with AccuWeather, but your device’s IP address and other identifiable information are not. Once selected, Firefox will remember your preferred location.
+
+These features can be disabled or customized by following these instructions:
+* [[Customize items on your Firefox New Tab page#w_weather|New Tab page]]
+* [[Get your local weather forecast from the Firefox address bar|Firefox address bar]]

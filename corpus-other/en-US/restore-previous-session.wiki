@@ -1,0 +1,111 @@
+Firefox can restore your open tabs and windows from your last session—even after a crash or restart. You can choose whether Firefox restores your session automatically when it starts or only when you request it.
+
+If your session doesn’t restore as expected, this article includes troubleshooting tips for pinned tabs, private windows and update-related changes.
+{note}'''Note:''' Session Restore may keep you logged in to sites that you were logged in to before you closed Firefox. For more information, see [[#w_session-restore-limitations-and-privacy|Session Restore limitations and privacy]] below.{/note}
+
+__TOC__
+
+=When Firefox restores your session=
+==When you manually select “Restore previous session”==
+You can manually restore your previous session from the Firefox menu if it does not restore automatically.
+#Click the menu button [[Image:Fx89menuButton]] on the right side of your toolbar.
+#Click {menu History}.
+#Select {menu Restore Previous Session}.
+#;[[Image:Sessionrestore89]]
+
+==After a Firefox update==
+When Firefox updates, it often needs to restart. Tabs and windows should restore automatically after the update.
+;{for win}{for not fx151}[[Image:Fx140ESRAboutMozillaFirefoxRestart-win|width=600]]{/for}{for fx151}[[Image:Fx151AboutMozillaFirefox-Restart|width=600]]{/for}{/for}{for linux}[[Image:fx70Linux-AboutFirefox-Restart|width=600]]{/for}{for mac}[[Image:Firefox 70 MacOS Restart to update|width=600]]{/for}
+
+If they don’t:
+*Click the menu [[Image:Fx89menuButton]] button, click {menu History}, and go to {menu Recently Closed Windows} or {menu Recently Closed Tabs} to recover them.
+*Check if '''Session Restore''' is enabled (see [[#w_configure-session-restore|Configure session restore]] below).
+
+==After restarting Firefox in Troubleshoot Mode==
+When you [[Use Troubleshoot Mode in Firefox|restart in Troubleshoot Mode to diagnose Firefox problems]], your tabs and windows will be reopened.
+
+If they don’t: Click the menu [[Image:Fx89menuButton]] button, click {menu History}, and go to {menu Recently Closed Windows} or {menu Recently Closed Tabs} to restore them manually.
+
+==After a crash or unexpected shutdown==
+If Firefox crashed or if your device shut down unexpectedly, it will usually attempt to restore your last session the next time you open it.
+You may see the ''Restore Session'' page:
+*Select the windows or tabs you want to restore.
+*Click {button Restore Session}.
+If Firefox crashes again during restore:
+*Click {button Start New Session} instead.
+*Click the menu [[Image:Fx89menuButton]] button, click {menu History}, and go to {menu Recently Closed Windows} or {menu Recently Closed Tabs} to recover your session manually.
+*;[[Image:Fx97RestoreSession]]
+
+==When you've set Firefox to restore the previous session at startup==
+You can set Firefox to always show your windows and tabs from your previous session each time you start Firefox. To change your Firefox startup settings, see [[#w_configure-session-restore|Configure session restore]] below.
+
+=Configure session restore=
+To set Firefox to restore your tabs and windows on startup:
+#[[T:optionspreferences]]
+#Select the {for not fx152}{menu General} panel{/for}{for fx152}{menu Home and startup} page{/for}.
+#Below {for not fx152}''Startup''{/for}{for fx152}''On startup''{/for}, select '''Open previous windows and tabs'''.<br>{for not fx152}[[Image:Fx94settings-Startup]]{/for}{for fx152}[[Image:fx152homeandstartup]]{/for}
+#[[T:closeOptionsPreferences]]
+
+=Session Restore limitations and privacy=
+Session Restore works for regular tabs and windows. However, some exceptions apply:
+{|
+|+ 
+!Feature!!Will it be restored?
+|-
+|Pinned tabs||Yes
+|-
+|Private windows||No – by design
+|-
+|Login sessions||May keep you signed in
+|}
+{note}'''Privacy tip:''' If someone else uses your computer, they may be able to access sites you were logged into. To protect your information, consider disabling automatic session restore.{/note}
+
+=Disable session restore after crashes (advanced)=
+If you don’t want Firefox to restore your session after crashes:
+[[Template:aboutconfigwarning]]
+#[[T:aboutconfig]]
+#In the ''Search preference name'' box at the top type '''browser.sessionstore.resume_from_crash'''.
+#Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to {pref browser.sessionstore.resume_from_crash} to set it to {pref false}.
+
+=Troubleshooting=
+==Session didn’t restore correctly==
+===Ensure Firefox was closed properly===
+To properly close Firefox: [[Template:closeFirefox]]
+*If you close individual windows manually, only the last closed window's tabs will be restored.
+
+===Check history settings===
+{for not fx152}
+#[[T:optionspreferences]]
+#Select the {menu Privacy & Security} panel.
+#In the ''History'' section make sure that the '''Firefox will''' drop-down menu is set to either {menu Remember history} or {menu Use custom settings for history}.
+#*If '''Firefox will''' is set to {menu Use custom settings for history}, then make sure that '''Always use Private Browsing mode''' is '''not''' checked.
+#*If '''Firefox will''' is set to {menu Use custom settings for history} and '''Clear history when Firefox closes''' is checked, then click the {button Settings…} button and make sure that '''Browsing & download history''' is '''not''' checked.
+#[[T:closeOptionsPreferences]]
+{/for}
+{for fx152}
+#[[T:optionspreferences]]
+#Select the {menu Privacy and security} page.
+#In the ''History'' section make sure that either '''Remember history''' or '''Customize history''' is selected.
+#*If '''Customize history''' is set, then make sure that '''Always use Private Browsing mode''' is '''not''' checked.
+#*If '''Customize history''' is set and '''Clear history when Firefox closes''' is checked, then click the {button Settings…} button and make sure that '''Browsing & download history''' is '''not''' checked.
+{/for}
+
+===Recently closed tabs/windows are missing===
+If Firefox didn’t offer to restore your session:
+*Go to {menu History}, and click {menu Recently Closed Windows} or {menu Recently Closed Tabs}.
+*Use {key Ctrl+Shift+T} (or {key Command+Shift+T} on macOS) to reopen the last closed tab.
+
+===Tabs open to blank or home page===
+This could be caused by:
+*A conflicting extension
+*A change during an update
+*Corrupt session data
+Try:
+*Disabling add-ons in '''Troubleshoot Mode'''
+*Resetting Firefox settings (see [[Refresh Firefox - reset add-ons and settings|this guide]])
+
+=Related articles=
+*[[How to restore a browsing session from backup]]
+*[[Recover lost or missing Bookmarks]]
+*[[Troubleshoot Firefox crashes (closing or quitting unexpectedly)]]
+*[[Refresh Firefox - reset add-ons and settings]]

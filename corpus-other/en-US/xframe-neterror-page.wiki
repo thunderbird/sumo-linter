@@ -1,0 +1,44 @@
+Some websites don’t allow their content to appear inside another website. If a site tries to embed a page that blocks this, Firefox will show an error that it cannot open the page:
+{warning}'''“To protect your security, ''[website]'' will not allow Firefox to display the page if another site has embedded it.”'''{/warning}
+This is a security feature on the website being embedded. It prevents [https://en.wikipedia.org/wiki/Clickjacking clickjacking], where a site tries to load another site without permission, often to trick users into clicking something they didn’t intend.
+
+This error is not caused by Firefox. It’s a choice made by the website owner.
+
+=Why does this happen?=
+Websites can control how their content is used. They may block it from being shown inside another site using special security settings like:
+*[https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options X-Frame options headers]
+*[https://developer.mozilla.org/docs/Web/HTTP/CSP Content security policy rules]
+These settings are common for banking sites, schools, government services and others that need tight security.
+
+=What can I do?=
+You can still view the blocked content by opening it directly.
+
+==On desktop==
+#Right-click the link or embedded area.
+#Select {button Open Link in New Tab} or {button Open Link in New Window}.
+#If you can’t right-click, try copying the link (long-press on Mac trackpads) and pasting it into a new tab.
+{note}'''Tip:''' You can also drag the link into a new tab if using Firefox on desktop.{/note}
+
+==On mobile (phone or tablet)==
+#Tap and hold the link or embedded area (where the content should appear).
+#Choose {button Open in New Tab} from the menu.
+#If that doesn’t work, try copying the link (if visible) and pasting it into a new tab manually.
+{warning}'''Warning:''' On mobile, this may be harder to do if the embedded content doesn’t show clearly. Look for a blank or gray box on the page.{/warning}
+
+=What if I need to use the original page?=
+Sometimes the website that’s embedding the content depends on that embedded page to work properly (for example, a school login system or internal portal).
+
+If that’s the case:
+*Try opening the embedded page directly (as described above).
+*If that doesn’t help, you may need to contact the site owner and explain the issue.
+
+=Need help understanding this error?=
+If you're unsure what the page is trying to load or can’t figure out where to click:
+*Look for a blank box or missing content; that’s likely where the blocked page should appear.
+*If you're on mobile, try rotating your device or zooming out to better view hidden content.
+*Still stuck? Copy the page link and share it with your IT support, teacher or website admin.
+
+=Related articles=
+*[[Firefox is stuck in Troubleshoot Mode]]
+*[[Websites look wrong or appear differently than they should]]
+*[[Site Permissions panel]]

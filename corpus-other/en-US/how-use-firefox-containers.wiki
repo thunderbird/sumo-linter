@@ -1,0 +1,62 @@
+Firefox containers let you separate your browsing into color-coded tabs for activities such as ''personal'',  ''work'', ''banking'' and ''shopping''. Each container is isolated from the others, so you can access sites logged into different accounts. This article explains how to enable and use the Firefox containers manager to quickly open containers from the main browser interface.
+{note}'''Note:''' Installing the [https://addons.mozilla.org/firefox/addon/multi-account-containers/ Multi-Account Containers] extension developed by Mozilla provides a few benefits on top of the native container functionality like site-specific container assignments, syncing across devices, and integration with Mozilla VPN or your own proxy. For more information, see the [[Multi-Account Containers]] article.{/note}
+[[Image:containerTabs]]
+
+__TOC__
+
+=What are Firefox containers?=
+Websites store data on your device. This data can be used to save your preferences or other temporary information, such as items in your shopping cart. It can also be used to ''identify'' you, keeping you signed in to the same account. Not only that, it can be even used to ''track'' you across websites. Normally, you can only delete data for some sites. Firefox containers give you full control.
+
+Containers separate the data that websites have access to, turning each container into an isolated environment. Websites from different containers cannot communicate with each other.
+
+Imagine you have two Reddit accounts: one for work and one for personal life. To switch accounts, you would need to log out of the first one and log in to the second one, and then repeat this over and over. With Firefox containers, you can just use both accounts simultaneously: open Reddit in a ''Work'' container tab and sign in to your work account, then open another Reddit tab in the ''Personal'' container and (starting fresh) sign in to your personal account. That's it! Reddit from the ''Work'' container will never find out about the Reddit from the ''Personal'' container. Just like if you used different browsers, but all inside Firefox.
+
+{note}'''Note:''' Your connection and device characteristics (such as IP address, OS or device manufacturer) persist across containers.{/note}
+
+=Enable Firefox containers=
+#[[Template:optionspreferences]]
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Tabs and browsing}{/for} page, scroll down to the ''Tabs'' section.
+#Make sure the box next to {for not fx152}'''Enable Container Tabs'''{/for}{for fx152}'''Use Container Tabs'''{/for} is checked.{for not fx153}{note}The {for not fx152}''Enable Container Tabs''{/for}{for fx152}''Use Container Tabs''{/for} option is not available in all Firefox versions (to learn more, see [https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities this MDN article]). When it is unavailable, the best solution is to update to [[Find what version of Firefox you are using|Firefox version]] 153 (or above), which has built-in containers. Alternatively, install the [https://addons.mozilla.org/firefox/addon/multi-account-containers/ '''Multi-Account Containers'''] extension to enable it automatically.{/note}{/for}
+{note}'''Note:''' Containers are disabled in [[Private Browsing - Use Firefox without saving history|Private Browsing]] windows and when ''Never Remember History'' is selected in your privacy settings.{/note}
+
+=Open a new tab in a container=
+You can open a tab in a container from the containers panel.
+#[[Template:contextmenu]] or long-click the '''New Tab''' button.
+#Select a container in the list.
+#;[[Image:Fx155NewTab-Containers|width=210]]
+
+=Open a link in a new container tab=
+You can open a link in a new tab on the same or a different container.
+#[[Template:contextmenu]] any link to open the context menu.
+#Select {menu Open Link in New Container Tab}.
+#Select the desired container.
+#;[[Image:Fx155Link-Containers|width=420]]
+
+=Manage your containers=
+There are two ways to get to the containers manager.
+*Open the containers manager from the Settings:
+*#[[Template:optionspreferences]]
+*#In the {for not fx152}{menu General}{/for}{for fx152}{menu Tabs and browsing}{/for} page, scroll down to the ''Tabs'' section.
+*#Click the {for not fx152}{button Settings}{/for}{for fx152}{button Manage settings}{/for} button {for not fx152}next to{/for}{for fx152} below{/for}{for not fx152} ''Enable Container Tabs''{/for}{for fx152} ''Use Container Tabs''{/for}.
+*Open the containers manager from the New Tab button:
+*#[[Template:contextmenu]] or long-click the '''New Tab''' button.
+*#Select {menu Manage containers} in the containers panel.
+
+=Always show the container selection panel=
+You can make the container panel appear when you click the ''New Tab'' button, instead of just opening a ''No Container'' new tab.
+#Open the containers manager ([[#w_manage-your-containers|see above]]).
+#Check the box next to '''Select a container for each new tab'''.
+#;[[Image:selectContainerNewTab|width=600]]
+
+=See also=
+*[[Multi-Account Containers]]
+*[https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers Containers (Mozilla Wiki)]
+*[https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities contextualIdentities (MDN)]
+
+<!-- Built-in containers without the extension are only available in Firefox 153 and above, or in Nightly. See discussion.
+=How are Firefox containers and Multi-Account Containers related?=
+Firefox containers and Multi-Account Containers are complementary features that help you keep your online activities organized. While both options allow you to separate your browsing into different container tabs, Firefox containers is a basic built-in feature that allows you to '''always open new tabs''' in containers.
+
+On the other hand, Multi-Account Containers is an extension developed by Mozilla that optimizes Firefox containers and unlocks its full potential, offering additional features such as site assignments and integration with Mozilla VPN. For more information, see [[Multi-Account Containers]].
+{note}'''Note:''' These two features work together, you need to enable both to make the most of all the features available.{/note}
+-->

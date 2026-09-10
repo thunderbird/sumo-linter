@@ -1,0 +1,97 @@
+The '''Search''' page in Firefox [[T:optionsorpreferences]] lets you customize your search options. You can add or remove search engines, change your default search engine, change address bar settings, assign or change keyword shortcuts and choose whether to display search suggestions first or not at all.
+
+__TOC__
+
+{note}'''Note:''' Some of the search engines introduced here are regionally bound and may not be accessible from every location. To ensure a smooth experience, make sure the search engine you are interested in adding or using is compatible with your region.{/note}
+
+= Open the Search page=
+#[[Template:optionspreferences]]
+#Select {menu Search} in the left pane.
+#;{for not fx152}{for fx148}[[Image:Fx148settings-SearchPanel]]{/for}{for not fx148}[[Image:Fx140ESRsettings-Search]]{/for}{/for}{/for}{for fx152}[[Image:Fx152settings-Search]]{/for}
+
+= Default search engine =
+Firefox lets you choose the search engine you wish to use in the address bar and search bar.
+*'''Show search terms {for fx148}in the address bar on results pages{/for}{for not fx148}instead of URL on default search engine results page{/for}:''' Select this setting to show the search term you entered, in the address bar on the results page for your default search engine. Deselect this setting to show the URL instead. This setting is hidden if you have [[Add the Search bar to your Firefox toolbar|added a separate Search bar]] to your toolbar.
+
+Use the drop-down menu under {for fx148}''Default search engine''{/for}{for not fx148}''Default Search Engine''{/for} to choose the search engine you wish to use by default.
+;{for not fx152}{for fx148}[[Image:Fx148DefaultSearchEngineDropdown]]{/for}{for not fx148}[[Image:Fx122settings-DefaultSearchEngineDropdown]]{/for}{/for}{for fx152}[[Image:Fx152DefaultSearchEngineDropdown]]{/for}
+
+{note}
+'''Note:''' Some [[Find and install add-ons to add features to Firefox#w_what-types-of-add-ons-can-i-install|extensions]] that are added to Firefox can set a new default search engine.
+;{for not fx152}[[Image:Fx84DefaultSearchEngineSetByAddon]]{/for}
+You can [[Disable or remove Add-ons|disable or remove the extension]] that made the change, or you can choose another search engine from the drop-down menu, if you prefer a different default.
+{/note}
+{for fx152}
+= Remove or add search engines =
+To add a new search engine, remove a search engine you added to Firefox, or to hide and restore search engines that come with Firefox, go to the ''Additional search engines''{/for} section of the Search page in Firefox Settings. For more information about adding or removing search engines, see [[Add or remove a search engine in Firefox]].
+{/for}
+
+=Search {for fx148}engine {/for}suggestions=
+As you type into the search bar or the address bar, your default search engine shows you suggestions based on popular searches or on your previous searches. See [[Search suggestions in Firefox]] for more information.
+<!--https://bugzilla.mozilla.org/show_bug.cgi?id=1583162 Search suggestions in Private windows added in fx71 -->
+
+{for fx148}[[Image:Fx148SearchEngineSuggestions]]{/for}{for not fx148}[[Image:Fx128settings-SearchSuggestions]]{/for}
+*'''Show search suggestions:''' Select this setting to turn search suggestions on or off.
+**'''Show search suggestions {for fx148}before{/for}{for not fx148}ahead of{/for} browsing history in address bar results:''' Select this setting to show search suggestions before your browsing history.
+**'''{for fx148}Search{/for}{for not fx148}Show search{/for} suggestions in {for fx148}private windows{/for}{for not fx148}Private Windows{/for}:''' Select this setting to show search suggestions in [[Private Browsing - Use Firefox without saving history|Private Browsing]] windows.
+**'''{for fx148}Trending{/for}{for not fx148}Show trending{/for} search suggestions:''' Select this setting to [[Use Google Trending Search in the Firefox address bar|show trending searches]] in address bar results. This feature can also be used on Bing.{note}'''Note:''' The regions featured on trending searches are determined by Google and Microsoft, not by Mozilla, and are subject to change.{/note}
+
+={for not fx148}Address Bar — {/for}Firefox Suggest=
+As you type into the address bar, Firefox may offer suggestions such as websites from your browsing history, bookmarks and open tabs. To learn more about this feature, see [[Address bar autocomplete suggestions in Firefox]]. You can choose the types of suggestions that are displayed in your Address bar settings:
+;{for not fx152}{for fx148}[[Image:Fx148SearchSettings-FirefoxSuggest]]{/for}{for not fx148}[[Image:Fx140ESRsettings-FirefoxSuggest]]{/for}{/for}{for fx152}[[Image:fx152firefoxsuggest]]{/for}
+{for not fx152}
+* '''Browsing history''': suggests pages that you've previously visited.
+* '''Bookmarks''': suggests pages that you've bookmarked.
+* '''Open tabs''': suggests pages that you have open in another tab.
+* '''Shortcuts''': suggests your most visited sites (if Shortcuts are enabled in your [[Customize items on your Firefox New Tab page|New Tab page settings]]) when you click in the address bar.
+* '''Search engines''': suggests results that include search engines. <!--https://firefox-source-docs.mozilla.org/browser/urlbar/preferences.html browser.urlbar.suggest.engines -->
+{/for}
+{for fx152}
+*'''Browsing history''': suggests pages that you've previously visited.
+*'''Bookmarks''': suggests pages that you've bookmarked.
+*'''Open tabs''': suggests pages that you have open in another tab.
+*'''Shortcuts''': suggests your most visited sites (if Shortcuts are enabled in your New Tab page settings) when you click in the address bar.
+*'''Recent searches''': suggests pages that you’ve recently searched 
+*'''Search engines''': suggests results that include search engines.
+*'''Quick actions''': allows you to perform actions, like clearing history or opening Settings, without navigating menus.
+*'''Suggestions from Firefox''': suggestions from web related to your search. You can get suggestions from sponsors
+{/for}
+{note}'''Note:''' Users in the United States, France, Germany, Italy and United Kingdom will see {for fx148}a '''Firefox Suggest'''{/for}{for not fx148}an '''Address Bar — Firefox Suggest'''{/for} section with additional settings. To learn more, see [[Customize Firefox Suggest settings]].{/note}
+
+= Search alternatives =
+When you start typing in the address bar, you'll see a Unified Search button with the icon for your default search engine.
+;[[Image:Fx140UnifiedSearchButton]]
+When you click on it, a drop-down menu will open, to search instead with: other search engines, Bookmarks, Tabs or History.
+;[[Image:Fx140UnifiedSearchDropdown]]
+You can choose an alternative search engine and use it for your search, if you don't want to use the current default.
+
+To hide alternative search engines you don't want to be displayed in the search bar or address bar, {for not fx152}remove the check mark next to the search engine listed in the Search panel under ''Search Shortcuts''{/for}{for fx152}turn off the toggle [[Image:Fx115 blue toggle]] switch next to the search engine listed in the Search panel under ''Additional search engines'' (this option is not currently available for user-added search engines) <!--https://bugzilla.mozilla.org/show_bug.cgi?id=2046421 -->{/for}. This will not remove the search engines themselves.
+
+<!-- The following needs to be updated for fx152 and moved under the Default search engine section -->
+{for not fx152}
+= Remove or add search engines =
+To remove a search engine from Firefox, restore the default search engines that come with Firefox or add a new search engine, go to the''Search Shortcuts'' section of the Search page in Firefox Settings.
+== Remove a search engine ==
+#Click the search engine you want to remove, to highlight it.
+#Click the {button Remove} button at the bottom, to take it off your list.
+#;[[Image:Search shortcuts - Remove engine]]
+{note}'''Note:''' You must use the Add-ons manager to remove any search engines installed as Firefox [[Find and install add-ons to add features to Firefox#w_what-types-of-add-ons-can-i-install|extensions]] (see [[Disable or remove Add-ons#w_removing-extensions]] for details).<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1546652 -->{/note}
+
+== Restore default search engines ==
+If you remove any of the search engines that come with Firefox by default, click {button Restore Default Search Engines} at the bottom of the Search page to bring them back.
+
+== Add a new search engine ==
+#Click the '''Find more search engines''' link at the bottom of the Search page.<br>A ''Firefox Add-ons'' page will open, listing available search tools.
+#Click the search engine you want to add and click {button Add to Firefox}.
+For more information about adding or removing search engines, see [[Add or remove a search engine in Firefox]].
+{/for}
+
+= Search engine keywords =
+You can assign or change keyword shortcuts for your favorite search engines to make it easier to perform a search. For more information, see [[Assign shortcuts to search engines]].
+
+=Related articles=
+*[[Search with the Firefox address bar]]
+*[[Search suggestions in Firefox]]
+*[[Add the Search bar to your Firefox toolbar]]
+*[[Add custom search engines in Firefox]]
+*[[My default search engine changed after updating Firefox]]

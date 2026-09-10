@@ -1,0 +1,32 @@
+This article describes how to pin Firefox to the taskbar on Windows for easy access. To learn how to set Firefox as your default browser, see [[Make Firefox your default browser on Windows]].
+
+__TOC__
+
+=Pin Firefox from the taskbar=
+#Open Firefox on your computer. The Firefox icon will appear in the taskbar.  
+#Right-click on the icon and select {menu Pin to taskbar}.
+#;[[Image:pin firefox to task bar]]
+
+=Pin Firefox from the start menu=
+==Windows 10==
+#Click the Windows menu button in the taskbar.
+#Find the Firefox browser. Right-click on it and select {menu Pin to taskbar}.
+
+==Windows 11==
+#Click the Windows menu button in the taskbar.
+#Click the {button ALL} button at the top right side of the apps panel.
+#;[[Image:ALL start menu]]
+#Hover over the Firefox browser and right-click on it and select {menu Pin to taskbar}.
+Alternatively, you can drag the Firefox icon directly from your desktop onto the taskbar.
+
+=Unpin Firefox from the taskbar=
+# Right-click the Firefox icon in the taskbar.
+# Select {menu Unpin from taskbar}.
+#;[[Image:Unpin from taskbar]]
+
+=Unpin Firefox from the start menu=
+#Click the Windows menu button in the taskbar.
+#;[[Image:start]]
+#Hover over the Firefox browser and right-click it.
+#Select {menu Unpin from Start}.
+#;[[Image:Unpin from start]]

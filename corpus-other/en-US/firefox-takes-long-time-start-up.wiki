@@ -1,0 +1,25 @@
+This article describes some causes of a long start up time and steps you can take to improve it.
+*If Firefox starts but isn't responsive, see [[Firefox hangs or is not responding - How to fix#w_firefox-hangs-while-loading-the-first-window]].
+*If Firefox does not start up at all,  see [[Firefox won't start - find solutions]].
+
+{note}'''Note:''' [[Template:reset-fx]]{/note}
+
+__TOC__
+
+= Change the home page =
+Problems with a website can cause Firefox to take a long time to start.  Try changing your Firefox home page to the default home page or a blank page. See [[How to set the home page]] for instructions.
+
+= Check your antivirus software =
+Firefox reads a number of files normally during startup.  Some antivirus software may do intensive scans of each of these files during startup and block access until those scans complete.  If the problem began after installing, updating, or reconfiguring your antivirus software, contact the software provider for assistance. 
+<!-- https://blog.mozilla.com/tglek/2010/10/04/diagnosing-slow-startup  -->
+
+= Troubleshoot extensions or themes =
+Firefox loads extensions when it starts up and many extensions add startup tasks.  See [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] for steps on how to identify an extension that may be causing the problem.
+
+{for win}
+= Optimize Windows =
+Speed up Windows and make your computer work better. {for winxp, win8}See  [https://support.microsoft.com/en-us/help/3064207/speed-up-your-computer Speed up your computer] at microsoft<!-- -->.com.{/for}{for win7} See  [https://support.microsoft.com/en-us/help/3064207/speed-up-your-computer Speed up your computer] and [https://support.microsoft.com/en-us/help/15055/windows-7-optimize-windows-better-performance Optimize Windows 7 for better performance] at microsoft<!-- -->.com.{/for}{for win10}See [https://support.microsoft.com/en-us/help/4002019/windows-10-improve-pc-performance Tips to improve PC performance in Windows 10] at microsoft<!-- -->.com.{/for}
+{/for}
+
+= Other solutions =
+If the previous suggestions don't significantly reduce Firefox startup time,  see [[Troubleshoot and diagnose Firefox problems]] for other steps you can take to resolve the problem.

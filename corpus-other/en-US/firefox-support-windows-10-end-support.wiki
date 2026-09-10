@@ -1,0 +1,74 @@
+Windows 10 has reached EOS (end of support) on October 14, 2025. Microsoft no longer releases free security updates or bug fixes for the operating system.
+{note}'''Note:''' Windows 10 Enterprise LTSC 2021 reaches end of support on January 12, 2027. Windows 10 IoT Enterprise LTSC 2021 reaches end of support on January 12, 2032. {/note}
+{warning}'''Important:''' Microsoft offers a free one-year Windows 10 security update extension if you back up system settings to OneDrive using Windows Backup. A Microsoft account is required. See [https://www.microsoft.com/windows/end-of-support Microsoft's Windows 10 End of Support page] for details.{/warning}
+If you're a Firefox user on Windows 10, you may wonder what this means for your browser experience. You shouldn’t worry: '''Firefox will continue to support Windows 10 for the foreseeable future'''.
+
+__TOC__
+
+=Will Firefox continue to support Windows 10?=
+'''Yes.'''
+
+Firefox on the '''Release channel''' will continue to support Windows 10 users. Mozilla has not announced any end-of-support date for Windows 10, but if one will be set, it’s '''still several years away'''.
+
+If you’re using Firefox Release, no action is needed. The Firefox browser will keep receiving updates, security patches and performance improvements, and you should be able to run it without any crashes or issues.
+
+=Do I need to use Firefox ESR to stay supported?=
+'''No.'''
+
+While Windows 7 and 8 users can only use Firefox ESR 115, '''Windows 10 users do not need to switch to ESR'''.
+
+However, '''Firefox Extended Support Release (ESR) version 140 does support Windows 10''' and this year's '''ESR 153''' will also include support for Windows 10.
+
+Firefox ESR receives monthly security updates, but it's enhanced with new features only once per year. This means you’ll have a stable browsing experience, without unexpected new features disrupting your workflow.
+
+So the choice is yours: you’re welcome to use Firefox ESR on Windows 10, and you’ll have support for it in the years to come.
+
+=Mozilla recommends you should prepare for the future=
+While Firefox will be supported on Windows 10 long after the operating system’s end of support, Mozilla encourages users to take additional steps to stay secure:
+*'''Upgrade to Windows 11''' if your computer is eligible. See [https://www.microsoft.com/windows/get-windows-11 this Microsoft article] for more information.
+*If you want to stay on Windows 10, consider '''Microsoft’s Extended Security Updates (ESU)''' to receive critical patches. '''Simply turning Windows Backup on will get you one year of free security updates for Windows 10'''. Learn more on Microsoft’s [https://www.microsoft.com/windows/extended-security-updates Windows 10 Consumer Extended Security Updates (ESU)] page.
+*Follow the steps listed under [[#w_plan-for-a-new-windows-11-pc|Plan for a new Windows PC]] so you’re prepared in case you need to replace your device unexpectedly.
+*Or, if your current hardware doesn't support Windows 11, You can switch to a '''Linux-based''' operating system. The vast majority of Linux distributions come with Firefox as the default browser. Please see the support websites for the version of Linux that you're interested in.
+*You can also switch to Windows 10 Enterprise LTSC 2021 or Windows 10 IoT Enterprise LTSC 2021, both of which have a longer lifecycle.
+
+=What happens if I upgrade to Windows 11?=
+If you upgrade from Windows 10 to Windows 11 '''on the same computer''', Firefox will continue to work normally.
+
+Your tabs, bookmarks, history, passwords and settings will remain intact, just like during a regular Windows update.
+{note}'''Note:''' Microsoft will notify you if your device is eligible for Windows 11.{/note}
+
+=Plan for a new Windows 11 PC=
+If you plan to buy a new Windows 11 computer, you can take steps now to make it easier to move Firefox and your data, while still using your Windows 10 device:
+*'''Enable Windows Backup:''' This makes it easier to reinstall your apps (including Firefox) on your new PC.
+*;{note}'''Note:''' Mozilla recommends that you turn on Windows Backup and use sync on Firefox even if you don’t get a Windows 11 PC. This way, you’ll be protected against loss of data in case of device failure, and it will ensure that you continue to get Windows 10 security updates.{/note}
+*'''Firefox Backup:''' Use [[Restore your Firefox browsing data with a backup file|Firefox Backup]] to capture browsing data, such as bookmarks, settings, or passwords, to help you easily move it to a new computer or anytime you need to reinstall a fresh copy of Firefox.<!-- Create an additional backup of your data with backup: This tool doesn’t require a Mozilla account. You will need to create a password to protect your encrypted data, though. -->
+*'''Create a Mozilla account:''' A Mozilla account lets you sync your bookmarks, history, passwords, add-ons and settings across multiple devices. After signing in on your new computer, all your Firefox data will be restored automatically. [[How do I set up Sync on my computer?|Learn more about setting up sync on Firefox]].
+**You can also use the [[Back up and transfer your Firefox data to a new device|Mozilla Account backup assistant]] to manually sync your data and email yourself a link to download Firefox.
+*'''Generate a recovery key:''' If you're already using Mozilla account, make sure you remember your account password and have access to your recovery key. This ensures you can securely restore your data on your new device. To be extra safe, you can [[Reset your Mozilla account password with Recovery Keys#w_generate-and-store-your-account-recovery-key|generate a new recovery key]] and store it in a secure location so you won’t get locked out if you lose your password.
+
+==Firefox desktop shortcut error between Windows ARM and Intel devices==
+<!-- See https://bugzilla.mozilla.org/show_bug.cgi?id=1982310 and https://bugzilla.mozilla.org/show_bug.cgi?id=2045837 -->
+When a Firefox desktop shortcut created on a '''Windows 11 ARM''' device is synced to another computer using '''OneDrive''', it won’t open on a '''Windows 11 Intel''' device. Instead, you will see an error message when you try to launch Firefox.
+
+===Why this happens===
+This issue occurs because Windows doesn’t support '''reverse emulation''' between processor types.
+*'''ARM-based Firefox''' can run on ARM computers and supports Intel (x86) apps through emulation.
+*'''Intel-based Firefox''', however, can’t run ARM binaries on Intel systems.
+Currently, the Firefox launcher on ARM builds is compiled for ARM architecture, which prevents the synced shortcut from working on Intel devices.
+
+===What Mozilla is doing===
+Firefox engineers are working on a new '''x86 (32-bit) launcher''' that will be compatible with both ARM and Intel versions of Windows. This change will prevent future shortcut errors between different architectures.
+
+===Workaround===
+Until the fix is released:
+#Delete the broken Firefox shortcut on the Intel computer.
+#Download the installation file from [https://www.firefox.com firefox.com].
+{note}'''Note:''' If you share information with Mozilla about the operating system you use or your plans for upgrading Windows, we may send you notifications to help ensure you're using the latest and most secure version of Firefox.{/note}
+
+=Related articles=
+*[[How the Firefox desktop launcher works]]
+*[[Back up and transfer your Firefox data to a new device]]
+*[[Reset your Mozilla account password with Recovery Keys]]
+*[[Choose a Firefox update channel]]
+*[[Update Firefox to the latest release]]
+*[[How to install Firefox on Windows]]

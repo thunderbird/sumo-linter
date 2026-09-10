@@ -1,0 +1,119 @@
+{note}'''Note:''' The [[Get started with Smart Window|Smart Window]] feature will be made available gradually, starting with Firefox users in the United States and Canada in [[Find what version of Firefox you are using|Firefox version]] 150{for fx155} and in France starting in version 155{/for}.{/note}
+Smart Window lets you choose which AI model powers the built-in assistant. It offers 3 models to choose from and, for more advanced users, the option to bring your own model.
+
+You can switch between models at any time to find the one that works best for you.
+
+__TOC__
+
+=Available models=
+Smart Window offers several models with different strengths. While all models can perform most tasks, they may respond differently depending on your needs. The best way to see what model is best for you is to give each a try. Use the table below to get a sense for what you can expect from each model.
+
+{for not fx155}
+{|
+|+
+!!!Fast: Answers quickly!!Flexible: Solid fit for most needs!!Personalized: Most tailored answers
+|-
+|Try it when…||You want quick and short answers||Your tasks vary from simple to complex||You prefer more personalized assistant responses
+|-
+|Model name||{for not fx152}gemini-2.5-flash-lite{/for}{for fx152}gemini-3.1-flash-lite{/for}||Qwen3-235B-A22B-Instruct-2507||gpt-oss-120B
+|-
+|Model maker||Google||Alibaba||OpenAI
+|-
+|Model card (detailed specs)||[https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Lite-Model-Card.pdf Link]||[https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507 Link]||[https://huggingface.co/openai/gpt-oss-120b Link]
+|}
+{/for}
+{for fx155}
+{|
+|+
+!!!Fast: Answers quickly!!Flexible: Solid fit for most needs!!Personalized: Most tailored answers
+|-
+|Try it when…||You want quick and short answers||Your tasks vary from simple to complex||You prefer more personalized assistant responses
+|-
+|Model name||Gemini 3.1 Flash Lite||Qwen3-235B||Mistral Small 4
+|-
+|Model maker||Google||Alibaba||Mistral AI
+|-
+|Model host||Google Cloud||Google Cloud||Mistral AI
+|-
+|Model card (detailed specs)||[https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Lite-Model-Card.pdf Link]||[https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507 Link]||[https://huggingface.co/openai/gpt-oss-120b Link]
+|}
+{/for}
+{note}'''Note:''' In the future, the list of available model choices may change. As newer, more capable models are released, Firefox will evaluate them and may choose to add them as options to Smart Window. Firefox may choose to remove models at any time.{/note}
+
+=Choose or change a model=
+You’ll be asked to pick a model the first time you use Smart Window, but you can switch models anytime, as often as you like, in Settings.
+#[[Template:optionspreferences]]
+#Go to {menu AI controls}.
+#Select {menu Smart Window settings}.
+#Make a choice in the ''Assistant model'' section.
+
+{for fx152}
+==Change the model for the current chat==
+You can also switch models directly from the Smart Window chat interface.
+This only affects the current conversation. To change your default model for all future chats, use the Settings instructions above.
+To switch models for the current chat:
+#Open a Smart Window.
+#Open the Assistant chat interface by:
+#*Opening a new Smart Window tab, or
+#*Clicking the {button Ask} button
+#In the chat interface, click the model selector button that displays the current model.
+#Select a different model from the list.
+#;{for not fx155}[[Image:fx152changeaimodelsmartwindow]]{/for}{for fx155}[[Image:fx155changeaimodelsmartwindow]]{/for}
+The selected model will be used for the current chat session.
+{note}'''Note:''' Changing the model from the chat interface does not change your default Assistant model. To change your default model, go to {menu Settings} > {menu AI Controls} > {menu Smart Window settings} and choose a model there.{/note}
+{/for}
+
+=Bring your own model=
+Beyond the available choices, more advanced users can choose a custom option, to connect their own model. Go to the [[Custom Models in Smart Window - Bring your own endpoint|Custom Models]] article to learn more.
+{note}'''Note:''' If you use a custom model, Smart Window may not work as expected.{/note}
+
+=How models are chosen by the Firefox team=
+Firefox evaluates models before making them available in Smart Window. These evaluations focus on:
+*'''How well models perform common tasks (for example, summarizing and answering questions)'''
+**The language models offered in Smart Window are based on technical evaluations completed by the Firefox engineering team. While public benchmarks are available and are published by the model makers, the Firefox team takes the additional step of completing these internal evaluations to ensure that the models behave well in the context of Firefox and Smart Window use cases. For example: web page summarization, page Q&A and more specific use cases performed by web browser users, such as product comparisons.
+*'''How they handle sensitive or harmful content'''
+**Additional Trust and Safety evaluations are performed to evaluate model handling of certain sensitive and harmful content. You can learn more about that in [[Is Smart Window safe and private|this article]].
+*'''How useful they are for real browsing scenarios'''
+**Comparative evaluations are done to determine the promoted “characteristic” of the model. For example, gemini-2.5-flash-lite was seen to produce shorter results, with a higher token output rate, than the other models, hence why it has been labeled as the “Fast” model choice. This labeling is intended to help users who are unfamiliar with the individual models to make a choice for Smart Window.
+*'''The usage limit'''
+**The cost of the models to host and run is taken into consideration as well. Smart Window has a usage quota for each user to allow for generous but reasonable daily usage. When a user reaches their usage limit, they will be prevented for further use until the next day when the quota resets.
+
+=Frequently asked questions=
+==Which model should I choose?==
+{for not fx155}
+This depends on the experience you would like to have with Smart Window’s assistant. If you prefer fast responses with short answers, select the '''Fast''' option, which is gemini-2.5-flash-lite. While all models support personalization based on your browsing habits if [[Memories in Smart Window|Memories]] are enabled, if you like to have your responses personalized more frequently, select the '''Personalized''' option, which is gpt-oss-120B. If you are not sure, or don’t have a preference, select the '''Flexible''' option, which is Qwen3-235B-A22B-Instruct-2507.
+{/for}
+{for fx155}
+This depends on the experience you would like to have with Smart Window’s assistant. If you prefer fast responses with short answers, select the '''Fast''' option, which is Gemini 3.1 Flash Lite. While all models support personalization based on your browsing habits if [[Memories in Smart Window|Memories]] are enabled, if you like to have your responses personalized more frequently, select the '''Personalized''' option, which is Mistral Small 4. If you are not sure, or don’t have a preference, select the '''Flexible option''', which is Qwen3-235B.
+{/for}
+
+==Can I change my model after my initial selection in onboarding?==
+{for not fx155}
+Yes. Your model can be changed at any time from AI Controls for Smart Window. See the [[#w_choose-or-change-a-model|instructions above]] for how to change your model.
+{/for}
+{for fx155}
+Yes. Your default model can be changed at any time from AI Controls for Smart Window, or changed for the current conversation from the in-chat picker. See the instructions above for how to change your model.
+{/for}
+
+==How can I further customize my chosen model?==
+The three available models do not currently allow for further customization, outside the creation of individual memories. However, if you want to provide your own language model for the Smart Window assistant, you can follow the instructions in the [[Custom Models in Smart Window - Bring your own endpoint|Custom Models]] article.
+
+{for fx152}
+==Does changing the model in a chat change my default model?==
+No. The inline model picker only changes the model used for the current chat. To change your default model, use {menu Settings} > {menu AI Controls} > {menu Smart Window settings}.
+{/for}
+
+==Is my conversation history stored by the model hosts?==
+No. The AI providers or model makers do not store your conversation. It may be briefly processed to generate a response, but it is not saved or kept after that.
+
+==Do different models handle my data differently?==
+No. All models available in Smart Window follow the same privacy and data handling standards set by Mozilla. Your data is consistently protected, regardless of which model you choose. To learn more, see [[Is Smart Window safe and private|this article]].
+
+==Are some models safer or more secure than others?==
+All models offered in Smart Window go through Mozilla’s Trust and Safety evaluations before being made available. These evaluations help ensure that models respond appropriately and handle sensitive content responsibly. To learn more, see [[Is Smart Window safe and private|this other article]].
+
+=Related articles=
+*[[Get started with Smart Window]]
+*[[Memories in Smart Window]]
+*[[Is Smart Window safe and private]]
+*[[Custom Models in Smart Window - Bring your own endpoint]]

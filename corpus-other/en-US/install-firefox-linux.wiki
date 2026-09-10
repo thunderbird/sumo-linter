@@ -1,0 +1,208 @@
+Many Linux distributions come with Firefox pre-installed and set as the default browser. However, if you need to install Firefox on Linux using a different method, the following guide will show you how to install Firefox on Ubuntu, Debian, Fedora, openSUSE and other Linux distributions.
+{for mac,win}{note}'''This article only applies to Linux.''' {for mac}For instructions to install Firefox on Mac, see [[How to download and install Firefox on Mac]].{/for}{for win}For instructions to install Firefox on Windows, see [[How to install Firefox on Windows]].{/for}{/note}{/for}
+
+__TOC__
+
+= Install Firefox DEB package for Debian-based and Ubuntu-based distributions (recommended) =
+To install the <code>'''DEB'''</code> package through the APT repository, do the following:
+#Create a directory to store APT repository keys if it doesn't exist:
+#;<code>'''sudo install -d -m 0755 /etc/apt/keyrings'''</code>
+#Import the Mozilla APT repository signing key:
+#;<code>'''wget -q https://packages.mozilla<!-- -->.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null'''</code>
+#;If you do not have <code>'''wget'''</code> installed, you can install it with: <code>'''sudo apt-get install wget'''</code>
+#The fingerprint should be '''35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3'''.<!-- Please check with the Release Engineering team (release@mozilla.com) before changing/removing this fingerprint --> You may check it with the following command:
+#;<code>'''gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}''''</code>
+#Next, add the Mozilla APT repository to your sources.list:
+#*For Debian Bookworm/Ubuntu Noble and Older:
+#;<code>'''echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla<!-- -->.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null'''</code>
+#*For Debian Trixie/Ubuntu Resolute and Newer
+#;<code>'''<nowiki>sudo tee /etc/apt/sources.list.d/mozilla.sources > /dev/null << EOF</nowiki>'''</code>
+#;<code>'''Types: deb'''</code>
+#;<code>'''URIs: https://packages.mozilla<!-- -->.org/apt'''</code>
+#;<code>'''Suites: mozilla'''</code>
+#;<code>'''Components: main'''</code>
+#;<code>'''Signed-By: /etc/apt/keyrings/packages.mozilla.org.asc'''</code>
+#;<code>'''EOF'''</code>
+#Configure APT to prioritize packages from the Mozilla repository:
+#;<code>'''<nowiki>sudo tee /etc/apt/preferences.d/mozilla > /dev/null << EOF</nowiki>'''</code>
+#;<code>'''Package: *'''</code>
+#;<code>'''Pin: origin packages.mozilla<!-- -->.org'''</code>
+#;<code>'''Pin-Priority: 1000'''</code>
+#;<code>'''EOF'''</code>
+#*For Ubuntu users: If you want to replace the snap version of firefox to the deb version, you need to pin the firefox snap version from the APT package manager before removing the snap package with <code>'''sudo snap remove firefox'''</code> command to prevent unwanted upgrades to the snap version of firefox.
+#;<code>'''<nowiki>sudo tee /etc/apt/preferences.d/mozilla > /dev/null << EOF</nowiki>'''</code>
+#;<code>'''Package: firefox'''</code>
+#;<code>'''Pin: release o=Ubuntu'''</code>
+#;<code>'''Pin-Priority: -1'''</code>
+#;<code>'''EOF'''</code>
+#Update your package list, and install ''firefox'' (or one of ''firefox-esr'', ''-beta'', ''-nightly'', ''-devedition''):
+#;<code>'''sudo apt-get update'''</code>
+#;<code>'''sudo apt-get install firefox'''</code>
+
+== Use different languages on Firefox DEB package  ==
+For those of you who would like to use Firefox in a different language than American English, we have also created DEB packages containing the Firefox language packs. To install a specific language pack, replace fr in the example below with the desired language code. In this example, we are installing the French language pack of Firefox.
+;<code>'''sudo apt-get install firefox-l10n-fr'''</code>
+To list all the available language packs, you can use this command after adding the Mozilla repository and running <code>sudo apt-get update</code>:
+;<code>'''apt-cache search firefox-l10n'''</code>
+Localization are also available as ''firefox-esr-l10n'', ''-beta-l10n'', ''-nightly-l10n'', ''-devedition-l10n'' packages for other release/edition.
+
+= Install Firefox RPM package for Fedora-based, RHEL and its derivations (recommended) =
+==Add Firefox RPM repository through the dnf5 package manager (Fedora 41+, RHEL/Rocky/Alma 10+)==
+;<code>'''sudo dnf config-manager addrepo --id=mozilla --set=baseurl=https://packages.mozilla.org/rpm/firefox --set=gpgkey=https://packages.mozilla.org/rpm/firefox/signing-key.gpg --set=gpgcheck=1 --set=repo_gpgcheck=0 --set=priority=10'''</code>
+
+==Add Firefox RPM repository for older dnf package manager (Fedora <41, RHEL/Rocky/Alma <10)==
+;<code>'''sudo tee /etc/yum.repos.d/mozilla.repo >  /dev/null << EOF'''</code>
+;<code>'''[mozilla]'''</code>
+;<code>'''name=Mozilla Packages'''</code>
+;<code>'''baseurl=https://packages.mozilla.org/rpm/firefox'''</code>
+;<code>'''enabled=1'''</code>
+;<code>'''gpgcheck=1'''</code>
+;<code>'''repo_gpgcheck=0'''</code>
+;<code>'''gpgkey=https://packages.mozilla.org/rpm/firefox/signing-key.gpg'''</code>
+;<code>'''priority=10'''</code>
+;<code>'''EOF'''</code>
+{note}'''Note:''' <code>repo_gpgcheck=0</code> deactivates the signature of metadata with GPG. However, this is safeguarded instead by HTTPS and package signatures (<code>gpgcheck=1</code>).{/note}
+To install '''firefox''' from mozilla repository (or one of ''firefox-esr'', ''-beta'', ''-nightly'', ''-devedition''), do:
+;<code>'''sudo dnf makecache --refresh'''</code>
+;<code>'''sudo dnf install firefox'''</code>
+
+To upgrade '''firefox''' from distribution repository version to mozilla version, do:
+;<code>'''sudo dnf makecache --refresh'''</code>
+;<code>'''sudo dnf upgrade firefox'''</code>
+
+To replace '''firefox''' from distribution repository version to mozilla version, do:
+;<code>'''sudo dnf makecache --refresh'''</code>
+;<code>'''sudo dnf swap firefox firefox --allowerasing'''</code>
+{note}'''Note:''' When replacing '''firefox''' from distribution repository version to mozilla version, '''firefox''' may create a new profile and set it as default. To keep your old settings/configuration, please head to '''about:profiles''', look for your old profiles, and set it again as default profiles. {/note}
+
+== Use different languages on Firefox RPM package  ==
+For those of you who would like to use Firefox in a different language than American English, we have also created RPM packages containing the Firefox language packs. To install a specific language pack, replace fr in the example below with the desired language code. In this example, we are installing the French language pack of Firefox.
+;<code>'''sudo dnf install firefox-l10n-fr'''</code>
+To list all the available language packs, you can use this command after adding the Mozilla repository and running <code>sudo dnf makecache --refresh</code>:
+;<code>'''dnf search firefox-l10n'''</code>
+Localization are also available as ''firefox-esr-l10n'', ''-beta-l10n'', ''-nightly-l10n'', ''-devedition-l10n'' packages for other release/edition
+
+== August 2026 note for Fedora 42 and older, RHEL, Rocky and Almalinux ==
+If you encounter a “Import of the key didn't help, wrong key?” or “The GPG keys listed for the mozilla repository are already installed but they are not correct for this package” error when installing or updating Firefox, you must manually remove the old GPG key with the following commands:
+;<code>'''sudo rpm -e --allmatches gpg-pubkey-14f26682d0916cdd81e37b6d61b7b526d98f0353'''</code>
+;<code>'''sudo rpm --import https://packages.mozilla.org/rpm/firefox/signing-key.gpg'''</code>
+;<code>'''sudo dnf clean all'''</code>
+
+= Install Firefox RPM package for openSUSE and SUSE Linux (recommended) =
+
+==Add Firefox RPM repository through the zypper package manager==
+;<code>'''sudo rpm --import https://packages.mozilla.org/rpm/firefox/signing-key.gpg'''</code>
+;<code>'''sudo zypper ar --gpgcheck-allow-unsigned-repo -p 10 https://packages.mozilla.org/rpm/firefox mozilla'''</code>
+
+To install or update '''firefox''' from mozilla repository (or one of ''firefox-esr'', ''-beta'', ''-nightly'', ''-devedition''), do:
+;<code>'''sudo zypper refresh'''</code>
+;<code>'''sudo zypper install firefox'''</code>
+
+To replace '''firefox''' from distribution repository version to mozilla version, do:
+;<code>'''sudo zypper refresh'''</code>
+;<code>'''sudo zypper remove firefox'''</code>
+;<code>'''sudo zypper install firefox'''</code>
+{note}'''Note:''' When replacing '''firefox''' from distribution repository version to mozilla version, '''firefox''' may create a new profile and set it as default. To keep your old settings/configuration, please head to '''about:profiles''', look for your old profiles, and set it again as default profiles. {/note}
+
+== Use different languages on Firefox RPM package  ==
+For those of you who would like to use Firefox in a different language than American English, we have also created RPM packages containing the Firefox language packs. To install a specific language pack, replace fr in the example below with the desired language code. In this example, we are installing the French language pack of Firefox.
+;<code>'''sudo zypper install firefox-l10n-fr'''</code>
+To list all the available language packs, you can use this command after adding the Mozilla repository and running <code>sudo zypper refresh</code>:
+;<code>'''zypper search firefox-l10n'''</code>
+Localization are also available as ''firefox-esr-l10n'', ''-beta-l10n'', ''-nightly-l10n'', ''-devedition-l10n'' packages for other release/edition
+
+== August 2026 note for openSUSE and SUSE based distributions ==
+If you encounter a “Signature verification failed” or “NOKEY” error when installing or updating Firefox you must manually remove the old GPG key with the following commands:
+;<code>'''sudo rpm -e --allmatches gpg-pubkey-14f26682d0916cdd81e37b6d61b7b526d98f0353'''</code>
+;<code>'''sudo rpm --import https://packages.mozilla.org/rpm/firefox/signing-key.gpg'''</code>
+;<code>'''sudo zypper refresh'''</code>
+
+= Data migration =
+If you were using Snap or Flatpak before, you are required to import your profile. There are two ways to do this. You can use either of these methods:
+* '''Method 1:''' Set up Sync. For instruction, see [[How do I set up Sync on my computer?]]
+* '''Method 2:''' Copy the existing files on your computer. Make sure that all copies of Firefox on your computer are completely closed before doing this:
+**Flatpak:<br><code>'''mkdir -p ~/.mozilla/firefox/ && cp -a ~/.var/app/org.mozilla.firefox/.mozilla/firefox/* ~/.mozilla/firefox/'''</code>
+**Snap:<br><code>'''mkdir -p ~/.mozilla/firefox/ && cp -a ~/snap/firefox/common/.mozilla/firefox/* ~/.mozilla/firefox/'''</code>
+In both cases, once you’ve moved the profiles, launch Firefox from the terminal with the command '''<code>firefox -P</code>'''. Select your desired profile. After this initial setup, the '''<code>-P</code>''' command will no longer be necessary.
+
+= Install from your distribution package manager =
+To install Firefox using your distribution package manager, please refer to your Linux distribution's documentation.
+
+This method is recommended because it ensures Firefox and all the required libraries are installed and configured optimally for your distribution. However, there may be a small delay between the official release of a new version of Firefox and the moment when your distribution updates the version it distributes. Your distribution may also distribute it without the Firefox branding or only distribute the [[Firefox ESR release cycle|ESR]].
+
+= Install from Flatpak =
+To install Firefox from Flatpak, [https://flatpak.org/setup/ install and configure Flatpak] on your computer. Once Flatpak is installed, go to the [https://flathub.org/apps/details/org.mozilla.firefox Firefox Flathub's page], and click the {button Install} button. Alternatively, you can type the following command in a terminal:
+;<code>'''flatpak install flathub org.mozilla.firefox'''</code>
+By default, Flatpak installs Firefox in the same locale as your operating system. To use a different language, please follow the instructions on [[Use Firefox in another language|how to use Firefox in another language]].
+
+= Install from Snap =
+To install Firefox from Snap, [https://snapcraft.io/docs/installing-snapd install Snap] on your computer. Once Snap is installed, go to the [https://snapcraft.io/firefox Firefox Snapcraft's Store page], click the {button Install} button, and follow the instructions. Alternatively, you can type the following command in a terminal:
+;<code>'''sudo snap install firefox'''</code>
+'''Firefox Beta, Nightly and ESR Release Channel is also available as snap package'''
+*Beta Channel:
+;<code>'''sudo snap install firefox --beta'''</code>
+*Nightly Channel
+;<code>'''sudo snap install firefox --edge'''</code>
+*ESR Channel
+;<code>'''sudo snap install firefox --channel=esr/stable'''</code>
+If available, Snap installs Firefox in the same locale as your operating system. To use a different language, please follow the instructions on [[Use Firefox in another language|how to use Firefox in another language]].
+
+= Install Firefox from Mozilla Tarball builds =
+Before you install Firefox from a Mozilla Tarball build, make sure that your computer has the '''[http://www.mozilla.org/firefox/system-requirements.html#gnulinux required libraries]''' installed. Missing or incompatible libraries may cause Firefox to be inoperable.
+
+== System Firefox installation (for advanced users) ==
+{note}
+To install Firefox with this method, you '''must be''' able to log in as root or execute <code>'''sudo'''</code> commands.
+
+This installation will have priority over the Firefox version installed through your package manager. To run the version installed with your package manager, you will need to execute the binary from a terminal. To do so in most distributions, open a terminal and type:<br><code>'''/usr/bin/firefox'''</code>
+{/note}
+<!--
+	Auto-list doesn't work with a newline character in front of a <code> block. This means we need to manually
+    set the list number
+-->
+# Go to the [https://www.firefox.com/browsers/desktop/linux/?utm_medium=referral&utm_source=support.mozilla.org Firefox download page], and click {button Download for Linux 64-bit} or {button Download for Linux ARM64}.
+#* You can also click the [https://www.firefox.com/download/all All Firefox Downloads] link to choose another release/edition: Nightly, Beta, Developer or Extended Support Release (ESR).
+# Open a terminal, and go to the folder where your download has been saved. For example:
+#; <code>'''cd ~/Downloads'''</code>
+# Extract the contents of the downloaded file by typing:
+#; <code>'''tar xJf firefox-*.tar.xz<br>rm firefox-*.tar.xz'''</code>
+# If you downloaded a specific build, you may want to rename the uncompressed folder accordingly. For example:
+#; <code>'''mv firefox firefox-nightly'''</code>
+#; <br>''The following commands must be executed as root or preceded by <code>'''sudo'''</code>.''
+# Move the uncompressed Firefox folder to {filepath /opt}:
+#; <code>'''mv firefox /opt'''</code>
+# Create a symlink to the Firefox executable:
+#; <code>'''ln -s /opt/firefox/firefox /usr/local/bin/firefox'''</code>
+# Download a copy of the desktop file:
+#; <code>'''wget https://raw.githubusercontent<!-- -->.com/mozilla/sumo-kb/main/install-firefox-linux/firefox.desktop -P /usr/local/share/applications'''</code>
+Alternatively, if <code>'''wget'''</code> is not installed on your computer, go to the URL mentioned above, right-click on the page to open the contextual menu, and select {menu Save Page As}. After you downloaded the file, move it to {filepath /usr/local/share/applications}.
+
+To verify that the installation was successful, you can open the [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information]] page. In the ''Application Basics'' section, the value of the line ''Application Binary'' should be '''/opt/firefox/firefox-bin'''.
+
+== Local Firefox installation in user's account ==
+{note}If you don't have access to login as root or execute <code>'''sudo'''</code> commands, or just prefer to use a local Firefox in your account, you can make a local installation. You can also do this to have multiple Firefox installations for different builds.{/note}
+# Go to the [https://www.firefox.com/browsers/desktop/linux/?utm_medium=referral&utm_source=support.mozilla.org Firefox download page], and click {button Download for Linux 64-bit} or {button Download for Linux ARM64}.
+#* You can also click the [https://www.firefox.com/download/all All Firefox Downloads] link to choose another release/edition: Nightly, Beta, Developer or Extended Support Release (ESR).
+# Open a terminal, and go to the folder where your download has been saved. For example:
+#; <code>'''cd ~/Downloads'''</code>
+# Extract the downloaded file contents. This will create a folder named {filepath firefox}. After that, you can delete the archive:
+#; <code>'''tar xJf firefox-*.tar.xz<br>rm firefox-*.tar.xz'''</code>
+# If you downloaded a specific build, you may want to rename the uncompressed folder accordingly. For example:
+#; <code>'''mv firefox firefox-nightly'''</code>
+# You can leave the uncompressed folder into your download folder, or move it to another place in your account. For example:
+#; <code>'''mv firefox ~/firefox'''</code>
+# Firefox is now ready to be used. You can run it directly from the terminal:
+#; <code>'''~/firefox/firefox &'''</code>
+# Create a desktop shortcut. (It may be different in your Linux distribution.)
+#* Right-click on the desktop, and choose '''Create launcher''' from the context menu.
+#* You can also type this on the terminal:
+#*; <code>'''ln -s ~/firefox/firefox ~/Desktop/'''</code>
+#* An icon for the desktop shortcut will be found in <code>'''~/firefox/browser/chrome/icons/default/'''</code>
+{note}'''Note:''' This method doesn't change file types binding on the system, so links from other applications will not open in the local installation. You will need to copy the link and paste it in the Firefox address bar.{/note}
+
+= Security features warning =
+On some Linux distributions using AppArmor such like Debian-based, Ubuntu-based, openSUSE, and SUSE Linux, you could see a notification that ''some of Firefox’s security features may offer less protection on your current operating system''. To learn more, see [[Firefox security features warning on Linux]].
+
+= Related articles =
+*[[Firefox security features warning on Linux]]
+*[[Make Firefox your default browser]]

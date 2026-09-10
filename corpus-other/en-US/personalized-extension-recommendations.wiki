@@ -1,0 +1,40 @@
+[[Find and install add-ons to add features to Firefox|Extensions]] are pieces of software, usually created by third-party developers, that you can install to customize your Firefox browsing experience. You might occasionally see extension recommendations curated through the [[Recommended Extensions program]] while you browse in Firefox and through the Add-ons Manager (about:addons).
+;[[Image:personalizefirefox]]
+To discover personalized extension recommendations in the Add-ons Manager:<br>
+[[T:Open Add-ons|type=Recommendations]]
+
+__TOC__
+
+=What are personalized extension recommendations in the Add-ons Manager?=
+Personalized extension recommendations are based on other extensions you’ve installed, profile preferences, hardware, and usage statistics. All user data used to make recommendations is anonymized, non-personal information.
+
+To better predict what extensions you may find interesting, Firefox uses the Telemetry-Aware Add-on Recommender ([https://github.com/mozilla/taar#how-does-it-work TAAR]) system—a Mozilla service that recommends extensions by examining basic browser [https://wiki.mozilla.org/Telemetry Telemetry]. This means TAAR analyzes usage statistics from a large number of other Firefox users, looks at other extensions you may have installed, and considers general characteristics about your Firefox profile (like language preference). Based on this information, TAAR surfaces extension recommendations tailored just for you. 
+
+All the data that TAAR analyzes in order to make personalized extension recommendations is anonymized. 
+
+=How are extensions selected?=
+All extension recommendations appearing in the Add-ons Manager must first pass through a thorough editorial process. Recommended extensions are exceptional extensions that are hand-selected by Mozilla’s editorial team. These extensions meet Mozilla’s highest standards for functionality, user experience, and security.
+
+Extension developers cannot pay for placement in the recommendation program, and Firefox does not receive any compensation as a result of this process. Recommendations are strictly intended to provide a better browsing experience for Firefox users.
+
+=How do I opt out of personalized recommendations in the Add-ons Manager?=
+To turn off personalized recommendations in the Add-ons Manager:
+{for not fx152}
+#[[Template:optionspreferences]]
+#Click }{menu Privacy & Security} on the left.
+#Scroll down to the ''Firefox Data Collection and Use'' section and un-check the box that reads, '''Allow Firefox to make personalized extension recommendations'''.
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Click {menu Permissions and data} on the left.
+#Scroll down to the ''Firefox data collection and use'' section and un-check the box that reads, '''Allow personalized extension recommendations'''.
+{/for}
+If you opt out, you’ll still see generalized recommended extensions in the Add-ons Manager; however, they won’t be personally tailored for you using Telemetry data. 
+
+=Who benefits from these personalized recommendations?=
+Ideally, Firefox users like you. By providing more tailored extension recommendations, we hope to introduce you to extensions that meet your individual needs. 
+
+Recommendations are strictly intended to provide a better browsing experience for Firefox users. As described above, extension developers cannot pay for placement in the recommendation program, and Firefox does not receive any compensation as a result of this process.
+
+=How do I learn more about extensions?=
+Visit [https://addons.mozilla.org addons.mozilla.org (AMO)] to explore thousands of extensions and themes. Most extensions and themes are created by independent developers from all over world.

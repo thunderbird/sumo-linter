@@ -1,0 +1,44 @@
+When add-ons violate Mozilla’s policies, compromise user safety or privacy, or fail to meet user expectations, Mozilla takes action. This may include disabling add-ons in Firefox to maintain a secure and reliable user experience.<!-- leave out for now - see https://bugzilla.mozilla.org/show_bug.cgi?id=1918034#c9 {for not fx133}{note}'''Note:''' Starting in [[Find what version of Firefox you are using|Firefox version]] 133, when an add-on is disabled by Mozilla it may be restricted rather than blocked, which means that you can choose to manually re-enable it, as explained below.{/note}{/for}-->
+
+__TOC__
+
+=Why does Mozilla disable some add-ons from running in Firefox?=
+While most add-ons are created with the best intent to provide useful and enjoyable features, they can also be used to compromise personal data and security.
+
+When Mozilla becomes aware of add-ons that pose a risk to your security and privacy according to its [https://extensionworkshop.com/documentation/publish/add-on-policies?utm_source=support.mozilla.org&utm_medium=referral&utm_content=add-on-blocking Add-on Policies], it takes steps to prevent those add-ons from running in Firefox. Add-ons may be disabled proactively, either because they violate our policies, or in response to an abuse report.
+
+For more information, please read the [https://extensionworkshop.com/documentation/publish/add-ons-blocking-process?utm_source=support.mozilla.org&utm_medium=referral&utm_content=add-on-blocking Add-on Blocking Process] article on [https://extensionworkshop.com?utm_source=support.mozilla.org&utm_medium=referral&utm_content=add-on-blocking Firefox Extension Workshop]. 
+
+=What happens when an add-on is disabled by Mozilla?=
+When Mozilla disables an add-on, it is prevented from interacting with Firefox and accessing your browser and your data. The action is intended to protect users from harm caused by security vulnerabilities, performance issues, or policy violations. There are two levels:
+*'''Restricting:''' Used for other policy violations. Restricting disables the installed add-on, while allowing a user to accept the potential harm and manually re-enable the add-on. This approach ensures users have a choice, while giving developers time to address the identified issues before further action, such as a block, is taken in some cases.
+*'''Blocking:''' This strict measure is applied to add-ons that pose significant risks to user safety, privacy, or browser performance. Blocking disables the installed add-on, preventing users from re-enabling it. This is typically reserved for severe cases, such as add-ons with critical security vulnerabilities or those that violate policies related to user privacy, such as search hijacking or the inability for Mozilla to review the add-on.
+For more technical information about how blocking works, please read [https://blog.mozilla.org/addons/2020/08/24/introducing-a-scalable-add-ons-blocklist/ Introducing a scalable add-ons blocklist] on the [https://blog.mozilla.org/addons/ Add-ons Blog]. 
+
+=How will I know if an add-on is disabled by Mozilla?=
+If you suspect you have installed an add-on that has been disabled by Mozilla, you can verify its status by going to the Firefox Add-ons Manager.
+[[Template:openextensions]] Any disabled extensions will appear in the ''Disabled'' section. Extensions disabled by Mozilla display a label that explains the extension has been disabled for violating [https://extensionworkshop.com/documentation/publish/add-on-policies/ Mozilla’s policies].
+Below are examples of how such add-ons appear in the Add-ons Manager:
+*Blocked Add-on:
+[[Image:Blocked add-on]] 
+*Restricted Add-on:
+[[Image:Restricted add-on]] 
+
+=I see a Mozilla-disabled add-on in my Add-ons Manager. What should I do?=
+You do not need to take any action if you see a Mozilla-disabled add-on in your Add-ons Manager. The add-on is disabled and cannot interact with Firefox and access your data. If you prefer, you can safely [[Disable or remove Add-ons|remove it]]. 
+
+Since some malicious add-ons gather and sell data collected from their users, you may want to check [[Get started with Mozilla Monitor|Mozilla Monitor]] to see if your personal information was exposed in a breach. 
+
+=Can I install an add-on after it has been disabled by Mozilla?= 
+Once an add-on has been disabled by Mozilla, Firefox will prevent you from installing it. You will see this notification:
+[[Image:Disabled add-on notification]] 
+
+=How can I resume using a previously Mozilla-disabled add-on?=
+In some cases, restrictions or blocks apply only to specific versions of an add-on, depending on the severity of the violation, the developer’s history, and other relevant factors. Developers can address the issues and upload a new version for review. If the updated version is approved by Mozilla, users who had previously downloaded the add-on will be able to use it again by updating to the latest approved version.
+
+To make sure you are always using the most up-to-date version of an add-on (extension or theme):
+#[[Template:openextensions]]
+# Click on the settings icon [[Image:Add-on Tools Icon]] and make sure that the {menu Update Add-ons Automatically} menu item is checked.
+
+=How can I find a replacement for a Mozilla-disabled add-on?=
+You can look for a replacement on [https://addons.mozilla.org?utm_source=support.mozilla.org&utm_medium=referral&utm_content=add-on-blocking addons.mozilla.org], Mozilla’s official directory of add-ons. We suggest browsing the [[Recommended Extensions program|Recommended Extensions program]] to find add-ons that meet our highest standards of security, functionality, and user experience.

@@ -1,0 +1,25 @@
+Firefox sets multiple [[How to set the home page|home pages]] when you separate each address with a pipe character (|) or vertical bar. This feature may lead to problems when an individual home page address contains a pipe character.
+
+Here's how to fix it:
+{for not fx61}
+# [[T:optionspreferences]]
+# Select the {menu General} panel.
+# In the '''Home Page''' text box, replace all pipes (|) with '''%7C'''.
+# [[T:closeOptionsPreferences]]
+{/for}
+{for fx61}
+{for not fx152}
+# [[T:optionspreferences]]
+# Select the {menu Home} panel.
+# In the '''Homepage and new windows''' text box for '''Custom URLs…''', replace all pipes (|) with '''%7C'''.
+# [[T:closeOptionsPreferences]]
+{/for}
+{for fx152}
+#[[T:optionspreferences]]
+#Select the {menu Home and startup} page on the left.
+#In the {menu Homepage} section, click on the text box for '''Custom URLs…''', in the {menu New Windows} section, and replace all pipes (|) with %7C.
+#;[[Image:fx152homepage]]
+{/for}
+{/for}
+
+{note}'''Tip:''' If removing the pipe character doesn't solve the problem, add-ons or malware might be causing this behavior. Try [[Refresh Firefox - reset add-ons and settings | refreshing Firefox]] to remove add-ons without erasing your browsing information and bookmarks.{/note}

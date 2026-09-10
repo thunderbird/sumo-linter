@@ -1,0 +1,69 @@
+The [[Password Manager - Remember, delete and edit logins and passwords in Firefox|Firefox password manager]] allows you to securely store your usernames and passwords. This is a useful tool for keeping your information safe and generating secure passwords for website logins. Additionally, if you're using [[Activate Firefox Relay - Mask your email address|Firefox Relay]] to mask your email address, you can create new masks or reuse an existing mask right from the Firefox password manager. This article describes the steps you need to follow to integrate Firefox Relay into the Firefox password manager.
+
+__TOC__
+
+=Add your Mozilla account to the password manager=
+To create new masks using the password manager, you need a Mozilla account. If you don't have one, Firefox will help you create it when you sign up for a new website. After that, just log in to your Mozilla account following the steps below, and your Mozilla account will be automatically added to the password manager.
+#Open Firefox and log in with your Mozilla account.
+#Click the menu [[Image:Fx89menuButton]] button in the top right corner of the Firefox window.
+#Click {button Log in} next to ''Sync and save data''.
+#Enter your Mozilla account email and password.
+
+=Generate New Firefox Relay Masks with the password manager=
+When you fill out an email field, the password manager will suggest emails from your saved logins, and it will also give you the option to generate or reuse a Firefox Relay mask.
+#Visit a website that requires you to log in or create an account.
+#Click the '''Get a free email mask: Protect your inbox from spam''' option in the dropdown that appears on the email field.
+#;[[Image:masksignup|width=400]] 
+#;{note}'''Note:''' Please note that while the password manager does its best to detect email fields on websites, it may not always detect them all. If you're having trouble generating or reusing masks from the password manager, you can visit your [https://relay.firefox.com/accounts/profile/ Firefox Relay dashboard] to generate or reuse a mask.{/note}
+#To create a new mask, click {button Next} on the confirmation pop-up that appears next.
+#;[[Image:masksignup2|width=500]] 
+#*With a free subscription, you can generate up to 50 Firefox Relay masks to protect your online identity. Using different masks can help to reduce the chances of your activity being tracked and your identity being exposed. [[Subscribe to Firefox Relay Premium|Upgrade to a premium account]] for unlimited masks.
+#Click {button Use email mask} to accept the Terms of Service and Privacy Notes.
+#;[[Image:masksignup3|width=500]]
+#When you reach your mask limit, the password manager lets you choose from your available masks.
+#;[[Image:freemasks|width=600]] 
+#Click {button Manage masks} at the bottom of the panel to visit your Firefox Relay dashboard and access additional settings such as deleting masks, blocking promotional emails, [[Subscribe to Firefox Relay Premium| subscribing to Firefox Relay Premium]] and more.
+
+=Frequently asked questions=
+==What is Firefox Relay and how does it work?==
+Firefox Relay offers secure email masking to hide your real email address and protect your identity. Your email address can be used to track you online, so using an email mask allows you to sign up for accounts without providing your real email. Email masks also make it easier to stop spam from reaching your inbox.
+To use Relay, simply use a Relay email mask in place of your real email. All emails sent to your email mask will be forwarded to your real email address unless you decide to block them. You can block senders, delete masks that get too much spam, and label your masks from your [https://relay.firefox.com/ Relay dashboard].
+
+==Why is Firefox Relay shown in my password manager?==
+As a current Relay user, we’ve added Relay to your password manager to make it easier to use a Relay mask whenever a website asks for your email address.
+
+==Do I have to pay for Relay?==
+By using Firefox Relay in your password manager, you’ll be automatically signed up for a free account that includes 50 email masks. This is not a free trial; it is always free, and you’ll never be charged, unless you decide to sign up for Relay Premium.
+
+'''There are two options for Relay Premium:'''
+#'''Premium email masking''' includes unlimited email masks, a unique Relay email domain that you can use to create masks on the go, and greater inbox controls with the ability to block only promotional emails. Relay Premium email masking is available in the United States, Germany, United Kingdom, Canada, Singapore, Malaysia, New Zealand, France, Belgium, Austria, Spain, Italy, Switzerland, Netherlands, and Ireland.
+#'''Premium email masking plus phone masking''' gives you the same Premium features, plus a phone number mask that protects your real phone number. All calls and text messages sent to your phone number mask will be forwarded to your real phone number. ⁨Relay Premium phone masking is only available in the US and Canada.
+
+==How many masks do I get? Can I reuse my masks?==
+Your free account includes 50 email masks. You can reuse them as many times as you like. However, using a unique mask for each account is the most secure option. You can upgrade to [[Subscribe to Firefox Relay Premium|Relay Premium]] for unlimited email masks.
+
+==Where can I manage my masks? How do I delete a mask?==
+Sign in to your [https://relay.firefox.com/ Relay dashboard] to block senders, delete masks that get too much spam, and label your masks.
+
+==Where can I use Relay email masks?==
+You can use Relay on any site that you don’t want to share your real email address with. For example, when restaurants ask for your email to order online. Or when retailers ask for your email address, so you can get a promo code. We don’t recommend using it on sites that you trust, such as your bank or credit card website. Occasionally, a website may not accept a Relay email mask, in which case you’d need to use your real email address.
+
+==How can I remove Firefox Relay from the Firefox password manager?==
+To stop seeing Firefox Relay in the password manager suggestions:
+#Click the menu [[Image:Fx89menuButton]] button in the top right corner of the Firefox window.
+#Click {menu Settings}.
+#Select {menu Privacy & Security} in the panel to the left.
+#Scroll down to the {for not fx122}'''Logins and Passwords'''{/for}{for fx122}'''Passwords'''{/for} section.
+#; {for not fx122}[[Image:Uncheck Relay|width=600]]{/for}{for fx122}[[Image:Suggest relay password|width=600]]{/for}
+#Uncheck the box next to '''Suggest Firefox Relay email masks to protect your email address'''.
+
+==The password manager only displays email autofill and not the Firefox Relay option ⁠— What can I do?==
+We are actively working to improve the experience for our users and to make Firefox Relay available on more websites. In the meantime, you can generate or reuse a mask from the right-click menu with the [https://addons.mozilla.org/firefox/addon/private-relay Firefox Relay add-on from Add-ons Mozilla].
+#Follow the installation prompts and log in to Firefox Relay with your Mozilla account.
+#Visit the website where you would like to register.
+#Right-click on the email field where you want to use Firefox Relay.
+#Select {menu Generate new mask} or {menu Recent mask} from the right-click menu.
+
+=Related articles=
+*[[Integrate Firefox Relay into the Firefox Password Manager]]
+*[[Create an email mask through Firefox Relay]]

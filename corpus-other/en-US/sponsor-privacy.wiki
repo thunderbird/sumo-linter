@@ -1,0 +1,85 @@
+Mozilla works with advertising partners to place sponsored shortcuts, sponsored stories, and advertisements on the New Tab page. These are always clearly marked, and you have control over whether they are shown. Privacy is fundamental to Mozilla’s mission. We adhere to the [https://firefox-source-docs.mozilla.org/contributing/data-collection.html privacy standards for Firefox], use technical designs that enforce these standards, and we only work with advertising partners that meet those standards as well.
+
+The revenue from these advertisements on Firefox New Tab supports Mozilla’s mission to build a healthier internet and help fund Firefox development. Because Mozilla is structured not for maximizing profit but for advancing its mission, this revenue is reinvested into projects that foster a healthier web and improve privacy, including how to deliver ads in a privacy-preserving way. By keeping ads optional and transparent, we create a sustainable way to support Firefox without compromising your privacy. 
+
+__TOC__
+
+=Sponsored shortcuts=
+[[Image:firefoxsponsorads]]
+
+The [[New Tab page in Firefox|shortcuts feature]] on the Firefox home and new tab page shows useful quick links. To support Firefox development, the first 2-3 shortcuts are sponsored in the default configuration for some regions. These are clearly labeled and can be individually dismissed or disabled entirely as described later in this article. 
+
+==How does it work?==
+For first-time users, both the sponsored and non-sponsored shortcuts are general-interest sites like Amazon, Reddit, and Wikipedia. As you browse, the non-sponsored shortcuts are gradually replaced by sites you visit often. Sites in your history are ranked by both frequency and recency of visits (which we call “frecency”), and the top-scoring sites are shown as shortcuts. All of this happens entirely on your device in your copy of Firefox.
+
+In most cases, sponsored shortcuts remain general-interest and non-personalized even as the other shortcuts are populated by sites with high frequency scores. Occasionally, sponsors may pay Mozilla to specifically boost the score of their site during frecency ranking. In these cases, the shortcut is based on your history, but shown in the sponsored section. This still happens entirely on your device; your copy of Firefox has a list of participating sites, which receive a higher score during local ranking.
+
+All processing of browsing history happens on-device, and Mozilla does not receive your browsing history. For sponsored shortcuts, Firefox sends which shortcuts were shown and clicked to Mozilla using a technology called [[Oblivious HTTP (OHTTP) explained|Oblivious HTTP]] so that Mozilla is not able to learn which sites you have visited. Mozilla uses this data to confirm the shortcuts are working correctly and to report to sponsors how many times their site was shown and clicked. This helps demonstrate the value of homepage placement and encourages sites to continue their sponsorship.
+
+For further technical details, see [[How it Works - Respectful Ads @ Mozilla]].
+
+==How to disable a specific sponsor within sponsored shortcuts==
+You can disable a specific sponsored shortcut on desktop by taking the following steps:
+#Hover over the shortcut until the three-dot menu icon {button ⋯} appears.
+#Open the menu and click {menu Dismiss}.
+#;[[Image:SponsoredShortcuts89|width=400]]
+
+==How to disable the sponsored shortcuts feature==
+You can also disable sponsored shortcuts altogether.
+
+===Firefox desktop===
+#[[Template:optionspreferences]]
+#Select the {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} panel on the left.
+#In the {for not fx152}''Firefox Home Content''{/for}{for fx152}''Firefox Home''{/for} section, deselect '''Sponsored shortcuts'''.
+#;{for not fx152}[[Image:Fx140Settings-FirefoxHomeContentSponsoredShortcuts]]{/for}{for fx152}[[Image:Fx152settingsFirefoxHomeSponsoredShortcuts]]{/for}
+
+===Firefox for Android===
+#Tap the menu button {button ⋮}.
+#Tap {menu [[Image:Fx88NewTabCogwheel]] Settings}.
+#Tap {menu Homepage}.
+#Deselect '''Sponsored shortcuts''' under ''Shortcuts''.
+
+===Firefox for iOS===
+#Tap the menu button at the bottom of the screen (the menu will be at the top right if you’re using an iPad). [[Image:Firefox ios menu]]
+#Tap '''Settings''' in the menu panel.
+#Tap '''Customize Homepage'''.
+#Tap '''Shortcuts'''.
+#Switch the toggle next to '''Sponsored Shortcuts''' to the left to disable sponsored shortcuts.
+
+=Sponsored stories=
+[[Image:sponsorfirefox]]
+
+Firefox partners with select publishers and brands to deliver high-quality sponsored content and advertisements to our users in the Recommended stories section of the [[New Tab page in Firefox|New Tab page]]. This content will always be clearly marked, and you have control over whether it is shown on your New Tab page.
+
+==How to remove Sponsored stories from the New Tab page==
+If you want to remove specific sponsored stories from your New Tab page, you can click the three-dot menu {button ⋯} that appears in the upper right corner of the Sponsored story and select '''Dismiss''' from the menu.
+
+You can also permanently opt out of viewing sponsored stories by doing the following:
+#From the three-dot menu {button ⋯} of any Sponsored story, select {menu Manage sponsored content} to launch the ''Settings'' to the correct section.
+#Or: [[Template:optionspreferences]] Select the {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} panel on the left.
+#In the {for not fx152}''Firefox Home Content''{/for}{for fx152}''Firefox Home''{/for} section, deselect '''Sponsored stories'''.
+#;{for not fx152}[[Image:Fx140Settings-FirefoxHomeContentSponsoredStories]]{/for}{for fx152}[[Image:Fx152settingsFirefoxHomeSponsoredStories]]{/for}
+To learn more about customizing your New Tab page, see [[Customize items on your Firefox New Tab page]].
+
+==How to Report a Sponsored story or Ad==
+#To report a sponsored story or advertisement to Mozilla, use the three-dot menu {button ⋯} from any sponsored story or ad, and select {menu Report this ad}.
+#;[[Image:Report this ad]]
+#From there, select one of the available reasons that is best-suited to your reason for reporting, and click {menu Submit}.
+All submissions will be reviewed to ensure our sponsors and partners adhere to Mozilla’s Trust and Safety guidelines.
+
+==What data is collected or shared?==
+By default, when sponsored stories are displayed on your New Tab page, we collect information about how many times they appear and how many times they’re clicked. We share aggregated data with advertising partners related to the ads you see and click on, and we do not sell your personal data. We don’t share personally identifying data with advertising partners. For further technical details, see [[How it Works - Respectful Ads @ Mozilla]].
+
+==How do I opt out or delete this technical and interaction data?==
+'''Sponsors:''' When you opt out of viewing sponsored stories, we also treat this as a request to delete your technical and interaction data that is shared with Kevel and relevant sponsors. To opt out of viewing sponsored stories:
+#From the three-dot menu {button ⋯} of any Sponsored story, select {menu Manage sponsored content} to launch the ''Settings'' to the correct section.
+#Or: [[Template:optionspreferences]] Select the {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} panel.
+#In the {for not fx152}''Firefox Home Content''{/for}{for fx152}''Firefox Home''{/for} section, deselect '''Sponsored stories'''.
+'''Firefox:''' Firefox collects technical and usage data by default, but you can turn this off at any time by doing the following:
+#[[Template:optionspreferences]]
+#Click {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} in the left panel.
+#Scroll down to the ''Firefox Data Collection and Use'' section.
+#Deselect the '''Send technical and interaction data to Mozilla''' checkbox.
+{for not fx152}[[Image:technical interaction data]]{/for}{for fx152}[[Image:fx152firefoxdatacollectionanduse]]{/for}
+
+To learn more about what data Mozilla receives and how it’s used, see [https://www.mozilla.org/privacy/firefox/#how-is-your-data-used Mozilla’s Firefox Privacy Notice].

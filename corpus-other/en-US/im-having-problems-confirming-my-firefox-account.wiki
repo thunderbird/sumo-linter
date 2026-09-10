@@ -1,0 +1,34 @@
+When you sign up for a Mozilla account, we will send you a 6-digit confirmation code, to confirm that you own the email address connected to the account. We will also send you an email to confirm your sign in if you are signing into a new device for the first time. If you're having issues confirming your account, try these common solutions.
+* For other Mozilla account issues, see [[I'm having problems with my Mozilla account]].
+
+__TOC__
+
+=I haven't received an email to confirm my account=
+The confirmation code email can take several minutes to get to your inbox. You must enter the code within 10 minutes of receiving it. If you still haven’t received the code within this timeframe after attempting to sign in:
+#Try again. Some email providers may block the very first email, if it’s the first time seeing an email from us
+#Check your email from your internet browser instead of using an app like Mail or Outlook 
+#Search your inbox for an email from accounts@firefox.com
+#Spam filters might also prevent it from reaching the right mail folder. If you've already waited a few minutes and refreshed your inbox, check your junk mail or spam folder to see if your confirmation email ended up there
+#Try adding accounts@firefox.com to your list of allowed senders to keep your email provider from blocking the email. You can then re-enter the information on the Mozilla account signup page, or click the '''Need another code? Resend''' link on the page to enter a 6-digit confirmation code, to receive another email.
+
+=My code isn’t being accepted=
+If your code isn’t being accepted, it's likely that it has exceeded its 10 minute expiration and you will need to generate another one. To do this you can request another code from the same confirmation window. If you’ve navigated away from the window, simply attempt to sign in again.
+{note}'''Note:''' Confirmation codes expire '''10 minutes''' after they are generated.{/note}
+
+=An email was returned=
+
+[[Image:six digit code|width=350]]
+
+If you receive a message that an email was returned:
+#Please check your email settings that accounts@firefox.com is not flagged as spam.
+#Add accounts@firefox.com to your address book. This will make it a trusted email.
+{warning}If you have tried all of the above, do not try to do this again until 24 hours have gone by, or else your account will be locked.{/warning}
+
+=My Mozilla account has been locked=
+
+[[Image:Sorry, locked account|width=350]]
+
+If you become locked out, first wait at least 24 hours and then try again. If this is a valid email address that you have access to, you can contact us through the link in the error notice, respond to your support email or just click the {button Contact Support} button in the ''Still need help?'' block at the end of this article.
+
+=I no longer have access to the email address associated with my account=
+If you no longer have access to the email account, you will need to create another Mozilla account with a working email address. We also recommend reaching out to your previous email provider as they may be able to grant you temporary access to your account.

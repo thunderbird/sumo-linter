@@ -64,10 +64,14 @@ count_on_disk() {
 }
 
 resume_cmd() {
+  # The allow-list MUST be repeated. Resuming without it drops --only, and the
+  # signed-in listing includes the product's unpublished drafts — so a resume
+  # would quietly start fetching content that must never be committed. The
+  # first version of this function omitted it.
   if [ -n "$slugfile" ]; then
     echo "  tools/scrape/batch.sh --slugs $slugfile $out $batch"
   else
-    echo "  tools/scrape/batch.sh $product $out $batch"
+    echo "  tools/scrape/batch.sh $product $out $batch${allow:+ $allow}"
   fi
 }
 
@@ -132,11 +136,23 @@ while :; do
     exit "$rc"
   fi
 
+  # The scraper's summary line: `fetched N   cached M   failed K`.
   new=$(awk '/^fetched/ {print $2; exit}' "$log")
-  : "${new:=0}"
-  printf '=== pass %d fetched %s (on disk: %s)\n' "$pass" "$new" "$(count_on_disk)"
-  if [ "$new" -eq 0 ]; then
-    printf '=== nothing new; %s is complete\n' "${product:-$slugfile}"
+  cached=$(awk '/^fetched/ {print $4; exit}' "$log")
+  failed=$(awk '/^fetched/ {print $6; exit}' "$log")
+  : "${new:=0}" "${cached:=0}" "${failed:=0}"
+  processed=$((new + cached + failed))
+  printf '=== pass %d: fetched %s, cached %s, failed %s (on disk: %s)\n' \
+    "$pass" "$new" "$cached" "$failed" "$(count_on_disk)"
+
+  # Stop only when the pass saw FEWER articles than it asked for, which means the
+  # list is exhausted. "Fetched nothing" is not the same thing: on a resume the
+  # first pass fetches nothing because its whole batch is already cached, and
+  # treating that as done reported `firefox is complete` at 180 of 475 — then
+  # deleted the state file that would have shown otherwise.
+  if [ "$processed" -lt "$limit" ]; then
+    printf '=== %s is complete: %s articles, %s fetched this pass\n' \
+      "${product:-$slugfile}" "$processed" "$new"
     rm -f "$state"
     break
   fi

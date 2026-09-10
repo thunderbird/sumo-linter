@@ -1,0 +1,23 @@
+Firefox keeps track of the websites you visit in your browsing sessions. To view your browsing history:
+[[Template:OpenHistoryLibrary]]
+;[[Image:Fx89History-ManageHistory]]
+The ''Library'' window that opens when you click the {menu Manage History} bar will show your browsing history.
+;[[Image:Fx69HistoryLibrary]]
+{note}'''Tip:''' {for not mac}it is also possible to perform the same operation quickly using the shortcut {key Ctrl+Shift+H}.{/for} Pressing {for win,linux}{key Ctrl+H}{/for}{for mac}{key Command+Shift+H}{/for} will open your History in a sidebar.{/note}
+From the Library window, you can search for a particular website you have visited using the {menu Search History} field in the top right corner. Double-click on a website to open it in the current tab. Right click on a website to view other actions, such as open in a new tab, open in a private window, bookmark the page, copy the URL, and more.
+
+You can also sort all visited websites by name, [[Bookmark Tags - Categorize bookmarks to make them easy to find|tag]] or URL by clicking on the column labels.
+
+It is possible to remove websites from your browsing history or clear the browsing history. See these articles to learn more:
+* [[Delete browsing, search and download history on Firefox]]
+* [[Remove websites from the address bar suggestions]]
+In order to improve the relevance of history in Firefox, we've enabled storage of some additional information about site visits. The specific information we store is:
+* The amount of time you spend on a web page
+* The amount of time you spend explicitly typing on a web page
+* How much typing you do while you are on a web page
+* The amount of time you spend scrolling a web page
+* The total distance you have scrolled on a web page
+
+This data is stored client-side only and not synced or sent to any servers, and it expires in 60 days. It is also not collected in [[Private Browsing - Use Firefox without saving history|private browsing mode]].
+
+These signals will be used in the future to show you better results in [[Firefox View - View all tabs from your recent browsing and history|Firefox View]] and the [[Address bar autocomplete suggestions in Firefox|address bar]], including eliminating sites that aren't relevant like login interstitials and surfacing sites that you might have only visited once but spent a lot of time editing.

@@ -1,0 +1,596 @@
+This article lists keyboard shortcuts in Mozilla Firefox.{for linux} The shortcuts only work if they are not used by the desktop environment or window manager.{/for}{for linux} If you have enabled Emacs-style text editing shortcuts in GNOME, they will also work in Firefox. When an Emacs text editing shortcut conflicts with the default shortcuts (as occurs with {key Ctrl}+{key K}), the Emacs shortcut will take precedence if focus is inside a text box (which would include the address bar and search bar). In such cases you should use the alternate keyboard shortcut if one is listed below.{/for}
+*For mouse shortcuts, see [[Use mouse shortcuts to perform common tasks in Firefox]].
+*To customize shortcuts, see [[Customize keyboard shortcuts in Firefox]]. 
+
+__TOC__
+
+=Navigation=
+{|
+!Command
+!Shortcut
+|-
+|Back
+|{for win}{key Alt+&#8592;}{/for}{for mac}{key command+&#8592;}<br>{key command+[}{/for}{for linux}{key Alt+&#8592;}<br>{key Ctrl+[}{/for}<br>{key Backspace}*<br>*when {pref browser.backspace_action} is set to {pref 0} (as in the [[Configuration Editor for Firefox|Configuration Editor]]), which is not the default.
+|-
+|Forward
+|{for win}{key Alt+&#8594;}{/for}{for mac}{key command+&#8594;}<br>{key command+]}{/for}{for linux}{key Alt+&#8594;}<br>{key Ctrl+]}{/for}<br>{key Shift+Backspace}*<br>*see above.
+|-
+|Home
+|{for win,linux}{key Alt+Home}{/for}{for mac}{key option+home}{/for}
+|-
+|Open File
+|{for win,linux}{key Ctrl+O}{/for}{for mac}{key command+O}{/for}
+|-
+|Reload
+|{key F5}<br>{for win,linux}{key Ctrl+R}{/for}{for mac}{key command+R}{/for}
+|-
+|Reload (override cache)
+|{for win,linux}{key Ctrl+F5}<br>{key Ctrl+Shift+R}{/for}{for mac}{key command+shift+R}{/for}
+|-
+|Stop
+|{key Esc}{for mac}<br>{key command+.}{/for}
+|}
+
+=Current Page=
+{|
+!Command
+!Shortcut
+|-
+|Focus Next Link or Input Field
+|{key Tab}
+|-
+|Focus Previous Link or Input Field
+|{key Shift+Tab}
+|-
+|Go Down a Screen 
+|{key Page Down}{for mac}<br>{key fn+&#8595;}{/for}<br>{key Space bar}
+|- 
+|Go Up a Screen
+|{key Page Up}{for mac}<br>{key fn+&#8593;}{/for}<br>{key Shift+Space bar}
+|-
+|Go to Bottom of Page 
+|{key End}{for win,linux}<br>{key Ctrl+↓}{/for}{for mac}<br>{key command+&#8595;}{/for}
+|-
+|Go to Top of Page
+|{key Home}{for win,linux}<br>{key Ctrl+↑}{/for}{for mac}<br>{key command+&#8593;}{/for}
+|-
+|Move to Next Frame, Pop-Up
+|{key F6}
+|-
+|Move to Previous Frame, Pop-Up
+|{key Shift+F6}
+|-
+|Print
+|{for win,linux}{key Ctrl+P}{/for}{for mac}{key command+P}{/for}
+|-
+|Save Focused Link
+|{for win,linux}{key Alt+Enter}{/for}{for mac}{key option+return}{/for}<br> -when {pref browser.altClickSave} is set to {pref true} (as in the [[Configuration Editor for Firefox|Configuration Editor]]), which is not the default.
+|-
+|Save Page As
+|{for win,linux}{key Ctrl+S}{/for}{for mac}{key command+S}{/for}
+|-
+|[[Font size and zoom - increase the size of web pages|Zoom In]]
+|{for win,linux}{key Ctrl+&#43;}{/for}{for mac}{key command+&#43;}{/for}
+|-
+|[[Font size and zoom - increase the size of web pages|Zoom Out]]
+|{for win,linux}{key Ctrl+-}{/for}{for mac}{key command+-}{/for}
+|-
+|[[Font size and zoom - increase the size of web pages|Zoom Reset]]
+|{for win,linux}{key Ctrl+0}{/for}{for mac}{key command+0}{/for}
+|}
+
+=Editing=
+{|
+!Command
+!Shortcut
+|-
+|Copy
+|{for win,linux}{key Ctrl+C}{/for}{for mac}{key command+C}{/for}
+|-
+|Cut
+|{for win,linux}{key Ctrl+X}{/for}{for mac}{key command+X}{/for}
+|-
+|Delete
+|{for win,linux}{key Del}{/for}{for mac}{key delete}{/for}
+|-
+|Delete Word to the Left
+|{for win,linux}{key Ctrl+Backspace}{/for}
+|-
+|Delete Word to the Right
+|{for win,linux}{key Ctrl+Del}{/for}
+|-
+|Go one Word to the Left
+|{for win,linux}{key Ctrl+←}{/for}
+|-
+|Go one Word to the Right
+|{for win,linux}{key Ctrl+→}{/for}
+|-
+|Go to Beginning of Line
+|{key Home}{for win}<br/>{key Ctrl+↑}{/for}
+|-
+|Go to End of Line
+|{key End}{for win}<br/>{key Ctrl+↓}{/for}
+|-
+|Go to Beginning of Text
+|{for win,linux}{key Ctrl+Home}{/for}
+|-
+|Go to End of Text
+|{for win,linux}{key Ctrl+End}{/for}
+|-
+|Paste
+|{for win,linux}{key Ctrl+V}{/for}{for mac}{key command+V}{/for}
+|-
+|Paste (as plain text)
+|{for win,linux}{key Ctrl+Shift+V}{/for}{for mac}{key command+shift+V}{/for}
+|-
+|Redo
+|{for win,linux}{key Ctrl+Y}<br/>{key Ctrl+Shift+Z}{/for}{for mac}{key command+shift+Z}{/for}
+|-
+|Select All
+|{for win,linux}{key Ctrl+A}{/for}{for mac}{key command+A}{/for}
+|-
+|Undo
+|{for win,linux}{key Ctrl+Z}{/for}{for mac}{key command+Z}{/for}
+|-
+|Select link text only
+|{for win,linux}{key Alt} + select link text{/for}{for mac}{key opt} + select link text{/for}
+|}
+
+=Search=
+{|
+!Command
+!Shortcut
+|-
+|Find in This Page
+|{for win,linux}{key Ctrl+F}{/for}{for mac}{key command+F}{/for}
+|
+|-
+|Find Again
+|{key F3}<br>{for win,linux}{key Ctrl+G}{/for}{for mac}{key command+G}{/for}
+|
+|-
+|Find Previous
+|{key Shift+F3}<br>{for win,linux}{key Ctrl+Shift+G}{/for}{for mac}{key command+shift+G}{/for}
+|
+|-
+|Quick Find within link-text only
+|{key '}
+|
+|-
+|Quick Find
+|{key /}
+|
+|-
+|Close the Find or Quick Find bar
+|{key Esc}<br> - when the Find or Quick Find bar is focused
+|
+|-
+|Switch Search Engine
+|{for not fx136}{for win,linux}{key Alt+&#8595;}<br>{key Alt+&#8593;}{/for}{for mac}{key option+&#8595;}<br>{key option+&#8593;}{/for}<br> - after you have written something (or pressed {key ↓}) in the address bar{/for}{for fx136}(After you have written something in the address bar) press {key Shift+Tab} to move focus from the address bar to the Unified Search Button, then press {key ↓} to expand the menu.{/for}
+|
+|-
+{/for}
+|Web Search with Default Search Engine
+|Type {key ?} and a space (or only {key ?}) into empty Address Bar
+|-
+|Focus [[Search with the Firefox address bar|Address bar]] {for fx65}for Web Search with Default Search Engine{/for}
+|{for win,linux}{key Ctrl+K}{/for}{for mac}{key command+K}{/for}<br>{for win}{key Ctrl+E}{/for}{for linux}{key Ctrl+J}{/for}{for mac}{key command+option+F}{/for}<br>- if search bar is not shown
+|
+|-
+|Focus the [[Add the Search bar to your Firefox toolbar|Search bar]]
+|{for win,linux}{key Ctrl+K}{/for}{for mac}{key command+K}{/for}<br>{for win}{key Ctrl+E}{/for}{for linux}{key Ctrl+J}{/for}{for mac}{key command+option+F}{/for}<br>- if search bar is shown
+|
+|-
+<!-- this was added in revision 296521 but does not work. Remove this entry? See discussion.
+|Focus from the [[Add the Search bar to your Firefox toolbar|Search bar]] to the Unified Search button
+|{for win,linux,mac}{key SHIFT+TAB}{/for}
+|
+|-
+-->
+|Change the Default Search Engine
+|{for win,linux}{key Ctrl+&#8595;}<br>{key Ctrl+&#8593;}{/for}{for mac}{key command+&#8595;}<br>{key command+&#8593;}{/for}<br> - in the [[Add the Search bar to your Firefox toolbar|Search bar]] or the Search field of the [[New Tab page in Firefox|New Tab]] page.
+|
+|-
+|View menu to switch, add or manage search engines
+|{for win,linux}{key Alt+&#8595;}<br>{key Alt+&#8593;}<br>{key F4}{/for}{for mac}{key option+&#8595;}<br>{key option+&#8593;}{/for}<br> - when the [[Add the Search bar to your Firefox toolbar|Search bar]] is focused
+|
+|}
+
+=Windows & Tabs=
+{note}See also [[Use tabs to organize lots of websites in a single window]].{/note}
+{|
+!Command
+!Shortcut
+|-
+|Close Tab
+|{for win,linux}{key Ctrl+W}<br>{key Ctrl+F4}{/for}{for mac}{key command+W}{/for}<br>- except for [[Pinned Tabs - keep favorite websites open and just a click away|Pinned Tabs]]
+|-
+|Close Window
+|{for win,linux}{key Ctrl+Shift+W}<br>{key Alt+F4}{/for}{for mac}{key command+shift+W}{/for}
+|-
+|Cycle through Tabs in Recently Used Order
+|{for win,linux}{key Ctrl+Tab}{/for}{for mac}{key control+tab}{/for}<br>-if enabled in [[Tab preferences and settings|Settings]]
+|-
+|{for win}Exit{/for}{for linux,mac}Quit{/for}
+|{for win}{key Ctrl+Shift+Q}{/for}{for linux}{key Ctrl+Q}{/for}{for mac}{key command+Q}{/for}
+|-<!-- LOCALIZATION NOTE: "Left"/"Up" and "Right"/"Down" might need special treatment for bidi locales, as used in the following entries. --> 
+|Go one Tab to the Left / Up
+|{for win,linux}{key Ctrl+Page Up}{/for}{for mac}{key control+page up}<br>{key command+option+&#8592;}{for fx140}<br>{key command+option+↑}{/for}{/for}<br>{for win,linux}{key Ctrl+Shift+Tab}{/for}{for mac}{key control+shift+tab}{/for}*<br>* see below
+|-
+|Go one Tab to the Right / Down
+|{for win,linux}{key Ctrl+Page Down}{/for}{for mac}{key control+page down}<br>{key command+option+&#8594;}{for fx140}<br>{key command+option+↓}{/for}{/for}<br>{for win,linux}{key Ctrl+Tab}{/for}{for mac}{key control+tab}{/for}*<br>* if the setting ''Ctrl+Tab cycles through tabs in recently used order'' is disabled in [[Tab preferences and settings|Settings]]
+|-
+|Go to Tab 1 to 8
+|{for win}{key Ctrl+1} to {key 8}{/for}{for mac}{key command+1} to {key 8}{/for}{for linux}{key Alt+1} to {key 8}{/for}
+|-
+|Go to Last Tab
+|{for win}{key Ctrl+9}{/for}{for mac}{key command+9}{/for}{for linux}{key Alt+9}{/for}
+|-
+|Move Tab Left
+|{key Ctrl+Shift+Page Up}
+|-
+|Move Tab Right
+|{key Ctrl+Shift+Page Down}
+|-
+|Move Tab to start
+|{for win,linux}{key Ctrl+Shift+Home}{/for}{for mac}{key command+shift+home}{/for}<br> - requires the currently selected tab to be "in focus" for instance, by hitting {for win,linux}{key Alt+D}{/for}{for mac}{key command+L}{/for} to focus the address bar, and then {key Shift+Tab} until you reach the browser tab bar.
+|-
+|Move Tab to end
+|{for win,linux}{key Ctrl+Shift+End}{/for}{for mac}{key command+shift+end}{/for}<br> - requires the currently selected tab to be "in focus" for instance, by hitting {for win,linux}{key Alt+D}{/for}{for mac}{key command+L}{/for} to focus the address bar, and then {key Shift+Tab} until you reach the browser tab bar.
+|-
+|[[Mute noisy tabs in Firefox|Mute/Unmute Audio]]
+|{for win,linux}{key Ctrl+M}{/for}{for mac}{key control+M}{/for}
+|-
+|New Tab
+|{for win,linux}{key Ctrl+T}{/for}{for mac}{key command+T}{/for}
+|-
+|New Window
+|{for win,linux}{key Ctrl+N}{/for}{for mac}{key command+N}{/for}
+|-
+|New [[Private Browsing - Browse the web without saving information about the sites you visit|Private Window]]
+|{for win,linux}{key Ctrl+Shift+P}{/for}{for mac}{key command+shift+P}{/for}
+|-
+|Open Address or Search in New Background Tab
+|{for win,linux}{key Alt+Shift+Enter}{/for}{for mac}{key option+shift+return}{/for}<br> - from address bar
+|-
+|Open Address or Search in New Foreground Tab
+|{for win,linux}{key Alt+Enter}{/for}{for mac}{key option+return}{/for}<br> - from address bar or Search bar
+|-
+|Open Address or Search in New Window
+|{for win,linux}{key Shift+Enter}{/for}{for mac}{key shift+return}{/for}<br> - from address bar or the Search field on the [[New Tab page in Firefox|New Tab]] page
+|-
+|Open Search in New Background Tab
+|{for win,linux}{key Ctrl+Enter}{/for}{for mac}{key command+shift+return}{/for}<br> - from the Search field on the [[New Tab page in Firefox|New Tab]] page.<br>(see note, below)
+|-
+|Open Search in New Foreground Tab
+|{for win,linux}{key Ctrl+Shift+Enter}{/for}{for mac}{key command+return}{/for}<br> - from the Search field on the [[New Tab page in Firefox|New Tab]] page.<br>'''Note:''' The Foreground and Background Tab shortcuts are switched if the setting ''When you open a link, image or media in a new tab, switch to it immediately'' is enabled in [[Tab preferences and settings|Settings]]
+|-
+|Open Focused Bookmark or Link in Current Tab
+|{for win,linux}{key Enter}{/for}{for mac}{key return}{/for}
+|-
+|Open Focused Bookmark in New Foreground Tab
+|{for win,linux}{key Ctrl+Enter}{/for}{for mac}{key command+return}{/for}
+|-
+|Open Focused Bookmark in New Background Tab
+|{for win,linux}{key Ctrl+Shift+Enter}{/for}{for mac}{key command+shift+return}{/for}
+|-
+|Open Focused Link in New Background Tab
+|{for win,linux}{key Ctrl+Enter}{/for}{for mac}{key command+return}{/for}<br>(see note, below)
+|-
+|Open Focused Link in New Foreground Tab
+|{for win,linux}{key Ctrl+Shift+Enter}{/for}{for mac}{key command+shift+return}{/for}<br>'''Note:''' The Foreground and Background Tab shortcuts are switched if the setting ''When you open a link, image or media in a new tab, switch to it immediately'' is enabled in [[Tab preferences and settings|Settings]]
+|-
+|Open Focused Bookmark or Link in New Window
+|{for win,linux}{key Shift+Enter}{/for}{for mac}{key shift+return}{/for}
+|-
+|Show All Tabs
+|{for win,linux}{key Ctrl+Shift+Tab}{/for}{for mac}{key control+shift+tab}{/for}<br>- if the setting ''Ctrl+Tab cycles through tabs in recently used order'' is enabled in [[Tab preferences and settings|Settings]]
+|-
+|Expand/collapse vertical tabs
+|{for win,linux}{key Ctrl+Alt+Z}{/for}{for mac}{key Ctrl+Z}{/for}
+|-
+|{for not fx116}Undo Close Tab{/for}{for fx116}Reopen last closed tab or window{/for}
+|{for win,linux}{key Ctrl+Shift+T}{/for}{for mac}{key command+shift+T}{/for}<br>{for fx116}'''Note:'''Reopens last closed tab or window, in the order closed. If there aren't any tabs or windows to reopen, this command restores the previous session.{/for}
+|-
+|{for not fx116}Undo Close Window{/for}{for fx116}Reopen last closed window{/for}
+|{for win,linux}{key Ctrl+Shift+N}{/for}{for mac}{key command+shift+N}{/for}
+|-
+|Moves the URL left or right (if cursor is in the address bar)
+|{for win,linux}{key Ctrl+Shift+X}{/for}{for mac}{key command+shift+X}{/for}
+|}
+
+{for win,linux}
+=History=
+{|
+!Command
+!Shortcut
+|-
+|History sidebar
+|{key Ctrl+H}
+|-
+|Library window (History)
+|{key Ctrl+Shift+H}
+|-
+|[[Delete browsing, search and download history on Firefox|Clear Recent History]]
+|{key Ctrl+Shift+Del}
+|}
+{/for}
+{for mac}
+=History=
+{|
+!Command
+!Shortcut
+|-
+|History sidebar
+|{key command+shift+H}
+|-
+|[[Delete browsing, search and download history on Firefox|Clear Recent History]]
+|{key command+shift+delete}
+|}
+{/for}
+
+=Bookmarks=
+{|
+!Command
+!Shortcut
+|-
+|{for win,mac}Bookmark All Tabs{/for}
+|{for win}{key Ctrl+Shift+D}{/for}{for mac}{key command+shift+D}{/for}
+|-
+|Bookmark This Page
+|{for win,linux}{key Ctrl+D}{/for}{for mac}{key command+D}{/for}
+|-
+|[[Bookmarks in Firefox|Bookmarks]] sidebar
+|{for win}{key Ctrl+B}{/for}{for mac}{key command+B}{/for}{for linux}{key Ctrl+B}{/for}
+|-
+|Show/hide the Bookmarks toolbar
+|{for win}{key Ctrl+Shift+B}{/for}{for mac}{key command+shift+B}{/for}{for linux}{key Ctrl+Shift+B}{/for}
+|-
+|Show All Bookmarks (Library Window)
+|{for win}{key Ctrl+Shift+O}{/for}{for mac}{key command+shift+O}{/for}{for linux}{key Ctrl+Shift+O}{/for}
+|-
+|Show List of All Bookmarks
+|{key Space}<br>- in Empty Search Field in Bookmarks Library Window or Sidebar.
+|-
+|Focus Next Bookmark/Folder whose name (or sorted property) starts with a given character or character sequence 
+|Type the character or quickly type the character sequence.<br>- in Bookmarks Library, Bookmarks Toolbar, Bookmarks Menu, Bookmarks Sidebar
+|}
+
+=Tools=
+{|
+!Command
+!Shortcut
+|-
+|[[Where to find and manage downloaded files in Firefox|Downloads]]
+|{for win}{key Ctrl+J}{/for}{for linux}{key Ctrl+Shift+Y}{/for}{for mac}{key command+J}{/for}
+|-
+|Add-ons
+|{for win,linux}{key Ctrl+Shift+A}{/for}{for mac}{key command+shift+A}{/for}
+|-
+|Toggle Developer Tools
+|{key F12}<br>{for win,linux}{key Ctrl+Shift+I}{/for}{for mac}{key command+alt+I}{/for}
+|-
+|Web Console
+|{for win,linux}{key Ctrl+Shift+K}{/for}{for mac}{key command+alt+K}{/for}
+|-
+|Inspector
+|{for win,linux}{key Ctrl+Shift+C}{/for}{for mac}{key command+alt+C}{/for}
+|-
+|Take a screenshot
+|{for win,linux}{key Ctrl+Shift+S}{/for}{for mac}{key command+shift+S}{/for}
+|-
+|Style Editor
+|{key Shift+F7}
+|-
+|Task Manager
+|{for fx108}{key Shift+Esc}{/for}
+|-
+|Profiler
+|{key Shift+F5}
+|-
+|Network
+|{for win,linux}{key Ctrl+Shift+E}{/for}{for mac}{key command+alt+E}{/for}
+|-
+|Responsive Design View
+|{for win,linux}{key Ctrl+Shift+M}{/for}{for mac}{key command+alt+M}{/for}
+|-
+|Page Source
+|{for win,linux}{key Ctrl+U}{/for}{for mac}{key command+U}{/for}
+|-
+|Browser Console
+|{for win,linux}{key Ctrl+Shift+J}{/for}{for mac}{key command+shift+J}{/for}
+|-
+|[[View site information with Page Info|Page Info]]
+|{for win, linux}{key Ctrl+I}{/for}{for mac}{key command+I}{/for}
+|-
+|}
+
+=PDF Viewer=
+{|
+!Command
+!Shortcut
+|-
+|Next page
+|{key N} or {key J} or {key &#8594;}
+|-
+|Previous page
+|{key P} or {key K} or {key &#8592;}
+|-
+|Zoom in
+|{for win,linux}{key Ctrl+&#43;}{/for}{for mac}{key command+&#43;}{/for}
+|-
+|Zoom out
+|{for win,linux}{key Ctrl+-}{/for}{for mac}{key command+-}{/for}
+|-
+|Automatic Zoom
+|{for win,linux}{key Ctrl+0}{/for}{for mac}{key command+0}{/for}
+|-
+|Rotate the document clockwise
+|{key R}
+|-
+|Rotate counterclockwise
+|{key Shift+R}
+|-
+|Switch to Presentation Mode
+|{for win,linux}{key Ctrl+Alt+P}{/for}{for mac}{key command+Alt+P}{/for}
+|-
+|Choose Text Selection Tool
+|{key S}
+|-
+|Choose Hand Tool
+|{key H}
+|-
+|Focus the Page Number input box
+|{for win,linux}{key Ctrl+Alt+G}{/for}{for mac}{key command+Alt+G}{/for}
+|}
+
+<!-- Empty rows would appear because the content was hidden in for tags, so moved the for tags outside the table, and created a separate table for each. See https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly/discuss/6816 -->
+
+{for win,linux}
+=Miscellaneous=
+{|
+!Command
+!Shortcut
+|-
+|Complete .com Address
+|{key Ctrl+Enter}
+|-
+|Delete Selected Autocomplete Entry
+|{key Shift+Del}
+|-
+|Toggle Full Screen
+|{key F11}
+|-
+|Toggle Menu Bar activation (showing it temporarily when hidden)
+|{for win}{key Alt} or {key F10}{/for}{for linux}{key Alt} or {key F10}{/for}
+|-
+|Toggle [[Firefox Reader View for clutter-free web pages|Reader Mode]]
+|{for linux}{key Ctrl+Alt+R}{/for}{for win}{key F9}{/for}
+|-
+|[[Accessibility features in Firefox - Make Firefox and web content work for all users#w_using-a-keyboard-to-navigate-within-webpages|Caret Browsing]]
+|{key F7}
+|-
+|Focus Address Bar
+|{key F6}<br>{key Alt+D}<br>{key Ctrl+L}<br> '''Note:''' To focus on the Address Bar, make sure to push {key F6} only one time.
+|-
+|Focus Search Field in Library
+|{key F6}<br>{key Ctrl+F}
+|-
+|Stop Autoscroll Mode
+|{key Esc}
+|-
+|Cancel Drag-and-Drop Operation
+|{key Esc}
+|-
+|Clear Search Field in Library or Sidebar
+|{key Esc}
+|-
+|Close a Menu
+|{key Esc}{for win,linux}<br>{key Alt}<br>{key F10}{/for}
+|-
+|Toggle Context Menu
+|{key Shift+F10}
+|}
+{/for}
+{for mac}
+=Miscellaneous=
+{|
+!Command
+!Shortcut
+|-
+|Complete .com Address
+|{for not fx136}{key control+return}{/for}{for fx136}{key command+return}{/for}
+|-
+|Delete Selected Autocomplete Entry
+|{key shift+delete}
+|-
+|Toggle Full Screen
+|{key command}+{key Shift}+{key F}
+|-
+|Toggle [[Firefox Reader View for clutter-free web pages|Reader Mode]]
+|{key command}+{key option}+{key R}
+|-
+|[[Accessibility features in Firefox - Make Firefox and web content work for all users#w_using-a-keyboard-to-navigate-within-webpages|Caret Browsing]]
+|{key F7}
+|-
+|Focus Address Bar
+|{key F6}<br>{key command+L}
+|- 
+|Focus Search Field in Library
+|{key F6}<br>{key command+F}
+|-
+|Stop Autoscroll Mode
+|{key Esc}
+|-
+|Cancel Drag-and-Drop Operation
+|{key Esc}
+|-
+|Clear Search Field in Library or Sidebar
+|{key Esc}
+|-
+|Close a Menu
+|{key Esc}{for win,linux}<br>{key Alt}<br>{key F10}{/for}
+|-
+|Open Context Menu
+|Hold down the {key Control} key while you select an item
+|}
+{/for}
+
+=Media shortcuts=
+{note}See also [[Viewing HTML5 audio and video in Firefox]] and the [[About Picture-in-Picture in Firefox#w_keyboard-shortcuts|list of Picture-in-Picture (PiP) shortcuts]].{/note}
+{|
+!Command
+!Shortcut
+|-
+|Toggle Play / Pause
+|{key Space bar}
+|-
+|Decrease volume
+|{key &#8595;}
+|-
+|Increase volume
+|{key &#8593;}
+|-
+|Mute audio
+|{for win,linux}{key Ctrl+&#8595;}{/for}{for mac}{key command+&#8595;}{/for}
+|-
+|Unmute audio
+|{for win,linux}{key Ctrl+&#8593;}{/for}{for mac}{key command+&#8593;}{/for}
+|-
+|Seek back 15 seconds
+|{key &#8592;}
+|-
+|Seek back 10 %
+|{for win,linux}{key Ctrl+&#8592;}{/for}{for mac}{key command+&#8592;}{/for}
+|-
+|Seek forward 15 seconds
+|{key &#8594;}
+|-
+|Seek forward 10 %
+|{for win,linux}{key Ctrl+&#8594;}{/for}{for mac}{key command+&#8594;}{/for}
+|-
+|Seek to the beginning
+|{key Home}
+|-
+|Seek to the end
+|{key End}
+|}
+
+=Selection of Multiple Tabs=
+{note}These shortcuts require the tab bar to be “in focus”. Currently, the only way to do this is to focus an adjacent object and “tab into” the tab bar, for instance, by hitting {for win,linux}{key Ctrl+L}{/for}{for mac}{key command+L}{/for} to focus the address bar, and then {key Shift+Tab} repeatedly until the current tab gets a colored border.{/note}
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Select left, right, first or last tab. Deselect all other tabs.
+|Arrow Keys<br>{key Home}<br>{key End}
+|-
+|Move the colored border to left, right, first or last tab.
+|{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Arrow&nbsp;Keys<br>{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + {key Home}<br>{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + {key End}
+|-
+|Select or deselect the tab with the colored border. The other tabs stay selected or deselected.
+|{for win,linux}{key Ctrl+Space}{/for}{for mac}{key command+space}{/for}
+|}
+
+=Developer shortcuts=
+You can also use keyboard shortcuts with developer tools in Firefox. See the [https://firefox-source-docs.mozilla.org/devtools-user/keyboard_shortcuts/index.html All keyboard shortcuts] ''Firefox Source Docs'' page.

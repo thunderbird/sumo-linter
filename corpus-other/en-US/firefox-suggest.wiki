@@ -1,0 +1,81 @@
+<!-- CONTRIBUTOR NOTE: Staff approval is required for this article. See: https://support.mozilla.org/en-US/kb/firefox-suggest/discuss/10380 -->
+<!--{note}'''Note:''' The contents of this post are currently being updated to reflect an upcoming refresh of this feature, please check back in a few weeks for more details.{/note}-->
+Firefox Suggest helps you quickly find what you need as you type in the address bar. It can show results from your bookmarks, open tabs, browsing history, or even suggest useful sites from the web. 
+
+This article explains how Firefox Suggest works, the types of suggestions you may see, and how to control what appears.
+{note} '''Note:''' Certain parts of Firefox Suggest are currently available only in some regions.{/note}
+
+__TOC__
+
+=What is Firefox Suggest?=
+Firefox Suggest is a built-in feature that enhances the address bar. It shows real-time suggestions from:
+{for not fx152}
+*'''Browsing history''' – Page titles and web addresses from your history, using local data stored on your own computer
+*'''Bookmarks''' – Page titles, web addresses and tags from your bookmarks
+*'''Open tabs''' – Pages you currently have open in other tabs
+*'''Search engines to use''' – Relevant search terms or solution buttons related to the task or answer you may be looking for
+*'''Suggestions from Firefox''' – Contextual suggestions from the web related to your search, including some sponsored suggestions.
+**'''Retrieve suggestions from Mozilla as you type''' – In some versions and regions, Firefox can display suggestions with real-time information using [[Oblivious HTTP (OHTTP) explained|Oblivious HTTP (OHTTP)]] to protect your privacy. [https://blog.mozilla.org/firefox/better-search-suggestions/ Learn more].
+{/for}
+{for fx152}
+*'''Browsing history''' – Page titles and web addresses from your history, using local data stored on your own computer
+*'''Bookmarks''' – Page titles, web addresses and tags from your bookmarks
+*'''Open tabs''' – Pages you currently have open in other tabs
+*'''Shortcuts''' - Websites that you saved 
+*'''Recent websites''' - Websites that you recently visited
+*'''Search engines to use''' – Relevant search terms or solution buttons related to the task or answer you may be looking for
+*'''Quick actions''' - Actions that you can do directly from the address bar without having to navigate to Settings
+*'''Suggestions from Firefox''' – Contextual suggestions from the web related to your search, including some sponsored suggestions.
+**'''Sponsored suggestions''' - Support Firefox with occasional sponsored suggestions
+**'''Retrieve suggestions from Mozilla as you type''' – In some versions and regions, Firefox can display suggestions with real-time information using [[Oblivious HTTP (OHTTP) explained|Oblivious HTTP (OHTTP)]] to protect your privacy. [https://blog.mozilla.org/firefox/better-search-suggestions/ Learn more].
+{/for}
+
+=Manage your Firefox Suggest settings=
+To customize your settings for the types of suggestions displayed in the address bar results, follow the steps below:
+#[[Template:optionspreferences]]
+#Select {menu Search} on the left.
+#Scroll down to the {for not fx148}{menu Address Bar — Firefox Suggest}{/for}{for fx148}{menu Firefox Suggest}{/for} section and click the checkbox next to the settings you want to enable or disable.
+#;{for not fx148}[[Image:Fx128AddressBar-FirefoxSuggestSettings]]{/for}{for fx148}[[Image:firefoxsuggest]]{/for}
+
+<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1827904 -->
+=Manage your address bar suggestions=
+Firefox lets you control what content appears in your address bar suggestions. Simply, click the three-dot menu button {button ⋯} next to a suggestion in the address bar.
+
+'''The following options are available:'''
+{|
+|-
+|'''Firefox Suggest (Sponsored and Non-Sponsored)'''||This includes contextual suggestions from Firefox and occasional sponsored suggestions related to your search.
+*Remove from history: removes the suggestion from your history.
+*Dismiss this suggestion: removes the suggestion from the list of options and adds it to your blocklist.
+*Learn More: provides more information.
+|-
+|'''Search engine historical suggestions'''||
+*Remove from history: removes the suggestion from your history.
+*Learn More: provides more information.
+|-
+|'''Autofill (Domain)'''||
+*Remove from history: removes the domain suggestion from your history.
+*Learn More: provides more information.
+|-
+|'''Autofill (Full URLs)'''||
+*Remove from autofill history: the suggestion will be removed from your history, and it will not appear as an automatic suggestion the next time you enter the same query.
+*Learn More: provides more information.
+|}
+
+=Who are Mozilla’s partners?=
+Mozilla collaborates with trusted organizations to provide some of the suggestions you see in Firefox. Privacy is fundamental to Mozilla’s [https://www.mozilla.org/about/manifesto/ mission], and we carefully evaluate all partners to ensure they meet our strict privacy standards.
+
+We partner with [https://www.admarketplace.com/privacy-policy/ adMarketplace], Yelp and [https://www.accuweather.com/ AccuWeather] to provide sponsored suggestions that enhance your browsing experience with helpful, context-based information. Certain partnerships are limited to the United States, while others are active in every region where Suggest is available. Sponsored suggestions are clearly labeled as ''Sponsored'', meaning Mozilla receives revenue when users engage with these suggestions, which in turn helps fund Firefox development and other Mozilla initiatives. Through adMarketplace, we share recommendations for a variety of products and services. Through Yelp, we offer recommendations for local businesses and services, such as restaurants and shops. AccuWeather enables us to provide weather-related suggestions, including local forecasts and current conditions.
+
+Firefox also provides suggestions from [https://www.wikipedia.org/ Wikipedia], which are not sponsored and can enrich your browsing experience with useful, community-driven information.
+
+{for fx143}
+You can also access the following real-time information directly from the address bar:
+*Stock market information (provided by [https://massive.com/ Massive])
+*Flight statuses (provided by [https://www.flightaware.com/ FlightAware])
+*Sport schedules and scores (provided by [https://sportsdata.io/ Sportsdata.io])
+See [[Get custom suggestions in the Firefox address bar]] for more information.
+{/for}
+
+=Related articles=
+*[[Get your local weather forecast from the Firefox address bar]]

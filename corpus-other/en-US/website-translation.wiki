@@ -1,0 +1,144 @@
+Firefox includes a built-in translation tool to help you browse the web in your preferred language. Unlike some browsers, '''translations happen entirely on your device''', so your text is never sent to cloud servers. Because translations are processed on your device, you can translate pages even without an internet connection once the required language packs are installed.
+
+
+<!--
+Firefox has added new translation features that allow you to seamlessly browse the web in your preferred language. As you navigate the site, Firefox continuously translates new content in real time. The translation feature was rolled out gradually and has been available for all users since [[Find what version of Firefox you are using|Firefox version]] [https://www.firefox.com/firefox/118.0/releasenotes 118]. A new ''Translate selection'' feature has been added starting in Firefox version 128, that enables you to highlight and translate selected text.
+{note}'''Note:''' Unlike other browsers that rely on cloud services, Firefox keeps your data safe on your device. There's no privacy risk of sending text to third parties for analysis because translation happens on your device, not externally.{/note}
+-->
+
+__TOC__
+
+=Translate the full page=
+#When you visit a webpage in a supported language, the translation panel will open automatically.
+#*If the panel does not open, click the translation icon in the toolbar.
+#;[[Image:Translation icon - toolbar]]
+#*Alternatively, you can select {menu Translate page} from the Firefox [[Image:IG main menu]] menu.You can also right-click anywhere on the page and select Translate page from the context menu.
+#Firefox detects the page language automatically. To change it, use the top dropdown menu.
+#;[[Image:Fx150select translate from language|width=400]]
+#Next, select your desired translation language from the bottom dropdown menu, which will be pre-populated with your first preferred language.
+#;[[Image:select translate to language|width=400]]
+#Click {button Translate} to translate the entire page.
+#;[[Image:Fx150Firefox Fullpage Translation updated image 3|width=400]]
+#To revert the page to the original language, click the toolbar icon [[Image:Translation toolbar icon 2|width=50]] and select {button Show original}.
+#;[[Image:Fx150Firefox Fullpage Translation updated image 4|width=400]]
+
+=Translate selected text=
+You might need to translate a specific word or sentence when reading in a foreign language. Firefox enables you to highlight and translate selected text to help with these situations.
+#Highlight the text.
+#Right click and select {menu Translate selection to <your language>}.
+#;[[Image:Translate selected text|width=700]]
+#The selected text will be translated and displayed in a pop-up. From here, click {button Copy} to save the translation to your clipboard, {button Translate full page} to translate the entire webpage or {button Done} to close the pop-up.
+#;[[Image:Fx150Partial translation pop-up|width=400]]
+#Also, right-click a hyperlink without selecting any text to translate the link text.
+#;[[Image:Translate link text|width=600]]
+
+=Customize translation settings=
+To tailor your translation experience:
+#On the right-hand side of the toolbar, click the translation icon.
+#;[[Image:Translation icon - toolbar]]
+#Click the cog icon located on the top right side of the translation panel.
+#;[[Image:Fx150Firefox Fullpage Translation updated image 5|width=400]]
+#Choose the setting you want to apply.
+#;[[Image:Fx150Firefox Translations - Settings Menu (default)]]
+#A checkmark will appear to confirm that the selected setting is enabled.
+#;[[Image:Fx150Firefox Translations - Settings menu (Always Translate Spanish)]]
+#To revert a change, simply reselect the setting, and the checkmark will disappear, indicating that it's disabled.
+{note}'''Tip:''' {menu Always offer to translate} controls whether the panel opens automatically.{/note}
+
+{for fx148}
+=Disable website translations=
+You can disable translation prompts in Firefox if you don’t want websites in other languages to be translated. When you disable translations, Firefox will stop showing the translation panel for sites that are not in your preferred language, and you’ll no longer receive prompts while browsing.
+
+For example:
+*The translation panel won’t appear when visiting that site again.
+*Pages in that language will load without translation suggestions.
+To block specific translations:
+#[[Template:optionspreferences]]
+#Select {menu AI Controls} on the left.
+#Under '''On-device AI''' next to {menu Translations}, choose {menu Blocked} from the drop-down menu.
+What the dropdown options mean:
+*'''Available:''' Firefox can offer to translate the site or language
+*'''Enabled:''' Firefox will automatically translate content when detected
+*'''Blocked:''' Firefox won’t prompt you to translate that site or language again
+{note}'''Note:''' You can change these settings at any time. Just return to the Translations section in Settings and update the drop-down for any language or site. Learn more in [[Block generative AI features with Firefox AI controls]].{/note}
+{/for}
+
+=Configure installed languages=
+To configure your installed languages:
+#[[Template:optionspreferences]]
+#{for not fx152}Under the {menu General} panel, scroll down to {menu Language and Appearance} section{/for}{for fx152}Select  {menu Languages} on the left{/for}.
+#{for not fx152}Under {menu Translations}{/for}{for fx152}Scroll down to {menu Translations}, click on {menu More translation settings}, and{/for} select from the list the languages you wish to have available for in-browser translation and click {button Install}.{note}'''Note:''' The first time you translate from/to a language, it gets automatically installed in your device, so, you may see some languages already installed when accessing these settings.{/note}
+#;[[Image:Install language]]
+#To uninstall a language, just click {button Remove}.
+#;[[Image:Remove language]]
+
+Language packs are typically a few megabytes in size and download in seconds on a standard broadband connection. The first translation to or from a new language may take a brief moment while the pack installs. Once installed, translations appear instantly.
+
+{for fx150}
+=Quick Action for Translations=
+You can access a translation tool from the address bar using a [[Quick actions in the Firefox search bar|Quick Action]].
+
+Start typing '''translate''' in the address bar and click the {button Translate} button at the top of the suggestions. Clicking it will open a page where you can select the languages you wish to translate from and to and enter the text you wish to translate. You can switch languages and copy the text from the result box to use elsewhere.
+{/for}
+
+'''Troubleshooting translation issues'''
+If Firefox's translation feature isn't working as expected, try these steps:
+
+Go to Settings → AI Controls and make sure Translations is set to Available.
+
+Verify that the page you're trying to translate is in one of Firefox's supported languages.
+
+If the translation icon doesn't appear in the toolbar, right-click on the page and select Translate page from the context menu.
+
+If a language pack didn't download properly, go to Settings → General → Language and Appearance → Translations and click Install next to the language you need.
+
+
+=FAQ=
+==What languages are currently supported by Firefox Translations?==
+Find the [https://www.firefox.com/features/translate/ list of currently supported languages on this Mozilla page].
+
+==Is Firefox's translation feature available on mobile version?==
+This feature is available for [[Firefox translation for Android|Firefox for Android]] (starting from version 126) and [[Translate webpages in Firefox for iOS|Firefox for iOS]] (starting from version 146).
+
+==Does Firefox's translation feature work with non-text content, like images or videos?==
+No. Translation works only with text.
+
+==What if I encounter a page with mixed languages or content in multiple languages? Will the translation still work?==
+While the translation feature primarily focuses on the main language of the webpage, it may not handle pages with mixed languages or content in multiple languages optimally.
+
+==Can Firefox translate pages that are password-protected or behind login screens?==
+Yes, Firefox can translate password-protected or login-required pages, as long as the content is fully displayed on your screen. The translation feature works on any webpage content that Firefox can access and render.
+
+==How do I revert a page to its original language after translation?==
+To revert a page to its original language after translation, click the toolbar icon and select {button Show original}.
+
+== How do I stop the translation panel from opening automatically?==
+When Firefox detects that a page is translatable, it will open the translation panel automatically. To turn this off, click the cog icon and select the {menu Always offer to translate} option to turn it off. Alternatively, you can choose to turn the panel off only for certain languages or sites by selecting {menu Never translate <language>} or {menu Never translate this site} respectively.
+{for fx148}
+
+You can also turn off translation prompts from the ''AI Controls'' panel in Firefox Settings.
+#[[Template:optionspreferences]]
+#Select {menu AI Controls} on the left.
+#Under '''On-device AI''' next to {menu Translations}, choose {menu Blocked} from the drop-down menu.
+[[Image:aitranslation]]
+
+==How do I enable the translation panel?==
+You can enable translation prompts in Firefox from the ''AI Controls'' panel in Firefox Settings.
+#[[Template:optionspreferences]]
+#Select {menu AI Controls} on the left.
+#Under '''On-device AI''' next to {menu Translations}, choose {menu Available} from the drop-down menu.
+{/for}
+
+==Why do I need to install languages?==
+Installing languages enables Firefox to perform translations locally within your browser, prioritizing your privacy and security. As you translate, Firefox downloads partial language files as you need them. To pre-install complete languages yourself, access the language settings in Firefox Settings, {menu General} panel, in the ''Language and Appearance'' section under ''Translations''.
+
+'''How is Firefox's translation feature different from Chrome or Edge?'''
+Unlike Chrome and Edge, which send text to Google or Microsoft servers in the cloud for translation, Firefox translates everything on your device. Your browsing data never leaves your computer during translation, offering a more private experience.
+
+=Related articles=
+*[[Use Firefox in another language]]
+*[[Customize Firefox controls, buttons and toolbars]]
+*[[Search suggestions in Firefox]]
+{for fx148}
+*[[Block generative AI features with Firefox AI controls]]
+{/for}

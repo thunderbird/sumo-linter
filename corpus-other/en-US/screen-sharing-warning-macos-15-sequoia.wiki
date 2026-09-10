@@ -1,0 +1,11 @@
+In macOS 15 ‘Sequoia’, Apple introduced changes that impact how applications like Firefox can share your screen during video calls on services like Google Meet or Microsoft Teams. These changes might cause Firefox to display warning messages when you attempt to share your screen.
+
+Here's how to fix the issue and continue sharing your screen without interruptions.
+
+=Why this happens=
+Apple has deprecated an older screen-sharing technology that [[Find what version of Firefox you are using|Firefox version]] 131 and earlier used. Starting with macOS 15, this outdated screen-sharing method now triggers a warning message when you use it, as shown in the image below:
+;[[Image:macOS 15 screenshare warning|width=750]]
+This warning will appear once a month if Firefox uses the older API for screen sharing.
+
+=How to fix it=
+To fix the screen-sharing issue, Firefox has added support for a new API starting with version 132. To stop seeing the warning and ensure screen sharing works smoothly, just [[Update Firefox to the latest release|update Firefox to the latest release]].

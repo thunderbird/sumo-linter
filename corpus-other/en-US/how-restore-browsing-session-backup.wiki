@@ -1,0 +1,64 @@
+This article explains how to recover a lost browsing session. See [[Restore previous session - Configure when Firefox shows your most recent tabs and windows]] for additional information. 
+
+__TOC__
+
+=Check about:sessionrestore=
+If a session is lost, hopefully the restore pages open automatically, but, if not, enter '''about:sessionrestore''' in the address bar and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}. Your page should look similar to this:
+;{for win}[[Image:Fx97RestoreSession]]{/for}{for not win}[[Image:session1]]{/for}
+If this page is empty or the {button Restore Session} is disabled, continue reading.
+
+=Restoring from a backup file=
+<!--
+the first {for} features bug 1731753 workaround, see:
+https://bugzilla.mozilla.org/show_bug.cgi?id=1731753
+https://support.mozilla.org/en-US/questions/1460897
+-->
+{for win10, win11}
+# Open the [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information page]] by entering '''about:support''' in the Firefox address bar.
+# In the ''Application Basics'' section, check the ''Distribution ID'' line.
+#* If it contains ''mozilla-MSIX'', this means you are using the MSIX (Microsoft Store) Firefox version.<br>[[Image:Firefox_about:support_Profile folder name]]<br>In this case:
+#*# Press the ''Windows'' key {for win10}{key [[Image:windowskey-win10|width=15]]}{/for}{for win11}{key [[Image:Windows11Key|width=15]]}{/for}+{key R} on the keyboard. A Run dialog will open.
+#*# Type in:<br>'''%LOCALAPPDATA%\Packages\Mozilla.Firefox'''<br>without pressing {key Enter}. A list of an only folder will appear.
+#*# Click on the suggested folder. Then add:<br>'''\LocalCache\Roaming\Mozilla\Firefox\Profiles\'''
+#*# Click {button OK}. A window will open containing profile folders.
+#*# Open the folder which name matches the ending of the ''Profile Folder'' line of the ''Application Basics'' section.
+#* Otherwise, click the {button Open Folder} button in the ''Profile Folder'' line of the ''Application Basics'' section.
+#*;[[Image:Firefox_about:support_Open profile folder]]
+# A file system view of your profile folder will show up.
+# In the profile folder (for example, {filepath xxxxxxxx.default-release}), if you scroll down a bit, you should see the {filepath sessionstore-backups} folder.
+# Make a copy of the {filepath sessionstore-backups} folder.
+# Shut down Firefox. Generally, you want to avoid file system operations (move, copy, delete) in this folder while Firefox is running. The copy of the unaccessed backups folder was necessary and should be safe.
+# Move the file called {filepath sessionstore.jsonlz4} to another location (like your desktop). Moving rather than deleting is a precautionary step.
+#;{note}'''Note:''' This file does not exist while Firefox is running.{/note}
+# Navigate to the {filepath sessionstore-backups} backup folder you made.
+# Review the files in this folder by date modified (you can ignore their names, any file in this folder should be restorable). If the most recently modified file is particularly small compared to others, it may be mostly blank, and you'll want to use the bigger one.
+# Copy your chosen file into the main profile folder. (Not the original {filepath sessionstore-backups} folder, but the one above it.)
+# Rename the file to {filepath sessionstore.jsonlz4}.
+# Start up Firefox.
+{warning}'''Warning:''' You may need to ensure that your file system viewer is [https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml not hiding] the file extensions of known types (like .js or .jsonlz4) in order to properly rename the backup files.{/warning}
+{/for}
+{for winxp, win7, win8, not win}
+# Open the [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information page]] by entering '''about:support''' in the Firefox address bar.
+#In the ''Application Basics'' section, click the {for mac}{button Show in Finder}{/for}{for win}{button Open Folder}{/for}{for linux}{button Open Directory}{/for} button in the {for win,mac}''Profile Folder''{/for}{for linux}''Profile Directory''{/for} line{for not win} (shown below on macOS){/for}.
+#;{for win}[[Image:Firefox_about:support_Open profile folder]]{/for}{for not win}[[Image:session2]]{/for}
+# A file system view of your profile folder will show up.
+# In the profile folder (for example, {filepath xxxxxxxx.default-release}), if you scroll down a bit, you should see the {filepath sessionstore-backups} folder.
+# Make a copy of the {filepath sessionstore-backups} folder.
+# Shut down Firefox. Generally, you want to avoid file system operations (move, copy, delete) in this folder while Firefox is running. The copy of the unaccessed backups folder was necessary and should be safe.
+# Move the file called {filepath sessionstore.jsonlz4} to another location (like your desktop). Moving rather than deleting is a precautionary step.
+#;{note}'''Note:''' This file does not exist while Firefox is running.{/note}
+# Navigate to the {filepath sessionstore-backups} backup folder you made.
+# Review the files in this folder by date modified (you can ignore their names, any file in this folder should be restorable). If the most recently modified file is particularly small compared to others, it may be mostly blank, and you'll want to use the bigger one.
+# Copy your chosen file into the main profile folder. (Not the original {filepath sessionstore-backups} folder, but the one above it.)
+# Rename the file to {filepath sessionstore.jsonlz4}.
+# Start up Firefox.
+{warning}'''Warning:''' You may need to ensure that your file system viewer is [https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml not hiding] the file extensions of known types (like .js or .jsonlz4) in order to properly rename the backup files.{/warning}
+{/for}
+
+=Conclusion=
+If you feel that you are more prone to losing your session – sessions with lots of tabs may fall into this category – or would just like insurance, the [[Recommended Extensions program|recommended]] extension [https://addons.mozilla.org/firefox/addon/tab-session-manager/ Tabs Session Manager] helps keep sessions safe.
+
+
+
+<!-- article source -->
+'''Based on information from [https://www.reddit.com/r/firefox/comments/56sevb/how_to_restore_a_browsing_session_from_backup/ How to Restore a Browsing Session from Backup (reddit.com/r/firefox)]'''

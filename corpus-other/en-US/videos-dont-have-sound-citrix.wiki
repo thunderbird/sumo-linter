@@ -1,0 +1,12 @@
+{for not win}{warning}This article applies to Windows only.{/warning}{/for}
+
+If you are on a Citrix Server on Windows, you may have problems with sound when you play videos on Firefox. This is due to an issue with increased security restrictions and we are working hard to resolve this.
+
+In the meantime, you can reduce the sandbox security level by following these steps:
+
+[[Template:aboutconfigwarning]]
+# [[Template:aboutconfig]]
+# Search for {pref security.sandbox.content.level}.
+# Click the ''Edit'' [[Image:Fx71aboutconfig-EditButton]] button for the preference and set its value to {pref 1}.
+#Click on the checkmark [[Image:Fx71aboutconfig-Checkmark]] to save the change. 
+# Restart Firefox on the remote device.

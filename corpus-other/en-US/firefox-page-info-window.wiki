@@ -1,0 +1,107 @@
+The '''Page Info''' window in Firefox shows detailed information about the website you’re visiting—including security status, media files and site-specific permissions. It also lets you make certain changes, like blocking autoplay or controlling camera access.
+
+This article helps you:
+*Understand what each section of the Page Info window means
+*Change permissions for the current site
+*Learn what Firefox defines as “secure”
+*Know what you can and can’t override
+
+__TOC__
+
+=Open the Page Info window=
+You can open the Page Info window in several ways:
+#Click the {for not fx149}padlock icon [[Image:Fx89Padlock]]{/for}{for fx149}shield icon [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} to the left of the address bar.
+#Click the Connection entry {for not fx149}in{/for}{for fx149}at the top of{/for} the [[Site Information panel|Site Information panel]] that opens.
+#;{for not fx149}[[Image:Fx140SiteInfoPanel]]{/for}{for fx149}[[Image:Fx149SiteInfoPanel]]{/for}
+#Select {for fx149}{button More site information}{/for}{for not fx149}{button More information}{/for} in the next panel.
+;{for fx149}[[Image:Fx149ConnectionProtection]]{/for}
+
+'''Other ways''':
+* {for win,linux}If the [[Restore the Menu bar in Firefox|Menu bar is enabled]],{/for}{for mac}In the Menu bar,{/for} click {menu Tools} and select {menu Page Info} from the drop-down menu.
+* Use the keyboard shortcut {for win,linux}{key Ctrl+I}{/for}{for mac}{key Command+I}{/for}.
+
+=What you can and can’t change from Page Info=
+The Page Info window allows some direct permission changes (see the [[#w_permissions|Permissions]] section, below). Other permission changes must be adjusted in [[Change Firefox options, preferences, and settings|Firefox Settings]] or are not changeable for security reasons.
+
+{|
+|-
+|'''Setting'''||'''Can I change it here?'''||'''Notes'''
+|-
+|Autoplay||✅ Yes||Set to Block Audio, Block All or Allow
+|-
+|Camera/Microphone access||✅ Yes||Set to Allow, Block or Always Ask
+|-
+|Notifications||✅ Yes||Manage whether this site can send push notifications
+|-
+|Pop-up windows||✅ Yes||Control pop-up permission
+|-
+|Clear or manage cookies||❌ No||Use Firefox Settings to clear or manage cookies
+|-
+|Certificate errors/security||❌ No||These cannot be bypassed in Page Info
+|}
+
+{note}'''Note:''' Some restrictions (like invalid security certificates) are in place to protect your data. Firefox doesn’t allow bypassing these from the Page Info window. To adjust site exceptions, see [[HTTPS-Only Mode in Firefox]].{/note}
+
+=Sections of the Page Info window=
+==General==
+Shows the basic page details:
+*'''Title''' – The page title shown in your tab
+*'''Address''' – The URL of the website
+*'''Type''' – The kind of file or document the page is (like <code>text/html</code>)
+*'''Render mode''' – Whether Firefox displays the page in standard or quirks mode
+*'''Text encoding''' – How characters on the page are interpreted
+*'''Size''' – The page size
+*'''Modified''' – When the page was last updated
+{for not fx150}[[Image:Fx141PageInfo-General]]{/for}{for fx150}[[Image:Fx150PageInfo-General]]{/for}
+
+==Media==
+Lists all images, background files and other media loaded with the page. You can:
+*View file type, size and dimensions
+*Preview images
+*Save individual items to your device
+{for not fx150}[[Image:Fx141PageInfo-Media]]{/for}{for fx150}[[Image:Fx150PageInfo-Media]]{/for}
+
+==Permissions==
+Here’s where you can allow or block the site from doing things like:
+*'''Accessing your camera or microphone'''
+*'''Accessing MIDI devices'''
+*'''Accessing virtual reality devices'''
+*'''Accessing your location'''
+*'''Installing add-ons'''
+*'''Selecting speakers'''
+*'''Setting cookies'''
+*'''Sharing the screen'''
+*'''Storing data in persistent storage'''
+*'''Switching to this tab'''
+*'''Opening pop-up windows'''
+*'''Sending notifications'''
+*'''Autoplaying media'''
+*'''Overriding keyboard shortcuts'''
+*'''Using persistent storage'''
+{for not fx150}[[Image:Fx141PageInfo-Permissions]]{/for}{for fx150}[[Image:Fx150PageInfo-Permissions]]{/for}
+
+To override a permission:
+#Uncheck '''Use Default'''.
+#Choose '''Allow''', '''Block''' or '''Always Ask'''.
+{note}'''Note:''' Permissions are site-specific. Changes here apply only to the domain you’re visiting.{/note}
+
+==Security==
+===Website identity===
+*'''Website''' – Shows the site’s domain.
+*'''Owner''' – Only displays if verified by a certificate authority.
+*'''Verified by''' – The certificate authority that issued the site’s certificate.
+**Click the {button View Certificate} button to see the [[Secure website certificate|website certificate]].
+{for not fx150}[[Image:Fx141PageInfo-Security]]{/for}{for fx150}[[Image:Fx150PageInfo-Security]]{/for}
+
+'''Why Firefox might say a site is “Not Secure”:''' Firefox checks if the website uses HTTPS with a valid certificate. Even if you trust the site, Firefox needs technical proof that it's encrypted. For example, a site with expired or self-signed certificates will trigger a warning.
+
+===Privacy & history===
+*'''Have I visited this website before today?:''' Shows if you've previously visited the domain. If this appears incorrect, it may be due to cleared history or private browsing.
+*'''Is this website storing information on my computer?:''' Shows if cookies or storage are being used. You can click {button Clear Cookies and Site Data} for that domain.
+*'''Have I saved any passwords for this website?:''' Shows if Firefox has stored login credentials. Click {button View Saved Passwords} to open the Password Manager.
+
+=Related articles=
+*[[Manage file types and download actions in Firefox]]
+*[[Allow or block media autoplay in Firefox]]
+*[[How to manage your camera and microphone permissions with Firefox]]
+*[[Site Permissions panel]]

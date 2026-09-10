@@ -1,0 +1,36 @@
+{for win,linux}The ''File Edit View History Bookmarks {for fx147}Profiles{/for} Tools Help'' Menu bar in Firefox is hidden by default. It's also missing when Firefox is in full screen mode or if the file storing your toolbar information has become corrupt. We'll show you how to fix each of these.{/for}
+{for mac}If the '''Firefox''' Menu bar is missing, it is usually because Firefox is in full screen mode, or it is not the selected application. We'll show you how to fix these.{/for}
+
+__TOC__
+
+{for win,linux}
+= Show the Menu bar =
+{note}'''Don't need to see the Menu bar all the time?''' Press the {key Alt} key to temporarily show the Menu bar. (If the {key Alt} key doesn't work, press the {key AltGr} key.){/note}
+To always show the Menu bar:
+*Right-click an empty area of the Tab bar at the top of the Firefox window and click {menu Menu Bar}.
+:[[Image:Fx105RightClickTabBar-win]]
+Alternatively:
+#Click the menu button [[Image:Fx89menuButton]], click {menu More Tools…} and choose {menu Customize Toolbar…}
+#*A new ''Customize Firefox'' tab will open.
+#Click {button Toolbars} at the bottom of the window and click {menu Menu Bar}.
+#;[[Image:menu bar customize 57]]
+#Click {button Done} to save your changes.
+{/for}
+{for linux}{note}'''To display the Menu bar while using a screen reader:''' Press the {key Alt} and {key V} keys simultaneously, and then {key T}, then {key M}.{/note}{/for}
+
+= Turn off full screen mode =
+Here's how to turn off [[Use Firefox in Full Screen mode|full screen mode]], so you can see the Menu bar again.
+#Click the menu button [[Image:Fx89menuButton]] on the right side of the toolbar.
+#Click the full screen [[Image:Fx111FullScreenIcon-Exit]] button in the list of menu items.
+#;[[Image:Fx102Menu-ExitFullScreen]]
+Alternatively, you can use the keyboard shortcut {for mac}{key command+Shift+F}{/for}{for win,linux}{key F11}{/for} to switch between full screen and normal mode.{for win,linux} On some computers you may need to press {key fn+F11}.{/for}
+
+{for mac}
+= Firefox is not the selected application =
+Your Mac will always display the Menu bar for the program that's currently selected. Look at the name next to the Apple menu [[Image:7fbbe94f1e8c1f2d1f6ea6dd93c1901d-1266954982-393-1.png]] in the top left corner of your screen. If it doesn't say '''Firefox''', click anywhere on the Firefox window to select it again.
+{/for}
+{for win,linux}
+= Fix corrupted toolbars and controls =
+If the file storing your toolbar information has become corrupt, you can use the '''Refresh Firefox''' feature to restore the default toolbar settings and controls.
+See [[Refresh Firefox - reset add-ons and settings]].
+{/for}

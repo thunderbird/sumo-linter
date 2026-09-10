@@ -1,0 +1,14 @@
+{note}Compact mode is not currently supported. For the recommended and supported experience, we encourage you to keep the normal density setting.{/note}
+
+Starting with [[Find what version of Firefox you are using|Firefox version]] 89, the compact mode density option was removed from the [[Customize Firefox controls, buttons and toolbars|Customize]] panel but you can still activate it in the [[Configuration Editor for Firefox|Configuration Editor]] (''about:config'' page).
+[[Template:aboutconfigwarning]]
+#[[Template:aboutconfig]]
+#Find the {pref browser.compactmode.show} preference.
+#Switch the toggle to '''{pref true}''' and then close the tab.
+#[[Template:fx29menu]]
+#Click {menu More tools}.
+#Choose {menu Customize toolbar…}.
+#At the bottom of the panel, click {button Density}.
+#Choose {menu Compact (not supported)} from the menu options.
+#;{for mac}[[Image:Fx94CustomizeDensity-mac]]{/for}{for win}[[Image:Fx96Density-Compact]]{/for}
+#Click {button Done}.

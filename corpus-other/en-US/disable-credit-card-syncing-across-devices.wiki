@@ -1,0 +1,11 @@
+[[How do I choose what information to sync on Firefox?|Firefox Sync]] lets you access data such as bookmarks, history, logins and passwords, and credit cards or payment methods on other devices when you are signed in with your Mozilla account. To disable sync for sensitive data like {for not fx122}credit cards{/for}{for fx122}payment methods{/for} to prevent purchases on a shared device, follow the steps below:
+#[[Template:optionspreferences]]
+#Click {for not fx152}{menu Sync}{/for}{for fx152}{menu Account and sync}{/for} in the options to the left.
+#*In these settings, you can choose what items to sync across devices when you signed in with your Mozilla account.
+#If syncing is ON, then you're syncing the items that appear in the panel.
+#Click {for not fx152}{button Change…} to open the ''Choose What To Sync'' dialog{/for}{for fx152}''Manage sync data''{/for}.
+#Uncheck the box next to '''{for not fx122}Credit cards{/for}{for fx122}Payment methods{/for}''' to stop syncing this data across devices.
+#;{for not fx122}[[Image:Fx121ChooseWhatToSync]]{/for}{for fx122}{for not fx152}[[Image:Choose what to sync panel|width=600]]{/for}{/for}{for fx152}[[Image:fx152sync]]{/for}
+#Click {button Save Changes}.
+Additionally, you can {for not fx122}[[Automatically fill in credit card and payment method data on Web forms#w_turn-credit-card-autofill-on-or-off|disable credit card autofill]]{/for}{for fx122}[[Automatically fill in credit card and payment method data on Web forms#w_turn-payment-methods-autofill-on-or-off|disable payment methods autofill]]{/for} to prevent Firefox from filling in your credit card information on the device where this data is saved.
+{note}We recommend that users [[Access Mozilla services with a Mozilla account|create a Mozilla account]] for each member of the family and to sign out every time, to prevent credit card information or other sensitive data from being exposed.{/note}

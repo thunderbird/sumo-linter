@@ -1,0 +1,34 @@
+You may see a message at the top of Firefox Settings that says “Your browser is being managed by your organization”. 
+
+This usually means that Firefox settings are being controlled by rules applied to your device by a network administrator, security software, or local policy. Some features may be locked or unavailable due to these rules, called enterprise policies.
+
+__TOC__
+
+=What this message means=
+Firefox shows this message when it detects that one or more policies are affecting your browser settings.
+
+This message '''does not mean Firefox is broken''' — it simply means it is being managed by software or system settings outside of the Firefox environment. 
+
+=Why some features may be disabled=
+You might see this if:
+*You’re using a work or school device, where IT manages settings for consistency and security
+*You have antivirus, parental control, or security software that sets policies
+*You or another user manually configured local policies
+
+=See which policies are active=
+#Open the Firefox menu (≡) and choose ''Settings''.
+#Click the ''Your browser is being managed by your organization'' link at the top of the ''Settings'' page.
+#The ''Policy Details'' page will show all active policies and what they do.
+
+=What you can do about it=
+If you're on a work or school computer, contact your IT administrator with any questions.
+
+If you're on a personal device:
+*Review the list of active policies
+*Check for recently installed software (like antivirus or parental controls)
+**Uninstall or adjust that software if you don’t want Firefox to be managed
+
+=Related Articles=
+*[[Enforce policies on Firefox for Enterprise]]
+*[[Will policies I set work if users already installed Firefox?]]
+*[[Customize Firefox using Group Policy (Windows)]]

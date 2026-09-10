@@ -1,0 +1,28 @@
+When you connect to public Wi-Fi, like an airport, coffee shop, or a corporate guest network, you often see a web page asking you to sign in, accept terms, or enter a password before you can use the internet. This page is called a '''captive portal'''. Most captive portals ask you to agree to an Acceptable Use Policy (AUP). 
+
+Firefox's [https://wikipedia.org/wiki/Captive_portal captive portal] detector tests whether the network connection requires you to sign in or accept the network's terms before permitting you to use it. Sometimes the page doesn’t appear on its own, and you’ll need to open it manually to get online.
+
+__TOC__
+
+=How Firefox detects captive portals=
+When Firefox detects that you’re connected to a network but not yet online, it will:
+* Open the network’s sign-in page in a new tab.
+* If the network uses a captive portal, Firefox will show a message such as, “You must log in to this network before you can access the internet.”
+
+Once you complete the sign-in, Firefox will close the tab and your connection will work normally. If the page was left open by Firefox, you may simply close it. Occasionally, it will be kept around to display a message from the network's owners. '''If this happens frequently, please file a [https://bugzilla.mozilla.org/enter_bug.cgi?product=Core&component=Networking&short_desc=Captive+portal+tab+was+left+open&comment=Steps+to+reproduce&blocked=1198508&bug_type=defect Networking bug]''' and describe your case (requires creating a Bugzilla account).
+
+Firefox tests if the connection is a captive portal by regularly connecting to {for not fx155}<code>http://detectportal.firefox.com/canonical.html</code>{/for}{for fx155}<code>http://firefox-portal-detection.com</code>{/for}. Firefox will also make connections to this URL to check if your current network supports certain technologies such as IPv6.
+
+=What do I do if the sign-in page doesn’t automatically appear?=
+If Firefox doesn’t show the page:
+# Try visiting any website, as most captive portals will redirect you to the sign-in page.
+# Disconnect and reconnect to the Wi-Fi network, then try again.
+If you still can’t access the sign-in page after trying the above, you can try the following:
+* Restart your device to refresh the network connection and trigger the sign-in page.
+* Temporarily turn off any VPN or proxy until you’ve signed in.
+* Open a new [[Private Browsing - Use Firefox without saving history|private browsing window]] to avoid cached sessions that might block the portal.
+
+=Related articles=
+* [[Joining public WiFi while on Mozilla VPN]]
+* [[How to stop Firefox from making automatic connections]]
+* [https://firefox-source-docs.mozilla.org/networking/captive_portals.html Captive Portal Detection] in Firefox Source Docs

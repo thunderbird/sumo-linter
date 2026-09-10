@@ -1,0 +1,25 @@
+The ability to play 4K (Ultra High Definition) videos on Firefox depends on your hardware, operating system, and YouTube’s decision to limit the 4K option for certain video codecs.
+
+YouTube offers support two video codecs in different resolutions: 
+*H264 is available only up to 1080p resolution
+*VP9 is available up to 4K resolution 
+H264 is the more widely available codec, which is supported on lots of machines in hardware, and VP9 requires a faster machine (typically not laptop or dual core machine) because it is still mostly available in software only.
+
+__TOC__
+=When will I see 4K videos?=
+Whether or not you see 4K depends on the following:
+
+==Operating system==
+*Linux: VP9 is enabled in Firefox, thus YouTube shows up to 4K resolution.
+*Mac: VP9 is disabled in Firefox, thus only H264 with 1080p will get played.
+*Windows: VP9 with 4K depends on the machine (see below).
+
+==Firefox's criteria on Windows==
+Firefox will enable the 4K option for the following scenarios:
+#If your computer doesn’t have any hardware decoding capabilities, your computer has to do the decoding in software anyway, so Firefox enables VP9 in this case.
+#Your computer doesn't support H264 or H264 was disabled on your machine.
+#A small internal benchmark finds your computer is fast enough to support VP9.
+
+= Enable VP9 in Advanced Preferences =
+[[Template:aboutconfigwarning]]
+In general, and especially on Mac which prefers H264 by default (see above), you can enable VP9 by setting {pref media.mediasource.webm.enabled} to {pref '''true'''} in the [[Configuration Editor for Firefox|Configuration Editor]] (''about:config'' page). This should only be done by advanced users who understand the impact on battery life and performance.

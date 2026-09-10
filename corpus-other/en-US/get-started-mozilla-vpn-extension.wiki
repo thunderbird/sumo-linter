@@ -1,0 +1,41 @@
+{note}'''Note:''' Mozilla Subscriptions are available in Australia, Austria, Bangladesh, Belgium, Brazil, Bulgaria, Canada, Chile, Colombia, Croatia, Cyprus, Czechia, Denmark, Egypt, Estonia, Finland, France, Germany, Greece, Hungary, India, Indonesia, Ireland, Italy, Kenya, Latvia, Lithuania, Luxembourg, Malaysia, Malta, Mexico, Morocco, Netherlands, New Zealand, Nigeria, Norway, Poland, Portugal, Romania, Saudi Arabia, Senegal, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sweden, Switzerland, Taiwan, Thailand, Türkiye, Uganda, Ukraine, United Kingdom, United States, and Vietnam.{/note}
+
+The Mozilla VPN extension complements the main VPN client application, offering flexible controls to secure your browsing activity and customize VPN settings for individual websites, all without altering your device-wide VPN protection.
+
+=How to install and use the Mozilla VPN Firefox Extension=
+#On the Mozilla Firefox browser, go to the [https://addons.mozilla.org/firefox/addon/mozilla-vpn-extension/?utm_medium=referral&utm_source=sumo&utm_campaign=extension-articles Firefox Add-ons page] and search for '''Mozilla VPN'''.
+#Click {button Add to Firefox} to install the extension.
+#;[[Image:Add VPN extension to firefox|width=650]]
+#Accept the prompts to grant the necessary permissions.
+#After the extension is installed, the Mozilla VPN icon appears in Firefox’s toolbar.
+#;[[Image:VPN icon on toolbar|width=350]]
+{note}'''Note:''' To use the Mozilla VPN Firefox extension, the Mozilla VPN software must be installed and running on your computer (though it doesn’t need to be connected to the VPN network). Additionally, you must be logged into your account and have an active subscription.{/note}
+
+=Activate your Mozilla VPN extension in Firefox=
+#In the top right corner of your Mozilla Firefox browser, locate and click the Mozilla VPN extension icon.
+#;[[Image:extension icon|width=250]]
+#Verify that the extension’s toggle is on. It should be automatically on if the Mozilla VPN software is on by the time you open Firefox. If it’s not on, flip the switch to on.
+#;[[Image:VPN extension on|width=350]]
+
+=What can I do with the extension?=
+Within the Mozilla VPN extension interface, you will find various functions.
+;[[Image:VPN extension UI|width=350]]
+*By clicking the toggle [[Image:toggle on|width=45]] you will be able to turn VPN protection on and off for Firefox. Note that activating and deactivating the protection of Firefox via the extension will not impact your device-level protection. That continues to be managed via the Mozilla VPN client.
+*Through the [[Image:always turn off checkbox|width=250]], you will be able to exclude websites from VPN protection. For more information, see [[Disable VPN protection for a specific website]].
+*With [[Image:Select website location|width=200]] you can set a preferred location to access given websites. For more information, see [[Change your location for a specific website]].
+*Through the [[Image:VPN extension settings icon|width=30]] icon, you’ll be able to see all your website-level VPN preferences in a single place.
+*The [[Image:Give feedback|width=250]] option allows you to send feedback about the extension.
+*The [[Image:Reset site preferences button|width=250]] button allows you to set your extension preferences back to default.
+
+=Get to know your settings=
+You can access the Mozilla VPN extension settings by clicking the settings icon in the top right corner of the extension.
+;[[Image:Extension setting|width=350]]
+'''This will display the following options:'''
+;[[Image:Extension setting menu|width=350]]
+*'''Website preferences:''' Provides a list with all the preferences you saved for the websites you use the extension on. Here you can see if the VPN protection is on or off for a given website and which preferred location you saved for any specific site.
+*'''Help center: '''Allows you to access our support center to find all the information you need about the Mozilla VPN extension.
+*'''Contact support:''' Allows you to submit a request for assistance. Fill out the form, and our team will help resolve your issue.
+
+=Related articles=
+*[[Change your location for a specific website]]
+*[[How to disable VPN protection for a specific website]]

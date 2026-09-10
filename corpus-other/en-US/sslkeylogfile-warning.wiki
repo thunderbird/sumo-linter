@@ -1,0 +1,99 @@
+Firefox may display a '''“Your connection may not be private”''' warning on certain network error pages.
+
+This warning appears when the SSLKEYLOGFILE environment variable is present on your system. This setting is designed to be used for debugging encrypted network traffic.
+
+Some antivirus and security products use SSLKEYLOGFILE to inspect HTTPS connections.
+
+In some cases, these tools can interfere with secure connections and cause networking problems in Firefox.
+
+[[Image:tlskeyloggingwarning]]
+
+__TOC__
+=What is SSLKEYLOGFILE?=
+SSLKEYLOGFILE is an advanced debugging feature that tells Firefox to save encryption keys used for HTTPS connections to a file.
+
+This feature is primarily intended for developers, network administrators, and security professionals who need to troubleshoot network protocols or analyze encrypted traffic using tools such as Wireshark. Most Firefox users do not need this feature, and it is normally disabled.
+
+When TLS key logging is enabled, software that can access the key log file may be able to decrypt and inspect HTTPS traffic. Depending on how the software uses these keys, it may also be able to intercept connections and impersonate servers, including modifying data. This can degrade the privacy and security guarantees normally provided by HTTPS and may cause websites or network connections to behave unexpectedly.
+
+For this reason, if Firefox reports that TLS key logging is enabled and you did not intentionally enable it for debugging purposes, you should review any antivirus, firewall, network monitoring, or security software installed on your device. Some of these products enable TLS key logging to inspect or modify encrypted traffic.
+
+=Why am I seeing this warning?=
+Firefox shows this warning when it detects that TLS key logging is enabled on your system.
+
+This does not necessarily mean there is a problem. 
+
+If you are a software developer, it’s possible that you are seeing this message because there is a debugging tool active.
+
+For everyone else, it is most likely that some security or antivirus software is using SSLKEYLOGFILE to inspect encrypted connections. Provided that you trust that software to see everything you do online, this is not necessarily cause for concern. 
+
+=Can TLS key logging cause connection problems?=
+Yes.
+
+Some software that intercepts HTTPS connections can interfere with secure connections, which can cause pages to break, usually with certificate warnings, secure connection failures, or unexpected network errors.
+
+If Firefox displays the Your connection may not be private warning, and you're experiencing connection problems, your antivirus, firewall, or network security software may be contributing to the issue.
+
+=Check your antivirus or security software=
+To see if networking issues are being caused by HTTPS inspection:
+#Review any antivirus, firewall, or security software installed on your device.
+#Look for features related to:
+#*HTTPS scanning
+#*Encrypted traffic monitoring
+#*Web or online protection
+#*Anti-tracking features
+#Temporarily disable those features if your security software allows it.
+#See if the problem still occurs.
+
+{note}'''Note''': If disabling these features resolves the issue, contact your security software vendor for additional support.{/note}
+
+=Report a Firefox networking problem=
+If you continue experiencing network issues after checking your security software, you may want to report the problem.
+
+When filing a Firefox bug, include:
+*The exact error message
+*Whether the '''Your connection may not be private''' warning appeared
+*The antivirus or security software installed on your device
+*Any HTTPS scanning or web protection features that are enabled
+
+This information helps Mozilla investigate the issue more effectively.
+
+=How can I tell if TLS key logging is enabled?=
+When Firefox detects SSLKEYLOGFILE, a warning banner appears on supported network error pages.
+
+The banner displays:
+
+'''Your connection might not be private'''
+
+along with a link to this article.
+
+You may see the warning if:
+*A debugging tool enabled TLS key logging
+*A security product configured the environment variable
+*You manually enabled SSLKEYLOGFILE
+
+=Frequently asked questions=
+==Is TLS key logging a Firefox feature?==
+Yes. Firefox supports TLS key logging for debugging and network analysis purposes.
+
+==Does this warning mean my computer is infected?==
+No. The warning only indicates that TLS key logging is enabled. This may be due to debugging tools, development software, or security products installed on your device.
+
+==Can antivirus software enable TLS key logging?==
+Yes. Some antivirus and security products use TLS key logging or similar techniques to inspect encrypted HTTPS traffic.
+
+==Should I disable my antivirus software?==
+Usually, no. If you're experiencing connection problems and Firefox reports that TLS key logging is enabled, a good first step is to review or temporarily disable any '''HTTPS inspection''', '''encrypted traffic scanning''', or '''web protection''' features provided by your security software.
+
+These features can intercept encrypted HTTPS connections to scan traffic. In some cases, they may interfere with secure connections and cause websites to fail to load or behave unexpectedly.
+
+Firefox already includes built-in protections such as Safe Browsing to help warn you about known malicious and deceptive websites. Depending on your needs, you may decide that additional HTTPS inspection is unnecessary, but that choice is ultimately up to you.
+
+Some vendors provide instructions for managing HTTPS inspection features:
+*Avast:  [https://support.avast.com/en-au/article/190/#idt_070 https://support.avast.com/en-au/article/190/#idt_070]
+*Bitdefender:  [https://www.bitdefender.com/consumer/support/answer/88598/ https://www.bitdefender.com/consumer/support/answer/88598/]
+{note}'''Note''': If disabling HTTPS inspection resolves the problem, include the name of your antivirus or security software when reporting the issue to Mozilla. This information can help us investigate compatibility problems.{/note}
+
+=Related articles=
+*[[Secure connection and security warning error pages in Firefox]]
+*[[Fix error “Website will not allow Firefox to display the page.”]]

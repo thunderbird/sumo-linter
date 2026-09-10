@@ -1,0 +1,37 @@
+<!--[[Template:WindowsOnly]]-->
+[[Template:progressiverollout]]
+Starting in [[Find what version of Firefox you are using|Firefox version]] 142, you can preview links to learn more about a webpage before you open it.
+
+=How to preview a link=
+#Click and hold a link for about a second (long press). You can also right-click on a link and choose {menu Preview Link} from the menu.
+#A card pops up with details from the page, like a small image, the page title and description and estimated reading time if available.
+#;[[Image:linkpreviews]]
+#Optionally, you can also use AI to read the beginning of the page and generate a few bullet points. To prioritize your privacy, the [[On-device AI models in Firefox|AI works on your device]]. This means you’ll need at least 3 GB of available RAM to use the optional AI.
+
+=How to configure shortcuts=
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} page, go to the ''Browsing''{/for}{for fx152}Select {menu Tabs and browsing} on the left and go to the ''Page navigation''{/for} section.
+#*To go straight there, click the settings gear [[Image:IG settings]] icon in the preview card.
+#Under the option {menu Enable link previews}, uncheck the box for the shortcut.
+If you turn off the shortcut, you’ll still be able to preview links if you right-click and choose {button Preview Link}.
+
+=How to configure AI-generated points=
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} page, go to the ''Browsing''{/for}{for fx152}Select {menu Tabs and browsing} on the left and go to the ''Page navigation''{/for} section.
+#*To go straight there, click the settings gear [[Image:IG settings]] icon in the preview card.
+#Under the option ''Enable link previews'', uncheck '''Allow AI to read the beginning of the page and generate key points'''.
+
+=How to delete the local Link Previews model=
+Opting in to AI key points in Link Previews will download a small language model to your device. If you want to review or remove this model, type '''about:addons''' in the address bar of Firefox and select {menu On-Device AI} from the menu.
+
+On this page, you can:
+*'''Review models:''' See which models have been downloaded, what size the models are, and what they’re used for.
+*'''Remove models:''' Helpful if you need to manage space on your device, or if you simply don’t use the associated feature or extensions anymore.
+You can read more in the article [[On-device AI models in Firefox]].
+
+=How to turn off Link Previews entirely=
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} page, go to the ''Browsing''{/for}{for fx152}Select {menu Tabs and browsing} on the left and go to the ''Page navigation''{/for} section.
+#*To go straight there, click the settings gear [[Image:IG settings]] icon in the preview card.
+#Uncheck '''Enable link previews'''.
+{menu Preview Link} will no longer appear in the menu when you right-click on a link. And, previews won’t be triggered by using a shortcut.

@@ -1,0 +1,79 @@
+All of your personal settings, bookmarks and other information are kept in your [[Profiles|Firefox profile]]. Firefox needs an unlocked profile to start up, and if the profile is locked, it displays the message, {for win,linux}''Firefox is already running, but is not responding''{/for}{for mac}''A copy of Firefox is already open''{/for}. This article explains what to do if you see this message and how to prevent it from showing at startup.
+{note}'''Note:''' If this is a recurring problem, see [[Firefox hangs or is not responding - How to fix#w_firefox-hangs-when-you-quit-it|Firefox hangs when you quit it]] for possible causes and solutions.{/note}
+
+{for mac}[[Image:FirefoxAlreadyOpen-Mac]]{/for}
+{for winxp,win7,win8}[[Image:Fx34already-running-Win7]]{/for}
+{for win10,win11}[[Image:Firefox 142_Firefox is already running_Windows 11]]{/for}
+
+__TOC__
+
+= End Firefox processes =
+<!-- see https://bugzilla.mozilla.org/show_bug.cgi?id=399108 and https://bugzilla.mozilla.org/show_bug.cgi?id=407981 on Firefox delayed shutdowns -->
+If Firefox did not shut down normally when you last used it, Firefox might still be running in the background, even though it is not visible.
+{for win7,win8,win10,win11}If you try to open it while it's running, an error message will appear with the option to click {button Close Firefox}. If that doesn't solve the problem, restart your computer or try the following options.{/for}
+{for mac,linux,winxp}Restart your computer to see if the problem goes away or try the following options.{/for}
+{for linux}
+== Ubuntu Linux ==
+# Click {menu System} and choose {menu Administration}.
+# In Administration, click {menu System Monitor}. Here you will find firefox-bin one or more times.
+# Highlight the listing and click {button End Process} for each one.
+{/for}
+{for winxp,win7,win8}
+== Use the Windows Task Manager to close the existing Firefox process ==
+# Right-click on an empty spot in the Windows task bar and select {menu Task Manager} (or press {key Ctrl+Shift+Esc}).<!-- <br/> <br/> [[Image:notron360sucks-taksmanager.png]] <br/> <br/> -->
+# When the Windows Task Manager opens, select the {menu Processes} tab.
+#;[[Image:Windows Task Manager]]
+# Select the entry for '''firefox.exe''' (press {key F} on the keyboard to find it) and click {button End Process}.
+# Click {button Yes} in the ''Task Manager Warning'' dialog that appears.<!-- <br/> <br/>[[Image:TaskMgrWarning.PNG]]<br/> -->
+# Repeat the above steps to end all additional firefox.exe processes, then exit the Windows Task Manager.
+# Start Firefox normally.
+{/for}
+{for win10,win11}
+== Use the Windows Task Manager to close the existing Firefox process ==
+# Right-click an empty spot in the Windows task bar and select {menu Task Manager} (or press {key Ctrl+Shift+Esc}). When the Windows Task Manager opens, it defaults to the {menu Processes} tab.
+#;{for win10}[[Image:Win10 Task Manager|width=620]]{/for}{for win11}[[Image:Windows 11_Task Manager_Firefox|width=620]]{/for}
+# Right-click the collapsible entry for Firefox{for win10} (press {key F} on the keyboard to find it){/for} and select {menu End Task} from the context menu. This will close all Firefox windows with no additional prompting.
+# Exit the Task Manager and start Firefox normally.
+{/for}
+= Remove the profile lock file =
+Firefox may have shut down abnormally, leaving the lock file in place. To fix this, open the profile folder (see [[Profiles - Where Firefox stores your bookmarks, passwords and other user data#w_finding-your-profile-without-opening-firefox|Finding your profile without opening Firefox]]) and delete the {for win}{filepath parent.lock} file{/for}{for linux} {filepath lock} and {filepath .parentlock} files{/for}{for mac}{filepath .parentlock} file{/for}.
+
+= Remove the -no-remote startup option =
+If you start Firefox with the <code>-no-remote</code> [http://web.archive.org/web/20210530092017/https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options command line option], try removing this option.<!-- http://forums.mozillazine.org/viewtopic.php?f=38&t=3072986 -->
+
+{for win}
+= Initialize the connection to a file share =
+If you store the profile on a file share, try accessing the file share beforehand using {for winxp,win7}Windows Explorer{/for}{for win8,win10,win11}File Explorer{/for}.
+{/for}
+
+= Check access rights =
+Firefox must also have the right to create files in the profile folder. The error can occur if you try to use a profile from a file system mounted with read-only permission (for example, a remote Windows share which doesn't have '''Allow network users to change my files''' checked).
+
+To ensure your profile folder has the proper permissions:
+{for win}
+# [[Profiles - Where Firefox stores your bookmarks, passwords and other user data#w_finding-your-profile-without-opening-firefox|Find your Firefox profile folder]].
+# Right-click your profile folder and select {menu Properties}.
+#;{for winxp,win7,win8}[[Image:readonlyprofile.png]]<br/>{/for}{for win10,win11}[[Image:Windows 11_Firefox profile properties_Read-only|width=400]]{/for}
+# In the {menu General} tab, {for winxp,win7,win8}make sure '''Read-only''' is ''not'' checked{/for}{for win10,win11}uncheck '''Read-only (Only applies to files in folder)''' (if it is not already){/for}.
+{/for}
+{for mac}
+# Find your Firefox profile folder – see [[Profiles#w_finding-your-profile-without-opening-firefox|Finding your profile without opening Firefox]].
+#*If you only have one profile, its folder would have “default” in the name.
+# Hold down the {key Ctrl} key while you click your profile folder, and select {menu Get Info}.
+# Make sure '''Ownership & Permissions''' is set to '''Read & Write'''.
+{/for}
+{for linux}
+#Find your Firefox profile folder – see [[Profiles#w_finding-your-profile-without-opening-firefox|Finding your profile without opening Firefox]]
+#*If you only have one profile, its folder would have “default” in the name.
+# Right-click your profile folder and select {menu Properties}.
+# Click the {menu Permissions} tab.
+# Make sure '''Folder access''' is set to '''Create and delete files'''.
+{/for}
+
+= Restore data from a locked profile =
+If you are unable to unlock the profile using the above methods, [[Profile Manager - Create, remove or switch Firefox profiles|use the Profile Manager]] to create a new profile and migrate your data from the locked profile to the new profile. For information on how to do this, see [[Recovering important data from an old profile]].
+
+
+<!-- MZ credit -->
+<br/><br/>
+'''''Based on information from [http://kb.mozillazine.org/Profile_in_use Profile in use (mozillaZine KB)]'''''

@@ -1,0 +1,100 @@
+Websites may look incorrect, load improperly or stop working because of cached data, extensions, browser settings or blocked content. This article walks through the most common fixes first, then moves to more advanced troubleshooting steps.
+
+__TOC__
+
+= Clear the cookies and site data =
+Firefox caches websites, which means it saves some files on your machine so that it doesn't have to re-download everything when you visit sites. If a website has been updated, Firefox may still be using some of the old files along with some of the new, which can make a web page display incorrectly. To fix this, you need to clear the cookies and site data:
+#Visit the website.
+#At the left of the address bar, click the {for not fx149}[[Image:IG lock]] padlock{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-Secure]] shield{/for} icon.
+#;{for fx149}[[Image:Fx149SiteInfoPanel]]{/for}{for not fx149}[[Image:Fx140esrSiteInfo-ClearCookies]]{/for}
+#Click the {menu Clear cookies and site data} menu option. 
+#Click {for fx149}{button Clear}{/for}{for not fx149}{button Remove}{/for}.
+Now that your cookies and site data are cleared for the site loaded in your current tab, refresh the page or visit the website again later to see if the problem is solved.
+{note}'''Note:''' If you were already logged in to the website, this process may cause you to be logged out and require you to log in again.{/note}
+
+= Disable extensions and themes =
+Extensions that block content, modify websites or change browser behavior can cause pages to display incorrectly. Disabling these extensions and themes can correct website loading issues.
+#Click the menu button [[Image:Menu button 1]] and select '''Add-ons and themes'''.
+#Select the {menu Extensions} panel.
+#Turn off extensions one at a time, especially:
+#*Ad blockers
+#*Privacy tools
+#*Script blockers
+#*Appearance customization extensions
+#Reload the website after each change.
+If the website works after disabling an extension, leave it disabled or remove it.
+
+For more detailed troubleshooting, see [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]].
+
+= Test the website in another browser =
+Testing the website in another browser helps determine whether the problem is specific to Firefox.
+*If the website fails in multiple browsers, the issue is likely with the website itself.
+*If the website only fails in Firefox, continue with the advanced troubleshooting steps below.
+
+=Turn off Enhanced Tracking Protection for the website=
+If a site seems broken, disabling Enhanced Tracking Protection might fix the issue by allowing trackers on just that site. Enhanced Tracking Protection will still prevent trackers on other sites. To disable it:
+#Visit the website.
+#At the left of the address bar, click the {for not fx149}[[Image:Fx89ShieldIcon|width=30]]{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-Secure]]{/for} shield icon.
+#At {for not fx149}the top{/for}{for fx149}the bottom{/for} of the panel, toggle off the Enhanced Tracking Protection switch [[Image:Fx91ETPbluetoggle|width=40]]. The site will be added to your Enhanced Tracking Protection exception list, allowing trackers on it, and the page will reload automatically.
+#;{for not fx138,not fx149}[[Image:Protection panel|width=400]]{/for}{for fx138}{for not fx149}[[Image:Fx138ProtectionPanelOff]]{/for}{/for}{for fx149}[[Image:enhancedprotection149]]{/for}
+Follow the same process to turn Enhanced Tracking Protection back on. 
+If the issue persists, consider reporting it by submitting a ''Broken Site Report''. This allows the Webcompat team to examine the problem. For more information, see [[How do I report a broken site in Firefox desktop?]]
+
+= Report the website =
+If [[Enhanced Tracking Protection in Firefox for desktop#w_what-to-do-if-a-site-seems-broken|turning off Enhanced Tracking Protection]] allows a page to display and work correctly, you can report the website to help improve Firefox. See the [[How do I report a broken site in Firefox desktop?]] article for more information.
+
+Occasionally, you may come across a page that simply doesn't work in Firefox, even when Enhanced Tracking Protection is turned off. If the same page works in another browser, please report the problem with our [[How do I report a broken site in Firefox desktop?|desktop reporting tool]], or by visiting [https://webcompat.com/ webcompat.com].
+
+= Advanced troubleshooting =
+==Check Firefox settings and customizations==
+Advanced Firefox settings or modified preferences can affect how websites display.
+#Type ''about:support'' in the address bar and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.
+#Review the following sections:
+#*Modified Preferences
+#*Extensions
+#*Graphics
+#Look for unusual custom settings or configuration changes.
+If you suspect a modified setting is causing the issue, you can troubleshoot further using [[Refresh Firefox - reset add-ons and settings]].
+
+==Reset Zoom settings==
+Some websites may not look right at different zoom levels. To reset the Zoom setting for the site, press for win,linux}{key Ctrl+0}{/for}{for mac}{key command+0}{/for}. For all sites, see the documentation about the Zoom add-on you use.
+
+==Reset the minimum font size==
+Some sites do not display properly with a minimum font size. To reset the minimum font size:
+{for not fx152}
+#[[T:optionspreferences]]
+#In the {menu General} panel, go down to ''Language and Appearance''.
+#In the '''Fonts''' section, click {button Advanced…}.
+#Change the '''Minimum font size''' to '''None'''.
+{/for}
+{for fx152}
+#[[T:optionspreferences]]
+#Select {menu Accessibility} on the left.
+#In the '''Fonts''' section, click {menu Advanced settings}.
+#Change the '''Minimum font size''' to '''None'''.
+{/for}
+For more information about font settings, see [[Change the fonts and colors websites use]].
+
+==Reset the page style==
+You may have inadvertently set the page style to {menu No Style}. To ensure Firefox is set to use the page's default style:
+*On the menu bar at the top of the Firefox window, click on the {menu View} menu, then select {menu Page Style} and click {menu Basic Page Style}.
+Now that the page is using its default style, it may be displayed correctly.
+
+== Check that JavaScript is not blocked ==
+You should check whether you have an extension (such as NoScript) or Internet security program (such as a firewall, antivirus, or anti-spyware program) that can block JavaScript. To learn more, see [[JavaScript settings and preferences for interactive web pages]].
+
+== Disable problematic extensions or hardware acceleration ==
+Some extensions may interfere with the way websites are displayed, or your graphics card and drivers don't display some web content correctly when hardware acceleration is turned on. Follow the instructions in the [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] article to see if one of these is causing the problem.
+
+==Check your system date and time==
+In some instances the loading and verification of secure web content will be time-dependent, so you should check that date, time, and timezone are set correctly on your system. If you make adjustments to one of these, reload the site afterwards.
+
+= Related links =
+* [[Websites don't load - troubleshoot and fix error messages]]
+* [[Fix problems that cause images to not show]]
+* [[Fix common audio and video issues]]
+
+
+<!-- MZ credit -->
+<br/><br/>
+'''''Based on information from [http://kb.mozillazine.org/Websites_look_wrong Websites look wrong (mozillaZine KB)]'''''

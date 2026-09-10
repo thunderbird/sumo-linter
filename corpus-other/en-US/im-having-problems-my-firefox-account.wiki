@@ -1,0 +1,62 @@
+Need help with your Mozilla account? This article has some solutions to help you get started. If you don’t find an answer here, you can also [[Get community support|get community support]].
+
+For questions about using Mozilla accounts on Mozilla Support, see [[Mozilla account on support.mozilla.org]].
+
+__TOC__
+
+=I’ve created a Mozilla account. What can I do with it?=
+First of all, thanks for signing up! We created a page to help you understand and make the most of all the great features your Mozilla account has to offer: [[Access Mozilla services with a Mozilla account]].
+
+=I’m having trouble verifying my Mozilla account=
+When you sign up for a Mozilla account or if your [[My sign in was blocked for security reasons on Mozilla account|sign in is blocked for security reasons]], we will send you an email to confirm that you own the email address connected to the account. This page will help you with verification issues: [[I'm having problems confirming my Mozilla account]].
+
+If you’re still unable to sign in or verify your account, try creating another Mozilla account with a different email address. 
+
+=I received an email from Mozilla accounts. What should I do?=
+Mozilla account sends various emails for security purposes and to help guide your experience. You might receive the following emails:
+<!-- these strings are obsolete - see discussion
+==“Your Mozilla account password has been successfully changed”==
+This means that the password was recently changed on your account. If you meant to change your password, then no further action is required. If you are not sure why you got this email, then reset your Mozilla account password immediately. 
+
+==“Your Mozilla account password has been successfully reset”==
+This means your password was recently reset. If this was done by you, then no further action is required. If you are not sure why you got this email, then reset your Mozilla account password immediately. 
+
+==“For security reasons your Mozilla account was put on lockdown. To perform account-level activities, please click the link to re-verify your account now”==
+This email means that we detected suspicious activity with your Mozilla account. You'll need to re-verify your account by clicking the link in the email to be able to access Mozilla account. For more information, see [[Suspicious activity on my Mozilla account]].
+-->
+
+==“Verification code” email==
+When you receive an email from Mozilla accounts with a six-digit verification code, you must enter the 6-digit verification code on the sign-in page to confirm your account. You may receive a verification code email when you first sign up for a new Mozilla account, or if you sign out and later sign back in to your Mozilla account.
+;[[Image:FxA-NewAccount-VerificationCode-Email]]
+
+==“New sign-in to Firefox” email==
+You may receive a “New sign-in to Firefox” email with a {button Manage account} button that links to the [https://accounts.firefox.com/settings Mozilla account settings page].
+;[[Image:FxAemail-NewSign-in]]
+This can happen when you sign in to an existing Mozilla account using a new device or profile. If you are not sure why you received this email, we recommend that you reset your Mozilla account password and also change your email password.
+
+==“Finish creating your account” email==
+This email means someone created an account with your email address. If it was you, then please confirm your email.
+
+If you are not sure, then do not click the {button Confirm email} link in the Mozilla accounts email. If you confirmed the email by accident, then you should reset the Mozilla account password to avoid security issues.
+
+==“Secondary email added” email==
+You receive an email with a verification code to confirm your secondary email. After entering the code in the verification section, you'll receive a notification in your primary email alerting you that a secondary email has been added to your Mozilla account.
+
+=How do I change my Mozilla account password?=
+You can change your password from the [https://accounts.firefox.com/settings Mozilla account settings page] by following these steps:
+[[Template:changesyncpw]]
+
+=I don't know my password.  How can I set a new password?=
+If you don't know or forgot your password, you will have to reset your Mozilla account ([[#w_how-do-i-reset-my-mozilla-account|see below]]).
+
+=How do I reset my Mozilla account?=
+Use the '''Forgot password?''' link on any Mozilla account sign-in page and follow the prompts to reset your password. This will reset your Mozilla account. Your personal data, such as bookmarks and logins, will no longer be synced to other devices (unless you reset your account with [[Reset your Mozilla account password with Recovery Keys|recovery keys]]). To learn more, see [[I've lost my Firefox Sync account information - What to do]] and [[How to change or reset your Mozilla account password]].
+
+=Can I change the email address for my Mozilla account?=
+You change the primary email address associated with your Mozilla account if you have a secondary email address registered for the account. For more information, see [[Change the primary email address on your Mozilla account]].
+
+=How do I use Mozilla accounts on my devices?=
+For help setting up and using Mozilla accounts and Sync, see:
+*[/topics/sync-data/firefox Sync on Firefox desktop]
+*[/topics/sync-data/mobile Sync on Firefox for Android]
+*[[Sync bookmarks, logins and browsing history on Firefox for iOS|Sync on Firefox for iOS]]

@@ -1,0 +1,53 @@
+Firefox automatically saves and fills in your login information by default, so you wouldn't have to enter them every time. This article explains how you can control whether or not to autofill your passwords.
+
+__TOC__
+
+=Save passwords automatically=
+To adjust Firefox's initial setting, which automatically offers to store passwords, follow these steps:
+[[Template:fx122menu-aboutpasswords-preferences]]
+5. Add a checkmark next to '''Ask to save passwords''' to enable the password prompt, or uncheck to disable it.
+;{for not fx152}[[Image:Ask to save passwords option with saved passwords button|width=600]]{/for}{for fx152}[[Image:Fx152Passwords-AsktosaveSimplified|width=600]]{/for}
+To manage your saved logins, click {for not fx152}the {button Saved Passwords} button{/for}{for fx152}{menu Manage saved passwords}{/for} to open the Firefox Password Manager ''about:logins'' page.
+{note}For more information, see [[Password Manager - Remember, delete and edit logins and passwords in Firefox]].{/note}
+
+=Enable/disable login autofill=
+[[Template:fx122menu-aboutpasswords-preferences]]
+5. Make sure the '''Ask to save passwords''' option is checked and check the {for not fx152}'''Fill usernames and passwords automatically'''{/for}{for fx152}'''Save and autofill usernames and passwords'''{/for} option to enable it, or uncheck to disable it.
+;{for not fx152}[[Image:Fill usernames and passwords automatically option|width=600]]{/for}{for fx152}[[Image:Fx152Passwords-SaveandautofillSimplified|width=600]]{/for}
+{note}'''Note:''' Some websites have a limit on the length of the password field. If you paste or autofill input that is too long you may see a message such as: “Please shorten this text to 20 characters or less”, and will need to use a shorter password.{/note}
+
+=Disable autosave for specific websites=
+To prevent Firefox from saving logins and passwords for a certain website:
+[[Template:fx122menu-aboutpasswords-preferences]]
+5. Click the {for not fx152}{button Exceptions…}{/for}{for fx152}{menu Manage password exceptions}{/for} button.
+;{for not fx152}[[Image:Passwords exceptions|width=600]]{/for}{for fx152}[[Image:Fx152Passwords-ManageExceptionsSimplified|width=600]]{/for}
+6. Add the website's URL.<br>
+7. Click {button Block}.<br>
+8. Click {button Save Changes}.
+;[[Image:Exceptions - saved passwords|width=600]]
+
+=Passkeys in Firefox= 
+Passkeys provide a quicker, more straightforward, and secure sign-in method than traditional passwords. Passkeys are smoothly incorporated into Firefox's Autofill functionality.
+
+[[UI:details_start]]
+==Using Passkeys in Firefox on Windows==
+#Launch Firefox and go to a website that [https://www.passkeys.io/who-supports-passkeys supports Passkeys].
+#On the site's login page, click on the username or password field.
+#Look for the '''Use a Passkey''' option and click on it. Once you select this option, a dialog box for Passkeys will pop up on your system.
+#;[[Image:Use a Passkey option|width=500]]
+#In the dialog, choose your preferred authentication method and then click the {button Next} button.
+#;[[Image:Passkey popup on Windows|width=500]]
+#Follow the on-screen instructions to complete the authentication process and log in to the website.
+{note}'''Note:''' The option to use a Passkey will only be available on websites that support this technology. The process to use Passkeys in Firefox may vary slightly based on the version of Windows you are using.{/note}
+[[UI:details_end]]
+[[UI:details_start]]
+==Using Passkeys in Firefox on macOS==
+#Launch Firefox and go to a website that [https://www.passkeys.io/who-supports-passkeys supports Passkeys].
+#On the site's login page, click on the username or password field.
+#Look for the '''Use a Passkey''' option and click on it. Once you select this option, a dialog box for Passkeys will pop up on your system.
+#;[[Image:Use a Passkey option|width=500]]
+#In the dialog, choose your preferred authentication method and then click the {button Continue} button.
+#;[[Image:Passkey popup on macOS|width=500]]
+#Follow the on-screen instructions to complete the authentication process and log in to the website.
+{note}'''Note:''' The option to use a Passkey will only be available on websites that support this technology. The process to use Passkeys in Firefox may vary slightly based on the version of macOS you are using.{/note}
+[[UI:details_end]]

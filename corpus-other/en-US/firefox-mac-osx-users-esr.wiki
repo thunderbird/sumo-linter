@@ -1,0 +1,10 @@
+[[Find what version of Firefox you are using|Firefox version]] 78 was the last supported Firefox version for Mac users of OS X 10.9 Mavericks, OS X 10.10 Yosemite and OS X 10.11 El Capitan. These users were moved to the Firefox [https://www.mozilla.org/firefox/enterprise Extended Support Release] (ESR) channel by an application update. This was done to provide security updates until the final Firefox 78 ESR update (version 78.15.0esr) was released on October 5, 2021.<!--https://wiki.mozilla.org/Release_Management/Calendar#Past_branch_dates --> Affected users will not receive any further security updates.
+
+=Why has Firefox ended support for OS X 10.9, 10.10 and 10.11 users?=
+Although Apple does not have a public policy governing security updates for older OS X releases, its practice is to support the most recent three releases. Apple made the last security update applicable to OS X 10.11 available in July 2018. Unsupported operating systems do not receive security updates, have known exploits and can be dangerous to use, which makes it difficult to maintain Firefox on those versions.
+
+=Can I still browse safely with Firefox on OS X 10.9, 10.10 or 10.11?=
+Up until October 2021, we were updating affected users with critical security updates through the [https://www.mozilla.org/firefox/enterprise Firefox ESR] channel, to help retain the best possible security. After this, no security updates will be provided.
+
+=How can I get the newest features of Firefox?=
+If you want to keep your Firefox version up to date, you need to upgrade your operating system to macOS 10.15 or higher. Apple does not support older versions. They are unreliable and unsafe to use, which also makes it difficult to maintain Firefox on those versions. [[Find what version of Firefox you are using|Firefox version]] 115 was the last supported version for users of macOS 10.12 (Sierra), macOS 10.13 (High Sierra) and macOS 10.14 (Mojave), as explained in [[Firefox users on macOS 10.12, 10.13 and 10.14 moving to Extended Support Release|this article]].

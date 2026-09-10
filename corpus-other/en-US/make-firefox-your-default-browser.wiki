@@ -1,0 +1,45 @@
+If you have multiple browsers installed on your device, links you click in other applications (such as Web links in [https://www.thunderbird.net/ Thunderbird]) will automatically open in your default browser. Making Mozilla Firefox your default browser will help you make the most out of your online experience. This article shows you how to make Firefox your default browser.
+
+=How to set Firefox as your default browser=
+{for mac,linux,win10,win11}
+#[[T:optionspreferences]]
+#{for not fx152}At the top of the {menu General} panel, go to the  {for not fx149}'''Startup'''{/for}{for fx149}'''Default browser'''{/for} section{/for}{for fx152}In the {menu Account and sync} page (or in the {menu Home and startup} page) go to the ''Default browser'' section{/for}.
+#If Firefox isn't currently set as your default browser, you'll see the message {for not fx149}''Firefox is not your default browser''. Click {button Make Default…}{/for}{for fx149}''Psst, Firefox isn't your default.'' Click {button Make default}.{/for}{note}'''Note:''' If Firefox is already your default browser, the button will be missing and you will see the message, {for not fx149}"Firefox is currently your default browser".{/for}{for fx149}"Firefox is your default browser. Good choice."{/for}{/note}
+#;{for not fx149}[[Image:Fx140esrMakeDefault]]{/for}{for fx149}{for not fx152}[[Image:Fx149settings-MakeDefault]]{/for}{for fx152}[[Image:fx152accountandsync]]{/for}{/for}
+#[[T:closeOptionsPreferences]]
+{/for}
+{for winxp,win7} <!-- Firefox 149 is not available-->
+#[[T:optionspreferences]]
+#In the {menu General} panel, click the {button Make Default…} button.{note}'''Note:''' If Firefox is already your default browser, the button will be missing and you will see the message, "Firefox is currently your default browser".{/note}
+#;[[Image:Fx94MakeDefault]]
+#[[T:closeOptionsPreferences]]
+{/for}
+{for win8} <!-- Firefox 149 is not available-->
+#[[T:optionspreferences]]
+#At the top of the {menu General} panel, click the {button Make Default…} button.{note}'''Note:''' If Firefox is already your default browser, the button will be missing and you will see the message, "Firefox is currently your default browser".{/note}
+#;[[Image:Fx94MakeDefault]]
+#The ''Set Default Programs'' window will open.
+#In the ''Set Default Programs'' window select {menu Firefox} from the list of programs on the left and click {button Set this program as default}. Then click {button OK} to close the window.
+#;[[Image:Default - Win8 pt 2]]
+#[[T:closeOptionsPreferences]]
+{/for}
+Firefox will now be set as your default browser.
+{for win10}
+If Firefox was unable to make itself the default browser, it will open the Windows Settings ''Default apps'' panel (shown below), where you can click the entry under '''Web browser''' to choose '''Firefox''' as the default.
+For additional information, see [[Make Firefox your default browser on Windows]].
+
+=Use the Settings app in Windows 10 to change your default browser=
+Alternatively, you can open the Settings App from the Windows Start menu to set Firefox as the default browser:
+#Go to the Windows Start menu and click the '''Settings''' icon.
+#Click '''Apps''', then choose '''Default Apps''' on the left.
+#Scroll down and click the entry under '''Web browser'''.
+#;[[Image:default apps win10]]
+#Click on '''Firefox''' in the dialog that opens with a list of available browsers. 
+#;[[Image:firefox default 10]]
+#Firefox is now set as your default browser. Close the Settings window to save your changes.
+{/for}
+{for win11}
+If Firefox still isn't the default, see [[Make Firefox your default browser on Windows]] for steps to manually change your default browser to Firefox.
+{/for}
+=Related content=
+*[[Setting Firefox as the default browser does not work - What to do]]

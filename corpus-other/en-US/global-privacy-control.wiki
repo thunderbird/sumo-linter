@@ -1,0 +1,55 @@
+Introduced in [[Find what version of Firefox you are using|Firefox version]] 120, you can make use of [https://globalprivacycontrol.org/ Global Privacy Control] (GPC) to automatically notify websites not to sell or share information about your browsing session on that website.
+
+GPC operates as a “Do Not Sell” mechanism in some US states such as California, Colorado and Connecticut.
+
+It may also be used to indicate an opt-out of targeted advertising or general request to limit the sale or sharing of your personal data in those jurisdictions, as well as in jurisdictions such as the EU, UK, Nevada, Utah and Virginia.
+{note}'''Disclaimer:''' GPC is a signal, not a blocker. Some websites may ignore it. If you want stronger protection, combine it with [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]].{/note}
+Mozilla added this feature to give you more choice and control. If you’d rather not send the signal, you can turn it off anytime.
+
+=Enable Global Privacy Control=
+{for not fx152}
+#[[T:optionspreferences]]
+#Select {menu Privacy & Security} on the left.
+#Go down to the ''Website Privacy Preferences'' section.
+#Click the box next to {menu Tell websites not to sell or share my data} to add a check mark.
+#[[T:closeOptionsPreferences]]
+Firefox saves your changes automatically.
+{/for}
+{for fx152}
+#[[T:optionspreferences]]
+#Select {menu Privacy and security} on the left.
+#Go down to the ''Additional protections'' section.
+#Click the box next to {menu Tell websites not to sell or share my data} to add a check mark.
+#;[[Image:fx152additionalprotection]]
+Firefox saves your changes automatically.
+{/for}
+
+=Disable Global Privacy Control=
+{for not fx152}
+If you don’t want to send the GPC signal:
+#[[T:optionspreferences]]
+#Select {menu Privacy & Security} on the left.
+#Go down to the ''Website Privacy Preferences'' section.
+#Click the box next to {menu Tell websites not to sell or share my data} to remove the check mark.
+{/for}
+{for fx152}
+If you don’t want to send the GPC signal:
+#[[T:optionspreferences]]
+#Select {menu Privacy and security} on the left.
+#Go down to the ''Additional protections'' section.
+#Click the box next to {menu Tell websites not to sell or share my data} to remove the check mark.
+{/for}
+
+=Frequently asked questions=
+==Does this stop all tracking?==
+No. GPC only sends a request signal. Some websites may still track you.
+==Can websites ignore GPC?==
+Yes. Outside certain regions, compliance is optional.
+==Does GPC replace Do Not Track?==
+The option to enable the “Do Not Track” feature in Firefox settings was removed in [[Find what version of Firefox you are using|Firefox version]] 135 <!--https://bugzilla.mozilla.org/show_bug.cgi?id=1967420--> (see [[How do I turn on the Do Not Track feature?|this article]] for details). GPC is newer and has stronger recognition in laws such as the CCPA and GDPR.
+==Will enabling this break websites?==
+Usually no. It just sends a privacy signal. If you notice issues, you can turn it off.
+
+=Related articles=
+*[[Enhanced Tracking Protection in Firefox for desktop]]
+*[[How do I turn on the Do Not Track feature?]]

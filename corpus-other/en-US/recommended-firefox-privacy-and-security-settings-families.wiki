@@ -1,0 +1,114 @@
+Firefox lets you customize privacy and security preferences so you and your family can browse safely online. To learn more or adjust these settings:
+
+{for not fx152}
+#[[Template:optionspreferences]]
+#Go to the {menu Privacy & Security} panel.
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Select {menu Privacy and security} panel.
+{/for}
+
+__TOC__
+=Privacy settings=
+
+{for not fx152}
+==Enhanced Tracking Protection==
+[[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] blocks known trackers that gather information about your online activity and are hidden in the websites you visit. Enhanced tracking protection also includes [[Introducing Total Cookie Protection in Standard Mode|Total Cookie Protection]], which prevents websites from tracking your behavior to create a profile based on your activity.
+{for not fx135}
+==Ask not to be tracked==
+You can set Firefox's privacy settings to [[How do I turn on the Do Not Track feature?|ask websites not to track your online activity]].
+{/for}
+{for fx120}
+==Tell websites not to sell or share your information==
+You can set Firefox's privacy settings to [[Global Privacy Control|tell websites not to sell or share your data]]. This will notify websites not to sell or share information about your browsing session.
+{/for}
+
+==Cookies and site data==
+By setting cookies and site data preferences in Firefox, you can choose which cookies you want to allow on your computer. You can [[Clear cookies and site data in Firefox|clear cookies]], manage websites that use cookie data, [[Block websites from storing cookies and site data in Firefox|block websites from storing cookies]] or set Firefox to automatically delete cookies upon exiting the browser.
+
+==Password settings==
+Manage your logins with the [[Password Manager - Remember, delete and edit logins and passwords in Firefox|Firefox Password Manager]], enable or disable password autofill, let Firefox suggest a [[Choose a strong password|strong password]] when you sign up for a new website or ask Firefox to warn you of [[Firefox Password Manager - Alerts for breached websites|password breaches]].
+
+==History settings==
+Your browsing history contains the sites you have visited. You can choose to have Firefox always remember browsing history and downloads, clear your history automatically when Firefox closes, or always navigate in Private Browsing mode. To learn more, see [[Private Browsing - Use Firefox without saving history]] and [[Delete browsing, search and download history on Firefox]].
+
+==Address bar settings==
+You can configure the suggestions you'd like to see when you type into the address bar, such as suggestions from your history, bookmarks, open tabs, shortcuts, and search engines. The [[Address bar autocomplete suggestions in Firefox]] article explains how. 
+
+==Permissions==
+Some websites may ask your permission to use personal information like your location or resources on your computer as part of the service they provide. The [[Site Permissions panel]] will show any special permissions you have granted to a website.  You can choose and manage websites that have access to your location, camera, microphone, and other computer capabilities. For more information, see [[Does Firefox share my location with websites?]] and [[How to manage your camera and microphone permissions with Firefox]].
+
+==Data collection==
+Firefox collects only the necessary information to evaluate performance and improve your experience. In the Firefox Data Collection and Use settings, you can make changes to your [[Manage technical and interaction data collection settings in Firefox|data collection preferences]].
+{/for}
+{for fx152}
+==Enhanced Tracking Protection==
+[[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] blocks known trackers that gather information about your online activity and are hidden in the websites you visit. Enhanced tracking protection also includes [[Introducing Total Cookie Protection in Standard Mode|Total Cookie Protection]], which prevents websites from tracking your behavior to create a profile based on your activity.
+
+You can customize these settings or reset them to default.
+
+==Built-in VPN==
+Firefox includes a built-in VPN feature that hides your location and adds extra encryption to your browsing.
+*Available for browsing in Firefox only
+*Includes a monthly data limit of 50 GB
+*Can be turned on or customized from the Privacy & Security panel
+
+==Tell websites not to sell or share your information==
+You can set Firefox's privacy settings to [[Global Privacy Control|tell websites not to sell or share your data]]. This will notify websites not to sell or share information about your browsing session.
+
+==Browsing data==
+By setting cookies and site data preferences in Firefox, you can choose which cookies you want to allow on your computer.
+
+You can: 
+*[[Clear cookies and site data in Firefox|Clear cookies]] 
+*Manage websites that use cookie data
+*[[Block websites from storing cookies and site data in Firefox|block websites from storing cookies]] 
+*Set Firefox to automatically delete cookies upon exiting the browser.
+
+==Password settings==
+Manage your logins with the [[Password Manager - Remember, delete and edit logins and passwords in Firefox|Firefox Password Manager]], enable or disable password autofill, let Firefox suggest a [[Choose a strong password|strong password]] when you sign up for a new website or ask Firefox to warn you of [[Firefox Password Manager - Alerts for breached websites|password breaches]].
+
+==History settings==
+Your browsing history contains the sites you have visited. 
+
+You can choose to: 
+*Have Firefox always remember browsing history and downloads 
+*Clear your history automatically when Firefox closes
+*Always navigate in Private Browsing mode. 
+
+To learn more, see [[Private Browsing - Use Firefox without saving history]] and [[Delete browsing, search and download history on Firefox]].
+
+==Data collection==
+Firefox collects only the necessary information to evaluate performance and improve your experience. In the Firefox Data Collection and Use settings, you can make changes to your [[Manage technical and interaction data collection settings in Firefox|data collection preferences]].
+
+==Additional protections==
+You can enable additional privacy features, including:
+*Limiting data sharing with websites
+*Using Firefox Relay to mask your email address
+
+{/for}
+=Security settings=
+{for not fx152}
+==Deceptive Content and Dangerous Software Protection==
+Block suspicious content and downloads from malicious websites to keep your computer safe. When [[How does built-in Phishing and Malware Protection work?|this protection]] is enabled, Firefox will notify you when a website tries to install malware or unwanted software on your computer.
+==HTTPS-Only mode==
+[[HTTPS-Only Mode in Firefox|HTTPS-Only Mode]] forces all connections to websites to use a secure encrypted connection called HTTPS.
+{/for}
+{for fx152}
+==Deceptive Content and Dangerous Software Protection==
+Block suspicious content and downloads from malicious websites to keep your computer safe. When this protection is enabled, Firefox will notify you when a website tries to install malware or unwanted software on your computer.
+
+==DNS over HTTPS==
+DNS over HTTPS (DoH) encrypts website lookups so that your internet provider and others cannot easily see which websites you are visiting.
+
+You can customize how DoH works in Firefox settings.
+
+==Connection and software security==
+This section includes advanced protections that control how Firefox connects to the internet:
+*'''HTTPS-Only Mode''': Forces secure connections when available
+*'''Proxy settings''': Configure how Firefox connects to the internet
+*'''Deceptive content and dangerous software protection''': Warns you about unsafe sites and downloads
+*'''Certificates''': Manage trusted certificates
+
+{/for}

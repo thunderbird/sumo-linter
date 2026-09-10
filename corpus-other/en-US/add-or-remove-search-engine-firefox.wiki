@@ -1,0 +1,159 @@
+Firefox comes with a set of default search engines, and you can add more from websites, add-ons, or partner pages. Some users want to add fully custom search engines, but Firefox only supports this in limited cases without an add-on. 
+
+This article explains what you can and can’t do, and shows the easiest ways to manage your search engines.
+{note}'''Note:''' Some search engines may only be available in certain regions.{/note}
+
+__TOC__
+
+=What Firefox supports (and what it doesn’t)=
+*Built-in default search engines (like Google, Bing, DuckDuckGo).
+*Adding search engines from websites that support it.
+*Adding search engine add-ons from [https://addons.mozilla.org/en-US/firefox/ addons.mozilla.org].
+*Limited support for custom engines: Starting in [[Find what version of Firefox you are using|Firefox version 140]], you are able to add custom unsupported search engines in Firefox Settings. In earlier versions, Firefox does not allow you to create custom engines from scratch in Settings. You would need an extension such as [https://addons.mozilla.org/firefox/addon/add-custom-search-engine/ Add custom search engine].
+
+= Add search engines =
+
+== From the Search bar ==
+{for not fx152}
+Firefox offers an optional Search bar. If you’ve added it to your toolbar, you can also add search engines. If you haven’t yet, see [[Add the Search bar to your Firefox toolbar]] to add it to Firefox.
+#Visit a website that offers an [https://developer.mozilla.org/docs/Web/OpenSearch OpenSearch] search engine (we'll use [https://www.youtube.com YouTube] as an example).
+#Click the magnifying glass [[Image:addsearch 40]] icon in the Search bar.
+#Click the YouTube [[Image:AddYouTubeSearchBarIcon]] icon in the Search bar drop-down.
+#;[[Image:Add engine from search bar]]
+The search engine will appear in your available search options.
+{/for}
+{for fx152}
+Firefox offers an optional Search bar. If you’ve added it to your toolbar, you can also add search engines. If you haven’t yet, see [[Add the Search bar to your Firefox toolbar]] to add it to Firefox.
+#Visit a website that offers an [https://developer.mozilla.org/docs/Web/OpenSearch OpenSearch] search engine (we'll use [https://www.youtube.com YouTube] as an example).
+#Click the search engine icon in your Search bar.
+#Select {menu [[Image:AddYouTubeSearchBarIcon]] Add “YouTube”} from the Search bar drop-down menu.
+#;[[Image:Fx152SearchBar-AddYouTube]]
+The search engine will appear in your available search options.
+{/for}
+== From the address bar ==
+Visit a website that has a built-in search field (for example, [https://www.youtube.com YouTube]).
+#[[Template:contextmenu]] inside the address bar.
+#Select {menu [[Image:AddYouTubeSearchBarIcon]] Add “YouTube”} from the context menu.
+#;{for not fx152}[[Image:Add engine from address bar]]{/for}{for fx152}[[Image:addenginefromaddressbarfx152]]{/for}
+
+== From the search field of a supported website ==
+[[Template:contextmenu]] the search field of a supported website and select {menu Add Search Engine} from the context menu.
+;{for not fx152}[[Image:Fx140WebsiteSearchContextMenu-AddSearchEngine]]{/for}{for fx152}[[Image:Fx152SiteSearch-AddEngine]]{/for}
+To learn more, see the [[Add custom search engines in Firefox]] article.
+
+== Mycroft Project search engine plugins ==
+The [https://mycroftproject.com/ Mycroft Project] website offers search engine plugins. When you click an available search plugin, you can add it to Firefox from the Search bar or from the address bar context menu, on the ''Install plugin'' page.
+;[[Image:Fx115Mycroft-InstallPlugin]]
+
+== Search engine add-ons ==
+Many providers offer search engine add-ons. To find these search engines and add them to Firefox:
+{for not fx152}
+#[[Template:optionspreferences]]
+#Select {menu Search} on the left.
+#At the bottom, click the '''Find more search engines''' link. The ''Firefox Add-ons'' website will open.
+#Select the search engine add-on you want to install and click {button Add to Firefox}.
+{note}'''Tip:''' If you added the optional Search bar, another way to open the Search page is to click the magnifying glass [[Image:MagnifyingGlass]] on the Search bar and then click the [[Image:Fx89Personalize-GearIcon]] ''Change search settings'' icon.{/note}
+{/for}
+{for fx152}
+#Click the menu button, click {menu Extensions and themes}. The Add-ons Manager tab will open.
+#Search for an add-on you wish to install, and then click {button Add to Firefox}.
+{/for}
+<!-- No "Find more search engines" link in Fx152. See discussion.
+{for fx152}
+Many providers offer search engine add-ons. To find these search engines and add them to Firefox:
+#[[Template:optionspreferences]]
+#Select {menu Search} in the left-hand navigation.
+#At the bottom, click the '''Find more search engines''' link. The ''Firefox Add-ons'' website will open.
+#Select the search engine add-on you want to install and click {button Add to Firefox}.
+#;[[Image:fx152additionalsearchengines]]
+{note}'''Tip:''' If you added the optional Search bar, another way to open the Search page is to click the magnifying glass [[Image:MagnifyingGlass]] on the Search bar and then click the [[Image:Fx89Personalize-GearIcon]] ''Change search settings'' icon.{/note}
+{/for}
+-->
+
+{for not fx152}
+==Add a custom search engine in Settings==
+You can add custom search engines from websites in Firefox, even if they’re not supported.
+#[[Template:optionspreferences]]
+#Select {menu Search} on the left.
+#;[[Image:searchshortcut|width=500]]
+#Scroll down to the ''Search Shortcuts'' section.
+#Click {button Add} at the bottom.
+#Fill in the '''Search engine name''' with a name for your custom search engine.
+#;[[Image:searchenginemenu|width=500]]
+#In the '''URL''' box, copy & paste the URL of a search performed with the custom search engine.
+#*For example: ''https:<?---->//example<?---->.com/search?q=ZZZZZ''
+#Replace the URL’s search tag with '''%s'''.
+#*For example: ''https:<?---->//example<?---->.com/search?q=%s''
+#Add a keyword (this is optional).
+#Click '''Add Engine''' to save.
+{note}'''Note:''' You can find the URL’s search tag by performing a unique search with an easy-to-spot word, such as “ZZZZZZ”. The “ZZZZZZ” in the URL is that URL’s search tag.{/note}
+{/for}
+{for fx152}
+==Add a custom search engine in Settings==
+You can add custom search engines from websites in Firefox, even if they’re not supported.
+#[[Template:optionspreferences]]
+#Select {menu Search} on the left.
+#Go to the ''Additional search engines'' section.
+#;[[Image:Fx152settings-Search]]
+#Click on {button Add search engine}.
+#Fill in the '''Search engine name''' with a name for your custom search engine.
+#;[[Image:searchenginemenu|width=500]]
+#In the '''URL''' box, copy & paste the URL of a search performed with the custom search engine.
+#*For example: ''https:<?---->//example<?---->.com/search?q=ZZZZZ''
+#Replace the URL’s search tag with '''%s'''.
+#*For example: ''https:<?---->//example<?---->.com/search?q=%s''
+#Add a keyword (this is optional).
+#Click '''Add Engine''' to save.
+{note}'''Note:''' You can find the URL’s search tag by performing a unique search with an easy-to-spot word, such as “ZZZZZZ”. The “ZZZZZZ” in the URL is that URL’s search tag.{/note}
+{/for}
+
+{for not fx152}
+= Hide search engines =
+Follow these steps to remove alternative search engines you don't want to use.
+#[[Template:optionspreferences]]
+#Select {menu Search} on the left.
+#Under {for not fx152}''Search Shortcuts''{/for}{for fx152}''Additional search engines''{/for}, {for not fx152}remove the check mark{/for}{for fx152}turn off the toggle [[Image:Fx115 blue toggle]] switch{/for} next to each search engine you don't want to use{for fx152} (this option is not currently available for user-added search engines)<!--https://bugzilla.mozilla.org/show_bug.cgi?id=2046421 -->{/for}.
+#;{for not fx152}[[Image:Search shortcuts - Hide engine]]{/for}
+{/for}
+
+= Remove search engines =
+{for not fx152}
+{note}'''Note:''' You cannot remove built-in search engines but you can hide them ([[#w_hide-search-engines|see above]]).{/note}
+To remove a search engine you added to Firefox, follow these steps:
+#[[Template:optionspreferences]]
+#Select {menu Search} on the left.
+#Under ''Search Shortcuts'', click the search engine you want to remove.
+#Click the {button Remove} button to take it off your list.
+#;[[Image:Search shortcuts - Remove engine]]
+{note}'''Note:''' If a search engine is added back after you restart Firefox, it may be a Firefox [[Find and install add-ons to add features to Firefox#w_what-types-of-add-ons-can-i-install|extension]]. Those can be removed using the '''Add-ons manager''' (see [[Disable or remove Add-ons]] for details).<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1546652 -->{/note}
+{/for}
+{for fx152}
+To remove a search engine, follow these steps:
+#Open Firefox Settings: Click the menu button and select {menu Settings}.
+#Go to {menu Search}.
+#Under Additional search engines, you can either:
+#*Click the toggle to disable search engines that Firefox provides, or
+#*Click the trash can icon to delete search engines that you have added.
+#;[[Image:fx152additionalsearchengines2]]
+{note}'''Note''': Search engines added by Firefox extensions may only be removed by disabling or removing the associated add-on (see [[Disable or remove Add-ons]] for details).{/note}
+{/for}
+{for not fx152} <!-- I don't see this option in fx152 since you can't actually remove a built-in search engine. You can disable and enable it using the toggle switch.-->
+== Restore default search engines ==
+If you removed one of Firefox’s built-in search engines (like Google or Bing):
+#[[Template:optionspreferences]]
+#Go to {menu Search} in the left panel.
+#In the ''Search shortcuts'' section, click {button Restore Default Search Engines}.
+{/for}
+{for fx152}
+== Restore search engines provided by Firefox ==
+If you have disabled one of Firefox’s built-in search engines (such as Google or Bing):
+#Open Firefox Settings: Click the menu button and select {menu Settings}.
+#Go to {menu Search}.
+#In the {menu Additional search engines} section, click the toggle button to enable the built-in search engine.
+{/for}
+
+=Related articles=
+*[[Manage Firefox search settings]]
+*[[Assign shortcuts to search engines]]
+*[[Add the Search bar to your Firefox toolbar]]
+*[[Disable or remove Add-ons]]

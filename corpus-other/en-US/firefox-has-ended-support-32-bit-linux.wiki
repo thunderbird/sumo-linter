@@ -1,0 +1,7 @@
+If you are running a 32-bit (x86) Linux operating system, Firefox is no longer supported as of [[Find what version of Firefox you are using|Firefox version]] 145.
+
+If Firefox is already installed on your computer, you can continue using it but you will not receive updates beyond version 144. If you are running a 32-bit version of Firefox on a 64-bit Linux system, you can install the 64-bit version of Firefox instead from the [https://www.firefox.com/browsers/desktop/linux/ Firefox for Linux download page].
+
+[[Firefox ESR release cycle|Firefox Extended Support Release (ESR)]] will continue to receive updates for 32-bit Linux but will not receive updates beyond ESR version 140.
+
+System requirements for Firefox may vary depending on whether it is provided by your Linux distribution or by Mozilla, which means you may still be able to get a recent version of Firefox for 32-bit x86 systems from your Linux distribution.

@@ -1,0 +1,14 @@
+Firefox lets you find a specific tab when you have a lot of tabs open:
+#Click the ''List all tabs'' [[Image:tab icon 2|width=16]] button at the end of the tab strip.
+#;{for not fx154}[[Image:step_1_tabs]]{/for} {note}'''Note:''' If [[Use the sidebar to access tools and vertical tabs|Vertical Tabs]] are enabled, click the ''List all tabs'' [[Image:Fx138VerticalListAllTabs]] button in the toolbar.{/note}
+#Click {for not fx154}{menu Search tabs}{/for}{for fx154}{menu Search All Tabs}{/for} in the [[Tab overview menu|tab overview menu]] that opens.
+#;{for not fx154}[[Image:step_2_tabs]]{/for}{for fx154}[[Image:Fx154TabOverviewMenu-Search]]{/for}
+You can also find specific tabs using the address bar. Type a {key %} before or after your search term to filter the results to only open tabs.
+
+'''Examples:'''
+
+Results when typing % '''before''' the search term:
+;[[Image:exmp_1_before]]
+Results when typing % '''after''' the search term:
+;[[Image:exmp_2_after]]
+See the [[Address bar autocomplete suggestions in Firefox#w_changing-results-on-the-fly|Address bar autocomplete suggestions in Firefox]] article for more options available in the address bar.

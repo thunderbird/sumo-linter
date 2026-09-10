@@ -1,0 +1,21 @@
+[[Template:WindowsOnly]]
+
+This article describes a scheduled task on Windows that applies to Firefox users. This task, called the '''Firefox Default Browser Agent''', is a small check that runs in the background and is an example of how Firefox [[Manage technical and interaction data collection settings in Firefox|collects and uses technical and interaction (telemetry) data]]. As with all other telemetry-related changes here at Mozilla, it has gone through our data review, a process designed with user choice and privacy at its core.
+
+__TOC__
+
+=What does this task do?=
+The Firefox Default Browser Agent is a Windows-only scheduled task that runs in the background once a day for each installation of Firefox you have installed. This task collects information related to the system’s current and previous default browser setting (this is the browser Windows will use to open a website link) and the operating system locale and version. This data cannot be associated with regular profile-based telemetry data.
+
+=Why is this data collected?=
+Collecting telemetry is one way we’re able to ensure we can understand default browser trends in a way that helps us improve Firefox. It’s our hope that by better understanding more about our users and their choices around browser preferences, we can continue to build a better Firefox.
+
+=Can I opt out of this data collection?=
+Yes, all Firefox data collection is optional and you can [[Manage technical and interaction data collection settings in Firefox#w_how-to-turn-off-technical-and-interaction-data-collection|opt out]] at any time in your Firefox preferences. If you use an Enterprise version of Firefox, we also respect custom enterprise telemetry-related [[Enforce policies on Firefox for Enterprise|policy settings]] if they exist, including disabling this task.
+
+=Learn more=
+*[[Make Firefox your default browser]]
+*[[How to change your default browser in Windows 10]]
+*Firefox Source Docs documentation:
+**[https://firefox-source-docs.mozilla.org/toolkit/mozapps/defaultagent/default-browser-agent/index.html Default Browser Agent] 
+**[https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/data/default-browser-ping.html “default browser” ping]

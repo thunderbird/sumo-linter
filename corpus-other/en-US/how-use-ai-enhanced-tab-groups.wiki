@@ -1,0 +1,29 @@
+[[Template:progressiverolloutENonly]]
+
+[[Image:Smart tab groups updated]]
+
+=Finding group name and tab suggestions=
+#To create a tab group:
+#*Drag and drop a tab on top of another, or
+#*Right-click a tab and select {menu Add Tab to New Group}.
+#Open more tabs, similar to the group you just created.
+#Right-click the tab group name to open the ''Manage tab group'' panel.
+#If there are tabs that we can suggest for this group based on similarity, you’ll see a {button Suggest more of my tabs} button. Select it to view suggestions.
+#*If you’re using AI-enhanced tab groups for the first time, it may take a moment to find suggestions for a group name and tabs.
+#*AI will suggest names and tabs based on similar open tabs in a single window.
+#You’ll see a suggested name and tabs that could be added to the group you just created. Keep the name or tabs that work best for your group.
+#You can turn suggested tabs on or off in settings.
+#*[[T:optionspreferences]]
+#*Select the {for not fx152}{menu General}{/for}{for fx152}{menu Tabs and browsing}{/for} panel and go to the '''Tabs''' section.
+#*;{for win}{for not fx152}[[Image:Fx142TabSettings-win]]{/for}{for fx152}[[Image:fx152tabsandbrowsing]]{/for}{/for}{for mac}[[Image:Fx142TabSettings-mac]]{/for}{for linux}[[Image:Fx142TabSettings-linux]]{/for}
+#*Select or deselect the option '''Use AI to suggest tabs and a name for tab groups:'''
+
+{warning}
+==Things to keep in mind==
+*Firefox uses a local AI model to read your open tabs’ titles and descriptions to suggest more tabs and group names. Everything happens on your device.
+*Tab groups enhanced by AI operate entirely within your browser, keeping everything on your device. AI on your device respects your privacy and makes it quicker to provide suggested tab groups and names. Specific URLs you visit are not shared with Firefox.
+*AI can sometimes make mistakes, so it’s best to review the suggested group name and tabs.
+{/warning}
+
+=Related articles=
+*[[Tab groups in Firefox]]

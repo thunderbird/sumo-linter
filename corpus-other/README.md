@@ -34,19 +34,32 @@ not regexes over text. Nothing is built yet.
 
 Fetching these answered the open questions in sumo-linter #1:
 
-| Construct | In 196 TB articles | In 221 templates |
-|---|---:|---:|
-| `{{{name}}}` (template parameter) | 0 | 31, in 6 templates |
-| `[[Include:]]` / `[[I:]]` | 0 | 0 |
-| `REDIRECT` | 0 | 1 |
+| Construct | 196 TB articles | 221 templates | 475 Firefox articles |
+|---|---:|---:|---:|
+| `{{{name}}}` (template parameter) | 0 | 31, in 6 templates | 0 |
+| `[[Include:]]` / `[[I:]]` | 0 | 0 | **0** |
+| `REDIRECT` | 0 | 1 | 0 |
 
 Every parameter found is **named** — `{{{ver}}}`, `{{{type}}}`, `{{{slug}}}`,
 `{{{channel}}}`, `{{{service}}}`, `{{{serviceURL}}}` — and not one is numbered, so the
 `{{{n}}}` the issue asked about does not occur at all.
 
-Linting all 209 found exactly one real markup error: `{for fx56}` is never closed in
-`Template:adddevices`. Correctness rules are product-neutral by design; this is the first
-evidence of that outside Thunderbird content.
+`[[Include:]]` occurs **nowhere**: not in 196 Thunderbird articles, 221 templates or 475
+Firefox articles — 892 documents of en-US source. That closes the question rather than
+leaving the path merely untested: there is no production markup to test it against.
+
+**Correctness rules are product-neutral, and this is the evidence.** Linting found 22 real
+markup errors outside Thunderbird content, every one an unbalanced `{for}` block, in 10
+files. Independently corroborated by raw tag counts — `certificate-...-kazakhstan` has 2
+opens against 5 closes and gets 3 errors, `how-configure-close-tab-warnings-firefox` 23
+against 26 and gets 3, `search-suggestions-firefox` 12 against 13 and gets 1.
+
+It also found a **false-positive class**, which is just as valuable: all 9 SW007 hits are in
+`how-to-use-for`, the article that documents `{for}`. It escapes only the *opening*
+delimiter — `<nowiki>[[</nowiki>Image:Quantum Logo]]` — so the source really does contain a
+`]]` whose `[[` is inside an opaque region. Kitsune renders that correctly and the author
+meant it. Articles that document markup are adversarial input for a linter; see sumo-linter
+issue #7.
 
 ## Provenance and licensing
 
@@ -55,9 +68,16 @@ repository's MPL-2.0 licence — see
 <https://www.mozilla.org/foundation/licensing/website-content/>. A snapshot, never the
 source of truth: edit articles on SUMO.
 
+## Articles
+
+`en-US/` holds all **475 public `firefox` articles**, 2.9 MB of source. Fetched with
+`--only` against an anonymous listing, so every one of them is public by construction: the
+signed-in listing includes Firefox's unpublished drafts, and a draft is therefore never
+fetched rather than filtered out afterwards.
+
 ## What is deliberately excluded
 
-Two of the 209 are not committed, because they return 404 to anonymous requests:
+Two of the 209 templates are not committed, because they return 404 to anonymous requests:
 `Template:Fx56OptionsPrefs` and `Template: shaping the next decade` (whose one line is a
 link to an off-site flipbook). They are named in the repository `.gitignore`, so a stray
 `git add -A` cannot include them.

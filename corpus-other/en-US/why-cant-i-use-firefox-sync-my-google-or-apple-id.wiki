@@ -1,0 +1,11 @@
+You can use your Google or Apple ID to sign in to all Mozilla products and services, but you need to perform additional steps to use it with Firefox Sync.
+
+For security purposes, Firefox Sync requires a password to be set and associated with your Mozilla account so that your Sync data can be encrypted. When you authenticate your Mozilla account using Google or Apple, we don’t have access to or store your third-party authentication password, so we will not be able to encrypt your data.
+
+We’ll prompt you to set a password when you want to access Firefox Sync, if you don’t already have one set.
+
+'''Related content:'''
+*[[Sign in to a Mozilla account using 3rd-party authentication]]
+*[[Mozilla account - Managing account data]]
+*[[Change your Mozilla account password]]
+*[[I'm having problems with my Mozilla account]]

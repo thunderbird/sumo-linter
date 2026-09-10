@@ -1,0 +1,8 @@
+Complete themes have been replaced by built-in themes with lighter and darker color schemes.
+
+You can enable one of these built-in themes by following these steps:
+#[[T:Open Add-ons|type=Themes]]
+#Click '''Enable''' next to the desired theme.
+#;[[Image:Fx101EnableTheme]]
+
+Additionally, thousands of lightweight themes are available from [https://addons.mozilla.org/firefox/themes/ addons.mozilla.org]. For more information, see [[Use themes to change the look of Firefox]].

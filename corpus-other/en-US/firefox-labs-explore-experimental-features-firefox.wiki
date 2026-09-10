@@ -1,0 +1,19 @@
+''Firefox Labs'' is a new section within Firefox settings that gives you access to experimental features. These features are in development, and by enabling them, you get a sneak peek at what could be coming to Firefox in the future. Firefox Labs allows you to test these functionalities and share your feedback, helping shape the direction of future updates.
+{note}'''Note:''' Starting in [[Find what version of Firefox you are using|Firefox version]] 146, Firefox Labs is available to '''all''' desktop users, regardless of whether they choose to enable [[About Studies|Studies]] and [[Manage technical and interaction data collection settings in Firefox|telemetry]]. More people will be able to access our experimental features without needing to share their data, and any Labs-related browser changes will only be applied if they check Labs checkboxes in settings. {/note}
+
+=What’s inside Firefox Labs?=
+Firefox Labs includes a selection of experimental features that are updated regularly. For an up-to-date list of available experiments, visit Firefox Labs directly through your settings. Please note that these features may change frequently as new experiments are added or removed based on testing outcomes.
+
+=Access Firefox Labs=
+To explore Firefox Labs, follow these steps:
+#[[Template:optionspreferences]]
+#At the left-hand menu, click on {menu Firefox Labs}.
+;{for not fx152}[[Image:Firefox Labs overview]]{/for}{for fx152}[[Image:fx152firefoxlabs]]{/for}
+{for not fx146}<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1972647 https://www.firefox.com/firefox/146.0/releasenotes/ -->{note}'''Note:''' The ''Firefox Labs'' page will be missing if [[Manage technical and interaction data collection settings in Firefox|telemetry]] has been disabled.{/note}{/for}
+
+=Where to share feedback=
+Since these are experimental features, please share your feedback through the recommended path in each experiment. If there's no explicit recommendation, you can always use our [[What is Mozilla Connect?|Mozilla Connect]] feedback platform at [https://connect.mozilla.org] to share your thoughts about an experiment in Firefox Labs, instead of using the Mozilla Support platform.
+
+=Related articles=
+*[[About Studies]]
+*[[Firefox privacy and security features]]

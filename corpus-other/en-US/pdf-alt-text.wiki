@@ -1,0 +1,154 @@
+Making your PDF files accessible is essential for ensuring that everyone, including those using screen readers, can fully engage with your content. Alt text provides crucial descriptions of images, helping users with screen readers and supporting individuals with cognitive disabilities. Unfortunately, alt text is often missing from PDFs.
+
+Firefox makes it easy to add alt text to your PDFs. You can do it manually or use our experimental<!-- update this in a few months when it is no longer experimental --> AI-powered feature to generate alt text automatically. You can add alt text when you insert an image or later. If you use AI-generated text, remember to review it for accuracy.
+
+__TOC__
+
+=Add alt text manually=
+{for not fx130}
+To include an image in your PDF and manually add alt text for accessibility, follow these steps:
+<!-- The automatic alt text feature is currently only available for English (EN) locales. For all other locales, this feature is not yet officially supported, so users will need to follow this "manually add alt text" flow. The {for not fx130} condition on this section should be removed on non-EN locales. -->
+# At the top right of the screen, click [[Image:Add image to PDF 2]].
+# Click {menu + Add image} to open the file selection window.
+# Browse and select the image file you want to add to the PDF.
+# After adding the image, click {button + Alt text}.
+# In the provided space, either:
+#* Write a [https://accessibility.huit.harvard.edu/describe-content-images concise description] of the image for screen readers, or
+#* Mark the image as '''decorative''' if it’s only for visual appeal.
+# Click {button Save} to insert the alt text.
+# Drag and drop the image to your preferred location within the PDF.
+# To resize the image, click and drag its borders until it reaches the desired size.
+#;[[Image:Add image to PDF]]
+{/for}
+{for fx130}
+<!-- The automatic alt text feature is currently only available for English (EN) locales.
+This is the flow users in EN locales/V130 will see when manually adding alt text. -->
+To include an image in your PDF and manually add alt text for accessibility, follow these steps:
+{note}'''Note:''' These steps are part of an ongoing experiment and may not yet be available to all users. Some users will need to follow alternative steps ([[#w_alternative-steps|see below]]).{/note}
+#Open a PDF in Firefox. Click the image icon [[Image:Add image to PDF 2]] at the top of the PDF viewer, then click {menu Add image}.
+#;[[Image:Add image to PDF simplified]]
+#Choose an image to add. Once the image is uploaded, you’ll see the alt text editor.
+#Turn off [[Image:Firefox android toggle off|width=40]] the toggle next to '''Create alt text automatically'''.
+#Write the alt text from scratch in the text box.
+#Click {button Save} to add it to your image. If you click {button Not Now}, any changes you made will be discarded.
+#;[[Image:Turn off automatic alt text in PDFs]]
+#You will see a confirmation message that your alt text was added.
+#;[[Image:Alt text added]]
+#If the image has no alt text, you will see a button that says {button Missing alt text}. You can click this any time to add alt text to your image, which will make your document more accessible.
+#If you deselect an image and it is still missing alt text, you will see an alert on the image (this will not appear in print view).
+#*To remove this alert, click the image icon at the top of the PDF editor, then click the image, then click the {button Missing alt text} button and follow the steps above.
+
+==Alternative steps==
+The above steps are part of an ongoing experiment. Some users may need to follow these alternative steps, to add alt text manually:
+# At the top right of the screen, click [[Image:Add image to PDF 2]].
+# Click {menu + Add image} to open the file selection window.
+# Browse and select the image file you want to add to the PDF.
+# After adding the image, click {button + Alt text}.
+# In the provided space, either:
+#* Write a [https://accessibility.huit.harvard.edu/describe-content-images concise description] of the image for screen readers, or
+#* Mark the image as '''decorative''' if it’s only for visual appeal.
+# Click {button Save} to insert the alt text.
+# Drag and drop the image to your preferred location within the PDF.
+# To resize the image, click and drag its borders until it reaches the desired size.
+#;[[Image:Add image to PDF]]
+{/for}
+{for fx130}
+<!-- The automatic alt text feature is currently only available for English (EN) locales For all other locales, this feature is not yet officially supported, so users will need to follow the “manually add alt text” flow above. -->
+=Add alt text automatically=
+[[Template:progressiverollout]]
+
+==About automatic alt text==
+Automatic alt text relies on the download of a small language AI model to your device. This allows the model to run directly on your device, so your images and data never leave your control and your privacy is always protected. Importantly, your personal data is never used to train the model; instead, the model is trained on a [https://huggingface.co/datasets/Mozilla/flickr30k-transformed-captions diverse set of open-source images]. This way, you get useful alt text for your PDFs without giving up your privacy. Read more about our [https://hacks.mozilla.org/2024/05/experimenting-with-local-alt-text-generation-in-firefox-nightly/ small language model], or learn about [https://github.com/mozilla/distilvit/blob/main/docs/fighting_bias.md how we trained the model].
+
+{for fx148}
+===Turn on automatic alt text via AI Controls===
+To turn on automatic alt text:
+#[[Template:optionspreferences]]
+#Select {menu AI Controls} on the left.
+#Under the '''On-device AI''' section, go to {menu Image alt text in Firefox PDF viewer} and select {menu Enabled} from the dropdown menu.
+;{for not fx152}[[Image:Fx148AIControls-PDF]]{/for}{for fx152}[[Image:fx152aicontrols]]{/for}
+{/for}
+
+==Use the automatic alt text feature==
+To include an image in your PDF and automatically add alt text for improved accessibility, follow these steps:
+#Open a PDF in Firefox. Click the image icon [[Image:Add image to PDF 2]] at the top of the PDF viewer, then click {menu Add image}.
+#;[[Image:Add image to PDF simplified]]
+#Choose an image to add. Once the image is uploaded, you’ll see the alt text editor along with some automatically generated alt text based on your image. The generated text may take a few seconds to load the first time you use it.
+#Review the automatically generated text and rewrite/edit as needed.
+#Click {button Save} to add the alt text to your image. If you click {button Not Now}, any changes you made will be discarded and the original automatic alt text will be added to the image.
+#;[[Image:Automatic alt text]]
+#You will see a confirmation message that your alt text was added.
+#;[[Image:Automatic alt text added]]
+#If instead of {button Save} you click {button Not Now}, you may see a button that says {button Review alt text}. This is because our automatic alt text should receive a human review to ensure quality. You can click {button Review alt text} any time, and click {button Save} after reviewing and editing the alt text as needed.
+#If you deselect an image and the alt text still needs review, you will see an alert on the image (this will not appear in print view).
+#*To remove this alert, click the image icon at the top of the PDF editor, then click the image, then click the {button Review alt text} button and follow the steps above.
+
+=Image alt text settings=
+#Click the overflow menu of the PDF viewer, and select {menu Image alt text settings}.
+#;[[Image:Image alt text settings]]
+#From the settings panel, you can turn off automatic alt text and delete the alt text AI model from your device. Please note that having the AI model on your device is required to use automatic alt text.
+#You can also change the alt text editor settings if you don’t want to see the alt text editor right away after adding an image. If you turn this off, you will still be able to access the alt text editor by clicking the image icon at the top of the PDF viewer, then selecting an image and clicking the alt text button.
+#;[[Image:Alt text settings]]
+
+=Tips for writing alt text=
+Alt text should be a brief summary of the content of an image. Think about what is most important for your readers to understand about the image and how it relates to the rest of your PDF content.
+For in-depth tips on writing alt text, check out these resources:
+*[https://www.w3.org/WAI/tutorials/images/tips/ W3C tips and tricks]
+*[https://afb.org/consulting/afb-accessibility-resources/improving-your-web-site American Foundation for the Blind: Writing Effective Image Descriptions or “Alt Text”]
+*[https://accessibility.huit.harvard.edu/describe-content-images Harvard University: “Write helpful Alt Text to describe images”]
+*[https://build.washingtonpost.com/resources/accessibility/alt-text#Captions%20vs.%20alt%20text%20explained Washington Post alt text guidelines]
+
+=Frequently asked questions=
+==Is the automatic alt text accurate?==
+Our small language model is still a work in progress, and it will make mistakes, especially when describing complex images. This is why we designed the feature to:
+*Encourage human review so that our users can correct inaccuracies and include any missing details before saving the alt text.
+*Provide guardrails and notify screen reader users up front if alt text was automatically generated. This allows screen reader users to decide if they want to read or skip the description, with the understanding that automatic descriptions may be less accurate than descriptions written by a human.
+To report issues with automatically generated content, please [https://bugzilla.mozilla.org/show_bug.cgi?id=1909526 create tickets here].
+
+==Can automatic alt text generate overly descriptive or complex content?==
+Good alt text should be short and use simple words. That’s why we’ve trained our model to produce very brief descriptions that use plain language as much as possible.
+
+==Can the automatic alt text be too vague or miss key details?==
+Because we are aiming for short descriptions, it is possible for the text to be lacking in detail. This is why we encourage human review of all automatically generated alt text, so that our users can add the proper context and details as needed.
+
+==Is automatic alt text private?==
+Yes. The small language model that powers this feature is downloaded locally to your device. This means that your PDF and image content stays private on your device and is never sent to a remote server. The content of your PDF, image and alt text will never be viewable by Mozilla.
+
+==Is any PDF or image data used to train the alt text model?==
+No. None of your PDF or image data leaves your device, and your data will never be used to train the alt text model.
+
+==How do I turn off automatic alt text?==
+From the alt text editor, you can turn the '''Create alt text automatically''' toggle off to turn off the feature.
+Or, you can access image alt text settings from the PDF overflow menu and turn off the toggle from there. On this settings screen, you can also delete the model from your device.
+
+{for fx148}You can also turn off automatic alt text from the AI Controls panel in Firefox Settings. For more details, see [[Block generative AI features with Firefox AI controls]].{/for}
+
+==How do I know when alt text is automatically generated?==
+When you see the text ''This alt text was created automatically'' below the text box on the alt text editor, you’ll know that the alt text was generated using our model.
+
+Users who are reading the PDF outside of the Firefox editor will experience a disclaimer that comes before the alt text. This is so people reading the alt text with a screen reader or directly on the PDF can be informed that the alt text was not human-generated. For example: “Created automatically: [alt text description will go here]”.
+
+If a user has manually edited the automatic alt text, the disclaimer will disappear.
+
+==Can I skip adding alt text?==
+Yes. After adding an image, you can click {button Not now} on the alt text editor. This will discard any changes you have made to the alt text.
+
+If you do this, you may see a button on the image that says {button Review alt text}. This is because our automatic alt text should receive a human review to ensure quality. If the image doesn’t have any alt text, you will see a button that says {button Missing alt text}. You can click this button at any time and click {button Save} after reviewing, adding or editing the alt text as needed.
+
+If you no longer wish to see the alt text editor after adding an image, open image alt text settings from the PDF overflow menu and turn off this setting.
+
+==Will alt text appear in a printed PDF?==
+No, alt text only appears on a digital PDF, where it can be viewed by hovering over the image or read by a screen reader.
+
+==Can automatic alt text generate biased, inappropriate or offensive content?==
+We’ve taken several steps to reduce the risk that the alt text model will generate biased, inappropriate or offensive content. These include programming the model not to use offensive language or assume race, ethnicity, religion, gender or health status of people depicted in an image.
+
+Although good alt text conveys the meaning of an image and its content, the small language model that powers this feature cannot provide nuanced meaning or place the image in the appropriate historic or cultural content the way a human can. However, our model is designed to create a first draft of alt text that our users can edit as needed to convey the meaning of the image properly. By providing this starting point and encouraging human review, we are helping users produce alt text that meets [https://www.w3.org/WAI/fundamentals/accessibility-principles/#alternatives established best practices] more quickly.
+
+Learn more about [https://github.com/mozilla/distilvit/blob/main/docs/fighting_bias.md how we addressed bias while training the alt text model].
+{/for}
+
+=Related articles=
+*[[View and edit PDF files using Firefox’s built-in viewer]]
+*[[Choose your preferred PDF viewer in Firefox]]
+*[[Block generative AI features with Firefox AI controls]]

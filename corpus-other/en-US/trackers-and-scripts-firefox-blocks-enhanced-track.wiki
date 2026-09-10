@@ -1,0 +1,84 @@
+Firefox gives you control over your online privacy. With [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection in Firefox]] (ETP), Firefox blocks many types of hidden scripts and trackers that try to collect your data across different websites.<!--Blocking scripts may sometimes cause websites to break.?-->
+
+This article explains what Firefox blocks, how it helps you, and what to do if a website doesn’t work as expected. These protections are built in, but you can customize them any time.
+
+__TOC__
+
+=How tracking works=
+Tracking relies on invisible code embedded in web pages. This code records your visits to websites and collects data about how you interact with pages. 
+
+When the same tracker appears across multiple websites, it can compile a detailed profile of what you do online. Tracking companies also package, share, and sell this data to users of their service or other third parties.
+
+These tracking techniques occur independent of the browser you use. The following trackers are blocked by default in Firefox, using a list of known trackers provided by [https://disconnect.me/trackerprotection Disconnect].
+
+=Social media trackers=
+Social networks place trackers on other websites to follow what you do, see, and watch online. This allows social media companies to collect data about your browsing history and improve their ad targeting. 
+
+Even if you don’t use a social network, that site can still collect data about your browsing habits.
+
+'''Social media trackers Firefox blocks and doesn’t block'''
+
+Firefox blocks the most common trackers from Facebook, Twitter and LinkedIn that appear on other websites.
+*The Standard setting is balanced for protection and performance. Pages will still load normally.
+*The Strict mode blocks more trackers<!--, but may cause some sites to break-->. Go to your global privacy preferences to set your [[Enhanced Tracking Protection in Firefox for desktop#w_strict-enhanced-tracking-protection|Enhanced Tracking Protection settings to Strict]].
+Social media companies will still be able to collect data about you on their own social networks, including Facebook-owned services like Instagram, WhatsApp and Messenger. 
+
+Logging in to sites using your Facebook or Twitter account is another way social networks can collect data about you.
+{note}
+'''Want even more protection against Facebook?'''<br>
+Facebook like and share buttons on other websites allow Facebook to track your browsing activity, even if you never click them. To strip these buttons of Facebook trackers, add the [[Facebook Container - Prevent Facebook from tracking you on other websites|Facebook Container extension]].
+{/note}
+
+=Cross-site tracking cookies=
+Cross-site tracking cookies follow you from site to site to gather data about what you do online. This is most often done without your knowledge or consent. Data firms and analytics companies use these cookies to track you, profile you, make inferences about your interests, and retarget you with ads. 
+
+Because these cookies are set by a different company than the website you’re on, they’re also referred to as third-party tracking cookies. To learn more, see [[Third-party trackers]].
+
+==Cookies Firefox blocks and doesn’t block==
+By default, Firefox blocks the cookies that track your browsing activity across multiple websites. This includes cross-site tracking cookies set by ad, social media and analytics companies. 
+
+Other cookies, such as those that remember your login credentials or items in your shopping cart, are still permitted by default.
+{note}'''Note:''' In ETP [[Enhanced Tracking Protection in Firefox for desktop#w_strict-enhanced-tracking-protection|Strict mode]] Firefox blocks all cross-site (third-party) cookies.{/note}
+
+=Cryptominers=
+Cryptominers are a type of malware that use your system’s computing power to mine digital money. When your privacy settings are set to Standard (the Firefox default) or Strict, cryptominers are being blocked.
+
+Generating cryptocurrencies usually requires solving a complex cryptologic puzzle, a computing-intensive process that consumes a lot of costly electrical energy. 
+
+To evade the cost, cryptojackers deploy these scripts on other people’s computers without their consent. Cryptomining scripts drain your battery, slow down your computer, and can increase your energy bill.
+
+=Tracking content=
+Many websites load external ads, videos and other content with tracking code from other companies. For example, a website may embed a video from a video platform. 
+
+The code that loads the video contains trackers. Blocking tracking content can make sites load much faster, but parts of pages might not work correctly or appear at all.
+
+Tracking content can include:
+*Ads
+*Login fields
+*Forms
+*Payments
+*Comments
+*Videos and photos
+*Buttons
+{note}
+By default, tracking content is blocked in [[Private Browsing - Use Firefox without saving history|Private Windows]] only. To add this protection for all windows:
+#[[Template:optionspreferences]]
+#Select {for not fx151}{menu Privacy & Security}{/for}{for fx151}{menu Privacy and security}{/for} on the left.
+#Under ''Enhanced Tracking Protection'',{for fx152} click {menu Advanced settings} and{/for} choose {menu Strict}.
+{/note}
+If parts of a webpage don’t work or the site appears to be broken, click the shield [[Image:IG shield]] in the address bar to toggle off protections for that site. This will allow all content to load, including trackers. See [[Enhanced Tracking Protection in Firefox for desktop#w_what-to-do-if-a-site-seems-broken|this article's section on how to turn off Enhanced Tracking Protection]] for details, and for more information, visit [[SmartBlock for Enhanced Tracking Protection]].
+
+=Fingerprinters=
+Fingerprinters collect settings from your browser and computer to create a profile of you. Using this digital fingerprint, they can create a unique profile of you to track you across different websites. When your privacy settings are set to Standard (the Firefox default) or Strict, domains that are known fingerprinters are being blocked. See [https://blog.mozilla.org/security/2020/01/07/firefox-72-fingerprinting/ this Mozilla Security blog post] for details.
+
+These are some of the characteristics of your device and browser that fingerprints can collect:
+*Extensions you use
+*Operating system and model of your device
+*Screen resolution and language
+*Information about your network connection
+*Fonts installed on your computer
+
+=Related articles=
+*[[Enhanced Tracking Protection in Firefox for desktop]]
+*[[SmartBlock for Enhanced Tracking Protection]]
+*[[Third-party trackers]]

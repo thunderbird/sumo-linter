@@ -1,0 +1,126 @@
+'''Bookmarks''' {for win}(called ''Favorites'' in Microsoft Edge) {/for}are links you save to web pages that make it easy to get back to your favorite places. This article covers the basics of creating and managing Firefox bookmarks.
+
+__TOC__
+
+=How do I bookmark a page?=
+To bookmark a page, just click on the star in the address bar.
+;[[Image:Fx89 bookmarks star address bar]]
+The star will turn blue when the page is bookmarked and a window will pop up so you can name, move, or tag your bookmark.
+{note}'''To bookmark all open tabs in a window at once:'''
+{for mac}
+#Select {menu Bookmark All Tabs…} from the Bookmarks menu.
+#;[[Image:Fx155MenuBar-BookmarkAllTabs-Mac]]
+#Give the new bookmarks folder a name and choose which folder to store it in.
+#Click {button Add Bookmarks} to finish.
+{/for}
+{for win,linux}
+#Right-click on any of the tabs and choose {menu Select All Tabs} from the context menu.
+#Right-click on any tab again and select {menu Bookmark Tabs…}.
+#Give the new bookmarks folder a name and choose which folder to store it in.
+#Click {button Add Bookmarks} to finish.
+{/for}
+{for win,mac}You can also use the keyboard shortcut {for win}{key Ctrl+Shift+D}{/for}{for mac}{key Command+Shift+D}{/for} to bookmark all open tabs in the current window.{/for}{/note}
+
+=How do I change the name or location of a bookmark?=
+To edit the details of your bookmark:
+#Click the star a second time to open the ''Edit Bookmark'' dialog box.
+#;[[Image:Fx89EditBookmark]]
+#In the ''Edit bookmark'' box, you can change any of these details:
+#*'''Name:''' This is the name that Firefox displays for the bookmark in menus.
+#*'''Location:''' Choose what folder to store your bookmark in by picking one from the drop-down menu (for example, the {menu Bookmarks Menu} or {menu Bookmarks Toolbar}). In that drop-down menu, you can also select {menu Choose…} to see a list of all bookmarks folders or create a new one.<br>By default, bookmarks are saved in the last used folder (or in the ''Bookmarks Toolbar'', if you are bookmarking your first page).<!-- instead of the Other Bookmarks folder, since fx84: https://bugzilla.mozilla.org/show_bug.cgi?id=1665389 https://bugzilla.mozilla.org/show_bug.cgi?id=1432604 -->
+#*'''Tags:''' You can use tags to help you search through and organize your bookmarks. For more information, see [[Bookmark Tags - Categorize bookmarks to make them easy to find]].
+#When you have finished editing, click {button Save} to close the box.
+{note}'''Tip:''' If you don't want to see this editor when saving a bookmark, uncheck '''Show editor when saving'''.{/note}
+
+=How do I delete a bookmark?=
+See [[How do I delete a bookmark?]] to remove one from your Firefox browser.
+
+=How do I organize my bookmarks?=
+The ''Library'' window lets you view and organize all of your bookmarks. You can open the ''Bookmarks Library'' window as shown below.
+
+[[Template:OpenBookmarksLibrary]]
+{note}'''Tip:''' You can also use the keyboard shortcut {for win, linux}{key Ctrl+Shift+O}{/for}{for mac}{key Command+Shift+O}{/for} to quickly open your ''Bookmarks Library''.{/note}
+;[[Image:Fx63Library-OtherBookmarks]]
+In the ''Bookmarks Library window'' you can:
+*Drag and drop your bookmarks into other folders. See [[Use bookmark folders to organize your bookmarks]] to learn more. There are some special folders:
+**'''Bookmarks Menu:''' Bookmarks in this folder will appear in the Firefox Sidebar and Menu bar{for win, linux} or toolbar{/for} Bookmarks menu.
+**'''Bookmarks Toolbar:''' Bookmarks in this folder will appear in the [[#w_bookmarks-toolbar|Bookmarks Toolbar]], if it's turned on.
+*[[Sort your bookmarks to quickly find the ones you want]].
+*Search your bookmarks by name.
+*Edit your bookmarks' details, including [[#w_how-to-use-keywords-with-bookmarks|keywords]] (see below).
+*Open a bookmark in the current tab by double-clicking on it.
+*[[Template:contextmenu]] on a bookmark to view other options in the context menu, such as {menu Open in New Tab}, {menu Open in New Private Window}, {menu Delete Bookmark}, etc.
+*[[Restore bookmarks from backup or move them to another computer|Backup, restore]], [[Export Firefox bookmarks to an HTML file to back up or transfer bookmarks|export]] and [[Import Bookmarks from an HTML file|import]] your bookmarks.
+
+=How do I access my bookmarks?=
+==Address Bar Search==
+You can search bookmarked pages by typing their name in the address bar. As you type, a list of web pages that you've bookmarked, tagged and visited will appear. Bookmarked pages will have a star next to them. The search can be restricted to bookmarks if you start with <code>*</code> and a space. Then simply click one of the pages, and you'll be taken there instantly. To learn more, see [[Address bar autocomplete suggestions in Firefox]].
+
+Alternatively, you can activate bookmark searching from the main menu:
+#[[Template:fx29menu]]
+#Click {menu Bookmarks}.
+#Activate bookmark searching by clicking {menu Search bookmarks}.
+#Type the name of the bookmark you're looking for into the address bar.
+Firefox will display only the matching bookmarks as you type.
+{note}'''Note:''' {menu Search bookmarks} is also available in the Bookmarks menu, accessible if you added the [[#w_bookmarks-menu-button-on-the-toolbar|Bookmarks Menu]][[Image:Bookmarks Menu button - Proton]] button to the toolbar.{/note}
+
+==Bookmarks Toolbar==
+Firefox's [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks toolbar]] gives you quick access to often-used bookmarks. For new users, bookmarks are placed by default here.
+;[[Image:Fx155Toolbar-Bookmarks]]
+To enable the Bookmarks Toolbar:
+{for win,linux}
+#[[Template:customizefx29]]
+#Select the {menu Toolbars} dropdown menu at the bottom of the window.
+#Select {menu Bookmarks Toolbar}. 
+#*The menu options {menu Always Show}, {menu Never Show} and {menu Only Show on New Tab} will be available for you to choose when you want the Bookmarks Toolbar to be visible.
+#Click the {button Done} button when you're finished.
+{/for}
+{for mac}
+;[[Image:Fx155Mac-View-Toolbars-Bookmarks]]
+#Click the {menu View} menu at the top of the screen and go down to {menu Toolbars}.
+#Select {menu Bookmarks Toolbar}. The menu options {menu Always Show}, {menu Never Show} and {menu Only Show on New Tab} will be available for you to choose when you want the Bookmarks Toolbar to be visible.
+{/for}
+{note}'''Tip:''' You can also use the keyboard shortcut {for win,linux}{key Ctrl+Shift+B}{/for}{for mac}{key Command+Shift+B}{/for} to show or hide the Bookmarks Toolbar.{/note}
+To learn more, see [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window]].
+
+===Other Bookmarks folder===
+You will see an ''Other Bookmarks'' folder icon at the end of the Bookmarks toolbar if the ''Other Bookmarks'' folder in your Library contains any bookmarks. This makes it easier to find bookmarks stored in that folder. To remove the ''Other Bookmarks'' folder icon from the Bookmarks toolbar, see [[Remove the Other Bookmarks folder from the Bookmarks Toolbar]].
+
+==Firefox Sidebar and Menu==
+You can view and access all of your bookmarks from the [[Use the Firefox Sidebar to access bookmarks, history and synced tabs|Firefox Sidebar]] and from the Menu bar {menu Bookmarks} menu{for win,linux}, if the [[Restore the Menu bar in Firefox|Menu bar]] is enabled{/for}.
+
+==Bookmarks Menu button on the toolbar==
+<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1697533#c7-->
+The Bookmarks Menu [[Image:Bookmarks Menu button - Proton]] toolbar button is not shown by default, but you can add it by [[Customize Firefox controls, buttons and toolbars|customizing your Firefox toolbar]].
+
+===How do I add the Bookmarks Menu button to the toolbar?===
+#[[T:customizefx29]]
+#*A special tab will open which allows you to drag and drop items in or out of the overflow menu and the toolbar.
+#Drag the Bookmarks Menu [[Image:Bookmarks Menu button - Proton]] button to the toolbar.
+#Click {button Done}.
+To remove the button, use the above steps to drag the Bookmarks Menu button out of the toolbar.
+
+=How to use keywords with bookmarks=
+You can use ''keywords'' to easily access your bookmarks. When you assign a keyword to a bookmark, you can simply type the keyword into the address bar and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} to open the bookmark. Any words supplied ''after'' the bookmark keyword and a space will be URL-encoded and substituted into the bookmark's URL in place of the <code>%s</code> placeholder, wherever that appears; see below for details.
+
+To assign a keyword to a bookmark:
+#Open the [[#w_how-do-i-organize-my-bookmarks|Library window]] and select the bookmark.
+#Click the keyword field at the bottom of the window.
+#Type your desired keyword.
+#*The keyword may contain letters, digits and special characters (for example: <code>- _ ' " , . : ; = / \ ( ) [ ] { } ! & @ ~</code>). It must not contain spaces and must not start or end with these characters: <code>? * ^ $ % # +</code>
+#* Wherever the string <code>%s</code> appears in the bookmark's URL, it will be replaced with any words typed in the address bar after the bookmark's keyword and a space, properly URL-encoded, so they can be used as query string parameters to a search engine, for example.
+#** '''Example:''' use '''<code>mdn</code>''' as the keyword for the URL https://developer.mozilla.org/search?q=%s; type '''<code>mdn css border-radius</code>''' in the address bar to test it.
+#*The keyword must not be the same as a [[Assign shortcuts to search engines|search engine's keyword]]. For instance, if a search engine has the keyword '''<code>@g</code>''', the bookmark's keyword cannot be '''<code>@g</code>''', but it can be '''<code>g</code>'''.
+#*If the chosen keyword was already assigned to another bookmark, it will be reassigned to the new one.
+{note}'''Note:''' Outside the Library, you can access the keyword field from the context menu by {for win,linux}right-clicking{/for}{for mac}holding down the {key Control} key while you click{/for} the bookmark and then selecting {menu Edit Bookmark}.{/note}
+
+=How do I import bookmarks from another browser or profile?=
+Firefox lets you import bookmarks from other browsers installed on your computer. It also lets you import other data, such as browsing history and saved passwords, from some of these browsers. To learn more, see [[Import data from another browser]].
+
+=How do I restore bookmarks from backup?=
+To restore bookmarks, see [[Restore bookmarks from backup or move them to another computer]]. Sync does not guarantee a backup, and restoring a backup may overwrite synced data. If you run into file restore fails or your bookmarks are suddenly lost when restarting Firefox, see [[Recover lost or missing Bookmarks]].
+
+=Related articles=
+*[[Keyboard shortcuts - Perform common Firefox tasks quickly#w_bookmarks|Bookmarks section of Keyboard Shortcuts]] 
+*[[Use bookmark folders to organize your bookmarks]]
+*[[How do I set up Sync on my computer?|Set up Sync to share bookmarks, open tabs and more with another profile, computer or mobile device]].

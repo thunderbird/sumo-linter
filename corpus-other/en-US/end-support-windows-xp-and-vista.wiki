@@ -1,0 +1,16 @@
+[[Find what version of Firefox you are using|Firefox version]] 52.9.0 [[Firefox ESR release cycle|ESR]] was the last supported release for Windows XP and Windows Vista. No further security updates will be provided for those systems.
+{note}'''Note:''' You won't be able to sign in to [https://support.mozilla.org/ Mozilla Support] using Firefox version 52.9.0 ESR or older. Either use a different device or see [[Get community support#w_additional-resources|Get community support – Additional resources]] for other support options.{/note}<!-- https://support.mozilla.org/en-US/forums/contributors/714351?#post-79268 -->
+
+=Why has Firefox ended support for Windows XP and Vista users?=
+Firefox was one of the last browsers to offer any support for Windows XP and Vista. Microsoft itself ended support for Windows XP [https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet in 2014] and support for Windows Vista [https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet in 2017]. Unsupported operating systems receive no security updates, have known exploits, and can be dangerous to use, which makes it difficult to maintain Firefox on those versions.
+
+=Will switching to a different browser keep me protected?=
+Unfortunately not. Most browsers (such as Google Chrome and Microsoft Internet Explorer) have already ended support for Windows XP and Windows Vista.
+
+=Can I still browse safely with Firefox on Windows XP and Vista?=
+Unfortunately not. At this point support for version 52 of the [https://www.mozilla.org/firefox/organizations/ Firefox Extended Support Release (ESR)] has ended. Unsupported browsers receive no security updates, have known exploits, and can be dangerous to use.
+
+=How can I get the newest features of Firefox?=
+If you want to keep your Firefox up to date, with all the latest features and updates, you'll need to upgrade your computer's operating system.
+*Upgrade to a Windows version that Microsoft still supports, such as Windows 10 or higher. Learn more [https://support.microsoft.com/help/14223/ in this Microsoft FAQ].{warning}Windows versions that are not supported by Microsoft are unreliable and unsafe to use, which also makes it difficult to maintain Firefox on those versions.{/warning}
+*(Advanced): Switch to a [https://wikipedia.org/wiki/Linux Linux]-based operating system. The vast majority of Linux distributions come with Firefox as the default browser. Please see the support websites for the version of Linux that you're interested in.

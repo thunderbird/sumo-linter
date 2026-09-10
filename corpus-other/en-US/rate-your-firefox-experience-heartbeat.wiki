@@ -1,0 +1,28 @@
+Mozilla is working hard to improve Firefox and we need your help to make this happen. As you use Firefox, you may be selected to rate your experience. Your feedback gives us a real-time understanding of your needs so we can act on them quickly. We also use Heartbeat to send surveys on Mozilla products, the Internet or current events relevant to users. You may also see a notification from Heartbeat if you are running a version of Firefox that is critically out of date.
+
+=Please Rate Firefox prompt=
+The "Please Rate Firefox" prompt will show up for a small sample of users. If you see this prompt, simply select a star rating and Firefox will report it back to Mozilla.
+
+;[[Image:heartbeat]]
+
+After you rate Firefox, a new tab will open with additional resources for common issues and new features so you can get help right away.
+
+=Out of date message=
+<!-- L10N Note: This notification is part of the Heartbeat shield study (https://wiki.mozilla.org/Firefox/Shield/Heartbeat), recently targeting only limited set of locales (en-US, es, de and few others). "We will be expanding this to hit 100% of EN, every day. We are also expanding to multiple locales, ES-*, PT-*, zh-TW, Pl, IT, FR, DE, ID, RU. These loales will all see this message daily" per Tyler Downer.  Ref: https://support.mozilla.org/en-US/forums/contributors/712991?#post-73877 -- L10N Note end -->
+If you start Firefox and see a notification bar with a Heartbeat [[Image:HeartbeatIcon]] icon, the message ''Your Firefox is critically out of date. An update is required to stay secure'' and an {button Update Now} button, you should click {button Update Now} to download and install the most recent Firefox version.<br>   
+[[Image:Heartbeat-Fx55CriticalUpdatePrompt]]<br>
+<!--https://support.mozilla.org/en-US/questions/1192712-->
+This message is shown when an outdated version of Firefox exposes you to a serious security risk.
+
+=Opting out=
+You can change your settings if you prefer never to see these prompts or messages:
+[[Template:aboutconfigwarning]]
+#[[Template:aboutconfig]]
+#Find the preference {pref app.normandy.enabled}.
+#Set the preference value to {pref false} by clicking the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button.
+
+=What happens with my feedback?=
+Your feedback is aggregated and reported back to the teams responsible for developing and improving Firefox. Your feedback will be used to develop new features and fix issues in upcoming releases.
+
+=How else can I improve Firefox?=
+*Report issues through [https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox Bugzilla].

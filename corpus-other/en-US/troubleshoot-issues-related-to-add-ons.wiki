@@ -1,0 +1,39 @@
+Sometimes, add-ons can break your settings. This article explains how to troubleshoot issues related to add-ons in Firefox.
+
+__TOC__
+
+=How do I know if my problem is related to add-ons?=
+Here are a few examples of add-ons affecting or breaking Firefox:
+*Your default search has changed unexpectedly.
+*Your home page or browser settings have changed.
+*Changes in behavior when searching or browsing (such as unexpected redirects to a different website or search provider).
+*Unexpected changes on web pages.
+
+=How can I fix this problem?=
+As a first step, you could restart Firefox with add-ons disabled (see [[Use Troubleshoot Mode in Firefox]] to learn how). If the issue goes away, restart Firefox with add-ons enabled, then selectively disable add-ons until you figure out which add-on is causing the problem and either [[Disable or remove Add-ons|disable or remove the add-on]].
+
+If you need more help, you can file a question in our support forum to find out more about the issue you're experiencing.
+#Go to the [https://support.mozilla.org/questions/new Ask the Community] page in Mozilla Support.
+#Select the product you need help with.
+#Search for existing solutions in the knowledge base or forums.
+#If you don't find any, or they don't help you solve the problem, click the {button Ask Now} button to file a new question.
+
+==If you're reporting this issue for the first time in the forums==
+When you create a new question, go to the ''Troubleshooting Information'' section of the Ask a Question form and click the {button Share Data} button.  (Only available for Firefox Desktop.) This fills in a field in the form with detailed information about the internal workings of your browser that will help answer your question.
+
+If it doesn't automatically gather your information, you can manually copy the data as follows:
+#Click the Firefox menu button {for fx89}[[Image:Fx89menuButton]]{/for}{for not fx89}[[Image:Fx57Menu]]{/for}, click {for not fx89}[[Image:Fx57Help]]{/for}{menu Help} and select {for not fx88}{menu Troubleshooting Information}{/for}{for fx88}{menu More Troubleshooting Information}{/for}.
+#;The Troubleshooting Information page with the address '''about:support'''  will open in a new tab. 
+#Click {button Copy text to clipboard}. 
+#Go back to the Ask a Question form and paste the data into the text field under the ''Troubleshooting Information'' section.
+#Complete the form and post your question.
+
+==If you have already filed a question on the forum==
+Go to your support question, which is accessible from your Mozilla Support user profile page, to add detailed information about the internal workings of your browser.
+#Go to the [https://support.mozilla.org Mozilla Support] page, hover over your name at the top of the page and click '''My Questions''' in the profile section.
+#Click the question title.
+#Click {menu Edit this question} on the right sidebar.
+#Follow the steps in the previous section for using the {button Share Data} button.
+
+=How do I avoid this problem?=
+To make sure that you use add-ons that are safe, install extensions from the [[Recommended Extensions program]]. These extensions are thoroughly evaluated by the team for safety before they receive the ''Recommended'' status.

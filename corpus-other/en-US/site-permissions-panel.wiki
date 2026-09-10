@@ -1,0 +1,12 @@
+If you have granted any special permissions to a website, you will see a Permissions icon [[Image:IG permissions]] in the address bar. Click this icon to open the Permissions panel, where you can view and adjust permissions for the website.
+;{for not fx149}[[Image:Fx145 Site Permissions Panel]]{/for}{for fx149}[[Image:Fx149 Site Permissions Panel]]{/for}
+<!-- from https://support.mozilla.org/en-US/kb/how-manage-your-camera-and-microphone-permissions -->
+You can click the &#10005; next to any permission entry to clear the status. This will restore the default setting for that type of permission.
+{note}'''Note:''' You will not see a Permissions icon in the address bar if you have not changed any of the default permission settings for that website.{/note}
+You can change any other permissions from the '''Page Info''' window, which contains a comprehensive ''Permissions'' panel. To open the ''Page Info'' window for a website:
+# Click the {for not fx149}padlock [[Image:IG lock]]{/for}{for fx149}shield [[Image:IG trust icon active]]{/for} in the address bar.
+# Click the Connection entry {for not fx149}in{/for}{for fx149}at the top of{/for} the [[Site Information panel|Site Information panel]].
+#;{for not fx149}[[Image:Fx140SiteInfoPanel]]{/for}{for fx149}[[Image:Fx149UnifiedTrustPanel]]{/for}
+# Click the {for fx149}{button More site information}{/for}{for not fx149}{button More information}{/for} button in the next panel. The ''Page Info'' window will open.
+{note}'''Tip:''' You can open the ''Page Info'' window from the Menu bar{for win,linux}, if the [[Restore the Menu bar in Firefox|Menu bar is enabled]]{/for}. Click {menu Tools} and select {menu Page Info} from the drop-down menu. You can also press {for not mac}{key Ctrl+I}{/for}{for mac}{key Command+I}{/for} on the keyboard.{/note}
+See the [[View site information with Page Info]] article for additional information.

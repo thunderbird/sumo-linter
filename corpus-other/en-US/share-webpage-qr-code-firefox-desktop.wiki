@@ -1,0 +1,36 @@
+Starting in [[Find what version of Firefox you are using|Firefox version]] 153, you can create a QR code for the webpage you're viewing so you can quickly open it on another device or share it with someone else. You can copy or save the QR code image and no Mozilla account is required. 
+
+This article explains how to generate a QR code, save or copy it, and answers common questions about the feature.
+
+__TOC__
+
+=Generate a QR code for a webpage=
+You can create a QR code for webpages you can normally share. 
+{note}'''Note:''' Internal Firefox pages, such as '''about:''' pages, can't be shared this way.{/note}
+#Open the webpage you want to share.
+#[[Template:contextmenu]] the tab for that webpage to open the tab menu.
+#Select '''Share''', then select '''Generate QR Code'''.
+;{for win}[[Image:qrcodewindows]]{/for}{for mac}{for not win}[[Image:qrcodemacos]]{/for}{/for}{for linux}[[Image:qrcodelinux]]{/for}
+A window opens and displays a QR code for the current webpage.
+{note}'''Tip:''' You can also generate a QR code from the Menu bar{for win, linux}, if the [[Restore the Menu bar in Firefox|Menu bar is enabled]]{/for}. Select {menu File} > {menu Share} > {menu Generate QR Code}.{/note}
+
+=Copy or save the QR code=
+The QR code window includes two options:
+*'''Copy:''' Copies the QR code image to your clipboard so you can paste it into an email, message, or document.
+*'''Save:''' Saves the QR code as a PNG image on your computer. The image also appears in Firefox's Downloads list.
+;{for win}[[Image:qrcodefirefoxwindows]]{/for}{for mac}[[Image:qrcodefirefoxmacos]]{/for}{for linux}[[Image:qrcodefirefoxlinux]]{/for}
+When you're finished, select {button Close} to dismiss the window.
+
+=Frequently asked questions=
+==Do I need a Mozilla account or to sign in?==
+No. You can generate a QR code without signing in to a Mozilla account. The QR code is created locally on your computer, and Firefox does not upload or store the webpage URL when generating it.
+
+==Why is the Generate QR Code option missing or unavailable?==
+Some pages can't be shared with a QR code. For example, internal Firefox pages (addresses that begin with '''about:''') and a new blank tab don't support this feature.
+
+==Does anyone else see the pages I share?==
+No. Firefox only displays the QR code on your screen. The webpage is shared only if you choose to share the QR code yourself, such as by sending the image in an email, message, or printed document.
+
+=Related articles=
+*[[Send Tab from Firefox desktop to other devices]]
+*[[Where to find and manage downloaded files in Firefox]]

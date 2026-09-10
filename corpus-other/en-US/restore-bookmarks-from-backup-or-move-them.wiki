@@ -1,0 +1,37 @@
+Firefox automatically creates backups of your [[Bookmarks in Firefox|bookmarks]] and saves the last 15 backups for safekeeping. This article describes how to restore your bookmarks from the automatic backups that Firefox creates, how to save and restore your own bookmark backup files, and how to move your bookmarks to another computer.
+* If your bookmarks suddenly become unavailable in Firefox, see [[Recover lost or missing Bookmarks]] for troubleshooting information.
+* For more information about using bookmarks, see [[Bookmarks in Firefox]].
+
+__TOC__
+
+= Backup and restore =
+== Manual backup ==
+#[[Template:OpenBookmarksLibrary]] A library window will open.
+# In the Library window, make sure "All Bookmarks" is selected on the left rail. Click the {for mac}[[Image:import-export-arrows]]{/for}{for win,linux}{button Import and Backup}{/for} dropdown menu and then select {menu Backup…}.{for win}<br/>[[Image:Bookmarks Backup 68]]{/for}
+# In the Bookmarks backup filename window that opens, choose a location to save the file, which is named {filepath bookmarks-"date".json} by default. (You can leave it as a json file, or change the file type to HTML. Firefox supports these two file types for restoration.) The desktop is usually a good spot, but any place that is easy to remember will work.
+# Save the bookmarks json file. The Bookmarks backup filename window will close and then you can close the Library window.
+
+== Restoring from backups ==
+{warning}'''Caution: Restoring bookmarks from a backup will overwrite your current set of bookmarks with the ones in the backup file. You can merge both old and new bookmarks by selecting the “Import bookmarks from HTML” option instead of the “Restore” option.'''{/warning}
+#[[Template:OpenBookmarksLibrary]] A library window will open.
+# In the Library window, click the {for mac}[[Image:import-export-arrows]]{/for}{for win,linux}{button Import and Backup}{/for} dropdown menu and select {menu Restore}.{for win}<br>[[Image:Bookmarks Restore 68]]{/for}
+# Select the backup from which you want to restore:
+#* The dated entries are automatic bookmark backups.
+#* {menu Choose File…} lets you restore from a manual backup (see above). Selecting this option will open another window, where you can select your manual backup file from the location where you saved your backup file in the previous steps.
+# After selecting a backup and confirming your choice, your bookmarks from that backup will be restored.
+# Close the Library window.
+{note}'''Note:''' If the file could not be imported, try the manual backup steps again and change the file type. Firefox supports both HTML and json backups, so it helps to try both if one is not working properly.{/note}
+
+= Moving bookmarks to another computer =
+==Using Firefox Sync==
+You can use Firefox Sync to move your bookmarks from one computer to another.
+{note}'''Important:''' Firefox Sync continuously updates itself as you change bookmarks, so '''it does not provide a true backup service''', nor is it intended to be used as one. {/note}
+Firefox Sync is the best way to keep your bookmarks (and other profile data) synchronized between all of the computers you use. See [[How do I set up Sync on my computer?]] for more information and instructions on setting it up.
+
+==Using a bookmark backup file==
+You can also use a bookmark backup file from one computer and restore it on another computer. This is useful if you can't synchronize the two computers' bookmarks using Sync, for some reason.
+
+The bookmark backup file can either be a [[#w_manual-backup|manual backup]] (see above) or one of the automatic dated backups located inside the [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile folder]] named {filepath bookmarkbackups} folder. Place the bookmark backup file on your transfer media (a Flash drive, for example) and copy it to the desktop (or any location) of the other computer. You can then restore the backup from the Firefox Library window, using the {menu Choose File…} option, as described in the [[#w_restoring-from-backups|Restoring from backups]] section above.
+
+= Restoring bookmarks after upgrading or downgrading older Windows versions =
+After upgrading or downgrading your Windows 10 operating system, a directory named {filepath Windows.old} is created, and most of the data erased from the upgrade or downgrade is stored there. One especially useful item is the Bookmarks from Firefox. Follow the instructions in [[#w_restoring-from-backups|Restoring from backups]] above, and when you select {menu Choose File…}, follow the path ''C:\Windows.old\Users\<UserName>\AppData\Roaming\Mozilla\Firefox\Profiles\<filename.default>\bookmarkbackups'' to your previous bookmarks. Check the file date for information when the backup was created. Be aware using a backup bookmark folder will replace all the bookmarks in Firefox with the bookmarks in the backup file.

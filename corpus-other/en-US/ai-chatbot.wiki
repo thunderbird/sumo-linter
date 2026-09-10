@@ -1,0 +1,189 @@
+You have the option to use an AI chatbot of your choice in the [[Use the sidebar to access tools and vertical tabs|updated sidebar]]. The sidebar allows you to keep a variety of browser tools, including a chatbot, in view as you browse. You can choose from the following chatbot providers: Anthropic Claude, ChatGPT, {for not fx154}Copilot{for not fx143} (starting in [[Find what version of Firefox you are using|Firefox version]] 143){/for},{/for} Google Gemini and {for not fx155}Le Chat Mistral (now Vibe){/for}{for fx155}Mistral Vibe{/for}.
+
+;{for not fx154}[[Image:Fx143-Sidebar_with_chatbot_open_on_onboarding|width=640]]{/for}{for =fx154}[[Image:Fx154ChooseAIchatbot|width=400]]{/for}{for fx155}[[Image:Fx155-Sidebar_with_chatbot_open_on_onboarding|width=640]]{/for}
+Each provider can assist with tasks such as summarizing what you’re reading, brainstorming ideas, or helping you write. [[#w_learn-about-chatbot-providers|Learn more about each provider]].
+
+Learn [[#w_what-to-keep-in-mind-when-using-ai-chatbots|what to keep in mind when using AI chatbots]], how to [[#w_how-to-select-a-chatbot-provider-in-the-sidebar|select a chatbot provider]], how to [[#w_how-to-change-chatbot-providers|switch providers]] and how to [[#w_how-to-remove-the-ai-chatbot-shortcut-from-your-firefox-sidebar|remove the AI chatbot shortcut from your Firefox sidebar]].
+
+=What to keep in mind when using AI chatbots=
+If you choose to use AI chatbots – whether that’s in Firefox, as an app, or in another browser – keep these things in mind:
+*When you use a chatbot, you are agreeing to that provider’s privacy policies and terms of use. Each chatbot provider has their own terms of use and privacy policies. View the [[#w_learn-about-chatbot-providers|privacy policies and terms for providers in Firefox]].
+*You should verify any information you get from AI chatbots. AI chatbots are powered by generative AI which, in basic terms, predicts likely text or images based on prompts. It’s not designed or guaranteed to provide definitive facts. More about [[#w_how-ai-chatbots-work|how AI chatbots work at a high level]].
+*Some chatbots are more privacy-respecting than others. To learn more about protecting your privacy when you use chatbots, [https://foundation.mozilla.org/en/privacynotincluded/articles/how-to-protect-your-privacy-from-chatgpt-and-other-ai-chatbots/ follow these helpful tips from the Mozilla Foundation].
+
+=Learn about chatbot providers=
+For up-to-date information about each chatbot and what it offers, each provider’s website is the best place to look. Most chatbots are experimental and frequently change how they work, how they look, and what they offer.
+
+If you’re comparing, you might consider whether the chatbot:
+* Can generate in the format you need, like text, image or code
+* Can analyze files, like documents and images
+* Is free or paid
+* Requires an account (may vary by task and country)
+* Allows you to adjust settings — for example, whether your chats and information are shared with the provider
+
+{for not fx154}
+{| class="wikitable"
+|+
+|-
+! Provider website to learn more !! Privacy policy and terms of use you agree to, when using the provider
+|-
+! [https://www.anthropic.com/claude Anthropic Claude]
+|
+* [https://www.anthropic.com/legal/consumer-terms Anthropic Consumer Terms]
+* [https://www.anthropic.com/legal/archive/7197103a-5e27-4ee4-93b1-f2d4c39ba1e7 Anthropic Usage Policy]
+* [https://www.anthropic.com/legal/privacy Anthropic Privacy Policy]
+|-
+! [https://help.openai.com/en/articles/6783457-what-is-chatgpt ChatGPT]
+|
+* [https://openai.com/terms OpenAI Terms of Use]
+* [https://openai.com/privacy OpenAI Privacy Policy]
+|-
+! [https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/?form=MA13YT Copilot]
+|
+* [https://www.bing.com/new/termsofuse Copilot AI Experiences Terms]
+* [https://www.microsoft.com/en-us/privacy/privacystatement Microsoft Privacy Statement]
+|-
+! [https://gemini.google.com/faq Google Gemini]
+|
+* [https://policies.google.com/terms Google Terms of Service]
+* [https://policies.google.com/terms/generative-ai/use-policy Generative AI Prohibited Use Policy]
+* [https://support.google.com/gemini?p=privacy_notice Gemini Apps Privacy Notice]
+|-
+! [https://help.mistral.ai/en/articles/682992-le-chat-is-now-vibe Le Chat Mistral (now Vibe)]
+|
+* [https://mistral.ai/terms/#terms-of-service-le-chat Mistral AI Terms of Service]
+* [https://mistral.ai/terms/#privacy-policy Mistral AI Privacy Policy]
+|}
+{/for}
+{for fx154}
+{| class="wikitable"
+|+
+|-
+! Provider website to learn more !! Privacy policy and terms of use you agree to, when using the provider
+|-
+! [https://www.anthropic.com/claude Anthropic Claude]
+|
+* [https://www.anthropic.com/legal/consumer-terms Anthropic Consumer Terms]
+* [https://www.anthropic.com/legal/archive/7197103a-5e27-4ee4-93b1-f2d4c39ba1e7 Anthropic Usage Policy]
+* [https://www.anthropic.com/legal/privacy Anthropic Privacy Policy]
+|-
+! [https://help.openai.com/en/articles/6783457-what-is-chatgpt ChatGPT]
+|
+* [https://openai.com/terms OpenAI Terms of Use]
+* [https://openai.com/privacy OpenAI Privacy Policy]
+|-
+! [https://gemini.google.com/faq Google Gemini]
+|
+* [https://policies.google.com/terms Google Terms of Service]
+* [https://policies.google.com/terms/generative-ai/use-policy Generative AI Prohibited Use Policy]
+* [https://support.google.com/gemini?p=privacy_notice Gemini Apps Privacy Notice]
+|-
+! [https://help.mistral.ai/en/articles/682992-le-chat-is-now-vibe Mistral Vibe]
+|
+* [https://mistral.ai/terms/#terms-of-service-le-chat Mistral AI Terms of Service]
+* [https://mistral.ai/terms/#privacy-policy Mistral AI Privacy Policy]
+|}
+{/for}
+
+[[UI:details_start]]
+==How to select a chatbot provider in the sidebar==
+*If this is the first time you're selecting a chatbot:
+*;Select the sparkle button [[Image:Sparkle 15112024|width=30]] from the sidebar. Select a chatbot provider to see more details about it and click {button Continue} when you’re ready to choose. Remember, you can change providers anytime.
+*;{for not fx155}[[Image:Fx143-Sidebar_with_chatbot_open_on_onboarding|width=640]]{/for}{for fx155}[[Image:Fx155-Sidebar_with_chatbot_open_on_onboarding|width=640]]{/for}
+*If you previously selected a chatbot and want to change providers, see below.
+
+==How to change chatbot providers==
+You can switch chatbots at any time, as often as you’d like. For example, you may prefer to use one chatbot for help with writing tasks and another for generating images. To change providers:
+#Click the chatbot icon in the sidebar{for win,linux} (for example, [[Image:Fx136ChatbotIcon]] for ChatGPT){/for}.
+#Click on the current chatbot name. You’ll see a dropdown with all available chatbots.
+#Click on the name of the chatbot you want to use to switch to it.
+#;{for not fx155}[[Image:Fx143ChatbotList|width=360]]{/for}{for fx155}[[Image:Fx155ChatbotList|width=360]]{/for}
+#*To learn more about each chatbot before you decide, click {menu View chatbot details} and then make your choice.
+
+==How to remove the AI chatbot shortcut from your Firefox sidebar==
+#If you don't see the sidebar:
+#*[[Template:optionspreferences]] In the {for not fx152}{menu General}{/for}{for fx152}{menu Tabs and browsing}{/for} panel, go down to the ''Browser Layout'' section and select '''Show sidebar''', if not already selected.
+#*Click the Sidebar icon [[Image:Fx136SidebarIcon]] in the toolbar if the sidebar is hidden. If the Sidebar icon is missing, [[Customize Firefox controls, buttons and toolbars|customize the toolbar]] to add it back.
+#In the sidebar, click the settings button [[Image:Sidebar Settings 15112024|width=30]].
+#In the ''Customize sidebar'' panel that opens, uncheck the '''AI chatbot''' box in the ''Firefox tools'' section.
+#;[[Image:Fx142-SidebarSettingsRemoveAIChatbotShortcut|width=360]]
+If you want to use it again later, check the box again and follow the steps to [[#w_how-to-select-a-chatbot-provider-in-the-sidebar|select a provider]].
+
+==Select text to see suggested prompts==
+Prompts are the instructions you provide to the chatbot, based on what you want it to do. We have pre-written a small number of prompts that are available when you select text.
+
+You can access the prompts either:
+*When you select text and right-click.
+*Through a shortcut that appears when you select text. (You can hide the shortcut if you want.)
+If you choose a prompt, Firefox sends it, plus the selected text and page title, to the chatbot you’ve chosen.
+;[[Image:Fx142-Sparkle_icon_expanded_to_show_prompts|width=360]]
+Each suggested prompt starts with this sentence, where information in [brackets] pulls in based on the page you’re on and your selection. “I’m on page [name of page you’re on] with [text you’ve selected] selected.” The rest of the prompts are as follows.
+
+{|
+|-
+|Summarize||Please summarize the selection using precise and concise language. Use headers and bulleted lists in the summary, to make it scannable. Maintain the meaning and factual accuracy.
+|-
+|Explain this||Please explain the key concepts in this selection, using simple words. Also, use examples.
+|-
+|Quiz me||Please quiz me on this selection. Ask me a variety of question types, for example multiple choice, true or false, and short answer. Wait for my response before moving on to the next question.
+|-
+|Proofread||Please proofread the selection for spelling and grammar errors. Identify any mistakes and provide a corrected version of the text. Maintain the meaning and factual accuracy and output the list of proposed corrections first, followed by the final, corrected version of the text.
+|}
+[[UI:details_end]]
+[[UI:details_start]]
+{for fx142}
+==Summarize page==
+There are two ways that you can summarize a page in Firefox using your choice of chatbot provider:
+* Select the {button Summarize page} option at the bottom of the chatbot sidebar.
+* [[Template:contextmenu]] and select {menu Ask ''<chatbot name>''} followed by {menu Summarize Page}.
+{/for}
+[[UI:details_end]]
+[[UI:details_start]]
+==How to hide the shortcut==
+There are two ways to hide the shortcut:
+* Select text and then choose '''Hide chatbot shortcut'''.
+;[[Image:Fx142-Sparkle_icon_expanded_HideChatbotShortcut|width=420]]
+* Select the more menu [[Image:Three dot menu framed|width=30]] from the ''AI chatbot'' panel and select {menu Hide shortcut when selecting text}.
+;[[Image:Fx142-ChatbotMenu-HideShortcutWhenSelectText]]
+
+==How AI chatbots work==
+AI chatbots are powered by technology that can generate text and images, called generative AI – also referred to as “genAI”. This technology does not pull images and text from thin air. Instead, it is trained on massive amounts of data.
+
+When you interact with generative AI, it uses the data it’s been trained on and then predicts likely textual responses or images. The data the model has been trained on, as well as the instructions you input into the chat interface (also called “prompts”), influence and guide what will be generated.
+
+Generative AI predicts likely outputs – but it is not designed to and not guaranteed to provide definitive facts. It generates a result based on your prompts and the data that the AI has been trained on. You should consider carefully whether your prompt is providing the result that you are looking for.
+
+To learn more about generative AI, countless resources are available online. Here are a few suggested starting points (content in English):
+*Mozilla blog: [https://blog.mozilla.org/en/internet-culture/how-does-ai-work/ How does AI actually work?]
+*Article: [https://mitsloanedtech.mit.edu/ai/basics/effective-prompts/ Writing effective prompts], from MIT Sloan Technology Services
+*Video: [https://www.youtube.com/watch?v=71-NOcQnF8w Generative AI explained], from the University of Southern Australia
+
+==Frequently asked questions==
+[[UI:details_start]]
+===What information does Firefox send to a provider, when I use their chatbot in the sidebar?===
+When you open the chatbot in the sidebar, the provider collects the same information as it would if you had visited the chatbot in a regular Firefox tab. If you select text on a webpage or PDF and choose to use one of the suggested prompts, we send your text selection, prompt and page title to the provider.{for fx142} If you choose the Summarize Page option, we send the page content, prompt and page title to the provider.{/for}
+
+===Are chatbots free to use?===
+Each chatbot provider we provide access to has a free option. Many also offer paid options. With the free option, use of the chatbot is often restricted in some way – for example, to a certain number of conversations per day, or in the amount and type of information you can share with the chatbot.
+
+===Can I trust the information chatbots provide?===
+AI predicts likely outputs – but it is not designed to and not guaranteed to provide definitive facts. It generates a result based on your prompts and the data that the AI has been trained on, and can make mistakes. You should verify any information you get from chatbots. Learn more about [[#w_how-ai-chatbots-work|how AI chatbots work]].
+
+===Some chatbots are not available in my region. Why can I still choose them?===
+Not all chatbots are available in all regions and locales. We have chosen not to limit choice by region, since the availability of these tools is often changing.
+
+===Can the chatbot provider see the conversations I’m having? What does it do with the conversations?===
+This varies based on the chatbot and, in some cases, the settings you choose for the chatbot. Some chatbots offer an ‘anonymous’ mode. Others offer a way to delete your conversations.
+
+For more information about what each provider does with your conversation and data, check out their [[#w_learn-about-chatbot-providers|terms of service, privacy policies and websites]].
+
+===Is it safe to share personal information with chatbots?===
+We do not recommend sharing personal information with chatbots.
+
+===Can Firefox see the conversations I’m having?===
+No. Firefox does not have any access to your conversations with the chatbot or any information about the webpages and selected text that you may send to the chatbot via AI shortcuts. As with other features, we do collect data on how the AI chatbot feature is used to help improve Firefox. For example, we collect interaction data such as how often each provider is chosen and how often suggested prompts are used. Learn more about the [[Telemetry collection and deletion|interaction and performance data Firefox collects]], which we call telemetry.
+
+===How do I remove this from Firefox?===
+In the sidebar, choose the settings icon [[Image:Sidebar Settings 15112024|width=30]]. In the ''Customize sidebar'' panel, uncheck the '''AI chatbot''' box in the ''Firefox tools'' section.
+[[UI:details_end]]
+<!-- PLEASE DO NOT MODIFY THIS ARTICLE WITHOUT LOOPING IN PRODUCT AND LEGAL. Apologies for the inconvenience—this article is more sensitive than our regular KB updates. If you have suggestions or spot inaccuracies, please comment on Bug 1918550 in Bugzilla so we can address them appropriately. -->

@@ -1,0 +1,29 @@
+When installing Firefox for Windows 10, the error message, '''"Can not create temp folder archive,"''' is shown when 7-Zip tries to unpack the installation file but is not able to locate the Temp folder or it is not able to access it. This is how the error looks like:
+
+[[Image:can not create temp folder archive error]] 
+
+'''Running the Firefox installation file as an administrator or with an administrator account is a common fix for this problem and it can work for some users.''' In case if that does not work for you, this article will also be exploring the other possible solutions to help you solve this issue.
+
+__TOC__
+
+=Running the installation file as administrator=
+Simply right-click on the installation file and select '''Run as administrator'''. This will give the file admin-level permissions for 7-Zip to create an archive in the Temp folder to proceed with the installation if it is having insufficient permissions to do so.
+
+=Moving installation file to Desktop=
+Before running the file, make sure it is saved in the same drive where Windows is installed. A simple way to ensure this is by '''moving the file to the Desktop''' and run it. If needed, right click and select '''Run as administrator'''.
+
+=Ensuring the Temp folder is in the correct directory=
+The Temp folder which the installation file is trying to access to unpack files for installation is usually located at: '''Users\[username]\AppData\Local\Temp'''
+
+To ensure the Temp folder is located in the correct directory, follow the steps below:
+# Open up the '''start menu'''
+# Search '''%appdata%''' and hit Enter
+# Click on '''AppData''' on the top bar
+# Go into the '''Local''' folder
+# Check if the '''Temp''' folder exists in here, if it does not exist, create a new folder named '''Temp''' (make sure letter 'T' is capital)
+
+After that, you may perform the previous solutions again to see if they work this time.
+
+=Other solutions=
+*Ensure Windows 10 is updated to the latest version, this issue might be a bug with Windows and an update might solve the issue. To update Windows 10, go through the steps in [https://support.microsoft.com/en-us/windows/update-windows-10-3c5ae7fc-9fb6-9af1-1984-b5e0412c556a this article] by Microsoft Support.
+*For more possible solutions, [https://www.youtube.com/watch?v=1TVPZ2OZ29g please see this video.]

@@ -1,0 +1,62 @@
+If your bookmarks have suddenly disappeared, don't worry - you should be able to recover them. This article explains how to get back your bookmarks if they disappeared unexpectedly.
+
+*If you are able to add, delete, and edit your bookmarks but the changes are lost when you restart Firefox, see [[Can't add, change or save bookmarks - How to fix]].
+
+__TOC__
+
+= I can see only the default set of bookmarks in the Bookmarks folder =
+Your bookmarks are associated with the Firefox [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]] you are using. There may be instances when you or Firefox creates a new profile containing the default set of bookmarks (for example, if you make a [[Dedicated profiles per Firefox installation| separate installation of Firefox]] or when you [[Install an older version of Firefox|downgrade Firefox]]). A new profile may give you the impression that you have lost your bookmarks. 
+
+== Determine if Firefox has created a new profile ==
+To see if another profile exists, type '''about:profiles''' into the Firefox address bar and press the {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} key. This will open the ''About Profiles'' page, which will list at least one profile and could list many. The profile that Firefox is currently using will show: '''This is the profile in use and it cannot be deleted.''' If you have another profile listed, you can launch that profile in a new Firefox browser window to see if it contains your lost bookmarks. See [[Recover user data missing after Firefox update or reinstall]] for more information.
+
+{for mac}
+== Firefox creates a new profile each time it starts ==
+A new profile is automatically created for each separate installation of Firefox (see [[Dedicated profiles per Firefox installation]] for details). If you are running Firefox directly from the [https://en.wikipedia.org/wiki/Apple_Disk_Image disk image] (<code>Firefox .dmg</code>) file you downloaded, it may be detected as a new installation each time you start Firefox. Do not run Firefox directly from the <code>.dmg</code> file; move it to the {menu Applications} folder instead. See [[How to download and install Firefox on Mac]] for instructions.
+{/for}
+
+= My Bookmarks Toolbar is missing =
+If you were using the Bookmarks Toolbar for quick access to your favorite bookmarks and the toolbar is now missing, you may have turned off the option to display the Bookmarks Toolbar. To turn it back on:
+{for win, linux}
+*Right-click on an empty section of the navigation bar and select {menu Bookmarks Toolbar} in the pop-up menu. 
+{/for} 
+{for mac}  
+*On the menu bar, click {menu View}, select {menu Toolbars}, and then select {menu Bookmarks Toolbar}.
+{/for} 
+For more information, see the [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window]] article.
+
+= I can't find all of my bookmarks and folders =
+You can view all of your bookmarks and folders when you click the {menu Bookmarks} menu item in the Firefox Menu bar{for win,linux}, if you [[Restore the Menu bar in Firefox|enable the Menu bar]]{/for}.
+You can also add a Bookmarks menu button to your Firefox toolbar, a button that with a click, shows all of your bookmarks and folders. Follow these steps:
+#[[T:customizefx29]]
+#Drag the Bookmarks Menu button [[Image:Bookmark Menu icon (star on tray)]] from the Customize Firefox tab onto the toolbar.
+
+
+= My bookmarks have disappeared =
+Firefox automatically backs up your bookmarks and saves up to 15 backups in the [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]] {filepath bookmarkbackups} folder. To recover bookmarks that were previously saved in the Bookmarks menu or on the Bookmarks toolbar but are now missing, you can restore them from one of these backups:
+#[[Template:OpenBookmarksLibrary]]
+# In the Library window, click the {for mac} [[Image:import-export-arrows]]{/for}{for win,linux}{button Import and Backup}{/for} button and then select {menu Restore}.
+# Select the backup you want to restore from the list of dated automatic backups.
+#* You can also select {menu Choose File…} to restore bookmarks from a [[Restore bookmarks from backup or move them to another computer#w_manual-backup|manual backup]], if you created one.
+# After confirming your choice, the bookmarks from the backup you selected will be restored.
+For more information, see [[Restore bookmarks from backup or move them to another computer]].
+
+== There is an "Old Firefox Data" folder on my desktop ==
+In some cases, Firefox may create a folder on your desktop called "Old Firefox Data". This folder contains a complete backup of your Firefox [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]] and can be used to restore bookmarks and other missing information. If you have this folder on your desktop, see [[Recovering important data from an old profile]].
+
+{for win}
+= No bookmarks are visible after installing an add-on =
+If you have restarted Firefox after installing an add-on and your bookmarks are gone, it's possible that Firefox did not close properly before restarting itself. To recover your bookmarks, restart your computer.
+{/for}
+
+= I can't find my bookmarks after importing them =
+If you [[Import data from another browser|imported your bookmarks from another browser]], you can find them inside a specially-named folder, for example, '''From Google Chrome''' or '''From Microsoft Edge''' depending on the browser, in one of these locations:
+*At the end of the Firefox [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks Toolbar]].
+*At the bottom of the Bookmarks list accessible from the Bookmarks Menu [[Image:Bookmark Menu icon (star on tray)]] toolbar button.
+*In the Bookmarks Library. To open the Bookmarks Library window: [[T:OpenBookmarksLibrary]]
+
+If your source bookmarks were stored in a hierarchy of folders, the folder structure is preserved inside the specially-named folder. If desired, you can move your imported bookmarks to other folders. See [[Bookmarks in Firefox]] to learn more about organizing your bookmarks.
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Lost_bookmarks Lost bookmarks (mozillaZine KB)]'''''

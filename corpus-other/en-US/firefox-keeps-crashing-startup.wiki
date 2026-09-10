@@ -1,0 +1,46 @@
+A ''crash'' is what happens when Firefox closes or quits unexpectedly and the [[Mozilla Crash Reporter|Mozilla Crash Reporter]] appears. If Firefox keeps crashing when you open it, this article will show you how to get it working again.
+* If Firefox starts without crashing but then crashes later on, see the [[Troubleshoot Firefox crashes (closing or quitting unexpectedly)]] article.
+* If Firefox won't start at all, see the [[Firefox won't start - find solutions]] article for solutions.
+
+__TOC__
+
+= See if you can start in Firefox Troubleshoot Mode=
+As a first step, you should see if Firefox starts in [[Use Troubleshoot Mode in Firefox|Firefox Troubleshoot Mode]]. This special startup mode temporarily turns off hardware acceleration among other settings and disables installed extensions that may prevent Firefox from starting.
+*If you can start in Firefox Troubleshoot Mode, see the article [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] for solutions.
+*If Firefox won't start in Troubleshoot Mode, you can [[Refresh Firefox - reset add-ons and settings|Refresh Firefox]] or you can use the [[Profile Manager - Create, remove or switch Firefox profiles|Profile Manager]] to create a new Firefox profile, to see if that fixes the problem. Alternatively, you can first try a clean installation (see below).
+
+= Try a clean installation =
+If crashes are preventing you from starting Firefox, even in Firefox Troubleshoot Mode, a clean installation of the latest version of Firefox may fix the problem.
+{note}'''Will I lose my bookmarks, passwords, and add-ons?''' A clean installation will not delete your bookmarks, saved passwords, add-ons, or other personal information. This information is stored separately in your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]] folder.{/note}
+Here's how to do a clean installation of Firefox:
+{for win}
+#Uninstall Firefox. See [[Uninstall Firefox from your computer]] for details.
+#To remove leftover program files that may not have been removed by the uninstall process, manually delete the Firefox installation folder, normally located in one of these folders by default:
+#*C:\Program Files\Mozilla Firefox
+#*C:\Program Files (x86)\Mozilla Firefox
+#[[Image:download firefox win 32x32|link=https://www.mozilla.org/firefox/new/]][https://www.mozilla.org/firefox/new/ Download a fresh copy of Firefox].
+#Double-click on the downloaded file and follow the prompts to continue the installation process.
+For more information on how to install Firefox, see [[How to install Firefox on Windows]].
+{/for}
+{for mac}
+#Delete Firefox from the ''Applications'' folder.
+#[[Image:mac download 32x32|link=https://www.mozilla.org/firefox/new/]][https://www.mozilla.org/firefox/new/ Download a fresh copy of Firefox].
+#Open the downloaded file and drag the Firefox icon to the ''Applications'' folder when prompted.
+For more information on installing Firefox, see [[How to download and install Firefox on Mac]].
+{/for}
+{for linux}
+# Use your distributor's package management system to uninstall Firefox (please refer to their documentation). If that doesn't work, delete the ''firefox'' folder from your ''Home'' folder.
+#* Often the Firefox folder is within a hidden ''.mozilla'' folder. See also [http://kb.mozillazine.org/Show_hidden_files_and_folders#Linux]<!-- folder names case sensitive and likely in this instance to be lowercase for Firefox & Mozilla (but Home=Home)-->
+# Install Firefox through your package management system or follow these steps to manually install Firefox:
+#* [[Image:download linux 32x32|link=https://www.mozilla.org/firefox/new/]][https://www.mozilla.org/firefox/new/ Download a fresh copy of Firefox].
+#* Extract the file to your ''Home'' folder.
+#* For more detailed instructions also see [[Install Firefox on Linux]].
+{/for}
+
+= Uninstall software known to cause crashes =
+Some programs are known to cause crashes in Firefox and other browsers. Check your computer and remove any malware or software that might be causing problems:
+*Check the [https://www.mozilla.org/en-US/firefox/releases/ release notes] to see if there are any known issues for your version of Firefox. Check your computer's instructions on how to uninstall software that's causing problems.
+*Scan your computer for malware. Check the support site of your antivirus program for help with scanning and removing malware. For more information, see [[Troubleshoot Firefox issues caused by malware]].
+
+= Get help fixing the problem =
+If you need more help, you can ask a question in the support forum. If possible, please include a crash Report ID when you post your question. See [[Troubleshoot Firefox crashes (closing or quitting unexpectedly)#w_get-help-fixing-this-crash|Get help fixing this crash]] for details.

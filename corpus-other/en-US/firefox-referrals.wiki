@@ -1,0 +1,71 @@
+''Firefox Referrals'' lets you invite friends and family to try Firefox using your own personal referral link. This new feature, starting in [[Find what version of Firefox you are using|Firefox version]] 155, is currently limited to users in the United States. This article explains what information we collect, why we collect it, and how we protect your privacy.
+;[[Image:sharefirefox]]
+
+__TOC__
+
+=What information do we collect?=
+If you choose to use Firefox Referrals, Firefox creates a random referral code for your browser.
+
+When someone installs Firefox after using your referral link, we record that the installation came from your referral code.
+
+This allows us to tell you how many people have successfully installed Firefox from links you've shared.
+
+=What information don't we collect?=
+Firefox Referrals is designed to count successful referrals, not identify the people who install Firefox using your link.
+
+We do '''not''' tell you:
+*Who installed Firefox
+*Their name or email address
+*Their IP address or location
+*Which websites they visited
+*How they use Firefox after installing it
+
+If someone installs Firefox using your referral link, you'll simply see your referral count increase.
+
+=Why do we collect this information?=
+We use this information for three reasons:
+*To show you how many people you've successfully introduced to Firefox.
+*To understand whether Firefox Referrals is helping more people discover Firefox.
+*To improve the referral experience over time.
+
+=Is my referral code personal information?=
+Your referral code is a randomly generated identifier. It does not contain your name, email address, Mozilla account information, or anything else that directly identifies you.
+
+=Can Mozilla see who referred whom?=
+The referral system is designed so that we count successful referrals without creating a list of personal relationships between Firefox users.
+
+The referral code is only used to count successful installs associated with a referral link. Mozilla does not use it to understand who your friends or family are.
+
+=Will every referral be counted?=
+Not always.
+
+Some referrals cannot be attributed because of privacy settings or technical limitations. For example:
+*If someone disables Firefox telemetry during setup.
+*If attribution isn't supported on their platform.
+*If browser or device settings prevent attribution.
+*If the user already has Firefox on their device.
+
+Because of this, the number shown in Firefox may be lower than the total number of people you've actually convinced to try Firefox.
+
+Referrals can also take up to 24 hours to be reflected in your count, so if a friend has just installed Firefox using your link, don't worry if it doesn't show up right away.
+
+=Can I opt out?=
+Yes.
+
+Participation in Firefox Referrals is optional.
+
+If you choose not to participate, simply don't share your referral link.
+
+You can also disable Firefox telemetry at any time. Because referral counting relies on Firefox's existing attribution systems, referrals will no longer be counted once telemetry is disabled.
+
+=Does Mozilla sell or share this information?=
+No.
+
+Referral information is used only to operate and improve the Firefox Referrals program, consistent with Mozilla's privacy principles.
+
+=Learn more=
+To learn more about how Firefox handles your data, see: [https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice].
+
+=Related articles=
+*[[Manage Firefox data collection and privacy settings]]
+*[https://www.mozilla.org/privacy/ Mozilla Privacy]

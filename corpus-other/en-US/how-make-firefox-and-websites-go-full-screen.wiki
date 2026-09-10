@@ -1,0 +1,20 @@
+Sometimes you want to see more of the web and less of the browser. That's when Full Screen mode comes in handy. It lets you expand Firefox for the current page to fill up your whole screen, so you can focus on what matters most.
+
+To turn on Full Screen mode on Firefox, do the following:
+#At the top right corner, click the menu button [[Image:Fx89menuButton]].
+#Select the full screen option [[Image:Fx111FullScreenIcon]].
+#;[[Image:Full screen on Firefox|width=360]]
+
+You can use the menu, toolbar, and tabs bar without leaving the Full Screen mode. Just move the mouse pointer to the top of the screen for them to show up. When you hover back to the page, they hide again.
+
+To exit the Full Screen mode:
+#Move the mouse pointer to the top of the screen to see the toolbar.
+#Click the menu button [[Image:Fx89menuButton]].
+#Select the exit full screen option [[Image:Fx111FullScreenIcon-Exit]].
+
+{note}'''Note:''' You can also use the keyboard shortcut {for mac}{key command+Shift+F}{/for}{for win,linux}{key F11}{/for} to switch between Full Screen and normal mode.{for win,linux} On computers with a compact keyboard (such as netbooks and laptops) you may need to press {key fn+F11}.{/for}{/note}
+
+=Related content=
+*[[Play videos full screen on Firefox for Android]]
+*[[About Picture-in-Picture in Firefox]]
+*[[Restore the Menu bar in Firefox]]

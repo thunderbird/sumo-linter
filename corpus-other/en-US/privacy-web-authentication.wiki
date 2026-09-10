@@ -1,0 +1,10 @@
+[https://developer.mozilla.org/docs/Web/API/Web_Authentication_API Web Authentication] is a powerful [https://wikipedia.org/wiki/Phishing anti-phishing technology] that uses hardware authenticators and public-key cryptography to protect your accounts.
+:[[Image:hardware authenticator]]
+;''A sample of Web Authentication Authenticators''
+Websites that support Web Authentication are showing a commitment to very high security standards by asking for additional information about your authenticator when you register.
+
+=Should I use one authenticator for multiple accounts?=
+Using an authenticator for one account is safe, but allowing a website to ask for extended information for multiple accounts using the same authenticator can permit that website to identify a link between those accounts.
+
+If you are concerned about having accounts linked together in this way, you should either deny extended information when prompted, or use different authenticators for the different accounts.
+{note}This linkability is based on the authenticators, and not on your browser. If you use the same authenticator with different browsers, websites can still identify a link between multiple accounts.{/note}

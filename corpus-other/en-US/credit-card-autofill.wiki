@@ -1,0 +1,63 @@
+Firefox lets you automatically fill in saved credit and debit card information on web forms, making online checkouts faster and more convenient. Your [https://en.wikipedia.org/wiki/Card_security_code CVV number] is never saved, and you can require a password or biometric authentication before using autofill for extra security.
+
+Use the steps below to turn autofill on or off, edit saved cards, and set authentication preferences.
+
+__TOC__
+
+=Turn payment methods autofill on or off=
+{for not fx152}
+{warning}This feature is recommended for '''private computers only'''.{/warning}
+#[[Template:optionspreferences]]
+#Click the {menu Privacy & Security} panel.
+#Scroll down to the {for not fx145}''Autofill''{/for}{for fx145}''Payment methods''{/for} section.
+#*Check {for not fx145}'''Save and fill payment methods'''{/for}{for fx145}'''Save and autofill payment info'''{/for} to enable autofill.
+#*Uncheck the box to turn it off.
+{/for}
+{for fx152}
+{warning}This feature is recommended for '''private computers only'''.{/warning}
+#[[Template:optionspreferences]]
+#Click {menu Passwords and autofill} on the left.
+#Scroll down to the ''Payment methods'' section.
+#*Check '''Save and autofill payment info''' to enable autofill.
+#*Uncheck the box to turn it off.
+#;[[Image:fx152paymentsmethods]]
+{/for}
+
+<!-- needs review for fx122
+==Advanced: Disable credit card autofill in about:config==
+This feature can also be disabled manually by modifying the following preference via the [[Configuration Editor for Firefox|Configuration Editor]] (''about:config'') to {pref false} and then restarting Firefox:
+[[Template:aboutconfigwarning]]
+{pref extensions.formautofill.creditCards.enabled}<br>
+{pref extensions.formautofill.creditCards.available}
+-->
+
+{for not linux}
+=Require authentication for autofill=
+To protect your saved payment methods, Firefox allows you to require operating system-level authentication (such as a password, fingerprint or face recognition) before filling in payment details.
+#[[Template:optionspreferences]]
+#Click {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Passwords and autofill}{/for} on the left.
+#Scroll down to the {for not fx145}''Autofill''{/for}{for fx145}''Payment methods''{/for} section.
+#Check '''Require device sign in to autofill and manage payment methods''' to turn it on, or uncheck the box to turn it off.
+{note}'''Note:''' This setting uses your computer’s password, fingerprint, face or voice login—not your Mozilla account password.{/note}
+
+==If you don't have an OS password==
+*'''Windows:''' If you aren't using a Windows password, you will not be prompted to enter it.
+*'''macOS:''' If you don't have a password, click {button OK} twice to continue. '''Note:''' This is a known issue and will be fixed in a future update.
+{/for}
+
+=Edit your saved payment methods=
+Use this setting to add, remove, or change saved credit or debit card data in Firefox.
+#[[Template:optionspreferences]]
+#Click {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Passwords and autofill}{/for} on the left.
+#Scroll down to the {for not fx145}''Autofill''{/for}{for fx145}''Payment methods''{/for} section.
+#Click {for not fx145}the {button Saved payment methods} button{/for}{for fx145}{menu Manage payment methods}{/for}.
+#Choose one of the following:
+#*'''Add…:''' Enter a new card using this button.
+#*'''Edit…:''' Select the card you want to change, then click {button Edit} to change it.
+#*'''Remove:''' Select the card you want to delete, then click {button Remove}.
+#Click the {button ✕} to save your changes and close the window.
+
+=Related articles=
+*[[Automatically fill in your address on web forms]]
+*[[Password Manager - Remember, delete and edit logins and passwords in Firefox]]
+*[[Use a Primary Password to protect stored logins and passwords]]

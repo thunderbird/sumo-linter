@@ -1,0 +1,51 @@
+While you're exploring the web with Firefox, the browser may present you with suggestions for features and extensions, tailored to enhance your online experience. These recommendations are carefully curated based on the categories of websites you visit, such as suggesting media-related tools if you often access media sites, without the need to track your visits to individual websites.
+
+This approach not only ensures that the recommendations are highly relevant and beneficial to your browsing needs but also prioritizes your privacy by avoiding the logging of specific sites you explore. By combining insights into your general browsing behavior and the type of content you engage with, Firefox's recommendation system aims to introduce useful tools and features that make your online journey smoother and more personalized.
+;{for not fx123}[[Image:recommendation button]]{/for}{for fx123}[[Image:Feature call out|width=400]]{/for}
+{warning} Mozilla is committed to protecting your privacy. We do not collect your browsing data nor share it with third parties for the purpose of making these recommendations. The process of selecting appropriate features and extensions is carried out directly on your device, ensuring your information stays private. All suggested extensions undergo Mozilla's rigorous [[Recommended Extensions program]] to ensure their quality and safety.{/warning}
+
+__TOC__
+
+=What kinds of features and extensions are recommended?=
+Firefox may recommend a variety of features, including browser tools and extensions.
+*'''Browser tools''' are discrete tools built directly into the browser, like [[Pinned Tabs - keep favorite websites open and just a click away|Pin Tabs]], [[Firefox Reader View for clutter-free web pages|Reader View]] and [[View and edit PDF files using Firefox’s built-in viewer#w_edit-pdf-files|PDF edits]]. Firefox contains a lot of different tools that can improve your browsing experience and workflows through customization and efficiency gains. The recommendation feature aims to introduce you to tools you may not be aware of but could find useful.
+*'''[[Find and install add-ons to add features to Firefox|Extensions]]''' allow you to add features to Firefox to customize your browsing experience. Extensions are software programs, most often developed by a third party, that modify the way Firefox works. They’re like apps for the browser, and they can make the tasks you do online simpler and more efficient. Extensions do things like protect passwords, download videos, find deals, block annoying ads and much more. They empower users to customize their browsing experience to fit their needs and personal tastes, making them an important part of Firefox.
+
+=How are features and extensions selected?=
+Mozilla's process for selecting recommended features and extensions is comprehensive, ensuring that only the highest-quality tools are suggested. This selection, made by Mozilla's expert product and editorial teams, is based strictly on improving functionality, user experience and security. Specifically, for features, we focus on those that are widely appreciated or have the potential to significantly enhance a user's browsing experience online. Importantly, the integrity of this program is maintained by prohibiting paid placements by extension developers, affirming that the recommendations are solely aimed at improving user browsing experiences.
+
+=Who benefits from these recommendations?=
+Recommendations are strictly intended to provide a better browsing experience for Firefox users like you. We believe that the recommended features and extensions offer unique value, making the browser even more personal and useful.
+
+=How do I opt out of recommendations in Firefox?=
+{for not fx123}
+If you wish to opt out of receiving recommendations in Firefox, follow the steps below.
+==Opt out of recommendations from a recommendation menu==
+When you view a recommendation, you can click on {button Not Now} to dismiss it, or you can opt out of recommendations using the drop-down menu:
+;[[Image:recommendation dropdown]]
+*'''Don't Show Me This Recommendation''' – opts out of the specific recommendation.
+*'''Manage Recommendation Settings''' – This option takes you directly to your Firefox settings page, where you can opt out of all recommendations.
+{/for}
+{for fx123}
+If you wish to opt out of receiving recommendations in Firefox, follow these steps when a feature call-out appears:
+*Click on the [[Image:Feature call out Dismiss dropdown|width=100]] dropdown menu to reveal your options:
+*;[[Image:Recommendations dropdown menu|width=500]]
+**'''Don't show this recommendation again''' – Select this to stop receiving this particular recommendation in the future.
+**'''Show fewer recommendations''' – Choose this to decrease the number of recommendations you receive.
+**'''Manage settings''' – This option takes you directly to your Firefox settings page, where you can opt out of all recommendations by following the instructions in the next section.
+{/for}
+
+==Opt out of all recommendations from Firefox settings==
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} page, go down to the ''Browsing'' section{/for}{for fx152}In the {menu Tabs and browsing} page, go down to the ''Recommendations'' section{/for}.
+#;{for not fx152}[[Image:Browsing opt out recommendations|width=400]]{/for}{for fx152}[[Image:fx152recommendations]]{/for}
+#Uncheck [[Image:Unchecked box box|width=20]] the box next to '''Recommend extensions as you browse''' and the box next to '''Recommend features as you browse'''.
+
+=How do I learn more about extensions?=
+To explore a wide range of extensions, check out [https://addons.mozilla.org addons.mozilla.org (AMO)]. This platform hosts a vast collection of extensions and themes, predominantly developed by independent creators globally.
+
+=Related content=
+* [[Pinned Tabs - keep favorite websites open and just a click away]]
+* [[Firefox Reader View for clutter-free web pages]]
+* [[View PDF files using Firefox’s built-in viewer]]
+* [[Choose your preferred PDF viewer in Firefox]]

@@ -1,0 +1,43 @@
+The [https://addons.mozilla.org Mozilla Add-ons site] is using Mozilla accounts for a more integrated experience across all Mozilla products and services (see [https://blog.mozilla.org/addons/2016/02/01/firefox-accounts-on-amo/ this Mozilla blog] for the background). Use your existing Mozilla account or create a new one to access your add-ons on https://addons.mozilla.org.
+
+__TOC__
+
+=Upgrade from an Add-ons account to a Mozilla account=
+If you have an existing Add-ons account, you can upgrade to Mozilla accounts by signing in or registering with a Mozilla account that matches your Add-ons email address.
+
+You can find instructions for signing in or registering below.
+
+=Sign in to an existing account=
+If you already have a Mozilla account, you can sign in to the Add-ons site.
+#Go to the [https://addons.mozilla.org/ Add-ons site].
+#Click '''Sign in'''.
+#Enter your email address and password, then click {button Sign in}.
+#You will be redirected back to https://addons.mozilla.org.
+
+{note}'''Note''': Mozilla account supports a [[Passwordless login for Mozilla accounts|passwordless sign-in option]] for selected services. Instead of entering a password, you can use a one-time code sent to your email address. Passwordless login cannot be used for Firefox Sync. Sync requires a password because it uses end-to-end encryption to protect your data.{/note}
+
+=Create a new account=
+If you’ve never had an Add-ons account or a Mozilla account, sign up for Mozilla accounts to get started with the Add-ons site.
+#Go to the [https://addons.mozilla.org/ Add-ons site].
+#Click '''Register'''.
+#Enter your email address, password and age, then click {button Create account}.
+#You will receive a confirmation email from Firefox with a 6-digit confirmation code. Use it to confirm your account.
+#You will be redirected back to https://addons.mozilla.org.
+For more information, see [[Access Mozilla services with a Mozilla account]].
+
+=Deleting your Mozilla account=
+Please see [[How do I delete my Mozilla account?|this article]] to learn how to delete your Mozilla account.
+
+When you delete your Mozilla account, your https://addons.mozilla.org account will also be deleted and all of its associated data is deleted with it. If you later create a new account using the same email address, no add-ons will be associated with it.
+
+Before deleting your account, we recommend that you [http://extensionworkshop.com/documentation/publish/add-on-ownership/#transfer-ownership?utm_source=support.mozilla.org&utm_medium=kb-article&utm_content=access-your-add-ons-with-firefox-accounts transfer any add-ons you have developed to a new owner]. If you share add-on ownership with other accounts, your account will be removed from the ownership list once it has been deleted.
+
+=Frequently asked questions=
+==What happens to my add-ons when I convert to a new Mozilla account?==
+You will have access to all your add-ons through your new Mozilla account.
+
+==Why do I want a Mozilla account?==
+A Mozilla account is the primary account system used by Firefox, most often used natively to synchronize Firefox services across multiple devices. Even if you don’t use Sync, many Firefox-related services will soon begin migrating over to simplify your sign-in process, making it easier for you to join new services.
+
+==Where do I change my password?==
+Once you have a Mozilla account, you can go to https://accounts.firefox.com, sign in and click {button Change} next to '''Password'''.

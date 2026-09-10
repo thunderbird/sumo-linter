@@ -1,0 +1,33 @@
+When you visit a website, its appearance changes to match your browser's theme. If you set a light theme for Firefox in your browser's preferences and then set a dark theme from the [[Personalize Firefox with colorways|colorways]] palette, colorways will override the light theme and the websites appearance will adjust to match the new dark theme.
+
+You can configure this behavior and choose the color scheme you would like to use for those websites. To access these settings, follow the steps below:
+#[[Template:optionspreferences]]
+#Go to the {for not fx152}{menu General} panel on the left{/for}{for fx152}{menu Appearance}{/for}.
+#Scroll down to {for not fx152}''Language and Appearance''{/for}{for fx152}''Website appearance''{/for}.
+#Select the color scheme you want to use for the websites you visit.
+#;{for not fx152}[[Image:Fx138settings-LanguageAndAppearance]]{/for}{for fx152}[[Image:fx152websiteappearance]]{/for}
+You can choose from these color schemes:
+*{for not fx152}'''Automatic'''{/for}{for fx152}'''System'''{/for}: this option makes websites match the Firefox theme you have selected, whether it's a third-party theme, Alpenglow, colorways, etc.
+*'''Light:''' this option changes a website’s color scheme to light.
+*'''Dark:''' this option changes a website's color scheme to dark.
+{note}'''Note:''' Some themes are developed to match light and dark schemes only. In these cases, the appearance of the websites will adjust to match your Firefox theme. However, since most [https://addons.mozilla.org/firefox/collections/4757633/colorways/ colorways themes] are not developed to match light or dark schemes specifically, when you select such colorways, the appearance of websites will adjust to match the color scheme of your operating system.{/note}
+
+=Common questions=
+==What is the difference between the operating system's appearance, website appearance and browser themes?==
+*Your operating system's appearance settings determine how your device's user interface is displayed.
+*Website appearance refers to the way in which the content of the web pages you visit from your browser is displayed.
+*Browser themes change the appearance of the browser; for example, the elements that are part of the browser (menus, buttons, tabs, etc.). To learn more, see [[Use themes to change the look of Firefox]].
+
+==Are my website appearance settings updated when I select a new browser colorway or system theme?==
+No. You can decide if you want the website appearance to match your Firefox theme, colorway or operating system. These settings will not change regardless of the colorway or browser theme you select.
+
+==What happens if I select custom colors in my preferences?==
+You can also configure website appearance in the {for not fx152}''Contrast Control''{/for}{/for}{for fx152}''Website contrast''{/for} section under {for not fx152}''Language and Appearance''{/for}{for fx152}{menu Accessibility}{/for} (see [[Change the fonts and colors websites use]] for details). Here you can configure elements such as the text color and background of a website. Some changes you make in this section may override your {for not fx152}''Language and Appearance''{/for}{for fx152}{menu Accessibility}{/for} settings. If this is the case, a warning notification will alert you of these changes.
+
+{for not fx152}[[Image:Fx106settings-WebsiteAppearance-OverrideWarning]]{/for}
+
+==How are my website appearance settings affected when I use my operating system's High Contrast mode?==
+High Contrast mode helps to reduce visual fatigue. For this reason, changes to website appearance or custom color settings will not affect the browser when High Contrast mode is enabled, except in the situations described above.
+
+==Why does Firefox apply my selection of Dark to internal pages, but websites always apply Light?==
+This can be caused by enabling the {pref privacy.resistFingerprinting} preference in the [[Configuration Editor for Firefox|Advanced Configuration Editor]]. This feature reduces the ability of sites to detect some less common settings so that your browser appears to be less unique, but as a result, some site customization features can't work as intended. For more information, see [[Firefox's protection against fingerprinting]].

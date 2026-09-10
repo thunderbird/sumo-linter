@@ -1,0 +1,3 @@
+Your Mozilla account lets you [[How do I set up Sync on my computer?|sync]] pages you've bookmarked on your phone to your computer. Here's how to view your mobile bookmarks on your laptop or desktop computer:
+#[[T:fx29menu]]
+#Click {menu Bookmarks}. Your mobile bookmarks will appear under ''Recent Bookmarks'' in the ''Bookmarks'' panel.

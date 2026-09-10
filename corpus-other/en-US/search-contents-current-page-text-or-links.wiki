@@ -1,0 +1,52 @@
+When you are viewing a web page in Firefox, you can search for words and phrases on the page. Firefox will show you where the search phrase you've typed appears next on the page and lets you highlight all of the places where it appears.
+
+__TOC__
+
+= Using the Find bar =
+To search for text on a page:
+#Click the menu button [[Image:IG main menu]] and then click {menu Find in page…}. Alternatively, {for not mac}[[Restore the Menu bar in Firefox|when the Menu bar is enabled]] {/for}you can click {menu Edit} and then click {menu Find in Page…} in the Menu bar, or you can press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key F} on the keyboard.
+#* A Find bar will appear at the bottom of the window.
+#;[[Image:Fx149FindBar]]
+#Type a search into the ''Find in page'' field. Firefox will automatically highlight the first matching result on the page as you type.
+#*If the '''Highlight All''' option is selected, all other matching results will also be highlighted in a different color.
+#*The current highlighted instance number and the total match count are shown in the Find bar. If no match was found, it shows '''Phrase not found'''.
+#Click Next and Previous arrows to jump to each match on the page.
+#Click '''&#10005;''' or press {key Esc} to close the Find bar.
+{note}
+You can enable or disable any of the following options to change the search results:
+* '''Highlight All''': Highlight all terms that match the search you've entered. Click again to turn it off.
+* '''Match case''': Make searches case-sensitive. Normally if you search for “''search phrase''”, instances of “''Search Phrase''” on the page will also be found when you use the Find bar. If this option is selected, only instances of the phrase as you've typed it will be found.
+* '''Match [https://wikipedia.org/wiki/Diacritic Diacritics]''': When this option is selected the search will distinguish between accented letters and their base letters. For example, the search for “''résumé''” will not find a match for “''resume''”.
+* '''Whole Words''': This highlights only entire words that match your search.
+{/note}
+
+= Quick Find =
+The Quick Find bar is useful for quick searches and is meant to disappear after a few moments.
+
+Press the {key /} key (forward slash character) while not into a text field to open the Quick Find bar, then type what you would like to search for.
+
+The Quick Find bar does not have all the Find bar controls and options, just the find field and the close button (&#10005;), but the search follows the options selected on the full Find bar. Selected options will be indicated next to the find field.
+
+To close the Quick Find bar, wait a few moments for it to disappear, or press the {key Esc} key on the keyboard to close it immediately. You can also click somewhere in Firefox that is not part of the Quick Find bar to close it.
+
+== Search links only ==
+If you want to find only phrases that occur in links on the page you're viewing:
+# Type {key '} (single quote character) while not into a text field to bring up the Quick Find (links only) bar.
+# Type a search phrase into the Quick Find (links only) field. The first link that contains the phrase you've typed will be selected.
+
+== Find automatically while typing on a page ==
+Firefox can start searching for phrases you enter without having to open a Find bar first. To enable this feature:
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go down to the ''Browsing'' section{/for}{for fx152}Select the {menu Tabs and browsing} page, and navigate to the {menu Page navigation} section{/for}.
+# Check mark '''Search for text when you start typing'''.
+# [[T:closeOptionsPreferences]]
+;{for fx152}[[Image:fx152pagenavigation]]{/for}
+After you enable this feature, the Quick Find bar will automatically show up when you type inside a website while not into a text field.
+
+= Keyboard shortcuts =
+*Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key F} to show the Find bar.
+*Press {key /} to show the Quick Find bar while not into a text field.
+*Press {key '} to show the Quick Find (links only) bar while not into a text field.
+*Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key G} or {key F3} to highlight the next instance of your search phrase or link, even if no Find bar is visible.
+*Press {key Shift}+{for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key G} or {key Shift}+{key F3} to highlight the previous one.
+*Press {key Esc} to close the current visible Find bar while the focus is on it, and cancel highlighting.

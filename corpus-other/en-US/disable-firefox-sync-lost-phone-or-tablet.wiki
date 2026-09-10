@@ -1,0 +1,16 @@
+If you've lost your device and it's signed into your Mozilla account and using Firefox Sync, you can take action to prevent someone from accessing your personal information and passwords.
+
+=Change your password and disable Sync on a lost device=
+#Go to your [https://accounts.firefox.com/settings Mozilla account settings] (you may need to sign in).
+#[[Change your Mozilla account password|Change your Mozilla account password]] from a synced computer. This will prevent your lost phone from connecting to Sync and gaining access to old and new passwords for synced devices and services.
+#[[Remove a synced device from your Mozilla account|Remove the lost device]] from your Mozilla account's [https://accounts.firefox.com/settings#connected-services '''Connected Services'''].
+#Change the passwords for any accounts you have associated with your Mozilla account. If you don't change your passwords, it could still be possible for someone else to sign into your accounts on your lost device. 
+
+{warning}It's important that you change your Mozilla account password before changing your any other account passwords to ensure your lost device doesn't sync your new passwords.{/warning}
+
+=Related articles=
+<!-- remove this article. It redirects to "Create secure passwords to keep your identity safe", currently "Page Not Found"
+*[[Choosing More Secure Passwords]]
+-->
+*[[Manage the devices linked to your Mozilla account]]
+*[[Set up two-factor authentication on your Mozilla account]]

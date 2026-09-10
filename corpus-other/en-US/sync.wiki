@@ -1,0 +1,77 @@
+Mozilla's Sync feature provides a secure method for users to synchronize their data across Mozilla applications using a Mozilla account. Currently exclusive to Firefox, Sync ensures your data is effortlessly shared and up-to-date.
+{note}'''Note:''' Sync is available globally, though availability may be limited in some regions due to local regulations, network restrictions, or compliance requirements.{/note}
+
+__TOC__
+
+=What can I do with Sync in Firefox?=
+Unlock seamless browsing across multiple Firefox instances with Sync, a feature that ensures your [[How do I choose what information to sync on Firefox?|bookmarks, logins and passwords, addresses, payment methods, add-ons and browser settings]] are consistent and accessible across all your devices. Moreover, Sync enables each Firefox to show which tabs are open on your other devices, allowing for effortless navigation and access.
+
+==Examples of Sync at work==
+Imagine you're signed in to your Mozilla account on Firefox, both on a desktop and a mobile device. With Sync, you gain the ability to:
+*Revisit a website from your desktop browsing session directly on your mobile Firefox.
+*Access bookmarks on any device, seamlessly picking up where you left off, regardless of the device used to create them.
+*Keep all personal information (like logins, passwords, credit card details and addresses) synchronized across devices, with Firefox's autofill feature ready to assist you.
+*Maintain consistency with your Firefox extensions across desktop devices, streamlining your browsing experience.
+*View and open tabs from your desktop on your mobile device, making it easy to switch between devices without losing your place.
+*View and close tabs on one device from another device.
+*Instantly send tabs from one device to another (though this feature is available by simply being signed in to your Mozilla account, independent of Sync).
+*Get suggested results in your address bar based on bookmarks and history from all of your connected devices.
+Through Sync, Firefox not only enhances your online experience but also ensures your digital life is interconnected and effortlessly managed across platforms.
+
+=How does it work?=
+Sync operates by storing a combined version of your data on a remote server, which then synchronizes with the local Firefox copy across all your signed-in instances (referred to as [[Manage the devices linked to your Mozilla account|connected devices]] linked through your [[Access Mozilla services with a Mozilla account|Mozilla account]]).
+
+Generating [[Reset your Mozilla account password with Recovery Keys|account recovery keys]] is crucial for account and data retrieval. While prompted during the initial setup, you can also create these keys later via your account settings.
+
+=How do I set up Sync in Firefox?=
+For details on how to set up Sync in Firefox, see [[How do I set up Sync on my computer?|Setting up Sync]].
+
+=Is it secure?=
+Securing your data with Sync involves creating a unique password, which plays a crucial role in encrypting your data for complete privacy. This encryption is end-to-end: your data is encrypted before it ever leaves your browser and can only be decrypted by another instance of Firefox. Once your data reaches a Mozilla-operated server for storage, it's already in an encrypted state, ensuring that not even Mozilla can access or decrypt this information. For those interested in transparency and security, our code is [https://firefox-source-docs.mozilla.org/contributing/ openly available for review]. You're welcome to verify our encryption process and the security measures we uphold for yourself.
+
+For details on how Sync works to keep your data safe, also see [[How Firefox Sync keeps your data safe even if TLS fails]].
+
+=Can I control what gets synced?=
+Firefox gives you control over your data by letting you decide exactly which information types you'd like to sync across all your Firefox instances. This way, you maintain control over what's shared and where.
+*Open tabs
+*Browsing history
+*Bookmarks
+*Logins and passwords
+*Addresses
+*Payment methods
+*Add-ons
+*Browser settings
+
+Adjusting these preferences in any version of Firefox will update your experience across all devices you're signed in to. However, note that Web Extensions and Settings are currently only synchronized between desktop versions of Firefox.
+
+For details on how to control what gets synced on your Firefox, see [[How do I choose what information to sync on Firefox?]]
+
+=What if I don't want to sync?=
+Sync is operational only when you're signed in to your Mozilla account in Firefox and have selected at least one data type for syncing. If you decide to uncheck all categories, you'll still stay signed in to your account, but no data will be synced and any previous synced data will be deleted from Mozilla's servers. Signing out of your Mozilla account disconnects Firefox from your account and ceases all syncing activities from that Firefox, underlining the necessity of being signed in for Sync to work.
+
+For details on how to turn off Sync, see [[Disable Firefox Sync]].
+
+=When does my data get deleted?=
+Data is stored associated to your account. Signing out of your account does not cause your data to be deleted from Mozilla's servers; it stays there so you can access it with other devices.
+
+Your data gets deleted only in three situations:
+# when you delete your account
+# when you reset your account password without recovery keys
+# when you tell us you want to stop syncing something (or everything)
+If you delete your account or reset your account password without using recovery keys, we delete your data as a security measure.
+
+If you uncheck a data type in Sync's settings, it will be deleted from our servers. If you uncheck ''all'' data types in Sync's settings, we will delete all of your synced data from our servers.
+{note}'''Note:''' In all of these situations, deleting data on the server does not delete it from your devices. Any data that your local devices have from previously using your account and Sync will remain on that device.{/note}
+
+=What if my data gets lost?=
+{warning}'''Warning:''' By design, resetting your password results in the deletion of any data stored on the remote server, unless you have [[Avoid getting locked out of your Mozilla account|recovery keys]] in place.{/warning}
+When you sign out of your Mozilla account, you're presented with the option to delete all local data. Opting for this action erases your local data upon sign out.
+
+Consequently, if you're using Sync on just one device without recovery keys, signing out of your Mozilla account and deleting local data could potentially lead to data loss.
+
+Fortunately, safeguarding your data is straightforward and doesn't require much effort. Check out the links below for details:
+* [[How do I set up Sync on my computer?|How to connect additional devices to Sync]]
+* [[Back up and transfer your Firefox data to a new device]]
+* [[Reset your Mozilla account password with Recovery Keys|Reset your Mozilla account password with Recovery Keys]]
+* [[I've lost my Firefox Sync account information - What to do]]
+* [[How to reset your password without Account Recovery Keys and regain access to your data]]

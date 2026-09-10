@@ -1,0 +1,24 @@
+{warning}'''Important Update:''' The Review Checker feature has shut down and is no longer available after June 10, 2025.{/warning}
+
+__TOC__
+
+=When does Review Checker send information to Fakespot?=
+If you opt in to using Fakespot when the feature is offered, Review Checker will ask Fakespot for information about products you view. It determines this only from the URL and the product identifier there; it doesn’t look at page contents. It does so using [https://blog.mozilla.org/en/products/firefox/partnership-ohttp-prio/ Oblivious HTTP (OHTTP)]. Your identity, IP address or any other information besides the product identifier and website domain, is not included in or revealed by this request, to either Fakespot or Mozilla.
+
+=How does OHTTP provide privacy guarantees?=
+OHTTP encrypts the information it sends (website and product ID) and receives (the Fakespot product analysis), and sends it through a proxy, operated by a third party. The third party can see your IP address, but none of the information inside the encrypted request. Mozilla and Fakespot receive the contents of the request from the proxy and can decrypt it, but cannot see the IP address or any other information about who made the request.
+
+=What about the “Recommended Product” in Review Checker?=
+Deciding which recommended product is shown is based on the same information as the analysis Review Checker provides (the product you’re looking at and the website where it is sold, such as Amazon, Best Buy or Walmart). This information is also sent through OHTTP. The request does not contain any other information, so it is not tied to you or your IP address.
+
+Review Checker also informs Fakespot if it decides to show you the recommended product that Fakespot provided, whether it was visible to you for some time, and if you clicked on the recommended product. When it does so, the only information sent is an identifier of the recommended product – no information related to you, your IP address or other personal data is included. All these requests are anonymized using OHTTP as well.
+
+=What about Firefox’s Telemetry in Review Checker?=
+Firefox’s own use of telemetry is subject to the usual [[Manage technical and interaction data collection settings in Firefox|user controls]]. Review Checker uses telemetry to help Mozilla understand if Review Checker is useful to you. None of Review Checker’s telemetry usage includes product identifiers, URLs or domain names, so Mozilla does not know what products you look at.
+
+=What about private browsing?=
+Review Checker is not available in [[Private Browsing - Use Firefox without saving history|private browsing]].
+
+=Related articles=
+*[[Shop online with more confidence using Firefox Review Checker]] 
+*[[Fakespot results in Firefox Suggest]]

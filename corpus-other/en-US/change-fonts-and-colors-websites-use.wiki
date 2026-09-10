@@ -1,0 +1,46 @@
+This article describes how to customize the way you see web pages by choosing your preferred font styles and colors.
+
+__TOC__
+
+= Change Font =
+To change the font:
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go down to ''Language and Appearance''{/for}{for fx152}Go to {menu Accessibility}{/for}.
+# Under ''Fonts'', use the drop-down menus to select the font and font size of your choice.
+#;{for not fx152}[[Image:Fx100settings-Fonts]]{/for}{for fx152}[[Image:fx152fonts]]{/for}
+# [[T:closeOptionsPreferences]]
+
+== Custom Fonts ==
+Some websites have custom fonts; to disable them:
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go down to ''Language and Appearance''{/for}{for fx152}Go to {menu Accessibility}{/for}.
+# Under ''Fonts'', click the {for not fx152}{button Advanced…}{/for}{for fx152}{button Advanced settings}{/for} button.
+# In the ''Fonts'' dialog that opens, uncheck '''Allow pages to choose their own fonts, instead of your selections above'''.
+#;[[Image:Fx100settings-FontsAdvanced]]
+# Click {button OK} to close the ''Fonts'' window.
+# [[T:closeOptionsPreferences]]
+
+== Other settings for Fonts ==
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go down to ''Language and Appearance''{/for}{for fx152}Go to {menu Accessibility}{/for}.
+# Under ''Fonts'', click the {for not fx152}{button Advanced…}{/for}{for fx152}{button Advanced settings}{/for} button.
+# From the '''Fonts for''' drop-down list in the ''Fonts'' dialog, choose a language group/script.
+#;[[Image:Fx115settings-FontsFor]]
+#* For instance, to set default fonts for the West European languages/scripts (Latin), choose '''Latin'''. For a language/script not in the list, choose '''Other Writing Systems'''.
+# Select whether proportional text should be serif (like “Times New Roman”) or sans-serif (like “Arial”). Then specify the font size you want for proportional text.
+# Specify the font to use for Serif, Sans-serif and Monospace fonts. You can also change the size for <code>Monospace fonts</code>.
+You can also set the minimum web page font size. This is useful to prevent sites from using overly small fonts that are barely readable.
+
+= Contrast Control =
+These settings allow you to have control over the colors and intensity of the contrast between text and its background.
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go down to ''Language and Appearance''{/for}{for fx152}Go to {menu Accessibility}{/for}.
+# Under {for not fx152}''Contrast Control''{/for}{for fx152}''Website contrast''{/for}, select your preferred settings. 
+#;{for not fx152}[[Image:Fx138ContrastControlSettings]]{/for}{for fx152}[[Image:fx152websitecontrast]]{/for}
+{note}'''Note:''' The '''Automatic (use system settings)''' option will honor the operating system’s high contrast preferences in Web content. The '''Off''' option will show Web content as the content author intended (colors will not be forced). The '''Custom''' option allows you to specify your own colors in Web content. See [[Make reading easier with Firefox's contrast control settings]] to learn more about Contrast Control settings.{/note}
+# To choose your own colors, select the '''Custom''' option and click the {button Manage Colors…} button.
+# In the window that opens, select your preferred colors for text and background, and for unvisited and visited links.
+#;{for not fx152}[[Image:Fx138settings-ContrastControlCustomColors]]{/for}
+
+= Zoom =
+Firefox also includes a Zoom. This allows you to increase the size of text on any web page. For instructions, see [[Font size and zoom - increase the size of web pages]].

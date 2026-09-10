@@ -1,0 +1,48 @@
+When users look for a full-featured browser to navigate the web, privacy and security are the top concern. Firefox recognizes this and offers some of the most advanced and highly customizable privacy and security features in a web browser.
+
+In this article, we go over some of the most notable features we have developed to help put you in control of the information you share and to protect you against online security risks. For more information on how Firefox protects you, visit our [https://support.mozilla.org/products/firefox/protect-your-privacy privacy and security articles].
+
+__TOC__
+
+=Privacy=
+We work continuously to develop features that prevent your online activity from being traced or spied on. Here’s how Firefox protects your privacy:
+
+==Enhanced Tracking Protection==
+[[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] blocks known trackers that gather information about your online activity and are hidden in the websites you visit.{for fx132} In [[Enhanced Tracking Protection in Firefox for desktop#w_strict-enhanced-tracking-protection|Strict Mode]] it blocks all cross-site (third-party) cookies.{/for}
+
+==Total Cookie Protection==
+[[Introducing Total Cookie Protection in Standard Mode|Total Cookie Protection]] is an improvement to Enhanced Tracking Protection that creates a cookie jar where cookies placed by different websites are isolated to keep them from tracking your online activity across different websites.
+
+==DNS over HTTPS==
+When you type a website in the address bar, [[Firefox DNS-over-HTTPS|DNS-over-HTTPS]] sends the domain name you typed to a DNS server using an encrypted HTTPS connection. This prevents third parties from seeing what websites you are trying to access.
+
+==Fingerprinting==
+Firefox [[Firefox's protection against fingerprinting|fingerprinting protection]] warns you against websites that collect settings from your browser and computer to profile you. Using this ''digital fingerprint'', they can create a unique profile of you to track you across different websites.
+
+=Security=
+The following features have been developed to help you browse the Internet safely and prevent or take action against external security threats:
+
+==Phishing and malware protection==
+[[How does built-in Phishing and Malware Protection work?|These features]] will warn you when a page you visit has been reported as a Deceptive Site (sometimes called “phishing” pages), as a source of Unwanted Software or as an Attack Site designed to harm your computer (otherwise known as “malware”).
+
+==Firefox Monitor==
+[[Get started with Firefox Monitor|Firefox Monitor]] warns you if your online accounts were involved in a known data breach. It also empowers users to fight against data breaches by alerting them when they visit a previously breached website.
+
+==HTTPS-Only mode==
+This [[HTTPS-Only Mode in Firefox|security-enhancing mode]] forces all connections to websites to use a secure encrypted connection called HTTPS.
+
+=Privacy and security-focused add-ons=
+==Containers ==
+[[Multi-Account Containers|Firefox Multi-Account Containers]] lets you keep parts of your online life separated into color-coded tabs. Cookies are separated by container, allowing you to use the web with multiple accounts and integrate [https://vpn.mozilla.org/ Mozilla VPN] for an extra layer of privacy.
+
+Additionally, you can install the [[Facebook Container - Prevent Facebook from tracking you on other websites|Facebook container]], which makes it harder for Facebook and Meta sites to track you around the web. The Facebook Container extension for Firefox helps you take control and isolate your web activity from Facebook.
+
+==Firefox Relay==
+[[Create an email mask through Firefox Relay|Firefox Relay]] lets you generate email masks that forward to your real inbox. Use it to hide your real email address and protect yourself from hackers and unwanted email.
+
+=Related links=
+To learn more about the privacy principles that guide our mission, visit:
+*[https://www.mozilla.org/privacy/ Mozilla Privacy Policy]
+*[https://www.mozilla.org/about/policy/lean-data/ Data Privacy Principles]
+*[https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice]
+*[https://www.mozilla.org/privacy/faq/ Mozilla's Data Privacy FAQ]

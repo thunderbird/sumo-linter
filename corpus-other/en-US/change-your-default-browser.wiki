@@ -1,0 +1,65 @@
+Your default browser is the app that opens when you click a link in an email, document, or another application. You can change your default browser at any time using your device’s system settings.
+
+__TOC__
+
+=What is a default browser?=
+Your default browser is the application your operating system uses to open web links. When you click a link, it opens in your default browser. You can have multiple browsers installed on your device at the same time, but only one can be your default browser for that device.
+
+{note}'''Note''': Changing your default browser does not remove other browsers.{/note}
+
+{for linux}
+==Change your default browser on Linux (GNOME)==
+#Open {menu Activities}.
+#Type and click on {menu Default Applications}.
+#Under {menu Web}, select your preferred browser.
+
+==Change your default browser on Linux (KDE Plasma)==
+#Open {menu System Settings}.
+#Go to {menu Applications} > {menu Default Applications}.
+#Under {menu Web Browser}, choose your preferred browser.
+#Click on {button Apply}, then {button OK}.
+{/for}
+
+{for win11}
+==Change your default browser on Windows 11==
+#Click the Start [[Image:Windows11StartButton]] menu button and open {menu Settings} (or press the ''Windows'' key {key [[Image:Windows11Key]] + I}).
+#Select {menu Apps} from the sidebar.
+#Click {button Default apps}.
+#Search for or select the browser you want to use in the {button Set defaults for applications} box.
+#Click {button Set default} at the top.
+;[[Image:defaultbrowser11]]
+;[[Image:defaultapps11]]
+
+{note}'''Note''': Windows 11 may list file and link types (like HTTP and HTTPS). Using {button Set default} applies the most common settings automatically.{/note}
+{/for}
+
+{for win10}
+==Change your default browser on Windows 10==
+#Click the Start [[Image:Windows10StartButton]] menu button and open {menu Settings}.
+#Click {menu Apps}.
+#Select {menu Default apps}.
+#Scroll to {button Web browser}.
+#Click the current browser and choose a new one.
+{/for}
+
+{for mac}
+==Change your default browser on macOS==
+#Open {menu System Settings} from the Apple menu.
+#Click {menu Desktop & Dock}.
+#Scroll to {button Default web browser}.
+#Choose your preferred browser from the dropdown.
+;[[Image:desktopdock]]
+{note}'''Note''': On macOS Monterey (12) or earlier, go to {menu System Preferences} > {menu General} to find this setting.{/note}
+{/for}
+
+==Set your default browser from within Firefox==
+You can also start the process from within Firefox, if you wish to make Firefox your default browser:
+#Open '''Firefox'''.
+#[[Template:optionspreferences]]
+#At the top of the {for not fx152}{menu General}{/for}{for fx152}{menu Account and sync} or {menu Home and startup}{/for} page, click the {button Make default} button.{note}'''Note:''' If Firefox is already your default browser, the button will be missing.{/note}
+For more information{for win10,win11} and additional steps you may need to take{/for}, see {for mac,linux,winxp,win7,win8}[[Make Firefox your default browser]]{/for}{for win10,win11}[[Make Firefox your default browser on Windows]]{/for}.
+
+=Related articles=
+*[[Make Firefox your default browser]]
+*[[Make Firefox your default browser on Windows]]
+*[[Setting Firefox as the default browser does not work - What to do]]

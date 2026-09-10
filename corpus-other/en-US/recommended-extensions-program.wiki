@@ -1,0 +1,41 @@
+[[Find and install add-ons to add features to Firefox|Extensions]] allow you to add features to Firefox to customize your browsing experience. Extensions are software programs, most often developed by a third party, that modify the way Firefox works.
+
+Recommended extensions differ from [[Add-on Badges|other extensions that are regularly reviewed by Firefox staff]] in that they are curated extensions that meet the highest standards of security, functionality and user experience. After receiving Recommended status, safety standards are maintained through automated checks, monitoring, and periodic technical reviews.
+
+Here are all the current [https://addons.mozilla.org/firefox/search/?promoted=recommended&type=extension Recommended extensions].
+
+__TOC__
+
+=How are Recommended extensions selected?=
+Mozilla editorial staff identify feature worthy content. When evaluating extensions, curators are primarily concerned with:
+*'''Does the extension function at an exemplary level?''' All Recommended extensions should not only function as they promise, but function at an extremely high level. For instance, there are many ad blockers out there, but not all ad blockers are equally effective.
+*'''Is the extension safe?''' Firefox is committed to helping protect users against third-party software that may — intentionally or otherwise — compromise user security. Before an extension receives Recommended status, it undergoes rigorous technical review by staff security experts. After receiving Recommended status, safety standards are maintained through automated checks, monitoring, and periodic technical reviews.
+*'''Does the extension offer an exceptional user experience?''' Recommended extensions should be delightful to use, so curators look for content that is easy to manage and well-designed.
+*'''Is the extension relevant to a general, international audience?''' The tightly-curated nature of Recommended extensions means we may only feature up to a few hundred, or less, at a time. We try to select content that will be relevant to Firefox users around the globe.
+*'''Is the extension actively developed?''' Developers of Recommended extensions must maintain their content to ensure it evolves with the needs of Firefox users.
+
+=Where do I find Recommended extensions?=
+You can discover Recommended extensions on [https://addons.mozilla.org addons.mozilla.org] (AMO), a hosting platform where you can explore thousands of extensions and themes (custom skins for Firefox).
+
+Recommended extensions are indicated by special badging:
+;[[Image:recommended-badge]]
+Recommended extensions may also be found [[Recommendations from Firefox|while browsing with Firefox]] and [[Personalized extension recommendations|through the Add-ons Manager]].
+
+=Can developers pay to be recommended?=
+No. All Recommended content is curated solely for the purpose of providing Firefox users with great browsing tools and experiences.
+
+=What are the risks of installing non-recommended extensions?=
+There are thousands of extensions, and the vast majority are built with honest intent to provide people with useful tools and features. But even extensions built with the best intentions may inadvertently expose or otherwise compromise sensitive data.
+
+Also, unfortunately, there are a few bad actors out there intent on stealing user data. One method of mining information can be through tricking users into installing malicious extensions.
+
+Due to the curated nature of Recommended extensions, each extension undergoes a thorough technical security review to ensure it adheres to Mozilla’s [https://extensionworkshop.com/documentation/develop/build-a-secure-extension/ secure extension policy].
+
+To be clear, just because an extension is '''not''' Recommended, that doesn't mean it's unsafe. It simply means it's not vetted by Mozilla, and you should install at your own risk. Here are additional [[Tips for assessing the safety of an extension|tips for assessing the safety of an extension]].
+
+=What are Recommended themes?=
+[[Use themes to change the look of Firefox|Themes]] enable you to change the appearance of Firefox. A [https://wiki.mozilla.org/Add-ons/Contribute/Featured_Themes community-driven team] curates [https://addons.mozilla.org/firefox/search/?promoted=recommended&type=statictheme Recommended themes] for high aesthetic quality, resolution and composition.
+{note}'''Note:''' As themes do not pose any potential security risk, they do not undergo a security review. However, all themes distributed for use in Firefox must comply with Mozilla’s [https://extensionworkshop.com/documentation/publish/add-on-policies/ add-on policies], [https://www.mozilla.org/about/legal/acceptable-use/ Conditions of Use] and [https://wiki.mozilla.org/Add-ons/Reviewers/Themes/Guidelines add-on content guidelines].{/note}
+
+=Can I suggest extensions to become Recommended?=
+Yes. If there’s an extension you feel should be recommended, please email '''amo-featured [at] mozilla [dot] org''' with a link to its AMO listing page.

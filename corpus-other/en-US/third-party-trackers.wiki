@@ -1,0 +1,42 @@
+[[Cookies - Information that websites store on your computer|Cookies]] are invisible pieces of data that a website can ask your browser to store on your computer or mobile device. The next time you visit the same website, it can ask the browser to read those cookies. That is how a website can “remember” things, such as your preferences for that website.
+
+Another use for cookies is to transfer information from one website to another. For example, a sales website can store information about your purchase in cookies and redirect you to a payment or a review website. From the website's point of view, the cookies created by the sales website are called ''third-party cookies''. There are also several Web libraries that developers use to add functionality to their websites. These libraries can set cookies on your device, too. If cookies are set by a library that is on a different domain from the website's domain, they are also ''third-party cookies''.
+
+Popular libraries are used by numerous websites. When you visit a website that uses a particular library, that library can set a cookie on your device. If you later visit another website that uses the same library, that library can read the cookie that was set when you visited the previous website. These third-party cookies, set and read by libraries from multiple websites, are called ''cross-site cookies''.
+
+__TOC__
+
+= Cross-site cookies =
+There are two main reasons websites and libraries use cross-site cookies:
+
+*'''Cross-site tracking:''' This is by far the most common use of cross-site cookies. Trackers use cross-site cookies to collect information about the websites you visit and send them to other companies, often for advertising purposes. When you feel like an advertisement is following you around while you browse, this is a result of cross-site tracking. If the same tracker is present on multiple sites, it can build a more complete profile about you over time.
+
+*'''Functional cookies:''' Some websites rely on these cookies in order to function properly. For example, some websites may need access to cross-site cookies to let you use their service to sign in to another website (for example, Facebook Login) or to process a payment for that website (for example, Amazon Pay).
+
+Firefox’s [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] feature blocks cookies from cross-site trackers and isolates cookies from all other third parties. This helps prevent your browsing activity on one website from being visible to other websites. To learn more, see [[Enhanced Tracking Protection in Firefox for desktop]] and [[SmartBlock for Enhanced Tracking Protection]].
+{for not fx132}
+{note}'''Note:''' [https://blog.mozilla.org/en/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/ Total Cookie Protection] is now enabled by default. It is an advancement built into Enhanced Tracking Protection that works by maintaining a separate ''cookie jar'' for each website you visit. For more information, see [[Introducing Total Cookie Protection in Standard Mode]].{/note}
+{/for}
+{for fx132}
+{note}'''Note:''' Enhanced Tracking Protection (ETP) [[Enhanced Tracking Protection in Firefox for desktop#w_strict-enhanced-tracking-protection|in Strict mode]] blocks all cross-site (third-party) cookies, enhancing your privacy by preventing cross-site tracking. In addition, Total Cookie Protection ensures that each website you visit gets its own “cookie jar,” preventing websites from sharing information about your activity across different sites. For more details, see the blog post on [https://blog.mozilla.org/en/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/ Total Cookie Protection] and read more in [[Introducing Total Cookie Protection in Standard Mode]].{/note}
+{/for}
+
+== Managing cross-site cookies ==
+While cross-site cookies from trackers are blocked in Firefox by default, a site may signal to the browser that it needs to use them for important functionality. In this case, Firefox will allow a third-party website to use cross-site cookies the first five times (or up to 1% of the number of unique sites you visit in a session, whichever is larger) without prompting you. After that, Firefox will prompt you to block these cookies. Without your consent, Firefox blocks these cookies from that point because a site requesting access that many times may be a tracker.
+
+Third parties will only be able to prompt you if you interact with the website you are on. For example, if you visit dog<!---->.com and select the payment field, Amazon Pay cross-site cookies may be allowed to facilitate that transaction. After that, Firefox will ask you if you want to keep allowing them.
+
+You can view the Permissions panel to see if a website has been allowed or denied permission to use cookies, by clicking the permissions icon [[Image:Fx87PermissionsIcon]] in the address bar.
+
+=== Deny access ===
+If you deny the request, the third party will not be able to use cross-site cookies during that session. If you refresh or reload the page, the third party may prompt you again.
+
+=== Revoke access ===
+From the Permissions panel for a site, you can click the '''&#10005;''' to revoke previously allowed access to cookies.
+
+=== Automatic access ===
+Firefox automatically allows third-party websites to use cross-site cookies on the first five or so websites you visit. For example, Amazon Pay would be able to use cookies on Old Navy, Blick, dog<!---->.com and a handful of other sites without asking you for permission.
+
+If a third party continues to use cross-site cookies across multiple sites, this becomes a signal to Firefox that the third party might be a tracker. At that point, the third party would have to prompt you to ask for permission to use cross-site cookies.
+
+There are other rules (“heuristics”) that will make Firefox temporarily grant access to cross-site cookies to certain websites. These rules are designed to enable special use cases such as Single-Sign-On services and usually require some special interaction such as a top-level redirect or a user interaction, making it difficult for trackers to exploit them.

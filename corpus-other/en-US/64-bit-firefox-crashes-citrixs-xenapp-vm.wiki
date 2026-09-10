@@ -1,0 +1,12 @@
+64-bit Firefox hangs or crashes on Citrix XenApp 7.13 VDA because Citrix XenApp’s API hooks are not compatible with 64-bit Firefox. Here are some solutions you can try.
+
+=How can I fix the problem?=
+You can work around the problem by disabling XenApp’s API hooks for Firefox executable filenames “firefox.exe” and “plugin-container.exe”. See this [https://support.citrix.com/article/CTX107825 Citrix support article] for instructions.
+
+=What is the long term solution?=
+Citrix has fixed this crash in XenApp version 7.14 (Citrix issue #LC6982).
+
+For more information, see:
+*[http://docs.citrix.com/en-us/xenapp-and-xendesktop/7-14/whats-new/fixed-issues.html XenApp 7.14 Citrix release notes]
+*[https://discussions.citrix.com/topic/386686-citrix-xenapp-713-vda-breaks-firefox-64-bit-configuration-files/ Citrix ticket]
+*[https://bugzilla.mozilla.org/show_bug.cgi?id=1359443 Firefox bug]

@@ -1,0 +1,7 @@
+Many videos on the Internet use the [https://wikipedia.org/wiki/H.264 H.264 codec]. Because of licensing restrictions, Firefox cannot bundle H.264 for free, so it relies on your operating system to play them. 
+
+macOS and most Windows versions support this codec out of the box. [[Fix video and audio problems on Firefox for Windows N editions|It needs to be installed manually on Windows N editions]]. Linux may require a special package such as '''ubuntu-restricted-extras'''.
+
+Even when proper codec support is not available, though, Firefox can still enable [https://developer.mozilla.org/docs/Web/API/WebRTC_API WebRTC] streams, such as video calls, thanks to [https://www.openh264.org/ OpenH264], an open source solution developed by Cisco. It is installed automatically for Firefox users.
+
+[[Image:OpenH264-Firefox129]]

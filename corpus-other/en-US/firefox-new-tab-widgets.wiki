@@ -1,0 +1,116 @@
+Firefox's widgets let you manage task lists, stay focused with a timer, check the weather and more - all from your [[New Tab page in Firefox|New Tab page]]. You can use and customize multiple widgets at once to match your daily routine and particular needs.
+{for not fx151}{note}'''Note:''' Some widgets are experimental and may be available through Firefox Labs. Availability can vary, and features may change as they are developed.{/note}{/for}
+
+__TOC__
+
+{for not fx151}
+=Widgets gathering feedback=
+*Lists
+*Timer
+*Weather Forecast
+<!-- Per Amber: I added the “gathering feedback” section at the beginning – we'll remove this in a release or two, but for now, we'd like to include.
+Thank you! -->
+As of [[Find what version of Firefox you are using|Firefox version]] 143, we are experimenting with small segments of Firefox desktop and gradually releasing these widgets in certain markets.
+{note}'''Feedback is welcome and is being gathered in [https://connect.mozilla.org/t5/firefox-labs/new-in-firefox-labs-nightly-and-beta-to-start-productivity/td-p/103581 this post] on [[What is Mozilla Connect?|Mozilla Connect]].'''{/note}
+There are certain limitations to be aware of due to the early nature of the features:
+* Up to 10 lists can be created.
+* Each list may have up to 100 items.
+* There is no sync or backup of the lists – we do offer a “Copy to clipboard” for each to provide easy backup and sharing.
+* Display and handling of long URLs or shortened URLs may not be supported.
+{/for}
+
+=Get started with Firefox widgets=
+{for not fx151}
+There are three widgets available globally:
+*Lists
+*Timer
+*Weather
+You’ll find the Lists and Timer widgets in the center of the New Tab page, between Shortcuts and Recommended Stories (where Stories are available). The Weather widget appears in the top-right corner, in countries where it is available.
+[[Image:firefoxnova1]]
+{/for}
+{for fx151}
+There are multiple widgets available, and those enabled by default may vary by region or via rollout. There are newer widgets, such as Sports and Clocks, and a widget for Lists, a Focus Timer, and a Weather Forecast, which is an expanded version of the existing Weather widget.
+
+All widgets have various sizes available, can easily be hidden or re-added (via the Customization Panel), and all data is only ever stored locally - nothing is ever shared with Mozilla.
+
+You’ll find the Widgets in the center of the New Tab page, between Shortcuts and Recommended Stories (where Stories are available). The Weather widget may still appear in the top-right corner, and can be re-sized.
+[[Image:fx151widgets]]
+
+{for not fx153}
+==Sports widget==
+A new Sports widget is now available for tracking events of the World Cup. Upcoming matches, Results once available, Live scores, and the overall schedule are available.
+;[[Image:fx151clockwidget1|width=300]]
+
+You can optionally follow teams, and can easily see specific information for those teams: Upcoming matches, Results once available, and Live scores - including links to Watch Live in many regions.
+;[[Image:fx151sportwidget2|width=300]]
+
+Like most widgets, the Sports widget is available in Medium and Large sizes, and can easily be removed, or its order can be adjusted (Move Left/Right). Note that match info may be limited to +/-21 days.
+;[[Image:fx151sportwidget3|width=300]]
+
+{note}'''Note:''' Users who see the Sports widget will also see variations of the Firefox logo. To change back to the original Firefox logo, the Sports widget can be hidden, via its “three-dot” [[Image:IG page actions]] contextual menu.{/note}
+{/for}
+
+{for fx153}
+==Picture of the day widget==
+A new widget is available in some markets, which provides a new picture each day (currently sourced from Wikimedia Commons). This picture can be set as your New Tab wallpaper, as well as viewed and downloaded from the site itself.
+
+[[Image:pictureofthedaywidget]]
+
+In the case where the picture of the day may be unwelcome, there is a feature to "Hide today’s picture” which removes the picture for a day, replacing it with a calm, neutral one.
+
+==Crossword widget==
+A new widget is available in English-language markets, offering a daily Crossword inspired by current news, powered by [https://particle.news/ Particle]. This mini crossword can be played directly in the widget, and hints are available for more challenging clues. Click on the lightbulb icon to reveal hints below the current clue.
+
+'''Related articles''' are available for each day’s crossword, and reading them will help solve some of the clues. Additional options are available from the widget’s context menu, including '''Show clues''', which displays all clues in a list, and '''Solve puzzle''', which reveals the answers.
+
+[[Image:crosswordswidget|width=300]]
+{/for}
+==Clock widget==
+A new Clock widget is also now available which allows customization of up to 4 time zones, and adding a unique Nickname for each - such as for friends and family around the world.
+
+Click the {button +} sign to add more time zones, and the pencil icon to edit or add a nickname.
+
+The Clock widget is also available in different sizes, and may be configured between 12-hour and 24-hour time views.
+;[[Image:fx151clockwidget2|width=300]][[Image:fx151clockwidget3|width=300]]
+
+{/for}
+{for not fx151}
+You can use one or all of the widgets together to improve your workflow. For example, combine lists and the timer to focus on specific tasks or check the weather before you plan your day.
+{/for}
+==Timer widget==
+The Timer widget allows you to set timers for focus sessions, breaks or any timed activity.
+#Go to the timer area, and type your time (for example, 25:00).
+#Click the ''Play'' {button ▶︎} button to start the timer.
+#Use the ''Pause'' {button ❚❚} or ''Reset'' {button ⟳} buttons to control it.
+;[[Image:timerwidgetnova|width=350]]
+{note}'''Tip:''' Try the '''25-minute work / 5-minute break''' method for productivity.{/note}
+
+=={for not fx151}Task {/for}Lists widget==
+#[[T:WidgetMenu]]
+#Select {menu Edit list name} to rename your list.
+#Click the {button + Add an item} button to add a task to your list.
+#Click the checkbox next to any task to mark it complete.
+You can add, edit, re-order and delete items, as needed. These lists are flexible, and they fit a variety of activities, such as:
+*To-do lists
+*Checklists
+*Shopping lists
+*Meeting agenda items
+{note}'''Tip:''' You can add as many as 10 separate lists, each supporting up to 100 items.{for fx151} Note that there is no sync or backup of the lists, but we do offer a “Copy to clipboard” for each to provide easy backup and sharing. Display and handling of long URLs or shortened URLs may not be supported.{/for}{/note}
+
+==Get accurate weather for your location with the Weather widget==
+#[[T:WidgetMenu]]
+#Select {menu Change location}.
+#Enter your city/region and select it.
+#Choose your preferred temperature unit (Celsius or Fahrenheit).
+You’ll see current conditions and daily temperature details for your selected location.
+
+If you have other widgets enabled{for not fx151} through Firefox Labs, experiments, or regional rollouts{/for}, you will see an additional option in the Weather widget to Change size. 
+;[[Image:weatherwidgetchange|width=350]]
+Updating to Medium or Large will place an expanded Weather widget, showing a short-term forecast, into the widget row.
+;[[Image:weatherforecastwidget|width=350]]
+
+=Related articles=
+*[[Customize items on your Firefox New Tab page]]
+*[[Add a Firefox widget to your Home screen]] (Firefox for iOS)
+*[[Add the Firefox Search widget to your home screen]] (Firefox for Android)
+*[[Create a shortcut to a website on Firefox for Android]]

@@ -1,0 +1,31 @@
+You can now set up Firefox to use the same colors across websites, thanks to the new Contrast Control settings. This article will show you how to access the new settings and why using them could greatly improve your browsing experience.
+
+__TOC__
+
+=Contrast Control=
+Firefox lets you choose how high contrast mode works in your browser. When you enable high contrast mode, all website text is rendered with a single color on top of a solid background color, making all web content easier to read.
+
+==Automatic (use system settings)==
+As its name suggests, choosing this option will make Firefox use the same high contrast settings and colors as your operating system.
+
+==Off==
+Choosing this option will disable any high contrast settings you have configured in your operating system. Firefox will display web content as originally intended.
+
+==Custom==
+Choosing this option forces on high contrast mode and allows you to choose the colors for text and links.
+
+=Customize High Contrast Mode=
+# Click the menu button [[Image:firefoxmenu]] and select {menu Settings}.
+# In the {for not fx152}{menu General}{/for}{for fx152}{menu Accessibility}{/for} panel, go down to {for not fx152}''Contrast Control''{/for}{for fx152}''Website contrast''{/for}.
+# Choose one of the available options.
+{for not fx152}[[Image:contrast]]{/for}{for fx152}[[Image:fx152websitecontrast]]{/for}
+{note}'''Note:''' The new {for not fx152}Contrast Control{/for}{for fx152}Website contrast{/for} settings are only available to users using [[Find what version of Firefox you are using|Firefox version]] 138 and up. If you don’t see the section, [[Update Firefox to the latest release|make sure to update Firefox]].{/note}
+
+=Why should I use it?=
+*'''Accessibility:''' If you’re a person with visual impairments, the new contrast control will make it easier to customize the colors, intensity and contrast of the text and background.
+*'''A better browsing experience:''' Enabling the contrast control settings will let you customize the browsing experience to fit your needs. Some websites use color schemes that are hard to read or uncomfortable. With contrast control, you can override those styles to match your preferences.
+
+=Related articles=
+*[[Personalize Firefox with colorways]]
+*[[Change the fonts and colors websites use]]
+*[[Customize Firefox controls, buttons and toolbars]]

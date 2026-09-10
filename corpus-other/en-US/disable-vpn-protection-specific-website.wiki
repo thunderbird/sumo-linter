@@ -1,0 +1,32 @@
+Some websites, such as streaming services or online banking platforms, may not function properly when accessed through a VPN. With the Mozilla VPN Firefox extension, you can customize your browsing experience by disabling VPN protection for these websites, allowing you a more seamless experience when using Mozilla VPN.
+
+'''To disable Mozilla VPN protection for a specific website, follow these steps:'''
+#Navigate to the website where you want to disable the Mozilla VPN protection.
+#In the top right corner of your Mozilla Firefox browser, locate and open the Mozilla VPN extension icon.
+#;[[Image:extension icon|width=350]]
+In the ''Preferences for this website'' section, you’ll find a checkbox labeled '''Always turn off VPN protection'''. Check the corresponding box to apply the setting for this website.
+;[[Image:Always turn off unchecked|width=350]]
+From now on, the website you have selected will no longer be protected by Mozilla VPN, and the disabling of the protection for this site is confirmed by the crossed out VPN icon on the right-hand side of the URL bar.
+;[[Image:VPN off - toolbar]]
+
+=Re-enable website protection=
+You can undo the website exclusion through any of the following methods. In all cases, the website needs to be loaded in your current Firefox tab.
+
+==Method 1: Through the Mozilla VPN icon in the URL bar==
+#On the right-hand side of the URL bar, look for the crossed-out Mozilla VPN icon.
+#Click the icon, and select '''Turn on'''.
+#;[[Image:Turn on from toolbar|width=350]]
+
+==Method 2: Through the extension==
+#Go to the top right corner of your Firefox browser, and click the Mozilla VPN icon.
+#Uncheck the '''Always turn off VPN protection for''' option.
+#;[[Image:Always turn off unchecked|width=350]]
+
+==Method 3: By resetting your site preferences==
+#Go to the top right corner of your Firefox browser, and click the Mozilla VPN icon.
+#Click the {button Reset site preferences} button.
+#;[[Image:Reset site preferences|width=350]]
+
+=Related articles=
+*[[Get started with the Mozilla VPN extension]]
+*[[Manage the Mozilla VPN extension preferences]]

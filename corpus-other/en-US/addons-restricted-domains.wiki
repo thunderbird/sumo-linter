@@ -1,0 +1,16 @@
+Certain Firefox users may come across a desktop notification indicating that their add-ons have been disabled for particular websites. In [[Find what version of Firefox you are using|Firefox versions]] 113, 114 and [[Firefox ESR release cycle|ESR]], we have introduced a system add-on developed by Mozilla that disables extensions on specific websites for various reasons, including security concerns.
+
+Our team is working continuously to develop this functionality and to provide users the ability to manage these restrictions for each individual add-on in the future.
+
+==How can I re-enable the add-ons that have been disabled?==
+We understand that installing add-ons is a user choice and, as with your security, we also take this matter very seriously. If you are aware of the associated risk and still wish to re-enable the add-ons that have been disabled for a website, you can do it from the [[Configuration Editor for Firefox|configuration editor]]:
+[[Template:aboutconfigwarning]]
+#[[Template:aboutconfig]]
+#Type {pref extensions.webextensions.addons-restricted-domains@mozilla.com.disabled} in the Search bar.
+#In the type of pref section, select '''Boolean'''.
+#Click the {button +} sign next to the pref to create it.
+#Set the value of the pref to {pref True}.
+#Restart Firefox.
+
+==Related content==
+*[[Why are some add-ons not allowed on sites restricted by Mozilla?]]

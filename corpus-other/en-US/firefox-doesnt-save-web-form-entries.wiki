@@ -1,0 +1,45 @@
+Firefox can remember what you've entered in forms on web pages, also known as text fields. After you've entered something into a form on a web page (such as a search box), the next time you visit that page, your previous entry should be available to re-use. If you find that you can't re-use your form entries, follow the instructions in this article.
+* For more information on the form autocompletion feature, see [[Control whether Firefox automatically fills in forms]].
+
+__TOC__
+
+= Autocomplete does not work on certain forms =
+If you find that Firefox will save form entries for forms on only some websites, but not on others, the site might be telling Firefox to not save form history. This is especially common on email and banking websites.
+
+= Autocomplete doesn't work on any forms =
+If you find that Firefox will not save any text you enter into forms, follow the instructions below.
+
+== Check Firefox settings ==
+Make sure that Firefox is set to remember form entries and that saved form entries are not being automatically cleared:
+{for not fx152}
+# [[T:optionspreferences]]
+# [[Template:customhistory]]
+# Make sure that '''Remember search and form history''' is selected.
+#* Enabling form autocomplete also makes Firefox store search history for the Search bar.
+# Find '''Clear history when Firefox closes'''. If it is selected:
+## Click the {button Settings…} button.
+## Make sure that '''Form & Search History''' is '''not''' selected.
+## Click {button OK}.
+# [[T:closeOptionsPreferences]]
+{/for}
+{for fx152}
+#[[T:optionspreferences]]
+#Select {menu Privacy and security} on the left and go to the ''History'' section.
+#Make sure that '''Remember history''' or '''Customize history''' is selected.
+#If '''Customize history''' is selected, click '''Choose what you want Firefox to remember''':
+#*Make sure that '''Remember search and form history''' is selected.
+#**Enabling form autocomplete also makes Firefox store search history for the Search bar.
+#*If '''Clear history when Firefox closes''' is selected:
+#*Click the {button Settings…} button.
+#*Make sure that '''Saved form info''' is '''not''' selected.
+#*If you de-select this option, click {button Save Changes}.
+{/for}
+If either of those options were not set properly, setting them as above should enable form autocomplete.
+
+== Check for conflicting extensions ==
+If you find that Firefox's settings were correct, but autocomplete still doesn't work on any forms, a Firefox extension may be causing the problem. See [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] for how to troubleshoot extension issues.
+
+If a conflicting extension was present, form autocomplete should work again after disabling it and starting Firefox again.
+
+== Check other programs' settings ==
+Some Internet security software (including antivirus, antispyware, firewall, and privacy programs) will clear Firefox's form history. Check the settings for these programs if you have one or more of them.

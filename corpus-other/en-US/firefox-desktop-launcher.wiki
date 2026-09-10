@@ -1,0 +1,53 @@
+[[Template:WindowsOnly]]
+
+When you migrate your desktop items through OneDrive to a new or updated device, your regular Firefox shortcut automatically becomes a "smart shortcut" application, known as the [https://firefox-source-docs.mozilla.org/browser/desktop-launcher/index.html Firefox desktop launcher].
+
+This smart shortcut app checks if Firefox is already installed on your device. If Firefox is already installed, it will just launch the browser for you. If Firefox isn't present when you click the smart shortcut, it asks to install Firefox for you. This ensures that Firefox remains conveniently accessible right from your desktop, even on a brand-new or freshly upgraded device.
+
+We introduced this feature starting with [[Find what version of Firefox you are using|Firefox version]] 145 installations and updates, to make sure you always have a visible, convenient entry point to Firefox when setting up your new device. It eliminates the hassle of manually installing Firefox if it isn't yet installed, ensuring that your favorite browser is ready to go with a single click.
+
+This means less setup and more browsing, saving you time and effort during the transition to your new device. The Firefox desktop launcher specifically benefits users migrating to new devices on Windows who sync desktop items through OneDrive.
+{warning}'''Important note:''' Although this smart shortcut automatically installs Firefox, you’ll still need to ensure you’ve backed up your personal Firefox data (such as bookmarks, passwords, and settings) separately. The Firefox desktop launcher does not automatically restore your personal Firefox profile or data. To restore your data from your last sync backup, simply [[How to perform Sync on Firefox desktop|sign into the browser]] with your Mozilla account. You can also restore from a [[Back up and restore information in Firefox profiles#w_restore-a-profile-backup|profile backup]].{/warning}
+
+==How to run Firefox desktop launcher==
+When migrating your desktop items via OneDrive onto your new or updated device, use the following steps:
+#'''Click the Firefox shortcut'''
+#;Firefox replaces the standard desktop shortcut with a smart shortcut that automatically checks your device’s Firefox installation status. You’ll notice that the typical “arrow” on the icon is no longer present. To begin, double-click the smart shortcut.
+#;[[Image:Firefox shortcut change]]
+#'''Run a new installation, if needed'''
+#;If Firefox isn't installed on the new or upgraded device yet, clicking the smart shortcut will initiate the installation automatically without you needing to manually download and run the installer. Wait for the installation to complete.
+#;[[Image:Firefox installation]]
+#'''Quickly access Firefox'''
+#;After the installation completes, a Firefox browser window will open.
+#;[[Image:Welcome to Firefox]]
+
+{for fx143}
+==Add a Firefox shortcut to your desktop (standard users)==
+{note}'''Note:''' This feature is currently rolling out to Firefox Nightly users starting version 143. It is set for a general release starting Firefox 145. {/note}
+If you install Firefox without admin rights, the shortcut may not appear on your desktop. Here's how to check your installation path and manually create a shortcut.
+<!--{warning}This is a known issue affecting standard users and will be fixed in Firefox version 144.{/warning}-->
+
+===1. Understand where Firefox was installed===
+When running the Firefox installer:
+*If you select {button Yes} at the User Account Control (UAC) prompt and enter admin credentials, Firefox installs to:
+;{filepath C:\Program Files\Firefox\} — the shortcut may appear only on the Administrator's desktop.
+*If you select {button No} or close the prompt, Firefox installs to:
+;{filepath C:\Users\<your username>\AppData\Local\Firefox\} — no desktop shortcut will be created.
+
+===2. Manually create a desktop shortcut===
+'''From the Start menu:'''
+#Open the {menu Start} menu and find Firefox.
+#Right-click the icon and select {menu More} > {menu Open file location}.
+#Right-click the shortcut, then choose {menu Send to} > {menu  Desktop (create shortcut)}.
+
+'''Or, from the install folder:'''
+#Navigate to the folder where Firefox is installed.
+#Right-click {filepath firefox.exe}.
+#Choose {menu Send to} > {menu  Desktop (create shortcut)}.
+{/for} 
+
+==Related articles==
+*[[What Windows 10 end of support means for Firefox users]]
+*[[Back up and restore information in Firefox profiles]]
+*[[How to perform Sync on Firefox desktop]]
+*[[Back up and transfer your Firefox data to a new device]]

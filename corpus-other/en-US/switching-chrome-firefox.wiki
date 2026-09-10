@@ -1,0 +1,45 @@
+You can switch from Google Chrome to [https://www.firefox.com/ Firefox] quickly and easily. Firefox can import your bookmarks, browsing history{for mac}, passwords{/for} and other data from Chrome without deleting anything or changing your Chrome settings. You'll still be able to use Chrome afterward, if needed. Here’s how:
+
+=Import your Chrome data to Firefox=
+Before you begin, save any open tabs in Chrome by bookmarking them into a new folder in your Chrome bookmarks bar (for example, you can name it “Open Tabs”).
+{for mac}[[Image:Bookmark all tabs Chrome MacOS]]{/for}
+
+==1. Download and install Firefox==
+Go to the [https://www.firefox.com/browsers/desktop/ Firefox download page] and {for win}[[How to install Firefox on Windows|install the latest version of Firefox]]{/for}{for mac}[[How to download and install Firefox on Mac|install the latest version of Firefox]]{/for}{for linux}[[Install Firefox on Linux|install the latest version of Firefox]]{/for}.
+
+==2. Exit Google Chrome==
+Before importing data, make sure Chrome is closed. Click the three-dot menu and select {for win}'''Exit'''{/for}{for mac,linux}'''Quit Chrome'''{/for}.
+;{for mac}[[Image:quit chrome mac]]{/for}{for win}[[Image:exitgooglewin]]{/for}
+
+==3. Open Firefox==
+When you open Firefox for the first time, the Import Tool may appear automatically, but if it doesn’t:
+#{for mac}Click {menu File} in Menu bar at the top of the screen and select {menu Import From Another Browser…} in the menu.{/for}{for win,linux}Click the menu button [[Image:Fx89menuButton]] in the top-right corner.{/for}
+{for win,linux}
+#Select {menu Settings}.
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Account and sync}{/for} page, scroll down to ''Import Browser Data''.
+#Click {button Import Data}.
+#;{for not fx152}[[Image:importchromewin]]{/for}{for fx152}[[Image:fx152importdata]]{/for}
+{/for}
+
+==4. Choose what to import==
+#In the import tool, select '''Google Chrome''' from the list of browsers.
+#Choose the data you want to import:
+#*Bookmarks
+#*Saved passwords
+#*Browsing history
+#*Extensions
+#*Form autofill data
+{for win,linux}
+;[[Image:importbrowserdata]]
+;{warning}'''Note:''' {for win}Starting with [[Find what version of Firefox you are using|Firefox version]] 140, you can’t import passwords from Chrome to Firefox automatically on Windows.{/for}{for linux}You can’t import passwords from Chrome to Firefox automatically on Linux.{/for} You’ll have to import them using a CSV file via the migration wizard. See [[Import bookmarks and other data from Google Chrome|Import bookmarks and other data from Google Chrome]] on how to do it.{/warning}
+{/for}
+
+==5. Complete the import==
+#Click '''Import''' to begin.
+#Once the import is finished, click '''Done'''.
+#;{for win,linux}[[Image:importcomplete]]{/for}{for mac}[[Image:importmac|width=300]]{/for}
+
+=Related articles=
+*[[Import bookmarks and other data from Google Chrome]]
+*[[Make Firefox your default browser]]
+*[[Customize Firefox controls, buttons and toolbars]]

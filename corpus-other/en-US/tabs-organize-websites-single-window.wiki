@@ -1,0 +1,100 @@
+Tabs allow you to open and organize multiple websites inside a single Firefox window. This keeps your screen from getting cluttered and makes it easy to switch between sites.
+{for not mac}
+[[Image:Fx98TabsandToolbar]]
+{/for}
+{for mac}
+[[Image:Tab overview]]
+{/for}
+This article covers the basics of using tabs. To learn about tab settings, see [[Tab preferences and settings]].
+
+__TOC__
+
+= Open a new tab =
+To open a new tab, click on the plus sign {button +} on the right side of the last tab. The cursor will appear in the address bar so you can start typing in your search or URL.
+
+[[Image:Fx98NewTabSign|width=300]]
+*'''Keyboard shortcut''': You can also press {for win,linux}{key Ctrl+T}{/for}{for mac}{key Command+T}{/for} to open a new tab, instead of using a mouse.
+'''Open links in a new tab'''<br>
+Normally, when you click on a link, it opens in the current tab. If you want to open a link in a new tab instead, just {for win,linux}right-click on the link{/for}{for mac}control-click (hold down the {key control} key while you click on the link){/for} and select {menu Open Link in New Tab} from the context menu.
+
+'''Open a page from History in a new tab'''<br>
+# [[T:contextmenu]] on the {button ←} or {button →} button to open the tab history.
+# {for mac}Command-click (hold down the {key Command} key while you click on the item){/for}{for win,linux}Ctrl-click (hold down the {key Ctrl} key while you click on the item){/for} to open it in a new tab.
+
+= Duplicate an existing tab =
+To duplicate a tab that's already open:
+# [[T:contextmenu]] on the tab you want to duplicate.
+# Select {menu Duplicate Tab} from the context menu.
+
+= Close tabs =
+To close a tab, just click on the {button &#10005;} on the tab itself{for win,linux}, or middle-click on the tab{/for}.
+
+[[Image:Fx98CloseTabSign|width=300]]
+* '''Keyboard shortcut''': You can also press {for win,linux}{key Ctrl+W}{/for}{for mac}{key Command+W}{/for} to close the current tab.
+'''Close multiple tabs at the same time:'''<br>
+{for mac}Command-click (hold down the {key Command} key while you click on the tab){/for}{for win,linux}Ctrl-click (hold down the {key Ctrl} key while you click on the tab){/for} to select the tabs you want to close. Then {for win,linux}right-click{/for}{for mac}control-click{/for} on any of those tabs and select {menu Close <n> Tabs} to close the ones you selected, where ''<n>'' is the number of tabs you have selected.
+
+<!--https://www.mozilla.org/en-US/firefox/64.0/releasenotes/-->You can also use the tab context menu to close multiple tabs and perform other tab actions. To learn more, see the [[Tab context menu]] article.
+;{for not fx127}[[Image:Fx115TabMenu-CloseMultipleTabs]]{/for}{for fx127}[[Image:Tab context menu overview|width=620]]{/for}
+
+{for fx127}
+'''Close duplicate tabs:'''<br>
+To close tabs that are duplicates of the current one:
+[[Template:contextmenu]] on a tab and select {menu Close Duplicate Tabs}.
+{/for}
+== Bring back a closed tab ==
+To bring back a tab you've closed by mistake:
+[[T:contextmenu]] on the tab bar and select {menu Reopen Closed Tab} from the context menu. Alternatively, click on the Firefox menu button [[Image:Fx89menuButton]], click on {menu History} followed by {menu Recently Closed Tabs}, then choose one of the previously closed tabs.
+* '''Keyboard shortcut:''' You can also press {for win,linux}{key Ctrl+Shift+T}{/for}{for mac}{key Command+Shift+T}{/for} to bring back the most recently closed tab.
+
+= Manage tabs =
+'''Switch between tabs'''<br>
+You can visit a tab simply by clicking on it, or press {for win,linux}{key Ctrl+Tab}{/for}{for mac}{key Control+Tab}{/for} to quickly switch to the next tab or, if you are on the last tab, the first one.
+
+'''Change the order of tabs'''<br>
+To move a tab to a different position on the tab strip, just drag it there using your mouse.
+
+'''Move a tab to a new window'''<br>
+To move a tab to its own window, click on the tab and drag it out of the tab strip. A new window will open.
+
+If you want to move a tab from one Firefox window to another, click on the tab and drag it to the tab strip of another Firefox window.
+
+'''See all of your tabs'''<br>
+If you've opened more tabs than will fit on the tab strip, tab scroll buttons appear at each end. Clicking on them will scroll the tab strip left or right.
+
+You can also click on the ''List all tabs'' [[Image:tab icon 2|width=16]] icon at the end of the tab strip, where you can view and manage your tabs from the drop-down menu. To learn more, see the [[Tab overview menu]] article.
+
+[[Image:Fx98Listalltabsbutton|width=300]]
+
+= Pin tabs =
+Pinning a tab allows you to keep your favorite sites open and just a click away. Pinned tabs open automatically when you start Firefox. For more information about pinned tabs, see [[Pinned Tabs - keep favorite websites open and just a click away]].
+
+[[Image:Fx128 pinned tab 2|width=400]]
+
+To pin a tab, just {for win,linux}right-click{/for}{for mac}control-click{/for} on it and select {menu Pin Tab}.
+
+'''To pin multiple tabs at the same time:''' Select the ones you want ({for win,linux}Ctrl-click{/for}{for mac}Command-click{/for} on each tab), then {for win,linux}right-click{/for}{for mac}control-click{/for} on one of them and select {menu Pin Tabs}.
+
+= Bookmark tabs =
+Select the tab you want to bookmark, then {for win,linux}right-click{/for}{for mac}control-click{/for} on the tab and select {menu Bookmark Tab}.
+
+'''To bookmark multiple tabs at the same time:''' Select the ones you want ({for win,linux}Ctrl-click{/for}{for mac}Command-click{/for} on each tab), then {for win,linux}right-click{/for}{for mac}control-click{/for} on one of them and select {menu Bookmark Tabs…} A new folder will be created to contain bookmarks for each tab. Give the new bookmarks folder a name and choose which folder to store it in. Click on {button Save} to finish.
+
+'''To bookmark all open tabs in a window at once:''' {for mac}Select {menu Bookmark All Tabs…} from the Bookmarks menu.<br>[[Image:Fx155MenuBar-BookmarkAllTabs-Mac]]<br>{/for}{for win,linux}Right-click on any of the tabs, choose {menu Select All Tabs} from the context menu, then right-click on any tab and select {menu Bookmark Tabs…}{/for} A new folder will be created to contain bookmarks for each tab. Give the new bookmarks folder a name and choose which folder to store it in. Click on {button Save} to finish.
+* '''Keyboard shortcut''': You can also press {for win,linux}{key Ctrl+Shift+D}{/for}{for mac}{key Command+Shift+D}{/for} to bookmark all open tabs in a window at once.
+For more information on bookmarks, see [[Bookmarks in Firefox]].
+{for fx137}
+= Tab groups =
+You can group tabs together and give them a label to manage your open tabs. See [[Tab groups]] to learn how.
+{/for}
+
+= Tab tips and troubleshooting =
+* To learn keyboard and mouse shortcuts that speed up browsing tasks, see [[Keyboard shortcuts - Perform common Firefox tasks quickly]] and [[Use mouse shortcuts to perform common tasks in Firefox]].
+* To [[Mute sound in Firefox tabs|mute audio in a single tab]], click on the audio button on that tab.
+* To change the content of the [[New Tab page in Firefox|New Tab]] page, see [[Customize items on your Firefox New Tab page]].
+** To set a different home page instead of the New Tab page that opens when Firefox starts, see [[How to set the home page]].
+* To customize your tab settings, see [[Tab preferences and settings]].
+For other tab issues or problems, see:
+* [[Home page with pipe character opens extra tabs when Firefox starts]]
+* [[Firefox says it's just updated every time it starts - how to fix]]
+* [[Troubleshoot and diagnose Firefox problems]]

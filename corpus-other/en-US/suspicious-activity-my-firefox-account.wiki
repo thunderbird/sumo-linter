@@ -1,0 +1,39 @@
+Your Mozila account syncs your passwords, bookmarks and history across multiple devices. If you notice suspicious activity on your Mozilla account (like someone signing in from an unknown device), there are steps you can take to prevent further access to your information.
+
+= First, change your Sync password from a synced computer =
+This first step will prevent devices with your old Mozilla account password from connecting to the Sync server and getting all of the new passwords that you will have to create in the next section.
+[[Template:changesyncpw]]
+{note}
+When you open Firefox on another connected device, it will prompt you to enter your new Mozilla account password. Or, you can update your other connected devices with the new password as follows:
+#Disconnect your other devices from your Mozilla account by following [[Remove a synced device from your Mozilla account|these steps]].
+#Reconnect these same devices by following [[How do I set up Sync on my computer?#w_connect-additional-devices-to-sync|these instructions]].
+{/note}
+
+= Second, change all of your website passwords from a synced computer =
+{warning}Change your Mozilla account password (see previous section) before changing your other account passwords to prevent your new passwords from syncing with devices.{/warning}
+This part is more time consuming but important. If you don't change the passwords for websites that store sensitive or personal information, such as bank accounts, email accounts and social media accounts, it would still be possible for someone else to log in to your account using the existing already synced password.
+
+See [[Choose a strong password]] for an easy way to create better passwords.
+{note}'''Note:''' Mozilla account supports a [[Passwordless login for Mozilla accounts|passwordless sign-in option]] for selected services. Instead of entering a password, you can use a one-time code sent to your email address. Passwordless login cannot be used for Firefox Sync. Sync requires a password because it uses end-to-end encryption to protect your data.{/note}
+
+=Review your passkeys=
+If you use passkeys with your Mozilla account, review them as part of your account security check.
+
+A passkey added by someone else could allow access to your account without using your password.
+
+To review your passkeys:
+#Sign in to your Mozilla account.
+#Open {menu Settings}.
+#Go to {menu Security} > {menu Passkeys}.
+#Review the list of registered passkeys.
+Each passkey shows information such as:
+*Its name
+*When it was created
+*When it was last used
+If you see a passkey you don't recognize:
+#Delete the passkey immediately.
+#Change your Mozilla account password.
+#Review any linked Google or Apple accounts.
+#Review your account's two-step authentication settings.
+{note}'''Note:''' If you receive an email notifying you that a passkey was added and you did not make that change, treat it as a potential security issue and review your account immediately.{/note}
+For more information, see [[Use a passkey to sign in to your Mozilla account]].

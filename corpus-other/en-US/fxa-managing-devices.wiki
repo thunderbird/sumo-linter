@@ -1,0 +1,24 @@
+You can manage the devices and services associated with your Mozilla account in your [https://accounts.firefox.com/settings account settings]. Check out some frequently asked questions and additional resources below.
+
+__TOC__
+
+=Why can't I see my device in the ''Connected Services'' list?=
+The devices currently connected to your Mozilla account can be viewed in your [https://accounts.firefox.com/settings account settings] under ''Connected Services''.
+
+Your device could be missing if you are using an outdated version of Firefox desktop, please [[Update Firefox to the latest release|update to the latest version]].
+
+If you are using the latest version of Firefox desktop, [[How do I choose what information to sync on Firefox?#w_manage-sync-information-on-a-computer|make sure your Sync is set to '''On''']].
+
+=Why do I see duplicates in the ''Connected Services'' list?=
+If you see a device or service listed multiple times (and you're sure that it is the same) in the ''Connected Services'' list, click {button Sign Out} next to that device/service to remove it.
+;[[Image:FxAConnectedDevices]]
+The current device will be listed first, followed by the most recent Sync device/service sign-ins.
+
+=How do I use my Mozilla account on my devices?=
+[[How do I set up Sync on my computer?#w_connect-additional-devices-to-sync|Learn how to add a device to your Mozilla account with Sync]].
+
+=Related articles=
+*[[Remove a synced device from your Mozilla account]]
+*[[Disable Firefox Sync on a lost phone or tablet]]
+*[[Delete sync data from Firefox by signing out of your Mozilla account]]
+*[[Send Tab from Firefox desktop to other devices]]

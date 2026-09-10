@@ -1,0 +1,28 @@
+'''This error means that a plugin (like gmpopenh264) has crashed. Simply reloading the page will restart the plugin, and your video (or other content) will be shown again.''' Before reloading the page, you can send a crash report to Mozilla by clicking on {button Submit a crash report}. These crash reports help us make improvements to Firefox.
+;[[Image:gmpopenh264PluginCrash]]
+
+__TOC__
+
+= What is a plugin? =
+A [[Use plugins to play audio, video, games and more|plugin]] is a piece of software that displays internet content that Firefox is not designed to display. This usually includes video, audio, online games and presentations that are made in patented formats. Plugins are created and distributed by the companies that make those patented formats. The [[Watch DRM content on Firefox|Widevine CDM]] and [[Why is there an OpenH264 plugin in Firefox?|OpenH264]] plugins are still supported in Firefox but [https://blog.mozilla.org/futurereleases/2015/10/08/npapi-plugins-in-firefox/ NPAPI plugins] like Adobe Flash and Silverlight are not (see [[Why do Java, Silverlight, Adobe Acrobat and other plugins no longer work?]] to learn more).
+
+= What is a crash? =
+A crash happens when a piece of software abruptly stops working. Plugins sometimes crash for various reasons and cause Firefox to crash along with it. For more information about Firefox crashes, see [[Firefox crashes - Troubleshoot, prevent and get help fixing crashes]]. Some plugins load separately from Firefox, allowing Firefox to stay open if the plugin crashes.
+
+= What information is sent in a crash report? =
+Crash reports '''only''' include technical information to help Firefox developers determine what went wrong, and how to fix it. These reports '''do not''' include personal information. The information sent in a report includes:
+* what webpage you were on
+* version of Firefox you were using
+* your operating system
+* installed plugins
+* installed extensions
+* more technical info
+This information is subject to the [http://www.mozilla.org/legal/privacy/firefox.html#crash-reporter Firefox Privacy Policy].
+
+= How do I keep plugins from crashing? =
+Many problems with plugins can be solved by updating to the latest version of the plugin.
+The name of the plugin that crashed can be found in the error message.
+
+= Related articles =
+*[[Why do Java, Silverlight, Adobe Acrobat and other plugins no longer work?]]
+*[[Why is there an OpenH264 plugin in Firefox?]]

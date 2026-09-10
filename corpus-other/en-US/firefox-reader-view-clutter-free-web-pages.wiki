@@ -1,0 +1,42 @@
+Reader View in Firefox helps you strip away clutter like buttons, ads, background images and videos, providing a clean and customizable reading experience. Here’s how to use it:
+
+__TOC__
+
+=View a page in Reader View=
+# If a page is available in Reader View, the Reader View icon [[Image:Reader view icon - inactive]] will appear in the address bar.
+#; [[Image:URL bar with Reader view icon highlighted]]
+# Click on the Reader View icon [[Image:Reader view icon - inactive]]; a blue icon [[Image:Reader view icon - active]] indicates the feature is currently active.
+{note}'''Tip:''' If a page is available in Reader View, you can also access Reader View from the Menu bar{for not mac} [[Restore the Menu bar in Firefox|when the Menu bar is enabled]],{/for} by clicking {menu View} then {menu Enter Reader View}. Alternatively, you can press the {for linux}keys {key Ctrl+Alt+R}{/for}{for win}key {key F9}{/for}{for mac}keys {key Command+Option+R}{/for} to toggle Reader View.<!--https://support.mozilla.org/kb/keyboard-shortcuts-perform-firefox-tasks-quickly#w_miscellaneous-->{/for}{/note}
+<!--Reading list isn't ready. {note}'''Reading List:''' No time to read right now? Just add the page to your [[Firefox Reading List - Save, sync and read pages anywhere|Reading List]]. It will be waiting for you there when you come back, and on all of your [[How do I set up Firefox Sync?|synced]] devices.{/note}-->
+
+=Reader View settings=
+Once in Reader View, you can customize the layout to fit your preferences. Options are available on the left side of the article content:
+{for fx129}[[Image:Fx129ReaderView-Settings]]{/for}{for not fx129}[[Image:Reader view settings]]{/for}
+
+==Modify Reader View settings==
+*[[Image:Fx84RV-exit]] '''Exit:''' To exit Reader View, simply click the {button &#10005;} cross button, click the Reader View icon again or use the back button on your browser.
+{for not fx129}
+*[[Image:Fx84RV-font]] '''Text:''' Adjust the layout (text font and size, content width, line height) and theme (light, sepia, dark) in Reader View.
+{/for}
+{for fx129}
+*[[Image:Fx84RV-font]] '''Text:''' Once in Reader View, you can customize the layout to fit your preferences:
+**'''Text Size:''' Click the {button &#8722;} or {button &#43;} buttons to decrease or increase the text size.
+**'''Font Style:''' Choose between {menu Serif}, {menu Sans-serif} and {menu Monospace} fonts. Adjust the font weight as {menu Light}, {menu Regular} or {menu Bold}.
+**'''Layout Options:''' Adjust the content width and line spacing to make the text more comfortable to read.
+**'''Advanced Options:''' Customize character spacing, word spacing and text alignment.
+;[[Image:Reader view text options|width=400]]
+*[[Image:Reader view themes|width=20]] '''Theme:''' Select between {menu Auto}, {menu Light}, {menu Dark}, {menu Sepia}, {menu Contrast} and {menu Gray} backgrounds to change the appearance of the page, or create your custom theme.
+;[[Image:Reader view theme options|width=400]]
+{/for}
+<!--Note to localizers: translate the last line (add to Pocket) only if the feature is already available in your language – currently it is only available in English, German, Japanese, Russian and Spanish-->
+*[[Image:Fx84RV-listen]] '''Read aloud:''' Have Firefox read an article out loud in Reader View.<!--L10N: In most locales, except Chinese, articles are treated as "English articles" but if the user has the proper language pack installed, they will be read in that locale's accent. See discussion thread.-->
+;[[Image:Reader view read aloud options|width=360]]
+;{note}This option will show up only if {for win}Windows{/for}{for mac}macOS{/for}{for linux}Linux{/for} has [https://en.wikipedia.org/wiki/Speech_synthesis Text-to-speech] information in the language that the article is in.{/note}
+*[[Image:Fx84RV-pocket]] '''Save to Pocket:''' Add a page to [[Save web pages for later with Pocket on Firefox|Pocket]].
+
+
+{note}
+'''Firefox for Android:''' Reader View is also available on Firefox for Android. See [[How to use Reader Mode on Firefox for Android]].
+
+'''Firefox for iOS:''' Reader View is also available on Firefox for iOS. See [[View web pages in Reader View]].
+{/note}

@@ -1,0 +1,133 @@
+A [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile]] stores your bookmarks, passwords, settings and browsing data. You can create multiple profiles to keep work and personal browsing separate, test different setups, or share your computer with others. Profile management has been improved so that Firefox users can more easily create and switch profiles.
+
+{for not fx150}The new profile management system described in this article is being rolled out gradually, so you may not see the new Profiles menu item in the toolbar or Firefox menu.{/for}{for fx150}This article describes the new profile management system.{/for} You can still create and manage profiles using the original Profile Manager (''about:profiles''). See the [[Profile Manager - Create, remove or switch Firefox profiles]] article for details.
+{for not fx150}{warning}The [[Refresh Firefox - reset add-ons and settings|Refresh Firefox]] feature may be unavailable if you use the new profile management system to create and manage profiles, unless you update to [[Find what version of Firefox you are using|Firefox version]] 150 (release date April 21, 2026) or above.<!-- see https://bugzilla.mozilla.org/show_bug.cgi?id=1928138 and https://bugzilla.mozilla.org/show_bug.cgi?id=2000860#c10-->{/warning}{/for}
+
+__TOC__
+
+=Manage profiles=
+{note}'''Note:''' Depending on your Firefox version and operating system, menus and options may look slightly different. Additionally, the Profiles menu item can also be found in the Firefox Menu bar {for not mac}([[Restore the Menu bar in Firefox|if enabled]]){/for} or in the Firefox [[Image:IG main menu]] menu.{/note}
+
+==Create a new profile==
+#In the toolbar, click the account icon [[Image:IG profile]].
+#Click the {menu Profiles} menu item.
+#Click {menu + New profile}.
+#;[[Image:Fx144Win11EnglishCreateProfile]]
+#*Firefox will launch a new instance to create your new profile, meaning you will see two Firefox icons in your {for not mac}taskbar{/for}{for mac}dock{/for}.
+#Follow the on-screen prompts to set up your new profile. All of your changes will be saved automatically.
+#When you’re finished, close the tab or click {button Done editing}.
+#;[[Image:Customize new profile|width=700]]
+
+==Customize a profile==
+After setting up a profile, you can continue to personalize it by tweaking its name, theme and avatar.
+*'''Profile name:''' Give your profile a unique name to help you spot it easily. Profiles are listed alphabetically.
+*'''Profile theme:''' Pick a theme to give each profile a unique color scheme. This is especially useful if you have multiple profiles open at the same time; different themes help you instantly see which profile's window you’re working in.
+*'''Profile avatar:''' Choose an avatar that will also help you identify your profile. Your avatar will appear as a profile-specific badge on the Firefox {for not mac}taskbar{/for}{for mac}dock{/for} icon.
+To update your profile:
+#In the toolbar, click the account icon [[Image:IG profile]].
+#Click the name of your current profile.
+#Click the edit icon [[Image:IG edit 2]] in the top-right corner to edit your current profile. To edit a different profile, click {menu Manage Profiles}.
+#Changes made to a profile’s customization are saved automatically. When you’re finished, close the tab or click {button Done editing}.
+#;[[Image:Edit you profile|width=700]]
+
+==Open an existing profile==
+#In the toolbar, click the account icon [[Image:IG profile]].
+#Click the name of your current profile.
+#From the dropdown, just pick the profile you want to open.
+#;[[Image:Profile tab in account menu|width=400]]
+
+{for fx146}
+==Copy a profile==
+If you don’t want to start a new profile from scratch, you can copy your current profile, including all your settings and browsing data. Here’s how:
+#In the toolbar, click the account icon [[Image:IG profile]].
+#Click the name of your preferred profile.
+#Select the {button Copy this profile} option.
+#;[[Image:copyprofile|width=300]]
+Firefox also allows you to customize the profile you just copied. You can choose to:
+;*Set a name for your profile
+;*Select a theme
+After you are done, simply click on {button Done editing}.
+;[[Image:profilemenumanager|width=800]]
+
+<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1994848#c10 -->
+{for not fx152}
+{for fx147}
+Alternatively, starting in [[Find what version of Firefox you are using|Firefox version]] 147 you can copy an existing profile from Settings:
+#[[Template:optionspreferences]]
+#In the {menu General} panel, scroll down to {menu Profiles} and click {button Settings}.
+#Head to the {menu Profile to copy} section and click {button Select profile}.
+#Choose the profile you want to copy from the dropdown menu.
+#Click on {button Copy}.
+;[[Image:Fx147bSettings-Profiles|width=600]]
+{/for}
+{/for}
+{for fx152}
+Alternatively, starting in [[Find what version of Firefox you are using|Firefox version]] 147 you can copy an existing profile from Settings:
+#[[Template:optionspreferences]]
+#In the {menu Account and sync} panel, scroll down to {menu Profiles} and click {button Settings}.
+#In the subpage that opens, select the desired profile from the dropdown menu.
+#Click on {button Copy}.
+{/for}
+{/for}
+
+==Delete a profile==
+If you no longer need a profile, you can delete it easily by following these steps:
+#In the toolbar, click the account icon [[Image:IG profile]].
+#Click the name of your current profile.
+#Click the edit icon [[Image:IG edit 2]] in the top-right corner to proceed with deleting your current profile. To delete a different profile, click {menu Manage Profiles}.
+#At the bottom-right, click {button Delete}.
+#Review the data that will be deleted, and then confirm by clicking {button Delete}.
+#*If you delete your last remaining profile, Firefox will reopen with a fresh profile.
+#;[[Image:Delete a profile|width=700]]
+{warning}'''Warning:''' Deleting a profile is permanent. Make sure you have backed up any data you want to keep.{/warning}
+
+==Use Sync with a new profile==
+Profiles are local by default—they don’t automatically sync or log you into an account.
+
+If you want your new profile’s bookmarks, passwords and history available on other devices:
+*You can sync data from your new profile with other devices that are signed in to your [[Mozilla account - Managing account data|Mozilla account]]. To learn more, see [[How do I set up Sync on my computer?]], [[Sync Firefox data]] and [[How do I choose what information to sync on Firefox?]]
+{note}'''Note:''' To prevent accidental data merging, you cannot sign in with the same Mozilla account on multiple profiles on the same device.{/note}
+;[[Image:Fx138BetaMozillaAccountAlreadyInUse]]
+
+==Choose a profile at Firefox startup==
+You can make Firefox ask which profile to use when it starts:
+#In the toolbar, click the account icon [[Image:IG profile]].
+#Click the name of your current profile.
+#Click {menu Manage Profiles} at the bottom.
+#Select '''Choose a profile when Firefox opens'''.
+#*If the box is unchecked, Firefox will open to the most recently used profile.
+#;[[Image:Choose a profile at Firefox startup|width=700]]
+
+=Alternative solutions: Multi-Account containers=
+If you want separate work vs. personal browsing contexts but don’t want to switch profiles, you can install the [https://addons.mozilla.org/firefox/addon/multi-account-containers/ ''Firefox Multi-Account Containers'' extension].
+*Profiles separate all data (bookmarks, settings, add-ons).
+*Containers separate only cookies, logins and site data inside one profile.
+{note}'''Tip:''' Containers are easier for daily browsing separation, while profiles are best for keeping data, themes and add-ons completely separate.{/note}
+
+=Frequently asked questions=
+==Is this feature available on Android or iOS?==
+No, the profiles feature is currently not supported on Android or iOS.
+
+==Does creating a new profile log me into an account or affect my sync settings?==
+No, creating or managing profiles does not sign you in to a Mozilla account or change any sync settings. [[How do I set up Sync on my computer?|Sync]] remains separate, and profiles allow you to set up different browsing environments without linking them automatically to an account.
+
+==Will switching profiles mix my data if I’m signed in to a Mozilla account?==
+No. Each profile is fully separate. Firefox prevents multiple profiles on the same device from syncing to the same account.
+
+==Which profile will open when I open Firefox?==
+If you have selected ''Choose a profile when Firefox opens'' from the ''Manage Profiles'' screen, you will be able to choose from a list of all your profiles when Firefox starts. Otherwise, Firefox opens the most recently used profile.
+
+==How do “Data Collection and Use” settings work with profiles?==
+To make sure Firefox only collects data with your consent, your [[Manage Firefox data collection and privacy settings|Data Collection and Use]] settings will apply to every Firefox profile on your device. That means you only have to change these settings in one profile, and the changes will be applied to your other profiles. When you create a new profile, your current ''Data Collection and Use'' settings will automatically apply. You can view and change these any time from the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} page of ''about:preferences'' (the Firefox settings page).
+
+==Should I back up my profiles?==
+The best way to protect your profile data is by creating a Mozilla account for each profile. [[How do I set up Sync on my computer?|Sync]] automatically protects your data across devices, ensuring easy access whenever you need it.
+
+==What's the difference between profiles and Multi-Account Containers?==
+*Profiles allow for complete separation of all data between profiles—including bookmarks, passwords, settings, add-ons, browsing history and browsing data (such as cookies and logins).
+*In contrast, [[Multi-Account Containers|Multi-Account Containers]] only separate browsing data like cookies and logins between different containers. The Multi-Account Containers add-on can be used in a single profile, but this add-on and its containers won't be shared across profiles.
+
+=Related articles=
+*[[Profiles - Where Firefox stores your bookmarks, passwords and other user data]]
+*[[Change website appearance settings in Firefox]]
+*[[Change the fonts and colors websites use]]

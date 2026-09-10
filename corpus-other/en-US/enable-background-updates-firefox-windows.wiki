@@ -1,0 +1,19 @@
+{for not win}[[T:WindowsOnly]]{/for}
+
+Firefox includes a background updates feature for Windows that checks for, downloads, and installs Firefox updates in the background, even when Firefox is not running. This way, you will have the latest available version of Firefox, every time you open the browser.
+
+The background updates feature adds a '''Firefox Background Update''' entry<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1343669 https://bugzilla.mozilla.org/show_bug.cgi?id=1687777 --> to the ''Windows Task Scheduler'' that, when enabled, will check for Firefox updates every 7 hours when the browser is not in use. On Windows, there will now be fewer interruptions because, when background updates are enabled, Firefox won’t prompt you for updates. Instead, a background agent will download and install updates even if Firefox is closed.<!-- https://www.mozilla.org/firefox/94.0/releasenotes/ -->
+
+To enable or disable this functionality, follow the steps below:
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} panel, go down to the ''Firefox Updates'' section{/for}{for fx152}Select {menu About Firefox} on the left. The ''About Firefox'' settings panel will open{/for}.
+#;{for not fx152}[[Image:Fx130settings-AutomaticUpdates-win]]{/for}{for fx152}[[Image:Fx152AboutFirefoxSettings-win]]{/for}
+#{for not fx152}Select{/for}{for fx152}In the ''Installation'' section, select{/for} '''Automatically install updates (recommended)''' and underneath that setting, check or uncheck the box next to '''When Firefox is not running''' to enable or disable background updates.
+{note}'''Note:''' You can also disable background updates by selecting {for not fx152}'''Check for updates but let you choose to install them'''{/for}{for fx152}'''Check for updates, but choose when to install'''{/for}; however, this turns off automatic updates and is not recommended.{/note}
+The background updates feature has a few requirements to be able to run:
+*Firefox must have been installed with the installer (not, for example, from a ZIP file).
+*The [[What is the Mozilla Maintenance Service?|Mozilla Maintenance Service]] must be usable (installed and not disabled). When installing with the Firefox installer, this is the default.
+*Firefox must have a default [[Profile Manager - Create, remove or switch Firefox profiles|profile]], and it must run using that profile at least once after the feature is enabled.
+*Firefox must not have a language pack installed.
+*[[Connection settings in Firefox|Firefox connection settings]] must be configured to use the system proxy (this is the default).
+To learn more about this feature, see Mozilla's [https://firefox-source-docs.mozilla.org/toolkit/mozapps/update/docs/BackgroundUpdates.html Background Updates] article in ''Firefox Source Docs'' documentation.

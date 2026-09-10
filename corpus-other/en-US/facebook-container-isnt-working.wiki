@@ -1,0 +1,26 @@
+First, make sure the add-on is installed, enabled and up to date by checking your installed add-ons.
+#[[T:Open Add-ons|type=Extensions]]
+#'''Ensure that installation was completed.''' If Facebook Container appears on the list, it was successfully installed and you can move on to the next step.
+#'''Make sure it is enabled.''' If it is disabled, click {button Enable} to activate it.
+#'''Update Facebook Container.''' See [[How to update add-ons]]
+
+=I can't install Facebook Container even though I'm on Firefox 57+=
+[[Template:facebookcont57+]]
+
+=How do I know if Facebook Container is working?=
+{for fx87}
+After you've installed and updated the Facebook Container add-on, open a new tab and enter facebook.com. If the word '''Facebook''' and the container icon appear on the right side of the address bar, then Facebook Container is working properly.
+
+[[Image:Facebook grey icon]] 
+{/for}
+{for not fx87}
+After you've installed and updated the Facebook Container add-on, open a new tab and enter facebook.com. If the word '''Facebook''' appears in blue on the right side of the address bar, and the blue underline appears in that tab, then Facebook Container is working properly.
+{/for}
+
+{warning}Mozilla created and supports [https://addons.mozilla.org/firefox/addon/facebook-container/ Facebook Container] and [https://addons.mozilla.org/firefox/addon/multi-account-containers/ Firefox Multi-Account Containers]. Other container  extensions are not maintained by Mozilla. If you are experiencing issues with these other extensions, please contact the developer directly.{/warning}
+
+=Affected Facebook features=
+Facebook Container prevents Facebook from linking your activity on other websites to your Facebook identity. Therefore, the following will not work:
+
+*'''“Like” buttons and embedded Facebook comments on other websites''' Because you are logged in to Facebook only in the container, “Like” buttons and embedded Facebook comments on other websites will not work.
+*'''Logging in or creating accounts on other websites using Facebook''' Websites that allow you to create an account or log in using Facebook will generally not work properly.

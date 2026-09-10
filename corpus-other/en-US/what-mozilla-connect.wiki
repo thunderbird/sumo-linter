@@ -1,0 +1,27 @@
+<!-- L10N: {note}[https://connect.mozilla.org/ Mozilla Connect] is only available in English.{/note} -->
+
+Mozilla launched the platform [https://connect.mozilla.org/ Mozilla Connect], in collaboration with [https://khoros.com/ Khoros], as a space for users to give product feedback, share ideas for new features, and participate in meaningful conversations that help shape future releases. You can leave feedback and share ideas for Firefox desktop, mobile, Mozilla VPN, Thunderbird and more.
+;[[Image:Mozilla_Connect|width=600]]
+
+= Features =
+*You can sign in to Mozilla Connect using your [[Access Mozilla services with a Mozilla account|Mozilla account]].
+*The platform is user-friendly. You can easily find the sections where you can contribute ideas, provide feedback and engage in discussions.
+*There is a labeling and search system, so other community members and product managers can easily find and engage with contributed posts.
+*In partnership with Khoros, Mozilla Connect allows you to rank your ideas and earn badges for your contributions.
+*The members of the community will be able to participate and host interesting events.
+
+== A better way to give and receive feedback ==
+Mozilla employees will participate by responding directly to ideas, leading discussions, and sharing product demos. Contributors can expect to receive feedback on their ideas from other community members almost immediately. Ideas can be commented and voted on by the community. All top ideas will be shared with the staff for review. The evaluation process can take up to two weeks, and, if an idea needs to be evaluated further, we’ll make sure to keep the community informed.
+
+== Ideas Acceptance Criteria ==
+We are in the process of creating a rubric that details with what we consider for adopting ideas. This rubric will also be shared with the community. Some of the things we’ll consider are:
+*Does the idea align with the Mozilla vision?
+*Does the idea provide user value? Will the idea be impactful?
+
+== How is Mozilla Connect different from Mozilla Support? ==
+[https://support.mozilla.org/ Mozilla Support] is a platform where users can find help articles and an active community of contributors ready to answer questions about Mozilla products in the [https://support.mozilla.org/en-US/questions/new support forums]. On the other hand, [https://connect.mozilla.org/ Mozilla Connect] brings the community and the employees closer together to collaborate in developing new features or improving existing ones by sharing ideas or providing feedback about our products.
+
+<!-- == What happened to the old community and content of Ideas@Mozilla? ==
+In 2021, Ideas@Mozilla has transitioned to Mozilla Connect. This will allow the community to interact with the platform more efficiently. Feedback, ideas and content from Ideas@Mozilla have not been moved to Mozilla Connect.
+
+As we redirected incoming activity to the new site, Ideas@Mozilla remained active for a few weeks while our staff reviewed the ideas and feedback extensively. The content was then archived, and personal data was safely removed. -->

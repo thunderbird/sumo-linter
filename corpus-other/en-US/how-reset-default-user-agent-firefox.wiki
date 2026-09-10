@@ -1,0 +1,32 @@
+A [https://wikipedia.org/wiki/User_agent user agent] tells websites what type of browser and operating system you're using. This information helps the web server deliver content that's compatible with your browser. If websites tell you that your browser is outdated or incompatible even though Firefox is up to date, an incorrect user agent may be the cause. This article explains how to fix problems with your Firefox user agent so that websites work properly.
+
+__TOC__
+
+= User agent issues =
+You can change Firefox's user agent to trick websites into thinking that you're using a different browser or operating system. Web developers might do this to see how their websites will appear on different systems and browsers. Sometimes, add-ons and other installations can change your user agent without your knowledge.
+
+Websites may not display correctly or may show a message that your browser is outdated or incompatible, based on the detected user agent. It's important to switch Firefox back to the ''default user agent'' so that websites work properly.
+
+= View your user agent =
+To view your user agent, click the Firefox menu button [[Image:Fx89menuButton]], click {menu Help} and select {menu More Troubleshooting Information}. This will open a page with the address ''about:support''. The ''Application Basics'' section will show your current Firefox version and will include a '''User Agent''' entry. For example, the ''default user agent'' entry for Firefox 83 on Windows 10 (64-bit) would appear as:<br>
+<code>Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0</code>
+{for win}{note}'''Note:''' If your user agent shows a previous Windows version, such as Windows NT 6.1 (Windows 7) instead of Windows NT 10.0 (Windows 10), make sure you are not running Firefox in Compatibility mode. You can open the Properties of the Firefox desktop shortcut from the right-click context menu. Check the ''Compatibility'' tab and make sure that the compatibility mode option is not selected.{/note}{/for}
+Sites such as [https://www.whatismybrowser.com/detect/what-is-my-user-agent What is my user agent? (WhatIsMyBrowser.com)] and [https://www.whatsmyua.info/ What's my user agent? (whatsmyua.info)] can also show you the user agent detected by websites.
+
+= Add-on issues =
+Add-ons such as the [https://addons.mozilla.org/firefox/addon/uaswitcher/ User-Agent Switcher] extension can change the user agent that websites detect. See if you can restore the default user agent in your extension settings. You can also temporarily restart Firefox with all add-ons disabled (see [[Use Troubleshoot Mode in Firefox]] for details) and, if the problem goes away, [[Disable or remove Add-ons|disable or remove any add-on]] you think may be the cause. If you can't resolve the problem this way, follow the steps below to reset the default user agent.
+
+= Reset the default Firefox user agent =
+You can reset your user agent as follows:
+[[Template:aboutconfigwarning]]
+# [[T:aboutconfig]]
+# Search for '''useragent''' by typing it into the ''Search preference name'' field.
+# Click the ''Reset'' [[Image:Fx71aboutconfig-ResetButton]] or ''Delete'' [[Image:Fx71aboutconfig-DeleteButton]] button on each of these preferences, if they exist:
+* {pref general.useragent.extra.firefox} or {pref general.useragent.extra.''productName''} - ignored since [https://bugzilla.mozilla.org/show_bug.cgi?id=581008 bug 581008] (2010).
+* {pref general.useragent.locale}
+* {pref general.useragent.override}
+* {pref general.useragent.security} - ignored since [https://bugzilla.mozilla.org/show_bug.cgi?id=572668 bug 572668] (2010).
+See [[Configuration Editor for Firefox]] for more information about using the ''about:config'' page to reset or delete preferences.
+{note}'''Note:''' If the above solution doesn't resolve the problem, check whether you have the {pref privacy.resistFingerprinting} preference set to {pref true} and, if so, double-click on the preference to reset it to {pref false}. This setting can change the user agent and cause this type of issue. For more information, see [[Firefox's protection against fingerprinting]].{/note}
+After resetting your user agent, you may need to restart Firefox and clear your cookies and cache:
+[[T:clearCookiesCache]]

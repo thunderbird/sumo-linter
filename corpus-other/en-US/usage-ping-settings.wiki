@@ -1,0 +1,89 @@
+{for not fx136}{note}'''Note:''' This article applies to [[Find what version of Firefox you are using|Firefox version]] 136 and above.{/note}{/for}
+Firefox sometimes sends small, '''anonymous technical reports''' that help Mozilla understand how many people use Firefox each day. These reports help us measure usage and improve performance across devices.
+
+We understand that privacy is personal. If you’d rather not share this kind of information, you can easily turn off these reports.
+
+For more details on Firefox’s data collection, see [[Share data with Mozilla to help improve Firefox]].
+
+=What is usage ping data?=
+Daily usage data reports (sometimes called usage pings) are anonymous technical signals sent once a day. They don’t include your browsing history, passwords, or personal data — only that you opened and used Firefox. 
+
+For details, see [https://docs.telemetry.mozilla.org/metrics/metrics#daily-active-users-dau Mozilla Data Documentation – Daily Active Users (DAU)] for Android, iOS and Desktop.
+
+=What’s collected (and what’s not)=
+Firefox’s daily usage reports help Mozilla count active users while respecting your privacy.
+
+'''Collected''':
+*A technical signal showing that Firefox was opened that day
+*The Firefox version and operating system
+'''Not collected''':
+*Your browsing history or downloads
+*Passwords or autofill information
+*The websites you visit
+These reports are anonymous and used only to understand Firefox adoption and improve stability.
+
+For a technical overview of the data collected in the daily usage ping, see the definitions in the Glean Dictionary for [https://dictionary.telemetry.mozilla.org/apps/fenix/pings/usage-reporting Android], [https://dictionary.telemetry.mozilla.org/apps/firefox_ios/pings/usage-reporting iOS] and [https://dictionary.telemetry.mozilla.org/apps/firefox_desktop/pings/usage-reporting Desktop].
+
+=How does Mozilla use it?=
+Mozilla uses daily usage ping data to determine the number of daily active users of Firefox. 
+
+This data supports Mozilla’s reporting requirements and informs active user estimates for both internal analysis and external reporting needs. 
+
+These metrics allow Mozilla to assess Firefox’s reach and understand its usage patterns.
+
+Mozilla’s approach to data collection is grounded in its core values, as defined in the [https://www.mozilla.org/about/manifesto/ Mozilla Manifesto]. For more information on how we collect, use and protect user data, refer to our [https://www.mozilla.org/privacy/firefox/ Privacy Notice].
+
+=Turn off daily usage data reports=
+If you prefer not to participate in daily usage ping data collection, you can opt out by adjusting your settings on Android, iOS or Desktop. For Klar on Android and iOS, the daily usage ping is opt in. Follow the steps below based on your platform:
+[[UI:details_start]]
+==Firefox for desktop==
+#Open Firefox and click the Application Menu button ≡ in the upper-right corner.
+#Select {menu Settings}.
+#Go to the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} panel, and scroll down to ''Firefox data collection and use''.
+#Uncheck the box next to '''Send daily usage ping to Mozilla''' to opt out of this data collection.
+;{for not fx152}[[Image:Fx136DataCollection-DailyUsagePing-Simplified]]{/for}{for fx152}[[Image:fx152datacollection]]{/for}
+To completely opt out of telemetry data collection in Firefox, see [[Manage technical and interaction data collection settings in Firefox#w_how-to-turn-off-technical-and-interaction-data-collection|How to opt out of data collection]].
+
+==Firefox for Android==
+#Open Firefox and tap the menu button {button ⋮} on the browser toolbar.
+#Select {menu Settings}.
+#Scroll to ''Privacy and security'', then tap {menu Data collection}.
+#Toggle off the '''Daily usage ping''' option to opt out of this data collection.
+;[[Image:DAU Android|width=300]]
+
+==Firefox for iOS==
+#Open Firefox and tap the menu button ≡ on the browser toolbar.
+#Select {menu Settings}.
+#Scroll to the ''Support'' section.
+#Toggle off the '''Daily Usage Ping''' option to opt out of this data collection.
+;[[Image:DAU iOS|width=300]]
+
+==Firefox Focus and Klar (Android and iOS)==
+===Android===
+#Open Firefox Focus or Klar and tap the menu button {button ⋮} in the top-right corner.
+#Select {menu Settings}.
+#Select {menu Privacy and Security}.
+#Scroll down to the  ''Data Choices'' section.
+#Toggle off the '''Daily usage ping''' option to opt out of this data collection.
+#;[[Image:Daily usage ping Focus Android 136|width=350]]
+
+===iOS===
+#Open Firefox Focus or Klar and tap the menu button ≡ at the bottom of the screen.
+#Select {menu Settings}.
+#Scroll to the ''Privacy'' section.
+#Toggle off the '''Daily Usage Ping''' option to opt out of this data collection.
+#;[[Image:DailyUsagePingFocusIos|width=350]]
+[[UI:details_end]]
+=What happens if I disable this option?=
+If you disable the Daily Usage Ping setting:
+* Firefox will stop sending daily usage pings to Mozilla.
+* Mozilla will no longer collect information about your app’s daily activity.
+This change won’t affect other data collection settings, such as crash reports or technical telemetry, which can be managed separately.
+
+=Related articles=
+*[https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice]
+*[[Manage Firefox data collection and privacy settings]]
+*[[Manage technical and interaction data collection settings in Firefox]]
+{for win}
+*[[Telemetry collection - Windows default browser trends]]
+{/for}

@@ -1,0 +1,24 @@
+This article describes how to arrange your Bookmarks in Firefox. You can sort the bookmarks in a folder by name, or you can manually rearrange them.
+
+* For more information on using bookmarks, see [[Create bookmarks to save your favorite webpages]].
+
+__TOC__
+
+= Sorting by name =
+#[[T:OpenBookmarksLibrary]]
+# {for win,linux}Right-click{/for}{for mac}Hold down the {key Ctrl} key while you click{/for} on the folder you want to sort, then select {menu Sort By Name}. The bookmarks in that folder will be sorted alphabetically. {for win,linux}<br><br>[[Image:Sort Bookmarks Win1]] <br>{/for}
+Sorting bookmarks by name in the Library window will be reflected in the Bookmarks sidebar, menu, and button.
+
+= Rearranging manually =
+#[[T:OpenBookmarksLibrary]]
+# Click the folder that contains the bookmark you want to move to expand it.
+# Click on the bookmark you want to move and then drag it to the position where you want to move it. {for win,linux}<br><br>[[Image:Sort Bookmarks Win2]] <br>{/for}
+#* To move a bookmark into a different folder, drag it on top of the folder.
+Changes you make in the Library window will be reflected in the Bookmarks sidebar, menu, and button.
+
+= Sorted views in the Library window =
+To view your bookmarks in various sort orders, use the Library window:
+# [[Template:OpenBookmarksLibrary]]
+# In the left pane, click on the folder you want to view. Its contents will appear in the right pane.
+# Click on the {button {for win,mac}[[Image:8e73ef8e153c803696ebf3687e07ee15-1252027203-152-1.png]] {/for}Views} button, then select {menu Sort}, and then select a sort order.
+'''The sort order in the Library window is for viewing purposes only, and will not be reflected in the Bookmarks sidebar, menu or button.'''

@@ -1,0 +1,49 @@
+[[Cookies - Information that websites store on your computer|Cookies]] are stored on your computer by websites you visit and contain information such as site preferences and login status. This article describes how to delete Firefox cookies, other site data and [http://wikipedia.org/wiki/Web_cache cached web content].
+* If you just want to clear the Firefox cache, see [[How to clear the Firefox cache]].
+* To prevent websites from storing cookies on your computer, see [[Block websites from storing site preferences or login status in Firefox]].
+
+__TOC__
+
+= Clear cookies for the current website =
+To delete cookies, site data, and temporary cached files and pages for a website you're currently visiting:
+#Click the {for not fx149}padlock [[Image:Fx89Padlock]]{/for}{for fx149}shield [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} icon to the left of the address bar.
+#;{for not fx149}[[Image:Clear cookies and site data|width=500]]{/for}{for fx149}[[Image:Fx149UnifiedTrustPanel|width=500]]{/for}
+#Click {for not fx149}{button Clear Cookies and Site data}{/for}{for fx149}{button Clear cookies and site data}{/for}.
+
+= Clear cookies for any website =
+To delete cookies and site data for any single website:
+# [[T:optionspreferences]]
+# Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} on the left and go to the {for not fx152}'''Cookies and Site Data'''{/for}{for fx152}''Browsing data''{/for} section.
+#;{for fx152}[[Image:Fx152settings-BrowsingData]]{/for}{for not fx152}{for fx148}[[Image:Fx148settings-CookiesAndSiteData]]{/for}{for =fx147,=fx146,=fx145}[[Image:Fx145settings-CookiesAndSiteData]]{/for}{for not fx145}[[Image:Fx79CookiesAndSiteData]]{/for}{/for}
+# Click {for not fx152}{for fx145}{menu Manage browsing data}{/for}{for not fx145}the {button Manage Data…} button{/for}{/for}{for fx152}{menu Clear data for specific sites}{/for}. The ''Manage Cookies and Site Data'' dialog will appear.
+# In the '''Search websites''' field, type the name of the site whose cookies you want to remove. Items that match your search will be displayed.
+#;[[Image:ClearCookies|width=600]]
+#* To remove all cookies and [https://developer.mozilla.org/docs/Web/API/Storage_API storage data] for the website, click {button Remove All Shown}.
+#* To remove selected items, select an entry and click {button Remove Selected}.
+# Click {button Save Changes}.
+# In the ''Removing Cookies and Site Data'' confirmation dialog that opens, click {button OK}.
+# Close the about:preferences page.
+To learn more about managing site data in Firefox, see [[Manage local site storage settings]] and [https://blog.mozilla.org/security/2021/08/10/firefox-91-introduces-enhanced-cookie-clearing/ Enhanced Cookie Clearing].
+{note}'''Note:''' You can use the [https://firefox-source-docs.mozilla.org/devtools-user/storage_inspector/#Opening_the_Storage_Inspector Storage Inspector] to remove individual cookies for a specific website, via the right-click context menu. To open the Storage Inspector, go to the menu button [[Image:Fx89menuButton]], click {menu More tools} and then click {menu Web Developer Tools} (or press {for win,linux} {key Ctrl + Shift + I}{/for}{for mac}{key Cmd + Opt + I}{/for} on the keyboard) and select ''Storage''.{/note}
+
+= Clear all cookies, site data and cache =
+# [[T:optionspreferences]]
+# Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} on the left and go to the '''Cookies and Site Data''' section.
+#;;{for fx152}[[Image:Fx152settings-BrowsingData]]{/for}{for fx148}{for not fx152}[[Image:Fx148settings-CookiesAndSiteData]]{/for}{/for}{for =fx147,=fx146,=fx145}[[Image:Fx145settings-CookiesAndSiteData]]{/for}{for not fx145}[[Image:Fx79CookiesAndSiteData]]{/for}
+# Click {for fx145}{menu Clear browsing data}{/for}{for not fx145}the {button Clear Data…} button{/for}. The ''Clear browsing data and cookies'' dialog will appear.
+#;[[Image:Fx136CookiesAndSiteData-ClearData|width=500]]
+# Set '''When:''' to '''Everything''' or a shorter time period, such as the last hour.
+# Ensure ''Cookies and site data'' and ''Temporary cached files and pages'' are checked.
+# Click {button Clear}.
+
+= Clear all cookies and keep other data =
+To delete only cookies while keeping other data, do the following:
+# Click the menu button [[Image:Fx89menuButton]], click {menu History} and then click {menu Clear Recent History…}.
+# Set '''When:''' to '''Everything'''.
+# Select '''Cookies and site data''' and make sure that other items you want to keep are not selected.
+#;[[Image:Fx136CookiesAndSiteData-ClearData-ALL|width=500]]
+# Click {button Clear} to clear all cookies and close the ''Clear browsing data and cookies'' window.
+
+=Related articles=
+*[[Delete browsing, search and download history on Firefox]].
+*[[Manage local site storage settings]]

@@ -1,0 +1,38 @@
+This article describes the media control feature for audio or video playback in Firefox.
+
+__TOC__
+
+=What is the media control feature?=
+You control media (audio or video) playback inside Firefox without clicking on the video or audio itself. You can now control it by pressing the hardware control buttons on a keyboard or headset, pressing the button on the virtual control interface or by sending commands via specific protocol, such as [https://specifications.freedesktop.org/mpris-spec/latest/ MPRIS].
+{note}This depends on website developers using the [https://w3c.github.io/mediasession/ MediaSession API].{/note}
+
+=What platform supports this feature?=
+You can use this feature on:
+* macOS (version 10.12.1 or above)
+* Windows (Windows 8.1 or above)
+* Linux (GTK-based distributions)
+
+=How is media control supported?=
+*Physical hardware media control keys.
+*Virtual media control keys, each platform has different virtual controller interfaces, which are implemented by different platform frameworks:
+**[https://bug1615665.bmoattachments.org/attachment.cgi?id=9129321 Interface on Windows] (using [https://docs.microsoft.com/en-us/uwp/api/windows.media.systemmediatransportcontrols SMTC])
+**[https://web.archive.org/web/20220602181144/https://user-media-prod-cdn.itsre-sumo.mozilla.net/uploads/gallery/images/2020-10-27-11-53-36-8ebdd3.png Interface on Linux] (using [https://specifications.freedesktop.org/mpris-spec/2.2/ MPRIS])
+**[https://media.idownloadblog.com/wp-content/uploads/2016/10/MacBook-Pro-Touch-Bar-Control-Strip-005.jpg Interface on macOS touch bar] (using [https://developer.apple.com/documentation/mediaplayer MediaPlayer])
+*Using an app which uses platform specific API to involve controlling media.
+
+=What kinds of media can be controlled by this feature?=
+Currently, we only support controlling media playing from '''audio''' and '''video''', so it '''cannot''' control media from web-audio and web-speech:
+*If an audible media is playing from audio and video, then it’s controllable.
+*If a playable media enters fullscreen.
+*If a playable media enters picture-in-picture mode.
+
+=What kinds of media can NOT be controlled by this feature?=
+Media from '''web-audio''' and '''web-speech''' cannot be controlled. Also:
+*Inaudible media (silent videos that don't have an audio track, such as GIF-like images)
+*Notification sounds
+
+=If I have multiple tabs playing media, which tab would be controlled?=
+If there are multiple tabs playing at the same time, you could control the last tab playing media, unless you are playing in [[About Picture-in-Picture in Firefox|Picture-in-Picture mode]]. In this case, the tab the picture-in-picture video belongs to would always be the tab that is being controlled.
+
+=Why sometimes when I press media control keys, it controls other apps but not Firefox? Or, other apps are also being controlled at the same time?=
+Each platform has its own mechanism for which applications control audio. In some cases, multiple applications might try to control the media keys at the same time. If this happens, try to close any other apps that are trying to control your media control keys.

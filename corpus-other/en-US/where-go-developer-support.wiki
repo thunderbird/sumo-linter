@@ -1,0 +1,15 @@
+The following pages are a good place to start if you're a developer and need help:
+* [[Get help with Firefox Developer Edition]]
+* Explore [https://firefox-source-docs.mozilla.org/devtools-user/index.html Firefox DevTools User Docs].
+* Explore [https://developer.mozilla.org MDN Web Docs]. You'll find tutorials, tools and sample code for all skill levels. Here are just a few of the topics you'll find on MDN:
+*# Open Web technologies:
+*#* HTML
+*#* CSS
+*#* JavaScript
+*#* Document Object Model (DOM)
+*#* Web APIs
+*#* Graphics (SVG, WebGL, WebVR, WebXR)
+*#* Media (audio, video, streaming, WebRTC)
+*# The Mozilla platform:
+*#* Firefox test channels (Nightly, Developer Edition and Beta)
+*#* Firefox Developer Tools

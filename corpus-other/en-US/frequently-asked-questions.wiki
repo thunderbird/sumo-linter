@@ -1,0 +1,43 @@
+<!-- The FAQ pages are set as the pages that users see as the first ones, whenever they visit http://support.mozilla.org for certain locales. You can see your locale's FAQ page by heading to http://support.mozilla.org/kb/frequently-asked-questions. The basic source version of this page (in English) includes links to articles only for Firefox. If you think that your locale's FAQ page should include other links, you are free to create a customized list of articles (including other products, such as Firefox for Android). You don't need to always copy the English version, as it includes links to only the most popular articles for Firefox in English. -->
+Here is a collection of the links to the most useful pages explaining how to use some of the basic features and fix any problems you may encounter while using Firefox.
+
+To learn more, click the link that best matches the information you're looking for:
+
+*[[How to set the home page]], which includes the following:
+**Set or change your home page
+**Restore the default home page
+**Having problems?
+
+*[[Private Browsing - Use Firefox without saving history]], which includes the following:
+**How do I open a new Private Window?
+**How do I turn on Private Browsing?
+**How do I turn off Private Browsing?
+**What does Private Browsing not save?
+**Other ways to control what information Firefox saves
+
+*[[Refresh Firefox - reset add-ons and settings]], which includes the following:
+**Reset Firefox to its default state
+**What does the Refresh feature do?
+
+*[[Diagnose Firefox issues using Troubleshoot Mode]], which includes the following:
+**How to start Firefox in Troubleshoot Mode
+**Troubleshoot Mode window
+**Troubleshooting problems in Troubleshoot Mode
+**Exiting Troubleshoot Mode
+**Make permanent changes to Firefox in the Troubleshoot Mode window
+
+*[[Firefox hangs or is not responding - How to fix]], which includes the following:
+**Firefox hangs at random times
+**Firefox hangs after using it for a long time
+**Update Firefox
+**Firefox hangs while loading the first window
+**Speed up Session Restore
+**Firefox hangs when downloading files or saving images
+**Firefox hangs when you quit it
+
+*[[Troubleshoot Firefox crashes (closing or quitting unexpectedly)]], which includes the following:
+**Update your software
+**Check for viruses or spyware
+**Check to see if the crash happens in {for not fx88}safe mode{/for}{for fx88}Troubleshoot Mode{/for}
+**Check your hardware
+**Get help fixing this crash

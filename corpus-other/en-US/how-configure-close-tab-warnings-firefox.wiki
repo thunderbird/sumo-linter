@@ -1,0 +1,47 @@
+This article explains how to configure your [[Tab preferences and settings|tab settings]] so that Firefox warns you before you close a window or {for mac, linux}quit{/for}{for win}exit{/for} the browser when multiple tabs are open. 
+__TOC__
+=Close tab warnings=
+Firefox can be set to warn you when you’re about to close a window or {for mac, linux}quit{/for}{for win}exit{/for} Firefox, when multiple tabs are open. You will then have to click a {button Close tabs} button to confirm your action.
+
+[[Image:AskBeforeClosingMultipleTabsPrompt|width=400]]
+
+There are a few different ways to close a Firefox window or {for mac, linux}quit{/for}{for win}exit{/for} the browser. Since [[Find what version of Firefox you are using|Firefox version]] 94, Firefox no longer warns you by default when you {for mac, linux}quit{/for}{for win}exit{/for} the browser or close a window using a menu, button, or three-key command. The close actions in these particular contexts were likely intentional and so the messages provided unnecessary and perhaps unwelcome interruption. 
+
+The only instance in which a close warning is on by default is for two-key quit shortcuts on macOS and Linux. The risk of accidental closure is higher in this context since the quit shortcut (⌘+Q) is adjacent to the switch-application shortcut (⌘+Tab). 
+
+Despite these changes to the default action, you will still have full control over the {for mac, linux}quit{/for}{for win}exit{/for}/close modal behavior. All warnings can be managed within Firefox [[T:optionsorpreferences]].
+
+=How do I enable or disable Close tab warnings?=
+
+{for win}
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} panel,{/for}{for fx152}Select ''Tabs and browsing'' on the left and{/for} go to the ''Tabs'' section{/for}.
+#;{for fx152}[[Image:Fx152settings-Tabs]]{/for}{for =fx151}[[Image:Fx151settings-Tabs]]{/for}{for =fx150,=fx149,=fx148,=fx147,=fx146,=fx145}[[Image:Fx145settings-Tabs]]{/for}{for not fx145}[[Image:Fx140settings-Tabs]]{/for}
+#Check the box next to ''Ask before closing multiple tabs'' to enable the warnings and uncheck it to disable them.
+{/for}
+
+{for mac}
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} panel,{/for}{for fx152}Select ''Tabs and browsing'' on the left and{/for} go to the ''Tabs'' section{/for}.
+#Check the box next to ''Ask before closing multiple tabs'' to enable the warnings and uncheck it to disable them.
+#;<!-- could use a Mac image-->
+{note}Mac users can also exit the browser using the {key command ⌘}+{key Q} keyboard shortcut. If you want to disable Close multiple tabs warnings for when you use this shortcut, uncheck the box next to ''Confirm before quitting with ⌘+Q''.{/note}
+{/for}
+
+{for linux}
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} panel,{/for}{for fx152}Select ''Tabs and browsing'' on the left and{/for} go to the ''Tabs'' section{/for}.
+#Check the box next to ''Ask before closing multiple tabs'' to enable the warnings and uncheck it to disable them.
+#;<!-- could use a Linux image-->
+{note}Linux users can exit the browser using the {key Ctrl}+{key Q} keyboard shortcut. If you want to disable close multiple tabs warnings for when you use this shortcut, uncheck the box next to ''Confirm before quitting with Ctrl+Q''.{/note}
+{/for}
+
+<!--Remove this section, since it applies to updates to Firefox 94 (or above) from older versions.
+=I lost my tabs after the update — What can I do?=
+You may notice that after updating Firefox to version 94, the tabs from your previous session were closed.  To learn how to restore a previous session, visit [[How do I restore my tabs from last time?]] Alternatively, following the prompts in the '''Open previous tabs?''' one-time notification that will appear after the update will also allow you to restore the tabs from your previous session.
+
+[[Image:InfobarRestore]]
+-->
+
+=Related content=
+*[[Tab preferences and settings]]

@@ -1,0 +1,101 @@
+{note}'''Note:''' The [[Get started with Smart Window|Smart Window]] feature will be made available gradually, starting with Firefox users in the United States and Canada in [[Find what version of Firefox you are using|Firefox version]] 150{for fx155} and in France starting in version 155{/for}.{/note}
+To help personalize your experience in Smart Window and make assistant responses more helpful over time, Firefox can learn from your activity to create short summaries called memories.
+
+Memories are optional, and you can choose which activity is used to create them.
+{note}'''Note:''' Firefox never uses activity from Private Windows to create memories.{/note}
+
+__TOC__
+
+=How memories are created=
+Memories are created based on two possible sources of local information:
+*Browsing history in '''Classic''' and '''Smart Windows'''
+*Chats in '''Smart Window'''
+In Firefox Settings, you can choose to have memories created based on either or both of these sources.
+
+==First-time setup==
+When you use Smart Window, Firefox may create initial memories using your recent activity. This includes up to 60 days of browsing data or 3,000 items, whichever limit is reached first.
+
+Memories are stored locally on your device and can be deleted at any time. Also, the data is not accessible to Mozilla.
+
+To generate memories, Mozilla servers briefly process this data, but it is not stored or logged beyond what is needed to complete the request.
+
+==How memories are updated==
+Memories are updated automatically in the background when meaningful new activity is detected. Updates may happen when:
+*You visit at least 30 new pages since the last update.
+*There are at least 10 visits within 60 days and a noticeable change in browsing activity (for example, exploring new topics).
+*You send at least 10 new messages in Smart Window.
+If Smart Window is closed, memory updates pause. When you return, any browsing activity during that time may be used to create new memories once Smart Window is active again.
+
+==Examples of memories==
+If you spend time viewing vegan recipes and vegan restaurants, Firefox might create a memory like “Prefers vegan recipes and cuisine”. Memories will always be personal. Here are some hypothetical examples of memories:
+*Researches local hiking trails
+*Uses Python and C++ tutorials
+*Follows WNBA league standings
+*Edits emails to sound professional
+*Plans trips to Austin
+
+=How we preserve your privacy=
+To create memories, your browsing and chat history are sent to a Mozilla server for processing. Memories are then returned and stored locally on your device so only you can see them. Other important points:
+*Mozilla does not retain any of this data on its servers after processing.
+*Memories are only used to help personalize the Smart Window experience: Mozilla does not sell your data to advertisers.
+*We have filters in place to help prevent memories on sensitive topics like health, finance and legal.
+
+=How memories are used=
+Memories are used as context to help personalize assistant responses in Smart Window.
+
+When you chat, the assistant queries your memories to see if there’s anything relevant that could be used to help personalize your response. For example, if you have a memory like “Prefers vegan recipes and cuisine” and ask the assistant “recommend a recipe for dinner,” the answer will likely be personalized with vegan options, instead of providing general ideas.
+
+When a response uses memories:
+*You’ll see the memories icon below the response.
+*Select the icon to see a small pop-up which lists the memories used. If you see a memory that doesn’t seem quite right, you can delete it.
+*Select '''Retry without memories''' for a non-personalized response.
+
+=Turn off memories for a single chat session=
+You can disable memories for a specific conversation for a non-personalized response.
+#In the assistant entry box, find the memories icon.
+#Turn the memories toggle off for that chat.
+#Continue your conversation.
+{note}'''Note:''' This stops memories from being used in responses for that chat. Memories may still be created based on the conversation.{/note}
+
+=How to control and manage your memories=
+==View and delete memories==
+You can see all your memories at any time in Settings.
+#[[Template:optionspreferences]]
+#Go to {menu AI controls}.
+#Under ''Smart Window'', select {menu Smart Window settings}.
+#Select {menu Manage memories} to view your memories.
+From the ''Manage memories'' page, you can delete individual memories or delete them all. Select the trash icon next to any individual memory to delete it. Or, select the {button Delete all} button to delete all memories.
+
+==Change what activity Smart Window learns from==
+Memories are created based on two possible sources of activity:
+*Browsing activity in '''Classic''' and '''Smart Windows'''
+*Chat activity in '''Smart Window'''
+You can change what Smart Window learns from at any time in Settings.
+#[[Template:optionspreferences]]
+#Go to {menu AI controls}.
+#Under ''Smart Window'', select {menu Smart Window settings}.
+#Under ''Memories'', choose what activity you want Smart Window to learn from.
+
+==Stop new memories from being created==
+If you don’t want memories created anymore, turn off both learning from browsing and chat activity in Settings.
+#[[Template:optionspreferences]]
+#Select {menu AI controls}.
+#Under ''Smart Window'', select {menu Smart Window settings}.
+#Under ''Memories'', uncheck:
+#*'''Learn from chats in Smart Window'''.
+#*'''Learn from browsing in Classic and Smart Windows'''.
+{note}'''Note:''' This only stops new memories from being created. If you turn off learning but still have existing memories, the assistant will by default still use memories to personalize responses when it makes sense to do so. If you no longer want any responses personalized, also delete your memories following the steps above.{/note}
+
+=Frequently asked questions=
+==If I delete my history and chats, are my memories deleted too?==
+No. Memories are stored separately from browsing history and chat history. If you want to remove memories, delete them from {menu Settings} > {menu AI controls} > ''Smart Window'' > {button Smart Window settings} > {button Manage memories}. There, you can delete individual memories, or delete all of your memories.
+
+==Can I ask for specific memories to be created?==
+Right now, no. The assistant in Smart Window can’t create memories based on you asking. The assistant may be able to remember things you tell it to, for the duration of a single chat, but it won’t be able to create a memory based on you requesting it.
+
+==Are memories synced across devices?==
+Right now, no. Memories cannot be synced across devices.
+
+=Related articles=
+*[[Get started with Smart Window]]
+*[[Private Browsing - Use Firefox without saving history]]

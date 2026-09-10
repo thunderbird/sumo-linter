@@ -1,0 +1,14 @@
+Colorways are a set of dynamic themes designed in collaboration with color specialists to enhance your Firefox browsing experience. They offer a unique way to personalize your browser, reflecting your style and mood with bespoke color schemes. Whether you're looking to boost your productivity with calming hues or brighten your day with vibrant colors, colorways provides a wide range of options to suit your preferences.
+
+[[Image:Colorways homepage]] 
+
+You can access your saved and active colorways in the Themes panel (simply click on {menu Add-ons and themes} from the Firefox menu [[Image:IG main menu]] at the top right corner of your screen). 
+
+{note}'''Note:''' direct access to colorways via [[Firefox View - View all tabs from your recent browsing and history|Firefox View]] ended on January 16, 2023.{/note}
+
+=Can’t find your previously installed colorway?=
+Firefox recently made some backend updates to colorways to streamline maintenance. Most users were automatically migrated to the updated themes. In case you notice your favorite theme is missing, don't worry. Simply head over to the [https://addons.mozilla.org/en-US/firefox/collections/4757633/colorways/ add-ons website], where you can reinstall your colorway by following the installation steps from there.
+
+=Related content=
+*[[Use themes to change the look of Firefox]]
+*[[Customize items on your Firefox New Tab page#w_wallpapers]]

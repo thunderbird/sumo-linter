@@ -1,0 +1,77 @@
+Firefox can use your device’s location to help websites provide local services, like finding nearby stores or weather updates. Firefox never shares your location without asking first, and you can always change or remove location permissions at any time.
+
+You’re always in control of what’s shared — and with whom.
+
+This article explains the location-aware features of Firefox and how to manage permissions for websites that ask you to share your location. 
+
+__TOC__
+
+=Location-aware browsing=
+Websites using location-aware browsing will ask where you are located in order to enhance your browsing and searching experience. For example, sharing your location can help you find food near you faster or quickly get directions to places you want to go.
+
+Websites using location-aware browsing signal to Firefox that they want to access your location. By default, Firefox asks you if you want to share your location with these websites.
+
+'''This service is optional.''' Firefox doesn’t share your location without your permission. Like all elements of Firefox, it is created using open standards to ease adoption by web developers.
+
+=How does it work?=
+When you visit a location-aware website, Firefox will ask you if you want to share your location. It will:
+*Show a pop-up asking if you want to allow or block access
+*Let you decide whether to remember your choice
+*Never share your location unless you say yes
+;[[Image:Location request panel| width=600]]
+Firefox uses information like your device’s IP address and nearby Wi-Fi networks to estimate your location. This information is sent to Google Location Services over a secure connection, but only if you allow the request.
+
+Firefox does not:
+*Track your physical movements
+*Send your exact address
+*Share your location with websites or services unless you approve it
+
+==Temporary permissions==
+Firefox is able to temporarily remember when you grant permissions to websites (like geolocation). If you allow a website location access but you do not check the {menu Remember this decision} box, Firefox will allow that permission on a temporary basis. Temporary permissions are automatically removed either after one hour or when the tab is closed. This provides control over shared data, ensuring that permissions are not retained longer than necessary.
+
+To manage temporary permissions:
+#At the left side of the address bar, click the Permissions icon [[Image:Fx89PermissionsIcon]].
+#Find the Location entry under '''Allowed Temporarily'''.
+#Click the '''X''' to remove the permission.
+[[Image:Temporary permissions|width=600]] 
+
+=What information is being sent, and to whom? How is my privacy protected?=
+<!--Don't change this section without approval from Legal team-->
+Your privacy is extremely important to us, and Firefox never shares your location without your permission. When you visit a page that requests your information, you’ll be asked before any information is shared with the requesting website and our third-party service provider.
+
+By default, Firefox uses Google Location Services to determine your location by sending:
+* your computer’s IP address,
+* information about the nearby wireless access points, and
+* a random client identifier, which is assigned by Google, that expires every 2 weeks.
+Google Location Services then returns your estimated geolocation. For a complete description of information collected and used by Google, please see the [https://www.google.com/privacy/lsf.html Google Location Service in Mozilla Firefox Privacy Policy].
+
+The information is exchanged over an encrypted connection to protect your privacy. Once Firefox has your location information, it passes it to the website that requested it. The name and location of the website you are visiting are never shared with Google Location Services.
+
+For a complete description of information collected and used by Firefox, please see the [https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice].
+
+For information about what the requesting website does with your location information, please refer to that website’s privacy policy.
+
+=How do I undo a permission granted to a site?=
+# [[T:optionspreferences]]
+# Use the [[T:optionsorpreferences]] search box to search for '''location''' (or select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permission and data}{/for} pagr and scroll down to the ''Permissions'' section).
+# Under ''Permissions'', click the {button Settings} button to the right of '''Location'''.
+#;{for not fx152}[[Image:Fx98PreferencesSearchResultsLocation|width=500]]{/for}{for fx152}[[Image:fx152permissions|width=500]]{/for}
+#*The ''Settings - Location Permissions'' dialog box will open.
+#;[[Image:Fx98LocationPermissions|width=500]]
+# Review or change the list of sites with allowed or denied location permission.
+
+=How do I stop all sites from asking to access my location?=
+You can set Firefox to automatically deny new permission requests to all websites, without asking.
+#[[Template:optionspreferences]]
+# Use the [[T:optionsorpreferences]] search box to search for '''location''' (or select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permission and data}{/for} panel and scroll down to the ''Permissions'' section).  
+# Under ''Permissions'', click the {button Settings…} button to the right of '''Location'''.
+# In the ''Settings - Location Permissions'' box that opens, check-mark the box next to {menu Block new requests asking to access your location}.
+# Click {button Save Changes}.
+This will prevent any websites from requesting new permission to access your location. Only the sites with permission granted in the Location Permissions settings box will have access.
+
+=How can I add support for Geolocation to my website?=
+You can integrate Geolocation support into your service by following [https://developer.mozilla.org/docs/Web/API/Geolocation_API the Geolocation API guide at ''MDN web docs''].
+
+=Related articles=
+*[[Clear cookies and site data in Firefox]]
+*[https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice]

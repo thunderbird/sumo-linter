@@ -1,0 +1,47 @@
+[[Template:desktoponly]]
+
+If Firefox isn't working correctly, the Refresh Firefox feature can help. It restores Firefox to its default state while keeping your essential data like bookmarks and passwords. This can fix problems caused by add-ons, corrupted settings or customizations.
+{for not fx150}{warning}The Refresh Firefox feature may be unavailable if you use the new [[Manage Firefox profiles|profile management system]] to create and manage profiles, unless you update to [[Find what version of Firefox you are using|Firefox version]] 150 (release date April 21, 2026) or above.<!-- see https://bugzilla.mozilla.org/show_bug.cgi?id=1928138 and https://bugzilla.mozilla.org/show_bug.cgi?id=2000860#c10 -->{/warning}{/for}
+
+__TOC__
+
+= Refresh Firefox =
+#{for mac}Select {menu Help} from the Firefox Menu bar at the top of the screen{/for}{for win,linux}Click the menu [[Image:IG main menu]] button and select {menu Help}{/for}. 
+#Choose {menu More troubleshooting information}.
+#Click the {button Refresh Firefox…} button on the right side of the page.
+#In the confirmation window that appears, click {button Refresh Firefox}.
+#Firefox will close and restart.
+#When it finishes, a window will show the data that was imported. Click {button Finish}.
+#Choose whether to restore your previous windows and tabs, then click {button Let’s go!}
+{note}'''Note:''' There's a Refresh Firefox button in the Firefox [[Use Troubleshoot Mode in Firefox|Troubleshoot Mode]] window, if you can't start Firefox normally. You can also do a manual refresh by [[Restore bookmarks, passwords, and data from an old Firefox profile#w_create-a-new-firefox-profile|creating a new profile and transferring your important data to the new profile]].{/note}
+
+= What does the refresh feature do? =
+Firefox stores all your settings and personal information in a [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile folder]]. The refresh feature creates a new profile folder and saves your important data.
+
+The refresh feature removes add-ons normally stored inside the Firefox profile folder (such as [https://addons.mozilla.org/firefox/extensions/ extensions] and [[Use themes to change the look of Firefox|themes]]). Add-ons stored in other locations are not removed (although any modified preferences are reset).
+{warning}'''Important:''' A Firefox refresh removes add-ons and other customizations, such as [[Find and install add-ons to add features to Firefox#w_what-types-of-add-ons-can-i-install|extensions]], extension data and [[Configuration Editor for Firefox|preference configurations]]. If you've made accessibility customizations to Firefox, you may need to add them back after refreshing. Consider using [[Use Troubleshoot Mode in Firefox|Firefox Troubleshoot Mode]] to diagnose issues before you refresh Firefox.{/warning}
+
+== Firefox will save these items ==
+*Bookmarks
+*Browsing and download history
+*Passwords
+*Cookies
+*Web form autofill information
+*Personal dictionary
+
+== These items and settings will be removed ==
+*[[Find and install add-ons to add features to Firefox|Extensions and themes]]
+*Website permissions
+*Modified preferences
+*[[Add or remove a search engine in Firefox#w_add-a-search-engine|Added search engines]]
+*DOM storage
+*[[Secure website certificate|Security certificate]] and device settings
+*[[Manage file types and download actions in Firefox|Download actions]]
+*[[Customize Firefox controls, buttons and toolbars|Toolbar customizations]]
+*User styles ({filepath chrome} subfolder containing {filepath userChrome} and/or {filepath userContent} [https://wikipedia.org/wiki/Cascading_Style_Sheets CSS files], if previously created)
+{note}'''Note:''' The refresh will place your old Firefox profile on your desktop in a folder named ''Old Firefox Data''. If your problem persists, you can partially restore lost information by [[Restore bookmarks, passwords, and data from an old Firefox profile#w_copy-files-between-profile-folders|copying files to the newly created profile]]. If you no longer need this folder, we encourage you to delete it, since it contains sensitive information.{/note}
+
+=Related articles=
+*[[Use Troubleshoot Mode in Firefox]]
+*[[Back up and restore information in Firefox profiles]]
+*[[Profiles - Where Firefox stores your bookmarks, passwords and other user data]]

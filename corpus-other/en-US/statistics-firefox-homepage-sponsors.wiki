@@ -1,0 +1,14 @@
+Firefox shows sponsored ads on its homepage to help support its development while keeping the browser free and open. These are always optional, [https://www.firefox.com/en-US/user-privacy/#advertising respect your privacy], and [[Sponsors on the home page and New Tab page|can be turned off]] at any time.
+
+To demonstrate the value of homepage placement to sponsors, and increase their contribution to Mozilla, Mozilla reports ''aggregate statistics'' to these sponsors, without tracking individual users. Note that Firefox is [https://firefox-source-docs.mozilla.org/contributing/data-collection.html built in a way] so that even Mozilla doesn’t learn what you do online, including on the homepage.
+
+This article explains how this reporting works and how it protects your privacy.
+
+=How it Works=
+Broadly speaking, most sponsors are interested in three aggregate numbers: how many people were shown the sponsored content on the homepage, how many people subsequently clicked on it, and how many people subsequently made a purchase on the sponsor’s website.
+
+Firefox keeps track of each of these numbers locally on your device, and then transmits them to Mozilla in a way that [https://firefox-source-docs.mozilla.org/contributing/data-collection.html#verifiable-guarantees never reveals] which websites you’ve visited — including the sponsor’s website. It’s worth noting this is quite different from how others do it: it is standard practice for publishers to keep track of which ads a given person clicked on, but Mozilla has an exceptionally high standard for user privacy and does not do this.
+
+It’s straightforward for Firefox to count the number of times each piece of homepage content is shown and clicked. For things like purchases, it’s up to the sponsor’s website to communicate any such information to the browser with a JavaScript event.
+
+If you disable sponsored content, no such information is recorded by Firefox or sent to Mozilla. If you choose to keep them enabled to support Mozilla, your privacy remains protected. Even Mozilla doesn’t learn which websites you visit, and this is built into the Firefox source code in a way that anyone can verify.

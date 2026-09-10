@@ -21,11 +21,14 @@ fn template_files() -> Vec<PathBuf> {
     wiki_files("../../corpus/templates/en-US")
 }
 
-/// Other products' templates — overwhelmingly Firefox. Not the measured corpus
-/// and not subject to Thunderbird style; they are here as lexer input, because
-/// markup nobody on this side would write still has to round-trip.
+/// Other products' source — 475 Firefox articles and 207 templates. Not the
+/// measured corpus and not subject to Thunderbird style; they are here as lexer
+/// input, because markup nobody on this side would write still has to
+/// round-trip, and as the substrate for the markup search in #6.
 fn other_product_files() -> Vec<PathBuf> {
-    wiki_files("../../corpus-other/templates/en-US")
+    let mut v = wiki_files("../../corpus-other/templates/en-US");
+    v.extend(wiki_files("../../corpus-other/en-US"));
+    v
 }
 
 fn wiki_files(rel: &str) -> Vec<PathBuf> {
@@ -212,7 +215,7 @@ fn round_trips_every_template() {
     eprintln!("round-trip verified on {} templates", files.len());
 }
 
-/// Round-trip and lint every other-product template.
+/// Round-trip and lint every other-product article and template.
 ///
 /// sumo-linter #1: `{{{name}}}` and `REDIRECT` occur only outside the Thunderbird
 /// corpus, so without these files those lexer paths have no production markup
@@ -225,6 +228,15 @@ fn round_trips_every_other_product_template() {
         eprintln!("other-product corpus not present; skipping");
         return;
     }
+    // A floor per directory: articles and templates answer different questions
+    // in #1, and losing either silently would leave the other looking complete.
+    assert!(
+        wiki_files("../../corpus-other/en-US").len() >= 400
+            && wiki_files("../../corpus-other/templates/en-US").len() >= 200,
+        "expected both other-product sets: {} articles, {} templates",
+        wiki_files("../../corpus-other/en-US").len(),
+        wiki_files("../../corpus-other/templates/en-US").len()
+    );
     let mut params = 0usize;
     for f in &files {
         let src = std::fs::read_to_string(f).unwrap();
@@ -246,7 +258,7 @@ fn round_trips_every_other_product_template() {
         "expected template parameters in this corpus, found {params}"
     );
     eprintln!(
-        "round-trip verified on {} other-product templates ({params} parameters)",
+        "round-trip verified on {} other-product files ({params} template parameters)",
         files.len()
     );
 }

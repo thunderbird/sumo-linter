@@ -1,0 +1,149 @@
+Firefox includes many features to make the browser and web content accessible to all users, including those who have low vision, no vision or limited ability to use a keyboard or mouse.
+
+__TOC__
+
+= Using a Keyboard =
+A list of common keyboard shortcuts is available in [[Keyboard shortcuts - Perform common Firefox tasks quickly]]. To customize shortcuts, see [[Customize keyboard shortcuts in Firefox]].
+
+== Using a keyboard to navigate within webpages ==
+To enable navigation and text selection within web content and PDF documents using your keyboard in Firefox, as if you were navigating in a read-only text editor, follow the steps below:
+#[[T:optionspreferences]]
+#In the {for not fx152}{menu General} panel, ''Browsing'' section{/for}{for fx152}{menu Tabs and browsing} panel, go to the ''Page navigation'' section{/for}, and check the box next to '''Always use the cursor keys to navigate within pages'''.
+Once this feature is activated, Firefox will introduce a movable cursor on web pages and within PDF documents opened in the browser. This functionality, known as [https://wikipedia.org/wiki/Caret_navigation Caret Browsing], significantly improves precision and accessibility for text selection and copying, providing a versatile tool for interacting with digital content.{for win} You can press {key F7} at any time to turn this feature on or off. When you press {key F7}, Firefox will ask if you really want to turn on this feature. You can disable this prompt by selecting '''Do not show this dialog again'''.{/for}
+
+== Search for text when you start to type ==
+To quickly navigate to text or hyperlinks in a web page, follow these steps:
+#[[T:optionspreferences]]
+#In the {for not fx152}{menu General} panel, ''Browsing'' section{/for}{for fx152}{menu Tabs and browsing} panel, go to the ''Page navigation'' section{/for}, and check the box next to '''Search for text when you start typing'''.
+This feature has two modes. Press {key /} and start typing to search all text on the current page, or press {key '} before your string to search hyperlinks only. Firefox will highlight matching text or hyperlinks as you type.
+
+The following keyboard shortcuts control this feature:
+* Type more characters to narrow your search. Firefox will highlight the next matching hyperlink or text, or alert you that nothing matched.
+* Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key G} or {key F3} to find the next occurrence of your current search string.
+* Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key Shift}+{key G} or {key Shift+F3} to find the previous occurrence of your current search string.
+* Press {key Backspace} to undo the last character you typed. Firefox will back up to the previously highlighted text.
+* Press {key Esc} to cancel a search. You can also cancel a search by changing focus, or simply waiting for the timeout.
+If this setting is checked, you can start typing at any time to auto-start a search on the current page. By default, auto-started searches look for all text on the page. You can still explicitly press {key '} or {key /} to start finding in one mode or the other.
+
+You can use this feature to get to buttons, text boxes and other form controls. Search for the text immediately before the form control you want and press {key Tab}. Pressing {key Tab} automatically exits the search and sets focus to the next form field or button after the highlighted text.
+
+== HTML Access Keys ==
+On some web pages, keyboard shortcuts are assigned to different elements on the page. To move the cursor directly to one of these elements, press {for win,linux}{key Shift}+{key Alt}{/for}{for mac}{key Ctrl+option}{/for}+'''AccessKey'''.
+{note}The specific key '''AccessKey''' depends on the website. It is determined by the website author, not Firefox.{/note}
+
+= Mouse Shortcuts =
+A list of common mouse shortcuts is available in [[Use mouse shortcuts to perform common tasks in Firefox]].
+
+= Zoom, Fonts and Colors =
+== Page Zoom ==
+You can zoom in and out of web pages including images with the following keyboard shortcuts:
+* Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key &#43;} to display the web page one size larger.
+* Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key &#8722;} to display the web page one size smaller.
+* Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key 0} (zero) to display the web page at its normal size.
+For other ways to zoom in and out a web page, see [[Font size and zoom - increase the size of web pages]].
+
+== Text Zoom ==
+You can choose to change the text size only using the '''Text Zoom''' feature:
+#{for win7,win8,win10}Press the {key Alt} key to temporarily bring up the traditional Firefox menus.{/for} {for win,linux}At the top of the Firefox window{/for}{for mac}On the menu bar{/for}, click the {menu View} menu.
+#Go down to {menu Zoom}.
+#Select {menu Zoom Text Only}, which will make the controls only apply to text, not images.
+The following keyboard shortcuts control text size when Text Zoom is selected:
+* Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key &#43;} to increase the text size.
+* Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key &#8722;} to decrease the text size.
+* Press {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key 0} (zero) to reset the text size to the web page's default size.
+Note that some web pages may display incorrectly if you increase or decrease the text size.
+
+For other ways to zoom in and out the text of a web page, see [[Font size and zoom - increase the size of web pages]].
+
+{for win}
+==Changing the size of buttons and menus==
+Firefox automatically detects and matches the preferred text size of your operating system. If you change the display size for text on your computer, all websites, Firefox buttons and menus will adjust accordingly.
+
+For example, to make changes to these settings in '''Windows 10''', follow the steps below:
+#Click the Windows icon in the taskbar.
+#Click {menu Settings}.
+#Select {menu Ease of Access}.
+#Click {menu Display}.
+#Under ''Make text bigger'', adjust the slider to your preferred text size.
+Microsoft has rebranded ''Ease of Access'' to ''Accessibility'' in the '''Windows 11''' Settings section.
+{/for}
+
+== Setting Fonts and Colors ==
+See [[Change the fonts and colors websites use]] for detailed instructions on choosing your preferred font styles and colors.
+
+== Setting a Minimum Font Size ==
+Some websites may display text which is too small to read comfortably. To make such pages easier to read, you can set a minimum font size. On web pages that try to display text smaller than this size, Firefox will enlarge the text to your chosen size.
+
+To set a minimum font size:
+#[[T:optionspreferences]]
+#{for not fx152}In the {menu General} panel, scroll down to ''Language and Appearance''{/for}{for fx152}Go to the {menu Accessibility} panel{/for}.
+#{for fx152}Go to{/for}{for not fx152}In the{/for} ''Fonts'' section{for not fx152}, click the {button Advanced…} button{/for}.
+#Specify a minimum font size from the dropdown menu.
+Note that some web pages may display incorrectly depending on your choice of minimum font size.
+
+== Overriding Page Fonts ==
+Some websites may display text in fonts that are difficult to read, and other sites may rely on the browser's default fonts. To set your default fonts:
+#[[T:optionspreferences]]
+#In the {for not fx152}{menu General} panel, scroll down to {menu Language and Appearance}{/for}{for fx152}{menu Accessibility}, go to the {menu Fonts} section{/for}.
+#{for not fx152}In the ''Fonts'' section, choose{/for}{for fx152}Choose{/for} a default font and size.
+You can specify default fonts for different styles, including serif, sans-serif and monospace by clicking the {button Advanced…} button. However, many web pages specify their own fonts, so your choices will have no effect on such pages. To override the fonts defined by such pages, uncheck the '''Allow pages to choose their own fonts, instead of your selections above''' option.
+
+Note that some web pages may display incorrectly depending on your choice of a default font.
+
+== Overriding Page Colors ==
+Some websites may display text and background colors that are difficult to read, and other sites may rely on the browser's default colors. To set your default colors:
+#[[T:optionspreferences]]
+#In the {for not fx152}{menu General} panel{/for}{for fx152}{menu Accessibility} panel{/for}, scroll down to {for not fx152}''Language and Appearance''{/for}{for fx152}''Website contrast''{/for}.
+#In the {for not fx152}''Colors''{/for}{for fx152}''Override colors'' section{/for}, {for not fx152}click the {menu Manage Colors...} button{/for}{for fx152}choose between:
+#*Automatic (use system settings)
+#*Off
+#*Custom {/for}
+You can set default text and background colors, as well as default colors for visited and unvisited hyperlinks. {for fx152}You can also restore the colors to default by clicking on the {button Restore defaults} button{/for}.
+
+{for not fx152}However, many web pages set their own colors, so your choices will have no effect. To override the colors defined by web pages, use the drop-down menu to set '''Override the colors specified by the page with your selections above''' to '''Always'''.{/for}
+{note}The text and background colors you set above will also be used when [[View and edit PDF files using Firefox’s built-in viewer|viewing PDFs in Firefox]].{/note}
+
+= Using a High Contrast Theme =
+Firefox automatically detects if you are using a High Contrast theme on Windows and displays everything in your high contrast color scheme. This overrides all other browser or web page settings, and it affects the Firefox interface itself (all menus, windows and dialog boxes) and the content of any web page you visit.
+{for win}
+{for win7}To use a High Contrast theme, go to {menu Start Menu}, select {menu Control Panel}, then {menu Appearance and Personalization}, finally {menu Change the theme} and choose one of the High Contrast themes.{/for}{for win8}To use a High Contrast theme, open the charms panel, select {menu Control Panel} from the {menu Settings} charm, then {menu Appearance and Personalization}, finally {menu Change the theme} and choose one of the High Contrast themes.{/for}{for win10}To use a High Contrast theme, go to {menu Start Menu}, select {menu Settings}, then {menu Ease of Access}, finally {menu High Contrast} on the left. Choose one of the High Contrast themes in the drop-down menu and click {button Apply}.{/for}
+{/for}
+
+= Controlling Web Content =
+== Blocking Pop-up Windows ==
+See [[Pop-up blocker settings, exceptions and troubleshooting]] for information on blocking pop-up windows.
+
+== Restricting JavaScript Behavior ==
+JavaScript can be used to do things that some people don't like. For better control, you can install [https://addons.mozilla.org/firefox/search/?tag=privacy privacy extensions]. For more info, see [[JavaScript settings and preferences for interactive web pages]].
+
+= Compatibility With Assistive Technologies =
+== Screen Reader==
+A screen reader is a software application that attempts to identify and interpret what is being displayed on the screen (or, more accurately, sent to standard output, whether a video monitor is present or not). This interpretation is then re-presented to the user with text-to-speech, sound icons or a Braille output device. Screen readers are a form of assistive technology (AT) potentially useful to people who are blind, visually impaired, illiterate or learning disabled, often in combination with other AT, such as screen magnifiers. The above was adapted from Wikipedia under the [http://creativecommons.org/licenses/by-sa/3.0/ Creative Commons – Attribution-ShareAlike 3.0] license.
+
+Here are a [https://wikipedia.org/wiki/List_of_screen_readers list of screen reader software] and links to common ones:
+{for win}
+*[https://www.nvaccess.org/ NVDA]
+*[https://www.webbie.org.uk/thunder/ Thunder]
+*[https://webinsight.cs.washington.edu/wa/ WebAnywhere]
+*[https://www.freedomscientific.com/products/software/jaws/ JAWS] (commercial)
+*[https://www.freedomscientific.com/products/software/zoomtext/ ZoomText] (commercial)
+*[https://yourdolphin.com/product/version?id=182 Supernova] (commercial)
+*[https://addons.mozilla.org/firefox/search/?q=screen%20reader&type=extension Screen Reader Add-ons Search for Firefox]
+{/for}
+{for mac}
+*[https://www.apple.com/accessibility/mac/vision/ VoiceOver] – Firefox includes basic support for Voiceover (this [https://support.apple.com/guide/voiceover/voiceover-recognition-category-vocbaf20181f/mac Apple Support page] explains how to enable VoiceOver and other Accessibility preferences)
+*[https://webinsight.cs.washington.edu/wa/ WebAnywhere]
+*[https://addons.mozilla.org/firefox/search/?q=screen%20reader&type=extension Screen Reader Add-ons Search for Firefox]
+{/for}
+{for linux}
+*[https://webinsight.cs.washington.edu/wa/ WebAnywhere]
+*[https://orca.gnome.org/ Orca]
+*[https://addons.mozilla.org/firefox/search/?q=screen%20reader&type=extension Screen Reader Add-ons Search for Firefox]
+{/for}
+
+= Related accessibility links =
+*[https://developer.mozilla.org/docs/Web/Accessibility Mozilla Accessibility on ''MDN Web Docs'']
+*[https://blog.mozilla.org/accessibility/ Mozilla Accessibility Blog]
+
+= Accessibility Conformance Report (ACR) =
+We strive to be both compliant with accessibility standards and to create delightful experiences for our users. This recent report describes how the Firefox browser currently works for people with disabilities. It is based on the ITI Voluntary Product Accessibility Template (VPAT® 2.5) and covers compliance with the Web Content Accessibility Guidelines (WCAG 2.2) and with the Revised Section 508 of the Rehabilitation Act: [https://wiki.mozilla.org/images/d/d4/Firefox_VPAT_124_on_Windows_OS_%28April_2024%29.pdf Firefox for desktop (Windows OS, April 2024)].

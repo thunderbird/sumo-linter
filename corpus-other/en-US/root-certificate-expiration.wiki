@@ -1,0 +1,49 @@
+A [https://wikipedia.org/wiki/Root_certificate root certificate] that was used to verify signed content and add-ons for various Mozilla projects, including Firefox, expired on '''March 14, 2025'''. Without updating to [[Find what version of Firefox you are using|Firefox version]] 128 or higher (or ESR 115.13+ for [[Firefox ESR release cycle|ESR]] users, including Windows 7/8/8.1 and macOS 10.12–10.14 users), this expiration causes significant issues with add-ons, content signing and DRM-protected media playback.
+__TOC__
+=Why is this update important?=
+If you don’t update, Firefox features that rely on remote updates will stop working, and your installed add-ons will be disabled with the message, ''could not be verified for use in Firefox''. [https://wikipedia.org/wiki/Digital_rights_management DRM-protected content], such as streaming services, may also stop playing due to failed updates. Additionally, systems dependent on content verification could stop functioning properly.
+
+=Who does this affect?=
+This update is necessary for all Firefox users running versions earlier than 128 (or ESR versions earlier than ESR 115.13), including those using Firefox for Desktop on Windows, macOS and Linux, as well as Firefox for Android. If you were sent to this article through an in-app message in Firefox, it means your browser version is outdated and needs to be updated.
+
+=How to update Firefox=
+To resolve these issues, it’s essential to update Firefox. For step-by-step instructions on updating, refer to the appropriate article for your platform:
+*[[Update Firefox to the latest release|Windows, macOS and Linux]]
+*[[Update to the latest version of Firefox for Android|Android]]
+
+=FAQs=
+==What is a root certificate, and why is its expiration important?==
+A root certificate is a trusted authority that verifies the authenticity of websites, add-ons and software updates. When it expires, systems relying on that certificate can no longer verify these items, which may cause features like add-ons or secure media playback to stop working. In this case, one of Mozilla’s root certificates  expired on '''March 14, 2025''', which could disrupt important functionality in Firefox if the browser isn’t updated. The latest version of Firefox includes a new root certificate that will prevent this expiration and ensure everything continues to work smoothly.
+
+==How do I know if I’m affected by this issue?==
+You are affected if you are using a version of Firefox earlier than 128 (or ESR versions earlier than ESR 115.13 for long-term support users). To check your version on Desktop, {for win,linux}click the menu button [[Image:Fx89menuButton]], click {menu Help} and select {menu About Firefox}{/for}{for mac}click {menu Firefox} on the Menu bar and select {menu About Firefox}{/for}. This will display your current version and automatically check for updates. On Android, open the Firefox app, tap the Menu [[Image:Firefox menu Android]] button, select {menu Settings}, scroll down, and tap {menu About Firefox} to view your current version.
+{note}If you were directed to this article via an in-app message in Firefox, it means you’re affected and need to update your browser.{/note}
+
+==What happens to my bookmarks, passwords, and settings if I update Firefox?==
+Updating Firefox to the latest version will not affect your bookmarks, saved passwords or other settings. Your personal data will remain intact during the update process. However, we recommend [[How do I set up Sync on my computer?|syncing]] your Mozilla account to ensure everything is backed up before proceeding with any updates.
+
+==Can I still use Firefox if I don’t update?==
+While it’s possible to use Firefox without updating, you may experience problems such as add-ons being disabled, DRM media difficulties and other interruptions. Skipping the update also means missing important security fixes and performance improvements. We strongly advise you to update to the latest version to avoid these issues and ensure your browser stays secure and efficient.
+
+==What are the security risks if I don’t update Firefox?==
+Not updating Firefox when the root certificate expires on '''March 14, 2025''' can expose you to significant security threats. Firefox relies on up-to-date security configurations to protect you from malicious activity. This includes blocklists for harmful add-ons, revocation lists for untrusted SSL certificates and preloaded intermediate certificates used for secure connections. Without the latest updates:
+*'''Malicious Add-ons:''' You may become vulnerable to harmful extensions that can compromise your data or privacy.
+*'''Untrusted Certificates:''' Your browser might not recognize revoked or fraudulent security certificates, putting you at risk when visiting websites.
+*'''Compromised Passwords:''' Features that alert you about breached passwords may stop working, leaving you unaware of potential account compromises.
+By updating to Firefox version 128 or higher (or ESR 115.13+), you ensure all these critical security features continue to function properly, keeping your browsing experience safe and secure.
+
+==Does this affect Firefox for mobile users as well?==
+The issue impacts Firefox for Android users but does not affect those using Firefox for iOS. If you’re on an Android version earlier than 128, please update Firefox in your device’s app store (such as Google’s Play Store or Samsung’s Galaxy Store). iOS users do not need to take any action.
+
+==What if I use Firefox on multiple devices?==
+If you use Firefox on multiple devices, you will need to ensure that each one is updated to version 128 or higher (or ESR 115.13+ for long-term support users). This will prevent any issues with add-ons, secure media playback, or web content across all your devices.
+
+==I use Firefox ESR – what should I do?==
+For Firefox ESR users, you need to ensure that your browser is updated to ESR 115.13+ to avoid issues caused by the root certificate expiration. If you are part of an organization, consult your IT department for assistance.
+
+=Need more help?=
+If you have any trouble with the update or need further assistance, please check the [https://support.mozilla.org/en-US/questions/new/firefox Firefox Community Forum] for similar questions or ask a new question there. Head over to ask questions and find answers from both the Mozilla team and the community. We’re here to help!
+
+=Related articles=
+*[[Best practices for installing and updating Firefox]]
+*[[Manage Firefox updates]]

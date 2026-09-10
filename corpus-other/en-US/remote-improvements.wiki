@@ -1,0 +1,51 @@
+{for not fx148}{note}'''Note:''' This article applies to [[Find what version of Firefox you are using|Firefox version]] 148 and above.{/note}{/for}
+
+__TOC__
+
+=What are remote improvements?=
+Remote improvements range from fixes to feature changes to Firefox. They are delivered remotely between versions and updates to make your browsing experience stabler and richer, and they are '''completely optional''' based on your preferences. If you opt into remote improvements, you can have Firefox automatically install these changes for you.
+
+Previously, access to these changes required you to share [[Manage technical and interaction data collection settings in Firefox|technical and interraction data (telemetry)]] with Mozilla. However, as of [[Find what version of Firefox you are using|Firefox version]] 148, you can opt into receiving remote improvements, even if you have opted out of sharing your telemetry or participating in [[About Studies|our experimental studies]].
+{note}'''Note:''' We are sharing our remote improvements with more Firefox users, which will no longer require you to share any data if you don’t wish to.{/note}
+
+=How can I view or change my settings?=
+{note}
+Please note the following defaults:
+*Remote improvements will be toggled '''ON''' by default, as long as you did not deliberately opt out of [[About Studies|studies]] in Settings prior to Firefox version 148.
+*Remote improvements will be toggled '''OFF''' by default, if you deliberately opted out of studies in Settings prior to Firefox version 148.
+{/note}
+Depending on your preferences, you will be able to turn remote improvements on and off whenever you wish, by adjusting your settings on Desktop, Android or iOS. Follow the steps below based on your platform:
+
+[[UI:details_start]]
+== Firefox==
+#[[Template:optionspreferences]]
+#Select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} panel on the left.
+#Go down to the {for not fx151}''Firefox Data Collection and Use''{/for}{for fx151}''Firefox data collection and use''{/for} section.
+#Uncheck the '''Allow Firefox to improve features, performance, and stability between updates''' checkbox to opt out of automatically getting browser changes between Firefox updates.
+;{for not fx151}[[Image:Fx 148 DatacollectionanduseDesktop]]{/for}{for fx151}[[Image:Fx151DataCollectionImproveFeatures-Simplified|width=600]]{/for}
+
+==Firefox for Android==
+#Open Firefox and tap the menu button ⋮ on the browser toolbar.
+#Select {menu Settings}.
+#Scroll to the ''Advanced'' section, then tap {menu Remote improvements}.
+#;[[Image:Fx 148 DatacollectionanduseAndroid|width=420]]
+#Toggle off the '''Allow remote improvements''' option to opt out of automatically getting browser changes between Firefox updates.
+#;[[Image:Fx 148 DatacollectionanduseAndroid2|width=420]]
+
+==Firefox for iOS==
+#Open Firefox and tap the menu button ≡ on the browser toolbar.
+#Select {menu Settings}.
+#Scroll to the {menu Support} section.
+#Toggle off the '''Allow Remote Improvements''' option to opt out of automatically getting browser changes between Firefox updates.
+#;[[Image:Fx 148 DatacollectionanduseiOS|width=420]]
+[[UI:details_end]]
+
+=What happens if I disable this option?=
+If you turn off the remote improvements setting:
+* Firefox will stop automatically downloading remote fixes and progressive rollouts of feature changes.
+* However, you will still get our regular updates even though this setting is disabled.
+Since remote improvements are now separate from data collection, any changes made to this setting will not affect data collection settings, such as crash reports or technical telemetry. You will only change whether or not you receive automatic fixes or feature improvements between Firefox versions.
+
+=Related content=
+*[[Manage technical and interaction data collection settings in Firefox]]
+*[[About Studies]]

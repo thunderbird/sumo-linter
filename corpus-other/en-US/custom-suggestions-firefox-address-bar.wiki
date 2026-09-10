@@ -1,0 +1,40 @@
+Depending on your search, Firefox can show information such as stock prices, sports scores, and flight status updates without requiring you to open a webpage.
+{note}'''Note:''' Availability of stock, sports and flight suggestions may vary by region and Firefox version.{/note}
+*'''United States''' starting in [[Find what version of Firefox you are using|Firefox version]] 143.
+
+__TOC__
+
+=View stock market suggestions=
+You can access stock market information in real-time directly from the address bar with Firefox Suggest through specific keywords. Massive, an [https://wikipedia.org/wiki/API API] provider, powers these suggestions, and you’ll need to opt in to Firefox Suggest to get accurate information.
+
+==If you’re based in the US==
+#Open Firefox and type a keyword like '''stocks''' or '''stock GOOG''' in the address bar.
+#Stock details will appear directly in the suggestion results.
+#;[[Image:stock]]
+#Now, type keywords like '''stock Microsoft''' or '''stock Nvidia''' to see real-time information.
+#;[[Image:stocksuggestions]]
+{note}'''Note:''' Keywords not listed above can trigger the stock market suggestions.{/note}
+
+=View sports scores and schedules=
+You can view sports scores, schedules and game information directly from the address bar. [https://sportsdata.io/ Sportsdata.io] powers these suggestions.
+#Open Firefox.
+#Type a sports-related search in the address bar.
+#;[[Image:sportssuggestionsfirefox]]
+'''Examples:'''
+*knicks score
+*yankees game
+If information is available, Firefox displays a sports score or schedule suggestion in the address bar results panel.
+
+=Check flight status=
+You can check the status of a flight directly from the address bar. [https://www.flightaware.com/ FlightAware] powers these suggestions.
+#Open Firefox.
+#Enter a valid flight number in the address bar.
+#;[[Image:flightssugestionsfirefox]]
+'''Example:'''
+*AC185
+If flight information is available, Firefox displays a flight status suggestion in the address bar results panel.
+{note}'''Tip:''' You can find a flight number on an airline's website or flight status page.{/note}
+
+=Related articles=
+*[[Address bar autocomplete suggestions in Firefox]]
+*[[Customize Firefox Suggest settings]]

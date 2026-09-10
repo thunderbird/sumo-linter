@@ -1,0 +1,14 @@
+[[Template:WindowsOnly]]
+
+Windows single sign-on (SSO) is a new Firefox feature that allows you to log in to Microsoft, work, and school accounts using credentials from your Windows 10 or 11 operating system. To enable it:
+# [[Template:optionspreferences]]
+# Select {for not fx151}{menu Privacy & Security}{/for}{for =fx151}{menu Privacy and Security}{/for}{for fx152}{menu Passwords and autofill}{/for} on the left.
+# Go to the '''Passwords''' section and check the box next to the ''Allow Windows single sign-on…'' setting.
+#; {for not fx152}[[Image:Fx140settings-PasswordsWindowsSSO]]{/for}{for fx152}[[Image:Fx152Passwords-WindowsSSO]]{/for}
+
+To see if you have any accounts configured, enter '''accounts''' in the Windows taskbar search field, and click '''Email & accounts'''. You'll see a window that looks like this:
+
+{for not win11}[[Image:Windows Email & Accounts|width=700]]{/for}
+{for win11}[[Image:Windows 11 Email & Accounts|width=700]]{/for}
+
+If you have accounts in the '''Accounts used by other apps''' section, Firefox will use that information to log you in to Microsoft sites including Outlook and Office 365, as well as any work or school accounts that use Microsoft authentication.

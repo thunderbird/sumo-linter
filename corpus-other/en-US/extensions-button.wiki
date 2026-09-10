@@ -1,0 +1,70 @@
+The extensions button and panel lets you access, remove, report and manage your extensions and their permissions, directly from the toolbar. This article describes this feature and answers some common questions.
+;; {for not fx154}[[Image:Fx109ExtensionsButton-Panel]]{/for}{for fx154}[[Image:Fx154ExtensionsButton-Panel]]{/for}
+
+__TOC__
+
+=Manage extensions=
+Click the extensions button (jigsaw puzzle [[Image:Fx109ExtensionsButton]] icon) in the toolbar to open the extensions panel. Each extension in the panel has a menu button with either a gear [[Image:IG settings]] icon or a 3-dot [[Image:IG page actions]] icon, depending on Firefox version. You can use this menu button to manage those extensions.{note}'''Note:''' Extensions pinned to the toolbar and disabled extensions do not appear in this panel.{/note}
+;{for not fx154}[[Image:Unified_extensions|width=400]] [[Image:Extensions panel with move up/down]]{/for}{for fx154}[[Image:Fx154ExtensionsButtonPanel-menu]]{/for}
+When you click the icon next to an extension, a menu will open with a list of options:
+*'''Pin to Toolbar:''' pins the extension to the Firefox toolbar (this option may not be available for certain extensions, such as search engine add-ons).
+*'''Move Up''' or '''Move Down:''' allows you to change the order of extensions in the panel. (In some cases, the {menu Move Up} or {menu Move Down} menu items may not be available because the extension cannot be moved in either or any direction.)
+*'''Manage Extension:''' opens the Add-ons Manager where you can manage extension settings.
+*'''Remove Extension:''' uninstalls the extension from Firefox.
+*'''Report Extension:''' [[Report extensions and themes for abuse|reports the extension to Mozilla]].
+==Manage extensions from the Add-ons Manager==
+Click {menu Manage extensions} at the bottom of the extensions panel to open the Add-ons Manager, where you can view, enable, [[Disable or remove Add-ons#w_disabling-and-removing-extensions|disable, remove]] and manage all of your installed extensions.
+*Click the blue toggle for the extension you wish to disable.
+;[[Image:fx72 disable extensions]]
+*Click the the 3-dot button to remove or report an extension, or to manage options and other settings.
+;[[Image:Fx151ManageExtensions]]
+
+==Manage pinned extensions==
+Extensions pinned to the toolbar can be managed from the context menu. [[T:contextmenu]] the pinned extension in the toolbar to view the available options.
+;[[Image:Fx109PinnedExtension-ContextMenu]]
+*You can unpin an extension from the toolbar and restore it to the extensions panel by unchecking the '''Pin to Toolbar''' option.
+*Pinned extensions can be moved to a different position on the navigation (main) toolbar using the {menu [[Customize Firefox controls, buttons and toolbars|Customize Toolbar…]]} option: Go to the top of the ''Customize Firefox'' page, “grab” one of the pinned extension icons and then drag and drop it to a new position.<!-- https://support.mozilla.org/en-US/questions/1412356 -->
+
+=Website permissions=
+The following applies to permission notifications and managing permissions for ''Manifest V3'' (MV3) extensions, the new standard in Firefox extensions.
+
+==Permission notifications==
+After installing an extension, if you navigate to a website that requires permissions for the extension to work, the extensions button will display a notification dot. If the extension is already pinned in the toolbar, the notification dot will appear below the extension icon.<br>
+[[Image:unified_extensions_notifications]]
+
+When the extension needs access to the current page, a notification dot also appears under the extension icon in the panel:<br>
+[[Image:extensionsNotificationDot]]
+
+When the extension already has access (or does not need any) and it opens a panel as part of its functionality, this panel is anchored to the extensions button:<br>
+[[Image:unifiedExtensionsRelay|width=350]]
+
+==Manage extension permissions==
+#Click the extensions button in the toolbar.
+#Locate the extension with the green notification dot in the panel.
+#;[[Image:unifiedExtensionsDot]]
+#Click the menu icon for the extension to manage its permissions.
+#Select the permissions you wish to grant to the extension.
+#;[[Image:allowPermissionsUnifiedExtensions|width=400]]
+
+=Common questions=
+==Why is my extension not shown when I click the extensions button?==
+Only extensions that are enabled will appear in the extensions panel. Extensions that are pinned to the toolbar are also not shown. In addition, the list of extensions might be different when private browsing mode is being used (to learn more, see [[Extensions in Private Browsing]]).
+
+==Why is the panel not shown when I click the extensions button?==
+If no extensions are installed or if all extensions are either disabled or pinned to the toolbar, the extensions panel is not shown. Instead, the Add-ons Manager ''Personalize Your Firefox'' page will open in a new tab.
+
+==I clicked an extension from the panel but nothing happens – What can I do?==
+Some extensions (such as search engine add-ons) don't have a browser action button, so clicking the extension from the panel does nothing. However, this may also be caused by a bug in the extension. To report this, you’ll need to contact the extension developer directly through the page you installed the extension from at [https://addons.mozilla.org addons.mozilla.org].
+
+==Can I remove the extensions button from the toolbar or customize its location?==
+You can remove the extensions button by right-clicking on the button and choosing the {menu Remove from Toolbar} option. The button will temporarily reappear when the extension panel is shown. You can [[Customize Firefox controls, buttons and toolbars|customize]] its location by moving it to a different position on the navigation toolbar. When the button is hidden, you can access its functionalities from {menu Extensions} in the application menu. To restore the button, right-click the extensions button and check the '''Always Show in Toolbar''' option.
+
+=Related content=
+*[[Find and install add-ons to add features to Firefox]]
+*[[Manage optional permissions for Firefox extensions]]
+*[[Review installed extensions]]
+*[[Why are some add-ons not allowed on sites restricted by Mozilla?]]
+*[https://blog.mozilla.org/products/firefox/extensions-addons/heres-whats-going-on-in-the-world-of-extensions/ Here’s what’s going on in the world of extensions]
+If you are developing Manifest V3 (MV3) extensions or want to learn more, see:
+*[https://blog.mozilla.org/addons/2022/10/31/begin-your-mv3-migration-by-implementing-new-features-today/ Begin your MV3 migration by implementing new features today]
+*[https://blog.mozilla.org/addons/2022/11/17/unified-extensions-button-and-how-to-handle-permissions-in-manifest-v3/ Extensions button and how to handle permissions in Manifest V3]

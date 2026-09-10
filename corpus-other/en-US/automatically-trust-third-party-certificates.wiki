@@ -1,0 +1,21 @@
+Starting with [[Find what version of Firefox you are using|version]] 120, Firefox can now automatically trust third-party root certificates installed in your operating system's certificate store. This article explains what this means for you as a Firefox user, how it works, and how you can manage this feature according to your preferences.
+
+=What are third-party root certificates?=
+Root certificates are the backbone of the security system that underpins HTTPS web traffic. Firefox, like most web browsers, includes a pre-installed set of trusted root certificates. However, sometimes, users or organizations might need to trust additional certificates not included in this default set. These are known as third-party root certificates.
+=Why is this feature important?=
+*'''Seamless browsing experience:''' With this update, Firefox will use third-party root certificates added to your operating system, allowing you to seamlessly access more websites without extra configuration.
+*'''Convenience for users and organizations:''' Particularly beneficial for enterprise environments or specialized web services that use their own certificates.
+=How it works=
+When you navigate to a website, Firefox checks if the site's certificate is trusted. 
+Firefox will now also look for any third-party root certificates you or your organization have installed in the operating system's certificate store. 
+If a website uses such a certificate, Firefox will trust it automatically, provided the certificate is present in the OS store.
+=Security implications=
+*'''Trusted administrators:''' These third-party certificates are typically installed by you or your organization's trusted administrators, ensuring they are safe to use.
+*'''No compromise on security:''' The feature doesn't lower Firefox's security standards; it merely extends trust to additional certificates deemed secure by you or your organization.
+=Manage the feature=
+This feature is enabled by default. However, if you wish to turn it off, you can easily do so by following these steps:
+#[[Template:optionspreferences]]
+#Select {for not fx151}{menu Privacy & Security}{/for}{for fx151}{menu Privacy and security}{/for} on the left.
+#Go down to the {for fx152}''Connection and software security'' section, click {button Advanced settings} and go down to the {/for}''Certificates'' section.
+#Uncheck the ''Allow Firefox to automatically trust third-party root certificates you install'' option.
+*;{for not fx151}[[Image:Automatically trust third-party root certificates]]{/for}{for fx151}[[Image:fx152certificates]]{/for}

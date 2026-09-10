@@ -1,0 +1,8 @@
+With so many stories popping up in the news around data leakage these days, you may be wondering if your Firefox Sync data is safe. No need to worry as Firefox Sync contains additional layers of security.
+
+=How Sync works=
+*[[Sync Firefox data|Firefox Sync]] ensures that your data is encrypted before it ever leaves your device, and that the password to unlock this encryption is never transmitted to the server. This is done by applying some cryptographic hashing to your Mozilla account password to strengthen it when you enter it, and deriving the authentication and encryption keys.
+*The authentication key is transmitted to the server to prove that you own the account. If [http://wikipedia.org/wiki/Transport_Layer_Security Transport Layer Security] (TLS) fails, this might cause the authentication key to be leaked, and someone who intercepts this key could use it to authenticate into your account. However, they can’t use it to access your Firefox Sync data since the encryption key is used to encrypt your data before it leaves your device. This key is never transmitted to the server, so it can’t be leaked if TLS fails.
+*Firefox Sync uses the account password to build an additional layer of security and encryption on top of what’s provided by TLS. Therefore, we can’t even access your Firefox Sync data and don’t rely on the confidentiality of TLS to keep your data safe. For technical details regarding how the entire process works, see [https://hacks.mozilla.org/2018/11/firefox-sync-privacy/ Private by Design: How we built Firefox Sync]. 
+
+The stronger your password, the more protection this scheme can offer. That’s why it’s important to [[Choose a strong password|choose a secure password]] for your Mozilla account.

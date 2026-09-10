@@ -1,0 +1,124 @@
+Windows provides a built-in firewall, which controls how programs access the Internet. If Windows Firewall doesn't permit Firefox to make connections, Firefox generates a "''Server not found''" error when you try to browse to websites.
+{for mac,linux}
+{note}'''Note:''' This article only applies to Windows. To see instructions, choose the Windows version from the dropdown menu above.{/note}
+{/for}
+
+{for win}
+__TOC__
+{for win10,win11}
+{for win11}{note}'''Note:''' Steps for Windows 11 may differ.{/note}{/for}
+= Checking for Windows 10 Firewall =
+To see if you're running Windows Firewall:
+# Right-click the Windows icon. A menu will appear.
+# Select '''Control Panel''' from the menu. The Control Panel will appear.
+# In the Control Panel, select '''System and Security'''.
+# In System and Security, select '''Windows Firewall'''.
+
+= Configuring Windows 10 Firewall =
+If you're running Windows Firewall and having connection problems in Firefox:
+# On the left side of the Windows Firewall panel, click '''Allow an app or feature through Windows Firewall'''. The Allowed apps panel will appear.
+# Click the {button Change Settings} button.
+# Find '''Mozilla Firefox''' in the list of programs. If it is there, click to select it. If not, skip the next step.
+# With '''Mozilla Firefox''' (or '''firefox.exe''') selected, click the {button Remove} button. Confirm that you want to remove the entry.
+# Click the {button Allow another app} button. The Add a Program window will appear.
+# In the Add an app window, click the {button Browse} button.
+# Navigate to the Firefox program directory (e.g. {filepath C:\Program Files\Mozilla Firefox\}) and double-click on '''firefox'''.exe.
+# Click the {button Add} button.
+# Click the {button OK} button to close the Allowed apps panel.
+{/for}
+
+{for win8}
+= Checking for Windows 8 Firewall =
+To see if you're running Windows Firewall:
+# From the Start Screen, click the '''Desktop''' tile. The Desktop view will open.
+# From the Desktop, hover in the lower right-hand corner to access the Charms.
+# Select {menu Control Panel} from the {menu Settings} charm. The Control Panel window will open.
+#:<br>[[Image:Control Panel - Win8]]
+# Click on '''System and Security'''. The System and Security Panel will appear. <br/> <br/>[[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783860-179-1.png]] <br/>
+# Click on '''Windows Firewall'''. The Windows Firewall panel will appear. <br/> <br/> [[Image:459f1878e6a7ea0c95079f93f7106b9d-1256784141-862-1.png]] <br/>
+# If you see a green check mark, you are running Windows Firewall. <br/> <br/> [[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783860-179-3.png]] <br/>
+
+= Configuring Windows 8 Firewall =
+If you're running Windows Firewall and having connection problems in Firefox:
+# On the left side of the Windows Firewall panel, click '''Allow a program or feature through Windows Firewall'''. The Allowed Programs panel will appear. <br/> <br/>[[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783371-733-4.png]] <br/>
+# Click the {button Change Settings} button. <br/> <br/>[[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783371-733-5.png]] <br/>
+# Find '''Mozilla Firefox''' in the list of programs. If it is there, click to select it. If not, skip the next step.
+# With '''Mozilla Firefox''' (or '''firefox.exe''') selected, click the {button Remove} button. Confirm that you want to remove the entry.
+# Click the {button Allow another program...} button. The Add a Program window will appear. <br/> <br/>[[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783371-733-6.png]] <br/>
+# In the Add a Program window, click the {button Browse...} button.
+# Navigate to the Firefox program directory (e.g. {filepath C:\Program Files\Mozilla Firefox\}) and double-click on '''firefox'''.exe.
+# Click the {button Add} button.
+# Click the {button OK} button to close the Allowed Programs panel.
+{/for}
+{for win7}
+= Windows 7 =
+== Checking for Windows 7 Firewall ==
+To see if you're running Windows Firewall:
+# Click the Windows icon, and select {button Control Panel}. The Control Panel window will appear.
+#:[[Image:Control Panel - Win7]]
+# Click on '''System and Security'''. The System and Security Panel will appear. <br/> <br/>[[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783860-179-1.png]] <br/>
+# Click on '''Windows Firewall'''. The Windows Firewall panel will appear. <br/> <br/> [[Image:459f1878e6a7ea0c95079f93f7106b9d-1256784141-862-1.png]] <br/>
+# If you see a green check mark, you are running Windows Firewall. <br/> <br/> [[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783860-179-3.png]] <br/>
+
+== Configuring Windows 7 Firewall ==
+If you're running Windows Firewall and having connection problems in Firefox:
+# On the left side of the Windows Firewall panel, click '''Allow a program or feature through Windows Firewall'''. The Allowed Programs panel will appear. <br/> <br/>[[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783371-733-4.png]] <br/>
+# Click the {button Change Settings} button. <br/> <br/>[[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783371-733-5.png]] <br/>
+# Find '''Mozilla Firefox''' in the list of programs. If it is there, click to select it. If not, skip the next step.
+# With '''Mozilla Firefox''' (or '''firefox.exe''') selected, click the {button Remove} button. Confirm that you want to remove the entry.
+# Click the {button Allow another program...} button. The Add a Program window will appear. <br/> <br/>[[Image:459f1878e6a7ea0c95079f93f7106b9d-1256783371-733-6.png]] <br/>
+# In the Add a Program window, click the {button Browse...} button.
+# Navigate to the Firefox program directory (e.g. {filepath C:\Program Files\Mozilla Firefox\}) and double-click on '''firefox'''.exe.
+# Click the {button Add} button.
+# Click the {button OK} button to close the Allowed Programs panel.
+
+= Windows Vista =
+== Checking for Windows Vista Firewall ==
+To see if you're running Windows Firewall:
+# Click the Windows icon, and select {menu Control Panel}. The Control Panel window will appear.
+# Click on the '''System''' header. The Security Panel will appear.
+# Click on the '''Windows Firewall''' header. The Windows Firewall panel will appear.
+# If you see a green check mark and the message '''Windows Firewall is helping to protect your computer''', you are running Windows Firewall.
+
+== Configuring Windows Vista Firewall ==
+If you're running Windows Firewall and having connection problems in Firefox:
+# On the left side of the Windows Firewall panel, click '''Allow a program or feature through Windows Firewall'''. The Windows Firewall Settings window will appear.
+# Find '''Mozilla Firefox''' (or '''firefox.exe''') in the list of programs. If it is there, click to select it. If not, skip the next step.
+# With '''Mozilla Firefox''' selected, click the {button Delete} button. Confirm that you want to delete the entry.
+# Click the {button Add program...} button. The Add a Program window will appear.
+# In the Add a Program window, click the {button Browse...} button.
+# Navigate to the Firefox program directory (e.g. {filepath C:\Program Files\Mozilla Firefox\}) and double-click on '''firefox'''.exe.
+# Click the {button OK} button to close the Add a Program window.
+# In the Windows Firewall Settings window, click to select the '''General''' tab.
+# Ensure that '''Block all incoming connections''' is not selected.
+# Click the {button OK} button to close the Windows Firewall Settings window.
+{/for}
+{for winxp}
+= Checking for Windows XP Firewall =
+To see if you're running Windows Firewall:
+# Click on the Windows Start button, and select {menu Control Panel}. The Control panel window will appear.
+#:[[Image:Control Panel - WinXP]]
+# Click on the '''Security Center''' link. The Security Center will appear.
+#:<br>[[Image:Security Center - WinXP]]
+# If the '''Firewall''' header says '''ON''', you are running Windows Firewall.
+#:<br>[[Image:Firewall ON - WinXP]]
+
+= Configuring Windows XP Firewall =
+If you're running Windows Firewall and having connection problems in Firefox:
+# [[#w_checking-for-windows-xp-firewall|Check Windows Firewall is ON]].
+# In the Security Center, click Windows Firewall. The Windows Firewall window will open.
+# Select the '''Exceptions''' tab.
+#:<br>[[Image:Firewall Exceptions - WinXP]]
+# Find '''Mozilla Firefox''' (or '''firefox.exe''') in the list of programs. If it is there, click to select it. If not, skip the next step.
+# With '''Mozilla Firefox''' selected, click the {button Delete} button. Confirm that you want to delete the entry.
+# Click the {button Add Program...} button.
+# In the Add a Program window, click the {button Browse...} button.
+# Navigate to the Firefox program directory (e.g. {filepath C:\Program Files\Mozilla Firefox\}) and double-click on '''firefox'''.exe.
+# Click the {button OK} button to close the Add a Program window.
+# Click the {button OK} button to close the Windows Firewall Settings window.
+{/for}
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Firewalls Firewalls (mozillaZine KB)]'''''
+{/for}

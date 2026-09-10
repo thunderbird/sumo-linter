@@ -1,0 +1,16 @@
+This article explains what to do when specific websites (not all) start to load, but never finish (i.e. the tab displays a spinning wheel and "Connecting..." for several minutes).
+* If Firefox cannot load websites but displays an error message at the end, see [[Firefox cannot load websites but other programs can]] and [[Error loading web sites]].
+* If none of the web browsers on your computer can load websites, see [[No programs can load websites]]. 
+If none of the below solutions work, try the methods described in the [[Basic troubleshooting]] article to see if they will address your problem.
+
+__TOC__
+
+= Search for malware =
+A variant of the [http://en.wikipedia.org/wiki/Vundo Vundo trojan] is known to cause Firefox to have problems loading certain high-traffic sites, including Google, Yahoo, MySpace, Facebook, and more. Not all variants of the Vundo trojan can be detected or removed by malware scanners.
+
+However, you should scan your computer for infections first. For detailed instructions, see [[Is my Firefox problem a result of malware]].
+
+= Disable JavaScript =
+In rare cases, a web page may be using an external JavaScript file which is in the wrong format.  Try disabling JavaScript - see [[JavaScript]].  If the page now finishes loading the bad Javascript file may be coming from:
+* a proxy filter that is incorrectly filtering that website's files.  If you are running a proxy filter such as Privoxy, try disabling it.
+* the server.  Contact the site administrator for that website.

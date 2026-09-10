@@ -1,0 +1,78 @@
+This article will help you determine whether an extension, theme or hardware acceleration is causing your Firefox problem and, if so, describes what you can do to make Firefox run normally again.
+
+{note}[[Template:reset-fx]]{/note}
+
+__TOC__
+
+=Start Firefox in Troubleshoot Mode=
+Troubleshoot Mode temporarily disables all extensions, uses the default theme, and turns off hardware acceleration. Running Firefox in Troubleshoot Mode can help determine if one of these is causing your problem. To learn more, see [[Use Troubleshoot Mode in Firefox]]. To start Firefox in Troubleshoot Mode:
+#[[T:safemode]]
+#;[[Image:Fx88TroubleshootMode]]
+#When the ''Open Firefox in Troubleshoot Mode?'' window appears, click the {button Open} button.
+{warning}'''Warning:''' Clicking the {button Refresh Firefox} button will restore Firefox to its default state while saving your essential data. See [[Refresh Firefox - reset add-ons and settings]] for more information.{/warning}
+After you click the {button Open} button and Firefox starts, test for your problem.
+
+==The problem still occurs in Troubleshoot Mode==
+If your problem persists in Troubleshoot Mode, it is not being caused by an extension, theme or hardware acceleration. Other possible causes include changes made to Firefox preference settings, which are not disabled in Troubleshoot Mode. For additional troubleshooting suggestions, see these articles:
+*[[Troubleshoot and diagnose Firefox problems]]
+*[[Reset Firefox preferences to troubleshoot and fix problems]]
+
+==The problem does not occur in Troubleshoot Mode==
+If your problem did not occur in Troubleshoot Mode, the likely cause is an extension, theme or hardware acceleration. Continue following the steps in this article to determine whether one of these is the problem.
+
+=Turn off hardware acceleration=
+With some graphics processors and graphics driver setups, Firefox may crash or have trouble showing text or objects on pages when using hardware acceleration.  You can try turning off hardware acceleration to see if it fixes the problem.
+
+[[Template:DisableHWAFirefox]]
+
+If the problem is no longer happening, then hardware acceleration was likely the cause.  You can try [[How do I upgrade my graphics drivers?|updating your graphics drivers]] to see if that fixes it or simply run without hardware acceleration.  Otherwise, your problem is likely related to extensions or themes.  Continue with the steps in this article to see if they help.
+
+=Switch to the default theme=
+If you are using a theme other than the default Firefox theme:
+#[[T:Open Add-ons|type=Themes]]
+#Find the ''System theme'' and click the {button Enable} button to make Firefox switch to that theme.
+#[[Template:closeFirefox]]
+#Start Firefox the way you normally do.
+
+Test for your problem. If it no longer occurs, the theme you were using was causing it. If it still occurs, continue following the steps in this article.
+
+= Disable all extensions =
+To determine whether a faulty extension is causing your problem, you can disable all of your installed extensions:
+#[[T:Open Add-ons|type=Extensions]]
+#For any extension listed as '''Enabled''',  click the blue toggle [[Image:Fx115 blue toggle]] for the corresponding extension.
+#;The extension will be moved to the '''Disabled''' list.
+#Repeat this for each of the other extensions.
+#When all extensions are disabled, close Firefox: [[Template:closeFirefox]]
+#Start Firefox the way you normally do.
+
+Test for your problem. If the problem no longer occurs with all extensions disabled, one of your extensions was causing it.  To find the extension that was causing your problem, continue as follows:
+
+== Test for faulty extensions ==
+To determine which of your disabled extensions was causing your problem, you can re-enable each extension one at a time. 
+# [[T:Open Add-ons|type=Extensions]]
+# Click the corresponding toggle to enable the extension. The toggle turns blue when enabled.
+# Close Firefox: [[Template:closeFirefox]]
+# Start Firefox the way you normally do.
+
+After you restart Firefox, test for your problem. If the problem comes back, the extension you just enabled was causing it. 
+
+{note}'''Note''': If you have a large number of extensions, it may be quicker to enable more than one extension at a time. The method with the fewest number of restarts required is: Enable half the extensions in this list, then restart Firefox and test for the problem. If the problem reoccurs, you know that the faulty extension is one of the ones you just enabled.   If the problem does not occur, you know the faulty extension is one of the disabled ones. Repeat the process until the faulty extension is found.{/note}
+
+After you find the extension that was causing your problem, disable or uninstall the faulty extension and re-enable the other extensions in the Add-ons Manager. 
+
+= Updating extensions =
+If an extension was causing your problem, it may have an update available that will fix it:
+# [[T:Open Add-ons|type=Extensions]]
+# Click the gear button [[Image:Fx115 Tools for all add-ons button]] at the top of the Add-ons Manager and select {menu Check for Updates}.
+# If updates are found, install them by clicking {button Install Updates}.
+# When the installation is complete, close Firefox: [[Template:closeFirefox]]
+# Start Firefox the way you normally do.
+
+After Firefox restarts, your extensions will be updated. If the extension that was causing your problem had an update, re-enable it and test for your problem again.
+
+=Checking extension settings=
+Some problems are caused if the settings of an extension override Firefox settings (e.g. problems with toolbars). Therefore you may want to check the extension's settings to see if you can find the option that is causing your problem: 
+# [[T:Open Add-ons|type=Extensions]]
+# For the extension that is causing your problem, click the ellipsis (3-dot) icon and click the {for win}{button Options}{/for}{for mac,linux}{button Preferences}{/for} button.
+# Click your way through the settings to see if there is an option that may solve your problem.
+# If you found a suitable option, click {button Save} and then restart Firefox.

@@ -1,0 +1,11 @@
+Firefox offers a quick solution for maintaining privacy with its ''Forget'' feature, allowing you to instantly erase your recent cookies and browsing history. This function is especially useful for shared computers, accidental non-private browsing sessions, or simply when you prefer to keep recent online activities private. Here's how to do it in just a few clicks:
+#First, add the ''Forget'' button to your toolbar. You'll only need to do this step once!
+#*[[Template:customizefx29]]
+#*Drag the ''Forget'' button [[Image:forget button 57]] from the [[Customize Firefox controls, buttons and toolbars|Customize Firefox panel]] to your toolbar, then, at the bottom right, click {button Done}.
+#;[[Image:FX Desktop Drag forget button]] 
+#When you're ready to clear your recent history, click the ''Forget'' button [[Image:forget button 57]] on your toolbar.
+#Choose the time frame that you'd like to ''forget'' (five minutes, two hours or 24 hours) and click the red {button Forget!} button.
+#;[[Image:Fx desktop Forget feature details card|width=300]] 
+{warning}'''Important:''' When you click this button, the information is permanently deleted and cannot be recovered.{/warning}
+Firefox will then clear the history and cookies from the specified time frame, close your open tabs and relaunch a new, clean window.
+{note}To learn how you can clear even more information from Firefox, see [[Delete browsing, search and download history on Firefox]].{/note}

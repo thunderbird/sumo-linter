@@ -1,0 +1,45 @@
+Get real-time weather updates conveniently displayed within the Firefox [[Search with the Firefox address bar|address bar]]. This feature can help you stay up-to-date on the latest weather conditions without visiting a particular website or app. Simply type '''weather''' in the address bar, and you'll see weather suggestions for your location.
+[[Image:Accuweather]]
+{note}'''Note:''' Weather updates are at the moment only available to users in the following countries:
+*The United States
+*The United Kingdom
+*France
+*Germany
+*Italy
+{/note}
+
+=What weather information is available?=
+*'''City name:''' The city's name for which weather information is being shown.
+*'''Expected weather:''' This shows the expected current weather conditions and weather forecast for the day, including temperature, precipitation and icon.
+*'''Weather suggestions provider:''' A link to AccuWeather, a website that provides detailed weather information. Clicking the suggestion will take you to the provider’s website.
+*'''Menu:''' Click the button on the right to provide feedback.
+
+=Common questions=
+==Where are these weather suggestions from?==
+The weather suggestions in the Firefox address bar are sourced from [https://www.accuweather.com/ AccuWeather].
+
+==How is my location determined?==
+To see weather suggestions for your location in the address bar, Firefox uses your IP address to determine your approximate location. This information is then used to provide relevant weather suggestions for your area sourced from [https://www.accuweather.com/ AccuWeather]. You can learn more about this in [[How it works - Firefox Weather]].
+
+==Do you share my IP address?==
+Firefox doesn’t share your IP address or any personally identifiable information outside Mozilla servers.
+
+==Can I search for weather information for other locations from the address bar?==
+Yes, you will be able to search for weather information for other locations in the following countries:
+*The United States
+If you’d like to search for weather in alternate cities, only the city query will be sent to our servers to get the weather data. Ex.: if you type '''boston weather''', we’ll only send '''Boston''' to get the weather for Boston to display to you.
+
+==Why do I see “Sponsored” next to AccuWeather – what does this mean?==
+Firefox may receive revenue if you visit the AccuWeather website to see a more detailed weather forecast.
+
+==I see weather information for the wrong location in the address bar – what can I do?==
+If you are experiencing issues with Firefox's weather suggestions or have any feedback to share, let us know. We are constantly working to improve our features, and your input can help us make Firefox even better. To submit feedback:
+#Find the button on the right side next to the weather suggestion in the address bar.
+#Select the option that best describes your feedback:
+#*Report inaccurate location
+#*Shows less frequently
+#*Don’t show weather suggestions
+{note}'''Note:''' Clicking '''Don’t show weather suggestions''' will turn off weather suggestions in the address bar.{/note}
+
+= Learn more =
+*[[Customize Firefox Suggest settings]]

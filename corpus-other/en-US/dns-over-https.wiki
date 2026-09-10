@@ -1,0 +1,75 @@
+[[Firefox DNS over HTTPS|DNS over HTTPS (DoH)]] is a recommended feature that enhances privacy for everyone. When you type a web address into your address bar, Firefox sends a secure DNS request to look up the IP address for that website over the Internet. DNS over HTTPS protection can be configured in several different ways.
+
+__TOC__
+
+=Configure DoH protection settings=
+Default Protection is automatically enabled in Firefox when DNS over HTTPS (DoH) is activated. If you would like to modify the settings or select a different level of protection, please follow these steps:
+#[[Template:optionspreferences]]
+#Click {for not fx151}{menu Privacy & Security}{/for}{for fx151}{menu Privacy and security}{/for} on the left.
+#Scroll down to the ''DNS over HTTPS'' section{for fx152} and click {button Advanced settings}{/for}.
+#;{for not fx152}[[Image:DNS over HTTPS panel]]{/for}{for fx152}[[Image:fx152dnsoverhttps]]{/for}
+
+=Protection levels explained=
+==Default protection==
+The Default protection automatically enables secure DNS in available regions and falls back to the default resolvers if there are issues. Default protection allows you to use local providers when possible. It disables DoH when VPN, parental control or enterprise policies are active or when a network tells Firefox not to use secure DNS.
+
+{for not fx152}
+==Increased Protection==
+When Increased Protection is on, DoH is constantly active with the provider you select. We will only switch to a backup option if there are any issues with your chosen provider.
+;{for not fx152}[[Image:Fx151DNSoverHTTPS-IncreasedProtection]]{/for} <!-- An update will be needed for fx152, which has different settings-->
+
+==Max Protection==
+Max protection will always use secure DNS and a security warning will show if we can’t connect to the secure DNS resolver, or if the secure DNS resolver indicates there are no addresses for the domain you are trying to access. The warning page will give you an option of adding an exception for that domain if you want to use the system DNS resolver.
+{/for}
+{for fx152}
+==Custom protection==
+Custom protection will always use secure DNS with the provider you select.  We will only switch to a backup option if there are any issues with your chosen provider.
+
+If you select Always warn me if secure DNS isn’t available, a security warning will show if we can’t connect to the secure DNS resolver, or if the secure DNS resolver indicates there are no addresses for the domain you are trying to access. The warning page will give you an option of adding an exception for that domain if you want to use the system DNS resolver.
+{/for}
+
+==Off==
+When secure DNS is off, you’ll use your default DNS resolver.
+
+=Add sites to the Exceptions list=
+{for not fx152}
+#[[Template:optionspreferences]]
+#Click {for not fx151}{menu Privacy & Security}{/for}{for fx151}{menu Privacy and security}{/for} on the left.
+#Scroll down to the ''DNS over HTTPS'' section.
+#Click the {button Manage Exceptions} button.
+[[Image:doh_manage_exceptions]]
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Click {menu Privacy and security} on the left.
+#Scroll down to the ''DNS over HTTPS'' section.
+#Click the {button Advanced settings} button.
+#Click the {button Manage Exceptions} button.
+#;[[Image:fx152dnsoverhttps2]]
+{/for}
+
+=Frequently asked questions=
+==What is a local provider?==
+A local provider, typically hosted within a user's local network or by their ISP, secures DNS queries for safer internet access. To detect a local provider, specific heuristics are used, which examine network configuration and DNS response patterns. Note that local providers are only employed in the ''Default Protection'' mode of DNS settings. They are used only when all heuristics criteria are met, ensuring that the DNS resolver is local and suitable for secure, efficient query resolutions.
+
+==Why would a network tell Firefox not to use secure DNS?==
+Some organizations restrict access to certain websites. If an organization has their own secure DNS, they will ask Firefox not to bypass it.
+
+For additional information on DNS over HTTPS, you can refer to some of the [[DNS over HTTPS (DoH) FAQs|commonly asked questions (FAQs)]].
+{for not fx152}
+
+==What does my DoH status mean?==
+DoH status displays if Firefox is performing secure DNS queries. Based on the protection level you choose, the status indicator will reflect either Active, Not active or Off.
+[[Image:DoH_status]]
+*'''Active:''' When status is active, Firefox is securely sending DNS queries to ensure your online activities are protected.
+*'''Not active:''' Firefox detects errors or certain network conditions like VPN, parental controls, enterprise policies that tell Firefox not to use DoH.
+*'''Off:''' DoH has been disabled.
+{/for}
+
+==Why is the secure DNS status not showing as active?==
+If you have enabled secure DNS and the status is Not Active, common reasons are as follows:
+*Firefox wasn't able to connect to the provider.
+*The connection to the provider took longer than expected.
+*You are not connected to the internet.
+*There was a problem with the provider.
+*The browser is configured to ''Default protection'' but the network has signaled to Firefox to not enable DNS over HTTPS (for details, see [[DNS over HTTPS (DoH) FAQs#w_what-are-doh-heuristics|What are DoH heuristics?]])

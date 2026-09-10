@@ -1,0 +1,12 @@
+{note}This article applies to Firefox Developer Edition. See [[Get community support]] for help with other Firefox browsers.{/note}
+
+[https://www.mozilla.org/firefox/developer/all/ Firefox Developer Edition] integrates all the developer tools you'll need into one package. It is the only browser dedicated to developers.
+
+=How do I switch between the Developer Edition and standard themes?=
+Click the menu button{for fx89} [[Image:Fx89menuButton]], click {menu More Tools…} and choose {menu Customize Toolbar…}{/for}{for not fx89} [[Image:Fx57Menu]] and choose {for not fx87}{menu [[Image:57customize-icon.png]] Customize…}{/for}{for =fx87, =fx88}{menu [[Image:57customize-icon.png]] Customize Toolbar…}{/for}{/for}. At the bottom of the Customize panel, click on {button Themes}, select a different theme and click {button Done}.
+
+=Recover bookmarks and other data=
+Firefox Developer Edition will create a new [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]] to store bookmarks and other user data.  See [[Recovering important data from an old profile]] for ways to copy this data from another Firefox profile.
+
+=How do I learn more about Firefox Developer Edition?=
+See [https://www.mozilla.org/firefox/developer/]

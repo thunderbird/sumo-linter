@@ -1,0 +1,74 @@
+Firefox requires that most add-ons be digitally signed by Mozilla before they can be installed. This process helps protect you against malicious add-ons that could hijack your browser, steal information, or insert unwanted ads.
+
+We know some users feel this limits their freedom of choice. While the policy isn’t optional in standard Firefox releases, you still have control over which signed add-ons to install, and developers have clear guidelines for getting their add-ons signed.
+
+This article explains:
+*Why add-on signing is enforced
+*Which add-ons need signing
+*What happens if an add-on is unsigned
+*Options for advanced users and developers
+
+__TOC__
+
+[[Find and install add-ons to add features to Firefox|Add-ons]] that can change your browser's settings without your consent or steal your information have become increasingly common. Some add-ons can add unwanted toolbars or buttons, change your search settings or inject ads into your computer. Firefox does now verify that the add-ons you install have been signed by Mozilla, digitally. This article explains the ''add-on signing'' feature and how it works.
+
+=What is add-on signing?=
+[[Find and install add-ons to add features to Firefox|Add-ons]] give Firefox powerful customization options. But in recent years, malicious or deceptive add-ons have become more common. These could:
+*Change your homepage or search settings without consent
+*Insert ads, trackers, or toolbars into pages
+*Steal browsing data or login credentials
+To reduce these risks, Mozilla verifies add-ons and applies a digital signature. Only signed add-ons can run in Firefox release builds.
+All add-ons hosted on [https://addons.mozilla.org addons.mozilla.org] have to go through this process in order to be signed. Add-ons hosted on other sites will need to follow the same guidelines in order to be signed by Mozilla.
+{note}'''Developers:''' To learn more about the add-on signing guidelines, see [https://developer.mozilla.org/en-US/Add-ons/Distribution Signing and distributing your add-on] and [https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews Review Policies] at ''MDN Web Docs''.{/note}
+
+=Which add-ons need to be signed=
+The following must be signed:
+*[[Find and install add-ons to add features to Firefox#w_what-types-of-add-ons-can-i-install|Extensions]] (add-ons that add features to Firefox)
+*[[Use themes to change the look of Firefox|Themes]] (add-ons that change the visual appearance of Firefox)
+*[[Use the Firefox interface in other languages with language packs|Language packs]]
+The following do not require signing:
+*Plugins
+*Search engines
+
+=What happens if you install an unsigned add-on=
+*Firefox will block installation of unsigned add-ons.
+*If you already have one installed, Firefox will disable it automatically and display a message in the Add-ons Manager.
+*If a signed version exists, you can reinstall it from the [https://addons.mozilla.org/firefox/ official Firefox Add-ons site].
+
+=If Firefox disables your add-ons=
+#'''Check for updates:''' Make sure you are running the latest version of Firefox. An outdated version may fail to verify add-ons.
+#*See [[Update Firefox to the latest release]].
+#'''Look for signed versions:''' Visit [https://addons.mozilla.org/firefox/ addons.mozilla.org (AMO)] to see if the developer has published an updated version.
+#'''Contact the developer:''' If no signed version exists, you can reach out to the developer and request they [https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#distributing-your-addon submit their add-on for signing].
+
+==What are my options if I want to use an unsigned add-on? (advanced users)==
+[[Template:aboutconfigwarning]]
+<!-- Firefox 52 ESR (and future ESR versions) also allows the override. Ref: https://blog.mozilla.org/addons/2016/07/29/extension-signing-availability-of-unbranded-builds/#comment-222314 and https://support.mozilla.org/en-US/questions/1210341#answer-1091394 -->
+Standard Firefox versions do not allow unsigned add-ons. However, there are special versions of Firefox that offer more flexibility:
+*Firefox [https://www.mozilla.org/firefox/organizations/ Extended Support Release (ESR)]: You can disable signing checks.
+*Firefox [https://www.mozilla.org/firefox/developer/ Developer Edition] and [https://nightly.mozilla.org/ Nightly]: You can disable signing checks here for testing.
+*Unbranded Firefox builds: These versions allow disabling signature enforcement, but they are primarily intended for developers.
+
+To change the signature enforcement preference in supported builds:
+#In the address bar, type ''about:config'' and press {key Enter}.
+#Click '''Accept the Risk and Continue'''.
+#Search for:
+#*{pref xpinstall.signatures.required} (extensions)
+#*{pref extensions.langpacks.signatures.required} (language packs)
+#Toggle the setting to {pref False}.
+
+==For developers==
+If you are an add-on developer:
+*All add-ons must be submitted for signing, even if you distribute them outside [https://addons.mozilla.org/firefox/ addons.mozilla.org (AMO)].
+*Signing ensures your add-on passes basic security checks.
+*See [https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/ Signing and distributing your add-on] and [https://extensionworkshop.com/documentation/publish/add-on-policies/ Review Policies].
+
+=User autonomy and Mozilla’s philosophy=
+We understand some users feel strongly that they should be able to install any software on their computer. Mozilla balances that autonomy with the responsibility to protect most users from harmful add-ons.
+
+While unsigned add-ons aren’t supported in release builds, advanced users and developers can still use special Firefox versions to bypass signing. This approach protects the majority of users while still leaving flexibility for those who want it.
+
+=Related articles=
+*[[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]]
+*[[Configuration Editor for Firefox]]
+*[[Update Firefox to the latest release]]

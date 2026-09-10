@@ -1,0 +1,69 @@
+This article describes steps to take if you are unable to download or save files using Firefox.
+
+{note}'''Note:''' [[Template:reset-fx]]{/note}
+
+__TOC__
+
+= Check the Downloads panel for blocked downloads =
+Firefox includes a [https://blog.mozilla.org/security/2016/08/01/enhancing-download-protection-in-firefox download protection] feature to protect you from   malicious or potentially harmful file downloads. If Firefox has blocked an unsafe download, you will see a warning message about the file in the Downloads panel, along with options for handling the pending download. You can open the Downloads panel to view completed and pending downloads by clicking on the Downloads button (the down arrow on your toolbar).  See the articles [[Where to find and manage downloaded files in Firefox]] and [[How does built-in Phishing and Malware Protection work?]] for more information. 
+
+= Clear the download history =
+Clearing the download history can fix some problems with downloading files:
+#Click the Downloads button [[Image:download icon 57]], and then click {menu Show all downloads}. The [[Where to find and manage downloaded files in Firefox|Downloads window]] will open.
+#In the Downloads window, click {button Clear Downloads}. 
+#Close the Downloads window.
+
+= Choose a different download folder =
+Firefox may not be able to download files if there is a problem with the folder in which downloaded files are saved:
+# [[T:optionspreferences]]
+# Select the {for not fx152}{menu General}{/for}{for fx152}{menu Downloads}{/for} panel.
+# Find the '''Downloads''' section {for not fx152}under{/for}{for fx152}above{/for} ''Files and Applications''.
+# Click the {for win,linux}{for not fx152}{button Browse}{/for}{for fx152}{button Choose}{/for}{/for}{for mac} {button Choose}{/for}button next to the '''Save files to''' section.
+#  Choose a different download folder for saving files. 
+# [[T:closeOptionsPreferences]]
+
+= Reset the download folder =
+If you have tried the above suggestions, you can restore the default Firefox download folder settings:
+[[Template:aboutconfigwarning]]
+# [[T:aboutconfig]]
+# In the Search field, enter '''browser.download'''.
+# If any of the following settings are in bold text, reset their values. To reset a value, click the ''Delete'' [[Image:Fx71aboutconfig-DeleteButton]] or ''Reset'' [[Image:Fx71aboutconfig-ResetButton]] button, depending on the preference:
+#* {pref browser.download.dir}
+#* {pref browser.download.downloadDir}
+#* {pref browser.download.folderList}
+#* {pref browser.download.lastDir}
+#* {pref browser.download.useDownloadDir}
+# If desired, you can revert back to your preferred download folder settings in your Firefox [[T:optionsorpreferences]] {menu General} panel, in the  '''Downloads''' section under ''Files and Applications''.
+
+{for mac}
+= Choose a valid download folder in Safari Preferences =
+<!--https://bugzilla.mozilla.org/show_bug.cgi?id=311292-->
+If you receive the error ''<filename> could not be saved, because an unknown error occurred. '', your problem might be caused by an interaction with the Safari browser and your operating system.
+
+To fix the problem, open Safari's Preferences and change the '''Save downloaded files to:''' setting to a valid folder (such as your Desktop). Then restart Firefox.
+
+= Delete corrupt plist file =
+<!--http://support.mozilla.com/tiki-view_forum_thread.php?comments_parentId=2596&topics_offset=7&topics_sort_mode=lastPost_desc&forumId=1-->
+If you receive the error ''<filename> could not be saved, because you cannot change the contents of that folder. Change the folder properties and try again, or try saving in a different location.'', your problem might be caused by corrupt ''plist'' files.
+
+To fix this problem, go to your home directory and delete this preference file:
+* {filepath ~/Library/Preferences/'''com.apple.internetconfig.plist'''}
+
+<!--See [http://www.macfixit.com/article.php?story=20060606082246983 this] for more information about corrupt .plist files.-->
+{/for}
+
+= Change file type settings =
+If downloading certain file types does not work, check to make sure Firefox is not set to handle those file types differently from others. See [[Manage file types and download actions in Firefox]] for instructions on how to view and change how different file types are handled.
+
+= Configure Internet security software =
+Internet security software, including [[Configure firewalls so that Firefox can access the Internet|firewalls]], antivirus programs, anti-spyware programs, and others can block certain file downloads. Check the settings in your security software to see if there is a setting that may be blocking downloads.
+
+To diagnose whether Internet security software is causing problems, you can try temporarily disabling it, seeing if downloads work, and then re-enabling the software.
+
+= Other solutions =
+You may be able to diagnose your download problem by following the steps given in the [[Troubleshoot and diagnose Firefox problems]] article.
+
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Unable_to_save_or_download_files Unable to save or download files (mozillaZine KB)]'''''

@@ -1,0 +1,23 @@
+<!-- Localization note: We’re working with an external agency to localize this article into selected locales. Please check the localization status before starting work to help avoid duplicated effort. -->Launch-at-login is a Firefox feature on Windows that sets Firefox to automatically open whenever you start or restart your Windows computer. 
+
+It’s been [[Open Firefox automatically when you start your computer|available to Windows users since Firefox 120]], became the default experience for new users in Firefox 151, and is gradually rolling out to existing users on some channels and configurations. 
+
+Launch-at-login keeps Firefox visible and easy to access. We make the setting simple to understand and easy to control. The first time Firefox automatically launches, you’ll see this message:
+
+[[Image:launchatloginfirefoxforwindows]]
+
+__TOC__
+
+=Why launch Firefox at Windows startup=
+
+Once Firefox is installed, it is easy to lose track of it. System restarts, OS updates, and everyday friction persistently nudge people toward the default system browser, even when they've deliberately chosen otherwise.
+
+On Windows, a lot of that friction comes from Microsoft itself: tactics like those documented in [https://research.mozilla.org/browser-competition/over-the-edge-2/ Over the Edge 2.0] make it hard to use anything other than Edge. Over time, that can pull people away from a browser they'd otherwise keep using, including Firefox. 
+
+Launch-at-login is a small counterweight to that: it keeps Firefox visible, so the browser is easy to remember and return to.
+
+=Getting the design right=
+
+Firefox is built on the principle of user control. Rather than enabling the feature without telling you, or interrupting you to ask you to make a decision, Firefox demonstrates launch-at-login functionality the first time it happens. We then give you clear and non-intrusive controls that make it easy to change the behavior for future launches. The controls appear across the top of every tab to make sure you see them.
+
+You can turn the feature off with a single click from the infobar, or change your preference at any time in [[Open Firefox automatically when you start your computer|Firefox settings]].

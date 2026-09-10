@@ -1,0 +1,11 @@
+You may find that some webpages do not work correctly in [[Find what version of Firefox you are using|Firefox version]] 100. This is due to the website not updating to accommodate version numbers with three characters.
+
+If this impacts a website that you use often, there is a temporary workaround:
+[[Template:aboutconfigwarning]]
+# [[T:aboutconfig]]
+# Search for the {pref network.http.useragent.forceVersion} preference.
+# Select the [[Image:Fx71aboutconfig-EditButton]] button next to the preference and set its value to {pref 99}.
+# Select [[Image:Fx71aboutconfig-Checkmark]] to save the change.
+# Restart Firefox.
+
+To help Mozilla identify the websites where this issue is occurring, it would be appreciated if you could complete [https://webcompat.com/issues/new this form].

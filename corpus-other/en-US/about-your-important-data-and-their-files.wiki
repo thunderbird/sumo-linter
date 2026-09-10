@@ -1,0 +1,51 @@
+Check out the table below to understand your Firefox data within your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]], what it means, and where you can read more information. {note}'''Note:''' This is not a complete list. It contains important files you may wish to back up or [[Restore bookmarks, passwords, and data from an old Firefox profile|restore from another profile]].{/note}
+
+<!-- If file names are updated for a new Firefox version, also review the https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data#w_what-information-is-stored-in-my-profile and update, if necessary. -->
+
+{|
+!File
+!File type
+!Definition
+!More details
+|-
+|places.sqlite
+|Bookmarks, downloads, and browsing history
+|It contains all your Firefox bookmarks and lists of files you have downloaded and of websites you have previously visited.
+|[[Bookmarks in Firefox]]
+|-
+|favicons.sqlite
+|Bookmarks, downloads, and browsing history
+|It stores website favicon images. Use it when recovering the places.sqlite file.
+|[[Bookmarks in Firefox]]
+|-
+|key4.db
+|Passwords
+|It stores your key database for your passwords. To transfer saved passwords, you must copy this file along with the following file.
+|[[Password Manager - Remember, delete and edit logins and passwords in Firefox]]
+|-
+|logins.json
+|Passwords
+|Encrypted information about your saved usernames and passwords.
+|[[Password Manager - Remember, delete and edit logins and passwords in Firefox]]
+|-
+|persdict.dat
+|Personal dictionary
+|It stores any custom words you have added to Firefox's dictionary. If you have never added a custom word to the Firefox dictionary, then you will not have this file. 
+|[[How do I use the Firefox spell checker?]]
+|-
+|formhistory.sqlite
+|Autocomplete history
+|It remembers what you have searched for in the Firefox search bar and what information you have entered into forms on websites.
+|[[Control whether Firefox automatically fills in forms]]
+|-
+|cookies.sqlite
+|Cookies
+|Cookies are used by websites for a variety of reasons, some of which include keeping you logged in to a website you have previously logged in to, remembering any preferences a website has allowed you to set, authenticating you as a person who has visited a specific website before, etc.
+|[[Cookies - Information that websites store on your computer]]
+|}
+
+The above list includes only essential files you may wish to copy to a new Firefox profile. See [[Restore bookmarks, passwords and data from an old Firefox profile]] for details on how to transfer this data. 
+
+Profile data that may cause problems if transferred, such as user preferences or Firefox extensions, are not listed. To learn more about other data stored in your Firefox profile, see [[Profiles - Where Firefox stores your bookmarks, passwords and other user data]].
+
+''Based on information from [http://kb.mozillazine.org/Transferring_data_to_a_new_profile_-_Firefox Transferring data to a new profile - Firefox (mozillaZine KB)]''

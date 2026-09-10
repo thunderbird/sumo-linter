@@ -1,0 +1,83 @@
+When Firefox shows a a “Warning: Unresponsive script” prompt that says “''A script on this page may be busy, or it may have stopped responding. You can stop the script now, or you can continue to see if the script will complete.''”, it means a webpage (or sometimes an extension) is running a script that’s taking too long to complete. This can cause Firefox to slow down, freeze, or stop responding.
+
+This article explains what causes the warning, what it looks like, and gives you detailed step-by-step solutions, including how to change script timeout settings and how to troubleshoot software conflicts.
+
+__TOC__
+
+=Why this warning appears=
+Firefox uses scripts to help load web content, run interactive elements, and power browser features. If a script takes too long to finish, Firefox pauses it to prevent your browser from freezing entirely.
+
+Possible causes include:
+*A poorly coded or overloaded webpage (e.g., heavy ads, infinite loops).
+*An outdated or incompatible extension.
+*A software conflict (e.g., antivirus or ad blocker interfering with page scripts).
+*A Firefox setting that limits how long scripts can run.
+
+=What to do when you see the warning=
+==Option 1: Let the script continue (briefly)==
+If you don’t see the warning again after clicking {button Continue}, the script may just need a few extra seconds to finish.
+
+But if the warning keeps returning or Firefox becomes unresponsive, continue with the steps below.
+
+==Option 2: Block scripts on specific websites==
+If the error only happens on one site, that site is likely causing the issue. You can use an extension to block scripts from running on specific domains:
+# Install the [https://addons.mozilla.org/firefox/addon/javascript-toggler JavaScript Toggle On and Off] extension.
+# [[T:Open Add-ons|type=Extensions]]
+# Find the ''JavaScript Toggle On and Off'' entry and click the {for win}{button Options}{/for}{for mac,linux}{button Preferences}{/for} button.
+# Scroll down to the '''Black-list''' text box and enter the URL of the site that's giving you problems.
+# Click {button Save}. The domain name of the site will be added to the list.
+Now that the problematic site has been blocked from running scripts, it will no longer cause unresponsive script warnings.
+
+==Option 3: Check for conflicting software==
+Some antivirus tools or privacy extensions may block or interfere with scripts. Common examples reported by users:
+{|
+|+
+!Software/Tool!!Reported Issue!!Suggested Action
+|-
+|Malwarebytes||Flags or blocks safe scripts||Add Firefox to exclusions
+|-
+|AdBlock / uBlock||Prevents scripts from loading||Temporarily disable to test
+|-
+|Script-blocking extensions||Aggressively blocks page elements||Review filter lists
+|}
+
+===Troubleshooting===
+#Restart Firefox in Troubleshoot Mode:
+#*Click the menu button > {button Help} > {button Troubleshoot Mode…}.
+#*Click Restart in the confirmation dialog.
+#Test the site again.
+#If the error doesn’t appear, one of your extensions or software tools may be causing the problem.
+
+==Option 4: Increase script run time (Advanced)==
+[[Template:aboutconfigwarning]]
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref dom.max_script_run_time}.
+# Click the ''Edit'' [[Image:Fx71aboutconfig-EditButton]] button and enter {pref 20}.
+# Press the checkmark [[Image:Fx71aboutconfig-Checkmark]] button to save the preference.
+If you still receive the prompt (or if you want to see it again), you should set that preference back to the default value.
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref dom.max_script_run_time}.
+# Click the ''Reset'' [[Image:Fx71aboutconfig-ResetButton]] button.
+
+=Still having issues?=
+If none of the above fixes help, try these:
+*Refresh Firefox to restore default settings
+**See: [[Refresh Firefox - reset add-ons and settings]]
+*Switch to another browser temporarily to access the problematic site
+*Report the site to Mozilla using the Report Broken Site feature in the Firefox menu
+
+=Important notes=
+*Firefox may show this warning even when the issue isn’t caused by your system.
+*If your browser is crashing, running slow, or freezing beyond just script errors, you may be facing a product issue, not a documentation issue. We recommend:
+**Visiting [https://support.mozilla.org/en-US/questions/ Mozilla Support Forums]
+**Submitting feedback via [https://connect.mozilla.org/ Mozilla Connect]
+
+=Related articles=
+*[[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]]
+*[[Firefox hangs or is not responding - How to fix]]
+*[[Configuration Editor for Firefox]]
+*[[Refresh Firefox - reset add-ons and settings]]
+
+<!-- MZ credit -->
+<br> <br>
+'''''Based on information from [http://kb.mozillazine.org/Unresponsive_Script_Warning Unresponsive Script Warning (mozillaZine KB)]'''''

@@ -1,0 +1,15 @@
+If Firefox starts up without your bookmarks, passwords, saved tabs and other settings, check whether your data is available in a different [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]]. This can happen because Firefox creates a [[Dedicated profiles per Firefox installation|dedicated profile for each installation of Firefox]].
+
+To recover your Firefox data and settings from another profile:
+
+Type '''about:profiles''' into the Firefox address bar and press the {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} key. This will open the ''About Profiles'' page.<br>{for win}[[Image:Fx96aboutprofiles-Win]]{/for}{for mac}[[Image:about:profiles macOS]] {/for}{for linux}[[Image:Fx52_about-profiles-linux]]{/for}
+
+This page should list at least one profile and could list many. The profile that Firefox is currently using will have this under the profile name: '''This is the profile in use and it cannot be deleted.'''
+{warning}'''Warning:''' Please do not delete any profiles. Don't use any ''Remove'' buttons.{/warning}
+If you have another profile listed on this page, it may contain your missing profile data. You can click the {button Launch profile in new browser} button to open another Firefox window using that profile. If the other profile doesn't contain your missing data, simply close that new window. If it does contain the missing data, you can set it as the profile that Firefox will open by default. Click the {button Set as default profile} button for that profile, and Firefox will use it automatically the next time you open Firefox.
+
+{note}'''Note:''' A profile may be missing from the about:profiles page because Firefox has lost track of it, even though the profile folder still exists.  To check whether this is the case, you can open the default profile folder location on your computer using these instructions: [[Profiles - Where Firefox stores your bookmarks, passwords and other user data#w_finding-your-profile-without-opening-firefox|Finding your profile without opening Firefox]]. You can also [[Profile Manager - Create, remove or switch Firefox profiles#w_create-a-profile|create a new profile]] using the {button Choose Folder} option in the ''Create Profile Wizard'' to select that profile folder, to recover the data it contains.{/note}
+
+If you can't recover your missing data this way, you may be able to manually recover data from another profile. See the [[Restore bookmarks, passwords and data from an old Firefox profile]] article for details.
+
+For more information about managing Firefox profiles, see the [[Manage Firefox profiles]] and [[Profile Manager - Create, remove, or switch Firefox profiles]] articles.

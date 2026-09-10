@@ -1,0 +1,178 @@
+Enhanced Tracking Protection in Firefox automatically protects your privacy as you browse. It blocks many types of hidden scripts and trackers that follow you around online to collect information about your browsing habits and interests [[SmartBlock for Enhanced Tracking Protection|without breaking site functionality]]. It also includes protections against harmful scripts, such as malware that drains your battery.
+
+__TOC__
+
+=Protections Dashboard=
+To see what’s been blocked on all sites over the past week, visit your Protections Dashboard. {for not fx149}Click the shield [[Image:Fx89ShieldIcon]] to the left of the address bar and select {menu Protections Dashboard} or type{/for}{for fx149}Type{/for} '''about:protections''' into the address bar. This will open the ''Protections Dashboard'' page in a new tab.
+
+=What Enhanced Tracking Protection blocks=
+Firefox relies on a list of known trackers provided by [https://disconnect.me/trackerprotection Disconnect]. By default, Firefox blocks these types of trackers and scripts:
+*Social media trackers
+*Cross-site tracking cookies
+*Fingerprinters
+*Cryptominers
+*Tracking content: These trackers are hidden in ads, videos and other in-page content. In '''Standard''' mode, tracking content is blocked only in [[Private Browsing - Use Firefox without saving history|Private Windows]]. To add this protection to all windows, visit your privacy preferences and select '''Strict''' or '''Custom''' as [[#w_adjust-your-global-enhanced-tracking-protection-settings|explained below]].
+{note}'''Note:''' [https://blog.mozilla.org/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/ Total Cookie Protection] is enabled by default in Standard mode. This confines every cookie to the website where it was created and prevents cookies from tracking you across sites (to learn more, see [[Introducing Total Cookie Protection in Standard Mode]]). [[#w_strict-enhanced-tracking-protection|Strict Mode]] also includes [https://blog.mozilla.org/security/2021/08/10/firefox-91-introduces-enhanced-cookie-clearing/ Enhanced Cookie Clearing], which allows users to clear third-party cookies more effectively.{/note}
+To learn more about trackers and scripts blocked by Firefox, see [[Trackers and scripts Firefox blocks in Enhanced Tracking Protection]], [[Third-party trackers]] and [[SmartBlock for Enhanced Tracking Protection]].
+
+=Bounce Tracking Protection=
+Bounce Tracking Protection is a feature in Enhanced Tracking Protection (ETP) [[Enhanced Tracking Protection in Firefox for desktop#w_strict-enhanced-tracking-protection|strict mode]] that prevents redirect trackers (bounce trackers) from collecting data as you navigate between websites. These trackers redirect you through intermediate URLs to gather information about your browsing habits.
+
+How it works:
+*Firefox automatically detects and classifies bounce trackers.
+*Cookies and storage associated with these trackers are cleared if no user interaction occurs within a designated time.
+Bounce Tracking Protection effortlessly enhances your privacy, operating in the background when ETP is set to strict mode. For technical details, visit the [https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/bounce-tracking-protection/index.html Mozilla Source Docs].
+
+=How to tell when Firefox is protecting you=
+{for not fx154}
+The shield to the left of the address bar tells you if Firefox is blocking trackers and scripts on a site.
+;{for not fx149}[[Image:Fx130Shield-Addressbar]]{/for}{for fx149}[[Image:Fx149UnifiedTrustAddressbar-Secure]]{/for}
+*{for not fx149}[[Image:Fx91ShieldIcon-Blue]]{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-Secure]]{/for} '''Blocking:''' Firefox '''blocked''' trackers and harmful scripts on a site. Open the shield to see what was blocked.{for fx149}The icon also means Enhanced Tracking Protection is turned on on a site.{/for}
+{for not fx149}
+*[[Image:Fx89ShieldIcon]] '''Active:''' Enhanced Tracking Protection is turned '''on''' on a site, but Firefox '''didn't block''' any trackers or scripts.
+{/for}
+*{for not fx149}[[Image:Fx91shield-ETPoff]]{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-ETPoff]]{/for} '''Inactive:''' Enhanced Tracking Protection is turned '''off''' on a site. Open the shield and toggle the switch to turn it back on.
+{/for}
+{for fx154}
+The shield icon to the left of the address bar shows when Firefox is protecting you from trackers and other harmful content.
+*[[Image:Fx149UnifiedTrustIcon-Secure]] '''Blocking:''' Enhanced Tracking Protection is turned on for the site. If the shield icon appears without a number, Firefox didn't find any trackers to block. If a number appears next to the shield, Firefox found and blocked trackers. The number shows how many trackers were blocked on the page. Select the shield icon to see more details in the Privacy Panel.
+*[[Image:Fx149UnifiedTrustIcon-ETPoff]] '''Inactive:''' Enhanced Tracking Protection is turned '''off''' on a site. Open the shield and toggle the switch to turn it back on.
+
+==Shield animation feature==
+[[Template:progressiverollout]]
+The first time you visit a website during a browsing session, if Firefox blocks trackers on that site, the shield icon briefly animates and expands to show the number of trackers blocked. When the animation ends, the shield returns to its normal size and the number of blocked trackers remains visible next to it.
+;[[Image:fx154blockedtrackers]]
+The animation appears only once per website during each browsing session. If you visit the website again during the same session, you'll see the shield icon with the number of trackers blocked, but the animation won't appear again.
+;[[Image:fx154blockedtrackersaddressbar]]
+You can select the shield icon at any time to open the Privacy Panel and see more information about the trackers Firefox blocked. The number shown next to the shield matches the number of blocked trackers shown in the Privacy Panel.
+
+If you prefer not to see the animation, you can turn it off:
+#[[T:optionspreferences]]
+#Select {menu Privacy and security} on the left.
+#Under the ''Enhanced Tracking Protection'' section, clear the checkbox next to '''Show trackers blocked in address bar'''.
+#;[[Image:Fx155beta-ETPsettings]]
+{note}'''Note:''' Turning off '''Show trackers blocked in address bar''' disables the shield animation and hides the blocked tracker count next to the shield. Enhanced Tracking Protection will continue to block trackers, and you can still select the shield icon to see the number of trackers blocked in the Privacy Panel.{/note}
+{/for}
+
+=How to tell what’s being blocked on a site=
+{for not fx149}
+Click the shield icon to see what Firefox has blocked.
+;[[Image:Fx148ProtectionsForSite|width=400]]
+{/for}
+{for fx149}
+#Click the shield icon to access the Unified Trust panel.
+#;{for not fx154}[[Image:Fx149UnifiedTrustPanel|width=400]]{/for}{for fx154}[[Image:fx154trackersblockedfirefox|width=400]]{/for}
+#Click the {button See All} button to see what Firefox has blocked.
+#;[[Image:Fx149TrackingProtection|width=400]]
+{/for}
+This panel will display different information depending on the site you’re on.
+*'''Blocked:''' Firefox blocked these trackers and scripts. Select each one to see a detailed list.
+*'''Allowed:''' These are the trackers and scripts that were allowed to load on the page. This happens because some websites may require loading trackers and scripts to function properly. Firefox only allows trackers and scripts needed for the site to work and blocks the rest. For more information, visit [[SmartBlock for Enhanced Tracking Protection]].
+*'''None Detected:''' Firefox looked for these trackers and scripts, but did not find them on this site.
+{for not fx149}
+*Select {menu Protection settings} to adjust your global privacy settings.
+*Select {menu Protections dashboard} to view a personalized summary of your protections over the past week, including tools to take control of your online security.
+{/for}
+
+=What to do if a site seems broken=
+If a site seems broken, disabling Enhanced Tracking Protection might fix the issue by allowing trackers on just that site. Enhanced Tracking Protection will still prevent trackers on other sites. To disable it:
+#Visit the website.
+#At the left of the address bar, click the {for not fx149}[[Image:Fx89ShieldIcon|width=30]]{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-Secure]]{/for} shield icon.
+#At {for not fx149}the top{/for}{for fx149}the bottom{/for} of the panel, toggle off the Enhanced Tracking Protection switch [[Image:Fx91ETPbluetoggle|width=40]]. The site will be added to your Enhanced Tracking Protection exception list, allowing trackers on it, and the page will reload automatically.
+#;{for not fx149}[[Image:Fx138ProtectionPanelOff]]{/for}{for fx149}[[Image:enhancedprotection149]]{/for}
+Follow the same process to turn Enhanced Tracking Protection back on. The site will be removed from the exception list, and the page will reload automatically.
+{note}You may encounter breakage on some sites when you’re in '''Strict''' Enhanced Tracking Protection. This is because trackers are hidden in some content. For example, a website might embed an outside video or social media post that contains trackers. To block the trackers, Firefox must also block the content itself. Trackers are often hidden in the following types of content:
+*Login fields
+*Forms
+*Payments
+*Comments
+*Videos
+{/note}
+
+==Report a broken site==
+If disabling Enhanced Tracking Protection resolves issues with a broken site, consider submitting a ''Broken Site'' report to the Webcompat team. To do so:
+#Open the ''Report broken site'' panel.
+#*[[Template:fx29menu]] Then, select {menu Report broken site}.{for not fx149}<br>Alternatively, click the [[Image:Fx89ShieldIcon]] shield icon at the left of the address bar and select {menu Report broken site}.{/for}
+#The URL field will show up with the current tab URL; you can change it if you wish.
+#Pick an option from the ''What's broken'' dropdown.
+#Optionally, add a short description of the issue.
+#;{for not fx149}[[Image:Fx123-Report broken site panel]]{/for}{for fx149}[[Image:Fx150ReportBrokenSite]]{/for}
+#To submit your report, click the {button Send} button.
+#A success message will confirm your submission. To conclude, click {button Okay}.
+#;{for not fx149}[[Image:Fx123-Report broken site panel Success message Okay]]{/for}{for fx149}[[Image:Fx150ReportBrokenSite-Success]]{/for}
+{note}
+*The reporting tool will not work on a new tab or ''about:'' Firefox page.
+*For Nightly and Beta channel users: You can send a detailed report using the '''Send more info''' link, located at the lower end of the ''Report a broken site'' panel.
+{/note}
+For more information, see [[How do I report a broken site in Firefox desktop?]]
+
+=Adjust your global Enhanced Tracking Protection settings=
+When you download Firefox, all protections included in '''Standard''' Enhanced Tracking Protection are already enabled.
+
+To view or change your Enhanced Tracking Protection settings for all sites, follow the steps below.
+#On the left side of your address bar on any website, click the shield {for not fx149}[[Image:Fx91ShieldIcon-Blue]]{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-Secure]]{/for} icon.
+#Select {for not fx149}{menu Protection Settings}{/for}{for fx149}{menu Privacy Settings}{/for}.
+#;{for not fx149}[[Image:Protection settings|width=350]]{/for}
+#This will open the Settings {for not fx152}''Privacy & Security''{/for}{for fx152}''Privacy and security''{/for} page in a new tab and show you the '''Enhanced Tracking Protection''' settings.{for fx152}<br>[[Image:Fx152settings-EnhancedTrackingProtection]]<br><br>To change settings, click {menu Advanced settings}.{/for}
+#;{for not fx152}[[Image:Standard ETP]]{/for}{for fx152}[[Image:Fx152settings-EnhancedTrackingProtectionAdvanced]]{/for}
+{note}'''Tip:''' These settings are also available from the Firefox menu:<br>[[Template:optionspreferences]] Then select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for}.{/note}
+
+==Standard Enhanced Tracking Protection==
+By default, Firefox blocks the following on all sites:
+*Social media trackers
+*Cross-site tracking cookies (other third-party cookies are isolated)
+*Tracking content in [[Private Browsing - Use Firefox without saving history|Private Windows]] only
+*Cryptominers
+*Fingerprinters
+
+==Strict Enhanced Tracking Protection==
+To further increase privacy, select '''Strict''' Enhanced Tracking Protection. This will block the following:
+*Social media trackers
+*All cross-site cookies
+*Tracking content in all windows
+*Cryptominers
+*Fingerprinters
+To select this setup for your Enhanced Tracking Protection settings, follow these steps:
+<!--This setting makes pages load faster, but may break some buttons, forms and login fields.-->
+#Click the shield {for not fx149}[[Image:Fx89ShieldIcon]]{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-Secure|width=25]]{/for} to the left of the address bar on any webpage.
+#Click {for not fx149}{menu Protection Settings}{/for}{for fx149}{menu Privacy Settings}{/for}.
+#*The Firefox [[T:optionsorpreferences]] {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} page will open.
+#Under ''Enhanced Tracking Protection'', {for fx152}click {menu Advanced settings} and {/for}select '''Strict'''.
+#Select the [[Image:reload all tabs retina|width=150]]<!--{button Reload All Tabs}--> button to apply your new privacy settings.
+<!--If something’s broken or not working when you use the Strict setting, you can [[#w_what-to-do-if-a-site-seems-broken|use the toggle switch in the shield panel]] (see above) to temporarily turn off protections on individual websites.-->
+
+==Custom Enhanced Tracking Protection==
+Want to block some trackers and scripts, but not others? Use '''Custom''' Enhanced Tracking Protection.
+#Click the shield {for not fx149}[[Image:Fx89ShieldIcon]]{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-Secure|width=25]]{/for} to the left of the address bar on any webpage.
+#Click {for not fx149}{menu Protection Settings}{/for}{for fx149}{menu Privacy Settings}{/for}.
+#*The Firefox [[T:optionsorpreferences]] {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} page will open.
+#Under ''Enhanced Tracking Protection'', {for fx152}click {menu Advanced settings} and {/for}select '''Custom'''.
+#Choose which trackers and scripts to block by selecting those checkboxes.
+#Select the [[Image:reload all tabs retina|width=150]]<!--{button Reload All Tabs}--> button to apply your new privacy settings.
+You can also turn off all protections in '''Custom''' by deselecting all checkboxes. This allows all trackers and scripts to load.
+
+{for fx142}
+===WebCompat exception checkboxes===
+Starting with [[Find what version of Firefox you are using|Firefox version]] 142, Firefox may allow certain trackers to load on specific websites to ensure they work properly. These are called '''WebCompat exceptions''', and you can manage them in Strict and Custom settings. To learn more, see [[Manage Enhanced Tracking Protection exceptions]].
+*In the '''Strict''' and '''Custom''' sections, select or deselect the checkboxes to adjust Web compatibility exceptions.
+*Deselecting these options will block '''all''' trackers, even on sites that may break without them.
+{note}'''Note:''' Disabling WebCompat exceptions can improve privacy, but may cause website features (like video playback or login popups) to stop working correctly.{/note}
+To apply changes, click the [[Image:reload all tabs retina|width=150]] if prompted.
+{/for}
+
+=Copy Clean Link=
+The ''Copy Clean Link'' feature is automatically enabled to safeguard users against URL-based tracking by stripping tracking parameters from any copied URL.
+
+==Copy from the address bar==
+To copy a URL from the address bar by stripping any tracking parameters it may have, do the following:
+#[[Template:contextmenu]] the URL you want to copy and select {menu Copy Clean Link}.
+#Paste the clean URL from the clipboard.
+#;[[Image:Copy Clean Link address bar|width=500]]
+
+==Copy from in-page links==
+To copy URLs from in-page links by stripping any tracking parameters they may have, do the following:
+#[[Template:contextmenu]] the URL you want to copy and select {menu Copy Clean Link}.
+#Paste the clean URL from the clipboard.
+
+=Related articles=
+*[[How do I report a broken site in Firefox desktop?]]

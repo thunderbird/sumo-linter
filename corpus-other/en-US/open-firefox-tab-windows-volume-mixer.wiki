@@ -1,0 +1,13 @@
+{for mac, linux}{warning}This article applies to Windows only.{/warning}{/for}
+
+If your Windows volume mixer has a slider for each open Firefox tab, this is a [https://bugzilla.mozilla.org/show_bug.cgi?id=1430907 bug] related to multiprocess (E10s) that will be fixed in [[Find what version of Firefox you are using|Firefox version]] 76.
+
+In the meantime, in Firefox versions previous to 76, you can set the number of Firefox processes to "1" to resolve the issue:
+
+{warning}Setting the number of processes to ''1'' effectively turns off the multiprocess feature, which may significantly affect Firefox's performance.{/warning}
+
+#[[Template:optionspreferences]]
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Tabs and browsing}{/for} page, scroll down to ''Performance''.
+#Remove the check mark next to ''Use recommended performance settings''.
+#Choose '''1''' in the drop-down menu for ''Content process limit''.
+#;{for not fx152}[[Image:set e10s to 1]]{/for}{for fx152}[[Image:fx152performance]]{/for}

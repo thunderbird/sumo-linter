@@ -1,0 +1,7 @@
+You can now change your extensions' keyboard shortcuts on the add-ons page.
+
+#[[Template:Open Add-ons|type=Extensions]]
+#Click the ''Tools for all add-ons'' cogwheel.
+#;{for not fx140}[[Image:manage extensions]]{/for}{for fx140}[[Image:manageyourextensions]]{/for}
+#Click {menu Manage Extension Shortcuts} in the menu.
+#You will see the shortcut options (if available) for your installed add-ons.

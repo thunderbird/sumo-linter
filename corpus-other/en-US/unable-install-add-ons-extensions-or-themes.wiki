@@ -1,0 +1,60 @@
+An inability to install an extension can be the result of problems with the extension, Firefox preferences, or the version of Firefox you are using. This article describes various causes of install problems and what you can do to address them.
+
+__TOC__
+
+= Add-on is not compatible =
+An internal file in each add-on indicates the range of Firefox versions with which the extension is compatible. In the [https://addons.mozilla.org/ Firefox Add-ons] area of Mozilla, you can review version compatibility information on the page for each available extension.
+
+If your installed version of Firefox does not fit within that range, installing the add-on results in an error, indicating that the add-on is not compatible. If your version of Firefox is incompatible with the add-on, you can:
+* Update to the latest version of Firefox. For more information, see [[Update Firefox to the latest release]].
+* Find a version of the add-on that is compatible with your version of Firefox. The [https://addons.mozilla.org/ Firefox Add-ons] website usually has the most up to date version of each add-on.
+* Use a different extension. For many extensions, there are similar extensions that provide the same functionality. For more information, see [https://addons.mozilla.org/ Firefox Add-ons].
+* Contact the author of the add-on at the support site listed on its add-on page. (Note: posting a review is not effective and will not reach the author.)
+
+= Firefox has prevented this site from installing an unverified add-on =
+Firefox protects you against malware and browser hijackers by blocking third-party add-ons that are not digitally signed and verified by Mozilla. For more information, see [[Add-on signing in Firefox]].
+
+= Add-on has a high risk of causing stability or security problems and can't be installed =
+Certain add-ons have been blocklisted by Mozilla for being unsafe.  For more information, see [[Why does Mozilla disable some add-ons from running in Firefox?]].
+
+= Firefox prevented the site from asking you to install software =
+By default, Firefox permits you to install add-ons only from trusted websites. If the website from which you are installing add-on is not on the trusted websites list, a yellow bar appears across the top of the web page with a message similar to the following:
+{note}Firefox prevented this site (www.example<!-- -->.com) from asking you to install software on your computer.{/note}
+To allow the site, click {button Allow} in the yellow bar.
+
+To add the site to the trusted sites list:
+# [[T:optionspreferences]]
+# Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} on the left and go down to the ''Permissions'' section.
+# {for not fx151}At the right of ''Warn you when sites try to install add-ons'', click {button Exceptions…}{/for}{for fx151}Below ''Show warning when websites try to install extensions'', click ''Choose which websites can install extensions''{/for}.
+# In the '''Allowed Websites - Add-ons Installation''' dialog, the list of permitted sites is displayed. The current site URL is inserted into the text field. 
+# To allow the site, click {button Allow}. Then, click {button Save Changes}.
+#[[T:closeOptionsPreferences]]
+
+= You are asked to download the add-on, rather than installing it =
+Some websites serve add-ons as downloads, requiring you to download the file to your computer, before installing it. 
+* These files are usually {filepath [http://en.wikipedia.org/wiki/XPInstall .xpi]} or {filepath [http://en.wikipedia.org/wiki/JAR_%28file_format%29 .jar]} files. 
+# Download the file to your local computer.
+#[[T:Open Add-ons|type=Extensions]]
+# To add the downloaded add-on to the list of available add-ons, drag and drop the file into the Add-ons window. The add-on is added to the list.
+#  The installation process should begin.
+
+= Nothing happens when you click the install link =
+If you click an install link and nothing happens, you should verify that JavaScript is enabled. For more information, see [[JavaScript settings and preferences for interactive web pages]].
+
+= Corrupt extension files =
+Corrupt extension configuration files can cause problems when trying to install an extension. Deleting these files will make Firefox recreate them (removing any corruption) the next time it starts. You won't lose your extensions or their settings by deleting these files.
+# [[T:profileFolder]]
+# [[T:closeFirefox]]
+# Delete the following files:
+#* {filepath extensions.sqlite}
+#* {filepath extensions.sqlite-journal} (if found) 
+#* {filepath extensions.ini}
+#* {filepath extensions.json}
+# Restart Firefox.
+
+= Conflict with other extensions =
+Another installed extension may interfere with the installation of new extensions. Install the new extension in Firefox [[Troubleshoot Firefox issues using Safe Mode|Troubleshoot Mode]] as a workaround. 
+
+<!-- MZ credit -->
+<br><br>
+'''''Based on information from [http://kb.mozillazine.org/Unable_to_install_themes_or_extensions_-_Firefox Unable to install themes or extensions - Firefox (mozillaZine KB)]'''''

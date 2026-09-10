@@ -1,0 +1,53 @@
+As you browse the Web, Firefox remembers lots of information for you – sites you've visited, files you've downloaded and more. All of this information is called your history. However, if you are using a public computer or share a computer with someone, you may not want others to see these kinds of things.
+
+This article explains what information is stored in your Firefox history and gives you step-by-step ways to clear all or part of it.
+* To temporarily stop Firefox from storing history, see [[Private Browsing - Use Firefox without saving history]].
+
+__TOC__
+
+= What information is included in my history? =
+* '''Browsing & Download History''': Browsing history is the list of sites you've visited that are shown in the History menu, the Library window's History list and the [[Address bar autocomplete suggestions in Firefox|address bar autocomplete]] list. Download history is the list of files you've downloaded that are shown in the [[Where to find and manage downloaded files in Firefox|Downloads window]].
+* '''Form & Search History''': Form history includes the items you've entered into web page forms for [[Control whether Firefox automatically fills in forms|Form autocomplete]]. Search history includes items you've entered into the search field on the [[New Tab page in Firefox|New Tab page]] or into Firefox's [[Add the Search bar to your Firefox toolbar|Search bar]].
+* '''Cookies and site data''': Websites you visit can store [[Cookies - Information that websites store on your computer|cookies and other site data]] in your browser, such as login status, site preferences, or task information such as a shopping cart. Cookies can also be used by third parties to track you across sites.{for not fx135} See [[How do I turn on the Do Not Track feature?]] to learn more about tracking.{/for}
+* '''Active Logins''': If you entered a username and password for a site that uses [https://developer.mozilla.org/docs/Web/HTTP/Authentication#basic_authentication_scheme HTTP basic authentication scheme] since you last opened Firefox, that login is considered “active”. Clearing this will log you out of all sites that use this authentication method. It will not log you out of websites that use cookies to store login status.<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=540516#c1 https://support.mozilla.org/en-US/questions/1362921#answer-1470984 https://support.mozilla.org/en-US/questions/960425 -->
+* '''Cache''': The cache stores temporary files, such as web pages and other online media, that Firefox downloaded from the Internet to speed up loading of pages and sites you've already seen. For more information, see [[How to clear the Firefox cache]].
+* '''Offline Website Data''': If you've allowed it, a website can store files on your computer so that you can continue to use it when you are not connected to the Internet. To learn more, see [[Manage local site storage settings]].
+* '''Site Preferences''': Site-specific preferences, including the saved [[Font size and zoom - increase the size of web pages|zoom]] level for sites, character encoding, and site permissions (like pop-up blocker exceptions) described in the [[Firefox Page Info window#w_permissions|Firefox Page Info window]] article.
+
+= How do I clear my history? =
+# [[Template:fx29menu]]
+# Click {menu History} and select {menu Clear Recent History…}
+# Select how much history you want to clear:
+#* Click the drop-down menu next to '''When:''' to choose how much of your history Firefox will clear (the last hour, the last two hours, the last four hours, the current day or everything).
+#;{for not fx148}[[Image:Delete history dialog|width=500]]{/for}{for fx148}[[Image:Fx148ClearRecentHistory]]{/for}
+#* Use the check boxes to select what information you want to clear from your history. Your choices are described in the [[#w_what-information-is-included-in-my-history|What information is included in my history?]] section above. Checking ''Cookies and site data'' clears both cookies and site data with non-persistent storage.
+# Click the {button Clear} button. The window will close and the items you've selected will be cleared from your history.
+
+= How do I make Firefox clear my history automatically? =
+If you want or need to clear your history every time you use Firefox, you can set it to happen automatically on exit, so you don’t forget.
+# [[T:optionspreferences]]
+# [[T:customhistory]]
+#;{for not fx151}{for fx148}[[Image:Fx148ClearHistoryWhenFirefoxCloses]]{/for}{/for}{for not fx148}[[Image:Fx115ClearHistoryWhenFirefoxCloses]]{/for}{/for}{for =fx151}[[Image:Fx151ClearHistoryWhenFirefoxCloses]]{/for}{for fx152}[[Image:Fx152settingsHistory-Customize]]{/for}
+# Check the box for '''Clear history when Firefox closes'''{for fx152} under Advanced settings{/for}.
+# To specify what types of history should be cleared, click the {button Settings…} button {for fx152}under{/for}{for not fx152}next to{/for} '''Clear history when Firefox closes'''.
+# In the ''Clear browsing data and cookies'' window, check the items that you want to have cleared automatically each time you quit Firefox.
+#;{for not fx148}[[Image:Fx128ClearBrowsingDataAndCookiesDialog|width=500]]{/for}{for fx148}[[Image:Fx148ClearHistoryWhenFirefoxCloses-Settings]]{/for}
+# After selecting the history to be cleared, click {button Save Changes} to close the ''Clear browsing data and cookies'' window.
+# {for not fx152}[[T:closeOptionsPreferences]]{/for}
+{note}
+'''Note:''' Under certain circumstances, this function will not run:
+* ''Firefox did not shut down normally.'' If Firefox crashes, you will need to start Firefox and exit/quit normally to ensure that this function runs.
+* ''Firefox is set to use automatic private browsing.'' History retained from regular sessions can only be cleared from a regular window. To change between regular mode and automatic private browsing, see [[Private Browsing - Use Firefox without saving history]].
+{/note}
+
+= Remove a single website from your history =
+# [[T:OpenHistoryLibrary]]
+# Search for the website you want to remove from your history by typing its name in the '''Search History''' field in the top-right corner and then pressing {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.
+# Then, in the search results, {for win,linux}right-click{/for}{for mac}hold down the {key Ctrl} key while you click{/for} on the site you want to remove, and select {menu Forget About This Site}.
+#;{for win}[[Image:fx100-ForgetThisSite|width=550]]{/for}{for mac}[[Image:Forget this website|width=600]] {/for}{for linux}[[Image:History Lin6]]{/for}
+# In the confirmation dialog that opens, click the {button Forget} button.<br><br>{warning}'''All history items (browsing and download history, cookies, cache, active logins, passwords, saved form data, exceptions for cookies, images, pop-ups) for that site will be removed.'''{/warning}
+# Finally, close the Library window.
+
+= Related articles =
+*[[Forget button - quickly delete your browsing history on Firefox]]
+*[[Clear cookies and site data in Firefox]]

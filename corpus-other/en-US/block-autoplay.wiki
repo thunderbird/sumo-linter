@@ -1,0 +1,43 @@
+By default, Firefox blocks media with sound from playing automatically. You can customize these settings to block all autoplay media, whether it's audio, video, or both, on websites. This guide shows you how to manage your autoplay preferences for a smoother, quieter browsing experience.  
+
+__TOC__
+
+=Always allow or block media autoplay=
+To always allow or block autoplay for all media with audio or video:
+#[[Template:optionspreferences]]
+#Select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} page and go down to the ''Permissions'' section<br>(or enter '''autoplay''' in the {for not fx152}''Find in [[T:optionsorpreferences]]''{/for} search box).
+#;{for not fx152}[[Image:autoplay]]{/for}{for fx152}[[Image:fx152permissionsanddata]]{/for}
+#Click the {for not fx152}{button Settings…}{/for}{for fx152} > {/for} button next to ''Autoplay''.
+#Use the ''Default for all websites'' drop-down menu to select how you want Firefox to handle media autoplay for all websites.
+#;[[Image:Fx69Permissions-BlockAutoplay]]
+#*{menu Block Audio} – Blocks autoplay for media with sound.
+#*{menu Block Audio and Video} – Blocks all media from autoplaying, even if muted.
+#*{menu Allow Audio and Video} – Allows all media to autoplay.
+#Click {button Save Changes}.
+The setting you select will apply to all media for all websites, except for specific autoplay site settings.
+
+=Site settings=
+When Firefox is actively blocking media on a website, you'll see a special icon [[Image:Fx66BlockAutoplayIcon]] in the address bar. Click that icon to open the [[Site Information panel|Site Information]] drop-down panel, where you can change the Autoplay setting for that website.
+;[[Image:Fx70Autoplay-allow-or-block]]
+{note}'''Note:''' You can also change the Autoplay setting for a website from the [[View site information with Page Info|Page Info window]] {menu Permissions} panel (uncheck ''Use Default'' under '''Autoplay''' and select a different setting).<br>[[Image:Fx70PageInfo-Permissions-Autoplay]]{/note}
+
+=Autoplay site settings list=
+Your autoplay settings list will show any website permissions you have set that do not follow your default settings. To view or manage autoplay site settings:
+#[[Template:optionspreferences]]
+#Select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} page and go down to the ''Permissions'' section<br>(or enter '''autoplay''' in the {for not fx152}''Find in [[T:optionsorpreferences]]''{/for} search box).
+#;{for not fx152}[[Image:autoplay]]{/for}{for fx152}[[Image:fx152location]]{/for}
+#Find '''Autoplay''' and click the {for not fx152}{button Settings…}{/for}{for fx152} > {/for} button.
+#;[[Image:Fx71Permissions-AutoplaySettings]]
+#;The '''Settings - Autoplay''' list will open.
+Here’s what you can do:
+*Use the ''Search Website'' field to find a specific site.
+*Click the '''Website''' or '''Status''' headers to sort the list.
+*Use the '''Status''' dropdown next to a site to change its permission.
+**If you change it back to your '''default setting''', the site will be removed from the list after you save.
+*To remove a site manually, select it and click {button Remove Website}.
+*Click {button Save Changes} to confirm.
+
+=Related articles=
+*[[Fix common audio and video issues]]
+*[[Audio and video files in Firefox]]
+*[[Mute sound in Firefox tabs]]

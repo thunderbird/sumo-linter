@@ -1,0 +1,24 @@
+Firefox shows sponsored links on the homepage to help support development while keeping the browser free and open. These are always optional, [https://www.firefox.com/user-privacy/#advertising respect your privacy], and [[Sponsors on the home page and New Tab page#w_how-to-disable-the-sponsored-shortcuts-feature|can be turned off]] at any time.
+
+To demonstrate the value of homepage placement to sponsors, and increase their contribution to Mozilla, Firefox sometimes conducts privacy-preserving ''lift studies''. These studies measure how much additional traffic these links bring to sponsors without tracking individual users. This article explains how these studies work, how they protect your privacy, and how you can control them in your browser settings.
+
+=How Firefox measures lift=
+When signing up as a sponsor, sites typically want to see evidence that placement on the homepage drives an increase in total visits. While it would be straightforward for sites to measure how many visitors arrive on their site through a sponsored link (using the [https://en.wikipedia.org/wiki/HTTP_referer HTTP referrer] or similar metadata), some of those users might have visited the site anyway (via search, navigation, bookmark, etc), even if the site wasn’t featured on the homepage. What sites really want to know is '''lift''': the total increase in traffic resulting from the sponsorship.
+
+The traditional techniques for measuring this involve invasive [https://wiki.mozilla.org/Security/Anti_tracking_policy cross-site tracking]. Firefox blocks these trackers when you browse the web, and would never permit this kind of tracking on the homepage. However, sites don’t actually need to know what any single person does in order to measure lift; they just need to be able to observe the trend across many people, which only requires aggregate data.
+
+The details may vary slightly from study to study, but the basic idea is as follows:
+*A small number of users who have both Sponsored content and Studies enabled are randomly assigned to two groups.
+**One group sees the sponsored site on the homepage.
+**The other group does not.
+*Firefox checks how often the site is visited '''locally''' on each user's device using the browsing history feature.
+*Other browsers would then send this information to their server without a second thought. However, Firefox is [https://firefox-source-docs.mozilla.org/contributing/data-collection.html#browsing-data built on the principle] that even Mozilla should never learn what you do online (this is why browsing history is end-to-end encrypted in Firefox Accounts). As such, sending the number of times you visit any site to Mozilla is strictly off-limits. Instead, Firefox uses the [https://divviup.org/about/ Distributed Aggregation Protocol (DAP)] to securely aggregate visit counts for a large group of users so that nobody - not even Mozilla - can see or infer where the specific data points came from.
+As a result of this process, '''Mozilla receives only two anonymous totals''': visits from users who saw the ad, and those who didn’t. This approach allows Mozilla to estimate lift without learning anything about individual users.
+
+=How to disable lift studies=
+Just like the sponsored content itself, lift studies are totally optional. You can disable them by either [[Sponsors on the home page and New Tab page#w_how-to-disable-the-sponsored-shortcuts-feature|disabling sponsored shortcuts]], or by [[About Studies#w_how-do-i-opt-out|disabling studies in general]].
+
+=Related Articles=
+*[[Sponsors on the home page and New Tab page]]
+*[[About Studies|Studies in Firefox]]
+*[https://www.mozilla.org/en-US/privacy/firefox/?_gl=1%2A1q5jqfw%2A_ga%2AMzU1MjI1MDIuMTc1NzY4MTI1Mw..%2A_ga_2VC139B3XV%2AczE3NjI5NzEwNDAkbzIwOSRnMSR0MTc2Mjk3NTcxNyRqMzYkbDAkaDA.#how-is-your-data-used Firefox Privacy Notice]

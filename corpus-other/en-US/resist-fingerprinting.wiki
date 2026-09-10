@@ -1,0 +1,73 @@
+When ''Resist Fingerprinting'' settings are enabled in Firefox Advanced Preferences (the [[Configuration Editor for Firefox|Configuration Editor]] ''about:config'' page), it can help prevent websites from uniquely identifying you by limiting the information they can gather about your device. While this may be ideal for those prioritizing maximum privacy, it can cause some websites to function improperly. For most users, Mozilla recommends [[Firefox's protection against fingerprinting|Fingerprinting Protection]] mode in Firefox Settings for ''Enhanced Tracking Protection'', which blocks invasive tracking methods while maintaining compatibility with most websites.
+
+[https://addons.mozilla.org/firefox/ Add-ons] can enable ''Resist Fingerprinting'' in Advanced Preferences, which means it might be active without you explicitly enabling it. You can manage the {pref privacy.resistFingerprinting} settings in the ''about:config'' page.
+
+=How to tell if you have Resist Fingerprinting enabled, and if so, disable it=
+[[Template:aboutconfigwarning]]
+To disable Resist Fingerprinting:
+#[[Template:aboutconfig]]
+#In the search bar at the top, search for {pref privacy.resistFingerprinting}.
+#A number of preferences will appear but see if either {pref privacy.resistFingerprinting} or {pref privacy.resistFingerprinting.pbMode} have a value of {pref true}.
+#To tell if an extension is controlling this preference, you can click toggle the value back to {pref false} and restart your browser. After restarting, visit ''about:config'' again, and see if the value has been returned to {pref true}.
+If it has been, you will need to determine which of your extensions is controlling the preference and disable or remove them. One way to do this is to disable the installed extensions one by one, and restart the browser, seeing if the preference is changed upon restarting Firefox. Please be aware that, in rare cases, ''multiple'' extensions might be setting the preference.
+
+[[UI:details_start]]
+==How might Resist Fingerprinting break web pages?==
+Resist Fingerprinting causes a number of strange behaviors that are commonly filed as bugs. While they do cause the website to behave strangely or incorrectly, these behaviors also mean that Resist Fingerprinting is working as intended, which is why we do not recommend this feature for the average Firefox user.
+
+It is also important to note that if {pref privacy.resistFingerprinting.pbMode} is set, but {pref privacy.resistFingerprinting} is not – you will still get certain Resist Fingerprinting behaviors on normal windows, because it is not possible to separate these behaviors per-window. This includes using fixed instead of system colors and others.
+
+The most common unexpected behaviors include:
+*Times are displayed incorrectly or more accurately – they are displayed in the wrong timezone.
+*Images, especially those created as a result of uploading/editing an image in the browser, may display random lines. For example:
+[[Image:Resist Fingerprinting image breakage]]
+*Certain animations or games may run sluggishly.
+*Pages may not be localized in the expected language and be in English instead.
+*Users of macOS or Linux may receive information or downloads intended for the Windows operating system instead.
+*Icons, maps or images may not be rendered in high fidelity, and appear blurry or low resolution.
+*Gamepads do not work.
+*Writing tablets, styluses or touchscreens do not work as expected.
+*Display preferences such as Light/Dark Mode, Reduced Animations and Reduced Transparency are not respected.
+*When new windows are opened, they are fixed to a specific size.
+*The native system colors are replaced, and fixed values are used instead.
+[[UI:details_end]]
+
+[[UI:details_start]]
+==What does Resist Fingerprinting alter?==
+Resist Fingerprinting changes a lot of browser behavior – the list below is intended to be both technical in nature and as comprehensive as possible, but still may omit things by accident.
+*When a website extracts an image from a canvas element, the returned value is random noise to prevent canvas fingerprinting. This can manifest as strange unexpected vertical lines appears as graphic artifacts.
+*The timezone is reported as UTC or Icelandic.
+*Math operations in JavaScript may report slightly different values than regular.
+*The locale is reported as en-US.
+*The only fonts available to be used by websites are those pre-installed in the Operating System. This also excludes fonts in language packs.
+*Several properties of the navigator object are fixed, including the hardware concurrency value, application version and build ID. The User Agent version is reported to be the major version (for example, 119.0 instead of 119.1).
+*Without granting any permission, only one camera and microphone are reported as media devices. Certain device errors may be reported as “not allowed” instead of “not found”. Device Change events are not reported.
+*Video and Audio Streams Labels are fixed to “Internal Camera” or “Internal Microphone”.
+*Media Capabilities are reported as being supported, smooth and not power efficient.
+*The Video Facing Mode is a fixed value.
+*The preferred sample rate for Audio is reported as 44100, and the sample rate is reported as 48000.
+*The Audio Context latency is fixed, and the number of maximum channels is reported as 2.
+*No gamepads are ever reported as present.
+*The Network Connection type is reported as “Unknown”.
+*On macOS, the OS Font Smoothing preference is not respected.
+*All Device Sensors are disabled.
+*The frame rate is locked at 60fps.
+*The precision of all reported timestamps, timers and clocks are reduced to 16.67ms (to match 60fps).
+*The Outer Window dimensions are reported to be the same as the inner window dimensions.
+*The window.screenX and screenY properties, as well as mozInnerScreenX and mozInnerScreenY, and event screen coordinates are always reported as 0,0.
+*The screen top, left, width and height, and screen available top, left, width and height are all reported the same as the window inner dimensions.
+*The Screen Pixel Depth is reported as 24.
+*The device pixel ratio is reported as 2.0.
+*The CSS Resolution is reported as the zoom level, instead of taking into account the true device pixel ratio.
+*The screen orientation is set to Landscape, as the screen angle is set to 0. OrientationChanged events are suppressed.
+*The Radius, Rotation and Force attributes of Touch Events are set to 0.
+*The Max Touch Pointers for Pointer Events is set to 0.
+*Several Pointer Event attributes, such as Tilt and Pressure, are set to constant values.
+*All pointer events are set to come from a single primary pointing device.
+*The pointer capabilities are reported to be Coarse (Android) or Fine & Hover (Desktop).
+*The key codes for Keyboard Events are modified to avoid leaking the keyboard layout.
+*The WebSpeech API does not report any available voices.
+*CSS will report the preferred color scheme as Light.
+*CSS will report preferred reduced motion as False.
+*CSS will report preferred contrast as No Preference.
+[[UI:details_end]]

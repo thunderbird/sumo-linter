@@ -1,0 +1,98 @@
+Sometimes your Firefox preference settings may not be saved after you change them. For example, you may change a preference in your Firefox settings, only to have it set back to its previous value the next time you open the Settings panel.
+
+The possible causes and solutions vary depending on whether you are unable to save a few specific preferences or if no preferences are saved at all. This article may also apply if, after updating Firefox, a '''Firefox Updated''' tab opens to a page stating ''You’ve been updated to the latest version of Firefox'' every time you start Firefox.  
+
+__TOC__
+
+=Refresh Firefox to fix the problem=
+The easiest way to solve this problem is to restore Firefox to its default state while saving your essential information. Besides resetting all preferences to default values, a Firefox refresh will also fix many other issues, including problems caused by extensions or with data and settings that are stored in other files in your Firefox [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]]. If you'd like to try a more precise fix, skip this section and try the solutions below.
+[[Template:resetnote]]
+[[Template:resetsteps]]
+
+= Specific preferences are not saving =
+If a specific setting in Firefox keeps resetting or you are unable to change a single setting but other settings save correctly, you may have one of the following issues.
+
+== Third-party programs changing Firefox settings ==
+{for win}
+Some programs force Firefox to use certain settings. Below is a list of programs known to do this and actions you can take to make them stop forcing Firefox settings:
+* Creative ZenCast changes Firefox's user agent, interfering with Java.
+**Uninstall the program. <!-- http://support.mozilla.com/tiki-view_forum_thread.php?comments_parentId=6533&&forumId=1 -->
+* McAfee Privacy Service turns Firefox's pop-up blocker off.
+**See [[Pop-up blocker settings, exceptions and troubleshooting]]. <!-- http://support.mozilla.com/tiki-view_forum_thread.php?comments_parentId=2490&topics_offset=3&topics_sort_mode=lastPost_desc&forumId=1 -->
+* Norton 360 includes a "Firefox Privacy Cleanup" feature that, if enabled, overrides your Firefox Privacy settings and prevents you from keeping your Browsing History, Cookies or other private data between sessions.
+{/for}
+Some third-party toolbars and add-ons change Firefox's home page and search settings. To reset these, see [[Manage Firefox search settings]] and [[How to set the home page]].
+*See [[Remove a toolbar that has taken over your Firefox search or home page]] for more information.
+
+== User.js file overriding Firefox settings ==
+{for win}If you don't have any of the above programs installed, or if{/for}{for mac,linux}If{/for} you followed the suggestions and certain settings change back each time you start Firefox, you may have to edit Firefox's configuration files yourself. Don't panic, it's pretty easy. Here's how to do it.
+
+# [[T:profileFolder]]
+# [[T:closeFirefox]]
+# Open the file {filepath user.js} with a text editor (like {for win}Notepad{/for}{for linux}Gedit, Leafpad, or Kate{/for}{for mac}TextEdit{/for}).
+#*If there is no {filepath user.js} file, these steps won't help you.
+# Remove the lines for the user preferences you want to be able to change. You can delete all the lines if you want to be able to change everything.
+# Save the file and close the text editor.
+
+You should now be able to change your Firefox settings. 
+
+== Firefox program file locks or prevents changes to certain settings ==
+Your installation of Firefox may have been customized to add a program configuration file that locks certain settings or prevents certain changes from being saved.  Follow the '''Reinstall Firefox''' step in the [[Troubleshoot and diagnose Firefox problems]] article to remove the Firefox program from your computer and then reinstall a new copy of Firefox. (Reinstalling Firefox this way will not remove your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|user data and settings]], since those are saved in a separate location from the program files.)    
+
+= Unable to save any preferences or settings =
+
+If none of your settings will save, if you get the '''Firefox Updated''' tab every time you start Firefox, or if you have tried the steps above with no effect, the file which Firefox uses to save your preferences may be locked or corrupted.
+
+== Locked preferences file ==
+
+Firefox may be unable to save your settings if the {filepath prefs.js} file (or the {filepath prefs.js.moztmp} file, if it exists) is write-protected or there are other prefs backup files.
+{for win}
+# [[T:profileFolder]]
+# [[T:closeFirefox]]
+# Locate the {filepath prefs.js} file (and, if present, the {filepath prefs.js.moztmp} file).
+# Right click on each file in turn and select {menu Properties} from the context menu.  Check that under '''Attributes''', there is no check in the box next to '''Read Only''' for either file.
+#*If RealPlayer is open, that may be locking the {filepath prefs.js} file.  Closing RealPlayer should unlock it.
+# Delete any {filepath prefs-''n''.js} files where ''n'' is a number (e.g. {filepath prefs-2.js}).
+# Delete {filepath Invalidprefs.js} if it exists.
+# Restart Firefox.  You should now be able to save preferences.
+{/for}
+{for linux}
+# [[T:profileFolder]]
+# [[T:closeFirefox]]
+# Locate the {filepath prefs.js} file (and, if present, the {filepath prefs.js.moztmp} file).
+# For each file, make sure that your user has write permissions to the file.
+# Delete any {filepath prefs-''n''.js} files where ''n'' is a number (e.g. {filepath prefs-2.js}).
+# Delete {filepath Invalidprefs.js} if it exists.
+# Restart Firefox.  You should now be able to save preferences.
+{/for}
+{for mac}
+# [[T:profileFolder]]
+# [[T:closeFirefox]]
+# Locate the {filepath prefs.js} file (and, if present, the {filepath prefs.js.moztmp} file).
+# For each file, hold down the {key Ctrl} key as you click on the file then select {menu Get Info}.
+# Make sure that the '''Locked''' option is unchecked. 
+# Delete any {filepath prefs-''n''.js} files where ''n'' is a number (e.g. {filepath prefs-2.js}).
+# Delete {filepath Invalidprefs.js} if it exists.
+# Restart Firefox.  You should now be able to save preferences.
+{/for}
+
+== Corrupt preferences file ==
+
+The preferences file may be corrupt, preventing Firefox from writing to it.  If you delete this file, Firefox will automatically create another one when it needs to. Here's how to delete the {filepath prefs.js} file.
+{warning}'''''This will remove all your custom settings and settings for many extensions.'''''{/warning}
+
+# [[T:profileFolder]]
+# [[T:closeFirefox]]
+# Locate the {filepath prefs.js} file (and, if present, the {filepath prefs.js.moztmp} file).
+# Delete those files and any {filepath prefs-''n''.js} files where ''n'' is a number (e.g. {filepath prefs-2.js}).
+# Delete {filepath Invalidprefs.js} if it exists.
+# Restart Firefox.  You should now have all your preferences reset.
+
+== Other solutions ==
+*Your problem might also be due to malware. See [[Troubleshoot Firefox issues caused by malware]] for details.  
+*Some software, like Advanced SystemCare with Surfing Protection, can protect files in the Firefox profile folder against changes. If you have such software then check the settings or uninstall this software.<!--https://support.mozilla.org/en-US/questions/1070490#answer-749762-->
+
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Preferences_not_saved Preferences not saved (mozillaZine KB)]'''''

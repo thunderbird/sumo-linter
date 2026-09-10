@@ -1,0 +1,38 @@
+Firefox add-on badges help you quickly identify which [[Find and install add-ons to add features to Firefox|extensions]] are trusted, reviewed or developed by Mozilla. This guide explains what each badge means, shows you where to find them, and gives you tips on how to safely use add-ons.
+
+__TOC__
+
+=Badges and what they mean=
+==Recommended extensions==
+These extensions are carefully selected by Mozilla staff and community members for:
+*Strong security
+*Reliable functionality
+*High-quality user experience
+Each one is manually reviewed for policy compliance. Developers can’t pay to be part of this program. Recommended extensions may be featured on [https://addons.mozilla.org/ addons.mozilla.org (AMO)].
+
+'''Example badge:'''
+;[[Image:'Recommended' Add-on Badge|width=180]]
+{note}'''Tip:''' Learn more about the [[Recommended Extensions program]].{/note}
+
+==Extensions by Firefox==
+These are made by Mozilla to deliver new features or fun extras for Firefox. They are reviewed for security and policy compliance.
+
+'''Example badge:'''
+;[[Image:'By Firefox' Add-ons badge|width=140]]
+
+==Caution label==
+Extensions not regularly reviewed by Mozilla staff will display a caution message on AMO. This doesn’t always mean the add-on is unsafe, but you should check the developer's reputation, user reviews and requested permissions.
+
+'''Example badge:'''
+;[[Image:AMO Caution Label]]
+
+=Tips for safe add-on use=
+*Look for badges to find trusted extensions.
+*Read reviews and ratings.
+*Check requested permissions before installing.
+*Remove extensions you no longer use.
+
+=Related articles=
+*[[Find and install extensions on Firefox for Android]]
+*[[Uninstall Firefox for Android extensions]]
+*[[Find and install add-ons to add features to Firefox]]

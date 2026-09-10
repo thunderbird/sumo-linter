@@ -1,0 +1,23 @@
+When installing Firefox on Windows 10, you may see a warning that says you can “only install apps from the Microsoft Store.” This is a Windows setting that blocks apps like Firefox from installing. Don't worry, you can quickly change this setting and continue with the installation.
+
+'''Any Firefox download from ''[https://www.mozilla.org/ www.mozilla.org]'' or ''[https://www.firefox.com/ www.firefox.com]'' is safe to install''', so choose '''Install anyway'''.
+;[[Image:use a Microsoft verified app|width=600]]
+{note}
+'''Note:'''
+*You can also [[Download Firefox on Windows from the Microsoft Store|download and install Firefox from the Microsoft Store]].
+*'''Using Windows 10 in S mode?''' See [[Windows 10 S won't let me install Firefox]].
+{/note}
+
+= What do I do if I don’t see the option to install anyway? =
+If you do not see the option to ''Install anyway'', follow the steps below to change your system settings.
+#Open the Windows 10 Start [[Image:Windows10StartButton]] menu and select [[Image:Win10Settings-GearIcon]]{menu Settings}.
+#Click on '''Apps''' in the ''Windows Settings'' menu.
+#;[[Image:w10 Apps settings|width=600]]
+#In the ''Apps & features'' section, go to '''Choose where to get apps''', click on the dropdown menu below and select one of the options that allows you to install from '''Anywhere'''.
+#;[[Image:w10 Choose where to get apps|width=600]]
+#Run the Firefox Installer again. Windows may now allow it to install Firefox.
+
+= Related content =
+* [[Why do I get a harmful download message when downloading Firefox on Windows?]]
+* [[How to install Firefox on Windows]]
+* [[What Windows 10 end of support means for Firefox users]]

@@ -1,0 +1,41 @@
+Starting in [[Find what version of Firefox you are using|Firefox version]] 143, you may see a warning in Firefox that says an unexpected, privileged script has been detected. This alert includes an option to {button Allow}, {button Block}, or {button Report} the script. This article explains what the warning means, why it appears, and how you should respond.
+[[Image:unscriptedload]] 
+
+=What is an unexpected script?=
+
+A script is a small program, usually written in JavaScript, that runs inside your browser. Most websites use scripts, but Firefox itself also relies on them to function properly.
+
+Firefox runs some scripts in privileged contexts—special areas of the browser where only trusted Mozilla code is allowed to run. If Firefox detects code running in these areas that doesn't match what Mozilla expects, it will show a warning about an unexpected, privileged script.
+
+This kind of script is not the same as the ones used by websites and does not necessarily mean your browser has been compromised. But it is a sign that something unusual or custom has been added to Firefox.
+
+=What causes this warning?=
+There are a few legitimate scenarios where Firefox might run privileged scripts that aren’t recognized by Mozilla:
+*'''Enterprise deployments''': If you're using a centrally managed Firefox setup (for example, at work or school), your IT department may install custom scripts or configure policies that trigger this warning.
+*'''Custom Firefox modifications''': Some advanced users install unsupported modifications using tools like userChromeJS or other third-party customizations.
+Firefox tries to detect and support these legitimate modifications and will suppress warnings when it can identify them. However, as Mozilla improves browser security, some setups may still trigger the warning unexpectedly.
+
+=What should I do if I see this?=
+If you see the warning, you'll be given the options to {button Allow} or {button Block} the script, and additionally to {button Report} it. Here's what each option means:
+*{button Allow}: Only choose this if you're confident that the script is safe, for example, if it's part of an enterprise setup or a customization you installed.
+*{button Block}: Recommended if you don't recognize the script or didn't make any changes to Firefox. This will stop the unrecognized script from running.
+*{button Report}: Whether you allow or block the script, we strongly recommend reporting it to Mozilla. Reporting helps us:
+**Support legitimate scripts in future updates.
+**Investigate unknown or potentially harmful code.
+**Reduce false warnings for other users.
+[[Image:unexpectedload]]
+{note}'''Note''': You can optionally include your email address when reporting. If the script is recognized or needs follow-up, Mozilla may contact you with more details.{/note}
+
+=Is there a security risk to my device?=
+This warning does not necessarily mean your system has been infected with malware or is at a security risk. 
+
+So far, Mozilla has not found malicious intent in the scripts that have triggered this warning. However, because these scripts are unexpected, we can't rule out malware without further investigation.
+
+If you're concerned about your computer's safety, we recommend reviewing the following article: [[Troubleshoot Firefox issues caused by malware]].
+
+{note}'''Note''': If you believe you are at higher risk (for example, you are a journalist, activist, or vulnerable user), we strongly encourage you to report the script and include your email address so we can assist further.{/note}
+
+=Related articles=
+*[[Troubleshoot Firefox issues caused by malware]]
+*[[What is search hijacking?]]
+*[[How Firefox securely saves passwords]]

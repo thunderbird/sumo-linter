@@ -1,0 +1,38 @@
+You can use your existing Google or Apple ID to create a Mozilla account. This is a convenient way to [[Access Mozilla services with a Mozilla account|access Mozilla’s products and services]] and eliminates the need for you to remember yet another username and password.
+
+Mozilla accounts also support other sign-in methods, including passkeys and one-time email codes for supported services.
+
+{note}'''Note:''' You cannot use your Google or Apple ID to sign in to Firefox Sync, because Sync requires a password to encrypt your data. See [[Why can’t I use Firefox sync with my Google or Apple ID?]] to learn more.{/note}
+
+=Sign up for a Mozilla account using your existing Google or Apple ID=
+#Go to https://accounts.firefox.com.
+#Click '''Continue with Google''' or '''Continue with Apple'''.
+#Go through the Google or Apple authentication flow to sign in. You may have to enter authentication codes related to your chosen account, if prompted.
+{note}'''Note:''' If the email address for your current Mozilla account is the same as the one you use for your Google or Apple ID, your Mozilla account will be linked automatically when you sign in using your Google or Apple ID.{/note}
+If you no longer want to use your Google or Apple ID to sign in to your Mozilla account, you can unlink it in the ''Linked Accounts'' section of your account settings. Before you do, you will be prompted to set a password for your Mozilla account if one has not been set, so that you have a way of signing in. For more information, see [[Unlink your Google or Apple ID from your Mozilla account]].
+
+==Sign in with a one-time email code==
+Mozilla account supports a [[Passwordless login for Mozilla accounts|passwordless sign-in option]] for selected services. Instead of entering a password, you can use a one-time code sent to your email address. Passwordless login cannot be used for Firefox Sync. Sync requires a password because it uses end-to-end encryption to protect your data.
+
+==Sign in with a passkey==
+Mozilla accounts also support passkeys, which let you sign in using your device's built-in authentication methods, such as a fingerprint, face recognition, PIN, or hardware security key.
+
+If you have previously created a passkey for your Mozilla account:
+#Go to [https://accounts.firefox.com https://accounts.firefox.com].
+#Click {button Sign in with passkey}.
+#Follow the prompts from your browser or device.
+
+You can use a passkey whether or not your account is linked to Google or Apple.
+
+{note}'''Note''': Firefox Sync still requires your Mozilla account password to access encrypted browsing data. Depending on the service you're using, you may be prompted to enter your password after signing in with a passkey.{/note}
+
+To learn more, see [[Use a passkey to sign in to your Mozilla account]].
+
+=How we use your Google or Apple data=
+We receive your email address from Google or Apple, which we use for authentication purposes. Additionally, we receive your profile picture, although we don’t use this data for any purpose. We do not provide any data back to Google or Apple.
+
+=Related articles=
+*[[Mozilla account - Managing account data]]
+*[[Change your Mozilla account password]]
+*[[I'm having problems with my Mozilla account]]
+*[[Use a passkey to sign in to your Mozilla account]]

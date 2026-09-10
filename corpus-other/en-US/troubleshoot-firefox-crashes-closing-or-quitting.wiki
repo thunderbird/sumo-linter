@@ -1,0 +1,87 @@
+We understand how frustrating it is when Firefox crashes (closes or quits unexpectedly). When Firefox crashes, the [[Mozilla Crash Reporter|Mozilla Crash Reporter]] will allow you to submit a crash to us, so we can continue making improvements to Firefox. Here are also some things to try to get Firefox up and running optimally.
+{note}'''Before getting started:'''
+*If the page stops working because part of the page has crashed or stopped responding, try reloading the page to see if that fixes the problem.
+*If Firefox is open but won't respond to any of your actions, then this is a ''hang'', not a crash.  See [[Firefox hangs or is not responding - How to fix]] for solutions.
+*If Firefox crashes at startup:
+**[[#w_check-to-see-if-the-crash-happens-in-troubleshoot-mode|Check to see if the crash happens in Troubleshoot Mode]] (see below).
+**Try a clean reinstall (see [[Firefox keeps crashing at startup]]).
+Otherwise, follow the steps below in order.
+{/note}
+
+__TOC__
+
+= Update your software =
+''The crash you're experiencing may have already been fixed in a new version!'' 
+
+== Update Firefox ==
+Every Firefox release includes a number of fixes for crashes that people have reported.  Making sure you have the latest version may fix your crash.  See [[Update Firefox to the latest release]] for details.
+
+{for win}
+== Update Windows ==
+Make sure you have all of the latest security and stability fixes.
+{/for}
+{for mac}
+== Update macOS ==
+Make sure your Mac has all of the latest security and stability fixes.
+{/for}
+{for linux}
+== Update Linux ==
+Make sure you have all of the latest security and stability fixes.
+{/for}
+
+== Update your drivers ==
+Check if your graphics drivers are up-to-date. For more information, see [[Upgrade your graphics drivers to use hardware acceleration and WebGL]].
+
+If your crash happens while printing, check that your printer driver is up-to-date by going to your printer manufacturer's support website. The [[Fix printing problems in Firefox]] article may also help.
+
+== Update your Internet Security software ==
+Make sure you have the latest version of your Internet security software (including firewalls, antivirus programs, anti-spyware programs, and more).
+
+{for win}
+= Check for viruses or spyware =
+A number of different viruses and spyware are known to crash Firefox. For more information, see [[Troubleshoot Firefox issues caused by malware]].
+
+=Check for third-party modules=
+Third-party applications (such as antivirus software, archiving software, and other tools) may load modules into Firefox. Sometimes, these applications load harmful modules that cause Firefox crashes, reduced performance, or compatibility issues. You may not notice that a malicious or unexpected module has been loaded, and it may cause problems that appear to be Firefox issues. For more information, see [[Identify problems caused by third-party modules in Firefox for Windows]].
+{/for}
+
+= Check to see if the crash happens in Troubleshoot Mode =
+If updating software didn't work or if Firefox crashes on startup, use the steps below to test whether the crash happens in [[Use Troubleshoot Mode in Firefox|Firefox Troubleshoot Mode]] or not and then follow the instructions in the recommended articles.
+# [[T:safemode]]
+# When the ''Open Firefox in Troubleshoot Mode?'' window appears, press the {button Open} button. 
+#;[[Image:Fx88TroubleshootMode]]
+After Firefox starts in Troubleshoot Mode, test for your problem.
+{note}'''Note:''' [[Template:reset-fx]]{/note}
+
+== The crash still happens in Troubleshoot Mode ==
+If your crash still happens in Troubleshoot Mode, it is not being caused by an extension, theme, or hardware acceleration. Try to [[#w_get-help-fixing-this-crash|get help with your crash ID]] (see below).
+
+== The crash doesn't happen in Troubleshoot Mode ==
+If your crash doesn't happen in Troubleshoot Mode, it is most likely because an extension, theme, or hardware acceleration is causing the crash.
+*Follow the steps in [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] to determine the cause.
+
+= Check your hardware =
+== Check your RAM for errors ==
+If Firefox crashes repeatedly, check your RAM for errors using for instance the following tool, {for win, linux}[http://www.memtest.org/ Memtest86+]{/for}{for mac}[http://www.kelleycomputing.net/rember/ Rember]{/for}.
+
+= Get help fixing this crash =
+Figuring out the cause of a crash can be difficult. If you've tried the steps above and can't get Firefox to stop crashing, the instructions below will show you how to get the crash Report IDs for your most recent submitted crash reports, so our volunteers can help you.
+
+'''If you can open Firefox, at least in Troubleshoot Mode:'''
+#In the Firefox address bar, type '''about:crashes''' and hit {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}. A page listing submitted crash reports (and unsubmitted crash reports, if any) will appear.<br>[[Image:Fx115aboutcrashes]]
+#*If you have recent, unsubmitted crash reports: Click the {button Submit} button for each recent unsubmitted report and then reload the ''about:crashes'' page.
+#You should copy the Report IDs for '''submitted''' crash reports (they start with '''bp-''') to your support question in the Community Support forum.
+{note}'''Note:''' If you can't open Firefox because it crashes at startup even in Troubleshoot Mode, use these alternative instructions to locate Report IDs:
+#{for win}Press {key [[Image:Windows Key]]+R} on the keyboard. Type in {filepath "%APPDATA%\Mozilla\Firefox\Crash Reports\submitted"} (including the quotation marks) and click {button OK}.{/for}{for mac}Click the '''Finder''' icon in the dock. On the menu bar, click the {menu Go} menu, hold down the {key option} or {key alt} key and select {menu Library}. A window will open containing your Library folder. Then open the “Application Support” folder, the “Firefox” folder, the “Crash Reports” folder and finally the “submitted” folder.{/for}{for linux}Go to {filepath ~/.mozilla/firefox/Crash Reports/submitted}.{/for}
+#In the resulting folder, there will be a text file for each crash report you have submitted. Using the {menu View} menu, arrange them by date to find out which is the newest file and double-click on it to open it.{/note}
+
+== Ask for help in the Community Support forum ==
+# '''[/en-US/questions/new/firefox/form Click this link]''' to ask for help with your crash on the Firefox Community Support forum (see [[Get community support]] for other support resources).
+#*You may need to create an account or log in to your existing account during the “ask a question” process.
+#On the '''Ask your question''' form, enter a subject and topic, then fill out the next section with as much information you have about the crash. Include any of the steps you completed above, like updating Firefox or testing for the crash in Troubleshoot Mode.
+#Copy the long Report ID number you've got above for the latest crashes ('''bp-…''') and paste it into your question.
+#Finally, click the {button Submit} button.{note}We know that providing all this information is time-consuming, but it will make it much easier for our volunteers to help you.{/note}
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Firefox_crashes Firefox crashes (mozillaZine KB)]'''''

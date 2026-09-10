@@ -1,0 +1,15 @@
+Mozilla has received reports that some users are experiencing issues with the macOS 15 (Sequoia) firewall, which is blocking Firefox after the system upgrade. This problem seems to affect a subset of users who had the macOS firewall enabled before upgrading.
+
+=What’s happening?=
+After upgrading to macOS 15 (Sequoia), some users have found that the firewall automatically blocks Firefox, preventing the browser from accessing the internet. This issue has been observed in a subset of users who had the firewall enabled before the upgrade. The firewall rules automatically block Firefox, and users are unable to remove these rules manually through the [https://support.apple.com/guide/mac-help/change-firewall-settings-on-mac-mh11783/mac Apple menu system settings]. The problem does not appear to be exclusive to Firefox, as similar issues have been reported with other applications.
+
+=Current status=
+Mozilla has reported the issue to Apple but has not been able to reproduce it internally to confirm the exact cause. Due to the inability to validate the root cause, Mozilla cannot recommend specific workarounds at this time. The issue remains under investigation, and Mozilla is actively monitoring reports from affected users.
+
+=What can users do?=
+While Mozilla continues to investigate the issue, we encourage affected users to share their experiences. Your input helps us better understand the scope of the problem. If you’re comfortable gathering logs or additional data, please contribute by commenting on [https://bugzilla.mozilla.org/show_bug.cgi?id=1919173 Bug 1919173].
+
+Although some users have found [https://support.mozilla.org/en-US/questions/1464014 temporary solutions] such as disabling the firewall or running certain commands to bypass the firewall block, Mozilla cannot officially endorse these workarounds due to the lack of a validated root cause.
+
+=Reports of other firewall-related issues=
+It’s important to note that it appears that Firefox is not the only software affected by these macOS 15 firewall issues. Similar problems have been reported with other applications, suggesting that the Sequoia upgrade may have introduced a broader set of issues with the firewall. Mozilla is closely monitoring these developments.

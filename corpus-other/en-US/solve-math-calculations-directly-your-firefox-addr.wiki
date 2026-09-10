@@ -1,0 +1,142 @@
+[[Template:progressiverollout]]
+If you want to quickly work on a math calculation or convert Celsius to Fahrenheit, the Firefox address bar can help you complete these tasks without the need to open additional calculators or conversion apps. This article will help you enable the address bar calculator/unit conversions features and show you how to efficiently use them.
+{note}'''Note:''' The built-in math calculator has been available since [[Find what version of Firefox you are using|Firefox version]] 137, and the unit conversions tool will be available in Firefox starting with version 141.{/note}
+
+__TOC__
+
+=Math calculator=
+The Firefox address bar allows you to work on math calculations directly from this area, without having to open a different app or even a different tab within the browser. The new feature will simply let you type in a math calculation, and it will instantly display the result, as you can see below.
+;[[Image:137_calculator]]
+
+==Supported calculations==
+The math calculations can vary from simple ones (these can usually be solved in just one step) to more complex ones (these require more steps to be solved).
+
+You can also combine calculations, and the address bar will give you the right answer. If you want to do so, check out the complete list of all the calculations the Firefox address bar supports:
+*Addition (+)
+*Subtraction (-)
+*Division (/)
+*Multiplication (*)
+*Exponentiation (^)
+*Expressions with parentheses (for example: (a+b)^n+p)
+{note}'''Note:''' Depending on your default search engine, typing a math calculation in the Firefox address bar will display results from it, as well. For example, if you have Google as your search engine with [[Search suggestions in Firefox|Search Suggestions]] enabled, typing '''5*5''' will show '''= 25''' twice in the address bar. The top result comes from the Firefox address bar calculator, and the second result comes from Google. They can be differentiated by their icons.{/note}
+
+=Unit conversions=
+The Firefox address bar also includes the unit conversions feature, and it works similarly to the math calculator. You just need to type in a conversion, and the address bar will instantly show you the result.
+;[[Image:kminmiles]]
+{note}'''Note:''' The general syntax for the unit conversions tool is:<br><code><number><source_unit> [in|to|=] <destination_unit></code>{/note}
+
+==Supported conversions==
+The feature supports the following unit conversions:
+*'''Temperatures:'''
+**Celsius
+**Kelvin
+**Fahrenheit
+*'''Time Zones:'''
+**IDLW: -12
+**NT: -11
+**HST: -10
+**AKST: -9
+**PST: -8
+**AKDT: -8
+**MST: -7
+**PDT: -7
+**CST: -6
+**MDT: -6
+**EST: -5
+**CDT: -5
+**EDT: -4
+**AST: -4
+**GUY: -3
+**ADT: -3
+**AT: -2
+**UTC: 0
+**GMT: 0
+**Z: 0
+**WET: 0
+**WEST: 1
+**CET: 1
+**BST: 1
+**IST: 1
+**CEST: 2
+**EET: 2
+**EEST: 3
+**MSK: 3
+**MSD: 4
+**ZP4: 4
+**ZP5: 5
+**ZP6: 6
+**WAST: 7
+**AWST: 8
+**WST: 8
+**JST: 9
+**ACST: 9.5
+**ACDT: 10.5
+**AEST: 10
+**AEDT: 11
+**NZST: 12
+**IDLE: 12
+**NZD: 13
+*'''Angle:'''
+**Degree
+**Radian
+**Minute
+**Second
+*'''Force:'''
+**Newton
+**Kilonewton
+**Exanewton
+**Petanewton
+**Teranewton
+**Giganewton
+**Meganewton
+**Hectonewton
+**Dekanewton
+**Decinewton
+**Centinewton
+**Milinewton
+**Micronewton
+**Nanonewton
+**Piconewton
+**Femtonewton
+**Attonewton
+**Dyn
+**Ton force short
+**Ton force long
+**Kip force
+**Pound force
+**Ounce force
+**Pond
+**Kilopond
+*'''Length:'''
+**Meter
+**Nanometer
+**Micrometer
+**Millimeter
+**Centimeter
+**Kilometer
+**Mile
+**Yard
+**Foot
+**Inch
+*'''Mass:'''
+**Kilogram
+**Gram
+**Milligram
+**Ton
+**Longton
+**Shortton
+**Pound
+**Lbs
+**Ounce
+**Carat
+{note}'''Note:''' You can specifically compare your timezone with various other global timezones by using functions like '''now to PDT''', '''5 PM PDT to here''' and '''20:30 to PDT''', in the Firefox address bar.{/note}
+
+=Reasons to use these features=
+*'''Save time:''' By using the Math calculator and Unit conversions features directly in the Firefox address bar, you can calculate various operations and convert useful metrics without having to go the extra mile.
+*'''Streamline productivity:''' These features are designed to get the right information without having to open new tabs or visit additional online resources.
+*'''Keep your system clean:''' You won’t need to install additional calculators or unit conversion apps, which means less stress on your device and more room for you to install other software.
+
+=Related articles=
+*[[Search with the Firefox address bar]]
+*[[Address bar autocomplete suggestions in Firefox]]
+*[[Remove websites from the address bar suggestions]]

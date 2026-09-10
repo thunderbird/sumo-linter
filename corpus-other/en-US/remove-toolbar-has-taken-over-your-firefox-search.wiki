@@ -1,0 +1,33 @@
+This article will help you remove third-party toolbars like Ask, searchqu, MyStart, incredibar, seeearch, somoto, sweetim, uTorrent, and others from Firefox and restore your default home page, New tab page and search settings. For help removing the Babylon toolbar, see [[How to remove the Babylon toolbar, home page and search engine]].
+
+*If you just want to remove a search engine from the Firefox Search Bar, see the [[Add or remove a search engine in Firefox]] article.
+* If you need help with toolbar customization or if you simply want to hide a toolbar, see [[Customize Firefox controls, buttons and toolbars]].
+
+__TOC__
+
+=How did this happen?=
+Toolbars from third-party software providers can change your search, New Tab and home page settings or cause other problems with Firefox. These toolbars can get added to Firefox when you visit a website and click on an "Install" link, when you download and run a toolbar installer, or when you install software that includes a Firefox toolbar. Be careful when installing or updating other applications and make sure you deselect any options for toolbars or other bundled software that you don't want. 
+
+Also, some software providers offer their own version of Firefox that includes a toolbar and other customizations (for instance, [http://downloads.yahoo.com/firefox/ Mozilla Firefox® optimized for Yahoo!]) so always make sure you download Firefox from the [https://www.mozilla.org/firefox Firefox download page].
+
+=How do I fix it?=
+{note}'''Note:''' [[Template:reset-fx]]{/note}
+
+==Use the Add-ons Manager to remove the toolbar==
+In most cases, third-party toolbars can be uninstalled from Firefox Add-ons Manager Extensions list, as follows:
+# [[T:Open Add-ons|type=Extensions]]
+# Select the toolbar you wish to remove.
+# Click the {button Remove} button.  
+# Click '''Restart now''' if it pops up. Your tabs will be saved and restored after the restart.
+
+If you can't remove the toolbar from the Add-ons Manager, use the "Disable" option as a workaround, or see the [[Cannot uninstall an add-on]] article for other solutions.  
+
+==Restore the default home page or search settings==
+You may need to reset your Firefox search preferences and restore the default New Tab page, home page and search engine after removing the toolbar. For more information, see the articles [[Manage Firefox search settings]], [[New Tab page in Firefox]] and [[How to set the home page]].
+
+==Other solutions==
+*If your current Firefox installation was customized by another software provider, you'll need to [[Uninstall Firefox from your computer|uninstall Firefox from your computer]] and then download Firefox from the [http://www.mozilla.org/firefox Firefox download page] and reinstall it.  
+* If the unwanted toolbar, home page and search engine come back when you restart Firefox, you may have malicious software installed on your computer. See [[Troubleshoot Firefox issues caused by malware]].
+{for win}
+* If a page (for example, bitable.<!---->com) keeps loading even though you have set a different home page, Firefox's shortcut might have been manipulated. See [[Wrong home page opens when I start Firefox - How to fix]] for instructions on how to change it back.
+{/for}

@@ -1,0 +1,85 @@
+{note}'''Note:''' This article describes the updated sidebar introduced in [[Find what version of Firefox you are using|Firefox version]] 136.{/note}
+The Firefox sidebar lets you quickly access multiple tools in one click, without leaving your main view, including:
+* an [[Access AI chatbots in Firefox|AI chatbot]] of your choice
+* bookmarks
+* history
+* tabs from devices you sync with your [[Access Mozilla services with a Mozilla account|Mozilla account]]
+{for fx145}
+* passwords
+{/for}
+You can also try out vertical tabs. If you turn on vertical tabs, your pinned and open tabs will appear in the sidebar instead of along the top of the browser. Early testers report feeling more organized after using vertical tabs for a few days.
+
+__TOC__
+
+=Enable the updated sidebar=
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu General} panel, go down to the '''Browser Layout''' section{/for}{for fx152}Choose the {menu Tabs and browsing} page{/for}.
+#Select {button Show sidebar}.
+;{for not fx152}[[Image:Fx139SettingsBrowserLayout]]{/for}{for fx152}[[Image:fx152tabsandbrowsing]]{/for}
+After you enable the Firefox sidebar, a sidebar button [[Image:IG sidebar collapsed]]  is added to your toolbar. The sidebar with shortcuts to tools is shown on the left; you can move it to the right.
+
+To hide and bring the sidebar back into view, click the sidebar button in the toolbar [[Image:IG sidebar collapsed]]. You can also adjust the width of the sidebar panels and vertical tabs by dragging the sidebar edge and setting a width that works for you.
+;[[Image: Fx136SidebarIntro|width=550]]
+You can customize the location of the sidebar button by clicking the Menu [[Image:IG main menu]] button, then clicking {menu More tools} and selecting {menu Customize Toolbar…} The toolbar panel will now become customizable, so you can adjust the location of the sidebar button by dragging and dropping it in your preferred location. To learn more about toolbar customization,  see [[Customize Firefox controls, buttons and toolbars]]. 
+
+=Turn on vertical tabs=
+[[Template:contextmenu]] on either the toolbar or tab strip. Then, select {menu Turn on Vertical Tabs} from the menu.
+;[[Image:Fx136SidebarTurnonverticaltabs|width=200]]
+{note}'''Note:''' When vertical tabs are turned on, you can access the [[Tab overview menu|Tab overview menu]] from the ''List all tabs'' [[Image:Fx138VerticalListAllTabs]] icon in the toolbar.{/note}
+After you’ve turned on vertical tabs, you can turn them off from the same context menus or from the ''Customize sidebar'' settings.
+
+=Customize sidebar and vertical tabs=
+After you enable the sidebar or turn on vertical tabs, you can customize them anytime.
+
+To display the ''Customize sidebar'' panel, click the gear icon [[Image:Fx91GearIcon]] at the bottom of the sidebar. Here’s what you can customize:
+* Settings for vertical tabs
+* The location of the sidebar, which you can position on either the left or right of your screen.
+* The tools displayed in the sidebar. Uncheck a checkbox to remove a tool from the sidebar, and check a checkbox to add it.
+*;[[Image:Fx136SidebarCustomise|width=550]]
+* Turn vertical tabs on and off by checking the '''Vertical tabs''' checkbox. After you turn on vertical tabs, switch between a minimalistic collapsed view and expanded view, which shows the tab titles using the sidebar button in the toolbar or using the {for win,linux}{key Ctrl+Alt+Z}{/for}{for mac}{key Ctrl+Z}{/for} shortcut.
+* If you prefer to keep your tabs and sidebar hidden, select the '''Hide tabs and sidebar''' checkbox. This can provide more room on screen and more focus.
+;[[Image:Fx136SidebarCollapsedtabs|width=550]]
+:''Collapsed vertical tabs view''
+;[[Image:Fx136SidebarExpandedtabs|width=550]]
+:''Expanded vertical tabs view''
+
+=Set up sidebar tools=
+Some tools, like the AI chatbot and viewing tabs from other devices, require additional setup.
+
+==Set up your preferred chatbot in the sidebar==
+Select the sparkle icon [[Image:Sparkle 15112024|width=30]] in the sidebar and choose a chatbot. [[Access AI chatbots in Firefox|Learn more about AI Chatbots in Firefox]].
+;[[Image:Fx136SidebarChatbot|width=550]]
+
+==Manage tabs from devices you sync with your Mozilla account==
+To view and manage tabs from your synced devices, first sign in to your Mozilla account on those devices (phones, other computers, tablets).
+
+Select the laptop and phone button [[Image:IG synced tabs]] in the sidebar to view and manage tabs that are open on your synced devices.
+
+To close tabs on a synced device, hover over a tab and select the {button &#10005;} button to close it. This closes the tab on the synced device. To undo the closing, select the {button Undo} button that appears.
+
+==View and search browsing history==
+Select the clock button [[Image:ClockIcon]] in the sidebar or use {for win,linux}{key Ctrl+Shift+H}{/for}{for mac}{key Command+Shift+H}{/for} shortcut to view your history in the sidebar.
+;[[Image:Fx136SidebarHistory|width=550]]
+
+==View and manage bookmarks==
+Select the star button [[Image: 61 bookmarks icon]] in the sidebar or use {for win,linux}{key Ctrl+B}{/for}{for mac}{key Command+B}{/for} shortcut to view your bookmarks in the sidebar.
+
+Bookmark any tab by dragging it from your tab strip (vertical or horizontal) to the open bookmarks panel.
+{for fx145}
+==Manage passwords from the sidebar in Firefox==
+You can access your passwords from the Firefox sidebar, making it easier to manage your stored logins without opening the Firefox about: logins page.
+;[[Image:contextualsimplified]]
+
+==Enable passwords in the Firefox sidebar==
+#Click the Customize sidebar [[Image:IG settings]] icon at the bottom of the sidebar.
+#In the {for not fx153}'''Firefox tools'''{/for}{for fx153}'''Tools'''{/for} menu, enable {button Passwords} in the sidebar.
+;{for not fx153}[[Image:sidebarpassword|width=400]]{/for}{for fx153}[[Image:Fx153sidebar-Passwords|width=400]]{/for}
+
+==Use the sidebar password manager==
+Once enabled, a new Passwords [[Image:IG login]] icon appears in the sidebar. Click the icon to open the password manager, where you can view, search, edit saved passwords and more:
+*Add new login credentials
+*Import passwords from another browser or a file
+*Export saved passwords
+*Remove all saved passwords
+;[[Image:Fx153sidebar-PasswordOptions|width=400]]
+{/for}

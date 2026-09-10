@@ -1,0 +1,106 @@
+Firefox and some plugins use your graphics card to help speed up the display of web content. Graphic cards are also used by advanced web features like WebGL. To fix problems with these features or to take advantage of them, you may need to update your graphics card drivers. This article describes how to do that.
+
+__TOC__
+
+= Search for and install new graphics drivers =
+{for win}
+== Using Windows Update ==
+Some recent graphics driver versions are made available{for not win10} as an optional update{/for} from the Windows Update feature.{for not win10} If you haven't set Windows to automatically install recommended updates, follow these steps:{/for}
+{/for}
+{for winxp}
+# Click [[Image:XP Start button]], select {menu All programs}, then select {menu Windows Update} to open the Windows Update website.
+# Update ActiveX controls if prompted.
+# Click {button Custom} and wait until it is done searching.
+# Select "Hardware, Optional" on the left pane.
+# Search updates with your graphics card manufacturer name (probably Intel, AMD/ATI or NVIDIA) in the title.
+# If you find some, check the latest one and click "Review and install updates".
+# Click {button Install Updates}.
+# Wait until update is installed. When prompted, restart your computer.
+# Start Firefox.
+{/for}
+{for win7}
+# Click [[Image:Small Vista Logo]], select {menu All programs}, then select {menu Windows Update} to open the Windows Update window.
+# Click the "Check for updates" link on the left pane and wait until it is done searching.
+# If there are optional updates available, click "optional updates are available".
+'''Windows Vista:'''
+The View available updates panel will open. Click "Optional".
+
+'''Windows 7:'''
+The Select updates you want to install panel will open.
+
+#Search updates with your graphics card manufacturer name (probably Intel, AMD/ATI or NVIDIA) in the title.
+# If you find some, check the latest one and click {button OK} to close the View available updates panel.
+# Click {button Install updates}.
+# Wait until update is installed. When prompted, restart your computer.
+# Start Firefox.
+{/for}
+{for win8}
+# From the Start Screen, click the Desktop tile. The Desktop view will open.
+# From the Desktop, hover in the lower right-hand corner to access the Charms.
+# Select {menu Control Panel} from the {menu Settings} charm. The Control Panel window will open.
+# In the Control Panel window, select System and Security.
+# Select Windows Update to open the Windows Update window.
+# Click the "Check for updates" link on the left pane and wait until it is done searching.
+# If there are optional updates available, click "optional updates are available". The Select updates you want to install panel will open.
+#Search updates with your graphics card manufacturer name (probably Intel, AMD/ATI or NVIDIA) in the title.
+# If you find some, check the latest one and click {button Install} to close the View available updates panel.
+# Wait until update is installed. When prompted, restart your computer.
+# Start Firefox.
+{/for}
+{for win10}
+In Windows 10, all drivers are automatically downloaded and installed through Windows Update but you can manually search for an updated graphics driver.  See Microsoft's support article, [https://support.microsoft.com/en-us/help/4028443/windows-update-drivers-in-windows-10 Update drivers in Windows 10] for details.
+If there are no updates available or if the updates don't solve your problems, continue to the next section.
+{/for}
+
+{for win}
+== Using your computer manufacturer's system update tool ==
+Some computer manufacturers include a system update tool that updates drivers{for win7,win8} and bypasses the Windows ones{/for}. You may be required to use this tool to update graphics drivers.
+
+Just search for this tool from the {menu Start} menu. Some possible search terms are the name of your computer manufacturer (such as Dell or HP) or generic terms like "update", "maintenance" or "driver". Open the tool and apply all available updates.
+
+If there is no update tool, no updates available, or if the updates don't solve your problems, continue to the next section.
+{/for}
+{for linux}
+== Use your distribution's standard update process ==
+If your distribution's standard update process doesn't give you the latest drivers, you may need to look for other package repositories for your distribution. For example, to upgrade closed-source drivers on Ubuntu, you may need to go to System Settings > Hardware > Additional Drivers.
+{/for}
+{for win,linux}
+== Using the latest generic graphics drivers ==
+You can also install a generic graphics driver from your graphics card manufacturer's website. These are usually kept up-to-date and are designed to work on a variety of systems:
+* [http://www.intel.com/p/en_US/support/detect/graphics Intel]
+* [http://support.amd.com/en-us/download AMD/ATI]
+* [http://www.nvidia.com/Download/index.aspx NVIDIA]
+{for win}
+* [https://softwarecenter.qualcomm.com/catalog/item/Windows_Graphics_Driver Qualcomm (for Snapdragon X series SoCs only)]
+{/for}
+
+If you don't know which graphics card you have, look in the graphics section of Firefox's ''about:support'' [[Using the Troubleshooting Information page|Troubleshooting Information page]].
+{for win}
+{note}'''Note:''' Hardware acceleration is not available for graphics cards from other manufacturers.{/note}
+{note}'''Note:''' After downloading the graphics driver, the installation wizard may prevent you from installing it because your current driver is customized by your computer manufacturer.{/note}
+{warning}'''Warning:''' With some combinations of computer and graphics card, you may experience problems with generic versions of software drivers.{/warning}
+{/for}
+{/for}
+{for mac}
+# Click the Apple.
+# On the "Apple" menu, click "Software Update."
+# If there is a Mac OS X update available, you can install it. If there is a graphics driver update, it will be included in the Mac OS X update.
+{/for}
+
+= After upgrading your graphics driver =
+Reboot your computer to use the new graphics driver.
+
+= I still have problems with my graphics card in Firefox =
+Unfortunately, due to the wide range of possible driver, video card and operating system combinations, hardware acceleration or 3D web graphics (WebGL) may still not work for you in Firefox. In these instances you fix the problems by disabling hardware acceleration and WebGL.
+
+== Turning off hardware acceleration ==
+
+[[Template:DisableHWAFirefox]]
+
+== Disabling WebGL ==
+[[Template:aboutconfigwarning]]
+# [[T:aboutconfig]]
+# Enter '''webgl.disabled''' in the search box.
+# Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to the {pref webgl.disabled} preference to switch it to {pref true}.
+# [[T:closeFirefox]]
+# Start Firefox normally.

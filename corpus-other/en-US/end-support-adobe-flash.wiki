@@ -1,0 +1,11 @@
+Firefox ended support for Adobe Flash in Firefox at the end of 2020, as [https://blog.mozilla.org/futurereleases/2017/07/25/firefox-roadmap-flash-end-life/ announced back in 2017]. Adobe and other browsers also ended support for Flash at the end of 2020.
+
+[[Find what version of Firefox you are using|Firefox version]] 84 was the final version to support Flash. Firefox version 85 (released on January 26, 2021) shipped without Flash support, improving our performance and security. There is no setting to re-enable Flash support.
+
+=Will switching to a different browser allow me to use Flash?=
+No. Adobe and other browsers also ended Flash support at the end of 2020.
+
+Even if you install an older version of Firefox, the Flash plugin itself stopped loading Flash content as of January 12, 2021. See [https://www.adobe.com/products/flashplayer/end-of-life.html Adobe’s Flash Player End of Life information page] for more details.
+
+=What if I still depend on Flash content?=
+For enterprise customers who need help transitioning Flash content to other supported technologies or require Flash Player licensing support after 2020, please contact Adobe’s official distribution licensing partner, HARMAN, for more information about their [https://services.harman.com/partners/adobe commercial support offerings].

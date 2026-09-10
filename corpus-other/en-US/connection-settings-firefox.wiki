@@ -1,0 +1,29 @@
+Your organization or Internet service provider may offer or require you to use a [https://wikipedia.org/wiki/Proxy_server proxy]. A proxy acts as an intermediary between your computer and the Internet. It intercepts all requests to the Internet to see if it can fulfill the request using its cache. Proxies are used to improve performance, filter requests and hide your computer from the Internet to improve security. Proxies are often part of corporate firewalls.
+
+Connection settings to use a proxy can be set in Firefox [[T:optionsorpreferences]] as follows:
+{for not fx152}
+# [[T:optionspreferences]]
+# In the {menu General} panel, go to the {for not fx149}''Network Settings''{/for}{for fx149}'''Proxy settings'''{/for} section.
+# Click {for not fx149}{menu Settings…}{/for}{for fx149}{menu Configure proxy}{/for}. The ''Connection Settings'' dialog will open.
+{/for}
+{for fx152}
+# [[T:optionspreferences]]
+# Select {menu Privacy and security} on the left and go to the ''Connection and software security''  section.
+#;[[Image:Fx152settings-ConnectionAndSoftwareSecurity]]
+# Click {menu Advanced settings} and go to '''Proxy settings'''. 
+#;[[Image:Fx152ProxySettings|width=500]]
+# Click {menu Configure proxy}. The ''Connection Settings'' dialog will open.
+{/for}
+[[Image:Fx128ConnectionSettings]]
+* '''No proxy''':  Choose this if you don't want to use a proxy.
+* '''Auto-detect proxy settings for this network''': Choose this if you want Firefox to automatically detect the proxy settings for your network.
+* '''Use system proxy settings''':  Choose this if you want to use the proxy settings configured for your operating system.
+* '''Manual proxy configuration''': Choose this if you have a list of one or more proxy servers. Ask your system administrator for the configuration information. Each proxy requires a hostname and a port number.
+** If the same proxy name and port number are used for all protocols, check '''Also use this proxy for HTTPS'''.
+* '''Automatic proxy configuration URL''': Choose this if you have a [http://en.wikipedia.org/wiki/Proxy_auto-config proxy configuration] (<code>.pac</code>) file. Enter the URL and click okay to save changes and load the proxy configuration. ''file:'' and ''data:'' schemes can also be used here (for example, '''<code>file:///c:/proxy.pac</code>''' or '''<code>data:,function FindProxyForURL(){return "HTTPS example<!-- -->.com:3443";}</code>''').
+** {button Reload}: The reload button will load the currently available proxy configuration.
+* '''No Proxy For''': List of hostnames or IP addresses that will not be proxied. Use '''<local>''' to bypass proxying for all hostnames which do not contain periods.
+{note}'''Note:''' The ''Connection Settings'' dialog will also show extensions that control how Firefox connects to the internet. You can disable these extensions by clicking {button Disable Extension}.{/note}
+
+=Related content=
+To configure [[Firefox DNS over HTTPS|DNS over HTTPs (DoH)]] connection settings, see [[Configure DNS over HTTPS protection levels in Firefox]].

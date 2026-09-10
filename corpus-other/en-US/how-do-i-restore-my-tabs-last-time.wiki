@@ -1,0 +1,24 @@
+Want to visit the pages you had open the last time you used Firefox? Here are some easy ways to do it.
+
+__TOC__
+
+=Access recently closed tabs=
+#[[Template:fx29menu]]
+#Click {menu History}.
+#Click {menu Recently Closed Tabs}.
+
+=Restore the previous session from the Firefox menu=
+Here's how to get back your tabs and windows from a previous session using the Firefox menu:
+#[[Template:fx29menu]]
+#Click {menu History}, then click {menu Restore Previous Session}.
+#;[[Image:Sessionrestore89]]
+
+=Restore the previous session every time you open Firefox=
+<!-- Based on https://support.mozilla.org/en-US/kb/restore-previous-session#w_configuring-session-restore -->
+When Firefox starts, a single window is opened by default, displaying your [[How to set the home page|specified home page]]. You can set Firefox to show the windows and tabs from your previous session every time you start Firefox. To change your Firefox startup settings:
+#[[T:optionspreferences]]
+#Select the {for not fx152}{menu General} panel{/for}{for fx152}{menu Home and startup} page on the left{/for}.
+#Under ''Startup'', check '''Open previous windows and tabs'''.
+#;{for not fx152}[[Image:Fx140ESRsettings-Startup]]{/for}{for fx152}[[Image:Fx152settingsHomeAndStartup-Startup]]{/for}
+#[[T:closeOptionsPreferences]]
+{note}For more information about session restore, see [[Restore previous session - Configure when Firefox shows your most recent tabs and windows]].{/note}

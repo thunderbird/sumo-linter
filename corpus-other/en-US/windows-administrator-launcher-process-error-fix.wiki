@@ -1,0 +1,33 @@
+{for mac,linux}[[Template:WindowsOnly]]{/for}
+
+{note}This article applies to [[Find what version of Firefox you are using|Firefox version]] 67 and above, on all Windows builds.  This article is also for IT Admins who want to configure Firefox on their organization's computers. {/note}
+
+The [https://wiki.mozilla.org/Platform/Integration/InjectEject/Launcher_Process/ Launcher Process] is a security-related feature that was enabled for all users in the Firefox version 68 release. When running Windows as an Administrator with [https://wikipedia.org/wiki/User_Account_Control User Account Control] (UAC) disabled and the launcher process enabled, Firefox users may experience unexpected behavior.
+
+__TOC__
+
+=Why the problem occurs=
+
+When the launcher process detects that it is running at a [https://wikipedia.org/wiki/Mandatory_Integrity_Control high integrity level], it will force Firefox to run at a medium integrity level. This intentional security feature is intended to prevent malicious code from gaining write access to sensitive areas of the operating system. Windows does not allow programs running at a lower integrity level to send data to programs running at a higher integrity level. As a result, users may experience errors when trying to drag and drop from Firefox to another application. 
+
+=How to verify the problem=
+
+To verify this condition, make sure the user is operating Windows as a full Administrator and has disabled User Account Control (UAC) settings. Enter {menu about:support} in the address bar and look under '''Application Basics''' for the ''Launcher Process'' entry. If the Launcher Process is enabled, you may experience errors when trying to drag and drop an image or URL from Firefox to another application or to the Windows desktop (for example, when you try to [[Create a desktop shortcut to a website|create a desktop shortcut to a website]]).
+
+{note}<!-- See https://bugzilla.mozilla.org/show_bug.cgi?id=1529593 and article discussion on Launcher Process - Disabled Due To Failure -->'''Note:''' The about:support '''Application Basics''' ''Launcher Process'' entry may show ''Disabled due to failure'' even though the {pref browser.launcherProcess.enabled}  preference is set to {pref true} in the [[Configuration Editor for Firefox|Firefox Configuration Editor]] (''about:config'') page. To enable the Launcher Process, enter ''about:config'' in the address bar, find the {pref browser.launcherProcess.enabled} preference, toggle it to  {pref false} and then toggle it back to {pref true}.{/note}
+
+=How to fix=
+
+To fix the problem, users have two options. 
+
+==Re-enable UAC==
+
+First, users can re-enable UAC on their PC. To do so, type {menu UAC} in the search field on your taskbar by right-clicking the Start button and selecting Search. Click {menu Change User Account Control settings}. To turn UAC on, drag the slider to {menu Notify me only when apps try to make changes to my computer (default)}, click {menu OK} and then restart the computer. This option is the most secure fix available. 
+
+==Start Firefox Using the -no-deelevate command==
+
+Alternatively, users can solve the issue by launching Firefox using the {menu -no-deelevate} command line option, either directly from the command line or by editing their Firefox shortcut to do so.
+
+=Partial workaround=
+
+''Copy and Paste'' often can substitute for drag-and-drop. For example, a user can right-click on an image and choose {menu Copy Image}, then right-click on the Windows desktop and choose {menu Paste}. Where practicable, this is preferred to reducing security by using the {menu -no-deelevate} command line option.

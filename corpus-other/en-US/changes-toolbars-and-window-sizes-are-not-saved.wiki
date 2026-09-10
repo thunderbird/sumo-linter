@@ -1,0 +1,19 @@
+In some cases, Firefox may not remember changes you've made to your toolbar settings or certain other configuration changes, such as window size or position. This article explains how to fix the underlying problem that may result in one or more of the following symptoms:
+* You have [[Customize Firefox controls, buttons and toolbars|customized your Firefox toolbar]] to add, rearrange or remove buttons but the changes are not saved when you restart Firefox.
+* You have resized or moved the browser window, but the new size or position is not remembered when you restart Firefox.
+* You cannot save new [[Bookmarks in Firefox|bookmarks]].
+Here are two ways that you can solve the problem: 
+
+= Solution 1: Delete xulstore.json file =
+
+You may have a corrupt '''xulstore.json''' file in your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile]]. You can delete this file so that Firefox can create a new one.  
+
+#[[Template:OpenProfileFolder]]
+#Close Firefox: [[Template:closeFirefox]]
+#Locate and delete the file {filepath xulstore.json} (or rename it, for example, to  ''xulstore.jsonOLD'', to keep the old file as a backup).  
+#You can close the profile folder and open Firefox now.
+
+= Solution 2: Refresh Firefox =
+If you don't want to try the first solution or if it didn't work, the Firefox [[Refresh Firefox - reset add-ons and settings|refresh feature]] will automatically restore default toolbar settings and browser window size or position, and will also remove add-ons (extensions and themes) that could be interfering.
+[[T:resetnote]]
+[[T:resetsteps]]

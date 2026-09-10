@@ -1,0 +1,14 @@
+{note}'''Note:''' Smart Bookmarks folders are no longer created in new Firefox [[Profile Manager - Create, remove, or switch Firefox profiles|profiles]] starting with Firefox version 63.{/note}
+
+In [[Find what version of Firefox you are using|Firefox version]] 62 and below, Firefox includes the following bookmark folders by default:
+* '''Most Visited''': Available from the [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks toolbar]], this folder lists pages you have visited the most number of times.
+* '''Recent tags''': Available from the Bookmarks menu, this folder keeps track of the bookmark "tags" you've used most recently. Expand the Recent Tags folder to see a list of tags, then expand each tag to show pages you've recently bookmarked using that tag. For more information on tags, see [[Bookmark Tags - Categorize bookmarks to make them easy to find]]. 
+
+If you have deleted one or more of these default "Smart Bookmarks" folders, you can restore them by doing the following:
+[[Template:aboutconfigwarning]]
+# [[T:aboutconfig]]
+# Search for the preference {pref browser.places.smartBookmarksVersion}.
+# Click the ''Edit'' [[Image:Fx71aboutconfig-EditButton]] button next to {pref browser.places.smartBookmarksVersion} and change the value to {pref 0} (zero).
+# [[T:closeFirefox]]
+
+The next time you start Firefox, the default Smart Bookmarks folders will be re-created.

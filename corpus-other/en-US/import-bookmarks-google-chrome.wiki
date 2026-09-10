@@ -1,0 +1,78 @@
+Firefox lets you easily import bookmarks and other data from Google Chrome. This article gives you step-by-step instructions for getting it done.
+
+__TOC__
+
+=Start the Firefox import process=
+Use one of these methods to import your data into Firefox from Google Chrome:
+
+==Import from Firefox Settings==
+You can import your Google Chrome bookmarks and other data from the Firefox Settings panel:
+#[[Template:optionspreferences]]
+#In the {for not fx152}{menu General} panel{/for}{for fx152}{menu Account and sync} page{/for}, click {button Import Data} under the ''Import browser data'' section.
+#;{for not fx151}[[Image:Import data|width=800]]{/for}{for fx151}{for not fx152}[[Image:Fx151ImportBrowserData]]{/for}{/for}{for fx152}[[Image:fx152importdata]]{/for}
+The Import Wizard will open. From here, you can choose the Google Chrome profile and the data you wish to import ([[#w_choose-data-and-complete-the-import|see below]]).
+
+==Import from the Library window==
+You can import data from Google Chrome into Firefox from the Bookmarks Library window:
+#Click the Firefox menu button [[Image:Menu button 1]] to open the menu panel. Click {menu Bookmarks} and then click the {menu Manage bookmarks} bar at the bottom. The Library window will open.
+#;{for win,linux}[[Image:Fx110BookmarksLibrary-ImportData-win]]{/for}{for mac}[[Image:macOS import]]{/for}
+#From the toolbar in the Library window, click {for mac}[[Image:import-export-arrows]]{/for}{for not mac}{menu [[Image:import-export-arrows]]Import and Backup}{/for} and choose {menu Import Data from Another Browser…} This will open the Import Wizard.
+#;{note}'''Tip:''' Another way to import from another browser is to {for not mac}[[Restore the Menu bar in Firefox|enable the Menu bar]] (press {key Alt} on the keyboard to enable it temporarily),{/for} click {menu File} in Menu bar at the top of the screen and select {menu Import from Another Browser…}{/note}
+
+=Choose data and complete the import=
+#In the Import Wizard that appears, select the Chrome profile and the data you wish to import.
+#;[[Image:chromeimportfirefox|width=300]]
+#To choose the data you want to import, click the {button +} button. Once you've made your selection, click {button Import} to kick off the import process.
+#;{for not linux}{note}'''Note:''' The ''Payment methods'' option enables you to import payment methods saved in Chrome to Firefox.{/for}{for win} You won’t be able to import payment methods from Chrome on Windows to Firefox anymore, as the capability will no longer be supported due to changes in Chrome’s encryption mechanism.{/note}{/for}
+#All set! Click {button Done} to wrap up the import.
+The import process will transfer the selected data to Firefox, such as:
+{for mac}
+;*'''Saved passwords:''' Your saved usernames and passwords.
+{/for}
+;*'''Bookmarks:''' Web pages you have saved in your bookmarks.
+;*'''Browsing history:''' Information on the sites you have visited.
+;*'''Extensions:''' Chrome extensions that match similar Firefox versions.
+;*'''Form autofill data:''' Information you use to populate online forms.
+;[[Image:chromeimportdata|width=300]]
+Because Chrome defaults to saving bookmarks in its own bookmarks toolbar, you should be able to find your imported bookmarks in the [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Firefox Bookmarks Toolbar]], which may be hidden. To show the Bookmarks Toolbar:
+#Click the menu button [[Image:Menu button 1]], click {menu More Tools…} and choose {menu Customize Toolbar…}
+#Click the Toolbars dropdown menu at the bottom of the screen and select {menu Bookmarks Toolbar}.
+#;[[Image:Bookmarks toolbar|width=900]]
+#;The Bookmarks Toolbar can be set to {menu Always Show}, {menu Never Show} or {menu Only Show on New Tab}.
+#Click {button Done}.
+{note}'''Tip:''' You can also turn the Bookmarks Toolbar on or off from the Firefox menu bar at the top of the screen{for not mac}, if the [[Restore the Menu bar in Firefox|Menu bar is enabled]]{/for}: Click {menu View}, go down to {menu Toolbars} and select {menu Bookmarks Toolbar}.{/note}
+
+==Import passwords from Chrome with the CSV file via the migration wizard==
+{for win,linux}{note}'''Note:''' You are not able to import passwords from Chrome to Firefox automatically on Windows or Linux. You’ll have to import them using a CSV file via the migration wizard.{/note}{/for}
+You’ll need to export the CSV file containing your passwords from Chrome.
+#Open '''Chrome''', then the '''main menu''' [[Image:chromemenu]], and go to '''Passwords and Autofill''' > '''Google Passwords Manager'''.
+#;[[Image:googlemanager]]
+#Select '''Settings''' from the menu.
+#'''Export passwords''' > '''Download file''' and save the CSV file to your device.
+#;[[Image:chromesettings]]
+Then, import the CSV file using the method explained [[#w_start-the-firefox-import-process|above]], by clicking {button Import Data} and selecting {menu Passwords from CSV file}.
+;[[Image:Import from file 2|width=350]]
+{warning}Please be aware that while the issue will be broadly applicable to all Firefox versions, for now we're only updating the Firefox UI starting in [[Find what version of Firefox you are using|Firefox version]] 139 (English locales only) and version 140 (all locales) to reflect the change.{/warning}
+
+==Complete imported extensions installation==
+You can import extensions from Google Chrome. When you import your data from Chrome to Firefox, we aim to provide a smooth transition for your extensions by carefully matching the most-used Chrome add-ons to similar Firefox versions.
+
+The import process focuses on finding comparable Firefox extensions that:
+*Are created by the same developer.
+*Have updated in the last six months.
+*Are approved and recommended on [https://addons.mozilla.org/firefox/ AMO].
+*Offer equivalent functionality.
+This ensures we transfer over optimized extensions that integrate securely and reliably into your Firefox browser.
+
+After importing your data, there are just a couple of steps to finalize the installation of your new Firefox extensions:
+#Click the menu button [[Image:Menu button 1]] in the top-right corner.
+#Select '''Finalize the installation of your imported add-ons''' from the menu.
+#;[[Image:Complete imported extensions installation|width=300]]
+That's it! The compatible extensions you imported from Chrome will finish installing.
+
+=Related content=
+*To import passwords from a CSV file, see [[Import login and password data from a file]].
+*To import bookmarks from an HTML file, see [[Import Bookmarks from an HTML file]].
+*To import your information from another browser, see [[Import data from another browser]].
+*To learn more about customizing Firefox, see [[Customize Firefox controls, buttons and toolbars]].
+*For more information on using bookmarks in Firefox, see [[Bookmarks in Firefox]].

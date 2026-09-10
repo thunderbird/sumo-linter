@@ -1,0 +1,95 @@
+This article describes alternate ways of [[Make Firefox your default browser|setting Firefox as your default browser]] when using the [[T:optionsorpreferences]] panel does not work. Symptoms of this problem can include:
+* Firefox reports that it is not the default browser when you check using the Firefox [[T:optionsorpreferences]] panel.
+* Firefox prompts you to set Firefox as the default browser each time it starts.
+* Firefox does not open after clicking on links in other programs.
+{for win10,win11}{note}'''Note:''' Some links to Web content, such as Windows Search bar results and taskbar features that link to online news, weather, and other resources, use a protocol designed by Microsoft to always launch Microsoft Edge, even though Firefox is your default browser.<!-- https://textslashplain.com/2022/07/18/edge-url-schemes/ https://bugzilla.mozilla.org/show_bug.cgi?id=1726697 -->{/note}{/for}
+
+__TOC__
+
+= Using Firefox =
+The preferred method of setting Firefox as your default browser is described in the [[Make Firefox your default browser]] article. Most external programs will open links in Firefox if it is set to be the default browser using that method.
+
+Follow the instructions below if you have tried the steps in the [[Make Firefox your default browser]] article and found that they did not work.
+
+= Using your operating system =
+{for win}
+{for win11}
+== Windows 11 ==
+<!-- based on https://support.mozilla.org/en-US/kb/how-change-your-default-browser-firefox-windows#w_manually-change-your-default-browser-to-firefox-in-windows-settings-windows-11 -->
+#Click the Windows '''Start''' button.
+#Type '''Default apps''' and select {menu Default apps}.
+#Select '''Firefox''' from the list.
+#Under '''Set default file types or link types''', find the '''Make Firefox your default browser''' prompt at the top of the window and click {menu Set default}.
+{/for}
+{for win10}
+== Windows 10 ==
+# Go to the Windows '''Start''' menu and click the '''Settings''' icon.
+# Click '''Apps''', then choose '''Default Apps''' on the left panel.
+# Scroll down and click the entry under ''Web browser''.
+#;[[Image:default apps win10]]
+# Click on '''Firefox''' in the dialog that opens with a list of available browsers.
+#;[[Image:firefox default 10]]
+# Firefox is now listed as your default browser. Close the Settings window to save your changes.
+{/for}
+{for win8}
+==Windows 8==
+# Open the ''PC Settings'' application (press and release the Windows Start button, then click the gear icon).
+# Select {menu Search and apps} from the sidebar.
+# Select {menu Defaults} from the sidebar.
+# In the ''Set Default Programs'' window, select {menu Firefox} from the list of programs on the left and click {button Set this program as default}. Then click {button OK} to close the window.
+#;[[Image:Default - Win8 pt 2]]
+{/for}
+{for win7}
+== Windows 7 and Vista ==
+# Click on the Windows logo to open the Start menu, then select '''Control Panel'''. The ''Control Panel'' window will open.
+# Click on the link labeled '''Programs'''. The ''Programs'' panel will open.<br><br>[[Image:113f7b1b820e1b71faeb5aa77e042443-1259804950-833-1.png]]<br>
+# Click on the link labeled '''Set your default programs'''. The ''Set your default programs'' panel will open.<br><br>[[Image:113f7b1b820e1b71faeb5aa77e042443-1259801252-815-1.png]]<br>
+# In the programs list on the left side of the window, click '''Firefox'''.
+# In the right side of the window, click '''Set this program as default'''.<br><br>[[Image:113f7b1b820e1b71faeb5aa77e042443-1259530556-775-4.png]]<br>
+{/for}
+
+{note}<!-- https://support.mozilla.org/en-US/questions/1166218 -->'''Note:''' If Firefox is not listed as a program choice, [[Uninstall Firefox from your computer|uninstall Firefox from your computer]] (the uninstaller does not remove any user data such as history or bookmarks) and then [[How to install Firefox on Windows|reinstall Firefox]] to see if that registers your Firefox web browser.{/note}
+{/for}
+
+{for linux}
+== Ubuntu Linux ==
+# In the {menu System} menu, open {menu Preferences}, then {menu Preferred Applications}.
+# On the {menu Internet} tab under ''Web Browser'', choose '''Firefox''' in the drop-down.
+# Press {button Close}.
+
+== Mandriva Linux + KDE 4 ==
+# In the {menu KDE Systemsettings}, go to the {menu Advanced} tab, then to the {menu File associations} icon.
+# Click on the {menu html} tab under {menu text}, choose '''Firefox''' in the menu, rise it to the top of the list.
+# Press {button Apply}.
+
+== Fedora Linux + KDE 4 ==
+# In the {menu Applications} menu, open the {menu System Setting} tab, then go to the {menu Default Applications} icon.
+# Click on the {menu Web Browser} line on the list of displayed services and type '''firefox''' in the {menu Default Component} menu.
+# Press {button Apply}.
+{/for}
+
+{for mac}
+Use one of these methods to set Firefox as the default browser on your Mac:
+
+== From the Apple menu ==
+<!-- from https://support.apple.com/en-us/HT201607 -->
+# Choose {menu System Preferences} from the ''Apple'' menu.
+# Click {button General}.
+# Choose '''Firefox''' from the ''Default web browser'' drop-down menu.
+
+== From Safari ==
+# From the Dock, open '''Safari'''.
+# From the menu bar, click the {menu Safari} menu and select {menu Preferences…}
+# Click the {menu General} icon, to display the ''General'' preferences panel.
+# In the ''Default web browser:'' drop-down list, select '''Firefox'''.<br><br>[[Image:113f7b1b820e1b71faeb5aa77e042443-1259803440-200-1.jpg]]<br>
+# Quit Safari.
+{/for}
+
+{for win}
+= Problems with specific programs =
+Some programs may have features that open another browser to display content, even though Firefox is set as the default browser. For example:
+<!-- https://support.mozilla.org/en-US/questions/1205292 https://support.mozilla.org/en-US/questions/1159129 https://www.outlook-tips.net/tips/view-email-browser/-->
+* Microsoft Outlook has a ''View in Browser'' feature that will open a browser window to display the content of an HTML email message. Outlook converts the message content to [https://wikipedia.org/wiki/MHTML MHTML] (MHT) format and then opens the program associated with that file type, normally {for not win11}Internet Explorer or {/for}Microsoft Edge.
+*Microsoft Outlook 365 opens links in Microsoft Edge by default. If you want the Outlook 365 desktop application to open links in your default browser, there is a setting for that in Outlook Options. (For more information, see [https://support.microsoft.com/en-us/topic/outlook-emails-open-next-to-web-links-in-microsoft-edge-b0e1a1c1-bd62-462c-9ed5-5938b9c649f0 this Microsoft Support article]):<br>
+[[Image:Choose default browser for links in Outlook 365]]
+{/for}

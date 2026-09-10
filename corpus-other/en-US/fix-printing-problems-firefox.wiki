@@ -1,0 +1,30 @@
+This article describes how to troubleshoot printing problems in Firefox. For general information about printing in Firefox, see [[How to print web pages in Firefox]].
+
+__TOC__
+
+<!-- Need section describing page settings for new “Tab modal” print UI (100% roll-out in fx86) -->
+{for linux}
+==Check Firefox permissions in Ubuntu Software==
+You can see what permissions Firefox has in Ubuntu Software:
+# Open '''Ubuntu Software'''.
+# Switch to '''Installed''' at the top.
+# Find '''Firefox''' and click it.
+# Click '''Permissions'''.
+# If ''Print documents'' shows '''(disconnected)''' switch to '''snapd:cups-control'''.
+# Close and reopen Firefox, and check if printers are showing.
+If you don't have an item called '''Ubuntu Software''' on your system, the same functionality can be obtained using the '''Snap Store''' application. If you don't already have it, you can install it from a command line interface by entering the command: <code>sudo snap install snap-store</code>
+{/for}
+
+==Check other browsers and printers==
+You can see whether your problem is with Firefox, your printer or the website you're visiting:
+* Check to see whether the page prints correctly in another browser (such as {for win}Microsoft Edge{/for}{for mac}Safari{/for}{for linux}Epiphany{/for}).
+If the page prints incorrectly in another browser also, then:
+* There might be a problem with your printer – If you have another printer, try printing the page with that printer. If the second printer prints the page properly, update your printer driver from your printer manufacturer's website.
+* There might be a problem with the page – Contact the website administrator.
+If the page prints correctly in another browser, follow the instructions below.
+
+==Reset Firefox printer settings==
+# Click the menu button [[Image:Fx89menuButton]], click {menu Help} and select {menu More Troubleshooting Information}.
+#* The [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information page]] with the address ''about:support'' will open in a new tab.
+# Go down to the ''Printing'' section and click {button Clear saved print settings}.
+This will remove all modified print settings in Firefox.

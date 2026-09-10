@@ -1,0 +1,79 @@
+__TOC__
+
+= What are pop-ups? =
+Pop-up windows, or pop-ups, are windows that appear automatically without your permission. They vary in size, but usually don't cover the whole screen. Some pop-ups open on top of the current Firefox window, while others appear underneath Firefox (pop-unders).
+
+Firefox allows you to control both pop-ups and pop-unders in Firefox [[Template:optionsorpreferences]]. Pop-up blocking is turned on by default, so you don't have to worry about enabling it to prevent pop-ups from appearing in Firefox.
+
+When blocking a pop-up, Firefox displays an information bar (if it hasn’t been previously dismissed – see below), as well as an icon [[Image:popup_icon_fx57]] in the address bar.
+
+{for not fx149}{for win}[[Image:Fx140esrPopupBlocked]]{/for}{for mac,linux}[[Image:Fx140esrPopupBlocked-mac]]{/for}{/for}{for fx149}{for win}[[Image:Fx149PopupBlocked]]{/for}{for mac,linux}[[Image:Fx149PopupBlocked-mac]]{/for}{/for}
+
+When you click either the {button {for win}Options{/for}{for mac,linux}Preferences{/for}} button in the info bar or the icon in the address bar, a menu is displayed with the following choices:
+*{menu Allow/Block pop-ups for <''website address''>}
+*{menu Manage [[#w_pop-up-blocker-settings|pop-up settings…]]}
+*{menu Don't show this message when pop-ups are blocked}
+*{menu Show <''pop-up web address''>}
+{note}'''Blocking pop-ups may interfere with some websites:''' Some websites, including some banking sites, use pop-ups for important features. Blocking all pop-ups disables such features. To allow specific websites to use pop-ups, while still blocking all others, you can add those specific websites to the list of allowed sites.
+
+'''Blocking pop-ups doesn't always work:''' Although Firefox blocks most pop-ups, some websites may show pop-ups using uncovered methods, even when they are blocked.{/note}
+{for fx144}Additionally, to better protect you, Firefox also includes '''third-party redirect blocking''', which stops websites from forcibly opening themselves as top pages outside of trusted browsing frames or windows, protecting you from content hijacking or clickjacking tactics{/for} 
+
+{for fx144}Both features work together to improve your browsing safety while keeping essential site functions intact.{/for}
+
+= Pop-up blocker settings =
+To access the pop-up blocker settings:
+#[[T:optionspreferences]]
+#Select{for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} on the left.
+#Go down to the ''Permissions'' section.
+#*Uncheck the box next to {for fx145}'''Block pop-ups and third-party redirects'''{/for}{for not fx145}'''Block pop-up windows'''{/for} to disable the pop-up blocker altogether.
+#* Click the {for not fx151}{button Exceptions…} button to the right of {for not fx145}'''Block pop-up windows'''{/for}{for fx145}'''Block pop-ups and third-party redirects'''{/for}{/for}{for fx151}{button Manage exceptions} button underneath  '''Block pop-ups and third-party redirects'''{/for} to open a dialog box to choose which sites are allowed to display pop-ups.
+#;[[Image:Allowed Websites Pop-ups|width=600]]
+The dialog box offers you the following choices:
+*Type or paste the address of a website and click the {button Allow} button to add it to the list of sites that will be allowed to open pop-up windows.
+*Select a website from the list and click the {button Remove Website} button to remove it from the exceptions list.
+*Click the {button Remove All Websites} button to remove all websites from the exceptions list.
+Click the {button Save Changes} button to apply your changes.
+{for fx144}{note}'''Note:''' Allowing pop-ups for a trusted site also permits third-party redirect blocking; these settings are linked and must be toggled together. You can think of the third-party redirect blocking as an extension of the pop-up blocker, and it protects you by ensuring that pop-ups only open within a secure browser context.{/note}{/for}
+
+{for fx144}
+=Understand Firefox’s third-party redirect blocking=
+
+Third-party redirect blocking protects against deceptive websites that attempt to load their pages outside of approved browser environments, often overriding your tabs or opening content in full-screen or external windows.
+
+This safeguard works alongside pop-up blocking, catching methods that bypass standard window behavior. 
+
+'''Key protection benefits include''':
+*Preventing content from breaking out of secure tabs
+*Avoiding hijacked full-screen prompts or fake login pages
+*Complementing the pop-up blocker by targeting evasive techniques
+{/for}
+
+= Pop-ups not being blocked =
+== Is the pop-up coming from Firefox? ==
+The pop-up may not actually be coming from Firefox. You can determine where the pop-up is coming from by the appearance of the window.
+*If you see the address bar with {for not fx149}the ''Tracking Protection'' button [[Image:Fx89ShieldIcon]] and the ''Site Identity'' button [[Image:Fx89Padlock]]{/for}{for fx149}the ''Tracking Protection'' button [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} in the pop-up window, the pop-up is coming from Firefox.
+*If you don't see these buttons, you may have malware on your computer that causes the pop-ups. For help, see [[Troubleshoot Firefox issues caused by malware]].
+
+== Is the pop-up blocker on and enabled for this site? ==
+#[[T:optionspreferences]]
+#Select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permission and data}{/for} page, and go to the ''Permissions'' section.
+#Make sure the '''Block pop-up windows''' checkbox is checked.
+#To the right of ''Block pop-up windows'', click the {button Exceptions…} button. A dialog box will open with a list of sites that are allowed to show pop-ups.
+#If the site that's opening pop-ups is listed here, select it and click {button Remove Website}.
+#Click on {button Save Changes} to update your changes.
+#{for not fx152}[[T:closeOptionsPreferences]]{/for}
+
+== Is the pop-up shown after a mouse click or a key press? ==
+Certain events, such as clicking or pressing a key, can spawn pop-ups regardless of if the pop-up blocker is on. This is intentional, so that Firefox doesn't block pop-ups that websites need to work.
+
+== Is it a true pop-up window? ==
+Sometimes ads are designed to look like windows, but really aren't. Firefox's pop-up blocker can't stop these ads.
+
+== Mozilla surveys ==
+When you visit a Mozilla website, sometimes you'll see a pop-up asking you to participate in a survey. The only third-party that Mozilla ever uses for surveys is [https://www.alchemer.com/ Alchemer] (formerly SurveyGizmo), which has been vetted by our legal and privacy teams. The Firefox pop-up blocker doesn't block these pop-ups.
+
+=Related articles=
+*[[Global Privacy Control in Firefox for Android]]
+*[[Collections in Firefox]]
+*[[Global Privacy Control]]

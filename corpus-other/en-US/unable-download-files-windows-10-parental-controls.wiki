@@ -1,0 +1,5 @@
+{for not win10}{note}This article applies to Firefox on Windows 10.{/note}{/for}
+
+There was a [https://bugzilla.mozilla.org/show_bug.cgi?id=1586228 known issue] in [[Find what version of Firefox you are using|Firefox version]] 69.0.2 and Firefox Beta 70.0b11+ that caused downloads to fail in '''Windows 10''' when you had parental controls or content restrictions on. 
+
+We have released [https://www.mozilla.org/firefox/69.0.3/releasenotes/ Firefox 69.0.3] in order to fix this problem, so if you're affected you should [[Update Firefox to the latest release|update Firefox]] to the latest version.  Alternatively, you can work around this problem by turning off content restrictions by following the steps in [https://support.microsoft.com/help/4027707/microsoft-account-remove-members-from-family this Microsoft support article].

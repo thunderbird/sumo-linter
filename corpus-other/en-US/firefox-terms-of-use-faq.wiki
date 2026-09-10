@@ -1,0 +1,47 @@
+<!-- PLEASE DO NOT EDIT this article’s questions and answers. They have been carefully written and reviewed by Mozilla’s communications and legal teams because the answers refer to a legal document. -->
+This article answers some frequently asked questions about the [https://www.mozilla.org/about/legal/terms/firefox/ Firefox Terms of Use].
+
+__TOC__
+
+=Firefox is open-source software. Why does it need Terms of Use? Why now?=
+Firefox has always been — and still is — open-source, with its code governed by the Mozilla Public License.
+
+Most modern software or services also have Terms of Use. We used to rely on a shorter notice (formerly located at ''about:rights''), but we’re formalizing it now because:
+*The content wasn’t comprehensive enough for a modern browser like Firefox.
+*Today’s laws expect software providers to spell out a lot more details — even the seemingly obvious ones.
+*Writing down our commitments to users is more transparent than leaving them unsaid.
+Nothing about how Firefox works changes.
+
+=If I accept the Terms of Use, what changes for me?=
+Nothing changes. The [https://www.mozilla.org/about/legal/terms/firefox/ Terms of Use] simply describe the expectations between Mozilla and our users in clearer language so it’s easy to access and understand. 
+
+You still own your data. Firefox still works the way it did before. What you do online remains none of our business.
+
+=What data does Mozilla collect and why?=
+As part of our [https://www.mozilla.org/about/webvision/full/#privacy vision for privacy], we hold Firefox to an unusually high standard with respect to handling user data. Put simply, we design Firefox so that even Mozilla does not learn what you do online.
+
+You don’t have to take our word for this — Firefox is developed in the open, so you can [https://firefox-source-docs.mozilla.org/contributing/data-collection.html read the rules] that our engineers follow when working on Firefox, and check the source code to see that we’re following them.
+
+Whatever data that Firefox sends to Mozilla is outlined in our [https://www.mozilla.org/privacy/firefox/ Privacy Notice], which also describes how it’s used and why. As always, you have control over your data and can configure any features that use data in Firefox settings.
+
+=Do the Terms of Use grant Mozilla any license to use my data beyond what’s already specified in the Privacy Notice?=
+No. The [https://www.mozilla.org/about/legal/terms/firefox/ Terms of Use] don’t give Mozilla any new rights to your data. 
+
+Previously, we had included some routine licensing language in our Terms of Use that many found confusing. We listened to your feedback, took a second look, and determined the [https://www.mozilla.org/privacy/firefox/ Privacy Notice] sufficiently covers the limited permissions we need to operate Firefox on your behalf — so that language has been removed.
+
+Your data is yours and you have full control over how it’s used.
+
+=Does Mozilla track my browsing history?=
+No, your browsing history is personal and Firefox is designed to keep that information private.
+
+Unlike many other browsers where sensitive user data is routinely collected and stored, Firefox is built on the [https://firefox-source-docs.mozilla.org/contributing/data-collection.html#browsing-data principle] that not even Mozilla should know which websites you visit or what you do there.
+
+For example, when you sync your history or bookmarks, Firefox has to send data to Mozilla servers so you can seamlessly access them across devices. However, we use end-to-end encryption before it leaves your device so even we can’t see what sites you’re visiting.
+
+=How can I control how Firefox uses my data?=
+Firefox is built on the [https://www.mozilla.org/privacy/principles/ principle] that users should be in control of their data. It’s designed with best-in-class privacy and security protections by default.
+
+For step-by-step instructions on how to manage your data preferences, see:
+*[[Manage Firefox data collection and privacy settings|Manage data collection and privacy settings on Firefox for desktop]]
+*[[Mobile - Manage Firefox data collection and privacy settings|Manage data collection and privacy settings on Firefox for mobile]] 
+Detailed information about how your data is used and why can be found in our [https://www.mozilla.org/privacy/firefox/ Privacy Notice].

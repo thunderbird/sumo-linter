@@ -1,0 +1,49 @@
+'''Do you see this error message when you start Firefox?'''
+{warning}The bookmarks and history system will not be functional because one of Firefox's files is in use by another application. Some security software can cause this problem.{/warning}
+This error occurs when a database file that stores bookmarks and browsing history ({filepath places.sqlite}) and related site icons ({filepath favicons.sqlite}) can’t be accessed by Firefox. This article covers troubleshooting steps for a possible solution.
+
+'''If you don't see the error above and are still having issues with your bookmarks, try one of these articles instead:'''
+*[[Recover lost or missing Bookmarks]]
+*[[Can't add, change or save bookmarks - How to fix]]
+
+__TOC__
+
+= Restart Firefox =
+The most common causes of this error are another program using the file or a problem with the file that was caused when the computer was shut off unexpectedly (like a power failure). The good news is that sometimes, '''simply restarting Firefox''' is the fix for both problems.
+
+= Restart your computer =
+Most of the time, '''restarting your computer and then restarting Firefox''' is the fix for both problems.
+
+{for win}
+= Update Security Software definitions =
+Occasionally, Security Software like Microsoft's ''Windows Security'' application (the built-in antivirus for Windows operating systems) may cause a problem with the file. Open the Windows Security app (formerly Windows Defender).
+#Click '''Virus & threat protection'''.
+#Look for a subsection named “Virus & threat protection updates” or “Protection updates”.
+#Click the '''Check for updates''' button.
+#Once the update is complete, restart Firefox.
+{/for}
+
+= Create a new database =
+If the previous steps don’t take care of things, you can fix this by having Firefox create a new places and favicon database for you. Don’t worry, it’s not as hard as it sounds!
+
+== Part 1 – Open your profile folder ==
+[[Template:OpenProfileFolder]]
+Leave the Profile folder open and go on to Part 2.
+
+== Part 2 – Create a new database ==
+#(Optional) [[Restore bookmarks from backup or move them to another computer#w_manual-backup|Create a bookmark backup file]].
+#[[T:closeFirefox]]Wait until Firefox has completely quit.
+#In the Firefox profile folder, find and delete (or rename) the '''{filepath favicons.sqlite}''' and '''{filepath places.sqlite}''' files.
+#*You can rename instead of deleting a file to keep it as a backup. {for win,linux}Right-click it and select '''Rename''' from the context menu{/for}{for mac}Click it once to select and click a second time the file name to make it editable{/for}, then add '''.old''' to the end of its name.
+#Delete the '''{filepath favicons.sqlite-shm}''', '''{filepath favicons.sqlite-wal}''', '''{filepath places.sqlite-shm}''' and '''{filepath places.sqlite-wal}''' files, if they exist.
+#Finally, reopen Firefox.
+#*When Firefox reopens, it will create new {filepath favicons.sqlite} and {filepath places.sqlite} database files. Your browsing history will be lost, but Firefox will automatically restore your bookmarks from the most recent ''bookmarkbackups'' file.
+#*If your bookmarks weren’t restored, try the steps in [[Recover lost or missing Bookmarks]].
+
+= Error message still displays after troubleshooting =
+If the above solutions didn't work, you may be able to resolve the problem with a new Firefox [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]]. You can [[Use the Profile Manager to create and remove Firefox profiles#w_manage-profiles-when-firefox-is-open|use these instructions]] to create a new Firefox profile and set it as the default profile. When you restart Firefox, it will open with the new profile and, hopefully, you will no longer see the error message. You can then [[Recovering important data from an old profile#w_copying-files-between-profile-folders|copy important data to the new profile]] and, if necessary, [[Restore bookmarks from backup or move them to another computer#w_restoring-from-backups|restore bookmarks from a backup file]], if you have one.
+
+= Related articles =
+* [[Bookmarks in Firefox]]
+* [[Import Bookmarks from an HTML file]]
+* [[View bookmarks on your home screen]]

@@ -1,0 +1,112 @@
+To better protect your privacy and security, Firefox includes permissions that help protect your privacy by controlling whether websites can access apps and services on your computer or devices on your local network. When a website requests this access, Firefox asks for your permission first.
+
+Starting in Firefox 153, Local Network Access protections are enabled by default for all Firefox Desktop users. When a public website tries to access apps, services, or devices on your local network, Firefox asks for your permission before allowing the connection.
+
+__TOC__
+
+=Why is Firefox adding these permissions?=
+Some websites can try to communicate with apps running on your computer or with devices connected to your local network, such as printers, routers, or media servers. Malicious sites have used these capabilities to track you or scan for vulnerable devices.
+
+To keep you safe and help you stay in control of your data and devices, Firefox now asks for your permission when a site tries to connect to your device or local network.
+
+=What to expect when a site requests access=
+When a public website tries to access apps running on your computer or devices on your local network, Firefox displays a permission prompt asking whether to allow the request.
+
+You can choose to:
+*{button Allow} access for that visit
+*{button Block} access for that visit
+You can also choose to have Firefox remember your decision for all future visits. You can change it anytime in your ''Settings''. 
+
+==What is considered “device apps and services”?==
+“Device apps and services” are your personal computer and all the applications installed on it.
+
+==What is considered a “local network device”?==
+Local network devices are any hardware connected to the same local network as your device. This includes:
+*Routers
+*Printers
+*File servers
+*Smart TVs
+*Media streamers
+*IoT (Internet of Things) devices
+Accessing these devices over the network could allow websites to interact with or retrieve data from them. A permission check helps prevent sites from doing so without your knowledge.
+
+=Manage access permissions to your device and local network=
+When a site tries to access other apps and services on your device or your local network, Firefox will show a permission prompt near the address bar, asking you to allow access.
+
+For {menu Device apps and services}, the prompt looks like this:
+;[[Image:devicepermissionschanged]]
+For {menu Local network devices}, the prompt looks like this:
+;[[Image:localnetworkchanges]]
+{note}'''Tip:''' If you want Firefox to remember your choice for the site for all future visits, you can also check the '''Don’t ask again for this site''' box.{/note}
+
+==Configure access permissions==
+#[[Template:optionspreferences]]
+#Select {for not fx152}''Privacy & Security''{/for}{for fx152}''Permissions and data''{/for} on the left.
+#Go to the ''Permissions'' section.
+#Find {for not fx149}{menu Device apps and services} and click {button Settings…}{/for}{for fx149}and click the {menu Device apps and services} entry.{/for}
+#Here you’ll see a list of sites that have requested this permission.
+#Use the dropdown menu next to each site to change access.
+#Find {for not fx149}{menu Local network devices}, click {button Settings…}{/for}{for fx149}and click the {menu Local network devices} entry{/for}, and repeat steps 5-6.
+;{for not fx149}[[Image:permission]]{/for}{for fx149}[[Image:Fx150betaPermissions-DeviceLocal]]{/for}
+For {menu Device apps and services}, the Settings dialog looks like this:
+;[[Image:deviceservices|width=700]]
+For {menu Local network devices}, the Settings dialog looks like this:
+;[[Image:localnetwork|width=700]]
+
+{for fx147}
+=Advanced Configuration (''about:config'')=
+For users who need more control over local network access behavior, Firefox provides advanced preferences accessible through ''about:config''.
+;[[Template:aboutconfigwarning]]
+
+==To access these preferences==
+#[[T:aboutconfig]]
+#;[[Image:Fx145aboutconfig]]
+#Search for the preference name you want to modify.
+#Double-click to change boolean values {pref (true/false)} or click the edit icon for other values.
+
+==Available preferences==
+===network.lna.enabled (boolean)===
+*Default: {pref true}
+*Controls whether local network access checks are enforced
+*Setting to {pref false} disables all local network access restrictions
+
+===network.lna.blocking (boolean)===
+*Default: {pref true}
+*Controls the blocking behavior for local network access
+*Setting to {pref false} allows access without prompts when enabled
+
+===network.lna.block_trackers (boolean)===
+*Default: {pref false}
+*Experimental feature that blocks third-party trackers from accessing localhost and local network resources
+*Setting to {pref true} provides additional protection against tracking scripts
+
+===network.lna.skip-domains (string)===
+*Default: {pref (empty)}
+*Comma-separated list of domains that should skip local network access checks
+*Can include both source domains (websites making requests) and target domains (local resources being accessed)
+*Supports wildcard patterns with {pref *}. prefix (for example {pref *.company<!-- -->.com})
+*Example: {pref intranet.company.<!-- -->com,*.devices.local}
+
+==Troubleshooting and monitoring==
+If you need to see detailed information about local network access attempts or diagnose issues:
+#Press {for win,linux}{key Ctrl+Shift+K}{/for}{for mac}{key Cmd+Option+K}{/for} to open the [https://firefox-source-docs.mozilla.org/devtools-user/web_console/ Web Console].
+#Look for messages related to local network access.
+#The console will show which requests were blocked or allowed, helping you understand what’s happening.
+#;[[Image:advancedconfiguration]]
+For enterprise environments, administrators can use the LocalNetworkAccess policy to manage these settings organization-wide. See the [https://mozilla.github.io/policy-templates/ Firefox Enterprise Policy Documentation] for more information.
+
+==Report issues==
+If you encounter unexpected prompts or believe a website is being incorrectly blocked or allowed:
+#Open the [https://firefox-source-docs.mozilla.org/devtools-user/web_console/ Web Console] to capture relevant error messages (usually starting with ''Local Network Access…'').
+#[https://bugzilla.mozilla.org/enter_bug.cgi?product=Core&component=Networking File a bug in Bugzilla] under the '''Core :: Networking''' component.
+#Include in your bug report:
+#*The website URL where you saw the unexpected prompt
+#*What you expected to happen vs. what actually happened
+#*Error messages from the Web Console
+#*Whether the site is trying to access a local device or local network resource
+{/for}
+
+=Related articles=
+*[[Site Permissions panel]]
+*[[Manage optional permissions for Firefox extensions]]
+*[[How to manage your camera and microphone permissions with Firefox]]

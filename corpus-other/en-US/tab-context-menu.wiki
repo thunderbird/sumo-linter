@@ -1,0 +1,54 @@
+Firefox’s tab context menu provides a range of useful tools to help you manage and organize your tabs effectively. This menu is designed to give you quick access to common tab actions, enhancing your browsing experience. [[Template:contextmenu]] on a Firefox tab to open the tab context menu. Here’s an overview of the key available options.
+;{for not fx140}{for not fx127}[[Image:Fx115TabMenu-CloseMultipleTabs]]{/for}{for fx127}[[Image:Tab context menu overview]]{/for}{/for}{for fx140}[[Image:unloadtabsmozilla]]{/for}
+
+=Basic actions=
+{for not fx140}
+*'''New Tab:''' Open a [[New Tab page in Firefox|New Tab page]] quickly.
+*'''Reload Tab:''' Refresh the selected tab to get the latest content.
+*'''Mute Tab/Unmute Tab:''' [[Mute sound in Firefox tabs|Mute]] or unmute audio in the selected tab.
+*'''Pin Tab/Unpin Tab:''' [[Pinned Tabs - keep favorite websites open and just a click away|Pin]] important tabs to keep them in place and unpin them when they are no longer needed.
+*'''Duplicate Tab:''' Create a copy of the current tab, retaining the [[Browsing history in Firefox - View the websites you have visited|browsing history]].
+*'''Bookmark Tab…:''' [[Bookmarks in Firefox|Bookmark]] the current tab for later reference.
+{/for}
+{for fx140}
+*'''New Tab:''' Open a [[New Tab page in Firefox|New Tab page]] quickly.
+*'''Reload Tab:''' Refresh the selected tab to get the latest content.
+*'''Mute Tab/Unmute Tab:''' [[Mute sound in Firefox tabs|Mute]] or unmute audio in the selected tab.
+*'''Unload Tab:''' [[Unload tabs to reduce system memory usage in Firefox|Unload]] the selected tab from memory.
+*'''Pin Tab/Unpin Tab:''' [[Pinned Tabs - keep favorite websites open and just a click away|Pin]] important tabs to keep them in place and unpin them when they are no longer needed.
+*'''Duplicate Tab:''' Create a copy of the current tab, retaining the [[Browsing history in Firefox - View the websites you have visited|browsing history]].
+*'''Bookmark Tab…:''' [[Bookmarks in Firefox|Bookmark]] the current tab for later reference.
+{/for}
+=Move options=
+*'''Move Tab:''' Relocate tabs within your window.
+**Move to Start
+**Move to End
+**Move to New Window
+
+=Device and sharing options=
+*'''Send Tab to Device:''' Send the tab to another device [[Sync Firefox data|signed in]] to your Mozilla account.
+*'''Share:''' Share the current tab via various methods.
+*'''Open in New Container Tab:''' Open the tab in a different [[How to use Firefox containers|container]] for separation of activities. (Only shown if you have once installed an extension using containers.)
+
+=Select and close options=
+*'''Select All Tabs:''' Select all open tabs in the current window.
+*'''Close Tab:''' Close the selected tab quickly.
+{for fx127}
+*'''Close Duplicate Tabs:''' Close tabs that are duplicates of the current one.
+{/for}
+*'''Close Multiple Tabs:''' Access options to close multiple tabs.
+**Close Tabs to Right
+**Close Tabs to Left
+**Close Other Tabs
+*'''Reopen Closed Tab:''' Reopen the last closed tab to retrieve any accidentally closed content.
+{note}'''Note:''' If multiple tabs are selected, the chosen option is applied to all selected tabs (except for ''New Tab'' and ''Reopen Closed Tab'').{/note}
+
+=Related articles=
+{for fx137}
+*[[Tab groups in Firefox]]
+{/for}
+*[[Tab overview menu]]
+*[[Use tabs to organize lots of websites in a single window]]
+*[[Pinned Tabs - keep favorite websites open and just a click away]]
+*[[Customize Firefox controls, buttons and toolbars]]
+*[[Keyboard shortcuts - Perform common Firefox tasks quickly]]

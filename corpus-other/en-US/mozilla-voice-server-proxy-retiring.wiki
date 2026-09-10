@@ -1,0 +1,33 @@
+Mozilla is ending official support for the Mozilla Voice Proxy Server and its related projects on February 28, 2021. If you have installed the VoiceFill or Firefox Voice Beta extensions, an upcoming add-on update will notify you of this retirement timeline. These extensions will also uninstall themselves on February 19, 2021.
+
+__TOC__
+
+=History=
+
+The Mozilla Speech Proxy Server is being decommissioned on February 28, 2021. The server helped power the [https://addons.mozilla.org/firefox/addon/voice-fill/ Voice Fill] and [https://addons.mozilla.org/firefox/addon/firefox-voice/ Firefox Voice Beta] extensions, which enabled voice-based interactions with the browser, and the [https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API WebSpeech API], which allowed developers to add voice based interactions to their web content and services. These extensions are being retired as part of the server decommissioning.
+
+=Extension Uninstallation=
+
+The VoiceFill and Firefox Voice Beta extensions will uninstall themselves on February 19, 2021. However, if you prefer to uninstall them sooner, you may do so manually using one of the following options:
+
+==Uninstall via the Add-on page==
+#Visit the listing page for the [https://addons.mozilla.org/firefox/addon/voice-fill/ Voice Fill] or [https://addons.mozilla.org/firefox/addon/firefox-voice/ Firefox Voice Beta] extensions at [https://addons.mozilla.org addons.mozilla.org].
+#Click {button Remove} near the top-right of the page. The extension will uninstall immediately.
+
+==Uninstall via the Firefox menu button==
+#Click the menu button [[Image:Fx57menu]].
+#Click {menu Add-ons} to open the Add-ons Manager.
+#Find the '''VoiceFill''' or '''Firefox Voice Beta''' extension.
+#Click the {button …} icon next to the extension and then select '''Remove'''.
+
+==Uninstall via the Firefox menu bar==
+#Click {menu Tools} in the Firefox menu bar.
+#Click the ''Add-ons'' entry to open the Add-ons Manager (choose the ''Extensions'' panel, if not selected already).
+#Find '''VoiceFill''' or '''Firefox Voice Beta''' on the Add-ons Manager.
+#Click the {button …} icon next to the extension and then select '''Remove'''.
+
+=Extension Source Code=
+The source code for [https://github.com/mozilla/voicefill Voice Fill] and [https://github.com/mozilla-extensions/firefox-voice Firefox Voice Beta] is freely available and distributed under the [https://github.com/mozilla/price-tracker/blob/master/LICENSE Mozilla Public License v 2.0].
+
+=Your privacy=
+If you opted in to allow us to collect your data to help with those experiments, we’ve already taken the steps necessary to permanently remove that data so it will not be retained by Mozilla (or anyone else).

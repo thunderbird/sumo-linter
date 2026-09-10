@@ -1,0 +1,5 @@
+If your tracking protection setting in ''about:preferences#privacy'' is set to '''Custom''', but your custom options exactly match the ones in the '''Standard''' settings, Firefox will switch back to the '''Standard'''. You will not lose the privacy options you have selected since your custom settings matched the standard ones.
+
+=Change back to Custom settings=
+
+You can change back to Custom settings at any time and choose options that are different from the Standard settings. To learn more, see {for fx70}[[Enhanced Tracking Protection in Firefox for desktop#w_adjust-your-global-enhanced-tracking-protection-settings|Adjust your global Enhanced Tracking Protection settings]]{/for}{for not fx70}the [[Content blocking]] article under [[Content blocking#w_custom-settings|Custom settings]]{/for}.

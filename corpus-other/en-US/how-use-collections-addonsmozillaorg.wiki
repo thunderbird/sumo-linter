@@ -1,0 +1,38 @@
+<!--L10N - please omit the screenshots if you prefer.-->
+
+Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others. This article describes how to create, edit, share, and delete a collection on addons.mozilla.org. 
+
+__TOC__
+
+In order to use collections, you need to register for a Mozilla account or sign in to addons.mozilla.org using your Mozilla account credentials. 
+
+=Create a collection=
+#Once you are signed in to addons.mozilla.org, click on your name in the upper right hand corner of the screen and select {menu View My Collections} from the popup menu.
+#;[[Image:view selections addons]]
+#On the next screen, click the button that says {button Create a Collection} to create a collection. 
+#;[[Image:create collection addon]]
+#On the next screen, you can give your collection a name and a description. Note that all collections are public and can be viewed by anyone with a link to the collection. When you are done, click {button Create collection}.
+#;[[Image:create collection detail]]
+#Type the name of the extension or theme you want to add into the search box and select it from the list.
+#;[[Image:search addon collection]]
+#Once you select the extension from the list, addons.mozilla.org will automatically save your collection. You can add a note about the extension or theme if you would like, or click the {button Remove} button to remove it from the collection.
+#;[[Image:save addon collection]]
+
+=Edit a collection=
+#Once you are signed in to addons.mozilla.org, click on your name in the upper right hand corner of screen and select {menu View My Collections} from the popup menu.
+#Click the collection you'd like to edit.
+#Click the {button Edit this Collection}.
+#;[[Image:edit this collection]]
+#You can add or remove extensions and themes. Those changes will be automatically saved. 
+#To edit general information about the collection, click the {button Edit collection details} button. '''Note:''' you will need to save changes if you edit general information. 
+#;[[Image:edit this collection]]
+#;[[Image:edit collection details]]
+
+=Share a collection=
+Your collection will have a URL that you can share with others.
+;[[Image:collection url]]
+
+=Delete a collection=
+#Once you are signed in to addons.mozilla.org, click on your name in the upper right hand corner of the screen and select {menu View My Collections} from the popup menu.
+#Click {button Delete this collection} on the left side of the screen. 
+#Select confirm. Your collection will then be deleted.

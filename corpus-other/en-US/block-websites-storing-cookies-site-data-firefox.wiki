@@ -1,0 +1,48 @@
+Websites you visit store [[Cookies - Information that websites store on your computer|cookies]] and other site data on your computer. The stored data contains information such as site preferences and login status. This article describes how to block websites from storing this data in Firefox.
+*See [[Where are my logins stored?]] to learn more about website logins.
+
+__TOC__
+
+=Block cookies or persistent storage for a single website=
+You can use the [[View site information with Page Info|Page Info window]] to set Firefox to block cookies or stored data from one website:
+#Go to the website you wish to block from setting cookies or storing site data in Firefox.
+#{for win,linux}If the [[Restore the Menu bar in Firefox|Menu bar is enabled]],{/for}{for mac}In the Menu bar,{/for} click {menu Tools} and select {menu Page Info} from the drop-down menu.{for win,linux}<br>Alternatively, click the {for not fx149}padlock [[Image:Fx89Padlock]]{/for}{for fx149} shield [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} icon to the left of the web page address and in the [[Site Information panel|Site Information]] drop-down panel that opens, click the ''Connection '' button with the right arrow '''>'''  and then click the {for not fx149}{button More information}{/for}{for fx149}{button More site information}{/for} button in the next panel.{/for}
+#In the ''Page Info'' window that opens, select the {menu Permissions} panel.
+#Underneath '''Set Cookies''' or underneath '''Store Data in Persistent Storage''', remove the check mark from '''Use Default'''.
+#Change the setting to '''Block'''.
+#;[[Image:Fx78PageInfo-BlockCookiesSiteData]]
+#Close the ''Page Info'' window.
+You will need to remove any cookies or site data that the website has already set in Firefox. For instructions, see [[Delete cookies to remove the information websites have stored on your computer]].
+
+=Block cookies and site data for more than one website=
+If you have more than one website you want to block, using the [[View site information with Page Info|Page Info window]] for each site can be time-consuming. You can block individual websites from setting cookies and storing site data, as follows:
+#[[Template:optionspreferences]]
+#Select {for not fx152}{menu Privacy & Security} on the left and go to the '''Cookies and Site Data'''{/for}{for fx152}{menu Privacy and security} on the left and go to the  '''Browsing data'''{/for} section.
+#;{for fx148}{for not fx152}[[Image:Fx148settings-CookiesAndSiteData]]{/for}{for fx152}[[Image:fx152browsingdata]]{/for}{/for}{for not fx148}[[Image:Fx79CookiesAndSiteData]]{/for}
+#Click {for fx148}{menu Manage exceptions}{/for}{for not fx148}{button Manage Exceptions…}{/for}. The ''Exceptions - Cookies and Site Data'' dialog box will open.
+#;[[Image:Fx115CookiesAndSiteData-ManageExceptions]]
+#Type in the exact address of the site you want to block.
+#Click {button Block}.
+#Click {button Save Changes} to finish.
+To remove cookies that were stored previously, see [[Clear cookies and site data in Firefox]].
+
+=Viewing a list of blocked sites=
+To see a list of sites that you have blocked from setting cookies and storing site data:
+#[[T:optionspreferences]]
+#Select {for not fx152}{menu Privacy & Security} on the left and go to the '''Cookies and Site Data'''{/for}{for fx152}{menu Privacy and security} on the left and go to the  '''Browsing data'''{/for} section.
+#Click {for fx148}{menu Manage exceptions}{/for}{for not fx148}{button Manage Exceptions…}{/for}.
+The ''Exceptions - Cookies and Site Data'' dialog box that opens will show you which sites you have blocked from storing cookies.
+
+=Block cookies for all sites=
+To set Firefox to block cookies from all websites:
+#[[Template:optionspreferences]]
+#Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} on the left.
+#In the [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] section, select '''Custom''' and check mark '''Cookies'''.
+#;[[Image:Fx111settings-ETPcustom]]
+#Use the drop-down menu to choose the type of cookies to block. '''Warning!''' Some sites will not work properly with all cookies blocked.
+#[[T:closeOptionsPreferences]]
+
+= Related articles =
+*[[Websites say cookies are blocked - Unblock them]]
+*[[Third-party cookies and Firefox tracking protection]]
+*[[Clear cookies and site data in Firefox]]

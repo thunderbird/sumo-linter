@@ -1,0 +1,37 @@
+{note}'''Note:''' This article describes a feature currently available to a limited set of users, which includes users in the United States, starting in [[Find what version of Firefox you are using|Firefox version]] 118. This feature is available where Google makes Trending Search available which is subject to change, and is not determined by Mozilla.{/note}
+Google trending searches display the most popular and frequently searched terms on Google at any given moment. This feature, when enabled in the Firefox address bar, offers real-time insights into current trends and popular topics, making your search experience more dynamic and relevant.
+
+__TOC__
+
+=What are Google Trending Searches?=
+Google trending searches highlight the topics that are currently capturing widespread attention. These trends are determined by the volume and frequency of searches over a short period. By enabling trending searches, you can stay updated with the latest news, events and viral topics directly from your Firefox address bar. {note}'''Note:''' You can enable or disable trending searches and other search suggestions in Firefox settings. To learn more, see [[Search suggestions in Firefox#w_enabling-or-disabling-search-suggestions]].{/note}  
+
+=Use Google Trending Search=
+#At the top of the screen, click on the address bar.
+#;{for win,linux}[[Image:FirefoxAddressbar]]{/for}{for mac}[[Image:Search with Firefox 1]]{/for}
+#A drop-down menu will appear, displaying the latest trending search terms based on your area.
+#Click a trending search term that interests you.
+#;[[Image:Google Trending Searches 1|width=900]]
+#Upon clicking, you will be redirected to the Search Engine Results Page (SERP) related to the selected trending search term.
+
+=Disable Google Trending Search=
+If you prefer not to see these trending search terms, do the following:
+#Hover your mouse over a search term and click the menu button that will appear on the right-hand side.
+#Select the {menu Don't show trending searches} option.
+#;[[Image:Google Trending Searches 2|width=900]]
+All set! A confirmation indicating that these results won't be displayed again will appear.
+
+=Frequently asked questions=
+==Why is this helpful?==
+This feature simplifies the process of discovering trends and interesting topics. It spotlights what's currently trending in your area, making it a valuable tool for:
+*'''Effortless discovery:''' Saving you time by displaying trends and trending topics in your address bar.
+*'''Local insights:''' Keeping you in tune with your community's interests. In essence, it transforms your address bar into a window to your region's buzzing conversations and trends.
+
+==Can I customize the trending searches I see in my address bar?==
+Currently, there are no specific customization options for trending searches. They are automatically generated based on your area and the most popular search queries at the time.
+
+==Is the Google Trending Search feature available in all regions?==
+Currently, Google Trending Search is available exclusively to a limited set of Firefox users, which includes users in the United States. This feature is available where Google makes Trending Search available which is subject to change, and is not determined by Mozilla.
+
+==Will enabling trending searches impact my search privacy?==
+Enabling trending searches does not affect your search [https://www.mozilla.org/privacy/firefox/ privacy]. The trending searches shown are not based on your personal search history but on popular searches from a broad audience. Mozilla does not collect any personal information or track your individual searches.

@@ -1,0 +1,20 @@
+The Mozilla VPN extension may display the message: '''A program on your computer may be causing issues with the Mozilla VPN extension.'''
+
+This issue is often caused by the Killer Network Service (KNS), which monitors and prioritizes network traffic. Unfortunately, KNS can conflict with Mozilla VPN’s functionality, particularly App Exclusions and the Firefox browser extension. This guide shows how to disable the specific setting of KNS that causes this unwanted behavior and restores the smooth operation of Mozilla VPN.
+
+=Disable Killer Network Service (KNS)=
+The Killer Network Service (KNS) is a software typically pre-installed on gaming laptops or high-performance PCs with Intel hardware. It helps prioritize network traffic for activities like online gaming or streaming.
+
+While this feature is beneficial in some cases, it can interfere with Mozilla VPN's browser extension and the App Exclusions functionality. To resolve this issue, follow these steps:
+#Open the Windows menu, and use the search function to look for the '''Killer Intelligence Center'''.
+#Once open, locate the '''Quick Settings''' section on the right side of the application.
+#;[[Image:KNS Quick settings]]
+#Click the toggle next to '''Prioritization Engine''' to turn it off.
+#;[[Image:Disable prioritization engine|width=250]]
+You are done! This should resolve any conflict with the Mozilla VPN extension and/or the App Exclusions functionality.
+{note}'''Note:''' The Firefox extension may continue to show this warning, but provided the Prioritization Engine is disabled, everything should work correctly. At that point, feel free to simply dismiss the notification in the Mozilla VPN extension.{/note}
+To re-enable KNS’s Prioritization Engine, simply follow the steps above and turn the toggle back on.
+
+=Related articles=
+*[[How will DNS work when using the VPN extension?]]
+*[[Disable VPN protection for a specific website]]

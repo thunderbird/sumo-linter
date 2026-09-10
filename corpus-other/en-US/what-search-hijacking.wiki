@@ -1,0 +1,61 @@
+Firefox lets you regain control of your settings in the event of a search hijacking. If Firefox detects a search hijacker, it fixes itself by resetting to the default settings.
+
+Search hijacking, or browser hijacking, occurs when a third party sneaks files into your computer and alters your browser's settings without your permission. These changes help the hijackers make money by forcing you to look at ads, click on paid links, or give up your private information.
+
+If you are unable to change your home page, remove a toolbar, or change your search settings, it's likely that your browser has been hijacked.
+
+__TOC__
+
+=Types of search hijacking=
+==Toolbar hijacking==
+Some hijackers install toolbars that display ads, add unwanted bookmarks, load their page when you open a new tab, or insert ads in your search results, or collect information about your searches. These toolbars may force you to use their search by making it very difficult to change your search engine.
+
+Some companies take Firefox's open source code and create their own customized version of the browser with their built-in toolbar. Make sure to download Firefox only from the [https://www.firefox.com official website].
+
+==Unwanted redirects==
+Some hijackers redirect your home page, search results page or error pages to their own pages. These pages may include ads, sponsored links and other paid content or trick you into downloading malicious software.
+
+=How does search hijacking happen?=
+Some programs bundle custom search or toolbars with software that you do want. Others trick you into downloading malware that can alter your settings and access your information. Here are the most common ways search hijacking can happen:
+
+==Add-ons and extensions==
+Some companies offer add-ons that claim to improve your browser's performance, but alter your search settings instead. Make sure to install add-ons from a reliable source, such as [https://addons.mozilla.org/ addons.mozilla.org].
+
+==Advertising networks==
+Some ads install malware when you click or play them. Avoid clicking on ads or install an add-on to block advertising and other unwanted content, such as [https://addons.mozilla.org/firefox/addon/ublock-origin/ uBlock Origin] or [https://addons.mozilla.org/firefox/addon/adblock-plus/ Adblock Plus].
+
+[[T:addonsupport]]
+
+==Installers==
+Some companies bundle custom toolbars with their software updates. When you install or update any software, be sure to pay attention to all the checkboxes to make sure you're not downloading additional software.
+
+==Fake antivirus software==
+Some companies disguise their hijackers as antivirus software. They may claim to make your browser run faster or remove malicious files from your computer, but alter your search settings instead.
+
+==Free Internet downloads==
+Some search hijackers are bundled with free software downloaded from unreliable sites. Be sure to download only from sources that you trust.
+
+==Infected messages==
+Spam emails or links on your Facebook or X feed may contain links to download malware, so avoid clicking on unfamiliar messages or links.
+
+==Meta installers and download managers==
+Meta installers or download managers are software that let you download files from multiple sources. These download managers may take over your toolbar or download manager.
+
+=Firefox Anti-hijacking=
+==Firefox Automatic Search Reset==
+In some circumstances where Firefox detects that you are likely to be in a hijacked state, it may automatically reset to the default search engine for your country. There is no action you need to take in this case.
+
+Hijacking detection is not 100% accurate so, if Firefox resets your search engine, it's easy to change it back to your preferred search engine. Just navigate to the '''Search''' panel of Firefox [[T:optionsorpreferences]] and [[Manage Firefox search settings|change your default search settings]]. Your prior engine will still be a choice in the select menu. 
+
+==User Opt-in Reset==
+In circumstances where Firefox detects that you may be hijacked, you will see a search reset offer in the content window. The reset will go to the default search engine for your country. 
+*To accept the offer, click {button Change Search Engine}.
+*To reject the offer, click {button Don’t change}.
+*To choose another search default, click the '''Settings page''' link.
+;[[Image:restore search 57]]<!--L10N, type in about:searchreset in the URL to see this prompt-->
+
+=Regain control of your browser=
+If Firefox's automatic reset does not fix the problem, see the following articles for additional solutions:
+*[[Remove a toolbar that has taken over your Firefox search or home page]]
+*[[What to do when searches take you to the wrong search website]]
+*[[Troubleshoot Firefox issues caused by malware]]

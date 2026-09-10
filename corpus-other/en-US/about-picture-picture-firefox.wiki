@@ -1,0 +1,84 @@
+With Picture-in-Picture, you can effortlessly detach videos from their webpages and enjoy them in floating, always-on-top windows. This lets you continue working in other tabs while still keeping an eye on your videos.
+
+Picture-in-Picture offers incredible flexibility – you can open multiple video windows and easily adjust their positions and sizes to match your preferences. Whether you're learning from educational content, enjoying entertainment, or following online tutorials, Picture-in-Picture simplifies video playback with essential controls like play, pause, mute, skip and full-screen options – all accessible without leaving your current tab. Seamlessly multitask with Picture-in-Picture in Firefox, enhancing productivity and engagement. This article will guide you through its various functionalities and usage, empowering you to optimize your video viewing experience.
+;[[Image:PiP_video]]
+
+__TOC__
+
+=How to use Picture-in-Picture=
+==On-screen video toggle==
+The Picture-in-Picture toggle becomes visible when you hover your mouse cursor over videos.
+
+Picture-in-picture toggle before your first click on it:
+;[[Image:PiP_video_toggle]]
+And after your first click on it:
+;[[Image:PiP_video_toggle_icon]]
+By clicking the toggle, the underlying video will open in the Picture-in-Picture player window, providing you with a seamless viewing experience.
+
+===Change the position of the toggle===
+Right-click the icon and then click {menu Move Picture-in-Picture Toggle to Left Side} to move the icon to the opposite side of the video.
+{note}'''Note:''' The toggle doesn't appear when a video is on full screen.{/note}
+
+==Launch Picture-in-Picture from the address bar==
+Starting in [[Find what version of Firefox you are using|Firefox version]] 116, you can easily launch Picture-in-Picture when visiting pages with a single video. Simply locate the icon positioned on the right-hand side of the address bar to activate this feature. This icon works hand in hand with the on-screen video toggle, and you'll find it exclusively on pages containing one video. For pages with multiple or no videos, the icon remains hidden.
+;[[Image:Pip in address bar]]
+
+==Launch Picture-in-Picture from the right-click menu==
+Another way to access Picture-in-Picture is via the right-click menu. Simply right-click a video for option to play, mute, speed and more.
+;[[Image:PiP_contextMenu]]
+{note}
+'''Note:''' Some sites might make it challenging to access the context menu for web videos. For instance, YouTube overrides the default context menu with its own custom options.
+
+'''Tip:''' To reach the default native context menu, you have two options. You can either hold down the {key Shift} key while right-clicking, or you can perform a double right-click.
+{/note}
+Additionally, when a video is in full-screen mode, the Picture-in-Picture menu item won't be available in the context menu. To switch to Picture-in-Picture, you'll need to exit full screen and use either the toggle or the context menu. Remember, the keyboard shortcut for Picture-in-Picture still functions even in full-screen mode.
+
+==Subtitles and captions==
+If you are using subtitles and captions while watching videos on the supported websites, they will also be viewable in Picture-in-Picture. Just turn on the subtitles or captions on the in-page video player before launching the Picture-in-Picture option, so they can appear automatically.
+{note}'''Note:''' Subtitles and captions for Picture-in-Picture are available on: YouTube, Netflix, Disney+, Amazon Prime Video, Funimation, Dailymotion, Khan Academy, BBC<!-- -->.co.uk, Washington Post, Nebula, Tubi, Hotstar and SonyLIV – plus websites that support [https://www.w3.org/TR/webvtt1 WebVTT format] like Coursera and Twitter. We’re working to expand the feature to more sites.{/note}
+
+==Keyboard shortcuts==
+{for win,linux}To access via the keyboard, press the combination {key Ctrl+Shift+]}. Firefox will attempt to launch the most relevant video on the page into a Picture-in-Picture window, or will close it if already open.{/for}{for mac}To access via the keyboard, press the combination {key Command+Shift+Option+]}. Firefox will attempt to launch the most relevant video on the page into a Picture-in-Picture window.{/for}
+
+The following shortcuts are available for playback and volume controls:
+*{for win,linux}{key Ctrl+↓}{/for}{for mac}{key Command+&#8595;}{/for}: Mute
+*{for win,linux}{key Ctrl+↑}{/for}{for mac}{key Command+&#8593;}{/for}: Unmute
+*{key ↓}: Volume decrease
+*{key ↑}: Volume increase
+*{key &#8592;}: Seek back 5 seconds
+*{key &#8594;}: Seek forward 5 seconds
+*{for win,linux}{key Ctrl+&#8592;}{/for}{for mac}{key Command+&#8592;}{/for}: Seek back 10%
+*{for win,linux}{key Ctrl+&#8594;}{/for}{for mac}{key Command+&#8594;}{/for}: Seek forward 10%
+*{key Home}: Seek to beginning of video
+*{key End}: Seek to end of video
+*{key Space}: Pause/Continue
+*Double-click or {key F}: Enter or exit full-screen mode
+*{for win,linux}{key Ctrl+W}{/for}{for mac}{key Command+W}{/for}: Close Picture-in-Picture window
+*{key Shift} + '''click on the close button''' or {key Shift+Esc}: Close Picture-in-Picture window without pausing the video
+
+==Common Questions==
+===How do I disable Picture-in-Picture?===
+You can tailor your Picture-in-Picture experience by disabling the toggle from appearing over videos. This can be done either through the Picture-in-Picture toggle directly or by making changes in the settings.
+*'''Enabling/disabling from the toggle:'''
+*#Find a video where you can see the Picture-in-Picture toggle.
+*#Right-click the toggle.
+*#Click {menu Hide Picture-in-Picture Toggle} in the menu that appears.
+*#;[[Image:hidePiP_button]]
+*'''Enabling/disabling from the Settings panel:'''<br>If you don’t want to see the controls while hovering, you can hide that option in Firefox Settings. (Note: You can still turn on Picture-in-Picture by right-clicking on a video.) You can also use this to re-enable the control when you want to use it again.
+*#[[Template:optionspreferences]]
+*#In the {for not fx152}{menu General}{/for}{for fx152}{menu Tabs and browsing}{/for} panel, scroll down to the {for not fx152}''Browsing''{/for}{for fx152}''Media''{/for} section.
+*#Uncheck the box next to {for not fx152}'''Enable picture-in-picture video controls'''{/for}{for fx152}'''Use Picture-in-Picture'''{/for}.
+*#;{for not fx152}[[Image:Fx115settings-TurnOffPIP]]{/for}{for fx152}[[Image:fx152media]]{/for}
+If you want to re-enable the controls later, simply add back the check mark.
+
+===Why don't I see the Picture-in-Picture toggle?===
+*The toggle only appears for videos that are longer than 45 seconds and that include an audio track.
+*The toggle doesn't appear when a video is on full screen.
+*Developers can also opt to exclude the Picture-in-Picture button from videos hosted on their domains and inform users that the Picture-in-Picture experience might not be the best fit for their website. In such cases, Firefox will display a notification indicating that Picture-in-Picture is not recommended for that particular website. However, you retain full control and can override this recommendation by activating the '''Enable anyway''' option. This empowers you to choose to use Picture-in-Picture, even if the developer discourages it.
+*;[[Image:Pip disabled disclaimer (no typo)|width=350]]
+<!-- Localization note: To recreate the above screenshot in your locale, please refer to https://support.mozilla.org/forums/l10n-forum/717252?last=88749#post-88749 -->
+
+=Related articles=
+*[[Audio and video files in Firefox]]
+*[[Allow or block media autoplay in Firefox]]
+*[[Control audio or video playback with your keyboard]]

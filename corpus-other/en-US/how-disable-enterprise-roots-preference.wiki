@@ -1,0 +1,16 @@
+[[Template:aboutconfigwarning]]
+
+Firefox may display a [https://wikipedia.org/wiki/Transport_Layer_Security TLS] connection error when your antivirus software prevents data from being sent to your browser. This happens when your antivirus software fails to register itself with Firefox as a valid issuer of TLS certificates. 
+
+Mozilla has added an Enterprise Roots preference to Firefox as a solution to the problem. This preference can be used to import any root [https://wikipedia.org/wiki/Certificate_authority certificate authorities] (CAs) that have been added to the operating system, to resolve your TLS connection error. You can determine if a website is relying on an imported root certificate by clicking the ''Site information'' padlock icon [[Image:Fx89Padlock]] in the address bar. 
+
+When a TLS connection error occurs Firefox will automatically enable the Enterprise Roots preference and attempts to connect again. If the issue is resolved, then the Enterprise Roots preference remains enabled. However, you may want to disable this behavior, so this article explains how to do just that without compromising security.
+
+You can modify this behavior and prevent Firefox from automatically enabling the import of CAs that have been added to the operating system when a TLS connection error occurs, as follows:
+#[[Template:aboutconfig]]
+#Type '''enterprise''' in the ''Search'' field.
+#Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to the preference {pref security.certerrors.mitm.auto_enable_enterprise_roots} to change its value from {pref true} to {pref '''false'''}.
+
+To prevent CAs that have been added to the operating system from being automatically imported each time Firefox restarts:
+#In the ''about:config'' page, search for '''enterprise''' as explained above.
+#Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to the preference {pref security.enterprise_roots.enabled} to change its value from {pref true} to {pref '''false'''}.

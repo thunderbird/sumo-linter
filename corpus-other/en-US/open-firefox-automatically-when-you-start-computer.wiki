@@ -1,0 +1,17 @@
+[[Template:WindowsOnly]]
+Starting with [[Find what version of Firefox you are using|Firefox version]] 120, you can set Firefox to automatically launch whenever you start or restart your Windows computer. Setting Firefox to auto-launch optimizes efficiency in our browser-centric digital routines, eliminating manual startup delays and facilitating immediate web access.
+
+= Opt-in prompt =
+If you have previously chosen Firefox as your default browser, an opt-in message will appear. Simply click [[Image:Yes, open Firefox button|width=100]] to enable it.
+
+[[Image:Auto launch prompt]]
+
+= Manual configuration =
+Didn’t receive the prompt? Follow these steps to manually set up auto-launch:
+#{for mac}Make sure you're using Firefox on Windows. Then, click the menu button [[Image:Fx89menuButton]] and select {menu Settings}.{/for}{for win,linux}Click the menu button [[Image:Fx89menuButton]] and select {menu Settings}.{/for}
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Home and startup}{/for} page, locate and select the {for not fx152}'''Open Firefox automatically when your computer starts up'''{/for}{for fx152}'''Open Firefox automatically'''{/for} option.
+#;{for not fx152}[[Image:Auto launch preferences 1]]{/for}{for fx152}[[Image:fx152onstartup]]{/for}
+#;{note}'''Note:''' This option may not be available if you [[About Studies#w_how-do-i-opt-out|opted out of Studies]] in Firefox Settings.{/note} 
+#If prompted with ''This preference has been disabled in Windows'', click the [https://support.microsoft.com/windows/add-an-app-to-run-automatically-at-startup-in-windows-10-150da165-dcd9-7230-517b-cf3c295d89dd Startup Apps] link. This will guide you to the appropriate section in Windows' system settings.
+#;{for not fx152}[[Image:Auto launch preferences 2]]{/for}
+#Once done, exit the ''Settings'' page. Your adjustments are saved automatically.

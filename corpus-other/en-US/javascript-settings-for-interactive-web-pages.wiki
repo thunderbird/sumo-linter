@@ -1,0 +1,26 @@
+This article describes what JavaScript® is and how to allow or block it on certain websites.
+
+__TOC__
+
+= What is JavaScript? =
+[http://wikipedia.org/wiki/JavaScript JavaScript] is a standard programming language that can be included in web pages to provide functionality such as menus, sounds, and other interactive features. By default, Firefox enables the use of JavaScript and requires no additional installation.
+
+= Allow and block JavaScript on certain domains =
+JavaScript can be used to do things that some people don't like. For better control, you can find and install [https://addons.mozilla.org/en-US/search/?q=JavaScript JavaScript extensions] or [https://addons.mozilla.org/firefox/search/?tag=privacy privacy extensions] that let you disable JavaScript, such as these add-ons: 
+*[https://addons.mozilla.org/firefox/addon/noscript NoScript]: allows JavaScript and other content to run only on websites of your choice.
+* [https://addons.mozilla.org/firefox/addon/ghostery Ghostery]: allows you to block scripts from companies that you don't trust.
+
+{for win8} 
+{note} Note: Some websites use JavaScript for functions such as "on hover" drop-down menus, which may not work in Firefox on touch-screen computers.  A solution is to disable the "HID-compliant touch screen" setting in Windows Device Manager (visit a Windows forum if you need more help); however, this solution will effectively change the touch screen into a plain screen while disabled.{/note}
+{/for}
+= Websites ask you to enable JavaScript =
+Websites may tell you that JavaScript is required or ask you to make sure that JavaScript is enabled, even though you don't want JavaScript to be blocked. Turn off any settings to disable JavaScript in your installed extensions or try [[Disable or remove Add-ons#w_disabling-extensions|disabling your extensions]] to see if you can find the problem. You should contact the developer or visit the website for the add-on, to get help with a specific extension.
+
+== For advanced users ==
+[[Template:aboutconfigwarning]]
+JavaScript may be disabled for all websites in Advanced Preferences (''about:config'' page). You can confirm that JavaScript is enabled or reset the preference as follows:
+#[[T:aboutconfig]]
+#Find the {pref javascript.enabled} preference. It should be set to {pref true} by default.
+#If  {pref javascript.enabled} is set to {pref false}, click the Toggle [[Image:Fx71aboutconfig-ToggleButton]] or Reset [[Image:Fx71aboutconfig-ResetButton]] button to set it back to {pref true}.
+
+<sub>JavaScript is a trademark or registered trademark of [http://www.oracle.com Oracle Corporation] in the U.S. and other countries.</sub>

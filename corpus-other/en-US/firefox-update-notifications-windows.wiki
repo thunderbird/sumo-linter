@@ -1,0 +1,4 @@
+{note}'''Note:''' Users on Windows 10 and above with an [[Enable background updates on Firefox for Windows when Firefox is not running|automatic update installed while Firefox is not running]] will see a [https://learn.microsoft.com/windows/apps/design/shell/tiles-and-notifications/adaptive-interactive-toasts Windows app notification] (also known as a ''toast'' notification) if they haven’t opened Firefox in 28 days.{/note}
+Update notifications are part of a Firefox study that collects information to help Mozilla make more informed decisions about future updates. They are designed to let you know when a brand-new Firefox version is available, even when Firefox is closed.
+
+[[Image:Firefox update notification]]

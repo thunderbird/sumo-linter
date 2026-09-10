@@ -1,0 +1,65 @@
+{note}'''Note:''' The address autofill feature for Firefox releases is being made available for users located in Australia, Canada, France, Germany, India, the U.K.{for fx140}, Italy, Poland, Austria{/for}{for fx141}, Brazil, Japan, Spain{/for}{for fx147}, Switzerland{/for}{for fx151}, the Netherlands{/for} and the U.S. This feature is being introduced to the Firefox user base through a progressive rollout. It may not yet be available in all locales.{/note}
+
+Firefox lets you automatically fill in your address on forms (for example, when you're ordering something online). Follow these steps to manage this feature.
+
+When completing an address in a website form, you may be offered the opportunity to save that address for use in the future.
+
+If the address is similar to one that you already have saved, but might have additional information, you will be offered the opportunity to update an existing record.
+
+In the message that appears, select the [[Image:IG edit reverse]] icon to edit the address before saving and the [[Image:Three dot menu smaller]] icon to access your address settings in Firefox.
+
+__TOC__
+
+=Turn address autofill on or off=
+{for not fx152}
+#[[Template:optionspreferences]]
+#Click the {menu Privacy & Security} page and scroll down to the {for not fx145}'''Autofill'''{/for}{for fx145}'''Addresses and more'''{/for} section.
+#Put a check mark in the box next to {for not fx145}'''Save and fill addresses'''{/for}{for fx145}'''Save and autofill addresses'''{/for} to turn it on, or remove the check mark to turn it off.
+{warning}We recommend enabling this feature only on private computers.{/warning}
+{note}'''Autofill in non-address fields:''' To turn off text autofill in other types of fields, see [[Control whether Firefox automatically fills in forms]].{/note}
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Click {menu Passwords and autofill} on the left and scroll down to the '''Addresses and more''' section.
+#Put a check mark in the box next to '''Save and autofill addresses''' to turn it on, or remove the check mark to turn it off.
+;[[Image:fx152addresses]]
+{warning}We recommend enabling this feature only on private computers.{/warning}
+{note}'''Autofill in non-address fields:''' To turn off text autofill in other types of fields, see [[Control whether Firefox automatically fills in forms]].{/note}
+{/for}
+
+=Add, edit or remove saved addresses=
+{for not fx152}
+Use this setting to add, edit or remove saved addresses in Firefox.
+#[[Template:optionspreferences]]
+#Click {menu Privacy & Security} on the left and scroll down to the {for not fx145}'''Auto fill'''{/for}{for fx145}'''Addresses and more'''{/for} section.
+#Click {for not fx145}the {button Saved addresses…} button{/for}{for fx145}{menu Manage addresses and more}{/for}.
+#Choose one of the following:
+#*'''Add…''': Enter a new address using this button.
+#*'''Edit…''': Select the address you want to change, then click {button Edit} to change it.
+#*'''Remove''': Select the address you want to delete, then click {button Remove}.
+#Click the {button &#10005;} to save your changes and close the window.
+{/for}
+{for fx152}
+Use this setting to add, edit or remove saved addresses in Firefox.
+#[[Template:optionspreferences]]
+#Click {menu Passwords and autofill} on the left and scroll down to the '''Addresses and more''' section.
+#Click the {button Manage addresses and more} button.
+#*'''Add…''': Enter a new address using this button.
+#*'''Edit…''': Select the address you want to change, then click {button Edit} to change it.
+#*'''Remove''': Select the address you want to delete, then click {button Remove}.
+#Click the {button &#10005;} to save your changes and close the window.
+;[[Image:fx152addresses2]]
+{/for}
+=Save or update addresses while browsing=
+When filling out a web form, Firefox may offer to save your address for future use.
+*If the address is new, you'll see a prompt asking to save it.
+*If the address is similar to one you’ve saved before, Firefox may suggest updating the existing address.
+You can:
+*Click the Edit icon in the prompt to update the address before saving.
+*Click the Settings icon to access your address settings.
+{note}'''Note:''' If you can’t see these settings, then they might not be available in your region.{/note}
+
+=Related articles=
+*[[Control whether Firefox automatically fills in forms]]
+*[[Use a Primary Password to protect stored logins and passwords]]
+*[[Password Manager - Remember, delete and edit logins and passwords in Firefox]]

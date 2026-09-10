@@ -1,0 +1,29 @@
+Firefox includes a Software Update feature that automatically checks for updates and prompts you to install them when necessary.
+*For more information about the Software Update feature, see [[Update Firefox to the latest release]].
+Sometimes, the updater fails and displays an '''Update Failed''' error message. This article presents possible solutions and workarounds to get Firefox updated.
+
+__TOC__
+
+=Manual update=
+One solution is to update Firefox by manually downloading and installing the new version over top of your current version. See {for win}[[How to install Firefox on Windows]]{/for}{for linux}[[Install Firefox on Linux]]{/for}{for mac}[[How to download and install Firefox on Mac]]{/for} for instructions.
+
+= Check for updates after restarting the computer =
+It's possible that another running program or a previous instance of Firefox that did not close properly is interfering with the Firefox update process. This error can also occur if you share your computer with other users, and another user's account is still logged in with Firefox running. The easiest way to resolve such problems is to restart your computer. Once the computer starts up again:
+# Start Firefox.
+#{for win,linux}Click the menu button [[Image:Fx89menuButton]] and click {menu Help}.{/for}{for mac}On the Menu bar, click the {menu Firefox} menu.{/for}
+#Select {menu About Firefox}. Firefox will begin checking for updates.
+
+= Close other running programs =
+Some programs that can interfere with Firefox are set to start up automatically when you start your computer. Before updating Firefox, try closing or disabling such programs; for example, Spybot TeaTimer and Logitech QuickCam software have been known to interfere with Firefox updates.
+
+{for win}
+= Run as Administrator =
+#Restart the computer so that no Firefox processes are active.
+#Open the Windows Start Menu, type '''firefox''' and right-click on the '''Firefox''' entry that appears.
+#Select {menu Run as Administrator} and {menu Continue} if the ''User Account Control'' dialog comes up.
+If the issue is not resolved, close Firefox and restart the computer again, but, this time, open the program folder where Firefox is installed (for example, open the {filepath C:\Program Files\Mozilla Firefox} folder or, on 64-bit windows, the {filepath C:\Program Files (x86)\Mozilla Firefox} folder), right-click on the '''firefox''' or '''firefox.exe''' file icon and select {menu Run as Administrator}.<!-- http://support.mozilla.com/tiki-view_forum_thread.php?comments_parentId=171013&forumId=1 -->
+{/for}
+{note}'''Still can't update Firefox?'''<br>If you're using a school or work computer, IT admins may lock updates to a specific version to prevent users from updating the application. As a result, when users try to manually update Firefox to a newer version, they won't see any updates available, or they'll see the message that they're already running the latest version as set by their IT admin.{/note}
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Software_Update#Software_Update_not_working_properly Software Update (mozillaZine KB)]'''''

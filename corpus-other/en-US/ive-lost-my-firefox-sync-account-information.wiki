@@ -1,0 +1,19 @@
+<!-- Update this article? See https://bugzilla.mozilla.org/show_bug.cgi?id=1897066 -->
+{warning}'''This article may include outdated content. Please see [[How to change or reset your Mozilla account password]] for current information and instructions.'''{/warning}
+
+Firefox Sync works by storing your data on Mozilla servers and synchronizing it with your computers and devices. When you set up Sync, you enter an email address and password in order to prevent others from accessing your account. In addition, we [http://en.wikipedia.org/wiki/Encrypted encrypt] your data with a key derived from your password in order to keep it safe on the server. This article explains what to do if you forget or lose any of this important information and are unable to access your Sync account.
+
+__TOC__
+
+= I’ve forgotten my Mozilla account password – how do I reset it? =
+To get a new password, follow these steps.
+{warning}Any data you have on the server will be erased when you reset your password (unless you use [[Reset your Mozilla account password with Recovery Keys|recovery keys]]). Your other devices will stop synchronizing unless you update them with the new password.{/warning}
+#Click the menu button [[Image:Fx89menuButton]] and click {button Sign In} next to ''Sync and save data''.
+#On the ''Sign in'' page, click '''Forgot password?''' Firefox will send you a reset email.
+#Follow the instructions in your reset email to change your password.
+#After signing in with your new password, remember to update your password on each of your synced devices.
+{note}'''Note:''' If you don't see the Overflow Menu [[Image:OverflowMenuIcon|width=20]] button (More Tools), click the menu button [[Image:Fx89menuButton]], then click {button Sign In} next to ''Sync and save data''.{/note}
+
+= I no longer have access to my Mozilla account email address =
+Unfortunately, you can't change or recover the email address associated with a Firefox Sync account (except as noted below). You would need to create a new account following the steps described in [[How do I set up Sync on my computer?|this article]].
+{note}'''Note:''' If you lost access to your Mozilla account email address, it's possible to [[Change the primary email address on your Mozilla account|change the primary email address]], but only if you previously registered a secondary address for that account. That's because you are sent an email to your primary email address to confirm it, when you add a secondary address.{/note}

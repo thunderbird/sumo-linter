@@ -1,0 +1,14 @@
+You can use the Search bar on the [[New Tab page in Firefox|New Tab page]] or you can [[Search with the Firefox address bar|search the Web from the address bar]]. You can also customize Firefox to add a separate Search bar to your Firefox toolbar.
+
+[[Image:add search bar 57]]
+
+Follow these steps to add or remove a separate Search bar:
+#Click the menu button [[Image:Fx89menuButton]], then click {menu More tools}.
+#Select {menu Customize Toolbar…}
+#;[[Image:FxMenu-MoreTools-CustomizeToolbar|width=300]]
+#Drag the Search bar item into or out of the toolbar and then click {button Done}.
+{note} '''Tip:''' If using the keyboard, you can use the {key Tab} and {key Shift+Tab} keys to focus the Search bar item, and then open the context menu to add or remove it from the toolbar.{/note}
+[[Image:Search bar item]]
+
+For more information, see [[Customize Firefox controls, buttons and toolbars]].
+{note}'''Note:''' The separate Search bar will be automatically removed if you haven't used it for 120 days.{/note}

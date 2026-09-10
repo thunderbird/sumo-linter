@@ -1,0 +1,29 @@
+You can configure how Firefox handles email links such as [mailto:user@example.com user@example.com] on a webpage by [[Change the program used to open email links#w_setting-the-mail-client-used-by-firefox|setting the email application or website used in Firefox]]. When Firefox is set as your default browser on Windows, you can also set Firefox as your default mail handler. This guide explains how to set Firefox as the application that opens automatically when you click mail links.
+
+__TOC__
+
+=Set Firefox as the default handler for mail links on Windows 10=
+#Open the Windows ''Start'' menu [[Image:Windows10StartButton]] and select {menu Settings}.
+#In the ''Settings'' page, click {button Apps}.
+#In the left menu, select {menu Default apps}.
+#Click the icon under the heading ''Email'' to show your choices.
+#Select '''Firefox''' in the ''Choose an app'' menu.
+
+=Set Firefox as the default handler for mail links on Windows 11=
+#Open the Windows ''Start'' menu [[Image:Windows11StartButton|width=20]] and select {menu Settings}.
+#;[[Image:System settings|width=350]]
+#From your system Settings menu, click {menu Apps}.
+#;[[Image:Apps setting option|width=150]]
+#Select {menu Default apps}.
+#;[[Image:Default apps|width=400]]
+#Scroll down to the ''Set defaults for applications'' section and click the '''Firefox''' app.
+#Go to the '''MAILTO''' section and click on it, to see the available apps.
+#;[[Image:Mail to apps|width=350]]
+#From the app list, select '''Firefox''' as your default app and click the <!-- [[Image:Set to default button|width=150]] -->{menu Set default} button.
+#;[[Image:Firefox app|width=350]]
+On Windows 11, you can also go to {menu Settings} > {menu Apps} > {menu Default Apps} and enter '''MAILTO''' in the search box to find the application already set as the default, for example, Thunderbird. When you click on the entry that comes up, you can set a new default.
+;[[Image:DefaultAppsMailtoWin11|width=500]]
+
+=Related articles=
+*[[Change the program used to open email links]]
+*[[Make Firefox your default browser on Windows]]

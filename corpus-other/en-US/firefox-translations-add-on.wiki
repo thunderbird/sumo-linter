@@ -1,0 +1,30 @@
+Firefox has always prioritized user convenience and privacy, especially when it comes to browsing content in multiple languages. The Firefox Translations add-on has been a valuable tool for many, offering the ability to translate websites directly in Firefox without relying on cloud services. As browser technology advances and strives to improve user experience, Firefox is transitioning towards a more seamless, integrated solution.
+
+=Introducing built-in translation in Firefox=
+Starting in [[Find what version of Firefox you are using|Firefox version]] 118, we are excited to introduce a built-in translation feature, a significant step forward in our commitment to privacy and seamless browsing. This feature, integrated directly into your browser, allows local translations of web pages, ensuring your privacy and security remain uncompromised. This built-in tool enables effortless web surfing in your preferred language, making the need for separate translation add-ons obsolete.
+
+=Changes to the Firefox translations add-on=
+With the introduction of the built-in translation feature, the Firefox Translations add-on will no longer receive updates or maintenance. While the add-on will remain functional for a period, we encourage users to transition to the built-in translation feature for the most up-to-date and secure experience.
+
+=Next steps for users=
+As we sunset the Firefox Translations add-on, we invite users to embrace the built-in translation feature. To use it, make sure your [[Find what version of Firefox you are using|Firefox version]] is 118 or above. Visit [[Firefox Translation]] for details.
+
+=Want to keep using the translation add-on? =
+If you're comfortable with and prefer the [https://addons.mozilla.org/firefox/addon/firefox-translations/ Firefox Translations add-on] for cloud-free website translations in Firefox, you're welcome to keep using it. 
+
+Once the Firefox Translations add-on is in place, the Firefox Translations toolbar becomes visible when you access a web page that's not your chosen Firefox language. The language that the page is in should be shown (you can change this if required). Click [[Image:Translation Add-on translate button|width=70]] to launch the translation of the page into the language you have Firefox set to. As the page is being translated, there is a counter at the top of the page to advise you how many elements have yet to be translated to give you an idea of progress.
+
+Once the translation has finished, you can select the {button Translate this tab automatically} option for continuous translation as you browse.
+
+There are some options to choose from:
+*Options on the toolbar allow you to include the translation of forms and to highlight potential errors in red.
+*From the Options button on the right-hand side of the toolbar, you can select to:
+**Never translate a language
+**Never translate a website
+**Translation preferences – will open the Firefox Settings, where you can [[Choose display languages for multilingual web pages|set the display language ]] for Firefox and set exceptions for Firefox Translations
+;[[Image:Firefox Translations Add-on in use|width=700]] 
+
+
+'''Related content'''
+*[[Firefox Translation]]
+*[[Use the Firefox interface in other languages with language packs]]

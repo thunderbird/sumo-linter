@@ -1,0 +1,64 @@
+When a website that requires a secure ([https://wikipedia.org/wiki/HTTPS HTTPS]) connection tries to communicate with your computer, Firefox cross-checks this attempt to make sure that the [[Secure website certificate|website certificate]] and the connection method are actually secure. If Firefox cannot establish a secure connection, it will display an error message, which usually means:
+* Firefox can't verify the site's security certificate, or
+* Something on your computer or network is blocking or replacing the secure connection, or
+* The problem is with the website.
+This article explains why you may see a secure connection or security warning error page in Firefox and what you can do about it.
+
+__TOC__
+
+= Secure Connection Failed =
+{for not fx149}
+A ''Secure Connection Failed'' error page will include a description of the error and a {button Try Again} button.
+;[[Image:Fx148SecureConnectionFailed-TLS]]
+The error page will also include the following information:
+* ''The page you are trying to view cannot be shown because the authenticity of the received data could not be verified.''
+* ''Please contact the website owners to inform them of this problem.''
+There is no option to add a security exception to bypass this type of error.
+{/for}
+{for fx149}
+An error page with the message, ''Secure Connection Failed'' will include a short description of the error and two buttons: a {button Go back (Recommended)} button and an {button Advanced} button. 
+;[[Image:Fx149BetaSecureConnectionFailed]]
+Click the {button Advanced} button to reveal more details about the error.
+;[[Image:Fx149SecureConnectionFailed-Advanced]]
+There is no option to add a security exception to bypass this type of error.
+{/for}
+
+Error code: SSL_ERROR_UNSUPPORTED_VERSION is caused by websites that use an unsupported [http://wikipedia.org/wiki/Transport_Layer_Security Transport Layer Security] (TLS) version in an attempt to secure your connection. Firefox protects you by preventing navigation to such sites. Contact the owners of the website and ask them to update their TLS version to a version that is still current and secure. For more information, see [https://hacks.mozilla.org/2020/02/its-the-boot-for-tls-1-0-and-tls-1-1/ this Mozilla blog post] and [https://developer.mozilla.org/docs/Web/Security/Transport_Layer_Security Transport Layer Security (MDN Web Docs)].
+
+Other ''Secure Connection Failed'' errors, such as Error code: SSL_ERROR_RX_RECORD_TOO_LONG or Error code: PR_END_OF_FILE_ERROR can be due to a [https://wikipedia.org/wiki/Virtual_private_network VPN], [[Firefox DNS over HTTPS|DNS over HTTPS]] in Firefox, antivirus or other software that intercepts secure connections, or [[Connection settings in Firefox|Firefox connection settings]] that may include a proxy server. See below for more information and [[#w_possible-solutions|possible solutions]] for ''Secure Connection Failed'' and other security warning error pages.
+
+= {for not fx149}Did Not Connect: Potential Security Issue{/for}{for fx149}Be careful. Something doesn’t look right.{/for} =
+<!-- Should this entire section be made {for not fx149}? The image doesn't show the "Did Not Connect: Potential Security Issue" error that this section is about. See discussion.--><!--Changed heading to change with Firefox version-->
+{for fx149}
+Certain secure connection failures will result in a ''Be careful. Something doesn’t look right.'' error page with a {button Go back (Recommended)} button, and an {button Advanced} button to view the error code and other details.
+;[[Image:Fx149BetaWarningSecurityRisk-hstsAdvanced]]
+{/for}
+{for not fx149}
+Certain secure connection failures may result in a ''Did Not Connect: Potential Security Issue'' error page with two buttons: a {button Go back} button, and an {button Advanced…} button to view the error code and other details. 
+;[[Image:Fx148DidNotConnectPotentialSecurityIssue-pinningtestAdvanced]]
+{/for}
+Websites may require [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security#Description HTTP Strict Transport Security] (HSTS) and will not allow access with an insecure connection. There is no option to add a security exception to bypass this error and visit the website.
+
+= Other Security Risk warnings =
+Firefox checks a website's security certificate to ensure the site is legitimate and that your connection is [[How do I tell if my connection to a website is secure?|encrypted]]. If the certificate can’t be validated, Firefox will stop the connection and display a {for not fx149}'''Warning: Potential Security Risk Ahead''' error page.{/for}{for fx149}'''Warning: Security Risk''' error page with the message, ''Be careful. Something doesn't look right.''{/for}
+;{for not fx149}[[Image:Fx148WarningPotentialSecurityRiskAhead-hsts]]{/for}{for fx149}[[Image:Fx149BetaWarning-SecurityRiskSelfSigned]]{/for}
+Click the {for not fx149}{button Advanced…}{/for}{for fx149}{button Advanced}{/for} button to view the error code and additional information. Depending on the type of error, you may be able to bypass the warning and visit the site by clicking {for not fx149}{button Accept the Risk and Continue}.{/for}{for fx149}{button Proceed to <website> (Risky)}.{/for}
+;{for not fx149}[[Image:Fx148WarningPotentialSecurityRiskAhead-hstsAdvanced]]{/for}{for fx149}[[Image:Fx149BetaWarning-SecurityRiskSelfSignedAdvanced]]{/for}
+Other {for not fx149}'''Warning: Potential Security Risk Ahead'''{/for}{for fx149}'''Warning: Security Risk'''{/for} errors cannot be bypassed and can be caused by security software or networking tools that intercept secure connections by default.
+
+To learn more, see [[What do the security warning codes mean?]] and [[Troubleshoot security error codes on secure websites]].
+
+= Possible solutions =
+*Updating your antivirus security software or [[Troubleshoot security error codes on secure websites#w_check-your-antivirus-settings|modifying its settings]] can resolve issues caused by software products that scan encrypted connections.{for win} On Windows, you can uninstall your third-party software and use the built-in [https://support.microsoft.com/office/windows-security-app-overview-ae70cc96-a9cd-4443-a210-e41cb973d3a6 Windows Security App].{/for}
+*Temporarily disable your [https://wikipedia.org/wiki/Virtual_private_network VPN] for the problem website. If using Mozilla's VPN, see [[Disable Mozilla VPN protection for a specific website]] and [[Troubleshoot Mozilla VPN connection problems]].
+*Check [[Connection settings in Firefox|Firefox connection settings]] to see if a proxy setting may be the problem.
+*Temporarily disable [[Firefox DNS over HTTPS|DNS over HTTPS]] in Firefox or add problem sites to the Exceptions list. See [[Configure DNS over HTTPS protection levels in Firefox]] for details.
+*An incorrect system clock can cause Firefox to detect that the website's security certificate is expired or invalid. Make sure your computer is set to the correct date, time and time zone. See [[Troubleshoot time-related errors on secure websites]].
+*Check if the website is down. If a website doesn't load in Firefox, it might be a problem on the site's end.
+*Try opening the same site in another browser. If it doesn’t load there either, the website is likely experiencing issues.
+*Clear cached certificates in Firefox. If Firefox has saved an outdated or untrusted certificate, removing it may fix the error. [[Template:optionspreferences]] Select {for not fx151}{menu Privacy & Security}{/for}{for fx151}{menu Privacy and security}{/for} on the left and go down to the {for not fx152}''Certificates'' section{/for}{for fx152}''Connection and software security'' section, click '''Advanced settings''' and go down to the ''Certificates'' section{/for}. Click {for not fx151}{button View Certificates…}{/for}{for fx151}{button Manage certificates}{/for}, select any untrusted or outdated site certificates and click {button Delete or distrust…}.
+
+= Related articles =
+*[[Certificate contains the same serial number as another certificate]]
+*[[Websites look wrong or appear differently than they should]]
+*[[Websites don't load - troubleshoot and fix error messages]]

@@ -1,0 +1,52 @@
+This article describes problems where Firefox cannot load websites but other Web browsers (such as {for win}Microsoft Edge or Internet Explorer{/for}{for mac}Safari{/for}{for linux}Epiphany on Gnome or Konqueror on KDE{/for}) can. When this happens, Firefox may show a ''Server not found'' or ''Unable to connect'' error message.
+*For other error messages that display when you try to view websites in Firefox, see [[Websites don't load - troubleshoot and fix error messages]].
+*If none of the Web browsers on your computer can load websites, see [[Firefox and other browsers can't load websites]].
+
+__TOC__
+
+= Internet Security software blocking Firefox =
+If you were able to load websites until you updated Firefox or until your Internet security software was updated, reconfigured or a new one was added, your Internet security software (including firewalls, antivirus programs, anti-spyware programs, and more) is likely preventing Firefox from connecting to the Internet.
+{note}'''Note:''' Some Internet security programs can block Internet access even when they are disabled.{/note}
+So, you should make sure your Internet security software is up-to-date and remove Firefox from your program's list of trusted or recognized programs, then add it back. For instructions on how to configure some programs, see [[Configure firewalls so that Firefox can access the Internet]].
+
+= Firefox connection settings =
+If you connect to the Internet through a proxy server that is having connection problems, you will not be able to load websites. To check your [[Connection settings in Firefox|connection settings in Firefox]]:
+#[[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go to the {for not fx149}''Network Settings''{/for}{for fx149}''Proxy settings''{/for} section{/for}{for fx152}Select {menu Privacy and security}, go to the ''Connection and software security''  section and click {menu Advanced settings}{/for}.
+#{for fx152}Go to '''Proxy settings''' and click{/for}{for not fx152}Click{for not fx149} {menu Settings…}{/for}{/for}{for fx149} {menu Configure proxy}{/for}. The Connection Settings dialog will open.
+#Change your proxy settings:
+#*If you don't connect to the Internet through a proxy (or don't know whether you connect through a proxy), select '''No Proxy'''.
+#*If you connect to the Internet through a proxy, compare Firefox's settings to another browser's (which is working normally).
+#Close the ''Connection Settings'' dialog.
+#[[T:closeOptionsPreferences]]
+{note}'''Note:''' If you find that changes you make to your Firefox connection settings are not remembered when you restart Firefox, see [[How to fix preferences that won't save]].{/note}
+
+= IPv6 =
+Firefox supports [https://wikipedia.org/wiki/IPv6 IPv6] by default, which may cause connection problems on certain systems. To disable IPv6 in Firefox:
+[[Template:aboutconfigwarning]]
+#[[T:aboutconfig]]
+#Enter '''network.dns.disableIPv6''' in the search field.
+#In the list of preferences click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to {pref network.dns.disableIPv6} to set its value to {pref true}.
+
+= DNS Prefetching =
+Firefox attempts to speed up loading new websites by using DNS Prefetching, which can cause page load errors with some system configurations. To disable DNS Prefetching:
+[[Template:aboutconfigwarning]]
+#[[T:aboutconfig]]
+#Enter '''network.dns.disablePrefetch''' in the search field.
+#*If such preference doesn't already exist, select '''Boolean''' and click the ''Add'' [[Image:Fx71aboutconfig-AddButton]] button.
+#Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button to set the preference value to {pref true}, if it's not already set.
+
+= Firefox cannot load certain websites =
+If you find that Firefox can load some websites but not others, first clear your Firefox cookies and cache:
+[[T:clearCookiesCache]]
+
+== Check for malware ==
+If clearing the cookies and cache didn't help, you should check your computer for [https://wikipedia.org/wiki/Malware malware]. Certain types of malware are known to target Firefox and can prevent it from loading various websites:
+*If you have an antivirus or Internet security program, update its detections database and do a full scan of your system.
+*If you still have problems, follow the instructions in [[Troubleshoot Firefox issues caused by malware]].
+
+= Check if an extension is causing the problem =
+Firefox extensions could be causing the issue, especially the ones that have network access and/or those that rely on manipulating webpage content. Try disabling your extensions in the Add-ons Manager one by one and then reload the page. See [[Disable or remove Add-ons]] and [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] for more information.
+
+<!-- MZ credit --><br><br>
+'''''Based on information from [https://kb.mozillazine.org/Error_loading_websites Error loading websites (mozillaZine KB)]'''''

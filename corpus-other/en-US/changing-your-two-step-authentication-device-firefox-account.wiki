@@ -1,0 +1,12 @@
+If you have two-step authentication enabled for your Mozilla account and you need to migrate to a new device or phone, here are steps you can take to ensure that you don’t get locked out of your account.
+
+=Step one: Disable two-step authentication=
+#Go to your [https://accounts.firefox.com/settings Mozilla account settings] (you may need to sign in).
+#Enter the authentication code from your authentication application.
+#After you sign in, click {menu Security} on the left side of the page.
+#Next to {menu Two-step authentication}, click {button Disable}.
+#Click {button Disable} on the confirmation window.
+
+=Step two: Re-enable two-step authentication=
+Once your new device is ready to use, enable two-step authentication by following the instructions in [[Set up two-factor authentication on your Mozilla account]].
+{warning}'''Warning:''' When enabling two-step authentication, all of the old recovery codes become invalid. Please ensure that you save the new recovery codes in the event your two-step authentication device fails.{/warning}

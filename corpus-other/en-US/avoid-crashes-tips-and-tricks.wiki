@@ -1,0 +1,22 @@
+There's never a good time for a crash, and when Firefox crashes in the middle of something important it can be really frustrating. Luckily, we've got some easy things you can do to avoid crashes and keep Firefox running in tip-top shape. For the tech savvy, we've got articles that will help you troubleshoot and solve specific problems. And don't worry if you need extra help with any of this, we have a community of volunteers standing by.
+
+__TOC__
+
+== Update your software ==
+Crashes can be caused by different programs running on your computer. Making sure they are all up to date on a regular basis will help you avoid crashes and keep your computer secure and running great.
+#'''Update Firefox:''' {for win,linux}Click the menu button [[Image:New Fx Menu]], click {menu Help} [[Image:Help-29]] and select {menu About Firefox}.{/for}{for mac}On the menu bar, click the {menu Firefox} menu and select {menu About Firefox}.{/for} See [[Update Firefox to the latest version]] for details.
+#'''Update {for win}Windows{/for}{for mac}OS X{/for}{for linux}your system{/for}:''' Make sure you have all of the latest security and stability fixes. {for win}{for not win10}Go to the {menu Start} menu, select {menu All Programs} and then {menu Windows Update}.{/for}{for win10}Windows 10 periodically checks for updates. If you want to check manually, go to the {menu Start} menu,  select {menu Settings}, then {menu Update & security}, select {menu Windows Update} and {button Check for updates}. <!--http://windows.microsoft.com/en-us/windows-10/windows-update-faq --> For more details, visit Microsoft's article [http://windows.microsoft.com/en-us/windows-10/getstarted-choose-how-updates-are-installed Choose how updates are installed].{/for}{/for}{for mac}Go to the {menu Apple} menu and select {menu Software Update...}.{/for}{for linux}Go to the {menu System} menu, down to {menu Administration} and select {menu Update Manager}.{/for}
+#'''Update your drivers:''' Check your printer driver and graphics drivers are up-to-date. For more info, see [[Upgrade your graphics drivers to use hardware acceleration and WebGL]].
+#'''Update Internet Security software:''' Make sure you have the latest version of any Internet security software (including firewalls, antivirus programs, anti-spyware programs, and more).
+
+{for win}
+== Check for viruses or spyware ==
+Update and run anti-virus and malware scanner tools on your computer. For more information, see [[Troubleshoot Firefox issues caused by malware]].
+{/for}
+
+== Troubleshoot your crash ==
+If Firefox is crashing and you don't mind doing a little detective work, take a look at the [[Firefox crashes - Troubleshoot, prevent and get help fixing crashes]] article. It has links to troubleshooting specific types of crashes and has detailed instructions for viewing a report about your crash. You also might find [[Troubleshoot issues with plugins like Flash or Java to fix common Firefox problems]] and [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] useful for fixing some crashes.
+
+== Get help from our community of volunteers ==
+Sometimes tracking down the source of crashes is difficult to do by yourself. That's why we have a community of volunteers ready to help you figure it out.
+*[/questions/new Ask a question in our support forum]

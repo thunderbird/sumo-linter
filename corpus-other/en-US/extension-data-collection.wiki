@@ -1,0 +1,57 @@
+{for not fx140}{note}'''Note:''' This article applies to [[Find what version of Firefox you are using|Firefox version]] 140 and above.{/note}{/for}
+When you first install a Firefox extension, you may be asked to grant certain permissions. These permissions let you know what the extension can access or modify in Firefox. You can choose to accept or decline these permissions during installation. When installing an extension, Firefox will show a dialog listing the permissions it’s asking for. These requests are based on what the extension needs to function and whether it collects any of your data.
+
+The following explains what those permission requests mean, how to evaluate them, and how to manage them for better privacy and control. For more details, select the extension permission from the list below.
+{note}'''Note:''' If you don’t see a permission prompt, that means the extension does not require access to sensitive data or browser settings.{/note}
+
+=Personal data collection=
+Mozilla’s [https://extensionworkshop.com/documentation/publish/add-on-policies/ add-on policies] require extension developers to inform users of the personal data that an extension collects or transmits as part of its functionality. An extension can do this by informing the user of the data it intends to collect during the installation of the add-on, at the same time as it requests access to permissions.
+
+Firefox organizes this into two categories based on the type of data involved:
+*'''Personal data''' – Information that can identify you, such as browsing history or saved passwords.
+*'''Technical and interaction data''' – Details about how you use the extension or your device's technical configuration.
+;[[Image:datacollection|width=500]]
+This is available for extensions that are installed on Firefox 140 and later. If you are using an earlier version that this extension supports, then they will show you a screen that they have created, usually in a new tab, asking you to consent to the data collection.
+
+If you do not agree to the data collection and the permissions the extension is requesting, you can choose to cancel the installation.
+
+==Personal data==
+Personal data can either be provided by you or obtained through extension APIs. It includes, but is not limited to, names, email addresses, search terms, web page and browsing activity data, as well as access to and placement of cookies. The extension will mention which categories of data it will collect or transmit from the list below.
+
+{|
+|+ ''Personal data categories''
+!'''Personal Data Category'''||'''Definition / Examples'''
+|-
+|Personally identifying information||Examples: contact information like name and address, email and phone number, as well as other identifying data such as ID numbers, voice or video recordings, age, demographic information or biometric data.
+|-
+|Health information||Examples: medical history, symptoms, diagnoses, treatments, procedures or heart rate data.
+|-
+|Financial and payment information||Examples: credit card numbers, transactions, credit ratings, financial statements or payment history.
+|-
+|Authentication information||Examples: passwords, usernames, personal identification numbers (PINs), security questions and registration information for extensions that offer account-based services.
+|-
+|Personal communications||Examples: emails, text or chat messages, social media posts and data from phone calls and conference calls.
+|-
+|Location||Examples: region, GPS coordinates or information about things near a user’s device.
+|-
+|Browsing activity||Information about the websites you visit, like specific URLs, domains or categories of pages you view over time.
+|-
+|Website content||Covers anything visible on a website – such as text, images, videos and links – as well as anything embedded like cookies, audio, page headers, request and response information.
+|-
+|Website activity||Examples: interactions and mouse and keyboard activity like scrolling, clicking, typing, and covers actions such as saving and downloading.
+|-
+|Search terms||Search terms entered into search engines or the web browser.
+|-
+|Bookmarks||Information about Firefox bookmarks, including specific websites, bookmark names and folder names.
+|}
+
+==Technical and interaction data==
+An extension can also ask to collect non-personal Technical and Interaction data, which developers use for statistical or analytics purposes. Technical data describes information about the device you are using, such as browser settings, platform information and hardware properties. User interaction data includes how you interact with Firefox and the installed add-on, metrics for product improvement and error information.
+
+The extension must give you a choice to opt out of this type of data collection without affecting the extension's functionality.
+
+You can change this setting, as well as any other optional data collection settings, under the extension settings in ''about:addons''.
+
+=Related content=
+*[[About permission request messages for Firefox extensions]]
+*[[Manage optional permissions for Firefox extensions]]

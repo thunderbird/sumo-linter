@@ -1,0 +1,70 @@
+Like other browsers, Firefox’s functionality is influenced by your operating system, hardware, graphics cards, additional software and even the fonts you install. In some instances, details of your computer are accessible to websites to (for example) help render content in higher resolution or provide instructions for your specific operating system.
+
+However, when all the different aspects a browser exposes are combined, the unique combination can act like a “fingerprint” and makes you identifiable across the web. This “fingerprint” is potentially used to profile you for targeted content without the use of cookies. Firefox’s [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] blocks a list of “Known Fingerprinters” and limits the information your browser exposes at all times to combat “Suspected Fingerprinters”.
+
+__TOC__
+
+=Default Settings=
+Known Fingerprinters Protection is enabled in normal browsing and when Enhanced Tracking Protection is set to Strict.
+
+Both Known Fingerprinters Protection and Suspected Fingerprinters Protection are enabled in Private Browsing and when Enhanced Tracking Protection is set to strict.
+
+Both features can be controlled more granularly when the Custom level of Enhanced Tracking Protection is selected.
+
+=How do I disable this protection for a website?=
+If a site seems broken, try turning off Enhanced Tracking Protection. It disables the protection on that site only. Enhanced Tracking Protection will continue to block trackers on other sites.
+#Select the shield icon [[Image:IG shield]] to the left of the address bar.
+#Toggle the switch [[Image:Fx115 blue toggle]] at the top of the panel.
+#;[[Image:Fx91ETPtoggle-on]]
+This will turn off Enhanced Tracking Protection for this site. The page will reload automatically and disable protection on this site only.
+
+Follow the same process to turn Enhanced Tracking Protection back on.
+
+=How do I enable or disable this protection for all sites?=
+#Launch Firefox on your computer.
+#[[Template:optionspreferences]]
+#In the left-hand sidebar, click {menu Privacy & Security}.
+#'''Customize Enhanced Tracking Protection:''' Scroll down to the ''Enhanced Tracking Protection'' section.
+#'''Enable Fingerprinting Protection:''' To control Fingerprinting Protection, select the '''Custom''' option from the Enhanced Tracking Protection settings.
+#'''Adjust Fingerprinting Protection Settings:''' Once you've selected Custom, you will see options to block '''Known fingerprinters''' and '''Suspected fingerprinters'''. Check the boxes next to these options to enable them. Additionally, you can choose whether to block Suspected Fingerprinters in all windows or just in private windows using the dropdown menu located on the right-hand side of this option.
+#;[[Image:Fingerprinting protection]]
+
+=How can I tell if this protection broke something?=
+First, try disabling the protections by exempting the page from Enhanced Tracking Protection as described [[#w_how-do-i-disable-this-protection-for-a-website|above]], and see if that resolves your issue.
+
+Presently, the types of breakage we see most commonly are:
+*If you have [[Change the fonts and colors websites use|set a custom font]] for Firefox to use in Settings and that font is not in the default install list, it will not be used when this protection is active.
+*Scripts that detect support for emojis may incorrectly fail to detect support when Firefox does actually support them. This would typically result in these emojis being rendered using Unicode text instead of images.
+*Certain types of image or video effects may not behave as expected, including greenscreen effects and progressive drawing videos (where the image accumulates the results of multiple animations or effects over time).
+*For languages with extended character sets, certain glyphs may not render and instead display a square “character not found” icon.
+{for fx143}
+*A website that uses touch events from multiple input devices at once may not process these correctly.
+*A website that attempts to control its window size and maximize it may overlap your taskbar or dock or be slightly smaller than expected.
+*Websites that perform complex calculations or operations may perform slower.
+{/for}
+On rare occasions, these fingerprinting protections can completely break a site in an unexpected way; however disabling Enhanced Tracking Protection as [[#w_how-do-i-disable-this-protection-for-a-website|described above]] will resolve the issue if fingerprinting protections were the cause of breakage.
+
+==Report a broken site==
+If a broken site starts working properly again after turning off the Enhanced Tracking Protection, you can click the shield icon and select '''Send report'''. This will show the ''Report a Broken Site'' panel.
+;[[Image:Fx123-Report broken site panel]]
+The {button Send Report} button will send site related data to Mozilla, so future Firefox versions can load the website correctly with Enhanced Tracking Protection enabled for everyone. Filling the optional '''Describe the problem''' field helps us fix the problem faster. For more details, see [[How do I report a broken site in Firefox desktop?]]
+
+=How does each protection work?=
+==Known Fingerprinters==
+The “Known Fingerprinters” protection feature works by blocking scripts listed in [https://disconnect.me/trackerprotection#categories_of_trackers Disconnect’s fingerprinting list]. This prevents companies specializing in fingerprinting from examining your device and obtaining details about their hardware, software or IP address. While this serves as an initial defense, it does not safeguard you against companies that are not included in the list. Additionally, we sometimes have to create exceptions for this list to ensure that websites continue to work as intended.
+
+==Suspected Fingerprinters==
+To combat fingerprinting attempts that Firefox cannot block (because we are unaware of the script, or because it is integrated with the site in a way such that it cannot be blocked), Firefox will limit the information it exposes to the web at all times, for every webpage. (Potentially limited to Private Browsing only, per the settings above.)
+
+The specific attributes that Firefox alters are:
+*Random data is introduced to images generated in canvas elements when the website reads back the image. If a website merely renders data to the canvas element, it will render without alteration. Although typically this does not happen, if the website reads the image data (and potentially displays it to you again), it will have subtle noise that may affect how the image is displayed.
+*Locally installed fonts (specifically, fonts that are not in the list of standard fonts shipped by your operating system) will not be used to render text on a page. {for fx144}{for win}Certain language-specific fonts will only be available if you have the corresponding locale, currently encompassing either the Japanese, Thai, Arabic, Chinese, Korean, or Hebrew locale.{/for}{/for} 
+{for fx143}
+*The number of simultaneous touches your hardware supports is reported as either 0, 1, and for all other values, 5.
+*The Available Screen Resolution (your Screen Resolution subtracting any dock or taskbar) is reported as your Screen Resolution{for mac, win} minus a height of {for win}48{/for}{for mac}76{/for} pixels{/for}.
+*The number of processor cores is reported as either 4 (if you have 4 or fewer cores) or 8 (if you have more than 4 cores).
+{/for}
+
+
+=Related articles=
+*[[Resist Fingerprinting]]

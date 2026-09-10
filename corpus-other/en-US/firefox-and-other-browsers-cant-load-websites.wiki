@@ -1,0 +1,44 @@
+If you're having the same problems loading websites on every browser, these are some possible causes and ways to fix them.
+
+{note}'''Note:''' Before you proceed, check if your problem also occurs in another browser, such as {for win}Microsoft Edge{/for}{for mac}Safari{/for}{for linux}Epiphany{/for}. If it doesn't, see [[Firefox can't load websites but other browsers can]].{/note}
+
+__TOC__
+
+= Security software is blocking the connection =
+Check if your Internet security software (including firewalls, antivirus programs, anti-spyware programs and more) is blocking the connection to the Internet. For instructions on how to configure some programs, read [[Configure firewalls so that Firefox can access the Internet]].
+
+= System time is incorrect =
+Make sure your system's date, time and timezone settings are configured correctly. Firefox may have issues validating the website's security certificate if the date/time is incorrect.
+
+= DNS cache =
+Every web server connected to the Internet is assigned a number known as its IP address. Domain names are assigned to IP addresses through a [http://wikipedia.org/wiki/Domain_Name_System Domain Name System] (DNS) server. Your computer stores recent IP address assignments so it can connect to sites more quickly, but if there is a discrepancy between the DNS server and the IP address assignments on your computer, it will cause every browser on your computer to have problems finding some websites. To remove the recently stored IP address assignments, flush your DNS cache.
+{for win}
+# Hold down the Windows key {key [[Image:Windows Key]]} and press {key R}.
+# Type '''cmd''' and press {key Enter}.
+# In the command prompt, type '''ipconfig /flushdns''' and press {key Enter}.
+{/for}
+{for mac}
+Restart MacOS to flush your DNS cache.
+{/for}
+{for linux}
+# Open the '''command terminal'''.
+# Run the command '''/etc/init.d/nscd restart'''
+{/for}
+
+= Wireless connection =
+If you are using a wireless connection, make sure that you are using the correct access point.
+
+= Internet Service Provider problem =
+Even if your modem and/or router are both on and are not indicating errors, there may be a problem with your Internet Service Provider (ISP). Contact your ISP for more information. 
+
+= DNS server problem =
+Your [http://en.wikipedia.org/wiki/Domain_Name_System Domain Name System] (DNS) server translates web addresses (URLs) into IP addresses and is usually provided by your ISP. If the DNS server is overloaded, you may be unable to view some or all websites. For example, if http://74.125.53.99 or http://74.125.159.105 work but http://www.google.com doesn't, you may have a DNS problem. You can use an alternative service such as [http://www.opendns.com/ OpenDNS] or [http://code.google.com/speed/public-dns/ Google Public DNS].
+
+= Other resources =
+If neither Firefox nor another browser can load any websites, your problem is external to Firefox and you should seek support elsewhere.
+{for win}
+* See [http://windows.microsoft.com/windows/network-connection-problem-help Wired and wireless network problems] at microsoft<!-- -->.com.
+{/for}
+{for mac}
+* See [http://support.apple.com/kb/PH21640 OS X El Capitan: If you can’t connect to the Internet] at apple<!-- -->.com.<!-- needs link for MacOS Sierra -->
+{/for}

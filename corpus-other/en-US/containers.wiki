@@ -1,0 +1,146 @@
+Multi-Account Containers is an extension developed by Mozilla that allows you to separate your browsing experience into different color-coded tabs, to help protect your privacy. By using these containers, you can categorize their browsing based on purpose and create tabs for ''Work'', ''Banking'', ''Shopping'' and ''Personal browsing''. For an extra layer of privacy, you can also [[Protect your container tabs with Mozilla VPN|integrate Mozilla VPN]].
+{for linux}
+{note}'''Note:''' The integration with Mozilla VPN will only work if Firefox is installed via a non-sandbox installation method. Known sandbox installation methods are [[Install Firefox on Linux#w_install-from-snap|Snap]] and [[Install Firefox on Linux#w_install-from-flatpak|Flatpak]].{/note}
+{/for}
+;[[Image:containerTabs]]
+
+__TOC__
+
+=What you can do with Multi-Account Containers=
+* Sign in to multiple accounts on a single website (for example, personal and work email accounts).
+* Protect browsing with VPN (for instance to shop abroad and check your bank account from a home country server).
+* Prevent tracking and security attacks (like harmful clicks stay within a container).
+* Assign websites to containers (so that a specific website opens in a specific container).
+* Hide/Show and sort tabs (for instance, hide work tabs and sort work and personal tabs).
+* Sync containers across devices signed in with your Mozilla account (for example, carry over container names and site assignments).
+* Avoid social network footprints (by using a container for social networks).
+
+=To install Multi-Account Containers=
+# Visit [https://addons.mozilla.org/firefox/addon/multi-account-containers/ Firefox Multi-Account Containers].
+# Click the {button Add to Firefox} button.
+# Click {button Add} if you agree with the permissions requested.
+[[Image:MACpermissionsPanel|width=400]]
+
+=Open a website inside a Container=
+{note}'''Note:''' Containers are disabled in Private Browsing windows and when ''Never Remember History'' is selected in your privacy settings.{/note}
+# Click the Containers [[Image:ContainersIcon]] icon in the toolbar bar{for fx110} (if you don't see the containers icon, click the extensions [[Image:extensionsButton]] button in the toolbar, then click the containers icon){/for}.
+# Select the container you want to open.
+[[Image:multi-account_containers|width=300]]
+{note}'''Tip:''' Right-click the new tab button to bring up the Containers menu.{/note}
+[[Image:Fx155NewTab-Containers|width=210]]
+
+=Open bookmarks in a container=
+To quickly open a bookmark in a container, you need to allow the extension to access your bookmarks. To do so:
+#[[Template:Open Add-ons|type=Extensions]]
+#Click '''Multi-Account Containers''' in the installed extension list to see more details about that extension.
+#Select '''Preferences''' and check '''Enable Bookmarks Menus'''.
+After allowing access to your bookmarks, you can now right-click a bookmark and a new menu entry named '''Open Bookmark in Container Tab''' will be available.
+
+=Access more from the right-click menu=
+The right-click menu is a convenient way to manage your Containers and control how links are opened. When you right-click a link, the right-click menu appears and provides you with more options for managing your Containers. These options include:
+*'''Always Open in This Container:''' This check box allows you to specify that all links from the same website should open in the same Container.
+*'''Hide This Container:''' This option allows you to temporarily hide the current Container.
+*'''Move Tabs to a New Window:''' This option allows you to move all of the tabs in the current Container to a new window.
+[[Image:AlwaysopenInContainer|width=500]]
+
+=Manage your containers=
+==Create a new container==
+You can also create new containers that better describe your browsing activity by following these steps:
+#Click the Containers [[Image:ContainersIcon]] icon in the toolbar bar{for fx110} (if you don't see the containers icon, click the extensions [[Image:extensionsButton]] button in the toolbar, then click the containers icon){/for}.
+#Click {button Manage Containers} to open the containers settings panel.
+#Click {menu New container}.
+
+{for fx153}
+Alternatively, you can manage containers from Firefox Settings.
+#Open Firefox Settings.
+#Select {menu Tabs and browsing} from the left-side menu.
+#;[[Image:fx153containers]]
+#In the {menu Containers} section, click {button Manage settings} to open the Container settings panel.
+#In the panel, click on {button Add New Container}.
+#*You’ll be prompted to create and customize your container.
+{/for}
+
+==Customize your Container tabs==
+You can change the color or icon associated with a container, or change the container's name from the settings. To do this:
+#Click the Containers [[Image:ContainersIcon]] icon in the toolbar bar{for fx110} (if you don't see the containers icon, click the extensions [[Image:extensionsButton]] button in the toolbar, then click the containers icon){/for}.
+#Click {button Manage Containers} to open the containers settings panel.
+{for not fx153}[[Image:manage_containers|width=600]]{/for}{for fx153}[[Image:fx153addnewcontainer|width=600]]{/for}
+{for fx153}
+Alternatively, you can customize your container in Firefox Settings.
+#Open Firefox Settings.
+#Select {menu Tabs and browsing} from the left-side menu.
+#In the {menu Containers} section, click {button Manage settings} to open the Container settings panel.
+#Select the container you want to customize, and click on the edit icon [[Image:editicon3]].
+#Customize the name, color, and icon of the container and click on {button Done} after you finish.
+#;[[Image:fx153addnewcontainer|width=600]]
+{/for}
+
+==Remove a container ==
+#Click the Containers [[Image:ContainersIcon]] icon in the toolbar bar{for fx110} (if you don't see the containers icon, click the extensions [[Image:extensionsButton]] button in the toolbar, then click the containers icon){/for}.
+#Click {button Manage Containers} to open the containers settings panel.
+#Choose the container you want to remove.
+#Click {button Delete this container} button.
+{for fx153}
+Alternatively, you can remove a container from Firefox Settings.
+#Open Firefox Settings.
+#Select {menu Tabs and browsing} from the left-side menu.
+#In the {menu Containers} section, click {button Manage settings} to open the Container settings panel.
+#In the Container settings panel, click on the [[Image:removecontainerbutton]] icon to remove a container.
+#;[[Image:fx153containersettings]]
+{/for}
+
+=Manage site assignments=
+==Always open a site in a container==
+Assign a site to a container, so it always opens in a container tab:
+#Click the Containers [[Image:ContainersIcon]] icon in the toolbar bar{for fx110} (if you don't see the containers icon, click the extensions [[Image:extensionsButton]] button in the toolbar, then click the containers icon){/for}.
+#Click {menu Always open this site in…} and select a container for which you want to assign the current site.
+
+==Remove an assigned site==
+#Click the Containers [[Image:ContainersIcon]] icon in the toolbar bar{for fx110} (if you don't see the containers icon, click the extensions [[Image:extensionsButton]] button in the toolbar, then click the containers icon){/for}.
+#Click {button Manage Containers} to open the containers settings panel.
+#Select the container for which you assigned the site.
+#Click '''Manage site list''' in the ''Container Edit'' panel.
+#Hover over the site you want to remove and click the trash icon that appears next to it.
+
+==Limit to designated sites==
+You can restrict a container to only open sites assigned to it. Other sites will be opened in '''No Container'''. To enable this option:
+#Click the Containers [[Image:ContainersIcon]] icon in the toolbar bar{for fx110} (if you don't see the containers icon, click the extensions [[Image:extensionsButton]] button in the toolbar, then click the containers icon){/for}.
+#Click {button Manage Containers} to open the containers settings panel.
+#Select the desired container.
+#Enable '''Limit to designated sites'''.
+
+=Protect your containers with Mozilla VPN=
+You can keep your browsing data separate and stay protected with Multi-Account Containers. Additionally, you can integrate Mozilla VPN into each container to add an extra layer of protection to your container tabs. This way, you can have all the data from the containers pass through an encrypted tunnel using one of our servers. To learn more, visit [[Protect your container tabs with Mozilla VPN]].
+;[[Image:MACLocations|width=300]]
+
+=Common questions=
+'''Are Firefox containers and Multi-account containers the same?'''
+
+Firefox Containers and Multi-Account Containers are complementary features that help you keep your online activities organized. While both options allow you to separate your browsing into different container tabs, the Firefox Containers feature allows you to always '''open new tabs''' in containers.
+
+On the other hand, Multi-Account Containers is an extension developed by Mozilla that fully optimizes Firefox containers and unlocks its full potential offering additional features, such as site assignments and integration with Mozilla VPN.
+{note}'''Note:''' Please note that these two features work together and you'll need to use both of them to make the most of all the features available. To learn more, see the [[How to use Firefox containers]] article.{/note}
+
+'''How does this compare to the Facebook Container extension?'''
+
+[[Facebook Container - Prevent Facebook from tracking you on other websites|Facebook Container]] isolates Facebook and Facebook-owned sites automatically. The Firefox Multi-Account Containers is a more general extension that allows you to create containers and determine which sites open in each container. This extension can be customized to suit your needs for multiple sites and multiple logins, but takes more time to set up than Facebook Container. You can use Multi-Account Containers to manually create a custom container for Facebook and assign facebook<!-- -->.com to it.
+
+Multi-Account Containers will then make sure to only open facebook<!-- -->.com in the Facebook Container. However, unlike Facebook Container, Multi-Account Containers doesn’t prevent you from opening non-Facebook sites in this custom container. Facebook Container also deletes Facebook cookies from your other containers on install and when you restart the browser, to clean up any potential Facebook trackers. Multi-Account Containers does not do that for you.
+
+'''Can I use both Multi-Account Containers and Facebook Container?'''
+
+Yes, but you need to be a little careful. Don't use Multi-Account Container to assign facebook<!-- -->.com to a container, and then try installing Facebook Container. If you are a Multi-Account Containers user and want to use both add-ons, unassign facebook<!-- -->.com, messenger<!-- -->.com, and instagram<!-- -->.com first, then install Facebook Container.
+
+For more background information about Containers, see the [https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers Containers project page]. To learn more about how to use Multi-Account Containers with some quick tips and shortcuts, see [https://blog.mozilla.org/tanvi/2017/10/03/update-firefox-containers this Mozilla blog post].
+
+
+'''How do I enable Microsoft secure sign-on (SSO) with Firefox containers?'''
+
+[[How to enable Windows SSO login in Firefox|Windows SSO]] is disabled in containers by default. To enable this:
+# Get the container ID. This is available in <code>containers.json</code> in your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile directory]], in a key called '''userContextId''' (47001 for example).
+# In ''about:config'', create a boolean key named ''network.http.windows-sso.container-enabled.CONTAINERID'', where CONTAINERID is the ID you found in <code>containers.json</code>, and set it to {pref true}.
+{note}'''Note:''' For Mac, the setting is named ''network.http.microsoft-entra-sso.container-enabled.CONTAINERID''{/note}
+
+=Related articles=
+*[[How to use Firefox containers]]
+*[[Use Multi-Account Containers with Mozilla VPN]]

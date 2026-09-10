@@ -1,0 +1,94 @@
+Mozilla works with trusted service providers and partners to help deliver, maintain, and improve many of our products and websites, including Firefox and Mozilla accounts.
+
+This list identifies entities that may process limited data in connection with these products and services, though it does not include all entities that Mozilla may engage across regions or operations and may be updated periodically.
+{for fx154}
+{note}'''Note:''' Some search providers are available by default only in select countries or regions. The search options you see in Firefox may vary depending on your location.{/note}
+{/for}
+
+{| class="wikitable"
+|+
+|-
+! Service provider/partner
+! Purpose(s) of processing
+! Data processed 
+|-
+|Amazon Web Services (AWS)
+| Cloud computing, including:
+*Hosting
+*E-mail delivery infrastructure
+*Key management
+*Content Delivery Network (CDN) services
+| Contact data<br><br>Content data<br><br>Interaction data<br><br>Unique Identifiers
+|-
+| Google Cloud Platform (GCP)
+| Cloud computing, including collaboration, hosting, and analytics services<br><br>Key management<br><br>Content Delivery Network (CDN) services 
+| Browsing data<br><br>Interaction data<br><br>Language preference<br><br>Location data<br><br>Precise location<br><br>Search data<br><br>Settings data<br><br>System performance data<br><br>Technical data<br><br>Unique identifiers 
+|-
+| Google Marketing Platform (Google Analytics)
+| Website analytics services
+| Interaction data<br><br>Language preference<br><br>Location data<br><br>Precise location<br><br>Search data<br><br>Settings data<br><br>System performance data<br><br>Technical data<br><br>Unique identifiers 
+|-
+| Braze<br><br>Twilio<br><br>Sendgrid
+| Internal communication and collaboration tools
+| Contact data<br><br>Content data<br><br>Interaction data<br><br>Language preference<br><br>Location<br><br>System performance data<br><br>Technical data<br><br>Unique identifiers 
+|-
+| Google Workspace<br><br>Atlassian<br><br>Slack
+| Customer engagement, transactional communications, and marketing communications
+| Contact data<br><br>Content data<br><br>Language preference<br><br>Location<br><br>Technical data<br><br>Unique identifiers 
+|-
+| Adjust<br><br>Elasticsearch<br><br>ISRG Divvi-Up
+| Analytics and data management services
+| Contact data<br><br>Content data<br><br>Interaction data<br><br>Location<br><br>System performance data<br><br>Technical data<br><br>Unique identifiers 
+|-
+| AppBot<br><br>HelpScout<br><br>Khoros<br><br>OneTrust<br><br>Verint<br><br>Zendesk
+| Customer support
+| Contact data<br><br>Content Data<br><br>Interaction data<br><br>Location<br><br>Technical data
+|-
+| CIRA<br><br>Cloudflare<br><br>Comcast DNS<br><br>Control D<br><br>NextDNS<br><br>Shaw DNS<br><br>Splunk
+| Internet infrastructure services<br><br>DNS resolver services<br><br>Security services
+| Browsing data<br><br>Interaction data<br><br>Technical data (including IP address)<br><br>Unique Identifiers
+|-
+| Fastly
+| Internet Infrastructure services, including [https://blog.mozilla.org/en/products/firefox/partnership-ohttp-prio/ Oblivious HTTP]
+| Browsing data<br><br>Technical data (including IP address)<br><br>Unique identifiers
+|-
+| Certificate Authorities
+| [[Secure website certificate|Certificate verification]] for secure connections
+| Browsing data<br><br>Interaction data<br><br>Unique Identifiers
+|-
+| Sentry<br><br>Socorro
+| Error and performance monitoring<br><br>Crash reporting services
+| Browsing data<br><br>Interaction data<br><br>Technical data<br><br>System performance data<br><br>Unique identifiers
+|-
+| Google LLC
+| Geolocation service (allows users to share location with websites)
+| Unique Identifiers<br><br>Location<br><br>Technical data
+|-
+| Google OAuth 2.0<br><br>Sign in with Apple
+| Authentication services
+| Authentication data<br><br>Contact data<br><br>Unique Identifiers
+|-
+| Accuweather<br><br>Yelp
+| Providing sponsored content
+| Interaction data<br><br>Search data<br><br>Technical data
+|-
+| adMarketplace
+| Providing sponsored content and ads
+| Interaction data<br><br>Search data<br><br>Technical data
+|-
+| Equativ<br><br>Index Exchange
+| Programmatic ads partners
+| Interaction data<br><br>Search data<br><br>Technical data
+|-
+| Bing<br><br>DuckDuckGo<br><br>Google<br><br>ebay<br>{for fx154}{for not fx155}<br>Startpage<br>{/for}{/for}<br>Wikipedia<br><br>Perplexity AI<br><br>Qwant<br><br>Ecosia
+| Search providers 
+| Interaction data<br><br>Location<br><br>Search data<br><br>Technical data
+|-
+| Apple Pay<br><br>Google Pay<br><br>Link<br><br>PayPal<br><br>Stripe
+| Providing payment and transaction processing services 
+| Contact data<br><br>Payment Information
+|-
+| Mistral
+| Providing AI-based features 
+| Contact data<br><br>Interaction data<br><br>Technical data<br><br>Unique identifiers
+|}

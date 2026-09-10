@@ -354,9 +354,29 @@ async function fetchSource(ctx, page, locale, slug) {
   }, r.body);
 }
 
+/**
+ * Launch the browser, retrying a timeout.
+ *
+ * Measured 2026-09-09: `launchPersistentContext` timed out after 180s on pass 4
+ * of an 8-pass run, with memory healthy, no stray Chromium and no stale profile
+ * lock — transient, and it cost the whole remaining run. A batch driver is
+ * pointless if a hiccup between batches ends it.
+ */
+async function launchWithRetry(opts) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await chromium.launchPersistentContext(CONFIG.profileDir, opts);
+    } catch (e) {
+      if (attempt >= 3) throw e;
+      console.log(`  browser launch failed (${String(e.message).split('\n')[0]}) — retrying in 15s`);
+      await sleep(15_000);
+    }
+  }
+}
+
 async function main() {
   await mkdir(CONFIG.profileDir, { recursive: true });
-  const ctx = await chromium.launchPersistentContext(CONFIG.profileDir, {
+  const ctx = await launchWithRetry({
     headless: false,
     viewport: { width: 1280, height: 900 },
     // Required, and measured — not cargo-culted. The Fastly challenge gates on

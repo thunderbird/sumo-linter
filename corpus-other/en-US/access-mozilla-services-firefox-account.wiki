@@ -1,0 +1,49 @@
+Mozilla accounts let you access Mozilla services on any device with the Firefox browser by simply signing in. You can create an account using an email address and password, or use other supported sign-in methods, such as passkeys, Google, or Apple accounts.
+
+__TOC__
+
+=How do I sign up for a Mozilla account?=
+You can access the sign-up page on each Mozilla service, or visit the [https://accounts.firefox.com/signup Mozilla accounts signup page] and follow the steps below:
+# Enter your email address and click {button Sign up or sign in}.
+# Enter a password and your age, then click {button Create account}.
+#;{note}We ask for your age to meet the [https://www.ftc.gov/business-guidance/resources/childrens-online-privacy-protection-rule-not-just-kids-sites Children's Online Privacy Protection Rule] of the USA legislation.{/note}
+# When the Mozilla accounts email arrives, enter the 6-digit confirmation code.
+# Once your account has been confirmed, sign in to your favorite Mozilla Service using your newly created account. After you sign up, you can also sign in and add an image to your profile.
+If you have problems confirming your account, please see [[I'm having problems confirming my Mozilla account]].
+{note}'''Note:''' You can also use your existing Google or Apple ID to sign up for a Mozilla account. This eliminates the need to remember yet another username and password. To learn more, see [[Sign in to a Mozilla account using 3rd-party authentication]].{/note}
+
+=Sign in with a one-time email code=
+Mozilla account supports a [[Passwordless login for Mozilla accounts|passwordless sign-in option]] for selected services. Instead of entering a password, you can use a one-time code sent to your email address.
+
+When you enter your email on a supported service, Mozilla automatically determines the correct sign-in method. If your account is eligible for the passwordless flow, you’ll receive a one-time code by email. Enter that code on the verification screen to complete sign-in. If the code expires, you can request a new one.
+
+You can use passwordless login when creating a new account for a supported service, or when your existing account lacks a password and is not linked to Google or Apple.
+{note}'''Note''': Passwordless login cannot be used for Firefox Sync. Sync requires a password because it uses end-to-end encryption to protect your data.{/note}
+
+=Sign in with a passkey=
+Mozilla accounts support passkeys, which allow you to sign in using your device's authentication methods, such as a fingerprint, face recognition, PIN or hardware security key.
+
+Passkeys provide a secure, passwordless sign-in experience and are designed to be resistant to phishing attacks.
+
+To use a passkey:
+#Go to the Mozilla account sign-in page.
+#Click {button Sign in with passkey}.
+#Follow the prompts from your browser or device to authenticate.
+#;[[Image:mozillapasskeysignin]]
+If a passkey is available on your device, you can sign in without entering your password.
+{note}'''Note:''' Firefox Sync still requires your Mozilla account password to protect your encrypted browsing data. Depending on the Mozilla service you're accessing, you may be prompted to enter your password after signing in with a passkey.{/note}
+To learn how to create, use, and manage passkeys, see [[Use a passkey to sign in to your Mozilla account]].
+
+=What services can I use with a Mozilla account?=
+The following Mozilla services are available:
+*'''[[How do I set up Firefox Sync?|Firefox Sync]]:''' Access your browsing data, like bookmarks, history, passwords and open tabs on your desktop, laptop and phone with just one Mozilla account login.
+*'''[https://addons.mozilla.org Firefox Add-ons]:''' Add features to Firefox by developing add-ons. See [[Access your add-ons with Mozilla account]].
+*'''[https://support.mozilla.org Mozilla Support]:''' Help other users by answering questions and contributing to help articles. See [[Mozilla account on support.mozilla.org]].
+*'''[https://monitor.mozilla.org Mozilla Monitor]:''' Learn if your information was exposed in a data breach and how to take action to protect your online accounts. See [[Get started with Mozilla Monitor]].
+*'''[[What's the difference between MDN and MDN Plus?|MDN Plus]]:''' You can upgrade your access to the [https://developer.mozilla.org/ Mozilla Developer Network (MDN)] with MDN Plus.
+*'''[https://connect.mozilla.org Mozilla Connect]:''' Give product feedback, share ideas for new features, and participate in discussions that help shape future product releases. See [[What is Mozilla Connect?]]
+*'''[https://relay.firefox.com Firefox Relay]:''' Relay email masks protect your true email address from public view and automatically forward messages to your true inbox.
+*'''[https://www.mozilla.org/products/vpn/ Mozilla VPN]:''' A Virtual Private Network for desktop and mobile devices.
+
+=What makes Mozilla accounts different?=
+At Mozilla, we put your privacy first. Any data you store on our servers is encrypted with your password, making it impossible for anyone without your password to read your data—even Mozilla. The benefit of this is that no one can mine your data to create a profile of you. However, it does require that you make a password that is both strong and memorable. If you forget your password and reset it, your storage is wiped clean and replaced with what is currently saved in Firefox on your devices.

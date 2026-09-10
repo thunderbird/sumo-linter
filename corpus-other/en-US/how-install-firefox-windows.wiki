@@ -1,0 +1,48 @@
+This article explains how to install Firefox on Windows, either with a simple online installer from Mozilla or from the Microsoft Store.
+*If you need a full, offline installer with custom options, see [[Custom installation of Firefox on Windows]].
+*To update Firefox from a previous version, see [[Update Firefox to the latest release]].
+{for mac,linux}{note}'''This article only applies to Windows.'''{for mac} For instructions to install Firefox on Mac, see [[How to download and install Firefox on Mac]].{/for}{for linux} For instructions to install Firefox on Linux, see [[Install Firefox on Linux]].{/for}{/note}{/for}
+
+__TOC__
+
+=Install from Mozilla's download server=
+{note}'''Before installing Firefox, see the [https://www.firefox.com/firefox/system-requirements Firefox System Requirements]''' to make sure that your computer has the required operating system and recommended hardware.{/note}
+To install Firefox on your computer:
+#Visit [https://www.firefox.com/?utm_medium=referral&utm_source=support.mozilla.org '''this Firefox download page'''] in any browser, such as Microsoft Edge.
+#Click the {button Get Firefox} or {button Download Firefox} button. The Firefox Installer that downloads will automatically offer you the best available version of Firefox for your computer.<br>[[Image:GetFirefox-Windows|width=800]]{for win10}{note}Windows 10 may show you a warning when installing apps that aren't from the Microsoft Store. See [[Windows 10 warns me to use a "Microsoft-verified" app]] for more information.{/note}{/for}{note}'''Note:''' You can also manually choose the Firefox version you prefer. At the bottom of the ''Thank you for downloading Firefox!'' page, click '''Download in another language or operating system'''.<br>[[Image:firefoxplatform149|width=800]]<br>In the page that opens, choose the Firefox version, operating system and your preferred language, and then click the {button Download} button. See [[Custom installation of Firefox on Windows|this article]] for more details.{/note}
+#Click '''Open file''' in the ''Downloads'' notification on Microsoft Edge to start the process.
+#In other browsers, you may need to first save the Firefox installer to your computer, then open the file you downloaded.<br>'''Note:''' If you see an ''Open File – Security Warning'' dialog, click {button Open} or {button Run}.
+#;[[Image:Firefox-60-open-file-warning-win10]]
+#The ''User Account Control'' dialog may open, to ask you to allow the Firefox Installer to make changes to your computer. If this dialog appears, click {button Yes} to start the installation. Firefox will be installed to the ''Program Files'' directory and available to all users on your computer.
+#;[[Image:Firefox-Installer-win10-UAC]]{note}'''Note:''' If you run the installer as administrator and click {button No} or cancel the UAC dialog, or if you install Firefox using a non-administrator account, Firefox installs to your user home directory ({filepath C:\Users\<username>\AppData\Local\Mozilla Firefox\}) and is not available to other users.{/note}<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1350974 Related support forum post: https://support.mozilla.org/en-US/questions/1276424#answer-1341336 -->
+#Wait for Firefox to finish installing.
+#;[[Image:firefoxinstaller149]]
+#When the installation is complete, the ''Welcome to Firefox'' page will open, where you can read the ''Terms of Use'' and ''Privacy Notice'' and manage diagnostic and interaction data.
+#;[[Image:Fx141FirefoxInstaller-Welcome]]{note}'''Note:''' A notification bar with a {button Refresh Firefox…} button may be shown at the top of the page, if Firefox was previously installed. See [[Refresh Firefox - reset add-ons and settings]] to learn more.{/note}
+#Click the {button Continue} button, then complete or skip the steps that follow.
+'''Congratulations, you are done installing Firefox!'''
+
+Double-click the Firefox icon that was placed on the desktop whenever you want to start Firefox.
+;[[Image:Firefox Windows 11 desktop icon]]
+
+=Install from the Microsoft Store=
+{note}Installing Firefox from the Microsoft Store requires Windows 10 or Windows 11.{/note}
+#Click on the ''Windows'' icon located on the taskbar.
+#Type '''Microsoft Store'''.
+#Select the '''Microsoft Store''' from the results. This will take you to the Microsoft app store.
+#Type '''Firefox''' in the search bar and press {key Enter}.
+#Select '''Mozilla Firefox''' from the applications available.
+#Click {button Get} to start the installation process.
+To learn more, see [[Download Firefox on Windows from the Microsoft Store]].
+
+= Having problems? =
+Here are some articles that can help you:
+{for win10,win11}
+*[[Windows in S mode won't let me install Firefox]]
+*[[Make Firefox your default browser on Windows]]
+{/for}
+*[[Make Firefox your default browser]]
+*[[Firefox won't start - find solutions]]
+*[[Troubleshoot and diagnose Firefox problems]]
+*[[Why do I get a harmful download message when downloading Firefox on Windows?]]
+If you need more help, you can always [[Get community support|get community support]].

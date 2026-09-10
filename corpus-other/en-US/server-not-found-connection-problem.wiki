@@ -1,0 +1,74 @@
+If you have a problem connecting to a website, you may see error messages like '''Server Not Found'''. This article describes how to troubleshoot problems that cause this error.
+* For troubleshooting other error messages, see [[Websites don't load - troubleshoot and fix error messages|this article]].
+
+__TOC__
+
+= Try another browser =
+To begin, try opening a website in another browser (such as {for win}Microsoft Edge{/for}{for mac}Safari{/for}{for linux}Epiphany or Chromium{/for}).
+* If all other browsers cannot load the website, move on to the [[#w_no-browsers-can-load-websites|No browsers can load websites]] section.
+* If the other browsers can load the website, skip ahead to the [[#w_firefox-cannot-load-websites-but-other-browsers-can|Firefox cannot load websites but other browsers can]] section.
+
+= No browsers can load websites =
+If neither Firefox nor your other browser can load websites, your problem is not in Firefox, so you should seek help elsewhere.{for mac} [https://www.apple.com/support/ Apple support] includes these articles:{/for}{for win} [https://support.microsoft.com Microsoft support] includes these articles:{/for}
+{for mac}
+* [https://support.apple.com/HT201735 Connect to the internet with your Mac]
+* [https://support.apple.com/HT202663 If your Mac isn't connecting to the internet over Wi-Fi]
+{/for}
+{for win}
+* [https://support.microsoft.com/windows/experience/connectivity-networking/fix-ethernet-connection-problems-in-windows Fix Ethernet connection problems in Windows]
+* [https://support.microsoft.com/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows Fix Wi-Fi connection issues in Windows]
+{/for}
+{for win,mac}You should also check the following:{/for}{for linux}You should begin by checking the following:{/for}
+* Make sure your modem and/or router are both on and are not indicating errors.
+* If you are using a wireless connection, make sure that you are connected to the right access point.
+* Make sure your Internet security software (including firewalls, antivirus programs, anti-spyware programs, and more) is not blocking connections to the Internet. For instructions on how to configure these programs, see the [[Firewalls]] article.
+* If you use a proxy server, make sure that the proxy server can connect to the Internet. For instructions on configuring proxy settings in Firefox, see [[#w_firefox-connection-settings|Firefox connection settings]] below.
+
+= Firefox cannot load websites but other browsers can =
+If Firefox cannot load websites, but your other browser can, follow the instructions below.
+
+== Cannot load websites after updating Firefox ==
+If you were able to load websites until you updated Firefox, your Internet security software (including firewalls, antivirus programs, anti-spyware programs, and more) is likely preventing Firefox from connecting to the Internet. Some Internet security programs can block Internet access even when they are in a “disabled” state.
+
+In general, you should remove Firefox from your program's list of trusted or recognized programs, then add it back. For instructions on how to configure these programs, see the [[Firewalls]] article.
+
+== Firefox connection settings ==
+If you connect to the Internet through a proxy server that is having connection problems, you will not be able to load websites. To check your [[Connection settings in Firefox|connection settings in Firefox]]:
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go down to the {for not fx149}'''Network Settings'''{/for}{for fx149}'''Proxy settings'''{/for} section{/for}{for fx152}Select {menu Privacy and security} on the left, go down to the ''Connection and software security''  section, click {menu Advanced settings} and go to '''Proxy settings'''{/for}.
+# Click {for not fx149}{menu Settings…}{/for}{for fx149}{menu Configure proxy}{/for}. The ''Connection Settings'' dialog will open.
+# Change your proxy settings:
+#* If you don't connect to the Internet through a proxy (or don't know whether you connect through a proxy), select '''No Proxy'''.
+#* If you connect to the Internet through a proxy, compare Firefox's connection settings to your system settings.{for win} In Microsoft Edge, you can go to '''Settings''' → '''System and Performance''' (or, in Google Chrome, to '''Settings''' → '''System''') and select '''Open your computer’s proxy settings''' to view your system settings.{/for}{for mac} The Apple Support articles [https://support.apple.com/guide/safari/set-up-a-proxy-server-ibrw1053/mac Set up a proxy server using Safari on Mac] and [https://support.apple.com/guide/mac-help/change-proxy-settings-network-preferences-mac-mchlp2591/mac Change proxy settings in Network preferences on Mac] will show you how to view your system settings.{/for}
+# Click {button OK} to close the ''Connection Settings'' window.
+# [[T:closeOptionsPreferences]]
+
+== DNS Prefetching ==
+[https://developer.mozilla.org/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control DNS Prefetching] is a technique Firefox uses to speed up loading new websites. To disable DNS Prefetching:
+[[Template:aboutconfigwarning]]
+# [[T:aboutconfig]]
+# In the '''Search''' field at the top of the page, enter '''network.dns.disablePrefetch'''.
+# If the preference does not already exist, select '''Boolean''' and click the ''Add'' [[Image:Fx71aboutconfig-AddButton]] button to create the preference.
+# Change the preference value from {pref false} to {pref true} by pressing the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button.
+
+== IPv6 ==
+Firefox supports [https://en.wikipedia.org/wiki/IPv6 IPv6] by default, which may cause connection problems on certain systems. To disable IPv6 in Firefox:
+[[Template:aboutconfigwarning]]
+# [[T:aboutconfig]]
+# In the '''Search''' field, enter '''network.dns.disableIPv6'''.
+# In the list of preferences, click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to {pref network.dns.disableIPv6} to change its value from {pref false} to {pref true}.
+
+= Firefox cannot load certain websites =
+If you find that Firefox can load some websites but not others, {for win}first {/for}clear your Firefox cookies and cache:
+[[T:clearCookiesCache]]
+
+{for win}
+== Check for malware ==
+If clearing your cookies and cache did not enable you to load the websites that did not work in Firefox, you should check your computer for [https://en.wikipedia.org/wiki/Malware malware]. Certain types of malware are known to target Firefox and can prevent it from loading various websites:
+* If you have an antivirus or Internet security program, update its detections database and do a full scan of your system.
+* If you still have problems, see [[Is my Firefox problem a result of malware#w_how-do-i-get-rid-of-malware|How do I get rid of malware?]]
+{/for}
+
+<!-- MZ credit -->
+<br><br>
+'''''Based on information from [http://kb.mozillazine.org/Error_loading_websites Error loading websites (mozillaZine KB)]'''''

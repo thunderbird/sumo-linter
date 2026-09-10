@@ -1,0 +1,81 @@
+Most problems with Firefox can be fixed by following the troubleshooting methods described below. Try these steps in order. If one doesn't work, move on to the next one. If you need extra help with any of this, we have [[Get community support|a community of volunteers standing by]].
+
+__TOC__
+
+= 1. Restart your computer =
+Sometimes problems can be fixed by simply restarting your computer and then starting Firefox again.
+
+= 2. Clear your cookies and cache =
+Many problems with loading web pages can be resolved by clearing Firefox's cookies and cached Web content. To learn more, see [[Clear cookies and site data in Firefox]] and [[How to clear the Firefox cache]].
+
+To clear cookies and cache all at once:
+[[T:clearCookiesCache]]
+
+Firefox also has a startup cache that stores certain temporary data, to improve startup speed. Clearing the startup cache and then restarting Firefox can resolve various issues with the Firefox user interface (UI). This will not change your profile data or add-ons.<!--https://bugzilla.mozilla.org/show_bug.cgi?id=1569653 https://support.mozilla.org/en-US/questions/1348468 -->
+#Click the menu button [[Image:Fx89menuButton]], click {menu Help} and select {menu More Troubleshooting Information}. The [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information page]] will open.
+#Under ''Try clearing the startup cache'', click {button Clear startup cache…} and then click {button Restart}.
+
+= 3. Restart Firefox in Troubleshoot Mode =
+Firefox Troubleshoot Mode is a diagnostic mode that disables extensions, uses the default theme, turns off hardware acceleration and uses default toolbar settings, among other changes (see [[Use Troubleshoot Mode in Firefox|this article]] for details). To start Firefox in Troubleshoot Mode:
+# [[T:safemode]]
+# In the next ''Open Firefox in Troubleshoot Mode?'' dialog, click {button Open}.
+# Check whether your problem is still happening while in Troubleshoot Mode.
+*If the problem still happens in Troubleshoot Mode, go on to step 4.
+*If the problem does not happen in Troubleshoot Mode, follow [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems#w_the-problem-does-not-occur-in-troubleshoot-mode|these instructions]] to troubleshoot extensions, themes, and hardware acceleration.
+
+= 4. Reinstall Firefox =
+Some Firefox issues can be caused by a problem with one of the Firefox program files. Follow these steps to completely remove and reinstall Firefox. This process will not remove your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile]] data (such as bookmarks and passwords), since that information is stored in a different location.
+{note}'''Note:''' You might want to print these steps or view them in another browser.{/note}
+{for win}
+# Download and save the installer for the latest official version of Firefox from [https://www.firefox.com firefox.com].
+# Exit Firefox (if open): [[T:closeFirefox]]
+# You may want to make a note of the Mozilla Firefox program folder location (right-click the Firefox desktop icon, select {menu Properties} from the context menu and click the Shortcut tab) since there may be leftover files and folders after you uninstall Firefox that should be removed for a clean reinstallation.
+# [[Uninstall Firefox from your computer]].
+# If the uninstall did not remove all Firefox program files, manually delete the Firefox program folder, found in one of these locations by default:
+#* {filepath C:\Program Files\Mozilla Firefox}
+#* {filepath C:\Program Files (x86)\Mozilla Firefox}
+# Reinstall Firefox using the installer you downloaded earlier – see [[How to install Firefox on Windows]] for instructions.
+{/for}
+{for mac}
+# Download the latest official version of Firefox from [https://www.firefox.com firefox.com].
+# Quit Firefox: [[T:closeFirefox]]
+# [[Uninstall Firefox from your computer]] by opening the Applications folder in the Finder and dragging the Firefox application to the Trash.
+# Reinstall Firefox – see [[How to download and install Firefox on Mac]] for instructions.
+{/for}
+{for linux}
+# Download the latest official version of Firefox from [https://www.firefox.com firefox.com].
+# Quit Firefox: [[T:closeFirefox]]
+# Uninstall Firefox – if you installed Firefox with the distro-based package manager, you should use the same way to uninstall it – see [[Install Firefox on Linux]] for details. If you downloaded and installed the binary package from the [https://www.firefox.com Firefox download page], simply remove the folder ''firefox'' in your home directory to uninstall Firefox.
+# Reinstall Firefox – see [[Install Firefox on Linux]] for instructions.
+{/for}
+Now start Firefox and check to see if your problem has been fixed. If it hasn't, continue with the next troubleshooting method.
+
+= 5. Refresh Firefox =
+The ''Refresh Firefox'' feature can fix many issues by restoring your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile]] to its default state while saving your essential information.{warning}If you have many Firefox customizations, you may want to skip this step and create a new Firefox profile instead (see [[#w_6-create-a-new-firefox-profile|step 6, below]]) so that your old profile is easily recoverable from the [[Profile Manager - Create, remove, or switch Firefox profiles|Profile Manager]].{/warning}
+[[Template:resetnote]]
+[[Template:resetsteps]]
+
+= 6. Create a new Firefox profile =
+<!-- Creating a new profile is a common troubleshooting step and fixes issues that a Reset/Refresh doesn't such as a corrupt places.sqlite file. See https://bugzilla.mozilla.org/show_bug.cgi?id=1180419-->
+Sometimes files in your Firefox [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile folder]] that correspond to the essential information that a Firefox Refresh doesn't remove (such as bookmarks and browsing history) may be causing the issue. You can create a new, additional profile which will not contain any of your old Firefox data. See the [[Profile Manager - Create, remove, or switch Firefox profiles]] article for instructions.
+
+= Other solutions =
+If you've tried all of these troubleshooting methods, and you're still having problems, here are some other solutions you can try:
+
+== Check browser internals ==
+The [[Task Manager - see whether tabs or extensions are slowing down Firefox|Firefox Task Manager]] ({for not fx104}''about:performance''{/for}{for fx104}''about:processes''{/for} page) lets you see whether tabs or extensions are slowing down Firefox. [[Share data with Mozilla to help improve Firefox#w_telemetry-data|Telemetry Data shared with Mozilla]] (''about:telemetry'' page) contains detailed data about performance, hardware, usage, and customization. The [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information page]] (''about:support'' page) includes other ''about:'' page links and troubleshooting resources. (For a list of all ''about:'' pages, enter '''about:about''' in the address bar.)
+
+{for win}
+== Check for issues caused by corrupt or incomplete Visual C++ installation ==
+Some issues are caused by a corrupt or incomplete Visual C++ installation that is missing runtime components (Redistributable Packages) required by Firefox, especially VCRUNTIME140_1.dll. This can happen after installing or uninstalling other software on your computer.<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1691782 and https://bugzilla.mozilla.org/show_bug.cgi?id=1624546 Related discussion: https://support.mozilla.org/en-US/forums/contributors/715120 and https://support.mozilla.org/en-US/forums/contributors/714852--> To reinstall these components, download and run the latest installer for Visual Studio from [https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads Microsoft Visual C++ Redistributable latest supported downloads] and then reboot the computer.
+
+== Check for conflicts with your Internet security software ==
+Some Internet security software (including antivirus, antispyware, and firewall programs) can cause problems with Firefox, including blocking it from opening websites, crashes, and more. Often you can open the program's settings, remove Firefox from its list of allowed or trusted programs, and it will be re-detected and things should start working again. See [[Configure firewalls so that Firefox can access the Internet]].
+{/for}
+
+== Check for malware ==
+[https://wikipedia.org/wiki/Malware Malware] (short for “malicious software”) can cause problems with Firefox.{for win} Periodically, you should scan your system for viruses, spyware, or other malware.{/for} For more information, see [[Troubleshoot Firefox issues caused by malware]].
+
+<!-- MZ credit -->
+<br> <br>
+'''''Based on information from [http://kb.mozillazine.org/Standard_diagnostic_-_Firefox Standard diagnostic - Firefox (mozillaZine KB)]'''''

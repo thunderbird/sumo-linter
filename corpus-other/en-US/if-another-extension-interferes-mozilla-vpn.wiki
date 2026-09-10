@@ -1,0 +1,41 @@
+If you use the Mozilla VPN extension and encounter a message about other extensions interfering, don’t worry! This typically happens when other extensions in your browser modify proxy settings, which may prevent the Mozilla VPN extension from functioning correctly.
+
+First, verify whether other extensions are indeed interfering with the Mozilla VPN extension. To check this, enable the Mozilla VPN extension and test if your location is masked by visiting a geolocation website such as [https://mylocation.org/ MyLocation.org]. If your location is masked, you can try to exclude this website from VPN protection or change the country through which you access it, using the Mozilla VPN extension capabilities. If all tests confirm that the extension functions correctly, no further action is needed.
+
+If you find that the extension is not working as expected, follow this guide to identify and resolve the issue.
+
+=Check for conflicting extensions=
+#In the top right corner of your Firefox browser, click the menu button [[Image:Fx89menuButton]].
+#{for not fx140}Select the '''Add-ons and themes''' option.{/for}{for fx140}Select the '''Extensions and themes''' option.{/for}
+#;{for not fx140}[[Image:Adons|width=320]]{/for}{for fx140}[[Image:extensionsthemes|width=320]]{/for}
+#In the left-side menu, click '''Extensions'''.
+#;[[Image:Select Extensions]]
+#Review your installed extensions for tools that might interfere, such as:
+#*Proxy managers
+#*Ad blockers
+#*Privacy or security tools with network-related features
+#Turn the toggle next to the extension to disable it.
+;*Alternatively, you can also uninstall the extension: Click the three-dot menu next to the extension and select '''Remove'''.
+;;[[Image:Remove|width=160]]
+
+==If you’re unsure which extension interferes==
+For each potentially conflicting extension:
+#Disable the Mozilla VPN Firefox Extension using the process described above.
+#Disable the potentially conflicting extension.
+#Re-enable the Mozilla VPN Firefox Extension.
+#Check if the error message now disappears.
+This way, you will be able to identify which extension causes the error and disable it.
+
+=Common questions=
+==Why does this happen?==
+The Mozilla VPN extension relies on being able to set specific proxy settings to create per-website exceptions while browsing. If other extensions modify these settings, they can conflict with the Mozilla VPN extension and cause it to not function appropriately.
+
+==What happens to my Mozilla VPN extension if there’s a proxy configuration in Firefox?==
+When a proxy is configured in Firefox, the Mozilla VPN extension will override the proxy configuration whenever VPN protection is enabled.
+
+==What happens to the proxy configuration when the VPN protection is off?==
+When the VPN protection is turned off, the browser will default back to the proxy configuration set in Firefox. This happens automatically, so no action is required.
+
+=Related articles=
+*[[Connection settings in Firefox]]
+*[[How will DNS work when using the VPN extension?]]

@@ -1,0 +1,62 @@
+You can add new search engines in Firefox to give you the freedom to customize your search experience with the tools that work best for you. For example, you can build a specific search engine with a website you frequently visit (think YouTube or IMDB).
+
+Starting in [[Find what version of Firefox you are using|Firefox version]] 140, you can add custom search engines from the search field of supported websites, or in Firefox settings by entering a custom URL. This article explains how to do this.
+
+__TOC__
+
+=Add a custom search engine from a supported website=
+A supported website is any website that Firefox recognizes as a searchable source. Such websites must include either an OpenSearch description file or a tag in their code that points to a search engine.
+{note}'''Tip:''' [[Template:contextmenu]] the website's search bar, to check if the site is supported.{/note}
+#Go to a website that includes a search bar.
+#[[Template:contextmenu]] the search field and select {menu Add Search Engine} from the drop-down menu.
+#;{for not fx152}[[Image:addsearchengine|width=600]]{/for}{for fx152}[[Image:Fx152SiteSearch-AddEngineSimplified|width=600]]{/for}
+#Add a name for your custom search engine and, if you wish, an optional keyword.
+#;[[Image:searchengine|width=500]]
+#Click '''{button Add Engine}'''.
+
+=Add a custom search engine in Settings=
+You can add custom search engines from websites in Firefox, even if they’re not supported.
+{for not fx152}
+#[[Template:optionspreferences]]
+#Select {menu Search} on the left.
+#;[[Image:searchshortcut|width=500]]
+#Go down to '''Search Shortcuts''' and click {button Add}.
+#Fill in the '''Search engine name''' with a name for your custom search engine.
+#;[[Image:searchenginemenu|width=500]]
+#In the '''URL''' box, copy & paste the URL of a search performed with the custom search engine.
+#*For example: ''https:<?---->//example<?---->.com/search?q=ZZZZZ''
+#Replace the URL’s search tag with '''%s'''.
+#*For example: ''https:<?---->//example<?---->.com/search?q=%s''
+#Add a keyword (this is optional).
+#Click '''Add Engine''' to save.
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Select {menu Search} on the left.
+#Go down to '''Additional search engines''' and click {button Add search engine}.
+#;[[Image:Fx152SearchSettings-AddSearchEngine]]
+#Fill in the '''Search engine name''' with a name for your custom search engine.
+#;[[Image:searchenginemenu|width=500]]
+#In the '''URL''' box, copy & paste the URL of a search performed with the custom search engine.
+#*For example: ''https:<?---->//example<?---->.com/search?q=ZZZZZ''
+#Replace the URL’s search tag with '''%s'''.
+#*For example: ''https:<?---->//example<?---->.com/search?q=%s''
+#Add a keyword (this is optional).
+#Click '''Add Engine''' to save.
+{/for}
+<!-- search?q= is not the search query for all websites. See https://support.mozilla.org/en-US/kb/add-custom-search-engine-firefox/discuss/13718 and https://github.com/pawelmalak/flame/wiki/Search-bar#adding-custom-search-engine. -->
+{note}'''Note:''' You can find the URL’s search tag by performing a unique search with an easy-to-spot word, such as “ZZZZZZ”. The “ZZZZZZ” in the URL is that URL’s search tag.{/note}
+
+=Frequently asked questions=
+==Why does the URL need to contain %s?==
+'''%s''' is a placeholder that Firefox replaces with your search query. For example, if you enter '''firefox settings''' as the search term at https://developer.mozilla.org the browser will go to <code>https://developer.mozilla<!---->.org/search?q=firefox+settings</code>.
+
+==What’s the purpose of the keyword?==
+A keyword is a shortcut you type in the address bar to trigger that custom search engine. For example: <code>google privacy tools</code> → searches Google instead of your default engine. The keyword is optional, and it is not required for the custom search engine to work.
+
+=Related articles=
+*[[How to search IMDB, Wikipedia and more from the address bar]]
+*[[Add or remove a search engine in Firefox]]
+*[[Manage Firefox search settings]]
+*[[My default search engine changed after updating Firefox]]
+*[[Search with the Firefox address bar]]

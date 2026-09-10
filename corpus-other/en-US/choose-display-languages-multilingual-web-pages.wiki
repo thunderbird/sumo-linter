@@ -1,0 +1,55 @@
+Firefox gives you control over different types of language settings:
+*'''Display language''' — the language used for Firefox’s menus, settings, and interface
+*'''Website translation''' — automatic or optional translation prompts for websites in other languages
+*'''Preferred content languages''' — used to choose the language of multilingual websites (when available)
+These are managed in '''separate parts of Firefox Settings''', and they can be used together or independently.
+{note}To change the language for Firefox’s menus, notifications and interfaces, see [[Use Firefox in another language]].{/note}
+
+__TOC__
+
+=Change Firefox’s display language (menus and UI)=
+To change the interface localization, see [[Use Firefox in another language]]. When you use Firefox in another language, every locale also comes with a list of preferred content laguages that affect how localized the content offered might be during browsing. This list can be customized independently of your UI language.
+
+=Set preferred website content languages=
+Some websites support multiple languages. Firefox can request your preferred languages when sites offer localized content.
+To manage this list:
+{for not fx152}
+#[[Template:optionspreferences]]
+#In the {menu General} panel, go down to {menu Language}.
+#Click {button Choose} next to {menu Choose your preferred language for displaying pages}.
+#In the popup:
+#*Use {button Add} to select more languages
+#*Use {button Remove} to delete unwanted entries
+#*Use {button Move Up / Move Down} to change priority
+#Click {button OK}.
+#;[[Image:firefoxlanguagedisplaysettings]]
+{/for}
+{for fx152}
+#[[Template:optionspreferences]]
+#Select {menu Languages} on the left.
+#Go to {menu Website language}.
+#Click on the dropdown menu {menu Add language} to select another language, then click on the {menu [[Image:IG plus]]} to add it in the list.
+#Use the handle {menu [[Image:IG move]]} to move an entry down or higher and change its priority.
+#Use the {menu [[Image:IG delete]]} trash icon  to delete an unwanted entry.
+#;[[Image:fx152websitelanguage]]
+{/for}
+Firefox will use the top-listed language when available. If not, it checks the next in the list.
+{note}'''Note:''' This language list is shared with websites, who may try to use it for fingerprinting. Choose carefully what to include and try to limit the number of languages.{/note}
+
+=Website translation=
+To learn how to easily translate website pages in Firefox, see [[Firefox Translations]].
+
+=Troubleshooting common issues=
+==I still see websites in the wrong language==
+It may be due to the website’s behavior itself. Some websites may use your session history, IP address, geolocation or system settings to display content in a local language, even if Firefox is set to English. To fix this:
+*Check your preferred content language list
+*Verify you’re not using a VPN that would be chaging your region
+*Clear site-specific cookies that may be remembering language settings:
+*#Go to the site.
+*#Click the {for not fx149} lock [[Image:IG lock]]{/for}{for fx149} shield [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} icon  and click {menu Clear cookies and site data}.
+
+=Related articles=
+*[[Use Firefox in another language]]
+*[[Firefox Translations]]
+*[[Clear cookies and site data in Firefox]]
+*[[Troubleshoot and diagnose Firefox problems]]

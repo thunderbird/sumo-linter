@@ -1,0 +1,35 @@
+Firefox now lets you search the web using images instead of text, with Google Lens. This makes it easy to identify objects, translate text, or find visually similar results directly from an image.
+;[[Image:googlelens1]]
+This feature is gradually rolling out, so it may not reach everyone at the same time.
+
+__TOC__
+
+=Enable Google Lens in Firefox=
+Google Lens only works in Firefox if Google is set as your default search engine.
+#[[Template:optionspreferences]]
+#Go to the {menu Search} panel.
+#Under {menu Default Search Engine}, choose {button Google} from the dropdown menu.
+;{for not fx152}[[Image:googlelens2]]{/for}{for fx152}[[Image:Fx152settings-DefaultSearchEngine]]{/for}
+Once set, Google Lens will be automatically enabled.
+
+=Use Google Lens to search with an image=
+After setting Google as your default search engine, you can search with any image using Google Lens.
+#Right-click on any image in Firefox.
+#Select {menu Search image with Google Lens} from the context menu.
+Firefox will open the image in a new tab.
+[[Image:googlelens3]]
+
+=What you can do with Google Lens in Firefox=
+Once you search with an image using Google Lens, you can:
+*Select specific parts of the image to search
+*Identify objects or products
+*Translate text in the image
+*Copy or highlight text
+*Run a search using selected text
+It's like using Google Lens on your phone, but it is built into Firefox on your computer.
+[[Image:googlelens4]]
+
+=Related articles=
+*[[Add custom search engines in Firefox]]
+*[[Add or remove a search engine in Firefox]]
+*[[My default search engine changed after updating Firefox]]

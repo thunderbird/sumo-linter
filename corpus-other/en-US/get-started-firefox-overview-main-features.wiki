@@ -1,0 +1,52 @@
+Welcome to Firefox! We'll show you all the basics to get you up and running. When you're ready to go beyond the basics, check out the other links to explore more features.
+
+__TOC__
+
+=New Tab page: great content at your fingertips=
+By default, Firefox gives you access to great content every time you open a new tab. You can customize this page by hovering over the sections and thumbnails, or click the gear [[Image:Fx89Personalize-GearIcon]] icon in the corner of the New Tab page for more options.
+;{for not fx137}[[Image:Fx128NewTab]]{/for}{for fx137}[[Image:Fx140NewTabPage]]{/for}
+{note}Want to learn more? See [[New Tab page in Firefox]].{/note}
+
+=Search everything with the unified search/address bar=
+Whether you know the exact web address or you're just searching, Firefox's address bar handles it all. Firefox's unified search and address bar gives you suggestions based on your existing bookmarks and tags, history, open tabs, and popular searches. Just start typing in a search term or web address and watch the magic happen!
+
+{for not fx137}[[Image:Fx96 Address bar autocomplete]]{/for}{for fx137}[[Image:Fx140AddressBarAutocomplete]]{/for}
+{note}To learn more, see [[Address bar autocomplete suggestions in Firefox]] and [[Search with the Firefox address bar]].{/note}
+
+=Bookmark a page=
+Found a great web page you want to save? To create a bookmark, click the star in the address bar:
+
+[[Image:Fx89 bookmarks star address bar]]
+
+The box that opens lets you give your bookmark a name and choose where to save it. You can keep it just a click away by saving it to the [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks Toolbar]], or save it for later in the Bookmarks Menu.
+{note}For more, see [[Bookmarks in Firefox]].{/note}
+
+=Private Browsing with Enhanced Tracking Protection: Browse fast and free=
+Browse the Internet without saving any information on your computer about which sites and pages you’ve visited. Firefox will also block creepy trackers that follow your behavior across the Web.
+*Click the menu button [[Image:Fx89menuButton]] and then click {button New Private Window}. ('''Tip:''' You can also {for win}right-click{/for}{for mac,linux}control + click{/for} on a link on a web page, then click {menu Open Link in New Private Window}.)
+;[[Image:Fx106 Win10 private mask]]
+{note}See [[Private Browsing - Use Firefox without saving history]] and [[Enhanced Tracking Protection in Firefox for desktop]] to learn more.{/note}
+
+=Keep your Firefox in sync=
+Set up a Mozilla account, so you can take your browsing information with you wherever you go. Click the menu button [[Image:Fx89menuButton]], click the {button Sign In} button next to {menu Sync and save data} and follow the instructions to create your account. Then sign in to the newly-created account on your other devices, and that's it!
+{note}For detailed instructions, see [[How do I set up Sync on my computer?]]{/note}
+
+=Customize the menu or the toolbar=
+We've streamlined the toolbar with the most popular features, but Firefox has even more features tucked away. Take a peek!
+#[[T:customizefx29]]
+#Drag and drop the features you want onto your toolbar or the panel on the right.
+#;[[Image:Fx89 Customize drag]]
+#When you are done, click the {button Done} button.
+{note}To learn more, see [[Customize Firefox controls, buttons and toolbars]].{/note}
+
+=Add features to Firefox with add-ons=
+''Add-ons are like apps that you can install to make Firefox work the way you want.''
+#[[T:Open Add-ons|type=Recommendations]]
+#To install a recommended add-on, click the blue {button + Install Theme} or {button + Add to Firefox} button, depending on the type of add-on.
+At the bottom of the list of recommended add-ons, there's also a {button Find more add-ons} button you can click. It will take you to [https://addons.mozilla.org addons.mozilla.org] where you can search for specific add-ons.
+{note}To learn more about add-ons, see [[Find and install add-ons to add features to Firefox]].{/note}
+
+=Get help=
+''If you have more questions or ever need help with Firefox, you're on the right website.'' 
+*This site has hundreds of [/products/firefox Firefox articles] that cover many of the questions you might have.
+*You can also get help from the Mozilla community, by asking a question on the support forum. See [[Get community support]].

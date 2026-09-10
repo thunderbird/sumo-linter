@@ -1,0 +1,7 @@
+On Windows and Linux, Firefox 57 and later crashes occasionally on Intel Broadwell-U processors unless the processor has sufficiently recent microcode.
+
+The crash occurs if the processor vendor is GenuineIntel, family is 6, model is 61, stepping is 4 and microcode revision is 19 (hexadecimal) or lower.
+
+[https://en.wikipedia.org/wiki/Broadwell_(microarchitecture)#Mobile_processors Broadwell-U] processors are typically used in laptops released in 2015.
+
+For information on how to check the processor vendor, family, model, stepping and microcode revision and on how to get microcode updates, please refer to the article [[Updating processor microcode]].

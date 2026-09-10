@@ -1,0 +1,39 @@
+[[Template:FirefoxPrivacyNotice]]
+If you arrive on the Firefox download page after clicking an ad on another website, you’ll have the option to share how you discovered Firefox with Mozilla’s marketing measurement partners. This helps us improve marketing efforts and reach more people, using [https://support.google.com/analytics/answer/7318509?hl=en Google Analytics] as part of the process.
+{note}Firefox does not share information like your browsing history, search queries or saved passwords, with marketing partners. Mozilla only collects the data necessary to measure and improve our marketing campaigns.{/note}
+This article explains what data is collected, how it’s used, and how you can opt out.
+
+=What data is collected?=
+If you choose to share your data, Firefox collects and shares the following:
+*'''Attribution data:''' When you download Firefox through one of our marketing campaigns, we collect information to determine which campaign or advertisement referred you to Firefox’s download page. This may include:
+**Campaign ID, ad group ID and advertising source
+**Country, timestamp and device metadata
+*'''Interaction data:''' Firefox measures the success of our marketing campaigns by analyzing meaningful usage patterns rather than simply tracking downloads. These conversion events (such as whether a user opens Firefox multiple times during their first week after installing it) help us determine which campaigns are successful.
+{for fx136}For a technical overview of the data collected in the [[Manage daily usage ping data collection settings in Firefox|daily usage ping]], see the definitions in [https://dictionary.telemetry.mozilla.org/apps/firefox_desktop/pings/usage-reporting the Glean Dictionary for Desktop].{/for}
+
+=How does Mozilla use this data?=
+Mozilla uses marketing data to:
+*'''Measure campaign performance:''' Understand which advertisements or marketing campaigns are most effective in encouraging Firefox downloads.
+*'''Improve marketing efforts:''' Refine how we promote Firefox to reach more people.
+Mozilla’s approach to data collection is guided by the [https://www.mozilla.org/about/manifesto/ Mozilla Manifesto]. For more details, see the [https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice].
+
+=How to opt out of marketing data collection=
+==On the Firefox download page==
+If you’re downloading Firefox from a marketing campaign, you’ll see an opt-out option on the download page. Simply uncheck the box that allows Mozilla to collect marketing data before proceeding with your download.
+
+==In Firefox settings==
+You can also manage your preferences in Firefox settings:
+#[[Template:optionspreferences]]
+#Go to the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permission and data}{/for} panel.
+#Scroll down to ''Firefox data collection and use''.
+#Uncheck the box next to {for not fx136}'''Allow Firefox to send technical and interaction data to Mozilla'''{/for}{for fx136}'''Send technical and interaction data to Mozilla'''{/for} to stop sharing marketing data.
+#;{for not fx135}[[Image:Fx128DataCollection-OptOutSetting]]{/for}{for =fx135}[[Image:Fx135DataCollection-OptOutSetting]]{/for}{for fx136}{for not fx152}[[Image:Fx136DataCollection-OptOutSetting]]{/for}{/for}{for fx152}[[Image:fx152datacollection]]{/for}
+To learn more, see [[Manage technical and interaction data collection settings in Firefox]].
+
+=How to avoid Google Analytics data collection=
+To prevent Google Analytics from collecting any data on Mozilla’s websites, you can block cookies. In Firefox, you can adjust your browser settings to block or limit cookies, including those used by Google Analytics. Note that this may also affect other site functionality. For detailed instructions, see [[Block websites from storing cookies and site data in Firefox]].
+
+=Related articles=
+*[[Manage technical and interaction data collection settings in Firefox]]
+*[[Manage marketing data settings in Firefox for Android]]
+*[[Privacy-Preserving Attribution]]

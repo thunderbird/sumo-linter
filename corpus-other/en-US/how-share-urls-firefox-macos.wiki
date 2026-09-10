@@ -1,0 +1,7 @@
+You can share a webpage using your preferred applications in Firefox for macOS.
+#When you visit a site you want to share, click the {menu File} menu at the top of the screen and then click on the {menu Share} menu item.
+#Choose the application you want to use to share the website's URL.
+#;[[Image:Fx92FileShare-mac|width=400]]
+Optionally, you can right-click on the tab of the site you want to share and click the {menu Share} menu item.
+
+If you're sharing a link by email, Firefox will use your system's default email application. To learn how to configure the application you use to share links by email, visit [[Change the program used to open email links]].

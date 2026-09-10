@@ -1,0 +1,61 @@
+Starting in [[Find what version of Firefox you are using|Firefox version]] 149, the ''Split View'' feature lets you view two tabs side by side in the same Firefox window, so it is easier to compare information while shopping, planning trips or doing research.
+
+[[Image:Fx149splitview|width=640]]
+
+__TOC__
+
+=Create a split view=
+You can create a split view from '''one tab''' or '''two selected tabs''' in the tab bar.
+
+Using a '''keyboard shortcut''':
+# In your active tab, hold down the {for win,linux}{key Alt}{/for}{for mac}{key Option}{/for} key.
+# Click another tab in the same window.
+#* Your current tab and the selected tab automatically open in a split view.
+
+From '''one tab''':
+# [[Template:contextmenu]] a tab.
+# Select {menu Add Split View}.
+# Your select tab opens on the left.
+#* The right side of the split view will show you the list of your open tabs where you can choose which one to open.
+
+From '''two selected tabs''':
+# Select two tabs.
+# [[Template:contextmenu]] and select {menu Open in Split View}.
+{note}'''Note:''' If the two selected tabs are far apart, Firefox creates the split view next to the active tab.{/note}
+
+=Add or change the second tab in the Split View=
+When you create split view from a single tab, you can add the second tab in the following ways:
+* Select the right pane, then type a website address in the address bar.
+* Use the list of open tabs in the right pane to pick an already open tab.
+
+=Resize the panes=
+Drag the vertical line between the two panes to resize the left and right panes.
+
+=Manage a split view=
+Split view has extra controls that you can access from:
+* The address bar icon[[Image:sidebar-url-bar-button|width=36]]for a split view tab.
+* The {menu ⋮} icon in the split view footer.
+* The tab {for win,linux}right-click{/for}{for mac}right-click (or hold down the {key Control} key while you click){/for} menu.
+Options include:
+*{menu Separate Tabs}: Breaks up the split view and leaves both tabs open (this option is available in the tab {for win,linux}right-click{/for}{for mac}right-click (or hold down the {key Control} key while you click){/for} menu).
+*{menu Reverse Tabs}: Swaps the left and right panes.
+*{menu Close Both Tabs}: Closes both tabs in that split view.
+You can also dissolve a split view by closing either tab in the pair.
+
+=Split View and tab groups=
+Here is what to expect when you are creating split views from tabs that belong to a [[Tab groups in Firefox|tab group]]:
+*'''If the active tab is in a tab group''', the split view is created within that group.
+*'''If the active tab is not in a tab group''', and the other tab is, the grouped tab is removed from its group and the split view is created where the ungrouped tab was.
+*'''If both tabs you select are in different groups''', the split view is created within the group where the active tab is.
+
+=Restore behavior and limitations=
+*You can create an unlimited number of split views.
+*Split View currently supports only two tabs at a time.
+*You cannot currently add pinned tabs to a split view.
+*If you have the {menu Open previous windows and tabs} setting enabled (or when you reopen a recently closed window), split views are restored with the window.
+*You cannot restore a split view by reopening closed tabs with {for win,linux}{key Ctrl+Shift+T}{/for}{for mac}{key Command+Shift+T}{/for}.
+*In split view, [[How to search the contents of the current page for text or links|Find in Page]] ({for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}+{key F}) applies to the active pane only.
+
+=Related articles=
+*[[Unload tabs to reduce system memory usage in Firefox]]
+*[[Tab overview menu]]

@@ -1,0 +1,13 @@
+{note}
+[[Image:progressive rollout banner]]
+
+The built-in VPN is being introduced through a progressive rollout, starting with [[Find what version of Firefox you are using|Firefox version]] 149. Check the [[Use built-in VPN in Firefox]] article for {for fx151}a [[Use built-in VPN in Firefox#w_what-regions-currently-support-built-in-vpn|current list of available regions]]{/for}{for not fx151}available regions{/for}. If you're in a country where the built-in VPN is being introduced but do not see it, please note that this feature is being rolled out in stages and may not have reached you yet.
+{/note}
+You can try the following to check what may be preventing you from getting this feature:
+*[[Template:optionspreferences]] Click {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} on the left and go to the ''Data collection and use'' section.  If the '''Allow Firefox to improve features, performance, and stability between updates''' setting is turned off, turn it on. See [[Manage remote improvements settings in Firefox]].
+* Enter '''about:studies''' in the Firefox address bar to check whether you’re part of the ''VPN - MVP Beta Holdback'' study that prevents you from seeing or using the built-in VPN. See [[About Studies]] to learn more about participating in studies.
+* The built-in VPN may also be unavailable if an [[Enforce policies on Firefox for Enterprise|Enterprise policy]] is blocking it. You can check this by entering  '''about:policies''' in the Firefox address bar to see if the  ''IPProtectionAvailable'' policy is active, which can prevent availability.
+* Signing out of your Mozilla account and signing back in may also help. Before signing out, make sure you know your password and that Sync is enabled so you don’t risk losing or overwriting browser data.
+Finally, when the built-in VPN is available, you should see a {button VPN} icon in the top-right corner of the toolbar. Selecting it will open a prompt to turn on the VPN. If you don’t see the icon, try customizing your toolbar by right-clicking the toolbar and checking the overflow menu to add it back. 
+
+For more information, see [[Use built-in VPN in Firefox]].

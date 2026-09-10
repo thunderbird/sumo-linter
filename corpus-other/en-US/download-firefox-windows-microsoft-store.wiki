@@ -1,0 +1,19 @@
+{for linux, mac, winxp, win7, win8}{note}Installing Firefox from the Microsoft store requires Windows 10 or Windows 11.{/note}{/for}
+
+In this article, you'll learn the steps to install Firefox for Windows from the Microsoft Store.
+#Click on the Windows icon located on the taskbar.
+#Type '''Microsoft Store'''.
+#Select "Microsoft Store" from the results. This will take you to the Microsoft app store.
+#Type '''Firefox''' in the search bar and press {key Enter}.
+#Select "Mozilla Firefox" from the applications available.
+#Click {button Get} to start the installation process.
+[[Image:FirefoxWinStore]]
+
+You will receive updates for Firefox through the Microsoft Store. To learn more, see the Microsoft articles [https://support.microsoft.com/en-us/windows/turn-on-automatic-app-updates-70634d32-4657-dc76-632b-66048978e51b Turn on automatic app updates] and [https://support.microsoft.com/en-us/account-billing/get-updates-for-apps-and-games-in-microsoft-store-a1fe19c0-532d-ec47-7035-d1c5a1dd464f Get updates for apps and games in Microsoft Store].
+
+{warning}'''Warning:'''
+*Running Firefox installed from Mozilla and running Firefox installed from the Microsoft Store will create two separate [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profiles]].
+*You can't install Firefox from the Microsoft Store on Windows in S mode. To learn more, see [[Windows in S mode won't let me install Firefox]].
+*When Firefox is installed from the Microsoft Store, [[Make Firefox your default browser on Windows|changing your default browser to Firefox]] must be done manually, in Windows Settings.
+*Note: Some users have reported issues related to the about:support page when using the Microsoft Store version of Firefox. For example, [https://bugzilla.mozilla.org/show_bug.cgi?id=1760396 Bug 1760396] and [https://bugzilla.mozilla.org/show_bug.cgi?id=1788052 Bug 1788052] highlight problems with the about:support page not working correctly or displaying incorrect profile locations. If you encounter such issues, consider checking the bug reports for more information and potential solutions.
+{/warning}

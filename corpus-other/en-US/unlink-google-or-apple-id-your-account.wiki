@@ -1,0 +1,21 @@
+If you no longer want to use your Google or Apple account to sign in to your Mozilla account, you can unlink it in your Mozilla account settings. Before you do, if you have not already set a password for your Mozilla account, you will be prompted to set one so you have a way of signing in. 
+
+=To unlink your Google or Apple account and set a new password:=
+#[https://accounts.firefox.com/settings Go to your account settings].
+#Scroll down to the '''Linked Accounts''' section, and click '''Unlink'''.
+#;[[Image:Linked accounts settings]]
+#Click {button Set password} in the notification window that appears if you have not already set a password for your Mozilla account.
+#;[[Image:Unlink account - set password]] 
+#*Create your new account password and click '''Save'''. 
+#;You’ll be redirected back to the settings page. In the '''Linked Accounts''' section, click '''Unlink''' again next to the account you want to remove. 
+#Click {button Unlink} in the notification window that appears. 
+[[Image:Unlink account notification]] 
+{note}
+'''Notes:'''
+*Unlinking your Google or Apple account from your Mozilla account will not sign you out of any of the connected Mozilla services. To do that, you’ll need to manually sign out under [https://accounts.firefox.com/settings#connected-services Connected Services]. 
+*Unlinking your Google or Apple account from your Mozilla account will not sign you out of your Google or Apple account in your browser. To do that, you’ll need to go to Google or Apple directly to sign out of your Google or Apple account.
+{/note}
+=Related content=
+*[[Sign in to a Mozilla account using 3rd-party authentication]]
+*[[Mozilla account - Managing account data]] 
+*[[Change your Mozilla account password]]

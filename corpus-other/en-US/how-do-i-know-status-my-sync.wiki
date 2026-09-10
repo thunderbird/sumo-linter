@@ -1,0 +1,47 @@
+{for not fx79}
+{warning}
+'''Action required: Update Firefox to maintain account sync post-March 31, 2024.'''
+
+If you are running [[Find what version of Firefox you are using|a version of Firefox]] '''equal to or older than Firefox 78''' (general release or [[Firefox ESR release cycle|ESR]]) and you have a [[Mozilla account - Managing account data|Mozilla account]], you '''must''' follow these steps to ensure continued operation of your account in Firefox:
+#Make sure you remember your password for your account on Firefox. If you do not have your password, you can use your [[Reset your Mozilla account password with Recovery Keys|account recovery keys]] to change your password. If you do not already have account recovery keys, you will need to [[How to reset your password without Account Recovery Keys and regain access to your data|reset your password without recovery keys]].
+#[[Back up and restore information in Firefox profiles|Backup your profile folder]], just in case anything goes wrong.
+#[[Update Firefox to the latest release|Update]] your Firefox browser.
+#;If you get an error when trying to update, you can reinstall [https://www.mozilla.org/firefox/new Firefox].
+#Sign back in to your account in the newly-updated Firefox.
+{/warning}
+{/for}
+The Mozilla account toolbar menu icon lets you know when you are signed in and syncing Firefox data across devices.
+{note}'''Note:''' The icon you see when signed in [[Image:FxA Icon signed in]] can be personalized with your own avatar.{/note}
+
+__TOC__
+
+=How do I know my Firefox Sync status?=
+The toolbar menu lets you know your Mozilla account and Sync status:
+
+==Waiting for email verification==
+[[Image:Fxa89waiting for email]] 
+
+If a blue dot appears in your account icon, a verification email has been sent but you haven't verified your account yet.
+
+==Signed out (not syncing)==
+If the account icon is missing or you see a generic profile icon containing a silhouette, you are not signed in to your Mozilla account and your information is not syncing. To sign in to Sync, click the menu [[Image:Fx89menuButton]] button and click {button Sign In} next to {menu Sync and save data}.
+{note}
+'''Tip:''' You can also sign in from the Sync panel in Firefox settings:
+[[Template:optionspreferences]] Select {for not fx152}{menu Sync}{/for}{for fx152}{menu Account and sync}{/for} on the left and click {menu Sign in to sync…}
+{/note}
+
+==Signed in==
+If the first letter of your username appears in the icon or if you see your personalized toolbar icon, you are signed in to your Mozilla account. Click the account icon to learn your Sync status. When Sync is enabled, you will see a {menu Sync now} menu item; Firefox will start syncing when you click it. Firefox automatically syncs periodically, but this is a good method to use if you prefer to initiate a manual sync.
+
+If Firefox is not currently syncing your information, [[Disable Firefox Sync|Sync is disabled]] and you will see a {menu Turn On Syncing…} menu item; click it to open the Sync settings panel, where you can turn on syncing and [[How do I choose what information to sync on Firefox?|choose what to sync]]. 
+
+=How do I personalize the toolbar icon with profile image?=
+#Click the menu [[Image:Fx89menuButton]] button, then click your Mozilla account profile name.
+#;(You will need to sign in to your Mozilla account, if you are signed out.)
+#Click {menu Manage Account}.
+#In the Mozilla account page that opens, click the {button Add…} button next to ''Picture''.
+
+=Why am I signed in to my Mozilla account in Private Browsing?=
+If you open a private window while signed in to your Mozilla account, you will stay signed in on the private window so you can continue managing bookmarks, access your synced passwords, and save new passwords while in [[Private Browsing - Use Firefox without saving history|Private Browsing]].
+
+Since your history is not recorded in Private Browsing, your Mozilla account will not pick up or sync your browsing history.

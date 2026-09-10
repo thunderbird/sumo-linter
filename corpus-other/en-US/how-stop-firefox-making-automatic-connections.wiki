@@ -1,0 +1,222 @@
+Some people are concerned about the connections Firefox makes to the Internet, especially when those connections are made for no apparent reason (see Mozilla's [https://www.mozilla.org/privacy/firefox/ Firefox Browser Privacy Notice] for additional information). This article explains various reasons why Firefox may make a connection to the Internet and how you can stop it from doing so, if you wish.
+
+__TOC__
+
+= Automatic updates and Security =
+== Auto-update checking ==
+{warning}'''Warning:''' Disabling update checking is not recommended and will leave you open to security vulnerabilities that get fixed in newer versions.{/warning}
+Firefox occasionally checks to see if any updates are available for itself and for your search engines. The ability to disable Firefox update checking was removed years ago. Advanced users and IT administrators can use a policy to disable Firefox update checks. See [[Manage Firefox updates]].
+
+Firefox also checks to see if any updates are available for your {for not fx140}add-ons (extensions and themes){/for}{for fx140}extensions and themes{/for}. To disable this check:
+{warning}'''Warning:''' Disabling add-on update checking is not recommended and leaves you open to security vulnerabilities that get fixed in newer versions.{/warning}
+# [[T:Open Add-ons|type=Extensions]]
+# At the top of the tab, click the ''Tools for all add-ons'' [[Image:Add-on Tools Icon]] menu, uncheck '''Update Add-ons Automatically''' and then select '''Reset All Add-ons to Update Manually'''.
+
+== Blocklist updating ==
+{warning}'''Warning:''' Disabling the blocklist is not recommended, as it may result in you using untrustworthy add-ons, revoked certificates or unstable graphics drivers.{/warning}
+Firefox may be updating its blocklist, which is used to block malicious extensions, vulnerable plugins, revoked certificates and graphics drivers known to cause crashes. For more information, see [https://extensionworkshop.com/documentation/publish/add-ons-blocking-process/ Add-ons Blocking Process] (Firefox Extension Workshop), [https://wiki.mozilla.org/Blocklisting/Graphics Blocklisting/Graphics] (Mozilla Wiki), [https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/ Revoking Intermediate Certificates: Introducing OneCRL] (Mozilla Security Blog) and the [[Why does Mozilla disable some add-ons from running in Firefox?]] article. To disable this feature:
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref extensions.blocklist.enabled}.
+# Observe the ''Value'' column of the {pref extensions.blocklist.enabled} row.
+#* If it is set to {pref false} then do nothing.
+#* If it is set to {pref true}, double-click it to set it to {pref false}.
+
+== Anti-phishing and malware protection lists updating ==
+{warning}'''Warning:''' Disabling phishing and malware protection is not recommended, as it will leave you vulnerable to malicious or unwanted downloads and to untrustworthy websites that try to steal your financial information and/or your identity.{/warning}
+[[How does built-in Phishing and Malware Protection work?|Phishing, unwanted software and malware protection]] lists may be updating. To turn this off:
+{for not fx152}
+# [[T:optionspreferences]]
+# Select the {menu Privacy & Security} panel on the left.
+# Go down to the ''Security'' section and uncheck '''Block dangerous and deceptive content'''.
+{/for}
+{for fx152}
+# [[T:optionspreferences]]
+# Select the {menu Privacy and Security} page on the left.
+# Go down to the ''Connection and software security'' section and click {menu Advanced settings}.
+# Under ''Deceptive content and dangerous software protection'', uncheck '''Block dangerous and deceptive content'''.
+{/for}
+In addition, when you download an application file, Firefox will verify its signature. If it is signed, Firefox then compares the signature with a list of known safe publishers. For files that are not identified by the lists as “safe” (allowed) or as “malware” (blocked), Firefox asks Google’s Safe Browsing service if the software is safe by sending it some of the download’s metadata. To turn off this part of malware protection:
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref browser.safebrowsing.downloads.remote.enabled}.
+# Observe the ''Value'' column of the {pref browser.safebrowsing.downloads.remote.enabled} row.
+#* If it is set to {pref false} then do nothing.
+#* If it is set to {pref true} then double-click it to set it to {pref false}.
+
+== Tracking protection list updating ==
+The [[Enhanced Tracking Protection in Firefox for desktop|tracking protection]] list may be updating itself. To turn this off:
+{for not fx152}
+# [[T:optionspreferences]]
+# Select the {menu Privacy & Security} panel on the left.
+# Under ''Enhanced Tracking Protection'', choose the '''Custom''' setting.
+# Uncheck '''Tracking content'''.
+{/for}
+{for fx152}
+# [[T:optionspreferences]]
+# Select the {menu Privacy and Security} page on the left.
+# Under ''Enhanced Tracking Protection'', click {menu Advanced settings}.
+# Choose the '''Custom''' setting and uncheck '''Tracking content'''.
+{/for}
+
+<!-- I don't see a "Query OCSP responder servers to confirm the current validity of certificates" setting in fx145 or above. I do see it in fx140esr-->
+{for not fx145}
+== Secure website certificates ==
+When you visit a secure website (“https”), Firefox will validate the website's certificate. This may involve communicating with a third-party status provider specified by the certificate over a protocol named [https://wikipedia.org/wiki/Online_Certificate_Status_Protocol OCSP] to confirm that the certificate is still valid. To turn this off:
+# [[T:optionspreferences]]
+# Select the {menu Privacy & Security} panel on the left.
+# In the ''Security'' section under ''Certificates'', uncheck '''Query OCSP responder servers to confirm the current validity of certificates'''.
+{/for}
+
+== Login breach information ==
+[https://monitor.firefox.com Firefox Monitor] warns you if your online accounts were involved in a known data breach. For more information, see [[Firefox Password Manager - Alerts for breached websites]].
+
+To get the latest login breach information and more, Firefox connects to <code>firefox.settings.services.mozilla.<!-- -->com</code>
+
+= Prefetching =
+== Link prefetching ==
+Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag. For more information, please see the [https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ Link Prefetching FAQ]. To disable Link prefetching:
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref network.prefetch-next}.
+# Observe the ''Value'' column of the {pref network.prefetch-next} row.
+#* If it is set to {pref false} then do nothing.
+#* If it is set to {pref true}, double-click it to set it to {pref false}.
+
+== DNS prefetching ==
+In order to reduce latency, Firefox will proactively perform domain name resolution on links that the user may choose to follow as well as URLs for items referenced by elements in a web page. For more information, please see the [http://bitsup.blogspot.co.at/2008/11/dns-prefetching-for-firefox.html DNS Prefetching blog post]. To disable DNS prefetching:
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref network.dns.disablePrefetch}.
+# Observe the ''Value'' column of the {pref network.dns.disablePrefetch} row.
+#* If it is set to {pref true} then do nothing.
+#* If it is set to {pref false}, double-click it to set it to {pref true}.
+
+== Speculative pre-connections ==
+To improve the loading speed, Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails on the New Tab page or the user starts to search in the Search Bar, or in the search field on the Home or the New Tab page. In case the user follows through with the action, the page can begin loading faster since some of the work was already started in advance. To disable this feature:
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref network.http.speculative-parallel-limit}.
+# Observe the ''Value'' column of the {pref network.http.speculative-parallel-limit} row.
+#* If it is set to {pref 0} then do nothing.
+#* If it is set to a different value, double-click it to set it to {pref 0}.
+
+== Add-on list prefetching ==
+Each time the [[Find and install add-ons to add features to Firefox|Add-ons manager]] is opened, Firefox prefetches a list of add-ons to improve responsiveness of the {menu Recommendations} panel. This connection is not made if the add-ons manager is not opened.
+<!-- See bug https://bugzilla.mozilla.org/show_bug.cgi?id=446301 -->
+
+= User-invoked content =
+== Homepage loading ==
+To [[How to set the home page|set your homepage]] to something that doesn't generate connections to the Internet:
+{for not fx152}
+# [[T:optionspreferences]]
+# Select the {menu Home} panel.
+# Under ''New Windows and Tabs'':
+#* in the drop-down menu after '''Homepage and new windows''', select {menu Blank Page}.
+#* in the drop-down menu after '''New tabs''', select {menu Blank Page}.
+# Close the ''about:preferences'' page.
+{/for}
+{for fx152}
+# [[T:optionspreferences]]
+# Select the {menu Home and startup} page in the left.
+# Under ''Homepage'':
+#* in the drop-down menu after '''New windows''', select {menu Blank Page}.
+#* in the drop-down menu after '''New tabs''', select {menu Blank Page}.
+# Close the ''about:preferences'' page.
+{/for}
+
+== Extensions ==
+An extension you have installed may be making a connection to a website that it relies on. For example, a connection to a website to synchronize your bookmarks, a connection to a website to update a list of sites to block, etc. Or it is possible an extension could be changing the expected behavior of Firefox in other ways. For example, the FasterFox extension has an option to prefetch all links. To disable or remove your extensions, see [[Disable or remove Add-ons]].
+
+== Downloads restarted ==
+When you start Firefox, any interrupted downloads from your previous browsing session may be automatically resumed.
+# Press {for win}{key Ctrl+J}{/for}{for linux}{key Ctrl+Shift+Y}{/for}{for mac}{key Command+J}{/for} to open the [[Where to find and manage downloaded files in Firefox|Downloads window]].
+# Ensure nothing is currently being downloaded.
+
+== Search plugin icon loading ==
+When you [[Add or remove a search engine in Firefox#w_add-a-search-engine|add a custom search plugin]] that doesn't come with an included icon, Firefox might look up the icon at a remote address that is specified in the search plugin once and cache it for future use.
+
+== Firefox Sync ==
+If you're using [https://www.mozilla.org/firefox/sync/ Firefox Sync], it will establish regular connections in order to synchronize your data to Mozilla's Sync servers and across your connected devices. In order to choose what data gets synchronized or to disconnect from Sync, see [[How do I choose what types of information to sync on Firefox?]]
+
+= Mozilla content =
+{note}'''Note:''' The [[Configuration Editor for Firefox]] article describes in detail how to use ''about:config'' to modify preferences.{/note}
+
+== Contextual feature recommendations and other notifications ==
+Firefox may make feature recommendations specific to a type of website you're on or relevant to a current task. You can disable connections by opting out of all Firefox recommendations via Firefox settings. See [[Recommendations from Firefox#w_opt-out-of-all-recommendations-via-firefox-settings]] for details.
+
+== Experiments or studies ==
+* To disable new feature experiments, set {pref messaging-system.rsexperimentloader.enabled} to {pref false}.
+* To disable the running of experiments, set {pref app.shield.optoutstudies.enabled} to {pref false}. This is not necessary if {pref app.normandy.enable} is also set to {pref false}.
+* To disable studies, feature rollouts and emergency hotfixes related to Normandy, set {pref app.normandy.enabled} to {pref false}.
+
+== Geolocation for default search engine ==
+<!--https://bugzilla.mozilla.org/show_bug.cgi?id=1109120-->
+In order to set the right default search engine for your location, Firefox will perform a geolocation lookup once by contacting Mozilla's servers and store the country-level result locally. This connection happens on the first start of Firefox – in case you want to prohibit that, you will have to preconfigure the browser and set the {pref browser.search.geoip.url} preference to a blank string.
+
+== “What's new” page ==
+After a browser update, Firefox might show an additional tab next to your usual homepage to offer more information on changes or new features included in the update. To disable this page from being shown:
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref browser.startup.homepage_override.mstone}.
+# Double-click it and set its value to {pref ignore}.
+
+== Add-on metadata updating ==
+The Add-ons manager displays information about each add-on you have installed and provides personalized recommendations in the {menu Recommendations} panel. To keep this data updated, Firefox will request information from the [https://addons.mozilla.org/ Mozilla Add-ons gallery] once a day (for more information, see [https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/ this blog post]). To disable these updates:
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref extensions.getAddons.cache.enabled}.
+# Observe the ''Value'' column of the {pref extensions.getAddons.cache.enabled} row.
+#* If it is set to {pref false} then do nothing.
+#* If it is set to {pref true}, double-click it to set it to {pref false}.
+
+= Diagnostics =
+Firefox can submit certain diagnostics data, including [[Share telemetry data with Mozilla to help improve Firefox|Telemetry]] and [[Mozilla Crash Reporter|Crash Reports]] data to Mozilla, to provide information that helps improve the browser. You can disable sharing of this data in Firefox [[T:optionsorpreferences]]. To disable the sharing of this data:
+{for not fx152}
+# [[T:optionspreferences]]
+# Select the {menu Privacy & Security} panel on the left.
+# Uncheck the boxes under the section ''Firefox Data Collection and Use''.
+{/for}
+{for fx152}
+# [[T:optionspreferences]]
+# Select the {menu Permissions and data} page on the left.
+# Uncheck the boxes under the section ''Firefox data collection and use''.
+{/for}
+In addition, Mozilla will ask a small sample of users to rate their experience with Firefox to get a better insight into the sentiment about the browser. For more information about this, see [https://wiki.mozilla.org/Advocacy/heartbeat Firefox/Shield/Heartbeat] (MozillaWiki). The rating feature will establish a connection to Mozilla's servers at startup, which you can turn off like this:
+# [[T:aboutconfig]]
+# Find the preference {pref app.normandy.enabled}.
+# Set the preference value to {pref false} by double-clicking it.
+
+= Media capabilities =
+== OpenH264 codec ==
+Firefox will make use of the OpenH264 codec provided by Cisco in order to support the H.264 video codec in WebRTC, a technology allowing for peer-to-peer video communication on the web. For more information about this, see the [http://andreasgal.com/2014/10/14/openh264-now-in-firefox/ OpenH264 Now in Firefox] blog post.
+
+The OpenH264 codec is not distributed with Firefox but gets downloaded at the first start of Firefox. In case you want to prohibit that, you will have to preconfigure the browser and set the {pref media.gmp-gmpopenh264.enabled} preference to {pref false}.
+
+== DRM content ==
+To disable this feature, see [[Watch DRM content on Firefox]].
+
+== WebRTC ==
+<!--see https://bugzilla.mozilla.org/show_bug.cgi?id=959893-->
+[http://en.wikipedia.org/wiki/WebRTC WebRTC] (Web Real-Time Communication) is a technology which provides direct browser-to-browser communication (audio, video, filesharing). As it is drafted and implemented at the moment, WebRTC can lead to your local IP address being exposed to websites even when you are behind a VPN or a NAT router – in the WebRTC API this data would be used to set up a peer-to-peer connection between two local clients.
+
+For different methods and granular controls on how to mitigate this issue, see [https://wiki.mozilla.org/Media/WebRTC/Privacy Media/WebRTC/Privacy Media/WebRTC/Privacy Media/WebRTC/Privacy] Mozilla Wiki page.
+
+= Network Detection =
+Firefox's captive portal feature tests whether your network connection requires logging in, for example, on a public Wi-Fi hotspot, by regularly connecting to [https://detectportal.firefox.com/success.txt]. Firefox will also make connections to this URL to check if your current network supports IPv6.
+
+To disable this feature:
+# [[T:aboutconfig]]
+# In the ''about:config'' page, search for the preference {pref network.captive-portal-service.enabled} (for example, you can type '''portal''' in the search box above the list and pause while the list is filtered).
+# Observe the ''Value'' column of the {pref network.captive-portal-service.enabled} row.
+#* If it is set to {pref false} then do nothing.
+#* If it is set to {pref true}, double-click it to set it to {pref false}.
+# In the ''about:config'' page, search for the preference {pref network.connectivity-service.enabled} (for example, you can type '''connectivity''' in the search box above the list and pause while the list is filtered).
+# Observe the ''Value'' column of the {pref network.connectivity-service.enabled} row.
+#* If it is set to {pref false} then do nothing.
+#* If it is set to {pref true}, double-click it to set it to {pref false}.
+
+= Malware =
+If your computer is infected with a virus, trojan, spyware or other malicious software, then Firefox's Internet connection may be being piggybacked in order for the malware to communicate with its author or to deliver advertisements, etc. If you suspect this is the case, consider seeking advice from a forum specializing in malware removal. For more information, see [[Troubleshoot Firefox issues caused by malware]].
+
+= Loopback connection =
+{for linux}{note}'''Note:''' This does not apply to Linux systems.{/note}{/for}
+A loopback connection (to IP address 127.0.0.1) can be made by Firefox on non-Unix machines. In this case the browser is communicating with itself as expected, and it is not recommended that this communication be blocked. See [https://bugzilla.mozilla.org/show_bug.cgi?id=100154 bug 100154] for more information.
+
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Connections_established_on_startup_-_Firefox Connections established on startup - Firefox (mozillaZine KB)]'''''

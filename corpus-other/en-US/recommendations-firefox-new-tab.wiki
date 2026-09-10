@@ -1,0 +1,83 @@
+[[Template:PocketShutdown]]
+
+This article answers some frequently asked questions about Recommended stories on the [[New Tab page in Firefox|Firefox New Tab page]] on both computers and mobile devices.
+
+Recommended stories on the Firefox New Tab page is a feature currently available in the U.S., Canada, the U.K., Ireland, Germany, Austria, Switzerland, Italy, France, Spain, and India. We’re working to bring it to other countries.
+
+__TOC__
+
+=Why am I seeing these stories, from these publishers, on the Firefox New Tab page?=
+Firefox’s recommendations elevate content that is worthy of your time and attention – that informs, inspires, entertains, and offers new and unique perspectives. Firefox’s recommendations team works with custom machine learning algorithms to surface the most compelling content from around the web, drawing on a wide array of sources with a track record of trustworthy and accurate coverage.
+
+=Are these stories on the New Tab page personalized to me?=
+For the most part, no. Most recommendations on your New Tab page come from a general list of the best stories on the web. But Firefox is actively working on ways to deliver personalized recommendations in a way that vigorously protects users’ privacy. Importantly, '''Mozilla never receives a copy of your browser history'''. When personalization does occur, recommendations rely on a process of story sorting and filtering that happens locally in your personal copy of Firefox.
+
+=What information is collected when I interact with Recommended stories?=
+By default, when stories recommended by Firefox are displayed on your [[New Tab page in Firefox|New Tab page]], we collect information about how many times they appear and how many times they are clicked. You can learn more about how to [[Manage Firefox data collection and privacy settings|manage how your data is collected]].
+
+=Why do some new Recommended stories have a “sponsored by” label?=
+Firefox partners with select publishers and brands to deliver high-quality sponsored content and advertisements to our users. This content will always be clearly marked, and you have control over whether it is shown on your New Tab page.
+
+If you prefer to not see a sponsored story on your New Tab page, you can easily dismiss it by selecting the three-dot button next to the recommendations and clicking {menu Dismiss}. You can also permanently opt-out of viewing sponsored stories by following the instructions [[Sponsors on the home page and New Tab page|here]].
+
+=Do sponsors receive data about me when I look at these stories?=
+Your privacy is of the utmost importance to us. Except for an aggregated total count of impressions and clicks that a particular item receives, sponsors do not receive any additional data from Mozilla. We do not collect personally identifying data through these interactions, nor do we share it with our sponsors.
+
+=Why do I see stories with publication dates that aren’t from today?=
+Many stories remain relevant beyond 24 hours. Firefox elevates content that’s interesting and relevant regardless of publication date.
+
+=I don’t want to see recommended stories on my New Tab page. How do I turn this off?=
+To hide recommended stories in Firefox on your computer or mobile device, follow these instructions:
+
+'''Firefox on your computer'''
+
+To hide recommended stories on the [[New Tab page in Firefox|Firefox New Tab page]] on your computer:
+#Click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}pencil [[Image:Fx141NewTabCustomizeIcon]]{/for} icon on the {for not fx134}top {/for}{for fx134}bottom {/for} right corner of the New Tab page.
+#In the menu that appears, click the Recommended stories toggle [[Image:Fx115 blue toggle]] to switch it off [[Image:Toggle off]].
+#;{for not fx139}[[Image:Fx128NewTabSettings-RecommendedStories|width=400]]{/for}{for fx139}[[Image:Fx139NewTabSettings-RecommendedStories|width=400]]{/for}
+#{for not fx139}If you’re enjoying these recommendations but simply do not want to see sponsored stories, just uncheck the ''Sponsored stories'' checkbox. {/for}Click {button Close} to finish.
+
+'''Firefox for Android'''
+#Open the Firefox for Android app.
+#Tap the menu button to open the menu [[Image:chromemenu]] panel.
+#Tap {menu Settings}.
+#In the ''General'' section, tap Homepage.
+#In the ''Shortcuts'' section, tap the '''Thought-provoking stories''' toggle to turn it off.
+;[[Image:thought-provoking stories|width=300]] 
+
+'''Firefox for iOS'''
+#Open the Firefox for iOS app.
+#Tap the menu button to open the menu panel.
+#Tap {menu Settings}.
+#Under the ''GENERAL'' section, tap '''Homepage'''.
+#Under the ''INCLUDE ON HOMEPAGE'', tap the '''Thought-Provoking Stories''' toggle [[Image:Toggle off]] to turn it off.
+
+=I don’t want to see a specific recommended story on the New Tab page. How do I remove it?=
+If you don’t like a piece of content that was recommended, you can dismiss it from the menu that appears when you select the three-dot button at the top right corner of the tile. 
+;[[Image:New tab dismiss]] 
+
+=Why does an article recommended to me have a paywall?=
+==What is a paywall?==
+A paywall is a way to restrict access to certain online content. Some publishers use it to encourage readers to log in or subscribe to be able to view their articles.
+
+Websites can implement two kinds of paywalls:
+*'''A soft paywall''' that lets readers view a limited number of articles before prompting them to log in or subscribe.
+*'''A hard paywall''' that blocks viewing any content without subscribing first.
+
+==Why might I see an article with a Paywall in Recommended stories?==
+From time to time, you may encounter a Recommended story that is from a site that utilizes paywalls. Our policy is to not recommend content that’s behind hard paywalls, but we will include recommendations from sites that use soft paywalls.
+
+Our aim is to recommend the best of the web by connecting readers with stories that are worthy of their time and attention, and this policy means that we can connect these stories with the widest possible audience.
+
+If you hit a paywall when trying to view a story, it’s likely you have already hit your maximum number of stories allotted by that publisher. At that point, you can choose to subscribe to the publisher if you’d like, or move on to the next article.
+
+=What if I want to opt out of data collection?=
+Firefox collects technical and usage data by default, but you can turn this off at any time.
+#[[Template:optionspreferences]]
+#Select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} page.
+#Scroll down to the ''Firefox Data Collection and Use'' section.
+#Uncheck the box next to '''Allow Firefox to send technical and interaction data to Mozilla'''.
+To learn more about what data Mozilla receives and how it's used, see [https://www.mozilla.org/privacy/firefox/#telemetry Mozilla's Firefox Privacy Notice]. 
+
+=Related content=
+*[[Customize items on your Firefox New Tab page]]

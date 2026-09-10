@@ -1,0 +1,8 @@
+{note}'''Note:''' This article describes a problem that has been fixed since at least [[Find what version of Firefox you are using|Firefox version]] 93. You should [[Update Firefox to the latest release|update Firefox]] to resolve this issue.{/note}
+
+If you’re getting an '''NS_ERROR_DOM_ABORT_ERR''' while trying to open web.telegram.org or app.slack.com on Firefox 87 or above, or if these pages aren’t loading at all, here’s a workaround you can try:
+
+#Enter '''about:serviceworkers''' in the address bar.
+#Click {button Unregister} for the site you’re trying to visit.
+#Reload the site.
+#If the site still isn’t loading properly, clear the storage for that site (see [[Clear cookies and site data in Firefox#w_clear-cookies-for-any-website|Clear cookies and site data]] for more information.)

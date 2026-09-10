@@ -1,0 +1,59 @@
+{note}'''Note:''' The [[Get started with Smart Window|Smart Window]] feature will be made available gradually, starting with Firefox users in the United States and Canada in [[Find what version of Firefox you are using|Firefox version]] 150{for fx155} and in France starting in version 155{/for}.{/note}
+Smart Window lets you connect your own AI model instead of using the ones provided by Firefox. The main requirement for it to work is that the server you connect with must be OpenAI API compatible. This is helpful if you want more control, use a specific provider, or run a model locally on your device.
+
+You can connect either:
+*A remote model (such as OpenRouter)
+*A local model running on your device (such as Lemonade Server or Ollama)
+{note}'''Note:''' If you use a custom model, Smart Window may not work as expected. This feature and these instructions are catered towards users who are familiar with these services and tools. Make sure that you use a trusted model provider!{/note}
+
+__TOC__
+
+=Use a remote model (OpenRouter)=
+#Create an OpenRouter account if you do not have one already, at https://openrouter.ai/.
+#Generate an API Key in OpenRouter, and copy it to a secure place.
+#*OpenRouter API keys begin with <code>sk-or-v1-</code>.
+#Open the OpenRouter [https://openrouter.ai/models models page] and choose a model you would like to use.
+#*Take note of its model ID. Ex: z-ai/glm-4.5-air:free.
+#In Firefox: [[Template:optionspreferences]]
+#Go to {menu AI Controls} > {menu Smart Window Settings} > ''Assistant model''.
+#Select '''Custom: Use your own LLM'''.
+#Fill in the fields:
+#*'''Model name''': Paste OpenRouter model ID, from step 3.
+#*'''Model endpoint''' with the OpenRouter API endpoint, which is typically https://openrouter.ai/api/v1.
+#*'''API key''': Paste your OpenRouter API key from step 2.
+#Click {button Save}.
+#Open a Smart Window, and start using the Assistant.
+{note}'''Tip:''' You can find free models on OpenRouter by searching for “free” on the models page ([https://openrouter.ai/models?q=free direct link]).{/note}
+;[[Image:bringyourownmodel]]
+
+=Use a local model=
+==Example: Lemonade Server==
+#Download and install Lemonade Server at https://lemonade-server.ai/. You must use version 10.2.0 or newer.
+#Run Lemonade Server and download a model of your choice using the app instructions.
+#In a command-line terminal, set a larger context size by using the command <code>lemonade config set ctx_size=8192</code>.
+#Reload the model from the UI or by using the command <code>lemonade unload</code> (the next time you make a request to the model, it will load with your settings).
+#In Firefox: [[Template:optionspreferences]]
+#Go to {menu AI Controls} > {menu Smart Window Settings} > ''Assistant model''.
+#Select '''Custom: Use your own LLM'''.
+#Fill in the fields:
+#*'''Model name''': Enter your model name from step 2 (for example, SmolLM3-3B-GGUF).
+#*'''Model endpoint''': Enter the Lemonade Server endpoint, which is typically http://localhost:13305/api/v1.
+#*Note that no API key is required for Lemonade Server.
+#Click {button Save}.
+#Open a Smart Window, and start using the Assistant.
+
+==Example: Ollama==
+#Download and install Ollama at https://ollama.com/download.
+#Run Ollama, and follow the instructions on the site to download a local model of your choice.
+#Open the Firefox settings screen, and go to {menu AI Controls} > {menu Smart Window Settings} > ''Assistant model'', and select '''Custom: Use your own LLM'''.
+#Fill in the fields:
+#*'''Model name''': Enter your model name from step 2 (ex: qwen3.5:4b).
+#*'''Model endpoint''': Enter the Ollama endpoint, which is typically http://localhost:11434/v1.
+#*Note that no API key is required for Ollama.
+#Click {button Save}.
+#Open a Smart Window, and start using the Assistant.
+
+=Related articles=
+*[[Model choices in Smart Window]]
+*[[Memories in Smart Window]]
+*[[Get started with Smart Window]]

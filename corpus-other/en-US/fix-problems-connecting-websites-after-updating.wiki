@@ -1,0 +1,17 @@
+This article describes how to troubleshoot problems connecting to websites that start immediately after updating Firefox to a new version.
+* Follow the instructions in this article if you can connect to websites using another browser (such as {for win}Internet Explorer{/for}{for mac}Safari{/for}{for linux}Epiphany{/for}), but not in Firefox. If no browsers can load websites, see [[No programs can load websites]].
+* For troubleshooting connection problems unrelated to updating Firefox, see [[Firefox cannot load websites but other programs can]].
+
+__TOC__
+
+= The cause =
+If you were able to load websites until you updated Firefox, your Internet security software (including firewalls, antivirus programs, anti-spyware programs, and more) is likely preventing Firefox from connecting to the Internet.
+
+This problem occurs when your Internet security program was set to trust the previous version of Firefox, but no longer recognizes your updated version as trusted.
+
+{note}'''Note: In some cases, disabling an Internet security program or firewall does not stop all of its parts from being active. A program that reports that it is disabled may still be able to block Firefox.'''{/note}
+
+= Fixing the problem =
+To allow Firefox to connect to the Internet again:
+# Make sure your Internet security software is up-to-date (i.e. you are running the latest version).
+# Remove Firefox from your program's list of trusted or recognized programs, then add it back. For detailed instructions, see [[Firewalls]].

@@ -1,0 +1,34 @@
+{note}Firefox handles data with transparency—learn more about what that means for you. [https://www.mozilla.org/privacy/firefox/ Read the Firefox Privacy Notice].{/note}
+The Firefox [[New Tab page in Firefox|New Tab page]] can display a Web Search, Shortcuts to your most visited sites, Recommended articles, and other information from weather to your recent activity. You’ve been able to [[Customize items on your Firefox New Tab page|customize these features]] for some time, but now there are new ways available to you. We are implementing new personalization controls to better connect users with the content and topics they care about, all without sacrificing your privacy. Unlike other content feeds which track and profile you across the web, our approach to personalization is to build privacy-first principles at the core.
+
+__TOC__
+
+=Follow the stories that interest you=
+{note}Article recommendations on the Firefox New Tab page have been grouped into topic sections through a progressive rollout, starting in [[Find what version of Firefox you are using|Firefox version]] 142.{/note} <!-- See https://www.firefox.com/en-US/firefox/142.0/releasenotes/ --> 
+
+'''Follow/Block:''' We believe you should always be in full control of your Firefox New Tab experience, so we are introducing the ability to follow and block content topics, as well as exploring enhanced controls like the ability to follow specific publishers and fine-tune specific subjects (celebrities, TV shows, niche topics, and more) that can appear (or not appear) in your stories. 
+;[[Image:New Tab section]]
+;[[Image:New Tab block]]
+'''Topic selector:''' To better meet the diverse content needs of millions of Firefox users, we’re developing a wide range of topics to choose from to fine-tune your content experience.
+;[[Image:New Tab Interest]]
+'''Automated personalization:''' To make it easier to connect with content that matches your interests, we are experimenting with new techniques so that your Firefox New Tab stories experience will get better as you use it – but it will do so in a way that protects your privacy and puts you in the driver’s seat. If you interact with New Tab recommendations for certain topics, we’ll surface more stories for those topics in the future. Your data will be processed on your device, and any information sent to our servers will be limited and anonymized – this design ensures that there is no data stored on our servers that Mozilla or any 3rd parties can use to see what articles you click on or what your interests are (more on this below). These improved recommendations only come from your interactions with the Firefox New Tab stories, not from any other browsing you do.
+
+=How are we protecting your privacy?=
+For users who are experiencing these features, which will initially be available in the United States, our approach to personalization is to do it with privacy-first principles at the core. In particular, our system follows a client-side design which operates primarily in your browser, minimizing the information that is sent to our servers. Your interests would be learned entirely on your device, based on how you interact with stories on this page or the feedback you provide, such as choosing topics to follow.
+
+Your browser does need to retrieve personalized content recommendations from our servers, but we use a unique approach so that our servers don't see who you are and only receive limited information about your interests. What this means is that there is no data stored on our servers that Mozilla or any 3rd parties can use to understand what articles you’ve been reading or what your interests are. 
+
+For automated personalization, our approach to building a privacy protecting personalization system consists of two main techniques:
+*'''Removing identifiers from your requests.''' When Firefox requests content recommendations or sends feedback to our servers, we remove anything that could directly identify you. This includes protecting your IP address, which websites often use to track users. To protect your IP address, we use a technology called [https://blog.mozilla.org/en/firefox/partnership-ohttp-prio/ Oblivious HTTP (OHTTP)], which makes it impossible for our servers to know that your device is the one requesting content and prevents us from building a server-side profile of your activity. Given how OHTTP is designed, anyone can verify these privacy protections for themselves.
+*'''Hiding your data in the crowd.''' To show you content that matches your interests, we need a summary of what topics you might like. However, we make sure no one, not even us, can tell that summary belongs to you. We use a combination of techniques to mask the signal and hide where it came from. We can then mathematically guarantee that no one can learn your topics of interest from any resulting signal in this system. 
+;*<u>Blending in with the crowd:</u> We summarize your interests in a general way, rather than sending fine-grained information, so they look similar to the interests of many other users.
+;*<u>Shuffling the deck:</u> Oblivious HTTP (OHTTP) allows these generalized summaries to be completely decoupled from any user so your interest summary is one among many summaries, coming from all other users.
+;*<u>Adding privacy-preserving noise:</u> We further mask your interests with additional noise before they are sent to our servers, making it even harder to link any signal back to you. We add noise using Differential Privacy, a formal mathematical approach that guarantees strict limits on the information we might receive.
+
+=What to do if you’d prefer not to personalize your stories or to turn off stories altogether=
+We believe it’s important to give users choice when it comes to what stories they see and how they see them. Users can completely opt out-of this experience with the following steps.
+#Open a new tab.
+#Click the customize icon ([[Image:New Tabs setting button|width=35]]) in the bottom right.
+#Uncheck '''Personalized stories based on your activity''' if you want to disable automated personalization, once the feature is available.
+#Toggle '''Stories''' if you want to turn off stories altogether.
+#;[[Image:New tab stories settings|width=350]]

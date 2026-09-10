@@ -1,0 +1,31 @@
+When you browse the web using Firefox, the browser may automatically upgrade your connection from the less secure HTTP protocol to the safer HTTPS protocol. This ensures that the websites you visit are authentic and that any information you send, such as passwords or personal data, is encrypted and protected from interception. Since most websites today support HTTPS, this upgrade usually happens without any problems. Even if a link uses the older <code>http://</code> format, Firefox may still attempt to connect securely via HTTPS, as many older links still exist even though websites themselves now support HTTPS. This helps keep your browsing experience both seamless and secure.
+
+__TOC__
+
+=What is the difference between HTTP and HTTPS?=
+[https://wikipedia.org/wiki/Hypertext_Transfer_Protocol HTTP] stands for Hypertext Transfer Protocol. It is the fundamental protocol for the web and encodes basic interactions between browsers and web servers. The problem with the regular HTTP protocol is that the data transferring from server to browser is not encrypted, meaning data can be viewed, stolen or altered. [https://wikipedia.org/wiki/HTTPS HTTPS] protocols fix this by using a Transport Layer Security (TLS) certificate. This creates a secure encrypted connection between the server and the browser, which protects sensitive information.
+
+=Different upgrade mechanisms=
+Connection upgrade mechanisms can be grouped based on two factors:
+#Who initiates the upgrade (the browser or the web server).
+#The type of connection being upgraded.
+The sections below explain these mechanisms in detail.
+
+==Server initiated upgrades==
+When a web server indicates that it supports HTTPS, the browser can automatically switch to a secure connection. The server can use several methods to achieve this:
+* [https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security HTTP Strict Transport Security (HSTS)] is a standard which lets websites communicate to the browser that they support secure connections, and the browser will remember this for future connections. It is supplemented by a built-in list of such sites, the [https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security#Solutions_with_preload_list HSTS preload list].
+* [https://developer.mozilla.org/en-US/docs/Glossary/HTTPS_RR HTTPS Resource Records (HTTPS RR)] are special DNS entries which tell a browser that a web server supports HTTPS.
+* While not technically a connection upgrade, many websites redirect HTTP connections to HTTPS using the redirection status codes like [https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301 301 Moved Permanently].
+
+==Browser initiated upgrades==
+If the browser cannot determine whether a web server supports HTTPS, it may still attempt to upgrade the connection. Because HTTPS is widely supported, this process is often successful. Firefox supports several browser-initiated upgrade features:
+{for fx136}
+* [[HTTPS-First upgrades to secure connections|HTTPS-First]] is a feature available since [[Find what version of Firefox you are using|Firefox version]] 136. It ensures that all connections attempt to use HTTPS first, before falling back to HTTP in case of failure. This will always select the most secure option, without interrupting users.
+{/for}
+* [[HTTPS-Only Mode in Firefox|HTTPS-Only Mode]] is a setting which users can enable to ensure that Firefox will never establish an insecure connection without prompting the user first. Since most sites now support HTTPS, users may find the frequent prompts from HTTPS-Only Mode frustrating when they encounter HTTP websites. For this reason, it is not enabled by default.
+* There are several web extensions which perform some kind of connection upgrade. These mostly serve specific use-cases for expert audiences.
+
+==Other requests==
+The mechanisms described above primarily apply to “top-level” or navigation requests, such as typing a URL into the address bar or clicking on a link. Firefox also handles other types of requests, such as downloading images or other subresources for a webpage. While [[HTTPS-Only Mode in Firefox|HTTPS-Only Mode in Firefox]] applies to all requests, subresources are typically upgraded using the following mechanisms:
+* The [https://developer.mozilla.org/docs/Web/HTTP/CSP Content Security Policy] (CSP) [https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests upgrade-insecure-requests] directive on a webpage will upgrade subresource requests.
+* The [https://developer.mozilla.org/docs/Web/Security/Mixed_content Mixed Content] algorithm ensures that, if the top-level request for a site was encrypted, subresources will either also be loaded securely, or the connection is blocked.

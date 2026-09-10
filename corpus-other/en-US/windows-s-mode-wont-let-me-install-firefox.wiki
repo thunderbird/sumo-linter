@@ -1,0 +1,5 @@
+Windows in S mode does not allow installation of apps from outside of the Microsoft Store, so you will not be able to install Firefox from Mozilla's website. Although Firefox is available from the Microsoft Store, it does not work on Windows in S mode and installation is currently disabled. <!--https://bugzilla.mozilla.org/show_bug.cgi?id=1741539-->
+
+To install Firefox, you must [https://support.microsoft.com/windows/switching-out-of-s-mode-in-windows-4f56d9be-99ec-6983-119f-031bfb28a307 switch out of Windows S mode]. To learn more, see the [https://support.microsoft.com/en-us/windows/windows-10-and-windows-11-in-s-mode-faq-851057d6-1ee9-b9e5-c30b-93baebeebc85 Windows 10 and Windows 11 in S mode FAQ] at Microsoft Support.
+
+Afterwards, visit Mozilla's [https://www.firefox.com?utm_medium=referral&utm_source=support.mozilla.org Firefox download page] or the Microsoft Store to install Firefox. For more information, see [[How to install Firefox on Windows]] and [[Download Firefox on Windows from the Microsoft Store]].

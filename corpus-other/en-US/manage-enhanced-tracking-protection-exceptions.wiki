@@ -1,0 +1,112 @@
+__TOC__
+
+Firefox blocks known trackers to protect your privacy. In some cases, blocking trackers can also prevent parts of a website from working correctly. For example, a site might fail to load images, videos, login buttons or payment forms.
+
+To reduce these problems, Firefox uses web compatibility exceptions in some Enhanced Tracking Protection (ETP) modes. These exceptions allow limited website resources that are necessary for a site to work properly while still keeping most tracking protections enabled.
+
+This article explains what web compatibility exceptions do, how they affect privacy, and how to manage them in Firefox.
+
+=What are web compatibility exceptions?=
+Web compatibility exceptions are special rules maintained by Mozilla that temporarily allow specific blocked resources required for a website to function correctly.
+
+Firefox only applies these exceptions in limited situations where tracking protection may otherwise break important website features.
+
+Examples of website problems exceptions may help fix:
+*Sign-in buttons that do not work
+*Missing images or videos
+*Payment or checkout failures
+*Embedded content that does not load
+*Websites that appear incomplete or broken
+{note}'''Note:''' Web compatibility exceptions do not disable all tracking protection for a website.{/note}
+Firefox continues blocking many trackers even when exceptions are enabled.
+
+=How Firefox decides when to apply exceptions=
+Mozilla reviews reports of broken websites and creates targeted compatibility fixes when necessary.
+
+These fixes:
+*Apply only to specific websites or resources
+*Are designed to restore functionality with minimal privacy impact
+*Are maintained and reviewed by Mozilla
+*Can be updated or removed as websites change
+You can view the current list of deployed exceptions at [https://etp-exceptions.mozilla.org/]. This website allows you to monitor and understand the rationale behind web compatibility exceptions on specific websites, and also includes links to related Bugzilla reports for transparency and review.
+
+=Web compatibility exception levels=
+Firefox uses two levels of web compatibility exceptions.
+
+'''Fix major site issues'''
+
+This setting restores important website functionality when tracking protection causes serious breakage.
+
+Examples include:
+*Pages that fail to load
+*Login or checkout problems
+*Buttons that stop working
+*Essential content missing from the page
+Mozilla recommends keeping this setting enabled because it helps websites work properly while maintaining strong privacy protections.
+
+'''Fix minor website issues'''
+
+This setting restores non-essential website features that may be affected by tracking protection.
+
+Examples include:
+*Missing embedded videos
+*Social media widgets
+*Decorative images
+*Embedded comments or media players
+This setting may allow additional website resources compared to the major issues setting.
+
+=How web compatibility exceptions affect privacy=
+Web compatibility exceptions may allow some resources that Firefox would normally block.
+
+However:
+*Firefox does not completely disable Enhanced Tracking Protection.
+*Exceptions are limited to specific cases.
+*Mozilla reviews exceptions before deployment.
+*Most trackers remain blocked.
+Using stricter privacy settings may still cause some websites to work differently compared to other browsers.
+
+If you prefer maximum privacy, you can [[#w_change-web-compatibility-exception-settings-in-firefox-for-desktop|disable some or all web compatibility exceptions]]. Keep in mind that doing so may cause websites to break or display incorrectly.
+
+=Where Firefox applies web compatibility exceptions=
+Firefox automatically adjusts exception behavior based on your Enhanced Tracking Protection level.
+
+'''Standard Enhanced Tracking Protection'''
+
+In Standard mode:
+*Web compatibility exceptions are enabled in Private Browsing windows.
+*Firefox balances privacy and website functionality automatically.
+'''Strict Enhanced Tracking Protection'''
+
+In Strict mode:
+*'''Fix major site issues''' is enabled by default.
+*'''Fix minor website issues''' is disabled by default for stronger privacy protection.
+
+'''Custom Enhanced Tracking Protection'''
+
+In Custom mode:
+*You can choose which web compatibility exception settings to enable.
+
+=Change web compatibility exception settings in Firefox for Desktop=
+# [[Template:optionspreferences]]
+# Select {for not fx151}{menu Privacy & Security}{/for}{for fx151}{menu Privacy and security}{/for} on the left.
+# Go to ''Enhanced Tracking Protection'' settings{for not fx152} in the ''Browser Privacy'' section{/for}{for fx152} and click {button Advanced settings}{/for}.
+# Select '''Strict''' or '''Custom'''.
+# Enable or disable:
+#* Fix major site issues
+#* Fix minor website issues
+;[[Image:fixmajorminorsiteissuessettings]] 
+{note}'''Note:''' If a website stops working after disabling exceptions, try re-enabling the same exceptions and reload the page.{/note}
+
+=What to do if a website still does not work=
+If a website still appears broken after enabling compatibility exceptions:
+#Reload the page.
+#[[Enhanced Tracking Protection in Firefox for desktop#w_what-to-do-if-a-site-seems-broken|Disable Enhanced Tracking Protection]] for the site temporarily.
+#Test the website in another browser.
+#Clear cookies and cache for the site.
+#[[How do I report a broken site in Firefox desktop?|Report]] the problem to Mozilla.
+For more troubleshooting help, see [[Websites look wrong or appear differently than they should]].
+
+
+=Related articles=
+*[[Enhanced Tracking Protection in Firefox for desktop]]
+*[[How do I report a broken site in Firefox desktop?]]

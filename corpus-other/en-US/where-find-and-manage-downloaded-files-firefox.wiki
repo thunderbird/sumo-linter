@@ -1,0 +1,73 @@
+Your ''Downloads'' panel and ''Library'' keep track of files you download while using Firefox. This article explains how to access and manage the files you download in Firefox and how to configure your download settings.
+
+__TOC__
+
+= How do I access my downloads? =
+You can access downloads from your current browsing session by clicking on the ''Downloads'' [[Image:Fx91DownloadsButton]] button in the toolbar.
+*The arrow will appear blue [[Image:Fx91DownloadsButton-blue]] to let you know there are unviewed downloaded files.
+*During a download, the ''Downloads'' button becomes an icon [[Image:Fx91DownloadProgress]] that gradually fills with color to show your download's progress. You can click the download item, even before it's finished downloading; Firefox will open the file immediately once it is available.
+
+Click on the ''Downloads'' button to open the ''Downloads'' panel.
+;{for win,linux}[[Image:Fx91DownloadsPanel]]{/for}{for mac}[[Image:Fx99DownloadsPanel-mac]]{/for}
+The ''Downloads'' panel displays your five most recently downloaded files, along with their size and download status. To see all of your downloads at any time, go to the ''Library'' by clicking {menu Show all downloads} at the bottom of the ''Downloads'' panel.
+[[Template:contextmenu]] the ''Downloads'' button for options, such as to hide the ''Downloads'' button when there are no downloads in the current session or to show the ''Downloads'' panel when a download begins.
+;[[Image:Fx102DownloadsButtonContextMenu]]
+{note}'''Note:''' Your toolbar does not include a ''Downloads'' button by default, when you have no downloads in your current browsing session. You can use the menu [[Image:Fx89menuButton]] button on your toolbar to access a list of your previous downloads (see below).{/note}
+
+= See downloads history =
+The ''Library'' displays information for all of your downloaded files unless you've cleared them from your history.
+[[Template:OpenDownloadsLibrary]]
+The ''Library'' window will open, showing a list of your downloaded files.
+;{for win,linux}[[Image:Fx99Library-Downloads]]{/for}{for mac}[[Image:Fx99LibraryDownloads-mac]]{/for}
+
+= How can I manage my downloaded files? =
+You can check on downloads at any time. Click the ''Downloads'' button [[Image:Fx91DownloadsButton]] to open the ''Downloads'' panel. The ''Downloads'' panel displays up to five of your most recently downloaded files, as well as their size and download status. Alternatively, click the menu button [[Image:Fx89menuButton]] and then click {menu Downloads} to [[#w_see-downloads-history|view your downloads]] in the ''Library'' window, which displays a list of your previous downloads, along with the size, source and download time for each file.
+
+You can manage your files directly in the ''Downloads'' panel or in your ''Library''. Options will appear to the right of each file during each stage of the download:
+*'''Pause:''' You can pause any downloads currently in progress. [[Template:contextmenu]] the file and select {menu Pause}. ([[Template:contextmenu]] the file entry and select {menu Resume}, when you want to continue downloading the file.)
+*'''Cancel [[Image:fx icon cancel download]]:''' If you no longer need to download a file, click the {button 🞩} button at the right of the file entry. This button turns into a refresh symbol; click it again to restart your download.
+*'''Open the file:''' When a download has finished, you can click on the entry directly to open the file.
+*{for win,linux}'''Show in Folder''' [[Image:Fx91DownloadsPanel-OpenFolderIcon]]: Once a file has finished downloading, the icon to the right of the file entry becomes a folder. Click the folder icon to open the folder that contains that file.{/for}{for mac}'''Show In Finder''' [[Image:fx icon Open the file's folder Mac]]: Once a file has finished downloading, the icon to the right of the file entry becomes a magnifying glass. Click the magnifying glass icon to show that file in the Finder.{/for} To set the folder where your downloads go, see [[#w_change-where-downloads-are-saved|Change where downloads are saved]], below.
+*'''Go to Download Page:''' [[Template:contextmenu]] the file to bring up the menu. Choose this option to visit the webpage where the file came from.
+*'''Remove the file's entry:''' If you do not wish to keep a record of a particular download, you can remove the entry for a file. [[Template:contextmenu]] the file entry, then select {menu Remove From History} in the context menu. This will remove the entry from the list but will not delete the file itself.
+*'''Retry a Download [[Image:fx icon retry download 16x16]]:''' If for any reason a file does not finish downloading, click the button to the right of the entry – a refresh symbol – to retry.
+*'''Clear Downloads:''' Click the {button Clear Downloads} button at the top of the ''Library'' window to clear the entire history of downloaded items. This will not delete the downloaded files.
+*'''Delete a downloaded file:''' You can delete a downloaded file that you don't want to keep. [[Template:contextmenu]] on the file entry and select {menu Delete}. This will remove the file from your disk.
+
+==Set Firefox to always open similar files==
+When you download a file, you can configure Firefox to always open similar files. [[Template:contextmenu]] the file in the ''Downloads'' panel and select {menu Always Open Similar Files} from the context menu. This will add an entry for that file type to the {for not fx152}''Applications'' section of the {menu General} panel{/for}{for fx152}''Files and applications'' section of the {menu Downloads} page{/for} in [[Firefox options, preferences and settings|Firefox settings]], where you can configure how Firefox handles that type of file. To learn more, see [[Manage file types and download actions in Firefox]].
+
+= Change where downloads are saved =
+File downloads are saved in the folder specified in Firefox [[T:optionsorpreferences]]. To change that folder:
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, find the ''Downloads'' section under ''Files and Applications''{/for}{for fx152}Go to the {menu Downloads} page{/for}.
+#;{for not fx143}{for win,linux}[[Image:Fx101ChangeDownloadLocation-win]]{/for}{for mac}<!-- need mac image -->{/for}{/for}{for fx143}{for not fx152}{for win,linux}[[Image:Fx143settings-Downloads]]{/for}{/for}{for fx152}[[Image:fx152downloads]]{/for}{for mac}<!-- need mac image -->{/for}{/for}
+# Click the {for win,linux}{button Browse}{/for}{for mac}{button Choose}{/for} button next to the '''Save files to''' entry.
+# Choose the downloads folder you wish to use.
+
+= Change download actions for file types =
+You can change what action Firefox will take for handling downloads for different types of files when you browse the Web, such as opening the file with a specified application or always asking you what to do for that type of file.
+#[[T:optionspreferences]]
+#In the {for not fx152}{menu General} panel{/for}{for fx152}{menu Downloads} page{/for}, scroll down to the {for not fx152}''Applications''{/for}{for fx152}''Files and applications''{/for} section.
+#Select the file type you wish to change and click on the arrow under the ''Action'' column.
+#Choose the action you wish to take in the drop-down menu.
+;{for fx152}[[Image:fx152filesandapplications]]{/for}
+For more information, see [[Manage file types and download actions in Firefox]].
+
+= Download protection =
+<!-- test site: http://testsafebrowsing.appspot.com/ -->
+Before beginning a download, Firefox will attempt to protect you from potentially malicious or unsafe downloads, and will block downloads from insecure connections. To learn more, see the Mozilla Security blog posts [https://blog.mozilla.org/security/2021/10/05/firefox-93-protects-against-insecure-downloads/ Firefox 93 protects against Insecure Downloads], [https://blog.mozilla.org/security/2016/08/01/enhancing-download-protection-in-firefox/ Enhancing Download Protection in Firefox] and [https://blog.mozilla.org/security/2014/07/23/improving-malware-detection-in-firefox/ Improving Malware Detection in Firefox]. If something is suspected, the download will not begin, but rather the ''Downloads'' panel will display a warning message:
+;[[Image:Fx91UnsafeDownloads]]
+Potentially malicious downloads are detected using ''Google Safe Browsing'' service. The file name will be displayed along with the warning message:
+*''This file contains a virus or malware.''
+Other files covered under download protection may be potentially unwanted downloads (explained in the [https://www.google.com/intl/en/about/company/unwanted-software-policy.html Google Policy]) that may make unexpected changes to your computer. Or, a download may not be malicious or unwanted, but simply not commonly downloaded. The file name will be displayed with one of these warning messages:
+*''This file may harm your computer.''
+*''This file is not commonly downloaded.''
+Download protection is enabled by default in Firefox. For more information, see [[How does built-in Phishing and Malware Protection work?]]
+
+== How do I handle unsafe downloads? ==
+When you see a malicious file or other types of potentially unsafe files in the ''Downloads'' panel, click on the right-facing arrow to choose what to do with the file. You will be given more information about the type of unsafe file and the option to allow the download or remove it:
+;[[Image:Fx98UnsafeDLdetails]]
+'''Tip:''' The (right-click) context menu includes other options for handling any potentially harmful or malicious files listed in the Downloads panel that are pending download:
+;[[Image:Fx98UnsafeDLcontextmenu]]
+For example: [[Template:contextmenu]] one of the potentially unsafe files that are pending download and select {menu Allow Download} to save the file to your computer.

@@ -1,0 +1,19 @@
+In Firefox, you can use the keyboard to access your add-on buttons on the toolbar, as well as perform other toolbar functions that were not previously available via your keyboard.
+
+= To access toolbar buttons =
+# Press the {for win,linux}{key Control+L}{/for}{for mac}{key command+L}{/for} keys to move to the address bar. 
+# Use the {key Tab} and {key Shift} + {key Tab} keys to move between various major groups of buttons in the toolbars{for fx103}, including the tab bar{/for}.
+#Once you reach the desired group, you can use the right and left arrow keys to move through the buttons in that group. This allows you to quickly and efficiently find the button that you want.
+# Press the {key Space} or {key Enter} key to activate the desired toolbar button once you reach it.
+# Press the {key F6} key to quickly return to the web page from the toolbar.
+
+{for win}{note}'''Windows tip:''' Alternatively, you can press the menu key or {key Shift} + {key F10} to access the context menu for the button, which is equivalent to clicking the right button on your mouse.{/note}{/for}
+
+= Disabling this feature =
+If you have become accustomed to using {key Tab} to move between the URL bar and Search bar, skipping over buttons in between, you can restore the earlier behavior through the [[Configuration Editor for Firefox|Configuration Editor]]. [[Template:aboutconfigwarning]]
+
+==To restore the earlier Tab key behavior==
+# [[Template:aboutconfig]]
+# Search for {pref browser.toolbars.keyboard_navigation}.
+# Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to the preference to switch its value to {pref false}.
+# Close the ''about:config'' tab.

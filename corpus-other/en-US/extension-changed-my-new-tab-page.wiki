@@ -1,0 +1,17 @@
+Extensions (also known as add-ons) are small programs you can install to add features to Firefox. Some extensions can take control of the home page (what you see when you start Firefox, open a new window, or click the home icon [[Image:Home Button 57]] in the toolbar) or the  [[New Tab page in Firefox|New Tab page]] (what you see when you open a new tab). If this happens, Firefox will ask you when you open it for the first time if that change is okay.
+;[[Image:Fx83NewTabChange-MomentumAddon]]
+
+__TOC__
+
+=View and disable the extension=
+#[[T:optionspreferences]]
+#Click '''Home'''.
+#Under '''New Windows and Tabs''', it will indicate which extension has changed your home page or New Tab page.
+#;[[Image:DisableExtensionNewTab]]
+#Click {button Disable Extension} to prevent the extension from changing your home or New Tab page again. The page will change back to what you had previously set. To change your home page again, see [[How to set the home page]].
+
+=Remove the extension=
+#[[T:Open Add-ons|type=Extensions]]
+#Under '''Manage Your Extensions''' find the extension you want to remove.
+#On the right side of the extension click the menu (three dots) and select {menu Remove}. 
+#;[[Image:fx72 remove extensions]]

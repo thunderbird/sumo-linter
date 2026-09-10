@@ -1,0 +1,12 @@
+[[Template:WindowsOnly]]
+{note}'''Note:''' An updated version of X-Mouse Button Control (XMBC 2.20) has been released. Issues with Firefox 110 should be fixed. To learn more, see [https://forums.highrez.co.uk/viewtopic.php?t=4682 this forum].{/note}
+In advance of the release of [[Find what version of Firefox you are using|Firefox version]] 110, an issue was identified with GPU Sandboxing causing a conflict with X-Mouse Button Control, software used to custom configure a computer mouse, that may cause mouse wheel scrolling to stop working.
+
+Mozilla has reached out to the developer of X-Mouse Button Control, and they are working on a solution. Given that we do not know when this will be fixed and the benefit of GPU Sandboxing to all Firefox users, the decision has been made to proceed with rolling out this new feature in Firefox, but we are aware that this is not the best result for all at this time.
+
+The best solution at the present time is to turn on the '''Disable Scroll Window Under Cursor''' setting:<!--https://bugzilla.mozilla.org/show_bug.cgi?id=1809519#c13 -->
+* Right-click the X-Mouse Button Control icon and select '''Setup'''.
+* Choose the '''Options''' tab in the right pane of the Setup window.
+* Make sure there is a checkmark next to '''Disable Scroll Window Under Cursor'''.
+* Select the '''Apply''' button near the lower-right corner of the window.
+A corrected version of X-Mouse Button Control is currently being tested, and we hope it can be made more widely available very soon. If you wish to use the beta version, you can install it from [https://forums.highrez.co.uk/viewtopic.php?p=23412#p23412 this forum message].  Please be aware that this is not a fully tested version and may have unresolved issues.

@@ -1,0 +1,29 @@
+A personal firewall is a security program that oversees all of your computer's connections to the Internet. It may be included as part of an Internet security suite, or it may be a freestanding program. Most personal firewalls will deny Internet access to any program, or a new version of any program, unless you have specifically allowed access. This article will help you find information about configuring your firewall to work with Firefox.
+{note}'''Note:''' In some cases, disabling an Internet security program or firewall does not stop all of its parts from being active. A program that reports that it is disabled may still be able to block Firefox.{/note}
+
+{for win}
+__TOC__
+
+= Find out which firewall is installed =
+If you know which firewall or Internet security suite you are running, skip to [[#w_configuring-firewalls|the next section]].
+
+Depending on your Windows version, do the following:
+* '''Windows 10''': Find it in Windows Control Panel, Security and Maintenance under the Security section.<!-- http://www.howtogeek.com/221283/what-is-different-about-the-windows-10-control-panel-so-far/ --> 
+* '''Windows 7/8''': Find it under the Security section in Windows Action Center.
+If you can't still detect your firewall with the above steps, try to run '''Enum Process''' (''not created by Mozilla'') that is an application that detects many common firewalls:
+# Download [http://www.trolly.homepage.t-online.de/EnumProcess.exe Enum Process].
+# After downloading, double-click {filepath EnumProcess.exe}.
+# Select {button Run}.
+# In the drop-down menu to the right, select '''Simple'''.<br/> <br/>[[Image:simple_enumprocess.PNG]]
+# Click {button List Processes}.<br/> <br/>[[Image:listprocesses_enumprocess.PNG]]
+{/for}
+
+= Configuring firewalls =
+{for win}For Windows Firewall, see [[Configure Windows Firewall to allow Firefox access to the Internet]]. Contact the software provider for other installed firewalls.
+{/for}
+{for mac}
+Refer to the [http://support.apple.com/kb/ht1810 Apple documentation].
+{/for}
+{for linux}
+Go to your distribution's firewall documentation.
+{/for}

@@ -1,0 +1,50 @@
+This article explains what to do if you are not able to add new bookmarks or make other changes to your bookmarks.
+*If you have been able to save bookmarks but they are now missing, see [[Recover lost or missing Bookmarks]].
+
+__TOC__
+
+= I can't add or change bookmarks =
+If you can't add new bookmarks or if changes you make to the toolbar are not saved when you restart Firefox, see [[Changes to toolbars and window sizes are not saved]].
+
+If you can't add new bookmarks or make other changes to your bookmarks and you have a [https://addons.mozilla.org/firefox/extensions/bookmarks/ Firefox extension related to bookmarks] installed (for example, one that synchronizes bookmarks) follow the instructions in [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]] to determine if an extension is causing the problem. 
+
+= I can add or change bookmarks but they are lost when I restart Firefox =
+If you are able to add, delete, rearrange, and make other changes to your bookmarks but your changes are lost whenever you restart Firefox, try these solutions.
+{note}'''Note:''' It is recommended that you disable any extensions related to bookmarks, as explained [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems#w_disable-all-extensions|here]], before proceeding with the solutions suggested below.{/note}
+
+== Fix the bookmarks file ==
+If your changes to your bookmarks do not appear when you restart Firefox, the issue may be that your bookmarks file is write-protected. A write-protected file can't be changed, which prevents Firefox from saving any changes you have made.
+{for win}
+Allow Firefox to save bookmark changes:
+#[[T:profileFolder]]
+#Close Firefox completely: [[T:closeFirefox]]
+# Right-click the file {filepath places.sqlite}, and select {menu Properties} to open the Properties window.
+# In the Properties window, select the General tab. Near the bottom of the window, verify that '''Read-only''' is NOT selected.<br/> <br/> [[Image:bookmarksnotsaved-readonly.png]] <br/> 
+{/for}
+{for mac}
+To enable writing of your bookmarks file:
+#[[T:profileFolder]]
+#Close Firefox completely: [[T:closeFirefox]]
+# Select the file {filepath places.sqlite}.
+# From the menu bar select the {menu File} menu and select {menu Get Info}. The places.sqlite info window will open.
+# In the places.sqlite info window, remove the check mark from the '''Locked''' check box.
+{/for}
+
+== Create a new bookmarks file ==
+Bookmarks and browsing history are stored in the Firefox profile folder in the file {filepath places.sqlite}. If there is a problem with this file, your bookmark changes may be lost whenever you restart Firefox. You can force Firefox to create another {filepath places.sqlite} file by deleting (or renaming) the existing one.
+
+You might want to print these directions out, or copy them down to reference because you will have to close Firefox to delete or rename the files.
+
+{warning}'''Warning: Once you delete the {filepath places.sqlite} file, you will lose all of your browsing history.''' Firefox only keeps one copy of this file and there are no automatic backups for browsing history as there are for bookmarks.{/warning}
+#[[T:profileFolder]]
+#Close Firefox completely: [[T:closeFirefox]]
+# In your profile folder, find the files {filepath places.sqlite} and {filepath places.sqlite-journal} (if it exists) and delete them (or rename for example, to places.sqlite''OLD'', to keep the old file as a backup) .
+*''(Optional)'' Also delete the file {filepath xulstore.json}. This will reset any [[Customize Firefox controls, buttons and toolbars|toolbar customizations]] you have made.
+
+When you next start Firefox, it will create a new {filepath places.sqlite} file and automatically import the most recent bookmark backup file. Your bookmarks will be restored from backup but you will lose your browsing history. Note that browsing history is used for the [[Address bar autocomplete suggestions in Firefox|address bar autocomplete]] feature.
+
+
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Bookmarks_not_saved Bookmarks not saved (mozillaZine KB)]'''''

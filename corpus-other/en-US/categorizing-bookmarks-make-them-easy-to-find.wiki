@@ -1,0 +1,51 @@
+Firefox lets you tag bookmarks so you can categorize and identify them with keywords while searching.
+
+__TOC__
+
+=Tagging bookmarks=
+
+==Tagging a new bookmark==
+When you click on the star to bookmark a new page, a window will open to allow you to edit the name, location and add tags to a bookmark. The ''Tags'' field will appear the first time a bookmark is created.  However, the ''Tags'' field will not appear if bookmarks have previously been created, and no bookmarks use tags.  To reactivate the appearance of the ''tags'' field, add a tag to a bookmark by accessing the bookmark from either the bookmarks menu (click on the "Show your bookmarks" icon) or the Library window (as described below).
+
+[[Image:Fx89EditBookmark]]
+
+==Tagging existing bookmarks==
+#Go to the bookmarked page you want to tag.
+#Click on the star to open the ''Edit Bookmark'' prompt.
+#;[[Image:Bookmarks tags Fx89]]
+#Enter your tags in the ''Tags'' field.
+
+==Reuse your tags==
+Once you've tagged some bookmarks, you can reuse these tags:
+#Click the down arrow next to the ''Tags'' field.
+#Put a check mark next to each tag you want to add to the bookmark.
+#;[[Image:Reuse tags Fx89]]
+
+==Tagging in the Library==
+To change tags using the Library window:
+#[[Template:OpenBookmarksLibrary]]
+#In the Library window, open the folder where you saved the bookmark.
+#Select the bookmark you want to edit. The bottom portion of the Library window will display information about the bookmark.
+#Add or remove tags by editing the '''Tags''' field or use the down arrow to add or remove check marks for existing tags.
+
+{for win}[[Image:Bookmark_Library]]{/for}
+{for mac}[[Image:Bookmark_Library_Mac]]{/for}
+{for linux}[[Image:Bookmark_Library_Linux]]{/for}
+
+=Searching with tags=
+Just type into the address bar. Firefox will include bookmarked pages with tags that match your search.
+;[[Image:tag search 57]]
+
+=Using tags to organize your Library=
+To access your tags in the Library:
+#[[Template:OpenBookmarksLibrary]]
+#On the left side of the Library window, click the arrow next to the '''Tags''' item. The list of tags will expand.
+#Click on a tag to show what bookmarks are associated with it. 
+#Double click on a bookmark in the list to open it in Firefox.
+
+=Rename a tag=
+To access your tags in the Library:
+#[[Template:OpenBookmarksLibrary]]
+#On the left side of the Library window, click the arrow next to the '''Tags''' item. The list of tags will expand.
+#Click on the tag you want to rename.
+#At the bottom of the right-hand side of the screen, enter a new name for the tag.

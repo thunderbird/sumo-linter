@@ -1,0 +1,35 @@
+Firefox Sync allows you to sync your bookmarks, logins and passwords, browsing history, tab settings and other items across various devices. See [[How do I set up Sync on my computer?]] to learn more about how to turn on Sync.
+
+You can disable Sync, if you like, to avoid syncing your data across certain devices when creating or signing in to your Mozilla account. You'll remain signed in to your account even after Sync has been disabled, unless you decide to sign out. You can also disable Sync for devices that have been synced previously. For additional information, see [[Remove a synced device from your Mozilla account]].
+{note}'''Note:''' You can sign up for a [[How do I set up Sync on my computer?#w_create-a-mozilla-account|Mozilla account]] without having to enable Firefox Sync immediately.{/note}
+
+=Disable Sync for previously synced devices=
+{for not fx152}
+To disable Sync for previously synced devices:
+#[[Template:optionspreferences]]
+#Click '''Sync ''' from the menu options to open the Sync settings panel.
+#Click the {button Manage Sync} button in the ''Syncing: ON'' subsection.
+#;The ''Choose What To Sync'' pop-up will open.
+#;[[Image:Sync_proton]]
+#Click {menu Disconnect…} A confirmation prompt will appear.
+#;[[Image:Sync_protonPrompt]]
+#Click the {button Disconnect} button in the prompt.
+This Firefox profile will stop syncing your account but won’t delete any data or settings. The {menu Sync} panel of your Firefox [[T:optionsorpreferences]] page will now show ''Syncing: OFF''.
+;[[Image:Fx89SyncingOff]]
+{note}'''Note:''' To turn syncing back on, click {menu Turn on syncing…} in the {menu Sync} panel of your Firefox [[T:optionsorpreferences]] page.{/note}
+{/for}
+{for fx152}
+To disable Sync for previously synced devices:
+#[[Template:optionspreferences]]
+#Go to the {menu Account and sync} page.
+#Scroll down to the {menu Sync} section.
+#Click the {menu Manage synced data} in the {menu Syncing: ON} subsection.
+#;The Choose What To Sync pop-up will open.
+#;[[Image:fx152sync]]
+#Click {menu Disconnect…} A confirmation prompt will appear.
+#;[[Image:Sync_protonPrompt]]
+#Click the {button Disconnect} button in the prompt.
+This Firefox profile will stop syncing your account but won’t delete any data or settings. The {menu Sync} panel of your Firefox [[T:optionsorpreferences]] page will now show ''Syncing: OFF''.
+;[[Image:fx152syncoff]]
+{note}'''Note:''' To turn syncing back on, click {menu Turn on syncing…} in the {menu Sync} panel of your Firefox [[T:optionsorpreferences]] page.{/note}
+{/for}

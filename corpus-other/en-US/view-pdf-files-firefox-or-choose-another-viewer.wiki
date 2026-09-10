@@ -1,0 +1,201 @@
+Firefox includes a built-in PDF viewer that lets you view and edit PDF files directly in your browser. This article will show you how to use the built-in PDF viewer and how to resolve common issues.
+*To learn how to switch to another PDF viewer, see [[Choose your preferred PDF viewer in Firefox]].
+
+__TOC__
+
+=Use Firefox’s built-in PDF Viewer=
+Firefox’s built-in PDF viewer allows you to view almost all PDF files found on the web without needing an external application (exceptions include PDF files with an incorrectly set [https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types MIME type]). The built-in viewer is automatically used when PDF files are set to {menu Open in Firefox} in your [[Manage file types and download actions in Firefox|Firefox settings for different types of files]], which is the default setting. When you click a link to a PDF file or open it from the Firefox [[Where to find and manage downloaded files in Firefox|Downloads panel]], it will open with the built-in PDF viewer.
+
+[[Image:Firefox PDF viewer - updated V122]]
+
+The PDF file will open directly in Firefox without being saved. To save the PDF to your computer, click the ''Save'' [[Image:Fx106 PDF dl button]] button in the PDF viewer’s toolbar.
+
+==Fill out forms in PDF Viewer==
+Some PDF files have interactive fields to fill in data (such as on forms). Using Firefox's built-in PDF viewer, you can fill out fields such as text, check boxes and radio buttons. After entering data into these fields, you can download the file to have the filled-out version saved to your computer.
+
+[[Image:Firefox PDF fill out forms - updated v122]]
+
+==PDF Viewer toolbar functions==
+*'''View document thumbnails or outline:''' The slider button on the far left will open a sidebar with thumbnails of the document's pages. Some documents will also have an outline view available. These make it easy to navigate through a long document.
+*;[[Image:Fx106 PDF Sidebar]]
+*'''Page up and down or skip directly to a page:''' You can use the up and down arrows to page through a document or enter the number of the page you want to go to.
+*;[[Image:Fx106 PDF Pager]]
+*'''Change the size of the document:''' Use the {button &#43;} and {button &#8722;} buttons to zoom in and out, or choose a zoom setting from the dropdown menu.
+*;[[Image:Fx106 PDF Zoom]]
+*'''Print:''' Click the ''Printer'' button to open the print setup dialog.
+*;[[Image:Fx106 PDF Print]]
+*'''Save:''' Click the ''Save'' button to download and save the PDF file to your computer.
+*;[[Image:Fx106 PDF Download]]
+
+==Edit PDF files==
+Editing a PDF allows you to add notes, highlights and other markings directly on the document. This is especially useful for making corrections, highlighting important information, or adding personal notes for future reference.
+*Click [[Image:Annotate PDF 1]] to choose a color and text size before selecting where on the document you wish to add text.
+*Click [[Image:Annotate PDF 2]] to choose a color, thickness and opacity before then being able to draw on the document. Downloading the file saves a copy of the document with your annotations.
+{for fx125}
+==Highlight in PDF files==
+===Add a highlight===
+#To highlight text or an area in a PDF document, first select the desired text or area. Then, click [[Image:Firefox PDF highlighting option|width=30]].
+#;[[Image:Firefox PDF select text to highlight]]
+#Choose your preferred highlight color, and adjust the thickness of the highlight.
+#;[[Image:Firefox PDF highlighting settings]]
+
+===Show/hide all highlights===
+#To manage the visibility of all highlights in a PDF file, first click the ''Highlight'' [[Image:Firefox PDF highlighting option|width=30]] button at the top right of the PDF page.
+#Then, use the toggle located next to the '''Show all''' option to either display or hide all the highlights in the PDF file.
+#;[[Image:Show/hide all PDF highlights]]
+
+===Edit or delete a highlight===
+#Click the area you previously highlighted.
+#;[[Image:Edit or delete Firefox PDF highlight]]
+#To change the color of your highlight, click [[Image:Color selection dropdown for PDF highlight|width=30]] and select a new color.
+#To remove the highlight, click [[Image:Trash can icon]].
+{/for}
+{for fx145}
+==Comment in PDF files==
+
+===Create a comment===
+#To add a comment in a PDF document, first select the desired text or area. Next, click [[Image:pdfcommenticon|width=30]].
+#;[[Image:commentinpdf]]
+#Type your comment, then click {button Add} to save it in the PDF. 
+
+===Edit a comment===
+#Click [[Image:pdfcommenticon|width=30]] to open comment editing, either:
+#*'''In the PDF''', to open a single comment
+#*;[[Image:inthepdf]]
+#*Or '''from the top right menu''' to see all comments in the sidebar and click to open one.
+#*;[[Image:inthesidebar]]
+#Click the {button Edit comment} button. 
+#;[[Image:editcomment]]
+#Type your changes, then click the {button Update} button
+
+===Delete a comment===
+#Click [[Image:pdfcommenticon|width=30]] to open comment editing, then click the {button Remove comment} button.
+#;[[Image:removecomment]]
+<!--The following feature has not been released yet:
+#You can click the {button Undo} button right after you delete a comment to bring it back.
+#;[[Image:removecommentpdf]]
+-->
+
+===Useful tips===
+#You can drag and drop the comment to a new location.
+#;[[Image:draganddrop]]
+#To see and manage all comments in a PDF, open the comment sidebar. In the upper right menu, click [[Image:pdfcommenticon|width=30]].
+#;[[Image:sidebarcomments]]
+{/for}
+{for fx119}
+==Add an image to PDF files==
+In many PDF-related tasks, incorporating images can provide supplementary information to your content.
+
+===Insert an image===
+#On the top right of the PDF page, click the ''Add or edit images'' [[Image:Add image to PDF 2]] button.
+#Click {menu + Add image}. This will prompt the file selection window.
+#Browse and select the desired image file to add it to the PDF.
+
+===Reposition and resize the image===
+#Drag and drop the image to your preferred location within the PDF.
+#To adjust the image size, click and drag its borders until it fits your desired dimensions.
+
+===Add Alt Text for accessibility===
+#After adding the image, click the {button + Alt text} button.
+#In the provided space, either:
+#*Write a [https://accessibility.huit.harvard.edu/describe-content-images concise description] of the image for screen readers, or
+#*Mark the image as '''decorative''' if it’s only for visual appeal.
+#Click the {button Save} button to insert the alt text.
+#;[[Image:Add image to PDF]]
+See [[Add alt text to images in your PDFs using Firefox]] to learn everything about Alt Text.
+{/for}
+{for fx137}
+==Add a signature to a PDF==
+{warning}'''Warning:''' Signatures added using the Firefox PDF viewer are not legally binding e-signatures. They are simple annotations and do not provide authentication or verification.{/warning}
+Firefox allows you to add your signature to a PDF document.
+#Open the desired PDF in Firefox.
+#In the top right corner of the page, click the ''Add signature'' [[Image:IG add signature]] button and then click {button + Add New Signature}.
+#;[[Image:Add signature|width=350]]
+#Choose between '''Type''', '''Draw''' or '''Image''', and click the {button Add} button to insert the signature to the document. To re-do the signature before adding, you can select the ''Clear signature'' [[Image:IG trash]] option.
+#;[[Image:Type, draw, image|width=600]]
+#*A. Type: use your keyboard to write down your signature.
+#*B. Draw: handwrite your signature using your mouse, or use your finger or a stylus pen on a touch-screen device.
+#*C. Image: insert an image or picture with your signature to the document.
+#*D. Descriptive alt text will be added automatically, but you can edit this at any time. The description will also be used as the name of your saved signature.
+If the ''Save signature'' box is checked, your signature will be saved for re-use in the {menu Add signature} menu. You can remove it or add new signatures to PDFs at your convenience.
+{/for}
+
+{for fx151}
+==Merge PDF files==
+Firefox’s built-in PDF viewer lets you merge another PDF into the document you currently have open. This makes it easier to combine related files into a single PDF without using a separate application.
+{note}'''Note''': At this time, only PDF files can be merged.{/note}
+===Merge a PDF into an open document===
+#Open a PDF file in Firefox.
+#Open the page sidebar on the left side of the viewer, if it is not already open.
+#Click the '''+''' (plus) button in the upper-right corner of the sidebar.
+#;[[Image:mergepdf]]
+#In the file selection window, choose the PDF file you want to add.
+#Click {button Open} (or press {key Enter}).
+
+The selected PDF is merged into the current document. You can:
+*Save the merged PDF as a new PDF
+*Scroll through the newly added pages
+*View and navigate pages from the sidebar
+*Continue editing or organizing the combined document
+*;[[Image:mergepdf1]]
+{/for}
+
+{for fx150}
+==Organize and split PDF files==
+With a PDF file open in Firefox, you can change the page order, copy, and delete one or more pages; you can also export pages into a new PDF. 
+
+Select the [[Image:fxpdfsidebaricon]] icon (top left) to open the left sidebar. Select one or more pages to:
+*'''Reorder''' by dragging and dropping or 
+*'''Reorder''' by selecting {menu Manage}, then {menu Cut}, then {menu Paste} to insert them anywhere in the PDF.
+*'''Copy''' by selecting {menu Manage}, then {menu Copy}, then {menu Paste} to insert. The original pages will remain.
+*'''Delete''' by selecting {menu Manage}, then {menu Delete} or {menu Cut}. Select {menu Undo} to put pages back in their most recent location. 
+*'''Export''' by selecting {menu Manage} then {menu Export selected…}. Use the “Save As” pop-up to create a new PDF document containing only the pages you chose. The original file will remain the same.
+{/for}
+
+=PDF Viewer keyboard shortcuts=
+{|
+!Command
+!Shortcut
+|-
+|Next page
+|{key N} or {key J} or {key &#8594;}
+|-
+|Previous page
+|{key P} or {key K} or {key &#8592;}
+|-
+|Zoom in
+|{for win,linux}{key Ctrl+&#43;}{/for}{for mac}{key Command+&#43;}{/for}
+|-
+|Zoom out
+|{for win,linux}{key Ctrl+&#8722;}{/for}{for mac}{key Command+&#8722;}{/for}
+|-
+|Automatic Zoom
+|{for win,linux}{key Ctrl+0}{/for}{for mac}{key Command+0}{/for}
+|-
+|Rotate the document clockwise
+|{key R}
+|-
+|Rotate counterclockwise
+|{key Shift+R}
+|-
+|Switch to Presentation Mode
+|{for win,linux}{key Ctrl+Alt+P}{/for}{for mac}{key Command+Alt+P}{/for}
+|-
+|Choose Text Selection Tool
+|{key S}
+|-
+|Choose Hand Tool
+|{key H}
+|-
+|Focus the Page Number input box
+|{for win,linux}{key Ctrl+Alt+G}{/for}{for mac}{key Command+Alt+G}{/for}
+|}
+
+=Troubleshoot problems with the PDF viewer=
+*With certain types of PDF files, the PDF Viewer may have problems displaying fonts, colors or the whole document. If some PDF files don't render well or are blank, click the download button on the right side of the document header to open it with the default PDF viewer application on your computer.
+*If you can't open any PDF files with the built-in PDF viewer, a Firefox extension could be the cause. You can disable all of your extensions, to see if one of them was the problem.<!-- Maybe the user is using NoScript and doesn't want to disable it completely. Note that https://bugzilla.mozilla.org/show_bug.cgi?id=739058 is now resolved WORKSFORME as of 2013-02-06. --> For details, see [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems#w_disable-all-extensions]].
+
+=Related articles=
+*[[Choose your preferred PDF viewer in Firefox]]
+*[[Add alt text to images in your PDFs using Firefox]]
+*[[How to print web pages in Firefox]]

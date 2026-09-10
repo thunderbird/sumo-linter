@@ -1,0 +1,82 @@
+<!-- See also https://bugzilla.mozilla.org/show_bug.cgi?id=1220250 -->
+'''Web Push''' allows websites to notify you of new messages or updated content, even when the site is not loaded. While Firefox is open, websites that have been granted permission can send notifications to your browser, displaying them on the screen. Clicking a notification can open the original website or switch to that site’s tab if loaded.
+
+;{for win10}[[Image:Firefox_150_web-push-notification_win10_pushfoo|width=420]]{/for}{for win11}[[Image:Firefox_150_web-push-notification_win11_pushfoo|width=420]]{/for}{for linux}[[Image:Firefox_150_web-push-notification_fedora_pushfoo]]{/for}{for mac}[[Image:Firefox_152_web-push-notification_mac_pushfoo|width=420]]{/for}
+
+For example, you can subscribe to notifications from your favorite shopping sites that can notify you of new promotions or offers. You can subscribe to notifications from different websites. A concert site may offer you notifications for shows of your favorite band. You decide to allow that site to notify you, and a week later you get a notification that your band is on tour.
+
+{note}'''Remember''': You will only receive notifications from sites that you have granted permission. You can [[#w_how-do-i-revoke-web-push-permissions-for-a-specific-site|revoke this permission]] at any time.{/note}
+
+__TOC__
+
+= How do websites request the notifications permission? =
+If a site wants to request the permission, you will see the '''Notification''' permission [[Image:Notifications icon]] icon in the address bar. Clicking it will display a pop-up allowing you to grant or deny the permission.
+
+;{for not fx149}[[Image:Push_notifications]]{/for}{for fx149}[[Image:Fx149PushNotifications]]{/for}
+
+If you have interacted with the website (pressing a key on your keyboard or tapping/clicking anywhere on the site), the pop-up will display automatically.
+
+{note}'''Note:''' Sites with this permission can also use [https://www.w3.org/TR/push-api/ Push API] to update data in the background, even without showing you a notification.{/note}
+
+= Manage the notifications permission for a website you are accessing =
+# Click the {for not fx149}padlock icon [[Image:Fx89Padlock]]{/for}{for fx149}shield icon [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} on the left side of the address bar.
+# Click the {button Connection >} button {for not fx149}in{/for}{for fx149}at the top of{/for} the [[Site Information panel|Site Information panel]] that opens.
+# Click {for fx149}'''More site information'''{/for}{for not fx149}'''More information'''{/for} in the next panel to bring up the [[View site information with Page Info|Page Info window]].
+#* '''Tip:''' You can also open the Page Info window from the Menu bar{for win,linux}, if the [[Restore the Menu bar in Firefox|Menu bar is enabled]]{/for}. Click {menu Tools} and select {menu Page Info} from the drop-down menu.
+# Select the '''Permissions''' tab.
+# Under '''Send Notifications''', choose a notification option: {menu Always Ask} (default), {menu Allow} or {menu Block}. If your choices are grayed out, deselect the '''Use Default''' checkbox.
+
+= Manage the notifications permission for all websites =
+# [[Template:optionspreferences]]
+# Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} on the left.
+# {for not fx152}Go down to the ''Permissions'' section and{/for}{for fx152}Under the ''Permissions'' section,{/for} click {for not fx149}the {button Settings…} button to the right of {/for}'''Notifications'''.
+# Select {menu Allow} or {menu Block} from the ''Status'' drop-down for any of the websites to grant or deny the notifications permission. Note that selecting {menu Block} will prevent the website from requesting the permission again.
+# To deny the notifications permission, while allowing the website to request it again in the future, select the site and click the {button Remove Website} button under the list.
+# Once you're done, click the {button Save Changes} button.
+
+= How do I revoke the notifications permission for a specific site? =
+Web Push is always opt-in in Firefox. A site cannot send you push notifications without your permission. To stop a specific site from sending you notifications:
+# [[Template:optionspreferences]]
+# Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} on the left.
+# {for not fx152}Go down to to the ''Permissions'' section and{/for}{for fx152}Under the ''Permissions'' section,{/for} click {for not fx149}the {button Settings…} button to the right of {/for}'''Notifications'''.
+# Select the website.
+#* If you just want to revoke the permission (while allowing the website to request it again in the future), click the {button Remove Website} button.
+#* If you want to revoke the permission and prevent the website from requesting it again, select {menu Block} from the ''Status'' drop-down next to the website URL.
+# Click the {button Save Changes} button.
+{note}'''Note:''' To stop all sites from sending you push messages, follow the steps above, but instead of selecting a specific site, click the {button Remove All Websites} button. After that, websites will not be able to send you notifications and will need to ask your permission to send them in the future.{/note}
+
+Alternatively:
+# Visit the website you want to revoke the notifications permission for.
+# Click the Permissions icon [[Image:Fx89PermissionsIcon]] in the address bar to bring up the [[Site Permissions panel|Site Permissions panel]] for the website.
+# Find the ''Send Notifications'' permission and click the {button Allowed ✕} button next to it to remove the permission.
+
+You can also deny the permission in the [[View site information with Page Info|Page Info window]] as described in the [[#w_manage-the-notifications-permission-for-a-website-you-are-accessing|Manage the notifications permission for a website you are accessing]] section.
+
+= How do I stop Firefox from asking me to allow notifications? =
+If a site indicates to Firefox that it wants to show notifications, by default, Firefox asks whether you want to grant permission. You can set Firefox to automatically deny permission without asking. Even after the change, you will be able to make exceptions for sites '''you want''' to show notifications or use push features via the [[View site information with Page Info|Page Info window]].
+# [[Template:optionspreferences]]
+# Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} on the left.
+# {for not fx152}Go down to to the ''Permissions'' section and{/for}{for fx152}Under the ''Permissions'' section,{/for} click {for not fx149}the {button Settings…} button to the right of {/for}'''Notifications'''.
+# Select the '''Block new requests asking to allow notifications''' checkbox. 
+# Click the {button Save Changes} button.
+
+= Frequently asked questions =
+== How does Web Push work? ==
+Websites can install a [https://developer.mozilla.org/docs/Web/API/Service_Worker_API Service Worker], a background web page with a limited set of functionality, that can subscribe to the push service. The website can then send a push message through Mozilla’s Web Push service to your browser, which can process that message and display a notification on your screen.
+
+== What information do I share with a website? ==
+A website that has been granted permissions can send you push messages when the site is not loaded. A quota limits the number of push messages without an on-screen notification that websites can send you. Websites that exceed the quota will have their push messaging disabled, and you will have to visit them again to resubscribe. Web Push does not directly allow websites to determine your IP address.
+
+== What information does Firefox use to provide Web Push? ==
+Firefox maintains an active connection to a push service in order to receive push messages as long as it is open. The connection ends when Firefox is closed. We store a randomized identifier (User Agent IDentifier or UAID) on our server for your browser, along with a random client-generated identifier for each push subscription.  When you have any subscriptions, the UAID is required to allow our push service to route incoming messages to Firefox. If you don't have any active push notification subscriptions, Firefox rotates the UAID on each new connection.
+
+On Firefox for desktop, the push service is operated by Mozilla. Firefox for Android uses a combination of the Mozilla Web Push service and Google’s Cloud Messaging platform to deliver notifications to Firefox for Android. Only Mozilla's applications are enabled to use WebPush on iOS (third parties are prohibited from using WebPush to send notifications to iOS per the iOS usage agreement).
+
+In all three cases, push messages are encrypted per the [https://tools.ietf.org/html/rfc8030 IETF spec], and only your copy of Firefox can decipher them. The encrypted messages are stored on the server until they are delivered or expire.
+
+We store your IP address for 90 days as part of this service. The stored information is invalidated when either the IP Address or UAID is changed. We do '''not''' store information about:
+*the servers and/or services that have sent messages
+*when a particular user agent was online/active
+
+== How do I add Web Push to my website? ==
+The [https://developer.mozilla.org/docs/Web/API/Push_API Push API specification] explains how to create a Service Worker and send push messages.

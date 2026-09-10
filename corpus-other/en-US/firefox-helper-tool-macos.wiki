@@ -1,0 +1,49 @@
+{note}'''Note:''' This article applies to Firefox on macOS.{/note}
+Sometimes Mac users get a ''Firefox is trying to install a new helper tool'' message while updating Firefox. This guide will explain why this happens and how you should proceed with it.
+;[[Image:firefoxhelpertool]]
+
+__TOC__
+
+=Common scenarios=
+The '''Helper tool''' plays an essential role in ensuring successful Firefox updates, particularly in cases where system permissions or ownership settings may prevent them entirely. However, you might see unusual prompts when updating Firefox: the Helper tool will require you to use your credentials to complete its installation process. You may encounter the Helper tool in the following situations.
+
+==IT admins deploying Firefox with the .pkg installer==
+*As an IT admin, you can [[Deploy Firefox on macOS using PKG and Jamf|deploy Firefox through the .pkg installer]].
+*In this case, the updater will require the Helper tool to correct the permissions on the application bundle when Firefox updates for the first time, which may lead to the tool asking for credentials.
+
+==Multiple admin users on the same device==
+*If Firefox was originally installed by one admin and updated by another, the updater may require elevated privileges.
+*In this case, the Helper tool is used once to validate the Firefox app bundle ownership, which in turn allows subsequent updates to be installed by any admin user.
+
+==Non-Admin users updating Firefox==
+*Standard users do not have permission to modify Firefox's core files.
+*In this case, the Helper tool will appear on every Firefox update attempt until admin credentials are provided to complete the update.
+
+=Possible issues and solutions=
+==Firefox prompts for the Helper Tool on every update==
+'''Possible Cause:'''
+*You switched to a standard user account. Since non-admin users cannot modify the ''Firefox.app'' bundle, you must authorize the helper tool with admin credentials each time Firefox updates.
+'''Solution:'''
+*Enter valid admin credentials when the Helper asks you to.
+
+==Firefox requests the installation of the Helper Tool on every launch==
+'''Possible Cause:'''
+*The user never grants admin permissions, and the updates cannot take place as a result, which prompts the Helper tool to appear on every Firefox launch.
+'''Solution:'''
+*Try reinstalling Firefox, which will restore the default permissions.
+*Make sure you have admin rights when reinstalling.
+
+==Updates are failing even after entering admin credentials==
+'''Possible Cause:'''
+*The ''Firefox.app'' bundle may have corrupted or restricted permissions that prevent updates.
+'''Solution:'''
+*Reinstalling Firefox will fix the corrupted permissions, and it will allow you to update the browser properly.
+*;{note}'''Note''': Reinstalling Firefox is often the simplest solution. Uninstall the broken Firefox first (this will not remove your user ''profile'' data and settings, which are stored in a different location).{/note}
+
+=Future changes to the Helper tool=
+We're currently working on a solution to minimize the number of times that a regular user has to provide admin credentials to install Firefox updates.
+
+=Related articles=
+*[[Uninstall Firefox from your computer]]
+*[[How to download and install Firefox on Mac]]
+*[[Deploy Firefox on macOS using PKG and Jamf]]

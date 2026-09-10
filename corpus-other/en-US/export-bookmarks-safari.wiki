@@ -1,0 +1,17 @@
+You can export your Firefox bookmarks for use in other browsers.  This article shows you how to export your Firefox bookmarks and import them into Safari.
+
+{for win, linux}
+{note} '''Note:''' This article applies to Mac. The Safari browser is {for win}no longer available for Windows{/for}{for linux}not currently available for Linux{/for}.{/note}
+{/for}
+
+__TOC__
+
+= Exporting bookmarks from Firefox =
+[[T:ExportHTMLBookmarks]]
+Your bookmarks are successfully exported from Firefox, to import them into Safari proceed to the next section.
+
+= Importing bookmarks into Safari =
+# Start Safari
+# On the menu bar, click on the {menu File} menu and choose {menu Import Bookmarks...}.<br/> <br/>[[Image:exportingtosafari-mac-4.jpg]]<br/>
+# Find the file you saved from Firefox and click {button Import}.<br/> <br/>[[Image:exportingtosafari-mac-5.jpg]]<br/>
+Click on the {menu Bookmarks} menu to ensure all of your bookmarks have been successfully imported.

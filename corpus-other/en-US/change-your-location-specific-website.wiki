@@ -1,0 +1,45 @@
+With the Mozilla VPN extension, you can set a particular location through which you want to access a given website. This can be useful when visiting websites whose content depends on the country in which you appear to be located, such as news websites.
+
+When configured, the chosen location will override your default VPN location set in the Mozilla VPN client. Follow this guide to learn how to do this.
+{note}'''Note:''' If you have set a preference to always turn off the VPN for a specific website, ensure that the checkbox next to ''Always turn off VPN is'' unchecked. Otherwise, you will not be able to edit your preferences for that website.{/note}
+
+=Set a specific location for a website=
+#Navigate to the desired website on Mozilla Firefox.
+#In the top right corner of the browser, locate and click the Mozilla VPN extension icon.
+#Click the arrow under '''Select site location''' to expand the location selection screen.
+#;[[Image:Select site location option|width=350]]
+#Browse through the list of available server locations. You can use the search bar at the top to quickly find a specific country or city. Click the location to select it.
+#;[[Image:Location list|width=350]]
+#The new location will be displayed under ''Select site location'', along with the label ''In Use'', to help highlight that this location will override the currently selected location in the Mozilla VPN client.
+#;[[Image:New location selected|width=350]]
+#You can confirm the VPN location is set by checking the right-hand side of the URL bar, where the flag of the selected country will be displayed. When you turn on the Mozilla VPN extension from this point forward, it will connect through this location.
+;[[Image:flag icon]]
+To change your current location to a different one, simply repeat the steps above and choose another location from the dropdown list.
+
+=Reset a website's location=
+If you’ve set a custom server location for a specific website but no longer need it, resetting the location will revert the site to the default VPN settings. You can remove your stated location preference for a website through any of the following methods:
+
+==Method 1: Through the country’s icon in the URL bar==
+#Go to the website whose preferred location you want to reset.
+#On the right-hand side of the URL bar, look for the country’s flag.
+#;[[Image:flag icon]]
+#Click the flag icon and select '''Remove custom location'''.
+#;[[Image:Remove custom location url bar|width=250]]
+
+==Method 2: By resetting your site preferences==
+#Go to the website whose preferred location you want to reset.
+#In the top right corner of the Mozilla Firefox browser, open the Mozilla VPN extension.
+#Click {button Reset site preferences}.
+#;[[Image:Reset preferences|width=350]]
+
+==Method 3: By returning to the default Mozilla VPN location==
+#Go to the website whose preferred location you want to reset.
+#In the top right corner of your Firefox browser, click the Mozilla VPN extension icon.
+#Under the ''Select website location'' section, click the arrow next to the current location.
+#On the ''Select Location'' screen, select the '''Use default Mozilla VPN location''' option.
+#By doing this, you are instructing the Mozilla VPN extension to no longer set a preferred location and instead use the location that is used for your entire device, as set by the Mozilla VPN client.
+#;[[Image:Default location|width=350]]
+
+=Related articles=
+*[[Get started with the Mozilla VPN extension]]
+*[[Disable VPN protection for a specific website]]

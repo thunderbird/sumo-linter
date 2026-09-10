@@ -1,0 +1,184 @@
+<!-- modified [[Template:progressiverollout]] -->
+{note}
+'''Looking for help with Mozilla VPN?'''<br>
+This article covers Firefox’s built-in VPN feature, not the Mozilla VPN app.<br>
+If you use the Mozilla VPN app, open the app and go to '''Help''' > '''Contact support''' for assistance.<br>
+You can also visit the [https://support.mozilla.org/en-US/products/mozilla-vpn Mozilla VPN support page].
+{/note}
+{note}
+[[Image:progressive rollout banner]]
+The built-in VPN is being introduced to the Firefox user base in stages, through a progressive rollout that includes users in {for fx151}Australia, Austria, Belgium, Bulgaria, Canada, Chile, Colombia, Denmark, Finland, France, Germany, {for fx152}Japan,{/for} Ireland, Italy, Malaysia, Mexico, Netherlands, New Zealand, Norway, Poland, Portugal, Singapore, South Africa, Spain, Sweden, Switzerland, Thailand, United Kingdom and United States. Check [[#w_what-regions-currently-support-built-in-vpn|below]] for the current list of available regions{/for}{for =fx150}the US, the UK, Germany, France and Canada{/for}{for not fx150}the US, the UK, Germany and France{/for}. It may not be available to you yet, even if you’re in one of these locations, as the staged rollout takes time to reach everyone. Additionally, [[Manage remote improvements settings in Firefox|remote improvements]] must be enabled.
+{/note}
+VPN is a built-in Firefox feature that adds privacy by routing your browser traffic through a secure proxy server and masking your IP address. The feature includes a monthly data limit of 50 GB. Firefox will notify you when you are approaching this limit with a prompt in the browser. It is available to a limited set of users during the initial rollout, starting with [[Find what version of Firefox you are using|Firefox version]] 149.
+
+Unlike [https://www.mozilla.org/products/vpn/ Mozilla VPN], which protects your entire device, the built-in VPN only masks traffic that originates in Firefox. It's free to use and doesn’t require a subscription.
+
+To use VPN, you need to sign in with a Mozilla account. If you’re eligible, you’ll see a prompt in the Firefox toolbar inviting you to set up the feature.
+{note}'''Enterprise note:''' This feature is not available in enterprise environments and is not being rolled out to users with enterprise policies. Organizations can use the <code>BlockAboutConfig</code> policy to prevent manual enablement of this and other unavailable features. To prevent enabling just this feature, use the new <code>IPProtectionAvailable</code> policy, available since Firefox version 149.0.1 released April 7, 2026.{/note}
+
+__TOC__
+
+=Turn on VPN in Firefox=
+#'''Look for the VPN setup prompt''' in the top-right corner of your Firefox toolbar. If you don't see it, click the VPN icon [[Image:VPNtoolbarIcon-Off]] in the toolbar.
+#*Click {button Get started} to begin the setup process.
+#;[[Image:Fx153TryVPN|width=400]]
+#;{note}'''Note:''' This prompt may appear twice. If you choose '''No thanks''' on the second prompt, the VPN icon will be removed from the toolbar. (You can [[Customize Firefox controls, buttons and toolbars|customize the toolbar]] to add it back.){/note}
+#'''Sign in or create a Mozilla account'''
+#*A page will open, prompting you to sign in. Follow the instructions.
+#;[[Image:activatebuiltinvpn|width=600]]
+#*Once complete, the VPN panel will appear.
+#;[[Image:fx153firefoxvpnoff|width=600]]
+#Use the {button Turn on VPN} button in the VPN panel to turn the feature on.
+#*If you don’t see the panel, click the VPN icon in the toolbar.
+#'''Activate/Deactivate VPN'''
+#*Use the toggle switch in the VPN panel to enable or disable the VPN for a specific site in Firefox.
+#;[[Image:vpnlocation2|width=400]]
+Firefox will route your web traffic through the best available server.
+
+{for fx151}
+=Choose a VPN location=
+{note}'''Note:''' Built-in VPN is only available in selected regions at this time. See the [[#w_common-questions|Common questions]] below for the current availability list.{/note}
+You can choose where your browsing traffic is routed from.
+
+To change location:
+#Click {button VPN} in the toolbar to open the VPN panel.
+#Select your preferred location.
+;[[Image:vpnlocation3|width=400]]
+You can choose the location that your browsing traffic is routed through. Available locations include the United States, Colombia, Germany, Japan, South Africa and Australia.
+{note}'''Note:''' More locations will be added to this list in the following months.{/note}
+You can also select {menu Recommended}, which automatically chooses the best location for your connection.
+;[[Image:vpnlocation4|width=400]]
+{/for}
+
+=Understand the 50 GB data limit=
+The built-in VPN includes a 50 GB monthly data limit.
+*Firefox will notify you as you approach the limit.
+*When you reach the limit, your VPN status will change to paused.
+*VPN protection will be unavailable until your data resets.
+Your data resets at the '''start of the next calendar month'''.
+
+If you need more data, you can subscribe to [https://www.mozilla.org/products/vpn/ Mozilla VPN] for unlimited usage.
+
+=Disable VPN in Firefox=
+While you can activate/deactivate VPN for specific sites in Firefox, you can also completely disable it.
+#Open the VPN panel from the toolbar.
+#Click the {button Turn off VPN} button.
+#;[[Image:fx153firefoxvpn2|width=400]]
+
+=Manage website settings=
+If you don’t want to access certain websites with VPN, you can add them to an exception list.
+#[[T:optionspreferences]]
+#Go to {menu Privacy and Security} and go down to the '''VPN''' section.
+#*Alternatively, you can open the VPN panel from the toolbar and select {menu [[Image:IG settings]] Settings}.
+#Click {button Manage website settings}.
+#;[[Image:managewebsitesettingsfirefox|width=600]]
+#Add the websites you want to exclude from VPN.
+#;[[Image:managewebsitesettings|width=600]]
+#Click {button Save Changes}.
+If you want to remove the websites from the list:
+#Select the website you want to remove from the list.
+#Click the {button Remove website} button.
+#Alternatively, you can also click {button Remove all websites}.
+
+=Common questions=
+{for fx151}
+==What regions currently support built-in VPN?==
+Built-in VPN is currently available in the following regions:
+{for not fx152}
+*Australia
+*Austria
+*Belgium
+*Bulgaria
+*Canada
+*Chile
+*Colombia
+*Denmark
+*Finland
+*France
+*Germany
+*Ireland
+*Italy
+*Malaysia
+*Mexico
+*Netherlands
+*New Zealand
+*Norway
+*Poland
+*Portugal
+*Singapore
+*South Africa
+*Spain
+*Sweden
+*Switzerland
+*Thailand
+*United Kingdom
+*United States
+{/for}
+{for fx152}
+*Australia
+*Austria
+*Belgium
+*Bulgaria
+*Canada
+*Chile
+*Colombia
+*Denmark
+*Finland
+*France
+*Germany
+*Japan
+*Ireland
+*Italy
+*Malaysia
+*Mexico
+*Netherlands
+*New Zealand
+*Norway
+*Poland
+*Portugal
+*Singapore
+*South Africa
+*Spain
+*Sweden
+*Switzerland
+*Thailand
+*United Kingdom
+*United States
+{/for}
+{note}'''Note''': Availability is expanding gradually and may not yet be available to all users within supported regions.{/note}
+{/for}
+==Are any websites excluded from VPN protection?==
+Some essential Mozilla services are excluded from VPN routing to ensure sign-in, VPN reconnection, and screens needed to sign in for public Wi-Fi work properly. All other browsing activity in Firefox remains protected when the VPN is on.
+
+==Can I use Firefox normally with VPN on?==
+Yes. VPN doesn’t affect your browsing experience. However, keep in mind that the monthly data limit is 50 GB.
+
+==I’ve run out of VPN data. When will it reset?==
+Your VPN data resets at the start of each calendar month. Once it resets, you can continue using the VPN again.
+
+==Does VPN protect my whole device?==
+No. The built-in VPN only hides your IP address and location while browsing in Firefox. It does not protect traffic from other apps on your device. For full-device protection, we offer [https://www.mozilla.org/products/vpn/ Mozilla VPN].
+
+==How does Mozilla handle my data?==
+We collect technical data needed to provide, maintain, and ensure the performance and stability of the service, as well as interaction data to understand usage of the feature and help guide improvements. For example, we may log whether a connection succeeded or failed, or record that 2 GB of data was used on a certain day.
+
+Importantly, VPN never logs the websites you visit or the content of your communications.
+
+==What if I subscribe to Mozilla VPN?==
+The VPN is free and browser-only. If you choose to subscribe to Mozilla VPN, you’ll get device-level protection, including:
+*Encrypted traffic across all apps and services, not just Firefox.
+*Additional privacy features and customization options.
+If you're a [https://www.mozilla.org/products/vpn/ Mozilla VPN] subscriber, we recommend removing the VPN icon from the toolbar to avoid duplicate protection. On Windows, you can also install the [https://www.mozilla.org/products/vpn/ Mozilla VPN extension] to obtain even more value from your subscription.
+
+==How do I turn off or remove VPN from my toolbar?==
+Right-click the VPN icon in the toolbar and choose {menu Remove from Toolbar}. You can re-enable it later from the [[Customize Firefox controls, buttons and toolbars|Customize Toolbar]] menu.
+
+==Why am I unable to see the built-in VPN in Firefox?==
+Please see [[Unable to find the built-in VPN in Firefox]].
+
+==Where can I get help or give feedback?==
+Visit [https://support.mozilla.org/questions/new/firefox/form Mozilla Support] to ask questions and get help. Feedback can be posted on [[What is Mozilla Connect?|Mozilla Connect]], in [https://connect.mozilla.org/t5/discussions/introducing-firefox-s-built-in-vpn-ip-protection-now-in-the/td-p/120550 this discussion thread].
+
+=Related articles=
+*[[What is Mozilla VPN and how does it work?]]
+*[[Access Mozilla services with a Mozilla account]]

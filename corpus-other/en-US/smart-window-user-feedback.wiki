@@ -1,0 +1,74 @@
+Smart Window includes a feature that lets you share feedback on assistant responses with Mozilla. Your feedback helps improve Smart Window.
+{note}'''Note:''' The [[Get started with Smart Window|Smart Window]] feature will be made available gradually, starting with Firefox users in the United States and Canada in [[Find what version of Firefox you are using|Firefox version]] 150{for fx155} and with users in France starting in Firefox version 155{/for}.{/note}
+
+__TOC__
+
+=How feedback works=
+After each response in Smart Window, you’ll see:
+*A '''thumbs-up''' button
+*A '''thumbs-down''' button
+You can use these buttons to share your feedback on the response and optionally provide more details.
+
+=Send positive feedback=
+If a response was helpful, click the thumbs-up button. In the pop-up, enter more details if you’d like. Then submit.
+;[[Image:smartfeedback1|width=500]]
+#Optionally enter your feedback.
+#Submit your feedback.
+#;[[Image:sharefeedbacksmartwindow|width=500]]
+
+=Send negative feedback=
+If a response was unhelpful or incorrect, click the thumbs-down button. In the pop-up, choose the reasons for the negative feedback and add more details if you’d like. Then submit.
+
+You can provide negative feedback for any reason. Examples include:
+*A response was wrong or misleading
+*A response was overly general or too personal
+*A response didn’t take into account your context – like the page you were viewing
+*The response was formatted strangely
+*The response was harmful, offensive, or inappropriate in some way.
+*The assistant didn’t follow your instructions
+*The assistant seemed slow
+;[[Image:sharefeedbacksmartwindow2|width=500]]
+
+=How Mozilla handles feedback data=
+Mozilla uses feedback submissions to improve Smart Window and evaluate response quality. No identifiers, such as Firefox browser IDs or IP addresses, are associated with the feedback. Only an approved group of Firefox team members can review submissions and feedback, and it’s only for product improvement and safety review purposes.
+
+Feedback data is deleted after 1 year.
+
+=What data is sent with my feedback?=
+Any feedback you submit is anonymous. We won’t know that it came from you, your browser or your computer.
+
+Here’s the data we receive when you submit feedback:
+*Your thumbs-up or thumbs-down selection
+*Any additional comments you provide with your submission
+*The contents of your chat with the Smart Window assistant, up to and including the response where you selected thumbs-up or thumbs-down
+*Any web page content referenced in the chat
+**This includes the pages you’ve visited or discussed in the chat session and any pages you’ve tagged in with the {key @} key or the {button +} button
+**'''Note:''' You can choose not to send this content by unchecking the '''Share the pages referenced in this chat'''
+*Any data around actions taken by the assistant, such as access to your open tabs or browsing history
+*Your browser language
+*The model you were using at the time
+*How long your conversation was (for example, 5 back-and-forth messages)
+*Your Firefox and Smart Window versions
+You can review the chat data that will be sent within the feedback pop-up. Only chats that you submit feedback about are sent to Mozilla for review. All your other chats stay private.
+{note}'''Note:''' Please don’t include personal or sensitive information as feedback comments.{/note}
+
+=Frequently asked questions=
+==Do I have to provide written feedback?==
+No. You can leave the written feedback field empty, but you still need to click Submit to send your feedback.
+
+==Who can see my feedback?==
+Only an approved group of Firefox team members can access feedback submissions, and only when they are working on Smart Window.
+
+==How long is feedback stored?==
+Feedback submissions are deleted after 1 year.
+
+==Can I report harmful or unsafe responses?==
+Yes. Use the thumbs-down button and select the reasons that best match your concerns. You can select more than one reason. And, you can add more details if you choose. If you do write in detail, please do not include any personal or confidential info.
+
+==Is Smart Window available worldwide?==
+No. Smart Window is currently only available to a limited number of users in the United States and Canada.
+
+=Related articles=
+*[[Get started with Smart Window]]
+*[[Is Smart Window safe and private]]
+*[[Model choices in Smart Window]]

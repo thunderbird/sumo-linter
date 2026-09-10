@@ -1,0 +1,10 @@
+Websites you or your children visit may sometimes try to download and install [[Troubleshoot Firefox issues caused by malware|malicious software]] on your computer without your approval. Firefox warns you of these attacks so you can take action against them and block suspicious content before it’s downloaded to your disk. To make sure this protection is enabled visit your Security settings:
+#[[T:optionspreferences]]
+#Click {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} on the left.
+#{for not fx152}In the ''Security'' section under '''Deceptive Content and Dangerous Software Protection''',{/for}{for fx152} Go down to ''Connection and software security'', click {menu Advanced settings} and under '''Deceptive content and dangerous software protection''',{/for} make sure the following boxes are checked:
+#;{for not fx152}[[Image:Fx89Security-DeceptiveContent]]{/for}{for fx152}[[Image:Fx152settings-DeceptiveContent]]{/for}
+#*'''Block dangerous and deceptive content''': Check this box to block potential malware or content that can trick you into downloading malware or unintentionally entering information.
+#**'''Block dangerous downloads''': Blocks potential viruses and other malware.
+#**'''Warn you about unwanted and uncommon software''': Lets you know if you're about to download potentially unwanted software or uncommon software that may contain a virus or make unexpected changes to your computer.
+
+When Firefox detects you've entered a suspicious site, it will display a warning in the address bar. If an unwanted, potentially harmful download is detected, a warning message will display in the Downloads panel and Firefox will block the download. To learn more, see [[How does built-in Phishing and Malware Protection work?]] and [[Where to find and manage downloaded files in Firefox#w_download-protection|Download protection for downloaded files in Firefox]].

@@ -1,0 +1,90 @@
+Firefox checks a website’s security certificate to ensure the site is legitimate and that your connection is [[How do I tell if my connection to a website is secure?|encrypted]]. If the certificate can’t be validated, Firefox will stop the connection and display a {for not fx149}'''“Warning: Potential Security Risk Ahead”''' page{/for}{for fx149}security error page with the message, ''Be careful. Something doesn't look right.''{/for}.
+
+This article explains what the most common related error codes mean – SEC_ERROR_UNKNOWN_ISSUER, MOZILLA_PKIX_ERROR_MITM_DETECTED and ERROR_SELF_SIGNED_CERT – and how to troubleshoot them. See [[What do the security warning codes mean?]] for other {for not fx149}“Warning: Potential Security Risk Ahead”{/for}{for fx149}security risk{/for} error codes.
+{note}'''Note:''' In recent [[Find what version of Firefox you are using|Firefox versions]], some certificate errors can no longer be bypassed for security reasons. If you don’t see {for not fx149}{button Accept the Risk and Continue}{/for}{for fx149}{button Proceed to <website> (Risky)}{/for} when you click the {for not fx149}{button Advanced…}{/for}{for fx149}{button Advanced}{/for} button, see the section [[#w_when-you-cant-bypass-the-warning|When you can’t bypass the warning]].{/note}
+
+__TOC__
+
+=Understand the error code=
+#On the warning page, click the {for not fx149}{button Advanced…}{/for}{for fx149}{button Advanced}{/for} button.
+#;{for not fx149}[[Image:Fx148WarningPotentialSecurityRiskAhead-untrustedroot]]{/for}{for fx149}[[Image:Fx149BetaWarning-SecurityRiskUntrustedRoot]]
+#Check the error code displayed.
+#If you see one of the following:
+#*'''SEC_ERROR_UNKNOWN_ISSUER''' or '''MOZILLA_PKIX_ERROR_MITM_DETECTED''': An untrusted authority issued the certificate.
+#*'''ERROR_SELF_SIGNED_CERT''': The site uses a self-signed certificate.
+{for not fx149}[[Image:Fx148WarningPotentialSecurityRiskAhead-untrustedrootAdvanced]]{/for}{for fx149}[[Image:Fx149BetaWarning-SecurityRiskUntrustedRootAdvanced]]{/for}
+
+=If the error occurs on multiple secure sites=
+This usually means something on your device or network is intercepting secure connections and replacing website certificates. Common causes include:
+*Antivirus software scans encrypted connections
+*Corporate network monitoring tools
+*Malware
+
+==Check your antivirus settings==
+===Avast/AVG===
+#Open the Avast or AVG dashboard.
+#Go to {menu Menu} → {menu Settings} → {menu Protection} → {menu Core Shields}.
+#Under {menu Web Shield}, uncheck {button Enable HTTPS Scanning}.
+#;In older versions of the product, you'll find the corresponding option when you go to {menu Menu} > {menu Settings} > {menu Components} and click {button Customize} next to {menu Web Shield}.
+#Confirm and restart Firefox.
+{note}See the Avast support article [https://support.avast.com/en-us/article/189/ Managing HTTPS scanning in Web Shield in Avast Antivirus] for details. More Information about this feature is available on this [https://blog.avast.com/2015/05/25/explaining-avasts-https-scanning-feature/ Avast Blog].{/note}
+
+===Bitdefender===
+#Open the Bitdefender dashboard.
+#Go to {menu Protection} → {menu Online Threat Prevention} → {menu Settings}.
+#Toggle off the {pref Encrypted Web Scan} setting.
+#;In older versions of the product, you can find the corresponding option labelled {pref Scan SSL} when you go to {menu Modules} > {menu Web Protection}.
+{note}In Bitdefender Antivirus Free, it's not possible to control this setting. You can try to [https://www.bitdefender.com/support/repairing-or-removing-bitdefender-free-edition-1160.html repair or remove the program] instead, when you have problems accessing secure websites.{/note}
+For corporate Bitdefender products, refer to the [http://www.bitdefender.com/support/how-to-enable-ssl-https-scanning-in-cloud-security-for-endpoints-1117.html Bitdefender Support Center page].
+
+===Bullguard===
+#Open the Bullguard dashboard.
+#Go to {menu Settings} → {pref Advanced} → {menu Antivirus}.
+#In the safe {menu Safe browsing} section, uncheck the {menu Show safe results} option for those websites that are showing errors.
+
+===ESET===
+Follow the steps in [http://support.eset.com/kb3126/ ESET’s support article] to disable and re-enable SSL/TLS protocol filtering.
+
+===Kaspersky===
+#Open the Kaspersky dashboard.
+#Go to {menu Settings} → {menu Additional} → {menu Network}.
+#In the {menu Encrypted connections scanning}, select {pref Do not scan encrypted connections}.
+#Restart your system.
+{note}Affected users of Kaspersky should upgrade to the most recent version of their security product, as Kaspersky 2019 and above contain mitigations for this problem. The [https://www.kaspersky.com/downloads Kaspersky Downloads page] includes “update” links that will install the latest version free of charge for users with a current subscription.{/note}
+
+===Check for corporate network interception===
+If you’re on a work network, your IT department may need to add the interception certificate to Firefox’s trust store. See [https://wiki.mozilla.org/CA:AddRootToFirefox CA:AddRootToFirefox] for instructions.
+
+===Scan for malware===
+Some malware can intercept secure connections. See [[Troubleshoot Firefox issues caused by malware]].
+
+=If the error occurs on one site only=
+Likely causes:
+*Server misconfiguration
+*Missing intermediate certificate
+*Self-signed certificate
+If the site belongs to you, test it using [https://www.ssllabs.com/ssltest SSL Labs] and correct any “Chain issues: Incomplete” results.
+
+=When you can’t bypass the warning=
+You won’t see {for not fx149}''Accept the Risk and Continue''{/for}{for fx149}''Proceed to <website> (Risky)''{/for} if:
+*The site uses [https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Description HTTP Strict Transport Security] (HSTS).
+*The certificate has certain critical errors.
+*Your Firefox is managed by an enterprise policy that disables bypasses.
+For major sites (such as banks and email providers), bypassing is never allowed, as it could indicate your connection is compromised.
+
+=About permanent exceptions=
+Firefox does not allow permanent certificate exceptions for most sites, especially on the public internet. For local network sites (LAN), the safest approach is to:
+*Install a valid certificate from a trusted authority, or
+*Manually add your server’s certificate to Firefox’s certificate store.
+{warning}'''Warning:''' Permanent exceptions weaken your security. Only use them for internal, controlled networks.{/warning}
+
+=Bypass the warning (when available)=
+If Firefox allows it:
+#On the warning page, click {for not fx149}{button Advanced…}{/for}{for fx149}{button Advanced}{/for}.
+#Click {for not fx149}{button Accept the Risk and Continue}{/for}{for fx149}{button Proceed to <website> (Risky)}{/for}.
+
+=Related articles=
+*[[Secure connection and security warning error pages in Firefox]]
+*[[Troubleshoot Firefox issues caused by malware]]
+*[[What do the security warning codes mean?]]
+*[[Troubleshoot time-related errors on secure websites]]

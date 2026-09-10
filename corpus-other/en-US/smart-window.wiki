@@ -1,0 +1,223 @@
+{note}This feature is an early beta and will be gradually made available to the Firefox user base, starting with users in the United States and Canada in [[Find what version of Firefox you are using|Firefox version]] 150. {for fx155}Smart Window will be available to users in France, starting in Firefox version 155. {/for}If you’re interested in being a part of the early access program, you can sign up for the [https://www.firefox.com/en-US/smart-window/?view=waitlist waitlist].{/note}
+Smart Window is an optional window type in Firefox that includes a built-in, AI-powered assistant to help you work with your tabs and browsing history. It is available in Firefox for desktop and requires you to sign in with a [[Access Mozilla services with a Mozilla account|Mozilla account]].
+
+__TOC__
+
+=Smart Window overview=
+Smart Window works like a regular Firefox window, but includes additional features to help you browse more efficiently.
+
+==Built-in assistant==
+The built-in assistant helps you do more with your tabs. It can:
+*Summarize pages
+*Generate recommendations
+*Compare information
+*Plan tasks using your open tabs
+You can start a chat with the assistant right from the New Tab or in the sidebar while you’re viewing a page. Chats are saved automatically. Get back to your saved chats from the bottom of New Tab or by choosing chats in the application menu. Delete chats anytime.
+
+Plus, you can choose which model powers the assistant based on what’s important to you. Learn more about [[Model choices in Smart Window|models]].
+
+=Memories=
+You can personalize your Smart Window experience by allowing Firefox to learn from patterns in your activity to create memories.
+*Memories can be based on your chats in Smart Window, and your browsing activity in Smart and Classic Windows.
+*Memories are optional, and they’re stored locally on your device to help protect your privacy.
+*You can view, delete or turn them off anytime.
+Memories help the assistant provide more custom responses over time. Learn more about [[Memories in Smart Window|memories]].
+{note}'''Note:''' Smart Window does not have access to activity and data from Private Windows. None of your activity there is used to create memories.{/note}
+
+=Access Smart Window=
+You can open a new Smart Window or switch an existing Classic Window to a Smart Window.
+
+==Open a new Smart Window==
+#Click the menu [[Image:IG main menu]] button.
+#Select {button New Smart Window}.
+All your open tabs in the window stay intact, and the window type switches.
+
+==Switch a Classic Window to Smart Window==
+#In a Classic Window, click the menu [[Image:IG main menu]] button.
+#Select {button Smart Window}.
+{note}'''Note:''' You can keep any combination of Classic, Smart and Private Windows open at the same time. You can switch between Smart and Classic Windows as much or as little as you’d like.{/note}
+
+==Use Smart Window by default==
+Starting in [[Find what version of Firefox you are using|Firefox version]] 151.0.2, you can set Smart Window as your default Firefox window type.
+
+When enabled, Firefox automatically opens Smart Window for:
+*Browser launch
+*Browser restart
+*Links opened from other applications
+If Smart Window is unavailable or disabled, Firefox automatically falls back to a Classic window. Before enabling this setting, Smart Window must already be enabled, and the onboarding must be completed.
+
+If Smart Window is not available, the setting will be hidden or disabled.
+{note}'''Note''': Smart Window is currently only available for '''en-US''', '''en-CA''' and '''fr''' users.{/note}
+
+===Set Smart Window as the default window type===
+#[[Template:optionspreferences]]
+#Select {menu AI Controls}.
+#Open {menu Smart Window settings}.
+#Turn on '''Use Smart Window by default'''.
+#;[[Image:smartwindowdefault|width=500]]
+Your preference is saved automatically and remains enabled across browser sessions.
+
+=Use the assistant=
+You can start a chat from New Tab or from the sidebar while viewing a page.
+
+==Start a chat from New Tab==
+#Open a New Tab in a Smart Window.
+#Type your question into the assistant entry box.
+#Press {key Enter} to send.
+
+==Start a chat from the sidebar while viewing a page==
+#Click the {button Ask} button in the upper-right corner to open the sidebar.
+#Type your question and send it.
+#Click the {button Ask} button again to close the sidebar.
+
+{for fx153}
+==The assistant may search the web==
+[[Image:smartwindowsassistant]]
+Sometimes the assistant needs more information to answer your question well. For example, it may need to check something current, look up a specific fact, or find information that is not available in its training data or your active web content, like open tabs or the current page.
+
+When this happens, the assistant automatically searches the web with Exa as part of answering your question. You do not need to turn this on.
+
+You may notice this when you ask about:
+*Current events or topics that may have changed recently
+*Specific facts, figures or details the assistant needs to verify
+*Topics that are not covered by your current page, open tabs, browsing history or memories
+
+===What you’ll see===
+When the assistant searches the web:
+*It runs a search related to your question through Exa ([https://exa.ai/ learn more]).
+*It reads relevant pages returned by that search.
+*It uses information from those pages to help write its response.
+
+===Learn more about Exa===
+Exa is Mozilla’s search partner for this Smart Window feature. Learn more about Exa on [https://exa.ai/ Exa’s website].
+{/for}
+{for fx155}
+==Manage tabs with the assistant==
+You can ask the assistant to organize your open tabs into groups, or close tabs you don't need, using natural language.
+#Open the assistant from '''New Tab''' or the sidebar.
+#Type a request, such as:
+#*"Group my tabs about travel"
+#*"Group tabs like this one"
+#*"Close my tabs about travel"
+#Press {button Enter} to send your request.
+The assistant names new groups based on the tabs' content, or uses the name you give it.
+;[[Image:fx155smartwindowassistant]]
+{/for}
+
+=Add pages as context=
+In the sidebar, the assistant automatically uses the page you are currently viewing as context. You can also add other recent pages as context.
+#Click in the entry box.
+#Select the {button +} button, or type '''@'''.
+#Choose one or more recent tabs to include.
+#Send your question.
+
+==Ideas for what to ask==
+How you use Smart Window’s built-in assistant is completely up to you. Here are some ideas for what you can do and prompts to try.
+{note}'''Note:''' If learning from your activity is turned on, the assistant may use memories to personalize responses when it makes sense.{/note}
+
+{|
+!If you want…!!Prompts to try
+|-
+|Content in different formats||Summarize the main points from this page<br>Summarize this page in two sentences<br>
+List every person mentioned on this page.
+|-
+|Help understanding new topics||Define <insert term>. Use examples and metaphors to help me understand.<br>Explain the concept of <insert topic> like I’m a true beginner<br>
+Quiz me on this page. Ask 5 multiple-choice questions, one by one.
+|-
+|To compare while shopping||Compare @Tab and @Tab. Let me know which you’d recommend based on <insert your criteria here like price, ratings, quality, etc.><br>Compare the headphones I have open.
+|-
+|Help modifying recipes||I want to halve this recipe. List each ingredient and how much of each I’ll need.<br>Help me find substitutions for <ingredient name>.<br>Suggest ways to make this recipe gluten-free.
+|-
+|Find pages in history||List all the <criteria> I looked at last week<br>''For example: “List all links to Denver hotels I looked at last week.” “List the pasta recipes I looked at yesterday.”''
+|-
+|Recommendations||Recommend some new recipes for me to try<br>Recommend a <morning, evening, etc.> routine for my household<br>''For recommendations, the assistant may ask follow-up questions or rely on memories to personalize the response.''
+|}
+
+==What the assistant can’t do==
+The assistant can’t take actions on your behalf. For example, it '''can’t''':
+*Click buttons for you
+*Fill out forms
+*Complete purchases
+*Book flights or hotels
+*Change your browser settings
+*Act independently in any way
+*Sign you into sites where your credentials are saved
+In Smart Window, you’re always in control of what you do on the web. 
+
+==Usage limits==
+There are daily usage limits for chatting with the assistant. If you reach the limit, you’ll see a message letting you know. Limits reset at midnight Eastern Time.
+
+After you hit the limit, you can still browse normally in Smart Window, but you won’t be able to chat until the limit resets.
+
+=Privacy and data in Smart Window=
+{note}'''Note:''' When you use Smart Window, you’re agreeing to its Terms of Use and Privacy Policy.{/note}
+What Smart Window '''can''' access:
+*The page you’re currently viewing
+*Open tabs you reference, using the @ command or plus button in the entry box
+*History you explicitly ask about, from Classic and Smart Windows
+What Smart Window '''cannot''' access:
+*Activity and data from Private Windows
+*Passwords
+*Payment information
+*Unread emails
+*Files on your device
+How your data is handled:
+*When you chat with the assistant, your requests are sent to Mozilla servers, and then forwarded to the AI model provider. Chat data is not stored by Mozilla or by AI model providers, and the model providers see all requests as coming from Mozilla, not individual users. 
+*If needed to answer your question, Smart Window may use limited browsing context, such as page titles, URLs and page content you’ve asked it to consider.
+*If you turn on learning from your activity, Mozilla processes information from your assistant interactions and recent browsing activity on its servers to create memories, then returns those memories to your device. No data are stored on our servers and memories are stored locally on your device.
+*Chat conversations are also stored locally on your device.
+*No models used by Smart Window are trained on your data.
+
+==Turn off Smart Window==
+If you try Smart Window and later decide you do not want to use it, you can block it in Firefox settings.
+#[[Template:optionspreferences]]
+#Select {menu AI controls}.
+#Next to '''Smart Window''', select {menu Blocked}.
+
+=Frequently asked questions=
+==How do I provide feedback about responses?==
+Please [https://connect.mozilla.org/t5/discussions/smart-window-beta-feedback/td-p/122365 report any issues] you may have with Assistant responses in [[What is Mozilla Connect?|Mozilla Connect]].
+
+==Who can see my chats and memories?==
+Chats and memories are stored locally on your device, just like your browsing history. That means only you can see them. If you share your device with others, they may see your chats and memories too. Learn more in the [[#w_privacy-and-data-in-smart-window|Privacy and data in Smart Window]] section above.
+
+==Are chats and memories synced across devices?==
+Right now, no. Chats and memories cannot be synced across devices.
+
+==Is my browsing activity in Smart Window separate from other windows?==
+Memories can be created from your chats, as well as anything stored in your browser history – including activity from both Classic and Smart Windows. Browsing in Private Windows is always separate, and your activity there is never remembered.
+
+==I don’t want the assistant sidebar to open on each tab. What can I do?==
+You can update your settings so that the assistant sidebar is closed by default. [[Template:optionspreferences]] Select {menu AI controls}, go to ''Smart Window'' and click {button Smart Window settings}. Under ''Default settings'', uncheck '''Open assistant automatically'''. Then, to use the assistant on any tab, select {button Ask}.
+
+==I don’t want this in my Firefox. What can I do?==
+If you don’t want to see any access points to '''Smart Window''' in Firefox, you can turn it off. [[Template:optionspreferences]] Select {menu AI controls} and choose '''Blocked''' next to ''Smart Window''.
+
+If you’ve already chosen '''Block AI enhancements''' at the top of ''AI Controls'', it will already be blocked.
+
+==How is the built-in assistant different than the AI chatbot in the sidebar?==
+In Classic and Private Windows, sidebar AI chatbots powered by ChatGPT, Gemini and Copilot do not have access to your browsing history and can’t see your open tabs.
+
+In Smart Window, the built-in AI assistant does have access to your browsing history, can learn from your activity if you choose to create memories and personalize responses, and can see your recent and open tabs, to answer questions about the pages.
+
+==Are there any hardware requirements to use Smart Window?==
+Smart Window uses on-device models to power some of its features. This means you’ll need 4 GB or more of available RAM for some parts of Smart Window to work as intended.
+
+You can still use Smart Window if you don’t meet this requirement. However, memories won’t be used to personalize responses and the assistant’s ability to search your history may be limited.
+
+==Why doesn’t New Tab have an address bar?==
+On New Tab, the single-entry box is multi-purpose and works as an address bar. You can type or paste a URL into the entry box the same as you would an address bar at the top of other windows. 
+
+==Why can’t I customize New Tab?==
+For now, customization options for Smart Window are limited. We expect to make it more customizable over time, as we learn more about how people use it.
+
+==Why doesn’t my chosen theme work?==
+For now, Smart Window has its own built-in themes – one light and one dark – that work based on your system settings. We expect to make Smart Window compatible with more themes over time.
+
+=Related articles=
+*[[Access Mozilla services with a Mozilla account]]
+*[[Is Smart Window safe and private]]
+*[[Memories in Smart Window]]
+*[[Custom Models in Smart Window - Bring your own endpoint]]
+*[[Model choices in Smart Window]]
+*[[Send feedback about Smart Window]]

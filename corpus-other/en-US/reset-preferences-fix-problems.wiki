@@ -1,0 +1,13 @@
+Resetting preferences (tabs, zoom, privacy, network, updates, and where to save file downloads, for example) is one of many procedures that can be helpful in [[Troubleshoot and diagnose Firefox problems|troubleshooting Firefox problems]]. We'll explain two ways to do this. 
+*If changes to preference settings are not saved when you restart Firefox, see [[Preferences are not saved]].
+
+__TOC__
+
+= Solution 1: Refresh Firefox =
+The refresh feature restores Firefox to its default state while saving your essential information. This solution will reset preferences but will also remove other customizations, including added [[Find and install add-ons to add features to Firefox|extensions and themes]]. For more information, see [[Refresh Firefox - reset add-ons and settings]].
+
+=Solution 2: Delete Firefox preference files=
+#[[Template:OpenProfileFolder]]
+#[[Template:closeFirefox]]
+#Locate and delete the file {filepath prefs.js} (or rename it, for example, to  ''prefs.jsOLD'', to keep the old file as a backup). If you find more than one, a {filepath prefs.js.moztmp} file or a {filepath user.js} file, delete (or rename) these as well.
+#You can close the profile folder and open Firefox now.

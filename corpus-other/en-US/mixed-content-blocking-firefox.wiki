@@ -1,0 +1,48 @@
+Firefox protects you from attacks by blocking potentially harmful, insecure content on web pages that are supposed to be secure. Keep reading to learn more about mixed content and how to tell if Firefox has blocked it.
+
+__TOC__
+
+=What is mixed content and what are the risks?=
+HTTP is a system for transmitting information from a web server to your browser. HTTP is not secure, so when you visit a page served over HTTP, your connection is open for eavesdropping and [https://wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle attacks]. Most websites are served over HTTP because they don't involve passing sensitive information back and forth and do not need to be secured.
+
+When you visit a page fully transmitted over HTTPS, such as your bank, you'll see a {for not fx149}padlock icon [[Image:Fx89Padlock]]{/for}{for fx149}shield icon [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} in the address bar (for details, see [[How do I tell if my connection to a website is secure?]]). This means that your connection is authenticated and encrypted, and thus safeguarded from both eavesdroppers and man-in-the-middle attacks.
+
+However, if the HTTPS page you visit includes HTTP content, the HTTP portion can be read or modified by attackers, even though the main page is served over HTTPS. When an HTTPS page has HTTP content, we call that content “mixed”. The page you are visiting is only partially encrypted and even though it appears to be secure, it isn't. For more information about mixed content (active and passive), see [https://blog.mozilla.org/tanvi/2013/04/10/mixed-content-blocking-enabled-in-firefox-23 this blog post].
+{warning}'''What are the risks of mixed content?''' An attacker can replace the HTTP content on the page you're visiting in order to steal your credentials, take over your account, acquire sensitive data about you, or attempt to install malware on your computer.{/warning}
+
+=How can I tell if a page has mixed content?=
+There are two types of mixed content: mixed passive/display content and mixed active content. The difference lies in the threat level. Look for a {for not fx149}padlock{/for}{for fx149}shield{/for} icon in your address bar to determine whether the page has mixed content.
+
+{for not fx149}[[Image:Fx138AddressBarPadlock]]{/for}{for fx149}[[Image:Fx149UnifiedTrustAddressbar-Secure]]{/for}
+{note}'''Note:''' The shield icon {for not fx149}[[Image:Fx89ShieldIcon]]{/for}{for fx149}[[Image:Fx149UnifiedTrustIcon-Secure]]{/for} in the address bar{for fx149} also{/for} tells you which trackers have been blocked on a website. See [[Enhanced Tracking Protection in Firefox for desktop]] for more information.{/note}
+
+==No mixed content: secure==
+{for not fx149}
+*[[Image:Fx89Padlock]] You’ll see a padlock when you are on a fully secure (HTTPS) page. To see if Firefox has blocked parts of the page that are not secure, click the padlock.{for not fx139} For more information, see the [[#w_unblock-mixed-content|Unblock mixed content]] section below.{/for}
+{/for}
+{for fx149}
+*[[Image:Fx149UnifiedTrustIcon-Secure]] You’ll see this shield icon when you are on a fully secure (HTTPS) page. To see if Firefox has blocked parts of the page that are not secure, click the shield.
+{/for}
+
+==Mixed content is not blocked: not secure==
+{for not fx149}
+*[[Image:Fx89Padlock-RedLine]] If you see a padlock with a red line over it, the page contains mixed active content and Firefox is not blocking insecure elements. That page is open to eavesdropping and attacks where your personal data from the site could be stolen. You shouldn’t see this icon on a secure (HTTPS) website{for not fx139} unless you’ve unblocked mixed content using the instructions in the [[#w_unblock-mixed-content|Unblock mixed content]] section below{/for}. '''Note:''' A padlock with a red line is also shown on unencrypted (HTTP) websites.
+{/for}
+{for fx149}
+*[[Image:Fx149UnifiedTrustIcon-NotSecure]] If you see a shield with a red line over it, the page contains mixed active content and Firefox is not blocking insecure elements. That page is open to eavesdropping and attacks where your personal data from the site could be stolen. You shouldn’t see this icon on a secure (HTTPS) website.  '''Note:''' A shield with a red line is also shown on unencrypted (HTTP) websites.
+{/for}
+
+Firefox automatically upgrades insecure passive content, such as images, whenever possible, by modifying the origin from http to https. <!--https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Mixed_content#upgradable_content --> If the insecure content cannot be upgraded it will be blocked. For more information about mixed active and passive content, see [https://developer.mozilla.org/docs/Web/Security/Mixed_content this MDN Web Docs article].
+
+{for not fx139}
+=Unblock mixed content=
+Unblocking insecure elements is not recommended but can be done, if necessary:
+#Click the padlock icon [[Image:Fx89Padlock]] in the address bar.
+#Click the arrow in the [[Site Information panel|Site Information]] panel:
+#;[[Image:Fx89MixedContent]]
+#Click {button Disable protection for now}.
+#;[[Image:Fx89MixedContent-Unblock]]
+To enable protection, follow the preceding steps and click {button Enable protection}.
+{warning}'''Warning:''' Unblocking mixed content can leave you vulnerable to attacks.{/warning}
+{/for}
+{note}'''Developers:''' If your website is generating security errors because of insecure content, see [https://developer.mozilla.org/docs/Web/Security/Mixed_content#developer_console Mixed content (Developer console)] at MDN Web Docs.{/note}

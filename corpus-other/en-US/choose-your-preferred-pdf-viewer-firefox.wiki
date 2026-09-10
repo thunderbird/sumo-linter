@@ -1,0 +1,47 @@
+When Firefox is set as the default PDF viewer, it automatically opens PDF files in the built-in viewer. However, you can choose to use another application to view your downloaded PDF files. This article will guide you on how to open PDF files with a different viewer, set another viewer as the default, or configure Firefox to always ask which viewer to use.
+
+__TOC__
+
+=Use a different PDF viewer for a specific PDF file=
+You can choose to use another application to view a specific PDF file, by following these steps.
+#Open the [[Where to find and manage downloaded files in Firefox|Downloads panel]] by clicking the download icon [[Image:Fx91DownloadsButton]] next to the address bar.
+#[[Template:contextmenu]] the PDF file you want to open in a different viewer.
+#Click the option to open with your system’s default PDF viewer.
+*For example, select {for win,linux}{menu Open in Adobe Acrobat Reader DC}{/for}{for mac}{menu Open in Preview}{/for}.
+;{for win,linux}[[Image:Fx99DownloadsPanel-PDFcontextmenu-Win]]{/for}{for mac}[[Image:Edit PDF 2]]{/for}
+{note}'''Note:''' To open a downloaded PDF file in another application:
+#Open the Downloads panel or Library window as described above.
+#Click the {for win,linux}file folder icon [[Image:Fx91DownloadsPanel-OpenFolderIcon]]{/for}{for mac}magnifying glass icon [[Image:MagnifyingGlass]]{/for} next to the PDF file entry. This will open the folder containing the downloaded file.
+#[[Template:contextmenu]] the file, select {menu Open with}, and choose the PDF viewer application you wish to use.
+{/note}
+
+=Choose another PDF viewer to use by default or set Firefox to always ask=
+{note}'''Note:''' When you choose another PDF viewer to use by default in Firefox, or if you set Firefox to always ask you what to do with PDF files, any PDF files you open will also be saved to your Downloads folder (see [[Where to find and manage downloaded files in Firefox]]).{/note}
+
+==Disable the built-in PDF viewer and use another viewer==
+{note}
+'''Note:''' If Firefox is not your current default PDF viewer, you will be prompted to set it as the default when opening a PDF file in Firefox.<br>
+[[Image:Set FF as default PDF viewer prompt]]
+{/note}
+You can also set a different third-party PDF viewer to handle PDF files instead of Firefox’s built-in PDF viewer. To switch from using the built-in PDF viewer to another viewer:
+#[[T:optionspreferences]]
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Downloads}{/for} page, scroll down to the {for not fx152}'''Applications'''{/for}{for fx152}{menu Files and applications}{/for} section.
+#Find '''Portable Document Format (PDF)''' in the list and click the entry to select it.
+#Click the arrow under the ''Action'' column for the above entry and select the PDF viewer you wish to use from the drop-down menu.
+;{for mac}[[Image:Edit PDF 3]]{/for}{for linux}[[Image:Fx78Applications-PDF]]{/for}{for win}{for not fx152}[[Image:Fx78Applications-PDF-Win]]{/for}{for fx152}[[Image:fx152filesandapplications]]{/for}{/for}
+{note}'''Note:''' When {menu Open in Firefox} is the selected action, the built-in PDF viewer is used.{/note}
+
+==Set Firefox to ask you what to do with PDF files==
+If you want Firefox to always ask you what to do with PDF files, follow the above steps to change the action for the '''Portable Document Format (PDF)''' entry, except select {menu Always ask} from the drop-down menu. The next time you click a link to download a PDF file, Firefox will show you a prompt asking what to do with the file. You can then choose to open it with Firefox's built-in PDF viewer, open it with a different PDF application, or you can choose to save the file.
+;[[Image:Fx78openingPDF-AlwaysAsk]]
+For more information, see [[Manage file types and download actions in Firefox]].
+
+=Troubleshoot problems with the PDF viewer=
+*With certain types of PDF files, the PDF Viewer may have problems displaying fonts, colors, or the entire document. If some PDF files don't render well or are blank, click the download button on the right side of the document header to open it with the default PDF viewer application on your computer.
+*If you can't open any PDF files with the built-in PDF viewer, a Firefox extension could be the cause. You can disable all of your extensions to see if one of them was the problem. For details, see [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems#w_disable-all-extensions]].
+
+
+=Related articles=
+*[[View and edit PDF files using Firefox’s built-in viewer]]
+*[[Add alt text to images in your PDFs using Firefox]] 
+*[[How to print web pages in Firefox]]

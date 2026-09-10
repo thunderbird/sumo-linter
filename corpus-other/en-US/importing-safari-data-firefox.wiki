@@ -1,0 +1,22 @@
+{for win,linux}{note}'''Note:''' This article only applies to Mac.{/note}{/for}
+Firefox allows you to easily and safely [[Import data from another browser|import data from other browsers]], such as bookmarks, browsing history, and custom preferences.
+
+__TOC__
+
+=Start the Import process=
+Click {menu File} in Menu bar at the top of the screen and select {menu Import from Another Browser…}.
+==Import from Firefox Settings==
+You can also import your Safari bookmarks and other data from the Firefox Settings panel:
+#[[Template:optionspreferences]]
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Account and sync}{/for} page, click on {button Import Data} under the ''Import browser data'' section.
+#;{for not fx151}[[Image:Import data|width=800]]{/for}{for =fx151}[[Image:Fx151ImportBrowserData]]{/for}{for fx152}[[Image:Fx152ImportBrowserData]]{/for} 
+The Import Wizard will open.
+
+=Choose data and complete the import=
+#In the Import Wizard window that appears, select the Safari profile and the data you wish to import from Safari and click {button import}.
+#;[[Image:Firefox_Safari Import_Step 1|width=350]] 
+#Follow the prompts on-screen to import bookmarks, browsing history and passwords
+#;[[Image:Firefox_Safari Import_Step 2|width=350]] 
+#;{for not fx154}[[Image:Firefox_Safari Import_Step 3|width=350]]{/for}{for fx154}[[Image:Firefox_Safari Import_Step 3154|width=350]]{/for} 
+#All set! Click {button Done} to wrap up the import.
+#;[[Image:Firefox_Safari Import_Step 4|width=350]]

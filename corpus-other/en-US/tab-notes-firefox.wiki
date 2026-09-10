@@ -1,0 +1,75 @@
+Tab Notes let you attach a short note to a web page. You can use them to remember why you opened a page, what you planned to do next, or any details you want to revisit later.
+
+Notes stay connected to the page’s URL. When you return to that page, your note reappears automatically.
+{note}'''Note:''' Tab Notes is an experimental feature available in [[Firefox Labs - Explore experimental features in Firefox|Firefox Labs]], starting in [[Find what version of Firefox you are using|Firefox version]] 149.{/note}
+
+__TOC__
+
+=Turn on tab notes=
+Tab notes are currently available through Firefox Labs.
+#[[Template:optionspreferences]]
+#Select {menu Firefox Labs}.
+#Turn on {menu Tab notes}.
+;[[Image:Fx149FirefoxLabs-TabNotes|width=600]]
+
+=Add a note to a page=
+You can add a note in two ways.
+==Option 1: From the tab context menu==
+#[[Template:contextmenu]] a tab.
+#Select {menu Add Note}.
+#Enter your note.
+#Click {button Save}.
+;[[Image:tabcontextmenu|width=300]]
+
+==Option 2: From the tab hover preview==
+#Hover over a tab.
+#Click {menu Add Note} in the preview panel.
+#Enter your note.
+#Click {button Save}.
+;[[Image:tabhoverpreview1|width=300]]
+
+=Tell whether a page has a note=
+When you save a note:
+*A '''note icon''' appears on the tab.
+*Hovering over the tab shows the note preview.
+;[[Image:tabwithnoteicon|width=500]]
+
+=View a note=
+#Hover over a tab that shows the note icon.
+#The first 350 characters appear in the preview.
+#If the note is longer, click '''Read more''' to see the full text.
+
+=Edit a note=
+You can edit a note from the tab context menu:
+#[[Template:contextmenu]] the tab.
+#Select {menu Update Note} and then {menu Edit Note}.
+#Make your changes.
+#Click {button Save}.
+;[[Image:editnoteoption|width=300]]
+
+=Delete a note=
+From the tab context menu:
+#[[Template:contextmenu]] the tab.
+#Select {menu Update Note} and then {menu Delete Note}.
+;[[Image:deletenoteoption|width=300]]
+
+=How notes behave=
+Tab Notes are connected to a page’s URL and maintain this association until you delete them. Here’s what that means:
+*'''If you navigate within the same page''' (for example, by clicking a link that jumps to a section on the same page), the note icon stays.
+*'''If you navigate to a different URL in the same tab''', the note icon disappears.
+*'''If you come back later''', the note icon reappears when you:
+**Reopen a closed tab that loads a URL that has a tab note
+**Open the page that has a tab note again from History
+**Restart Firefox and return to a page that has a tab note
+
+=Known limitations=
+*Notes work only on pages that start with <code>http://</code> or <code>https://</code>.
+*Notes are limited to 1,000 characters.
+*Notes created in a private window will be visible in a normal window (and vice versa).
+*Notes are not searchable from the address bar.
+*Some websites that use single-page navigation may not update notes correctly.
+
+=Related articles=
+*[[Firefox Labs - Explore experimental features in Firefox]]
+*[[Tab overview menu]]
+*[[Tab groups in Firefox]]

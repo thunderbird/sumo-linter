@@ -1,0 +1,32 @@
+Firefox's Send Tab feature lets you send pages from your computer to other devices, such as an iPhone, iPad or Android device.
+{note}'''Note:''' ''Other devices'' can also mean [[Profile Manager - Create, remove, or switch Firefox profiles|Firefox profiles]] on the same computer, if you use more than one Firefox version or profile.{/note}
+;[[Image:sync illustration]]
+
+__TOC__
+
+=Send tabs from your computer=
+#Get started by signing in to your [[Access Mozilla services with a Mozilla account|Mozilla account]] on your computer. If you don’t have one yet, you can [https://accounts.firefox.com/signup sign up for a Mozilla account]. It gives you quick access to synced tabs, saved passwords, bookmarks and more!
+#Sign in to your Mozilla account on your [[#w_i-dont-see-my-device-listed|other device]].
+#[[Template:contextmenu]] a tab on your computer, select {menu Send Tab to Device}, and choose the device to send the tab to.
+#;[[Image:send tab fx71|width=600]]
+
+=I don’t see my device listed=
+You’ll be able to send tabs to devices that you’ve added to your Mozilla account. If you don’t see a device listed, follow these steps to add that device:
+#Open Firefox on the device you want to connect.
+#[[Template:fx29menu]]
+#Select {menu Sign in to Sync} or {menu Sync and save data} (depending on the device or version of Firefox).
+#Follow the prompts to sign in or sign up.
+Your Mozilla account will sync and add your device to the list.
+{note}
+To send tabs from your phone or tablet, see the following articles:
+*[[Send a tab from Firefox for iOS to your computer]]
+*[[Send Tab from another mobile app to Firefox]]
+{/note}
+
+=How do I remove old devices from my Send Tab device list?=
+Over time, it is possible that your Send Tab device list contains devices you no longer use, or has repeated devices listed.
+
+To clean up your Send Tab device list:
+#Make sure you are signed in to your Mozilla account and visit [https://accounts.firefox.com/settings].
+#Under ''Connected Services'', click {button Sign out} for the devices you want to disconnect from your Mozilla account.
+See [[Manage the devices linked to your Mozilla account]] to learn more.

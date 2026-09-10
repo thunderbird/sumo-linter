@@ -1,0 +1,66 @@
+Some features and extensions in Firefox are powered by AI models that are stored and run locally on your device. This approach helps preserve your privacy while enhancing your experience.
+
+This article explains:
+*What on-device AI models are and how they’re different from AI models stored remotely.
+*How Firefox uses on-device AI models.
+*Where you can view and remove on-device AI models.
+
+=What are on-device AI models?=
+The programs that make AI work are called models. Just like computer files, AI models can be stored locally, on your device. Or, they can be stored on remote servers – often called “the cloud”.
+
+Storing AI models locally means your data and activity are processed on your computer, to preserve your privacy. When models are stored in the cloud, your data is sent to remote servers for processing.
+
+==Benefits of on-device AI models==
+Storing and running AI models locally on your device has these advantages:
+*'''Preserves your privacy:''' Your data is processed on your computer.
+*'''Works faster:''' Since processing happens on your device, results often appear more quickly.
+*'''Works offline:''' Features continue to work even without an internet connection.
+
+==How on-device AI is different from cloud AI==
+{|
+|+ 
+!!!On-device AI!!Cloud AI
+|-
+|'''Where processing happens'''||On your device||On remote servers
+|-
+|'''Privacy'''||No data is sent to the servers||Data is sent to a central location for processing
+|-
+|'''Speed'''||No network delays||Depends on the internet speed
+|-
+|'''Internet required'''||No||Yes
+|}
+
+=How Firefox uses on-device AI models=
+Firefox uses on-device AI models to enhance certain features. Here are some examples:
+*When you edit PDFs in Firefox, AI can [[Add alt text to images in your PDFs using Firefox|create alt text for images you add to PDFs]]. This helps make your PDFs more accessible for those using screen readers.
+*[[How to use AI-enhanced tab groups|Help organize your tabs]]. AI can read the titles of your open tabs and find similar ones to group together. This can help you stay organized while you browse.
+Extensions you add to Firefox may also use on-device AI models.
+
+=Manage on-device AI models in Firefox=
+In the address bar of Firefox, type '''about:addons'''. Select {menu On-Device AI} from the menu. If you don’t see this item in the menu, it means Firefox and the extensions you’ve downloaded aren’t using any optional AI models on your device.
+
+On this page, you can:
+*'''Review models:''' See which models have been downloaded, what size the models are, and what they’re used for.
+*'''Remove models:''' Helpful if you need to manage space on your device, or if you simply don’t use the associated feature or extensions anymore.
+[[Image:Manage on-device AI models]]
+
+==Remove an AI model==
+#On the ''On-Device AI'' page, find the model you want to remove.
+#Select the trashcan icon.
+#Confirm you want to remove the model.
+#;[[Image:Remove AI model]]
+
+==What happens after I remove a model?==
+The model is removed from your device.
+
+The related Firefox feature or extension will not be removed. If the feature or extension requires the model to work, it will be re-added if you use the feature or extension.
+
+=Frequently Asked Questions (FAQs)=
+==Will a feature still work if I remove the AI model?==
+It depends. Some features may still work, just differently. Other features require the model to work. If you remove a model and then try to use a feature or extension that requires it, the model will be re-added automatically.
+
+==Why don’t I see the ''On-Device AI'' page?==
+If you aren’t using any features or extensions powered by on-device AI models that you can manage, you won’t see this page.
+
+==How do I know what an AI model is used for?==
+For each model on the ''On-Device AI'' page, we include information about how Firefox uses the model or what extension uses the model. Select a model to view its details and find a link to the model’s card. “Model cards” provide detailed information about a model.

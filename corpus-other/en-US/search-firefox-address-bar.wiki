@@ -1,0 +1,111 @@
+The address bar makes it easier for you to find what you’re looking for. Enter search terms or a specific web address to get search suggestions, your top sites, bookmarks, history and search engines – all within the same field.
+;{for win,linux}[[Image:FirefoxAddressbar]]{/for}{for mac}[[Image:Search with Firefox 1]]{/for}
+You can also update Firefox or fix performance issues right from the search results. On occasion, you may see a tip from Firefox on how you can save time while searching.
+
+Keep reading to learn more about the address bar’s powerful features.
+{note}'''Note:''' Some of the search engines introduced here are regionally bound and may not be accessible from every location. To ensure a smooth experience, make sure the search engine you are interested in adding or using is compatible with your region.{/note}
+
+__TOC__
+
+=Searching with the default search engine=
+When you search using the address bar, this will use your default search engine. Simply do this:
+#Click the address bar or press {for win,linux}{key Ctrl+L}{/for}{for mac}{key Command+L}{/for} to focus it. You can skip this if you have just opened Firefox, a new tab or a new window.
+#Type your search term in the address bar.
+#Press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}, or click the arrow on the right end of the address bar.
+To change your default search engine, see [[Manage Firefox search settings]].
+
+You can't search for every search term in this way; for example, when it's treated as a web address, a [[Assign shortcuts to search engines|search engine keyword]] or a [[Bookmarks in Firefox#w_how-to-use-keywords-with-bookmarks|bookmark keyword]]. To be able to search for every search term, do one of the following before typing it:
+*Press {for win}{key Ctrl+E} or {key Ctrl+K}{/for}{for linux}{key Ctrl+J} or {key Ctrl+K}{/for}{for mac}{key Command+K} or {key Command+Option+F}{/for} to focus the address bar for a search with the default search engine. (The Search bar will get focused instead, if it's enabled. You can use it too.)
+*Or, type {key ?}{key Space} in the address bar to choose the default search engine.
+*Or, choose a search engine (see below). (You can also do this '''after typing''' if your search term looks like a web address or bookmark keyword.)
+*Or, click the Search field on the [[New Tab page in Firefox|New Tab page]].
+*Or, click the [[Add the Search bar to your Firefox toolbar|Search bar]].
+
+=Access your top sites from the address bar=
+Your top sites are those you visit the most (a combination of your most recently and frequently visited sites), as well as the sites you’ve [[Customize items on your Firefox New Tab page#w_pin-unpin-or-remove-a-shortcut|pinned]]. You can access your top sites from the drop-down list that appears when you click the address bar. If you’ve installed Firefox for the first time, it suggests top-ranked sites by default.
+;[[Image:Search with Firefox 2]]
+Top sites appear in the same order as the shortcut tiles in your [[New Tab page in Firefox|New Tab page]] (you can [[Customize items on your Firefox New Tab page|customize them on your New Tab page]]).
+
+==Search shortcuts==
+<!-- (Alternative content on “Search shortcuts” section for locales where “Search with…” suggestions don't appear:)
+
+When you search the web on the address bar, your default search engine is used automatically.
+
+If you want to use another installed search engine, you can type in the search engine shortcut or just the first part (for example: ''@a'' or ''@amazon'') then press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} or {key →} and type in your search term (for example: ''@amazon adventure books'').
+
+[[Image:Fx75SearchTopSite]]
+
+This way, you can perform a search without having to load the search page.
+-->
+When you click in the address bar, clicking a search engine in the drop-down list (like Google or Amazon) will autofill the address bar with a search engine shortcut (for example: ''@amazon'') so you can perform a search without having to load the search page. Just enter your search term after the search shortcut to perform your search (for example: ''@amazon adventure books'').
+;[[Image:Search with Firefox 3]]
+You can [[Assign shortcuts to search engines|assign shortcuts to search engines]]. When you type '''@''' into the address bar, a list of the first 10 web search engines that have a shortcut is shown. You can select one by pressing {key ↓} or by clicking it.
+
+You can also use shortcuts to search Firefox Add-ons, Bookmarks(*), Tabs(%) and History(^).
+{note}'''Tip''': If you don't want to use the mouse or a search shortcut does not appear in the list, you can type in the shortcut or just the first part (for example: '''@a''' or '''@amazon''') then press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} or {key →}, and type in your search term.{/note}
+
+{for fx118}
+=Use Google Trending Search=
+*This feature is available to a limited set of users, including U.S. users, starting in [[Find what version of Firefox you are using|Firefox version]] 118. This feature is available where Google makes Trending Search available which is subject to change, and is not determined by Mozilla.
+Google trending searches are the topics and search queries that a large number of people are currently exploring on the internet. With Firefox, you can easily tap into this dynamic stream of online trends directly from your address bar, and stay updated on what's capturing the online world's attention. To access trending search terms:
+#At the top of the screen, click the address bar.
+#A drop-down menu will appear, displaying trending search terms based on your area. These terms are updated in real time to reflect what's currently popular.
+#Click a trending search term that interests you.
+#;[[Image:Search with Firefox 4]]
+For details, see our [[Use Google Trending Search in the Firefox address bar|Using Google Trending Search]] guide.
+{/for}
+
+=Use a different search=
+{for not fx137}
+When you start typing a search term in the address bar, you'll see icons to search instead with: other search engines, Bookmarks, Tabs or History.
+;[[Image:Search with Firefox 5]]
+You can also choose a search type by pressing {for win,linux}{key Alt+↓} or {key Alt+↑}{/for}{for mac}{key option+↓} or {key option+↑}{/for} repeatedly.
+{/for}
+{for fx137}
+When you start typing a search term in the address bar, you'll see a Unified Search button with the icon for your default search engine.
+;[[Image:Fx140UnifiedSearchButton]]
+When you click on it, a drop-down menu will open, to search instead with: other search engines, Bookmarks, Tabs or History.
+;[[Image:Fx140UnifiedSearchDropdown]]
+{/for}
+For more information on using alternative search engines, see [[Manage Firefox search settings#w_one-click-search-alternatives]].
+
+=Search suggestions=
+Firefox suggests relevant search terms and even solutions related to the answer or task you may be looking for. Here are some examples of search suggestions.
+
+==Keyword suggestions==
+When you start typing in the address bar, Firefox suggests relevant popular searches provided by search engines like Google, Bing, etc. When search suggestions are enabled, the text you type is sent to the default search engine, which analyzes the words and displays a list of related searches.
+;{for not fx137}[[Image:Search with Firefox 6]]{/for}{for fx137}[[Image:Fx140AddressBarAutocomplete]]{/for}
+{note}'''Note:''' You can change your search settings to use your favorite search engine as the default or turn search suggestions on or off. To learn more, see [[Manage Firefox search settings]] and [[Search suggestions in Firefox]].{/note}
+Write a {key ?} before your input (for example: ''?mozilla support'')
+*if you want to see only search suggestions,
+*or if you want to see search suggestions although the setting ''Show search suggestions in address bar results'' is disabled (but the setting ''Provide search suggestions'' has to be enabled).
+When you are using a search shortcut, the keyword suggestions come from the chosen search engine.
+
+[[How to search IMDB, Wikipedia and more from the address bar|Smart keywords]] do not make keyword suggestions.
+
+==Site suggestions==
+As you type into the address bar, Firefox may offer relevant site suggestions, such as websites from your browsing history, bookmarks and open tabs, to help you quickly and easily navigate the web. To learn more, see [[Address bar autocomplete suggestions in Firefox]].
+
+==URL autocomplete==
+As you type a web address or search term in the address bar, the [[Address bar autocomplete suggestions in Firefox#w_url-autocomplete|URL autocomplete]] feature automatically finishes what you’re typing based on matching websites in your bookmarks, history or popular websites. This lets you visit websites in just a few keystrokes (no mouse needed). Just press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} when Firefox finds a match.
+;[[Image:Search with Firefox 7]]
+
+===Prevent URL autocomplete when searching===
+If your search term autocompletes to a web address that you don't want to visit, press {for win,linux}{key Del}, {key Backspace}{/for}{for mac}{key Delete}{/for} or {key Space} before pressing {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.
+
+You can also begin your search with a {key ?} to prevent autocomplete (for example: ''?mozilla<!-- -->.org''). This will also prevent your search from autocompleting with bookmarks, smart keywords and search shortcuts.
+{note}For more information, see [[Address bar autocomplete suggestions in Firefox]].{/note}
+
+=Firefox Solution buttons=
+Firefox lets you get solutions to popular tasks, like downloading, updating or fixing Firefox. When you start typing a task, Firefox will suggest a solution, so you can fix the problem and get back to the things that are important to you.
+
+For example: Entering “Download Firefox” when you already have Firefox installed.
+;[[Image:Search with Firefox 8]]
+{note}This feature is currently only available in English.{/note}
+
+=Semantic History Search=
+[[Template:progressiverollout]]
+Firefox will search your history using local machine learning to find sites in your browsing History that you have visited, without you having to remember the exact name or details of that site. Your data stays on your device and is not sent to Mozilla or another organization.
+This is an experiment at the present time, in [[Find what version of Firefox you are using|Firefox version]] 141. If you wish to turn off this feature:
+#Type '''about:studies''' in the [[Search with the Firefox address bar|address bar]] and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}. If you're part of the experiment, you'll find a {menu Semantic History Search} entry under ''Active studies''.
+#Click the {button Remove} button next to {menu Semantic History Search} and then close the tab.

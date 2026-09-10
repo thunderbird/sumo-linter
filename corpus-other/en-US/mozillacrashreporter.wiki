@@ -1,0 +1,42 @@
+The Mozilla Crash Reporter dialog box appears when Firefox closes unexpectedly and lets you submit a crash report to developers, to make future Firefox versions crash less often. This article describes how it works and shows you how to access your crash reports.
+
+For suggestions on how to prevent Firefox from crashing, see [[Firefox crashes - Troubleshoot, prevent and get help fixing crashes]].
+
+__TOC__
+
+= When Firefox crashes =
+After Firefox crashes, the Mozilla Crash Reporter window will appear.
+;[[Image:Firefox Crash Reporter]]
+'''Tell Mozilla about this crash so they can fix it:''' If this box is checked, the Mozilla Crash Reporter will send a summary of the crash to Mozilla. Deselect this box if you don't want to send the report to Mozilla.
+
+{button '''Details…'''}: Will open the ''Report Contents'' window, where you can view the technical details of the crash.
+;[[Image:Crash Reporter Details]]
+'''Add a comment (comments are publicly visible):''' Use this box to add any further information that might be useful to developers trying to find the cause of the crash. The comments you post may be read by anyone.
+
+'''Include the address of the page I was on:''' When checked, the information you send to Mozilla will include the web page you visited before the crash.
+
+'''Quit Firefox:''' Close the dialog and don't start Firefox again.
+
+'''Restart Firefox:''' Start Firefox again. Firefox will give you the option to restore the windows and tabs you had opened before the crash. If Firefox crashes again after choosing to restore your windows and tabs, one of the pages you were on is causing the crash. In this case, choose {button Close} to start a new session.
+
+= Viewing crash reports =
+To view your crash reports from within Firefox:
+# In the address bar, type '''about:crashes''' and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}. A list of crash reports will appear.
+#;[[Image:Fx64aboutcrashes]]
+# Click on the {button View} button to view the report.
+#;[[Image:FxCrashreport]]
+
+== Viewing reports outside of Firefox ==
+If you can't use the above method because Firefox crashes when it starts, you can also view the reports in files on your computer with the following steps:
+{for win}
+# Press {key [[Image:Windows Key]] + R} on the keyboard. A ''Run'' dialog will open.
+# In the ''Run'' dialog, type '''{filepath %APPDATA%\Mozilla\Firefox\Crash Reports\}''' and press {key Enter}.
+{/for}
+{for mac}Crash reports are stored in {filepath ~/Library/Application Support/Firefox/Crash Reports/} (show hidden folders, on Mac OS X 10.7 and above, by holding down the {key Option} key while opening the {menu Go} menu in Finder and then selecting Library).{/for}{for linux}Crash reports are stored in {filepath ~/.mozilla/firefox/Crash Reports/}{/for}
+
+The {filepath Crash Reports} folder will contain two subfolders: {filepath pending} and {filepath submitted}. The {filepath submitted} folder contains text files for each crash report submitted, with each file containing a crash report ID. For example, a file named {filepath bp-031b02bb-26b6-4168-ac0e-2de492090531.txt} will contain the following text:<br><code>Crash ID: bp-031b02bb-26b6-4168-ac0e-2de492090531</code>
+
+You can go to [https://crash-stats.mozilla.org] and copy the Crash ID into the search field to view the report.
+
+= Getting help with crash reports =
+To use your crash report to get help with your Firefox problem, see [[Firefox crashes - Troubleshoot, prevent and get help fixing crashes]].

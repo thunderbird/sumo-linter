@@ -1,0 +1,35 @@
+Firefox’s tab overview menu is designed to help you manage and navigate your open tabs. Whether you have just a few tabs or many, this feature lets you quickly find, organize and switch tabs, providing a smooth browsing experience. This article will guide you on how to use the tab overview menu to maintain a tidy and organized browser environment, regardless of the number of tabs you have opened.
+
+__TOC__
+
+=Access the tab overview menu=
+Click the ''List all tabs'' [[Image:tab icon 2|width=16]] icon at the top-right corner of the Firefox window, next to the tab strip. (If [[Use the sidebar to access tools and vertical tabs|Vertical Tabs]] are enabled, click the ''List all tabs'' [[Image:Fx138VerticalListAllTabs]] icon in the toolbar.) A drop-down menu will appear, with some menu options and a list of all your open tabs. Each listed tab shows the title and favicon of the webpage. The active tab will be shown in bold type.
+{for not fx154}[[Image:tab overview menu fx133]]{/for}{for fx154}[[Image:Fx154ListAllTabs]]{/for} 
+
+=Manage tabs=
+Features available in the menu:
+{for not fx154}
+*'''Search tabs:''' Allows a specific tab to be found using the address bar by entering keywords related to the tab's content.
+*'''Tabs from other devices:''' Provides access to tabs open on other devices [[Sync Firefox data|synced]] with the Mozilla account. It also allows browsing to be continued seamlessly across devices. To open a tab on the current device, simply click it.
+*'''Close all duplicate tabs:''' Closes all duplicate tabs. A prompt asking for confirmation of this operation will be displayed. To proceed, click the {button Close tabs} button. Firefox will automatically identify tabs with the same URL and keep only the last active tab open.
+*'''New container tab:''' Opens a tab in a different container, if available. This allows browsing activities to be separated by context, such as work and personal activities. For more information about Firefox containers, see [[How to use Firefox containers]].
+{/for}
+{for fx154}
+*'''Search All Tabs:''' Allows a specific tab to be found using the address bar by entering keywords related to the tab's content.
+*'''New Container Tab:''' Opens a tab in a different container. This allows browsing activities to be separated by context, such as work and personal activities. For more information about Firefox containers, see [[How to use Firefox containers]].
+*'''Close Duplicate Tabs:''' Quickly closes all duplicate tabs. Firefox will automatically identify tabs with the same URL and keep only the last active tab open.
+*'''View All Tabs:''' Opens [[Firefox View - View all tabs from your recent browsing and history|Firefox View]], where open and recently closed tabs, browsing history, and tabs open on other devices [[Sync Firefox data|synced]] with your Mozilla account can be accessed.
+{/for}
+
+=Navigate tabs=
+*'''Switch tabs:''' Find the tab you want to switch to and click on it in the list of tabs. The selected tab will come into focus instantly as a result.
+*'''Close a tab:''' Click the '''&#10005;''' icon following the tab title to close a tab straight from the menu.
+For more information on managing tabs, check out the [[Tab context menu]] article.
+
+=Related articles=
+*[[Use tabs to organize lots of websites in a single window]]
+*[[Search open tabs in Firefox]]
+*[[Tab preferences and settings]]
+*[[New Tab page in Firefox]]
+*[[Pinned Tabs - keep favorite websites open and just a click away]]
+*[[Tab groups in Firefox]]

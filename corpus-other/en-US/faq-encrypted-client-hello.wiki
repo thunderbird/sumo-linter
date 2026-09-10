@@ -1,0 +1,52 @@
+__TOC__
+
+=What is Encrypted Client Hello (ECH), and why is it important?=
+ECH is a security feature available in Firefox and other major web browsers that plugs a gap in existing online privacy and security infrastructure that allows the websites a user is visiting to be accessible to intermediaries on a network, such as ISPs or other unauthorized parties.
+
+=How do I enable ECH in Firefox?=
+ECH is enabled in Firefox by default since [[Find what version of Firefox you are using|version]] 119. 
+
+=How do I know ECH is available for me?=
+ECH is enabled in Firefox by default since [[Find what version of Firefox you are using|version]] 119. It has the most privacy benefit if used in conjunction with DNS over HTTPS (DoH). See [[Configure DNS over HTTPS protection levels in Firefox]] for details on how to enable DoH.
+
+=Does ECH affect my Internet speed?=
+No. ECH requires fetching a very small additional amount of data whilst connecting to a website. This data is only a few hundred bytes in size and too small to have any effect on your internet speed. Firefox retrieves this data simultaneously with performing a DNS lookup when connecting to a website, ensuring there's no extra delay during the connection.
+
+=Does ECH affect website compatibility?=
+ECH has been carefully designed to interoperate with existing websites and servers. Existing standards require servers to ignore ECH if they don’t understand it, and Firefox understands how to continue the connection without any interruption to your browsing. We have carried a number of studies and tests to ensure that websites will continue to operate correctly.
+
+=Can I use ECH alongside other security tools like ad blockers?=
+Yes, ECH can be used in conjunction with ad blockers. Ad blockers which are integrated with Firefox as an extension will work automatically with ECH and don’t require any changes. DNS-based ad blockers also work with ECH, however users should ensure that their local DNS resolver is using an encrypted transport like DNS over HTTPS to avoid indirectly leaking their visited websites.
+
+=Can I use ECH alongside other security tools like VPNs?=
+Yes, in fact, combining ECH with a VPN can provide an extra layer of privacy and security. ECH works over VPNs transparently with no additional configuration required. 
+
+=Are there any privacy concerns or drawbacks associated with ECH?=
+ECH is a valuable tool for bolstering your online privacy and security, as it encrypts your initial website connections. Nevertheless, it's important to note that many websites won’t support ECH right away, which means connections to those sites won’t benefit from the additional privacy ECH offers. To stay protected, ensure your Firefox browser [[Update Firefox to the latest release|stays up to date]], receiving the latest security enhancements, including ECH. Unlike technologies like VPNs, ECH doesn't redirect your browser traffic or involve third parties; it simply adds an extra layer of encryption to your standard connections.
+
+=Can Enterprises disable ECH?=
+Yes, ECH can be disabled by policy. For details, see [https://mozilla.github.io/policy-templates/#DisableEncryptedClientHello Firefox Policy Templates].
+
+=Will users notice any changes in their browsing experience as a result of this encryption?=
+Firefox users shouldn’t notice any difference to their usual browsing experience.
+
+=How will ECH impact parental controls?=
+If parental controls are applied, ECH encryption is disabled in order to avoid interfering with parental controls.
+
+=How will ECH impact Enterprises that use transparent proxies?=
+ECH encryption is automatically disabled when proxies or middleboxes which are trusted by the browser are detected, so they remain unaffected.
+
+=Which websites can use ECH?=
+Any website can employ ECH, as long as it is equipped with the necessary server-side support. Its optimal privacy is often achieved when multiple websites are hosted by a single web server, a common configuration in today's Internet ecosystem.
+
+=Why can’t users directly control ECH?=
+In line with our commitment to privacy and security by default, we aim to ship Firefox with a comprehensive set of protections enabled by default. Consequently, ECH is enabled by default but won’t be used if family safety software is used or Firefox has been configured as part of an enterprise. This is similar to other security and privacy technologies used in Firefox like TLS 1.3, which also isn’t exposed as a user setting.
+
+=How can I tell if ECH is working for me?=
+ECH isn’t visible in the browser UI, but you can check if it's working for you using [https://www.cloudflare.com/ssl/encrypted-sni/#esni-checker Cloudflare’s Browser Security Check].
+
+=Learn more=
+*[[Understand Encrypted Client Hello (ECH)]]
+*[https://wiki.mozilla.org/Security/Encrypted_Client_Hello ECH Technical Article on Mozilla's Wiki (for expert users)]
+*[[Firefox DNS-over-HTTPS]]
+*[[Configure DNS over HTTPS protection levels in Firefox]]

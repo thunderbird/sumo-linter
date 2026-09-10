@@ -1,0 +1,61 @@
+{warning}'''Warning:''' Firefox now includes [[Dedicated profiles per Firefox installation#w_what-happens-to-my-profile-if-i-downgrade-to-a-previous-version-of-firefox|downgrade protection]] to prevent corruption of [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|user profile data]]. If you install an older version, you'll be prompted to create a new Firefox profile.{/warning}
+Sometimes users want to install an older version of Firefox because of changes in features or compatibility issues. However, using older versions is not recommended. They contain known security vulnerabilities that can put your personal information and computer at risk. Instead of downgrading, there are safer ways to address your issue.
+
+__TOC__
+
+= Why older versions are unsafe =
+*Older releases don’t receive security updates.
+*Known bugs and vulnerabilities can expose your data.
+*Many websites may not work correctly with outdated browsers.
+
+= Unwanted features in the new Firefox version =
+If you dislike new features in the latest version of Firefox, your first reaction might be to go back to the previous version. Rather than downgrading, try getting used to the new features or ask a question on the support forum, to see if there is a workaround or a way to restore the old behavior without downgrading Firefox. See [[Get community support]].
+
+= Installing a previous version doesn't fix most problems =
+Problems with an update are usually not caused by the new version of Firefox, but rather the update process. In most cases, installing a previous version will not help. Instead, see:
+[[Template:UpdateProblems]]
+{note}'''Note:''' Other problems can be solved with the [[Refresh Firefox - reset add-ons and settings|Refresh Firefox feature]]. It restores Firefox to its default state while saving your essential information.{/note}
+{for win}
+Ensure all security and security-related software is fully updated. Some security software will need to be upgraded to a new version so that it is compatible with each Firefox version update.
+
+Optional software bundled with security software also may need updating. Such software may not be essential for your security but, if outdated, may interfere with the use of Firefox, or cause Firefox to crash.
+{/for}
+
+= I still want to downgrade – where can I get the previous version? =
+If you still want to downgrade, you can visit Mozilla's directory of older Firefox versions using the links below. Please note, however, that using older versions can make Firefox insecure and more vulnerable to attacks and scams. We recommend that you always use the newest version of Firefox.
+{warning}'''Warning:''' Older versions of Firefox may not include the latest security features.{/warning}
+{for =fx141}[[Template:GetOldFx|ver=140.0.4]]{/for}
+{for =fx142}[[Template:GetOldFx|ver=141.0.3]]{/for}
+{for =fx143}[[Template:GetOldFx|ver=142.0.1]]{/for}
+{for =fx144}[[Template:GetOldFx|ver=143.0.4]]{/for}
+{for =fx145}[[Template:GetOldFx|ver=144.0.2]]{/for}
+{for =fx146}[[Template:GetOldFx|ver=145.0.2]]{/for}
+{for =fx147}[[Template:GetOldFx|ver=146.0.1]]{/for}
+{for =fx148}[[Template:GetOldFx|ver=147.0.4]]{/for}
+{for =fx149}[[Template:GetOldFx|ver=148.0.2]]{/for}
+{for =fx150}[[Template:GetOldFx|ver=149.0.2]]{/for}
+{for =fx151}[[Template:GetOldFx|ver=150.0.3]]{/for}
+{for =fx152}[[Template:GetOldFx|ver=151.0.4]]{/for}
+{for =fx153}[[Template:GetOldFx|ver=152.0.6]]{/for}
+{for =fx154}[[Template:GetOldFx|ver=153.0.4]]{/for}
+{for =fx155}[[Template:GetOldFx|ver=154.0.1]]{/for}
+
+[https://ftp.mozilla.org/pub/firefox/releases/ Directory of other versions and languages]
+{note}'''Important:''' By default, Firefox is set for automatic updates. To prevent Firefox from automatically updating itself after you install an older version, you'll need to change your Firefox update settings: [[T:optionspreferences]] In the {menu General} panel, go to the ''Firefox Updates'' section.{/note}
+
+= Alternatives to downgrade =
+Downgrading to an older version of Firefox might not be the best option due to security concerns. Instead of altering your update settings or switching to a less secure Firefox version, consider the following alternatives:
+* '''Install Firefox Extended Support Release.''' [https://www.mozilla.org/firefox/organizations/ Firefox Extended Support Release (ESR)] is tailored for large organizations like universities and businesses, yet it's perfectly suited for personal use as well. While [[Firefox ESR release cycle|Firefox ESR]] might not feature the very latest in terms of functionality, it benefits from the most recent security and stability updates. For further details, see the article [[Choose a Firefox update channel]].
+* '''Optimize your Firefox settings for security and privacy.''' Enhancing your current Firefox setup can often address concerns. Explore the [https://support.mozilla.org/products/firefox/privacy-and-security privacy and security settings] to adjust your browsing experience. This can include adjusting [[Enhanced Tracking Protection in Firefox for desktop#w_adjust-your-global-enhanced-tracking-protection-settings|enhanced tracking protection settings]], adjusting [[Site Permissions panel|permissions]] and using [https://addons.mozilla.org/firefox/search/?q=privacy privacy-focused add-ons]. For further guidance on making these adjustments, explore the [[Get community support|community forums]] for tips and best practices.
+
+= Help us make Firefox better =
+If the [https://www.mozilla.org/firefox/all/ latest version of Firefox] is giving you trouble, or you just don't like something, please give us feedback about it here:
+
+{button [https://connect.mozilla.org Submit your feedback and suggestions about Firefox]}
+
+= Related articles =
+*[[Update Firefox to the latest version]]
+*[[Use Troubleshoot Mode in Firefox]]
+{for linux}
+*[[Firefox has ended support for 32-bit Linux]]
+{/for}

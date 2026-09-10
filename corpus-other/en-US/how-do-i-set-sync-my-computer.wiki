@@ -1,0 +1,113 @@
+Firefox Sync lets you access your bookmarks, passwords, tabs, and more across all your devices. The easiest way to turn on Sync is to sign in to your Mozilla account from the Firefox toolbar or menu.
+
+Once you sign in or create a new account, Sync is enabled automatically. This article will walk you through the sign-in process and how to manage what gets synced.
+
+__TOC__
+
+=Sign in or create an account to start Sync=
+#Click the {button Sign in} button in the Firefox toolbar.
+#*If the button is hidden, open the menu (≡) and click {button Sign in} at the top.
+#;[[Image:syncfirefox]]
+#Firefox will open a secure page at [https://accounts.firefox.com/signin accounts.firefox.com].
+#*This special view ensures that signing in or creating an account will automatically enable Sync.
+
+=Enter your email address=
+*If the email is already linked to a Mozilla account, you’ll be asked to enter your password.
+*;[[Image:mozillaaccount|width=400]]
+*If the email is not registered, you’ll be prompted to create a password to set up a new account.
+*;[[Image:createpassword|width=400]]
+
+=Confirm your new account (if applicable)=
+If you’re creating a new account:
+#Firefox will send a confirmation code to your email address.
+#Enter the code to finish setting up your account.
+#;[[Image:confimationcode|width=400]]
+#After confirming, you’ll see a screen that says “Sync is turned on”, sometimes with a confetti animation! 
+#;[[Image:syncon|width=400]]
+{note}'''Note:''' If you’re signing in with an existing account, you may see a prompt to create a recovery key. This is optional. Sync is already enabled at this point, and no further setup is needed.{/note}
+
+=Choose what to sync=
+{for not fx152}
+After Sync is enabled, you can choose which items you want to sync:
+#Click the menu button (☰).
+#Select {button Settings}.
+#Go to the {menu Sync} section.
+#Select or deselect the types of data to sync, such as:
+#*Bookmarks
+#*Passwords
+#*Open tabs
+#*History
+#*Payment methods
+#*Add-ons
+#*Settings
+{note}'''Tip:''' Your changes will sync automatically across all signed-in devices.{/note}
+{/for}
+{for fx152}
+After Sync is enabled, you can choose which items you want to sync:
+#Click the menu button (☰).
+#Select {button Settings}.
+#Go to the {menu Account and sync} section.
+#Scroll down to the {menu Sync} section.
+#Click on the {button Manage synced data} button.
+#Select or deselect the types of data to sync, such as:
+#*Bookmarks
+#*Passwords
+#*Open tabs
+#*History
+#*Payment methods
+#*Add-ons
+#*Settings
+;[[Image:fx152sync]]
+{note}'''Tip:''' Your changes will sync automatically across all signed-in devices.{/note}
+{/for}
+
+=Connect additional devices to Sync=
+A device could be a mobile device (such as a smartphone or tablet) or a desktop computer For more on mobile devices, see:
+*Android phones and tablets: [[How to set up Firefox Sync in Firefox for Android]]
+*iPads, iPhones and iPod touch devices: [[Sync bookmarks, logins and browsing history on Firefox for iOS]]
+
+To connect another desktop computer, just sign in and let Sync do the rest. To sign in, you'll need the email address and password you used in the previous section.
+#Open Firefox on the second computer.
+#Click the menu button (☰) > {menu Sync and save data}.
+#Click {button Sign in} and enter the same Mozilla account credentials.
+#Your data will sync automatically.
+#;[[Image:syncdata]]
+If you're already signed in (see [[How do I know the status of my sync?]]), click {button Sync Now} to start syncing immediately.
+
+=Disable Sync for previously synced devices=
+To disable Sync on a device:
+#Click the menu button (☰).
+#Click your account email at the top of the menu.
+#Select {button Sign out}.
+#Choose whether to keep or delete synced data from the device.
+
+=Related articles=
+*[[How do I choose what types of information to sync on Firefox?]]
+*[[Sync Firefox data]]
+*[[Disable Firefox Sync]]
+
+<!--
+A [https://www.mozilla.org/firefox/accounts/ Mozilla account] lets you [[Sync Firefox data|sync your data and preferences]] (such as your bookmarks, history, passwords, open tabs and installed add-ons) across all your devices.
+
+__TOC__
+
+=Create a Mozilla account=
+You will need a Mozilla account to enable Sync. Learn how to [[Access Mozilla services with a Mozilla account#w_how-do-i-sign-up-for-a-mozilla-account|sign up for a Mozilla account]].
+
+=Choose what information to sync=
+See [[How do I choose what types of information to sync on Firefox?]]
+
+=Connect additional devices to Sync=
+A ''device'' could be a mobile device (such as a smartphone or tablet) or a desktop computer. For more on mobile devices, see:
+*Android phones and tablets: [[Sync bookmarks, tabs, history and passwords on Android]]
+*iPads, iPhones and iPod touch devices: [[Sync bookmarks, logins and browsing history on Firefox for iOS]]
+
+'''To connect another desktop computer, just sign in and let Sync do the rest.''' To sign in, you'll need the email address and password you used in the previous section.
+#Open Firefox on the computer you want to sync.
+#Click the menu button [[Image:Fx89menuButton]], then click the {button Sign In} button next to {menu Sync and save data} and sign in.
+#;[[Image:Sign in to your Firefox Account|width=350]]
+#*If you're already signed in (see [[How do I know the status of my sync?]]), click {menu Sync Now} to start syncing immediately.
+
+=Disable Sync for previously synced devices=
+For additional information, see [[Sync Firefox data]] and [[Disable Firefox Sync]].
+-->

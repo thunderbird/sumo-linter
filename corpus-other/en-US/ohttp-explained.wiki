@@ -1,0 +1,46 @@
+[[Template:FirefoxPrivacyNotice]]
+Mozilla is committed to protecting your privacy and keeping your online experience secure. One of the technologies used in Firefox to enhance online privacy is '''Oblivious HTTP (OHTTP)'''. This article explains what OHTTP is, how it works, and how it helps protect your data.
+
+__TOC__
+
+=What is Oblivious HTTP?=
+OHTTP is a technology designed to make online requests more private by separating who is making a request from the content of the request itself. This helps ensure that when you access certain online services, your personal identity and browsing habits are better protected.
+
+When you visit a website or Firefox connects to a server, your request – such as loading a web page or submitting information – includes details like your [https://wikipedia.org/wiki/IP_address IP address].
+
+This IP address can reveal your approximate location and be used to track your activity across multiple requests. Over time, this information could be combined to create a profile of your browsing habits.
+
+OHTTP helps reduce this kind of tracking by ensuring that no single server sees both who you are and what you’re requesting.
+
+=How does OHTTP work?=
+OHTTP enhances privacy by encrypting your request and sending it through a relay server, which removes identifying information before forwarding it. This prevents websites from linking your identity to your activity. Here’s how it works:
+*'''Encryption:''' Your browser encrypts the request using the destination server’s public key. This ensures that only the destination can read the request.
+*'''Relay server:''' Instead of going directly to the website, your request first passes through a relay server. The relay strips your IP address and other metadata before forwarding the request. Since it’s encrypted, the relay can’t read its contents.
+*'''Destination server:''' The destination decrypts the request but never sees your IP address. It processes the request and sends an encrypted response back through the relay.
+The following diagram breaks down the encrypted request and response flow in OHTTP, showing how data moves between the client, relay and destination server.
+[[Image:Diagram]]
+This creates a '''separation of roles''', where the relay server and the destination server work together without sharing the same information. The relay server forwards your request without knowing its contents, while the destination server processes the request without knowing who sent it.
+
+At no point does a single server have access to both your identity and your request. Because of this design, services that use OHTTP add an extra layer of privacy – even from the servers handling your data.
+
+=How does Mozilla utilize OHTTP for your benefit?=
+Oblivious HTTP can be particularly useful for services that require privacy, such as gathering deidentified usage statistics or protecting sensitive requests.
+
+For example, as you type in the address bar, Firefox can provide direct results such as website links, quick answers or local recommendations without sending you to a search results page. OHTTP ensures that your query is encrypted and separated from your identity, so no single party can connect what you type with who you are.
+
+The service only sees the search queries being done, not who is making them.
+
+Another example is “Oblivious [[DNS over HTTPS (DoH) FAQs|DNS over HTTPS]]” (oDoH). Firefox already uses DoH to encrypt DNS requests instead of relying on your ISP’s DNS server.
+
+With oDoH, an OHTTP relay adds even more privacy:
+*The '''relay''' knows who is making the request but not the website being accessed.
+*The '''DoH server''' knows the website but not who requested it.
+This separation ensures that no single server can track both your identity and your browsing activity.
+
+==What does this mean for you?==
+As a Firefox user, you don’t need to take any action to benefit from OHTTP. This service runs in the background when enabled, adding an extra layer of privacy to certain services. OHTTP is not a setting that you can turn on or off; instead, it is automatically used when a service is set up to support it.
+
+Mozilla supports an open, secure and privacy-respecting internet, as outlined in the [https://www.mozilla.org/about/manifesto/ Mozilla Manifesto]. Technologies like Oblivious HTTP (OHTTP) help minimize tracking and give users more control over their data. For details on how data is handled, see the [https://www.mozilla.org/privacy/ Mozilla Privacy Notice].
+
+=Related resources=
+*[https://www.ietf.org/rfc/rfc9458.html RFC 9458: Oblivious HTTP]

@@ -1,0 +1,48 @@
+{note}'''Note:''' If you want to back up your Firefox data and move it to a new device, we recommend using the built-in backup tool. See [[Restore your Firefox browsing data with a backup file]] for details.{/note}
+Firefox stores your personal data, such as bookmarks, passwords, and extensions, in a [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]] folder on your computer, in a location separate from the Firefox program. You can copy this folder to back up and restore your data manually.
+
+This article explains how to use manual folder copy to back up your profile, restore it, or move your profile to a new location or computer, and it only applies to Firefox on desktop (Windows, macOS, Linux). To move or back up data on mobile devices, use Firefox Sync. See [[How do I set up Sync on my computer?]] to learn about Firefox Sync and connecting your mobile devices.
+{note}'''Note:''' [[Refresh Firefox - reset add-ons and settings|The Refresh Firefox feature]] creates an '''Old Firefox Data''' folder on your desktop, which contains a backup of your old profile folder and its contents. If you recently refreshed Firefox and still have this folder, you already have a complete profile backup.{/note}
+
+__TOC__
+
+=When should I use manual backup=
+Manual backup is useful if:
+*Firefox won’t open or is corrupted
+*You need to recover specific files
+*You are troubleshooting profile issues
+For most users, the [[Restore your Firefox browsing data with a backup file|'''Firefox Backup tool''']] is easier and recommended.
+
+= Locate your profile folder =
+[[T:OpenProfileFolder]]
+
+= Manually back up your profile data =
+{note}'''Note:''' If you’re trying to move your data to a new computer, use the [[Restore your Firefox browsing data with a backup file|'''Firefox Backup tool''']] instead of these manual steps.{/note}
+To back up your profile, first close Firefox if it is open and then copy the profile folder to another location.
+# Locate your profile folder, as explained above.
+# Close Firefox (if open): [[T:closeFirefox]]
+# Go to one level above your profile's folder (in other words, to {filepath {for win}%APPDATA%\Mozilla\Firefox\Profiles\{/for}{for mac}~/Library/Application Support/Firefox/Profiles/{/for}{for linux}~/.mozilla/firefox/{/for}}).
+# [[Template:contextmenu]] on your profile folder (for example, on the {filepath xxxxxxxx.default} folder) and select {menu Copy}. If you see a file locked or in use, make sure Firefox is completely closed (check Task Manager on Windows, Force Quit on macOS). If you get an error that indicates the path file is too long, copy the contents in smaller batches or use Windows’ long-path support.
+# [[Template:contextmenu]] the backup location (such as a USB-stick) and select {menu Paste{for mac} item{/for}}.
+{warning} '''Warning:''' Profiles are not always portable across different operating systems because of file path and version differences. If you’re moving from Linux to Windows, you may only be able to copy bookmarks/password files, not the whole profile.{/warning}
+
+= Manually restore a profile backup =
+# [[T:closeFirefox]]
+# If your existing profile folder and profile backup folder have the same name, simply replace the existing profile folder with the profile backup, then start Firefox. {note}'''Important:''' The profile folder names must match exactly for this to work, including the random string of 8 characters. If the names do not match or if you are restoring a backup to a different location, follow the steps below.{/note}
+You can repeat these steps to restore as many profile backups as you need if you have more than one.
+
+== Restore to a different location ==
+If the profile folder names do not match or if you want to move or restore a profile to a different location, do the following:
+# Completely close Firefox: [[T:closeFirefox]]
+#[[Profile Manager - Create, remove or switch Firefox profiles|Use the Firefox Profile Manager to create a new profile]] in your desired location, then exit the Profile Manager. {note}'''Note:''' If you just installed Firefox on a new computer, you can use the default profile that is automatically created when you first run Firefox, instead of creating a new profile.{/note}
+#Locate the backed-up profile folder on your hard drive or backup medium (such as your USB stick).
+#Open the profile folder backup (for example, the {filepath xxxxxxxx.default} backup).
+#Copy the entire ''contents'' of the profile folder backup, such as the {filepath handlers.json} file, {filepath prefs.js} file, {filepath bookmarkbackups} folder, etc.
+#Locate and open the new profile folder as explained above and then close Firefox (if open).
+#Paste the contents of the backed up profile folder into the new profile folder, overwriting existing files of the same name.
+#Start Firefox.
+
+= Related articles =
+*To back up and transfer your data using Firefox [[Sync Firefox data|Sync]] when you install Firefox on a new device, see [[Back up and transfer your Firefox data to a new device]].
+*To restore or move selected information instead of the entire profile, see [[Restore bookmarks, passwords, and data from an old Firefox profile]].
+*To back up, restore or move just your bookmarks (not other data), see [[Restore bookmarks from backup or move them to another computer]].

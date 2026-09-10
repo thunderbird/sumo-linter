@@ -1,0 +1,66 @@
+Firefox for Windows lets you pin sites to your taskbar and run them as web apps. These apps open in their own window and can be pinned to your Windows taskbar, making them feel like standalone applications.
+
+For example, if SUMO ([https://support.mozilla.org support.mozilla.org]) is one of the websites you visit frequently, you can save it as a web app. Clicking its icon will open directly to SUMO, in its own app-like window, without mixing it with your other browsing.
+{note}'''Note:''' Web apps are only available in Firefox for Windows starting with [[Find what version of Firefox you are using|Firefox version]] 143 ({for not fx150}but not if you installed Firefox from the Microsoft Store{/for}{for fx150}and starting with version 150 if you installed Firefox from the Microsoft Store{/for}). They can be pinned or unpinned at any time without affecting their functionality.{/note}
+
+__TOC__
+
+=Get started with web apps=
+When you visit a site, Firefox may show a callout pointing to an icon, showing you how to add the site as a web app, as you can see below.
+;[[Image:webapp]]
+;[[Image:webapp2|width=385]]
+<!--Contributor note: These messages may be displayed when you visit a website on the frecency site list. Only one message per category will show up, however. For example, if you visit www.reddit.com and receive a taskbar tabs message, you won’t then get another message/prompt if you then visit www.linkedin.com, as these 2 sites are in the same “category/theme”.-->
+
+==Install web apps==
+You can add any website you visit to the taskbar. Here’s how:
+#In Firefox, click the web apps button [[Image:IG taskbar tabs add tab]] that appears in the address bar.
+#Firefox will install the site, and it will appear in your Windows taskbar.
+#*Firefox will also add a shortcut to the Start menu that you can use to launch the app.
+#;[[Image:webapps3]]
+#You might see a notification prompting you to pin the installed web app to your taskbar. Click ''Yes'' to keep the app on hand. Don’t worry, you’ll also be able to pin it later (just like any other app).
+#;[[Image:Firefox_Web apps_Windows Pin notification|width=425]]
+
+=Move the web apps back to Firefox=
+You can move any page from a web app back into a regular Firefox window by clicking the web apps button [[Image:IG taskbar tabs move tab]] in your address bar:
+*The tab will open in your most recent Firefox window, or in a new one if no windows are open.
+*If the app was created by moving a tab from Firefox, the tab may return to the original window.
+*If it’s the last open window for that site, the web app will also be uninstalled.
+
+==Uninstall the web app==
+You can uninstall a web app by moving its last open window back into Firefox with the web apps button [[Image:IG taskbar tabs move tab]]. If it’s pinned to the taskbar, it will be removed. Web apps will also be removed if you uninstall Firefox.
+{note}'''Note:''' Unpinning a web app from the Windows taskbar does not remove it from your Start menu.{/note}
+
+=Common issues=
+==Web app option doesn’t appear==
+*Make sure you are using '''[[Find what version of Firefox you are using|Firefox version]] 143 or later''', or '''Firefox version 150 or later''' if you installed Firefox from the Microsoft Store.
+*This feature is available '''only on Windows'''. It will not appear on macOS or Linux.
+*Restart Firefox and try again.
+
+
+==Web app doesn’t open after installation==
+*Check that Firefox is still installed on your computer.
+*If the shortcut looks broken, remove and add the web app again.
+
+==Web app didn’t restore after a crash or update==
+Normally, Firefox restores all windows, including web apps, after a restart. If it didn’t happen:
+*Reopen the web app manually either from your taskbar or the ''Windows Start'' menu. In Windows Start, web apps are typically located in the ''Firefox Web Apps'' folder.
+*Open Firefox normally and reinstall the web app, following the instructions from the [[#w_install-web-apps | Install web apps]] section.
+
+
+=Frequently asked questions=
+==Do the web apps work in private browsing mode?==
+No. They are only available in regular browsing windows.
+
+==Can I open new tabs in the web apps?==
+No. Web apps remove the new tab bar, bookmarks toolbar, sidebar and menu bar. The address bar is read-only.
+
+==What happens to the web apps if Firefox crashes?==
+All windows, including web apps, will be restored when Firefox restarts.
+
+==Is the web apps feature only available on Windows?==
+Currently, web apps are only supported in Firefox for Windows. Mozilla is considering adding support for macOS and Linux in the future.
+
+=Related articles=
+*[[How to pin and unpin Firefox from the taskbar on Windows 10 and Windows 11]]
+*[[Make Firefox your default browser on Windows]]
+*[[What Windows 10 end of support means for Firefox users]]

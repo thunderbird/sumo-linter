@@ -1,0 +1,40 @@
+Mozilla maintains an open system for add-ons, which gives developers many choices in how they create, use, and deploy their work. This same openness also provides malicious actors more opportunities as well. While Mozilla can identify and block malicious add-ons discovered through tooling, reviews, or user reports, this is not always enough.
+
+{for not fx116}
+[[Image:Fx115ExtensionsPanelQuarantinedDomainWarning|width=450]]
+{/for}
+{for fx116}
+[[Image:Fx116ExtensionsPanelQuarantinedDomainWarning|width=450]]
+{/for}
+
+[[Find what version of Firefox you are using|Firefox version]] 115 introduced Quarantined Domains to protect user privacy and security when we discover significant security issues presented by malicious actors. This feature allows us to prevent attacks by malicious actors targeting specific domains when we have reason to believe there may be malicious add-ons we have not yet discovered. A warning message that ''Some extensions are not allowed'' will notify you when this occurs, as shown above for an add-on listed in the [[Manage your extensions using the extensions button in the toolbar|extensions panel]] opened from the Firefox toolbar. <!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1833438 --> 
+
+Users can also control this behavior for each extension in the Add-ons Manager (''about:addons'') starting with [[Find what version of Firefox you are using|Firefox version]] 116. We will be further improving the UI for users in future releases.
+
+=How can I re-enable the add-ons that are not allowed on sites restricted by Mozilla?=
+{for not fx116}
+We understand that installing add-ons is a user choice and, as with your security, we also take this matter very seriously. If you are aware of the associated risk and still wish to allow add-ons disallowed on a site by Mozilla, you can do so from the [[Configuration Editor for Firefox|Configuration Editor]] (''about:config'' page):
+[[Template:aboutconfigwarning]]
+#[[Template:aboutconfig]]
+#Search for the {pref extensions.quarantinedDomains.enabled} preference.
+#*If this preference does not yet exist, the options to add it will show up. Select the '''Boolean''' type and click the {button +} button to create it.
+#Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to this preference to change its value to {pref false}.
+#Restart Firefox.
+{/for}
+{for fx116}
+We understand that installing add-ons is a user choice and, as with your security, we also take this matter very seriously. If you are aware of the associated risk and still wish to allow an add-on that has been disallowed on a site by Mozilla, you can do it from the Add-ons Manager settings:
+
+#[[Template:Open Add-ons|type=Extensions]]
+#Click the extension you want to enable on sites with restrictions.
+#Select the '''Allow''' option in the section ''Run on sites with restrictions''.
+
+[[Image:Add-on Manager - Run on sites with restrictions]]
+
+Alternatively, you can disable the ''entire'' protection from the [[Configuration Editor for Firefox|Configuration Editor]] (''about:config'' page):
+[[Template:aboutconfigwarning]] 
+#[[Template:aboutconfig]]
+#Search for the {pref extensions.quarantinedDomains.enabled} preference.
+#*If this preference does not yet exist, the options to add it will show up. Select the '''Boolean''' type and click the {button +} button to create it.
+#Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to this preference to change its value to {pref false}.
+#Restart Firefox.
+{/for}

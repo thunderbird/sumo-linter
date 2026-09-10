@@ -1,0 +1,53 @@
+From Firefox, you can enable or block sites from accessing any one of your device’s cameras and microphones. There are many different ways to enable or block camera and microphone permissions, depending upon the device that you’re using. This article outlines each method below.
+
+__TOC__
+
+=Use prompts to allow or block camera and microphone permissions for a site=
+To use prompts to allow or block camera and microphone permissions for a site that uses these features:
+#Open Firefox and go to the desired site.
+#A confirmation pop-up displays asking if you want to share your device’s camera and microphone with that site.
+#;[[Image:Camera permissions Fx89|width=950]]
+#Select the {button Remember this decision} checkbox if you want Firefox to remember your selections for this site so that they can be used by default in the future.
+#Click the {button Allow} button if you want to share these devices with the site.
+#Click the {button Block} button if you don’t want to share these devices with the site.
+{note}'''Note:''' You may not be able to use certain features or the site altogether if you block camera and microphone access.{/note}
+
+=Use the Firefox [[T:optionsorpreferences]] menu to change camera and microphone permissions=
+==Change camera permissions==
+#[[Template:optionspreferences]]
+#Click {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} on the left.
+#Scroll down to the ''Permissions'' section.
+#Click {for not fx152}the {button Settings…} button for the{/for}{for fx152}on the{/for} ''Camera'' option.<br>Firefox displays the websites with saved {menu Allow} or {menu Block} permission.
+#;[[Image:Camera Permission Settings - Options page]]
+#Use the '''Allow/Block''' selector to change permission for the website. You can remove the site by selecting it from the list and clicking the {button Remove Website}.
+#Select the {button Block new requests asking to access your camera} checkbox if you do not want to give any other sites access to your camera.
+#Click the {button Save Changes} button.
+
+==Change microphone permissions==
+#[[Template:optionspreferences]]
+#Click {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} from the left menu.
+#Scroll down to the ''Permissions'' section.
+#Click {for not fx152}the {button Settings…} button for the{/for}{for fx152}on the{/for} ''Microphone'' option.<br>Firefox displays the websites with saved {menu Allow} or {menu Block} permission.
+#;[[Image:Microphone Permission Settings - Options page]]
+#Use the '''Allow/Block''' selector to change permission for the website. You can remove the site by selecting it from the list and clicking the {button Remove Website}.
+#Select the {button Block new requests asking to access your microphone} checkbox if you do not want to give any other sites access to your microphone.
+#Click the {button Save Changes} button.
+
+=Use Firefox’s address bar to clear camera or microphone permissions for a site=
+#Click the permissions [[Image:Fx87PermissionsIcon]] icon that displays in the address bar on the left.
+#*Any relevant permission statuses for the current site are displayed in the [[Site Permissions panel|Site Permissions]] panel.
+#;[[Image:Fx87PermissionsPanel]]
+#Click the {button X} next to ''Allowed'', ''Allowed Temporarily'', ''Blocked'' or ''Blocked Temporarily'' to clear the status so that Firefox will ask again for permission when you next visit the site.
+
+=Use Firefox's Page Info Permissions dialog to change camera and microphone permissions=
+If a page does not prompt you for permission, you can use the {menu Permissions} panel in Firefox's [[View site information with Page Info|Page Info]] window to set a custom permission for the '''Use the camera''' or '''Use the microphone''' setting.
+#Open the ''Page Info'' (you can use the keyboard shortcut {for win,linux}{key Ctrl+I}{/for}{for mac}{key Command+I}{/for} while you are on the page; for other ways, see [[Firefox Page Info window]]).
+#At the top of the ''Page Info'' window, select {menu Permissions}.
+#;[[Image:Fx95PageInfoPermissions-microphone]]
+#To set a custom permission, uncheck '''Use Default''' for the setting and then choose '''Allow''' or '''Block'''.
+
+=Use your Android device’s settings menu to change camera and microphone permissions=
+If you’ve turned off camera or microphone access, you can turn on those permissions by accessing the '''Apps''' menu in your device ''Settings''. From there, you can enable the camera and microphone permissions from the ''Permissions'' submenu for the Firefox app.
+
+=Use your iOS device’s settings menu to change camera and microphone permissions=
+If you’ve turned off camera or microphone access, you can turn on your microphone or camera permissions by accessing the '''Privacy''' menu in your device ''Settings''.

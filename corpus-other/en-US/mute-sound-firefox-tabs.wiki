@@ -1,0 +1,10 @@
+Firefox lets you identify noisy tabs and mute them in a single click. Silence tabs quickly without affecting your other tabs or windows.
+
+=Mute or unmute tabs=
+When sound starts playing while you're browing, Firefox lets you know where it's coming from by displaying a speaker button on the noisy tab. Click the speaker to turn the sound off or on for that tab alone.
+
+{for not fx89}[[Image:mute tab 57]]{/for}{for fx89}[[Image:Mute_Tabfx89|width=320]]{/for}
+
+{for fx64}'''Tip:''' You can also mute multiple tabs by selecting them ({for mac}Command-click{/for}{for win, linux}Ctrl-click{/for}), then {for mac}Control-click{/for}{for win, linux}right-click{/for} one of these tabs and select {menu Mute Tabs}.{/for}
+
+{note}'''Keyboard shortcut:''' To mute or unmute a tab without a mouse, you can also press {for win,linux}{key Ctrl+M}{/for}{for mac}{key control+M}{/for} while on the tab.{/note}

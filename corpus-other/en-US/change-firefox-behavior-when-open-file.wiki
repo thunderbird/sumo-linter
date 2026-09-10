@@ -1,0 +1,66 @@
+This article describes how Firefox handles downloaded files for different types of content, such as saving a file or opening an application installed on your computer, and how you can change that behavior.
+*For help with problems downloading files, see [[What to do if you can't download or save files]].
+*For help with embedded media on web pages, see [[Fix common audio and video issues]].
+*For help changing the e-mail program Firefox uses, see [[Change the program used to open email links]].
+
+__TOC__
+
+= File types and download actions =
+When you click on a link to download a file, the [https://wikipedia.org/wiki/Media_type Media type], also called the MIME type or [https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Type Content type], as configured by the web server, will determine what action Firefox will take.
+
+Firefox will not be able to properly handle a file if a misconfigured web server sends it with an incorrect content type. For example, Firefox may display the content as plain text instead of opening the file in an application. To learn more, see [https://developer.mozilla.org/docs/Learn/Server-side/Configuring_server_MIME_types Properly configuring server MIME types] and [https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types Common MIME types] at ''MDN Web Docs''. You can contact the website in such cases, or you can try a Firefox add-on such as [https://addons.mozilla.org/firefox/addon/content-type-fixer Content-Type Fixer] to work around the problem. (If you use an add-on and need help with it, you should visit the add-on site or contact the add-on developer for support.)<!--https://support.mozilla.org/en-US/questions/1302591-->
+
+If Firefox does not have a set download action for a type of file, Firefox will save the file by default. If you select {menu Always Open Similar Files} in the ''Downloads'' panel, ([[#w_adding-download-actions|see below]]) a new Content Type and Action entry will be added to the {for not fx152}{menu General} panel ''Applications''{/for}{for fx152}''Files and applications''{/for} section of Firefox settings.
+{note}'''Note:''' Firefox treats links to some types of media files, such as .mp3 files, the same way it treats .txt and .html links, by handling them internally. The file will not be downloaded and the ''Downloads'' panel will not open. Instead, the file will open and play in Firefox, with a control bar displayed to manage playback (see [[Audio and video in Firefox]] for details). Firefox only uses {for not fx152}{menu General} panel ''Applications''{/for}{for fx152}''Files and applications''{/for} settings to determine what action is taken when a file is treated as a download ([[#w_changing-download-actions|see below]]).{/note}
+
+= Changing download actions =
+You can change what action Firefox takes for defined content types. This will not affect media embedded in a web page – only links to the files themselves.
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go to the ''Applications'' section.{/for}{for fx152}Go to the {menu Downloads} panel, and scroll down to ''Files and applications''.{/for}
+# Select the '''Content Type''' entry for action you want to change. (You might see more than one entry for the same [https://wikipedia.org/wiki/File_format file format or extension] because some types of files include multiple content types.)
+# The ''Action'' column will give you a drop-down menu, with options on the action to take.
+#;{for mac}[[Image:Fx77Applications-PDF-Mac]]{/for}{for linux}[[Image:Fx78Applications-PDF]]{/for}{for win}{for not fx152}[[Image:Fx91Applications-PDF-Win]]{/for}{for fx152}[[Image:fx152filesandapplications]]{/for}{/for}<!-- need Linux image showing drop-down options -->
+#* '''Open in Firefox''': Select this if you want Firefox to display the content. It only applies to a limited number of content types that Firefox is able to decode (PDF, AVIF, XML, SVG and WebP Image).
+#* '''Always ask''': This will show you a prompt asking ''What should Firefox do with this file?'' ([[#w_what-should-firefox-do-with-this-file-prompt|see below]]) so that you can choose the action you want to take. This can be useful if Firefox is automatically saving that type of file or is always opening it with a certain application, and you want to be asked what to do.
+#* '''Save File''': This will always save the file to your computer, when you download that type of file. To learn more, see [[Where to find and manage downloaded files in Firefox]].
+#* '''Use {for win}Windows{/for}{for mac}macOS{/for}{for linux}system{/for} default application''': This will open the file with the default application configured in your operating system. This is only shown for content types that include the ''Open in Firefox'' option (PDF, AVIF, XML, SVG, and WebP Image files) and is available when your system has another application set to open that type of file by default.
+#* '''Use <''application name''>''': Open the file or handle the protocol with this application. (Some Content Types, such as mailto, irc and ircs, are [https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers protocols], not types of files.) Options can include one or more web applications to handle the protocol or an installed application.
+#* '''Use other…''': This opens the ''Select Helper Application'' dialog, where you can choose the application you wish to use.
+#* '''Application Details…''': If web applications, or if installed applications other than the system default are listed, this opens a dialog where you can learn the location of those applications or remove an application as an available option.
+# [[Template:closeOptionsPreferences]]
+
+== Set Firefox to ask you what to do for files with no defined content type ==
+When you click on a link to download a file and Firefox doesn't have a content type and download action set up for that type of file, Firefox will save the file by default. If you want Firefox to ask you what to do with these downloads, you can go to the bottom of the {for not fx152}''Applications''{/for}{for fx152}''Files and applications''{/for} section under ''What should Firefox do with other files?'' and select {menu Ask whether to open or save files}.
+;{for not fx152}[[Image:Fx101settings-Applications-OtherFiles]]{/for}{for fx152}[[Image:fx152automaticallysavesfiles]]{/for}
+When you choose the setting {menu Ask whether to open or save files}, you will see a ''What should Firefox do with this file?'' prompt ([[#w_what-should-firefox-do-with-this-file-prompt|see below]]) when you download any file that has no defined content type.
+
+= Adding download actions =
+When you choose {menu Ask whether to open or save files} in Firefox settings under {for not fx152}''Applications''{/for}{for fx152}''Files and applications''{/for} (as shown above) and you download a file with no defined content type and action, you will see a ''What should Firefox do with this file?'' prompt. When you choose an action and also select the option, '''Do this automatically for files like this from now on''', a new Content Type and Action entry will be added to the ''Applications'' list for that type of file. See the [[#w_what-should-firefox-do-with-this-file-prompt|“What should Firefox do with this file?” prompt]] section below, for more information.
+
+When you download a type of file that can be opened with an installed application you can set Firefox to always open similar files as follows:
+# [[Template:contextmenu]] the downloaded item in the ''Downloads'' panel. (You can also do this from the [[Where to find and manage downloaded files in Firefox#w_see-downloads-history|''Library'' window ''Downloads'' history]].)
+# Select {menu Always Open Similar Files} from the context menu.
+#* This option may be missing in some cases, such as for executable files or files served by the website with an incorrect content type ([[#w_file-types-and-download-actions|see above]]).<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1759374 https://bugzilla.mozilla.org/show_bug.cgi?id=1738918 "Always open similar files" missing for executable files or files sent with `application/octet-stream` mimetype -->
+#;[[Image:Fx98Downloads-FileContextMenu]]
+
+== “Always Open Similar Files” option ==
+When you select {menu Always Open Similar Files} from the context menu for a downloaded item, the file will open in the system default application and a new Content Type entry will be added to the {for not fx152}''Applications''{/for}{for fx152}''Files and applications''{/for} section of Firefox settings, with the download action set to use that application. The next time you download that type of file and open the context menu, the {menu Always Open Similar Files} option will be check marked.
+;[[Image:Fx98AlwaysOpenSimilarFilesCheckmark]]
+If you clear the check mark, the download action for that Content Type in the {for not fx152}''Applications''{/for}{for fx152}''Files and applications''{/for} section of Firefox settings will be changed to ''Save File''. <!--https://support.mozilla.org/en-US/forums/contributors/715624?last=83298&page=3#post-83297-->You can later select a different action in Firefox settings ([[#w_changing-download-actions|see above)]] if you wish, such as {menu Use other…} to choose a different application, or {menu Always ask} so that Firefox asks you what to do when you download that type of file.
+{note}'''Note:''' When you open a file in Firefox with an application, the file is also saved to the folder location shown next to {menu Save files to:} in the ''Downloads'' section under ''Files and Applications'' in Firefox settings (see [[Where to find and manage downloaded files in Firefox]] for details). To learn more about how file downloads are handled, see [[How file downloads are handled in Firefox]].{/note}
+
+== “What should Firefox do with this file?” prompt ==
+If you change the action for a defined file type to {menu Always ask} or if you select {menu Ask whether to open or save files} for other files not listed in the {for not fx152}''Applications''{/for}{for fx152}''Files and applications''{/for} section of Firefox settings ([[#w_changing-download-actions|see above]]), you will see a ''What should Firefox do with this file?'' prompt for those downloaded files.
+;[[Image:Fx98prompt-OpenWithFirefox]]
+* '''Open with Firefox''': Opens the file in Firefox. This option will only be shown for those content types that include an ''Open in Firefox'' option in the ''Applications'' section of Firefox settings (PDF, AVIF, XML, SVG and WebP Image files).
+* '''Open with''': Opens the file in the operating system's default application for that file type. (You can also use the drop-down menu to choose another application.)
+* '''Save File''': Saves the file to the download folder (specified in your Firefox settings, in the {menu General} panel ''Downloads'' section).
+* '''Do this automatically for files like this from now on''': Check mark this option to always take the selected action and then click {button OK}. You may need to restart Firefox for the download action change to take effect.
+{warning}'''Warning:''' Do not choose Firefox as a helper application to always open the file type, as this can cause a problem where [[Firefox repeatedly opens empty tabs or windows after you click on a link|Firefox repeatedly opens empty tabs or windows after you click on a link]].{/warning}
+
+== “What should Firefox do with this file?” prompt does not show an application ==
+The “What should Firefox do with this file?” prompt may not show a default application for some file types you download, when you have Firefox set to {menu Ask whether to open or save files} in the ''Applications'' section of Firefox settings. You can click the {for mac}{button Choose…}{/for}{for win,linux}{button Browse…}{/for} button to choose an application installed on your computer to open the file.
+;{for win, linux}[[Image:Fx78OpeningPPTfile]]{/for}{for mac}[[Image:Fx90OpeningFileChoose-mac]]{/for}
+
+= Resetting download actions for all content types =
+If you are having problems with how Firefox is handling file downloads that you can't resolve, or if you just want to start fresh, you can restore the default content types and actions by refreshing Firefox. To learn more, see [[Refresh Firefox - reset add-ons and settings]].

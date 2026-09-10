@@ -1,0 +1,26 @@
+Studies try out different features and ideas before they are released to all Firefox users. Using your feedback, we can make more informed decisions based on what you actually need.
+
+__TOC__
+
+=How do I participate?=
+The first step is confirming that the {for not fx151}'''Install and run studies'''{/for}{for fx151}'''Allow Firefox to run feature studies'''{/for} setting is checked (see instructions below). When a study is available, you will automatically be enrolled if you meet the criteria. There will be occasions where we might prompt you for participation first. This will happen when a particular study needs to collect data that is not covered by default data collection policy. In these situations you'll see a complete disclosure of the data being collected in the study before you make the decision to participate.
+
+When the study ends, Studies will be disabled but you will be able to see it so you have a record of what studies you've participated in.
+
+=How do I see the studies I'm in?=
+To see the studies you're participating in, type '''about:studies''' into your address bar.
+
+You'll also see studies you've participated in the past.
+
+=How do I opt out?=
+==To opt out of a specific study==
+#Type '''about:studies''' into your address bar to see a list of your studies.
+#Click the {button Remove} button next to the study you want to opt out of.
+
+==To opt out of all studies==
+#[[T:optionspreferences]]
+#Select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} panel.
+#Go down to the {for not fx151}'''Firefox Data Collection and Use'''{/for}{for fx151}'''Firefox data collection and use'''{/for} section.
+#Remove the check mark next to {for not fx151}'''Install and run studies'''{/for}{for fx151}'''Allow Firefox to run feature studies'''{/for}.
+#;{for not fx148}[[Image:Fx140esrDataCollection]]{/for}{for =fx148, =fx149, =fx150}[[Image:Fx148DataCollection]]{/for}{for =fx151}[[Image:Fx151DataCollection]]{/for}{for fx152}[[Image:Fx152settings-DataCollection]]{/for}
+{note}'''Tip''': You can also get to these settings from the {for mac, linux}{button Update Preferences}{/for}{for win}{button Update Options}{/for} button on the ''about:studies'' page.{/note}

@@ -1,0 +1,20 @@
+Adding extensions to Firefox enhances your browsing experience and helps you stay productive. This article lists some Firefox extensions recommended for parents and students.
+__TOC__
+=Recommended extensions=
+{note}These extensions are either developed by Mozilla or thoroughly evaluated by Firefox staff to meet the highest standards (see the [[Recommended Extensions program]] article to learn more).{/note}
+
+==For parental control==
+If you want to restrict access to certain sites or content on your children's sessions, you can use the extensions listed below for things like blocking distracting sites, requiring passwords to access pages, or replacing offensive words on websites.
+*[https://addons.mozilla.org/firefox/addon/leechblock-ng/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search LeechBlock NG] – Block distracting websites and focus on your tasks.
+*[https://addons.mozilla.org/firefox/addon/block-website/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search Block Site] – Require a primary password to access specific websites or restrict access at specific times of the day.
+*[https://addons.mozilla.org/firefox/addon/b-itch-to-boss/ B!tch to Boss] – Make Firefox replace inappropriate or offensive language with other predefined words on the websites your children visit.
+
+==For students==
+Some extensions can also help you or your family stay productive and help with school work.
+*[https://addons.mozilla.org/firefox/addon/notes-by-firefox/ Notes by Firefox] – Take notes and access them quickly from a panel on the left.
+*[https://addons.mozilla.org/firefox/addon/impulse-blocker/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured Impulse Blocker] – Temporarily block certain websites that are distracting you.
+*[https://addons.mozilla.org/firefox/addon/read-aloud/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured Read Aloud: A Text to Speech Voice Reader] – Read out loud the current web page or selected text with a few clicks.
+*[https://addons.mozilla.org/firefox/addon/languagetool/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured Grammar and Spell Checker - LanguageTool] – Use this extension to correct spelling and grammar errors in your school papers.
+*[https://addons.mozilla.org/firefox/addon/tomato-clock/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured Tomato Clock] – Use Tomato clock to stay focused and take breaks when needed. You can customize the timer to focus or take a break for a fixed length of time.
+*[https://addons.mozilla.org/firefox/addon/dictionary-anyvhere/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured Dictionary Anywhere] – Double-click a word to find its definition. This extension supports English, French, German, and Spanish.
+*[https://addons.mozilla.org/firefox/addon/youtube-recommended-videos/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=featured Unhook: Remove YouTube Recommended Videos Comments] – Keep your focus by blocking YouTube recommendations.

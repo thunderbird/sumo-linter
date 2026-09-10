@@ -1,0 +1,44 @@
+[[Template:FirefoxPrivacyNotice]]
+When Firefox for Desktop crashes, it can send a crash report to Mozilla to help us fix bugs and improve the browser. You can choose to send them on a case-by-case basis after a crash or enable automatic submission.
+
+This article explains what’s included in a crash report, how Mozilla uses it, and how you can manage the setting to automatically send crash reports.
+
+=What’s included in a crash report?=
+Crash reports contain technical details about the crash to help Mozilla identify and fix problems in Firefox. Here’s what’s included:
+*'''Crash metadata:''' Information such as the operating system, Firefox version, and the time of the crash. This allows us to narrow down what platforms/user groups are affected by the crash.
+*'''Device memory usage:''' Information about available memory at the time of the crash. Memory information can be a useful tool to determine whether a crash is caused by low system memory.
+*'''Crash stack traces:''' Technical details about the code running at the time of the crash. These details guide developers to identify the cause of the crash (whether due to Firefox or third-party code).
+*'''Snapshots from the program memory:''' Small fragments of memory will be stored in the report to help developers analyze the crash. These might contain private information and will only be accessible by a small number of developers within Mozilla.
+*'''Browsing metadata:''' The URL that was loaded at the time of the crash may be included if you opt-in to sending it. Sometimes, crashes can only be reproduced by certain webpages, so the URL involved may be valuable to debug the cause of the crash.
+*'''Hardware testing results:''' We receive a remarkable number of crashes that are simply due to bad hardware. To help identify these cases, we perform simple hardware tests and include results in reports. The tests do not take long and the results do not contain personal identifiable information, however users can opt-out of sending this information.
+Some crash reports may include additional debugging information, such as minidumps – small memory snapshots that may contain data such as the list of files that were opened by Firefox at the time of crash or the last URL the user was visiting, to help diagnose crashes. Only a limited number of Mozilla engineers have access to this data.
+
+For a detailed breakdown of the data included in crash reports, visit the [https://dictionary.telemetry.mozilla.org/apps/firefox_desktop/pings/crash Glean Dictionary].
+
+=What’s included in a crash ping?=
+Firefox also sends [https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/data/crash-ping.html crash pings], smaller reports containing only the non-identifying metadata about crashes. These are sent automatically unless you opt out of [[Manage technical and interaction data collection settings in Firefox|technical and interaction data collection]] in your settings. While crash pings contain less information than crash reports, they serve an important role in prioritizing debugging efforts (since they give a better estimate of the impact of bugs, not to mention they give insights into background process crashes for which we normally do not receive reports). Crash pings also give a much more accurate representation of the overall stability of Firefox.
+
+For a detailed breakdown of the data included in crash pings, visit the [https://dictionary.telemetry.mozilla.org/apps/firefox_desktop/pings/crash Glean Dictionary].
+
+==How does Mozilla use crash reports and crash pings?==
+Mozilla uses crash pings and reports to fix bugs by understanding what caused the crash and prioritizing fixes, improve reliability by identifying trends to make Firefox more stable, and enhance user experience by ensuring future updates are less likely to crash.
+
+=Allow Firefox to automatically send crash reports=
+You can control whether Firefox automatically sends crash reports:
+#[[Template:optionspreferences]]
+#Go to the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} panel.
+#Scroll down to the {for not fx151}''Firefox Data Collection and Use''{/for}{for fx151}''Firefox data collection and use''{/for} section.
+#Check or uncheck the box next to '''Automatically send crash reports'''.
+{for not fx148}[[Image:Automatically send crash reports|width=700]]{/for}{for =fx148,=fx149,=fx150}[[Image:Fx148DataCollection-CrashReports|width=700]]{/for}{for fx151}[[Image:Fx151DataCollection-CrashReports|width=700]]{/for}
+
+==What happens if I enable this option?==
+If you enable this option, Firefox will automatically send crash reports. This ensures that Mozilla receives important crash data to improve Firefox’s stability. If you leave this option disabled (the default setting), crash reports will remain saved locally on your device until you manually choose to send them — for example, by submitting a crash report after Firefox prompts you following a new crash.
+
+=Manually submitting crash reports=
+Aside from choosing to submit crash reports immediately following a crash, you can also view all of your crash reports and potentially submit them later by entering '''about:crashes''' in the address bar.
+
+=Related content=
+To learn more about how Mozilla handles your data, check out these resources:
+*[https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice]
+*[[Manage Firefox data collection and privacy settings]]
+*[[Mozilla Crash Reporter]]

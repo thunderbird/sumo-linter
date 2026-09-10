@@ -1,0 +1,23 @@
+This article explains how to add bookmarks to Firefox from a file saved in HTML format.
+*To replace your existing bookmarks with a Firefox bookmark backup file in JSON format, see [[Restore bookmarks from backup or move them to another computer#w_restoring-from-backups|Restoring bookmark backups]].
+'''Before proceeding, you should make a backup of your current bookmarks.''' You can do this by opening the Bookmarks Library window (explained below). From the toolbar in the Library window, click {for mac}[[Image:import-export-arrows]]{/for}{for not mac}{menu [[Image:import-export-arrows]] Import and Backup}{/for} and choose {menu Backup…}. This will create a Firefox bookmark backup file in JSON format.
+
+=Import bookmarks from the Library window=
+#Click the menu button [[Image:Menu button 1]] to open the menu panel. Click {menu Bookmarks} and then click the {menu Manage bookmarks} bar at the bottom.
+#;[[Image:Import from Library|width=300]]
+#The Bookmarks Library window will open. From the toolbar in the Library window, click {for mac}[[Image:import-export-arrows]]{/for}{for win,linux}{menu [[Image:import-export-arrows]] Import and Backup}{/for} and choose {menu Import Bookmarks from HTML…}
+#;{for mac}[[Image:Import from HTML mac]]{/for}{for win,linux}[[Image:importBookmarks]]{/for}
+#Within the Import Bookmarks File window that opens, navigate to the bookmarks HTML file you are importing and select the file.
+#Click the {button Open} button. The Import Bookmarks File window will close.
+The bookmarks in the selected HTML file will be added to your Firefox bookmarks within the '''Bookmarks Menu''' directory.
+{note}'''Note:''' The imported bookmarks will be added to your existing bookmarks, which may result in duplicate bookmarks. You can [[How do I delete a bookmark?|delete unwanted Firefox bookmarks]] before importing a new set of bookmarks, but this can be time-consuming.{/note}
+
+=Import bookmarks from Firefox Settings=
+#[[Template:optionspreferences]]
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Account and sync}{/for} page, click on {button Import Data} under the ''Import browser data'' section.
+#;{for not fx151}[[Image:Import data|width=800]]{/for}{for fx151}{for not fx152}[[Image:Fx151ImportBrowserData]]{/for}{/for}{for fx152}[[Image:fx152importdata]]{/for}
+#Select the {menu Bookmarks from HTML file} option from the drop-down menu.
+#;[[Image:Bookmarks from HTML File|width=400]]
+#Select the HTML file you will import your bookmarks from and click {button Open}.
+#All set! The bookmarks in the selected HTML file will be added to your Firefox bookmarks within the '''Bookmarks Menu''' directory. Click {button Done} to close the Import Wizard.
+#;[[Image:Bookmarks from HTML File - success|width=400]]

@@ -1,0 +1,20 @@
+Firefox's built-in support for [https://wikipedia.org/wiki/Web_feed web feeds] and [[Live Bookmarks - Subscribe to a web page for news and updates|Live Bookmarks]] was removed with the release of Firefox version 64 in December 2018.
+
+After reviewing the usage data and technical maintenance requirements for these features and taking into account alternative RSS/Atom feed readers already available to you, we have realized that these features have an outsized maintenance and security impact relative to their usage. Removing the feed reader and Live Bookmarks allows us to focus on features that make a greater impact.
+
+With this article, we hope to help you find a suitable replacement for the built-in feed reader and migrate your live bookmarks to your new feed reader.
+
+__TOC__
+
+=Replacements for the built-in feed reader=
+'''Add-ons:''' There are several extensions for Firefox that provide feed reader functionality. You can browse our curated collection of readers [https://addons.mozilla.org/firefox/collections/5975439/feed-readers/ here], or search for other feed readers on [https://addons.mozilla.org addons.mozilla.org].
+
+'''Feed Aggregators:''' There are many dedicated clients for feed readers, many of which provide a better experience than Firefox. You can find more information about these clients on [https://wikipedia.org/wiki/Comparison_of_feed_aggregators Wikipedia]. 
+
+=What will happen to my existing Live Bookmarks?=
+Firefox will tell you when support for Live Bookmarks has ended and will do the following:
+*Automatically export all existing Live Bookmarks to an OPML file on your desktop named {filepath Firefox feeds backup.opml} which you can import into another feed reader.
+*Live Bookmarks will be turned into regular static bookmarks if Firefox can identify the URL. If the URL doesn't exist, the original Live Bookmark is removed.
+
+=Other alternatives=
+Mozilla is working on various initiatives that provide similar functionality to RSS/Atom feed support, like [[Firefox Reader View for clutter-free web pages|Reader Mode]] (which includes voice support and user-controlled styling of content).

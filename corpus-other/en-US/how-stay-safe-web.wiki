@@ -1,0 +1,42 @@
+<!-- Notes
+*Once upon a time Scoobidiver wrote a section called "How can I improve my privacy and security?" in part of a revision to the private browsing article. We talked about basing a new article on this info https://support.mozilla.org/en-US/forums/knowledge-base-articles/704973 - Let's do that.
+*We should limit the scope of the article to the top sane, easy, common sense things you can do. We should not go into full-paranoid, I-need-to-disappear-from-the-grid-mode.
+-->
+There are all kinds of scams, viruses and other dangers out in the web. Here are simple steps you can take to protect your computer and personal information.
+
+__TOC__
+
+=Keep your software and operating system up-to-date= 
+Software updates contain vulnerability patches that protect your computer and personal information.
+*'''Update Firefox:''' {for win,linux}Click the menu button [[Image:Fx89menuButton]], click {menu Help} and select {menu About Firefox}.{/for}{for mac}On the menu bar, click the {menu Firefox} menu and select {menu About Firefox}.{/for} See [[Update Firefox to the latest release]] for details.
+*'''{for win}Update Windows{/for}{for mac}Update macOS{/for}{for linux}Update your system{/for}:''' Make sure you have all of the latest security and stability fixes. {for win}Go to the {menu Start} menu, select {menu All Programs} and then {menu Windows Update}.{/for}{for mac}Go to the {menu Apple} menu and select {menu Software Update...}.{/for}{for linux}Go to the {menu System} menu, down to {menu Administration} and select {menu Update Manager}.{/for}
+
+=Check your Firefox settings=
+Firefox has many ways to help you stay safe on the web:
+*[[How do I tell if my connection to a website is secure?]]
+*[[Third-party cookies and Firefox tracking protection]]
+*[[Where are my logins stored?]]
+* There are also a lot of [https://addons.mozilla.org/firefox/extensions/privacy-security/ Firefox extensions] that may be helpful.
+
+=Follow best practices to protect yourself online=
+Here are some handy tips to protect yourself:
+* '''[[Choose a strong password|Create secure passwords to keep your identity safe]].'''
+* '''Remember that YOU decide what information about yourself to reveal, when, why, and to whom:''' Don't give out personally-identifiable information too easily; set your privacy settings in your social networking account; beware of sites that offer some sort of reward or prize in exchange for your contact information or other personal details.
+* '''Only download Firefox (and other software) from legitimate channels:''' Beware of scams such as [[I found a fake Firefox update|fake Firefox updates]].  Only download Firefox from the [https://www.mozilla.org/firefox/new/?utm_medium=referral&utm_source=support.mozilla.org official Mozilla website].
+* '''Be conscious of Internet security:''' Never submit a credit card number or other highly sensitive personal information without first making sure your connection is [[How do I tell if my connection to a website is secure?|secure]]; [[Is my Firefox problem a result of malware|be on the lookout for "spyware"]];  [[Choosing More Secure Passwords|use secure passwords]] and [[Use a Primary Password to protect stored logins and passwords|protect them with a Primary Password]].
+* '''Keep a "clean" e-mail address''': Use some pseudonymous or simply alternate address, and keep your main or preferred address only on small, members-only lists and with known, trusted individuals.
+* '''Do not reply to spammers, for any reason.'''
+* '''Realize you may be monitored at work:''' Avoid sending highly personal e-mail to mailing lists, and keep sensitive files on your home computer.
+* '''Be conscious of home computer security:''' Turn off your computer when you are not using your Internet connection; secure your Wi-Fi network with a strong encryption (WPA or WPA2); use a [[Firewalls|firewall]].
+* '''Examine privacy policies and seals:''' Does the site provide offline contact information? Does the site have a prominently-posted privacy policy? If so, what does it say? Do you have a reason to believe it? Have you ever heard of this company? What is their reputation? And are they backing up their privacy statement with a seal program? If you see a seal, is it real? Some sites allow their visitors to check these seals by clicking on them to show their authenticity.
+
+=More resources=
+*[[How does built-in Phishing and Malware Protection work?|Firefox's built-in Phishing and Malware Protection]]
+*[[Common Myths about Private Browsing|Common Myths about Firefox and Private Browsing]]
+*[[Enhanced Tracking Protection in Firefox for desktop]]
+*[[Multi-Account Containers|Separate your online life with Multi-Account Containers from Mozilla]]
+* [https://www.eff.org/wp/effs-top-12-ways-protect-your-online-privacy EFF's Top 12 Ways to Protect Your Online Privacy] 
+* [https://www.google.com/safetycenter/everyone/start/ Google Safety Center - Manage your privacy and security] 
+* [https://www.getcybersafe.gc.ca/en/ Get Cyber Safe] 
+* [http://lifehacker.com/5576927/how-to-stay-safe-on-public-wi+fi-networks How to Stay Safe on Public Wi-Fi Networks] 
+* [http://www.onguardonline.gov/articles/0014-tips-using-public-wi-fi-networks Tips for Using Public Wi-Fi Networks]

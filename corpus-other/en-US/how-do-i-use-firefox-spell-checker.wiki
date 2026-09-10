@@ -1,0 +1,48 @@
+Firefox automatically checks the spelling of words that you enter in text boxes. As soon as you finish typing a word, it is checked against the words in the installed dictionary. If the word is not found in the dictionary, it will be underlined in red, as in the following example:
+;[[Image:05675f3d603e2607555817580ba1c0c2-1271792700-577-1.png]]
+{note}
+'''Note:'''
+* Automatic spell-checking is only turned on for text boxes containing '''more than one line''', where you can enter as much text as you want.
+* Not all locales come with a dictionary installed due to licensing reasons.
+{/note}
+
+__TOC__
+
+<!-- L10N: If your locale has no spell checking dictionary included, feel free to rearrange the sections, e.g. Adding dictionaries > Correcting misspelled words > Switching dictionaries > Disabling automatic spell-checking > Removing a word you have accidentally added -->
+= Disable automatic spell-checking =
+By default, Firefox is configured to automatically check spelling. You can turn it off in the [[Template:optionsorpreferences]] window:
+# [[T:optionspreferences]]
+# {for not fx152}In the {menu General} panel, go to the {for fx151}''Spell check'' section{/for}{for not fx151} ''Language'' section{/for}{/for}{for fx152}Select {menu Languages} on the left and go down to the ''Spell check'' section{/for}.
+# Uncheck '''Check your spelling as you type'''.
+#;{for fx152}[[Image:Fx152settings-SpellCheck]]{/for}{for not fx152}{for fx151}[[Image:Fx151settings-SpellCheck]]{/for}{for not fx151}[[Image:Fx140ESRsettings-Language]]{/for}{/for}
+# [[T:closeOptionsPreferences]]
+{for linux}{note}'''Note:''' Some options may not appear in the preferences window in custom builds of Firefox.{/note}{/for}<!-- Is this a bug in the custom build? (i.e. Ubuntu canonical - 1.0) -->
+
+= Correct misspelled words =
+When spell-checking is enabled, you can easily correct misspelled words. To correct the misspelled word, [[Template:contextmenu]] on it and select one of the suggested words at the top of the menu.
+;[[Image:05675f3d603e2607555817580ba1c0c2-1271792700-577-3.png]]
+If none of the suggested words is appropriate, you must manually edit it. If you are sure the word is spelled correctly, you can add it to the dictionary. To add a word to the dictionary, [[Template:contextmenu]] on it, and select {menu Add to Dictionary}.
+{note}'''Note:''' Added words apply to all your dictionaries.{/note}
+
+= Add dictionaries =
+You can install other dictionaries as necessary.
+# [[T:contextmenu]] in any text box containing more than one line.
+# Select {menu Languages}.
+# Select {menu Add dictionaries}.
+#;[[Image:05675f3d603e2607555817580ba1c0c2-1271792700-577-4.png]]
+# The [https://addons.mozilla.org/firefox/language-tools/ Dictionaries & Language Packs] page is displayed. Find a dictionary on the list and click on it to open its page.
+# Click the {button Add to Firefox} button on the page that opens. When the warning panel appears, click {button Add} to allow the installation.
+#;[[Image:addon doorhanger 57]]
+
+= Switch dictionaries =
+After the dictionary is installed, you can switch to it, as needed. To switch to a different installed dictionary, [[Template:contextmenu]] in a multi-line field, select {menu Languages}, then select the dictionary you want to use.
+;[[Image:05675f3d603e2607555817580ba1c0c2-1271792700-577-6.png]]
+You can select more than one dictionary. The spell checker will also check spelling against multiple languages.
+
+= Remove a word you have accidentally added =
+# [[T:profileFolder]]
+# [[T:closeFirefox]]
+# Open the file {filepath persdict.dat} in a text editor{for win} (such as '''WordPad'''){/for}{for mac} (such as '''Pages'''){/for}{for linux} (such as '''Calligra Words'''){/for}.
+# In the text editor, each word you've added is on a separate line. Remove the line, containing the word you wish to remove.
+# Click the {menu File} menu and select {menu Save}, to save your work.
+{note}'''Note:''' Removed words apply to all your dictionaries.{/note}

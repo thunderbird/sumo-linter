@@ -1,0 +1,29 @@
+{warning}This experimental feature may not always work as expected.{/warning}
+[[Keyboard shortcuts - Perform common Firefox tasks quickly|Keyboard shortcuts]] (also called hotkeys) help you quickly perform common actions in Firefox, like opening a new tab, saving a page, or closing a window, without using your mouse. Hotkeys are enabled by default and available on Firefox for Windows, macOS, and Linux.
+
+Starting in [[Find what version of Firefox you are using|version 147]], you can customize dozens of Firefox keyboard shortcuts on Windows, MacOS, and Linux from the '''about:keyboard''' settings page. Replace hard-to-type or hard-to-remember hotkeys, eliminate conflicts with other software, and create your preferred set to optimize workflows.
+
+=Customize keyboard shortcuts=
+#Type '''about:keyboard''' in the Firefox address bar and press {key Enter}.
+#Find the hotkey you want to change by using the {button Search} field at the top of the page, or scroll down the full list.
+#;{for win}{for not mac}[[Image:customizewin]]{/for}{/for}{for mac}[[Image:customizemac]]{/for}
+#Click the {button Change} button to enter a new shortcut.
+#*The {button Press new key:} field appears, and your change will save automatically.
+#*;{for win}{for not mac}[[Image:customizekeywin]]{/for}{/for}{for mac}[[Image:customizekeymac]]{/for}
+#Click the {button Clear} button to delete an existing shortcut.
+#*The {button Reset} button appears, and clicking it restores the Firefox default.
+#*;{for win}{for not mac}[[Image:customizeresetwin]]{/for}{/for}{for mac}[[Image:customizeresetmac]]{/for}
+#Click the {button Reset all shortcuts to defaults} button at the bottom of the page to delete your customizations and restore Firefox keyboard shortcuts to their defaults.
+#;{for win}{for not mac}[[Image:customizedefaultwin]]{/for}{/for}{for mac}[[Image:customizedefaultmac]]{/for}
+
+=Frequently asked questions=
+==Does this feature work with all keyboard types?==
+Firefox hotkeys work best with English (US) QWERTY keyboards. Support for other keyboard layouts and versions is limited.
+
+==Is this feature available on Android or iOS?==
+No, the customizable keyboard shortcuts feature is not currently supported on Android or iOS.
+
+=Related articles=
+*[[Keyboard shortcuts - Perform common Firefox tasks quickly]]
+*[[Keyboard shortcuts in Firefox for iOS]]
+*[[Accessibility features in Firefox - Make Firefox and web content work for all users]]

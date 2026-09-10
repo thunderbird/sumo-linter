@@ -1,0 +1,102 @@
+'''''At Mozilla, privacy isn’t a feature — it’s a foundation. That applies to ads in Firefox, too.'''''
+
+On Firefox, ads are designed to support the open web without compromising your privacy. That means delivering relevant experiences without collecting large amounts of personal data; or tracking you across sites. From the start, our approach has been to use only the minimum information needed, keep personal data under Mozilla’s control, and give you clear choices about how ads appear.
+
+In this article, we’ll explain how ads currently work in Firefox, including the limited signals we use and why. While the technical details may evolve as we learn and improve, our commitment to Mozilla’s [https://www.mozilla.org/privacy/principles/ Privacy Principles] remains unchanged.
+
+__TOC__
+
+=Control over your ad experience=
+You can turn off ads in Firefox New Tab at any time. [[Sponsors on the home page and New Tab page#w_how-to-remove-sponsored-stories-from-the-new-tab-page|Here’s how]]. You also have tools to dismiss individual ads or report them. We’re selective about the advertisers we work with, and we only allow ads that align with Mozilla’s brand and values. Protecting your experience means not only giving you control, but also ensuring that the ads you see meet the standards we set.
+
+=Open source=
+Firefox is open source. The core technical components that determine how ads are delivered in Firefox are transparent and accessible to the community for understanding.
+
+Some aspects of advertising, like commercial terms, aren’t published because they don’t describe how the system technically works. What matters for users and developers is transparent: the Firefox code, the data flows and the privacy protections built into the design.
+
+=Protecting privacy=
+Privacy is the foundation of our ad approach, just as it is in Firefox as a whole. Advertisers don’t need to know who you are to reach you, and we don’t let them track you across the internet. That means no third-party cookies and no device IDs. This matches our approach to [https://firefox-source-docs.mozilla.org/contributing/data-collection.html data collection] across all of Firefox—collecting only what’s necessary, never more. We do not sell or share your personal data.
+
+There are still ways advertisers try to identify people. The most common are direct tracking across sites, fingerprinting, and malicious ads based on device details. In the following sections, we’ll walk through each of these and the steps we’re taking to prevent them.
+
+==1) Stopping cross-site tracking==
+'''Our approach:''' Eliminate cross-site identifiers and treat network signals as sensitive. Ad delivery should work without requiring a user-level ID and without exposing your actual IP address.
+
+==How this differs from typical practice==
+*'''Most publishers:''' send the real user IP in ad requests with no modification.
+*'''Privacy-focused publishers:''' may truncate the IP (for example, drop the last octet → 192.0.2<!---->.xxx) before sending.
+*'''Mozilla’s approach (beyond both):''' we replace the real IP with a synthetic/proxied IP from a Mozilla-controlled pool, mapped only to the general region. It’s shared across many users and is not stable per user.
+
+===Mozilla Ads does not use===
+*Third-party cookies for ad delivery
+*Device identifiers (for example, mobile advertising IDs)
+*Unique user IDs
+
+===IP & location: how we protect your IP (and why any IP is used)===
+Some network signal is needed for basics like fraud checks and showing region-appropriate ads. Because an IP address can act as a soft identifier, we treat it as sensitive.
+*'''Requests route through Mozilla:''' Ad requests originate from Mozilla-controlled infrastructure, not your device. Ad buying systems (for example, exchanges/SSPs) do not receive your real IP in the ad request.
+*'''Coarse regional mapping:''' We substitute a Mozilla-operated IP from your general area (city/metro) so ads can be region-relevant and integrity checks can run without exposing your household.
+*'''Shared, not personal:''' The substituted IPs are used by many people and aren’t stable per user, so they can’t serve as durable identifiers.
+*'''No precise location:''' We do not send GPS or street-level coordinates; any location provided is coarse and derived from the protected IP address.
+This removes the real IP from the bidstream entirely while preserving only the minimal utility (for example, city-level relevance, basic fraud checks). That’s why our approach is novel among even the most privacy-focused publishers.
+
+'''Result:''' Advertisers can’t follow you across sites via cookies, device IDs or a user ID. Buyers don’t see your real IP, and any signals used are coarse, shared and non-stable—reducing the chance that data about you accumulates in the ecosystem or can be cross-checked across datasets.
+
+==2) Anti-fingerprinting protections==
+'''What it is:''' Even without cookies or device IDs, some ad systems try to identify a browser by combining many small details (like device or browser characteristics). This is called fingerprinting.
+
+'''Our approach:''' Make your browser blend in with the crowd and exclude high-entropy details from ad flows.
+
+'''What we do:'''
+*'''Standardized user agent:''' We normalize user-agent strings to prevent rare setups from standing out.
+*'''Signal minimization:''' Ad requests include only low-risk, necessary fields (for example, a single context category, coarse region). We avoid sending high-entropy device details.
+*'''No ad-side JavaScript on Firefox New Tab:''' Ads can’t run their own scripts here, which blocks common active fingerprinting techniques.
+*'''No demographic data for ad delivery:''' We don’t collect or share age, gender or similar traits for ads.
+*'''Header hygiene:''' We normalize sensitive headers where possible to reduce uniqueness.
+'''Result:''' Advertisers can’t reliably single you out based on device/browser quirks, and ads can function without surveillance.
+
+==3) Protection from malicious ads==
+'''What it is:''' “Malvertising” is when an ad tries to run harmful code, force redirects, harvest data or impersonate trusted UI. The common vector is third-party JavaScript shipped with ad creatives.
+
+'''Our approach:''' Ads never run their own third-party code. Ads are delivered as data only, through a Mozilla-operated ad routing service, and rendered by Firefox itself, so no external ad JavaScript executes.
+
+'''What we do'''
+*'''Data-only delivery:''' Ads arrive at Firefox New Tab (HNT) as JSON, not as third-party HTML/JS bundles.
+*'''Mozilla in the middle:''' The Firefox client never connects directly to outside ad networks. All requests go to a Mozilla-controlled ad routing service that enforces policy and strips active code paths.
+*'''Strict JS boundary:''' Only Firefox’s own code runs. No creative-supplied JavaScript executes in New Tab, which removes a primary channel for malware and tracking scripts.
+*'''Rendering under Firefox control:''' Firefox turns ad data into visuals using its own HTML/CSS/JS, maintaining a single, auditable execution environment.
+*'''Creative & demand safeguards:''' We accept ads only from trusted sources and apply brand/category standards aligned with Mozilla’s values.
+*'''User controls:''' You can dismiss or report an ad; we act quickly to review and disable bad creatives or buyers across inventory.
+'''How this differs from typical practice'''
+
+Most of the ad industry sends creatives as HTML/CSS/JavaScript that run in your browser (often via tags/iframes). By contrast, Firefox receives '''data-only ads''' through a '''Mozilla-operated proxy''', and only Firefox’s own JS executes. This significantly reduces malware risk and eliminates a major pathway for third-party tracking.
+
+'''Result:''' Ads on Firefox New Tab favor safety and integrity over third-party interactivity. We continue to evaluate if limited, privacy-preserving interactivity can be supported in the future, without weakening these protections.
+
+=How we use data in Mozilla Ads=
+We use minimal, privacy-protected signals—just enough to make ads work and to keep them relevant in the moment. Irrelevant or out-of-place ads don’t serve anyone. '''We do not sell or share your personal data'''.
+
+==What we send to ad partners (kept to the minimum for relevance & integrity)==
+*'''Context (one category):''' A single IAB category for the placement (for example, “sports” or “bicycling”). We don’t send page URLs or full content, and we don’t send multiple categories in a single call.
+*'''Coarse region:''' City/metro–level location, so offers make basic geographic sense—no GPS or street-level precision.
+*'''Delivery basics:''' Non-identifying details needed to render an ad (for example, slot size) plus privacy-protected network signals (see '''IP & location''' above).
+**User-agent (normalized): The user-agent string typically reveals details like your browser version, operating system and device type. Most ad systems pass this through unchanged, which makes it easier for you to be fingerprinted (see '''Anti-fingerprinting protections''' above). In Firefox, we redact user-agent strings to reduce uniqueness:
+***'''Firefox version:''' We use either the latest Firefox version or, if you’re on an older build, the latest minus one.
+***'''Operating system:''' We use only broad OS and platform types for major platforms, without exposing detailed system information.
+***This prevents advertisers from spotting rare setups that could make you stand out.
+*'''Campaign Performance Metrics:''' In the U.S. we share information about ''how'' our ads perform, not who is engaging with these ads.
+**By default, we provide aggregated data around ad impressions and clicks
+**We have developed innovative, privacy-protecting solutions to further measure incremental traffic lift and high-level conversion signals on partner sites – all using non-identifiable, aggregated data through [https://divviup.org/blog/combining-privacy-preserving-telemetry-with-differential-privacy/ DAP] (without relying on third-party cookies or user-level identifiers) in order to uphold Mozilla’s commitment to user privacy and data protection.
+
+==Data excluded from ads==
+*'''No browsing history:''' Firefox history, bookmarks, open tabs, or searches are never included in ad requests.
+*'''No cross-site identifiers:''' Third-party cookies, device IDs and unique user IDs are not used.
+*'''No personal profile data:''' Demographics, such as age, gender or similar traits, are not collected or shared for ad delivery.
+*'''No identity graphs:''' Firefox ads do not use hashed emails or participate in cross-site identity systems.
+*'''No precise location / real IP address:''' GPS coordinates and your actual IP address are never used in ad requests.
+
+==Why this helps your experience==
+A small, predictable set of signals enables us to show ads that are relevant enough to be worth your attention—without over-collecting data. That balance supports a better experience and keeps data use limited and under Mozilla’s control.
+
+=Our commitment=
+The ad ecosystem has long assumed that more data is better. We disagree. '''We do not sell or share your personal data''', and you’re always in control—turn ads off, dismiss, or report them. We use only minimal, privacy-protected signals so ads are relevant enough to be worth your attention, not your data. This is an uphill shift against established industry practices, but independence is part of who we are. We’re doing this to sustain Firefox and keep Mozilla’s mission—championing a healthy, open internet—alive. '''This approach funds Firefox and supports an open, accessible internet without compromising our promise to you.'''

@@ -1,0 +1,109 @@
+{note}'''Note:''' This article explains how to manage profiles in all versions of Firefox. To learn about the new profile management feature{for not fx150} that may not be available to all users{/for}, see [[Manage Firefox profiles]].{/note}
+Firefox saves your personal information such as bookmarks, passwords and user preferences in a set of files called your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]], which is stored in a separate location from the Firefox program files. You can have multiple Firefox profiles, each containing a separate set of user information. The Profile Manager allows you to create, remove, rename, and switch profiles.
+*If you have (or plan to have) multiple installations of Firefox on one computer, see [[Dedicated profiles per Firefox installation]].
+*If you are troubleshooting a problem with Firefox: [[Template:reset-fx]]
+
+__TOC__
+
+= Start the Profile Manager =
+{note}'''Note:''' You can manage profiles from the ''About Profiles'' page when Firefox is open. If Firefox won't start or you need certain [[#w_options|options]], you can also [[#w_start-the-profile-manager-when-firefox-is-closed|start the Profile Manager when Firefox is closed]].{/note}
+
+= Manage profiles when Firefox is open =
+Type '''about:profiles''' into the address bar and press the {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for} key. This will open the ''About Profiles'' page, where you can view, create and manage your Firefox profiles.
+
+{for win}[[Image:Fx96aboutprofiles-Win]]{/for}{for mac}[[Image:about:profiles macOS]]{/for}{for linux}[[Image:Fx52_about-profiles-linux]]{/for}
+{note}'''Note:''' The ''Root Directory'' shows the location and name of the folder that stores [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile data]] such as bookmarks, passwords and preference settings. The ''Local Directory'' stores the disk cache and other temporary data.{/note}
+The ''About Profiles'' page includes the following options:
+*{button Create a New Profile} Click this and follow the prompts in the ''Create Profile Wizard'' (see the [[#w_create-a-profile|Create a profile]] section below for details). After you finish creating the new profile, it will be listed in the Profile Manager. The new profile will become the default and will be used the next time you start Firefox.
+To manage profiles, find the profile you want to change and choose from these buttons underneath that profile:
+*{button Rename} Click this to change the name of a profile in the Profile Manager. '''Note:''' This does not rename the folder containing the files for the profile.
+*{button Remove} Click this to delete a profile. (The profile in use cannot be deleted.) ''Don't Delete Files'' is the preferred option. See the [[#w_remove-a-profile|Remove a profile]] section below for more information.
+*{button Set as default profile} This option allows you to switch profiles. Click this to make Firefox use this profile by default at startup.
+*{button Launch profile in new browser} When you click this, another Firefox window will open using that profile.
+
+= Start the Profile Manager when Firefox is closed =
+{for win}
+{warning}If you have multiple installations of Firefox, [[#w_multiple-firefox-installations|see below]].{/warning}
+# If Firefox is open, close Firefox: [[T:closeFirefox]]
+# Press the ''Windows key'' {for winxp, win7,win8}{key [[Image:Windows Key]]} + {key R}{/for}{for win10}{key [[Image:windowskey-win10|width=15]]} + {key R}{/for}{for win11}{key [[Image:Windows11Key|width=15]]} + {key R}{/for} on the keyboard. A Run dialog will open.
+# In the Run dialog box, type in:<br><code>firefox.exe -P</code><br/>You can use <code>-P</code>, <code>-p</code> or <code>-ProfileManager</code> (any of them should work).
+# Click {button OK}. The Firefox ''Choose User Profile'' window should open.
+;[[Image:Fx145ProfileMgr]]
+{note}'''Note:''' Another way to start the Profile Manager is from the Search box in the Windows Start menu. Close Firefox (if open), press the ''Windows key'' {for winxp, win7,win8}{key [[Image:Windows Key]]}{/for}{for win10}{key [[Image:windowskey-win10|width=15]]} {/for}{for win11}{key [[Image:Windows11Key|width=15]]}{/for}, type '''firefox.exe -P''' and press {key enter}.{/note}
+{warning}If the above instructions do not work or if you have multiple installations of Firefox, use the following instructions instead.{/warning}
+
+== Multiple Firefox installations ==
+You can have multiple Firefox programs installed in different locations. To start the Profile Manager for a specific Firefox installation, replace <code>firefox.exe</code> in the above instructions with the full path to the Firefox program, enclose that line in quotes, then add a space followed by -P.
+
+Examples: <br>
+''Firefox (32-bit) on 64-bit Windows''<br>
+<code>"C:\Program Files (x86)\Mozilla Firefox\firefox.exe" -P</code>
+
+''Firefox (32-bit) on 32-bit Windows'' (or ''[[How do I tell if I have the 32-bit or 64-bit Firefox?|64-bit Firefox]] on 64-bit Windows'')<br>
+<code>"C:\Program Files\Mozilla Firefox\firefox.exe" -P</code>
+{/for}
+{for mac}
+# If Firefox is open, close Firefox: [[T:closeFirefox]]
+# Using Finder, navigate to {filepath /Applications/Utilities}.
+# Open the '''Terminal''' application.
+# In the Terminal application, enter the following:<br/><code>/Applications/Firefox.app/Contents/MacOS/firefox -P</code><br/>{note}'''Note:''' If your Firefox application is in a location other than <code>/Applications/Firefox.app/</code>, adjust the entry.{/note}'''Important:''' there's a space after the path, before <code>-P</code> (You can use <code> -P</code>, <code> -p</code> or <code> -ProfileManager</code> after the path; any of them should work.)
+# Press {key Return}. The Firefox Profile Manager (Choose User Profile) window should open.
+;[[Image:Firefox Profile Manager]]
+{/for}
+{for linux}
+{note}'''Note:''' You may need to adjust these instructions if Firefox is installed in a non-default location (for example, when multiple installations exist).{/note}
+If Firefox is already included in your Linux distribution or if you have installed Firefox with the package manager of your Linux distribution:
+# If Firefox is open, close Firefox: [[T:closeFirefox]]
+# In '''Terminal''' run:<br/> <code>firefox -P</code>
+'''The P is capitalized.''' Alternatively, you can use <code>-ProfileManager</code> instead of <code>-P</code>.<br>
+The Firefox Profile Manager (Choose User Profile) window should open.
+;[[Image:Fx31ProfileManger-Lin]]
+{/for}
+If the Profile Manager window{for win} still{/for} does not open, Firefox may have been running in the background, even though it was not visible. Close all instances of Firefox or restart the computer and then try again.
+
+= Create, remove or rename a profile =
+You can create, remove or rename a profile either from the [[#w_start-the-profile-manager-when-firefox-is-closed|''Choose User Profile'' window when Firefox is closed]] or from the [[#w_manage-profiles-when-firefox-is-open|''About Profiles'' page when Firefox is open]], as follows:
+
+== Create a profile ==
+# Click the {button Create Profile…} button in the ''Choose User Profile'' window, or click the {button Create a New Profile} button in the ''About Profiles'' page, to start the Create Profile Wizard.
+# Click {button Next} and enter the name of the profile. Use a profile name that is descriptive, such as your personal name. This name is not exposed on the Internet.
+#;{for win}[[Image:Fx147CreateProfileWizard]]{/for}{for mac}[[Image:Firefox Profile Manager macOS]]{/for}{for linux}[[Image:Fx52_creating-profile_linux]]{/for}
+# Disregard the {button Choose Folder} option unless you wish to select a specific folder to use for your new profile.{warning}'''Warning:''' If you choose to create a profile in a new location on your computer, select a new or empty folder. If you choose a folder that isn't empty and you later remove the profile and choose the ''Delete Files'' option, everything inside that folder will be deleted.{/warning}
+# To create the new profile, click {for win,linux}{button Finish}{/for}{for mac}{button Done}{/for}.
+You will be taken back to the ''Choose User Profile'' window or the ''About Profiles'' page and the new profile will be listed. When you first start Firefox with the new profile, you will be prompted to sign in to your Mozilla account so that you can [[#w_use-sync-with-a-new-profile|sync your data with the new profile]] (see below).
+
+== Remove a profile ==
+You can remove an existing profile as follows:
+# Select the profile to remove and click {button Delete Profile…} in the ''Choose User Profile'' window, or click the {button Remove} button in the ''About Profiles'' page under the name of the profile you wish to delete.
+# Confirm that you wish to delete the profile:
+#;{for win}[[Image:6e2d77cd857fa24e876097c4af69a4a9-1260152566-432-4.png]]{/for}{for mac}[[Image:Delete Profile - macOS]]{/for}{for linux}[[Image:Fx52_removing-profile-linux]]{/for}
+#* {button Don't Delete Files} removes the profile from the Profile Manager yet retains the profile data files on your computer in the storage folder, so that your information is not lost. ''Don't Delete Files'' is the preferred option because it saves the old profile's folder and allows you to recover the files to a new profile.
+#* {button Delete Files} removes the profile and its files (including the profile bookmarks, settings, passwords, etc.). If you use the ''Delete Files'' option, the profile folder and files will be deleted. '''This action cannot be undone.'''
+#* {button Cancel} interrupts the profile deletion.
+
+== Rename a profile ==
+You can rename a profile as follows:
+# Select the profile to rename in the ''Choose User Profile'' window and click {button Rename Profile…} or click the {button Rename} button in the ''About Profiles'' page under the profile you wish to rename.
+# Enter the new name for the profile. Type in the new profile name, and click on {button OK}.
+#* '''Note''': The folder containing the files for the profile is not renamed.
+
+= Options =
+These options are only available when you [[#w_start-the-profile-manager-when-firefox-is-closed|start the Profile Manager when Firefox is closed]].
+;{for win}[[Image:Fx145ProfileMgr]]{/for}{for mac}[[Image:Firefox Profile Manager]]{/for}{for linux}[[Image:Fx31ProfileManger-Lin]]{/for}
+
+== Work Offline ==
+Choosing this option loads the selected profile and starts Firefox without connecting to the Internet. You can view previously viewed web pages and experiment with your profile.
+
+== Use the selected profile without asking at startup ==
+When you have multiple profiles, this option tells Firefox what to do at startup:
+*If you check this option, Firefox will automatically load the selected profile at startup. To access other profiles, you must start the Profile Manager first.
+*If you uncheck this option, Firefox will show you the Profile Manager each time you start Firefox, so that you can select a profile to use.
+
+= Use Sync with a new profile =
+You can sync your new profile with other Firefox profiles and devices. To learn more, see [[How do I set up Sync on my computer?]] and [[How do I choose what types of information to sync on Firefox?]]
+
+= Move a profile =
+To copy all of your Firefox data and settings to another Firefox installation (for example, when you get a new computer), you can make a backup of your Firefox profile, then restore it in your new location. For instructions, see [[Back up and restore information in Firefox profiles]].
+
+= Recover information from an old profile =
+If you have important information from an old Firefox profile, such as bookmarks, passwords or user preferences, you can transfer that information to a new Firefox profile by copying the associated files. For instructions, see [[Restore bookmarks, passwords and data from an old Firefox profile]]. You can also switch to a previous profile to recover old profile data. See [[Recover user data missing after Firefox update or reinstall]] for details.

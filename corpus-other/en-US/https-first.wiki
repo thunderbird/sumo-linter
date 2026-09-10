@@ -1,0 +1,13 @@
+{note}This article describes the ''HTTPS-First'' feature, enabled by default in [[Find what version of Firefox you are using|Firefox version]] 136 and above.{/note}
+
+=HTTPS-First=
+When browsing with HTTPS-First, Firefox will always try to connect to websites using a secure, encrypted HTTPS connection first. This ensures you have peace of mind that no one can snoop on the content of the pages you visit or hack into your website connection to steal your passwords, credit card information or other personal information. Most websites already support HTTPS; some support both HTTP and HTTPS. With HTTPS-First, Firefox will try to make sure you have the more secure connection, whenever it is available.
+
+==Secure site not available==
+Some websites only support HTTP and the connection cannot be upgraded. If an HTTPS version of a site is not available, the site will load but through the less secure HTTP protocol. In some cases, websites seem to support HTTPS but serve different content from the HTTP version or behave different in other ways. To avoid upgrade attempts users can enter an address in the address bar with an explicit <code>http://</code> scheme. Permanent exceptions added in the [[HTTPS-Only Mode in Firefox#w_add-exceptions-for-http-websites-when-youre-in-https-only-mode|HTTPS-Only Mode section]] in Firefox settings will also prevent upgrades.
+
+=What is the difference between HTTP and HTTPS?=
+[https://wikipedia.org/wiki/Hypertext_Transfer_Protocol HTTP] stands for ''Hypertext Transfer Protocol'' and is the foundational protocol for the web and encodes basic interactions between browsers and web servers. The problem with the regular HTTP protocol is that the data transferring from server to browser is not encrypted, meaning data can be viewed, stolen, or altered. The [https://wikipedia.org/wiki/HTTPS HTTPS] protocol fixes this by using an encrypted connection that protects sensitive information. It uses digital signatures with public certificate, to ensure that the encrypted connection is established to the right end-point.
+
+=Related content=
+There are other technical reasons that may impact how Firefox is upgrading connections. To learn more, see [[Firefox connection upgrades - HTTP to HTTPS]].

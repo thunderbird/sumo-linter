@@ -1,0 +1,55 @@
+Firefox lets you display menus, notifications, messages and other parts of the Firefox interface in different languages.
+{note}
+'''Tip:''' To choose a language for displaying web pages, see [[Choose display languages for multilingual web pages]].
+
+'''Note:''' If you don't see the {for not fx152}''Language'' section under the {menu General} panel{/for}{for fx152}{menu Languages} page{/for} in Firefox settings, or if you can't add new languages, make sure:
+*You're using the [[Update Firefox to the latest release|latest version of Firefox]].
+*You're connected to the internet.
+*You're using Firefox (not Firefox Nightly or Developer Edition – see special instructions below).
+{/note}
+
+__TOC__
+
+=Switch Firefox to another language=
+You can switch languages at any time to display Firefox menus, notifications and messages in a different language.
+#[[Template:optionspreferences]]
+#*If you can't read the language Firefox is currently using, type '''about:preferences#languages''' in the adress bar to open the {menu Settings}{for not fx152}, then go to a section with a drop-down menu and language names.{/for}{for fx152} section {menu Languages} directly.{/for}
+#{for not fx152}In the ''Language'' section of the {menu General} panel, choose a language in the drop-down menu{/for}{for fx152}Select {menu Languages} on the left and go to the ''Browser language'' section. Choose a language in the drop-down menus {menu Preferred languages} and {menu Fallback language}, if available{/for}.
+#Restart Firefox.
+;{for fx152}[[Image:fx152browserlanguage]]{/for}
+
+{note} '''Note:''' Not all regional language variants are available in Firefox. If your preferred version is missing, try selecting the base language (such as English) or check the [https://www.firefox.com/download/all/ Firefox website] for languages available in each version.{/note}
+
+{for not fx152} <!-- Fx152+ no longer exposes the below functionality separately; folded into the UI above -->
+=Add languages to the Firefox interface=
+Follow these steps to add more languages to Firefox.
+#[[Template:optionspreferences]]
+#In the ''Language'' section of the {menu General} panel, click {menu Search for more languages} in the drop-down menu.
+#Click {menu Select more languages to add} and choose the languages you want to add, then click the {button Add} button.
+#Use the {button Move Up} and {button Move Down} buttons to change the order, or {button Remove} to pull a language out from the list.
+#Click {button OK} to save your changes.
+{note}Firefox will display the first language as your default and will display alternate languages if necessary in the order they appear.{/note}
+{/for}
+
+=Set an order of preference for languages=
+If a Firefox feature is not available in your top language, Firefox will display your next preferred language.
+#[[Template:optionspreferences]]
+#{for not fx152}In the {menu Language} section of the {menu General} panel, click {button Set Alternatives…} to open the ''Firefox Language Settings'' window{/for}{for fx152}In the {menu Language} page, go to the ''Browser language'' section and click the '''Fallback language''' drop-down menu, if avalaible{/for}.
+#Select a language and use the {button Move Up} and {button Move Down} buttons to change the order, or {button Remove} to pull a language out from the list.
+
+{note}'''Note:''' If you are using Firefox Developer Edition or Firefox Nightly, you will need to download a new copy in the language you wish to use from the [https://www.firefox.com/download/all/ Firefox website]. See the section below for further instructions.{/note}
+
+=Change language in Firefox Nightly or Developer Edition=
+Firefox Nightly and Developer Edition do not support changing the interface language through Settings. To use a different language:
+#Go to the [https://www.firefox.com/download/all/ Firefox download page].
+#Choose your version and preferred language.
+#Download and install that version manually.
+
+=Website translation behavior=
+The language chosen also influences some defaults for content negotiation. To set your preference for languages requested from websites, see [[Choose display languages for multilingual web pages]].
+
+The locale together with the regional settings of your operating system may also influence the language pairs and direction offered by [[Firefox Translations]].
+
+=Related articles=
+*[[Firefox Translations]]
+*[[Deploy Firefox with language packs]]

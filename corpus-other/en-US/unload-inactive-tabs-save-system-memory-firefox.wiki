@@ -1,0 +1,11 @@
+Tab Unloading is a feature that helps reduce memory usage by unloading tabs that you are not actively using. To avoid crashes, Firefox will automatically select and unload these open tabs when the system's memory is low. This is a smart process that avoids unloading tabs that are playing media, using Picture-in-Picture, or WebRTC. For more technical information, see [https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/ this blog post] and [https://firefox-source-docs.mozilla.org/browser/tabunloader/ Tab Unloading] at Firefox Source Docs.
+
+The ''about:unloads'' page is built into Firefox on all Desktop platforms. It displays information about your open tabs, such as the order of priority for unloading tabs, the last time you accessed each tab and the memory each tab is consuming. To open this page, type ''about:unloads'' in the address bar and press {for win, linux}{key Enter}{/for}{for mac}{key Return}{/for}.
+
+[[Image:Fx140AboutUnloads]]
+
+You can manually unload your least-recently-used tabs by going to the ''about:unloads'' page and clicking on the {button Unload} button that appears above the table, on the right.
+
+{for fx140}You can also [[Unload tabs to reduce system memory usage in Firefox|unload the tabs of your choice]] from the [[Tab context menu|tab context menu]] to reduce system memory usage in Firefox.{/for}
+
+{note}'''Note:''' If you want to disable the Tab Unloading feature, you can set the preference {pref browser.tabs.unloadOnLowMemory} to {pref false} in the [[Configuration Editor for Firefox|Firefox Configuration Editor]] (about:config page). [[Template:aboutconfigwarning]]{/note}

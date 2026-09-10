@@ -1,0 +1,46 @@
+[[Private Browsing - Use Firefox without saving history|Private Browsing]] in Firefox helps you control what’s saved during your browsing session, like history, cookies, and form data. It helps keep your online activity private from others who use Firefox on the same computer, but it won't make you invisible online.
+
+This article clears up some common misconceptions about private browsing and explains what it actually does.
+
+=What Private Browsing does and doesn't do=
+To help set expectations, here's a quick comparison of what Private Browsing in Firefox does and does not do:
+{| class="main-table"
+! style="text-align:left;" | '''Private browsing ''does''...'''
+! style="text-align:left;" | '''Private browsing ''doesn't''...'''
+|-
+| Prevent Firefox from saving browsing history
+| Hide your activity from your internet service provider (ISP)
+|-
+| Delete cookies and site data when you close the window
+| Mask your IP address or location
+|-
+| Keep downloads and bookmarks unless you remove them manually
+| Stop websites from identifying or tracking you
+|-
+| Sign you out of websites when you close the session
+| Prevent malware or phishing
+|}
+
+=Myth 1: Private Browsing makes you anonymous on the Internet=
+'''Reality:''' Private Browsing does not mask your identity or activity online. It prevents Firefox from saving your browsing activity locally, but it doesn’t make you anonymous to websites, your internet provider, your employer, or search engines. 
+
+[https://www.mozilla.org/products/vpn/more/what-is-an-ip-address/ Internet service providers can still gather information] about your visit, even if you are not signed in. If you use your device at work, your company may be able to monitor the websites you visit. If you surf the Web at home, your cable company (or their partners) may have access to your browsing information. Only a [https://wikipedia.org/wiki/Virtual_private_network Virtual Private Network] (VPN) can mask your location and encrypt your online activity, keeping your identity and data safe from prying eyes. If you need to stay anonymous online and block your IP address, try [https://www.mozilla.org/products/vpn/ Mozilla VPN].
+
+=Myth 2: Private Browsing removes all traces of your browsing activity from your computer=
+'''Reality:''' Private Browsing works by letting you browse without saving passwords, cookies and browsing history in a Private Window. If you download a file from a website, it will remain on your computer, but it will not appear in the download manager in Firefox. If you bookmark a website while in a Private Window, it will remain in your bookmark list.
+
+=Myth 3: Private Browsing doesn’t display any browsing history, and bookmarks and downloads disappear after your session=
+'''Reality:''' Private Browsing will, by default, [[Address bar autocomplete suggestions in Firefox|display visited sites and bookmarks as you type in the address bar]]. Firefox saves these pages during normal browsing. If you don’t want to see these suggestions, you can deselect them by following the steps given in [[Search suggestions in Firefox#w_enabling-or-disabling-search-suggestions]].
+
+Additionally, files you download and bookmarks you save while in Private Browsing stay on your device. Firefox does not remove these when you close the window (see [[#w_myth-2-private-browsing-removes-all-traces-of-your-browsing-activity-from-your-computer|Myth 2]]). Only temporary browsing data, like history and cookies, is deleted.
+
+=Myth 4: Private Browsing will protect you from malware=
+'''Reality:''' Private Browsing does not protect you from malware installed on your computer. It’s designed to reduce traces of your activity on your own device. To stay safe from malicious sites, make sure [[How does built-in Phishing and Malware Protection work?|Firefox security settings]] are enabled. If you suspect you have malware, [[Troubleshoot Firefox issues caused by malware|take steps to remove it]].
+
+=Myth 5: Private Browsing blocks ads and trackers=
+'''Reality:''' Private Browsing mode doesn’t automatically block all trackers. However, Firefox’s built-in [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] is active even in regular browsing and offers protection against many types of tracking.
+
+=Related articles=
+* [[Delete browsing, search and download history on Firefox]]
+* [[Clear cookies and site data in Firefox]]
+* [[Third-party cookies and Firefox tracking protection]]

@@ -1,0 +1,29 @@
+This article describes what "cookies" are, how websites use them, and how you can manage the cookies that Firefox stores.
+
+__TOC__
+
+= What is a cookie? =
+A [http://wikipedia.org/wiki/HTTP_cookie cookie] is information stored on your computer by a website you visit.  In some browsers, each cookie is a small file but in Firefox, all cookies are stored in a single file, located in the Firefox [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile]] folder.
+
+Cookies often store your settings for a website, such as your login status and preferred language or location. When you return to the site, Firefox sends back the cookies that belong to the site. This allows you to stay logged in to a website and allows the site to present you with information customized to fit your needs.
+
+Cookies can store a wide range of information, including personally identifiable information (such as your name, home address, email address, or telephone number). However, this information can only be stored if you provide it - websites cannot gain access to information you didn't provide to them, and they can't access other files on your computer.
+
+By default, the activities of storing and sending cookies are invisible to you. However, you can change your Firefox settings to allow you to approve or deny cookie storage requests, delete stored cookies automatically when you close Firefox, and more.
+
+= Cookie settings =
+You can access your Firefox [[T:optionsorpreferences]] to manage cookies as follows:
+# [[T:optionspreferences]]
+# Select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} page.
+Cookie settings are under '''[[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]]''' at {for not fx152}'''Cookies and Site Data'''{/for}{for fx152}'''Browsing data'''{/for}.
+{for not fx152}[[Image:CookiesAndSiteData|width=700]]{/for}{for fx152}[[Image:fx152browsingdata]]{/for}
+
+For instructions on how to manage cookie settings for certain tasks, see:
+* [[Clear cookies and site data in Firefox]]: How to remove cookies that have already been stored by websites.
+* [[Block websites from storing cookies and site data in Firefox]]: How to block certain websites from storing cookies.
+* [[Disable third-party cookies in Firefox to stop some types of tracking by advertisers]]: How to block websites other than the one you're currently visiting from storing cookies.
+
+= Troubleshooting cookies =
+If you are having a problem with Firefox that involves cookies, see:
+* [[Websites say cookies are blocked - Unblock them]]
+* [[Fix login issues on websites that require a username and password]]

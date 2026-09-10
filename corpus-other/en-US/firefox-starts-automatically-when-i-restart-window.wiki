@@ -1,0 +1,10 @@
+[[Template:WindowsOnly]]
+
+If you leave Firefox open when Windows shuts down, Firefox may automatically re-open with your previously opened tabs the next time you start Windows. Here's how to disable the feature.
+
+=Prevent Firefox from starting automatically=
+[[Template:aboutconfigwarning]]
+# [[Template:aboutconfig]]
+# Search for {pref toolkit.winRegisterApplicationRestart}.
+#Click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button next to it, to set its value to {pref false}.
+There's no need to restart Firefox; the changes take effect immediately.

@@ -1,0 +1,30 @@
+Pinned Tabs allow you to always keep your favorite [[Use tabs to organize lots of websites in a single window|tabs]] open and just a click away. Pinned Tabs are small, can't be closed accidentally, and open automatically when you start Firefox. This article goes over the features of Pinned Tabs and shows you how to use them.
+
+[[Video:https://youtu.be/Bp_wblIfezo]]
+
+__TOC__
+
+=Why should I use Pinned Tabs?=
+The internet is full of websites that we use more like programs than just static pages. Popular sites like web mail or social networks are like this – they're used for accomplishing tasks (or to avoid accomplishing tasks), they update themselves and notify you when they've changed. Pinned Tabs allow you to pin any website to the left side of the tab strip so that it's always available.
+;[[Image:Fx128 pinned tab]]
+
+=How do I create a Pinned Tab?=
+The easiest way to see how useful Pinned Tabs are is to make one. '''Try it out:''' To turn one of your favorite websites (email, internet radio, social networks ...) into a Pinned Tab:
+*[[T:contextmenu]] on the tab you want to pin and select {menu Pin Tab} from the menu.
+
+=How do I remove a Pinned Tab?=
+To turn a Pinned Tab back into a regular tab is simple:
+*[[T:contextmenu]] on the Pinned Tab and select {menu Unpin Tab} from the menu.
+
+=How do Pinned Tabs differ from the normal tabs?=
+*Pinned Tabs are small – only showing the site's icon, not its title – and they live on the left side of the tab strip.
+*Pinned Tabs don't have a close button, so you can't accidentally close them.
+**You can still close them by {for win,linux}right-clicking{/for}{for mac}Control-clicking{/for} on them and selecting {menu Close Tab} from the menu.
+*Pinned Tabs notify you with a green dot when they change.
+*;[[Image:Fx128 pinned tab with a dot]]
+*All of the Pinned Tabs you have set when you close Firefox will open as Pinned Tabs when you start Firefox again.
+*Links to other websites open in a new tab so that your Pinned Tab doesn't change.
+**Many web apps already do this, but a Pinned Tab will make this happen even when the website isn't set to do it.
+
+=I have problems=
+*If you're unable to keep your Pinned Tabs after having restarted Firefox, see [[Restore previous session - Configure when Firefox shows your most recent tabs and windows#w_troubleshooting|Troubleshooting Session Restore]].

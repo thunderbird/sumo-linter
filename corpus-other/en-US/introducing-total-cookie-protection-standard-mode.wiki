@@ -1,0 +1,28 @@
+Firefox users now have access to Total Cookie Protection by default. Total Cookie Protection is an advancement built into [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] that works by maintaining a separate ''cookie jar'' for each website you visit.
+
+=How does Total Cookie Protection work?=
+Firefox is here to protect you from third-parties who are tracking cookies and information about your browsing activity, without your knowledge or consent. These companies try to build a profile based on details of your online spending, health and other personal information, and sell it without you knowing.  
+
+Total Cookie Protection builds a fence around cookies, limiting them to the site you're on so third parties can't use those same [https://www.digitalinformationworld.com/2020/06/you-better-get-used-to-the-name-tracking-beacons-instead-of-cookies.html tracking beacons] to follow you from one site to the next. For example, if you visit Facebook, Facebook won’t be able to view your activity on Etsy, One Medical or your cousin’s cooking blog later.
+
+For more information, check out our [https://blog.mozilla.org/en/products/firefox/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/ blog post on Total Cookie Protection]. 
+
+=What should I expect?=
+Total Cookie Protection will be turned on by default in standard browsing. There should be no noticeable effect on your browsing and sites should continue to work as before.
+
+=What kind of data do we collect?=
+Firefox doesn’t collect any of your personal data, other than your setting preference.
+
+=What do I do if a site seems broken?=
+If a site seems broken, disabling [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] might fix the issue by allowing trackers on just that site. It allows trackers to load on that site only. Enhanced Tracking Protection will still prevent trackers on other sites. To disable it:
+#Visit the website.
+#At the left of the address bar, click the [[Image:Fx89ShieldIcon|width=30]] shield icon.
+#At the top of the panel, toggle off the Enhanced Tracking Protection switch [[Image:Fx91ETPbluetoggle|width=40]]. This will disable Enhanced Tracking Protection for the site, causing the page to automatically reload and enable trackers.
+#;{for not fx138}[[Image:Protection panel|width=400]]{/for}{for fx138}[[Image:Fx138ProtectionPanelOff]]{/for}
+Follow the same process to turn Enhanced Tracking Protection back on.
+
+If the issue persists, consider reporting it by submitting a ''Broken Site Report''. This allows the Webcompat team to examine the problem. For more information, see [[How do I report a broken site in Firefox desktop?]]
+
+=Related articles=
+*To learn more about Enhanced Tracking Protection settings in Firefox, see [[Enhanced Tracking Protection in Firefox for desktop]].
+*For information about Total Cookie Protection and site breakage, see [[Total Cookie Protection and website breakage FAQ]].

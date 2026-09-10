@@ -1,0 +1,68 @@
+Just getting started with DNS over HTTPS (DoH)? No need to worry! We have outlined a list of FAQs here that you may find helpful while getting up to speed with all that DoH has to offer. For additional information, see [[Firefox DNS over HTTPS]].
+
+__TOC__
+
+=How DNS over HTTPS works for Firefox users based in locales where we have rolled out DoH by default=
+==What is the privacy policy for DNS over HTTPS?==
+Implementing DoH is part of our work to safeguard users from the pervasive online tracking of personal data. To do that, Mozilla requires all DNS providers that can be selected in Firefox to comply with our [https://wiki.mozilla.org/Security/DOH-resolver-policy resolver policy] through a legally-binding contract. These requirements place strict limits on the type of data that may be retained, what the provider can do with that data, and how long they may retain it. This strict policy is intended to protect users from providers being able to collect and monetize their data.
+
+==Will users be warned when this is enabled and offered an opt-out?==
+Yes, a notification will display in Firefox and will not disappear until the user makes a decision about enabling or disabling DNS privacy protections.
+
+[[Image:OptIn_Infobar]]
+
+==Will users be able to disable DoH?==
+Yes, they can disable DoH, select their own DoH provider and make other configuration changes from the {menu Privacy & Security} panel in Firefox settings, as explained in the [[Configure DNS over HTTPS protection levels in Firefox]] article.
+
+==Can users opt out ahead of time?==
+Yes, you can set {pref network.trr.mode} to {pref 5} manually in the [[Configuration Editor for Firefox|Configuration Editor]]. Additional information about the modes can [https://wiki.mozilla.org/Trusted_Recursive_Resolver#network.trr.mode be found here].
+
+==How will DoH impact enterprises with custom DNS solutions?==
+We have made it easy for enterprises to disable this feature. In addition, Firefox will detect whether enterprise policies have been set on the device and will disable DoH in those circumstances. If you’re a system administrator who is interested in learning how to configure enterprise policies, please review [https://support.mozilla.org/products/firefox-enterprise/policies-customization-enterprise/policies-overview-enterprise the documentation].
+
+==How will DoH impact parental controls?==
+We know that some Internet Service Providers (ISPs) use DNS to offer a parental control service that blocks adult content. Mozilla’s view is that DNS is not the best approach to parental controls, but we also don’t want to break existing services, so we check a series of canary domains before enabling DoH. If these domains indicate that parental controls are on, then we disable DoH. For additional information, see [https://blog.mozilla.org/futurereleases/2019/09/06/whats-next-in-making-dns-over-https-the-default this Mozilla blog post].
+
+==Can’t networks just trigger the canary domain check all the time and disable DoH?==
+Yes, canary domains are a solution that offers the best security to combat network attackers and prevent breaking existing deployments. We will be monitoring their use, investigating any incidents of abuse and looking at measures to contain those incidents.
+
+==Will DoH break Content Delivery Networks (CDNs)?==
+We are aware that some CDNs use DNS-based traffic steering that may be affected by DoH. However, our [https://blog.mozilla.org/futurereleases/2019/04/02/dns-over-https-doh-update-recent-testing-results-and-next-steps measurements] show that DoH page load times are competitive compared to ordinary DNS page load times. During and after the rollout period, we will be monitoring Firefox’s performance to see if any defects exist.
+
+==How does Firefox handle split-horizon DNS?==
+If Firefox fails to resolve a domain via DoH, it will fall back to the DNS. This means that any domains that are only available on the ordinary DNS (because they aren’t public) will be resolved that way. If you have a domain that is publicly resolvable but resolves differently internally, then you should use enterprise settings to disable DoH.
+
+==Do you validate DNSSEC?==
+DNSSEC ensures that DNS responses have not been tampered with while in transit, but does not encrypt DNS requests and responses. We have prioritized encryption of DNS using DoH to protect user privacy. We are considering the implementation of DNSSEC in the future.
+
+=DNS over HTTPS partnerships=
+==What resolver will Firefox be using?==
+In each country where we launch DoH, we will have a default resolver (e.g., in the US, the default resolver is Cloudflare). Users may alternately select from a list of [https://wiki.mozilla.org/Security/DOH-resolver-policy#Conforming_Resolvers additional providers] in our ''Trusted Recursive Resolver'' program, which requires compliance with our policy requirements regarding user privacy and security. Over time, we expect to add more providers to our ''Trusted Recursive Resolver'' program. Additionally, our vision is for DoH to be universally adopted and supported by all DNS resolvers.
+
+==How does Mozilla choose its trusted resolvers?==
+Our default resolvers are able to meet the strict [https://wiki.mozilla.org/Security/DOH-resolver-policy policy requirements] that we currently have in place. These requirements are backed up in legally binding contracts and are made public in a best in class privacy notices that document those policies and provide transparency to users.
+
+==Is Mozilla getting paid to route DNS requests to its default resolvers?==
+No money is being exchanged to route DNS requests to our default resolver partners.
+
+==Does Mozilla or its default resolvers monetize this data?==
+No, our policy explicitly forbids monetizing this data. Our goal with this feature is to provide important privacy protections to our users and to make it harder for existing DNS resolvers to monetize users’ DNS data.
+
+=More about Firefox's implementation of DNS over HTTPS=
+==What is your rollout schedule?==
+We rolled out DoH by default to the United States in 2019, in Canada in 2021, and Russia and Ukraine in March 2022. We are currently in the planning stages for by-default rollouts to additional locales.
+
+==Are you rolling this default out in Europe?==
+As part of our continuing strategy to carefully measure the benefits and impact of DoH, we have released this feature by default in Russia, Ukraine as well as the US and Canada only so far.
+
+==Why is Firefox implementing DoH and not DoT?==
+The IETF has standardized two DNS over secure transport protocols: [https://tools.ietf.org/rfcmarkup?doc=7858 DNS-over-TLS] (DoT) and [https://tools.ietf.org/rfcmarkup?doc=8484 DNS-over-HTTPS] (DoH). These two protocols have broadly similar security and privacy properties. We chose DoH because we believe it is a better fit for our existing mature browser networking stack (which is focused on HTTP) and provides better support for future protocol features such as HTTP/DNS multiplexing and QUIC.
+
+==Is DoT easier for network operators to detect and block?==
+Yes, we don’t think that this is an advantage. Firefox provides mechanisms for network operators to signal that they have legitimate reasons for DoH to be disabled. We do not believe that blocking the connection to the resolver is an appropriate response.
+
+==Doesn’t the Server Name Indication (SNI) leak domain names anyway?==
+Yes, although not all domain names get leaked through SNI, we are concerned about SNI leaks and have started working on [https://datatracker.ietf.org/doc/draft-ietf-tls-esni Encrypted SNI].
+
+==What are DoH heuristics?==
+These are a set of checks that Firefox performs before enabling DoH by default for users in the rollout regions, to see if enabling DoH will have a negative impact. (These checks are ignored if you explicitly enabled DoH.) For example, DoH will remain disabled if enterprise policies or parental controls are enabled. To learn more, see [https://wiki.mozilla.org/Security/DNS_Over_HTTPS/Heuristics Security/DNS Over HTTPS/Heuristics] and [[Configure networks to disable DNS over HTTPS]].

@@ -1,0 +1,6 @@
+Firefox Send has been discontinued as of September 17th, 2020. You will no longer be able to upload or receive files. We’d like to thank all of you who tried Firefox Send.
+
+We [https://blog.mozilla.org/blog/2019/03/12/introducing-firefox-send-providing-free-file-transfers-while-keeping-your-personal-information-private/ started Firefox Send] as a way for you to share files safely and easily from any browser. Unfortunately, some abusive users were beginning to use Firefox Send to ship malware and conduct phishing attacks. When this problem was reported, we stopped the service. Please see the [https://blog.mozilla.org/blog/2020/09/17/update-on-firefox-send-and-firefox-notes/ Mozilla Blog] for more details on why this service was discontinued.
+
+=What happened to the files I’ve sent in the past?=
+All files sent to Firefox Send have been securely wiped from our server. If you’ve shared files from your computer or device, the original files have not been moved, altered or deleted in any way by Firefox Send.

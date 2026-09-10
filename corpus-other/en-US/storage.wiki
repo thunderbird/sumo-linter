@@ -1,0 +1,37 @@
+Some websites have the ability to store information, such as files, in your local storage, and these files can only be removed manually by you. This helps the website run faster and prevents information from being lost if you lose your connection. Firefox shows you how much space is being used and lets you manage these settings to free up space.
+
+__TOC__
+
+=Access site storage settings=
+You can access site storage settings in your Firefox settings as follows:
+#[[Template:optionspreferences]]
+#Select {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} on the left and go to the {for not fx152}''Cookies and Site Data''{/for}{for fx152}''Browsing data''{/for} section.
+;{for not fx152}{for fx148}[[Image:Fx148settings-CookiesAndSiteData]]{/for}{for =fx147,=fx146,=fx145}[[Image:Fx145settings-CookiesAndSiteData]]{/for}{for not fx145}[[Image:Fx79CookiesAndSiteData]]{/for}{/for}{for fx152}[[Image:Fx152settings-BrowsingData]]{/for}
+
+=Delete site storage for individual websites=
+#In the {for not fx152}''Cookies and Site Data''{/for}{for fx152}''Browsing data''{/for} section,  click {for fx145}{for not fx152}{menu Manage browsing data}{/for}{/for}{for not fx145}the {button Manage Data…} button{/for}{for fx152}{menu Clear data for specific sites}. The Manage Cookies and Site Data dialog will appear{/for}. You'll see a list of sites and how much information each site is storing on your computer.
+#;[[Image:Fx115CookiesAndSiteData-ManageData]]
+#Click the site you want to remove and click {button Remove Selected} (or click {button Remove All} to remove all stored [[Cookies - Information that websites store on your computer|cookies]] and site data).
+#Click {button Save Changes} to finish.
+
+For more information about clearing cookies for individual (or all) websites, see [[Clear cookies and site data in Firefox]].
+
+=Clear data stored by all sites=
+#In the {for not fx152}''Cookies and Site Data''{/for}{for fx152}''Browsing data''{/for} section, click {for fx145}{menu Clear browsing data}{/for}{for not fx145}{button Clear Data…}{/for}. The ''Clear browsing data and cookies'' dialog will appear.
+#;[[Image:Fx136CookiesAndSiteData-ClearData|width=500]]
+#On the dropdown next to '''When:''', select the timeframe for the data you want to clear.
+#Tick the checkbox next to the type of information you want to clear.
+#Click the {button Clear} button.
+For more information on clearing cached web content in Firefox, see [[How to clear the Firefox cache]].
+
+=Allow or block websites from storing information=
+You can set up Firefox to always allow or block specific sites from storing information. You can also allow a site to store only for a single session.
+#In the {for not fx152}''Cookies and Site Data''{/for}{for fx152}''Browsing data''{/for} section, click {for fx145}{menu Manage exceptions}{/for}{for not fx145}{button Manage Exceptions…}{/for}. The ''Exceptions - Cookies and Site Data'' dialog will appear.
+#;[[Image:Fx115CookiesAndSiteData-ManageExceptions]]
+#Type in the exact address of the site you want to allow or block, or select the site if it's already on the list.
+#Click {button Block} , {button Allow for Session} or {button Allow}.
+#Click {button Save Changes} to finish.
+
+See these articles for additional information:
+*[[Block websites from storing site preferences or login status in Firefox]]
+*[[Websites say cookies are blocked - Unblock them]]

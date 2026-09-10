@@ -1,0 +1,199 @@
+The Firefox [[New Tab page in Firefox|New Tab page]] can display a Web Search, Shortcuts to your most visited sites, Recommended stories and other information described on this page. You can choose what to display so the page feels just right for you.
+
+To change the page that opens when you start Firefox or open a new window, see [[How to set the home page]].
+
+__TOC__
+
+[[UI:details_start]]
+=Change what's on your New Tab page=
+To turn New Tab page features on or off, click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}[[Image:Fx141NewTabCustomizeIcon]]{/for} on the bottom right corner of the page. A panel will open, showing available features in your region.
+;{for not fx145}{for not fx151}[[Image:Fx139NewTabSettings|width=400]]{/for}{/for}{for fx145}{for not fx151}[[Image:Fx145Wallpapers|width=400]]{/for}{/for}{for fx151}[[Image:firefoxnovawallpaper|width=400]]{/for}
+Click the toggle next to a feature to switch it on [[Image:Toggle on]] or off [[Image:Toggle off]]. Click '''Manage more settings''' to open the Firefox settings {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} panel, where additional settings are available.{note}'''Note:''' You can also open the {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} panel as follows: [[Template:optionspreferences]] Select {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} on the left.{/note}
+
+==Manage more settings==
+The '''Manage more settings''' link at the bottom of the panel opens the Firefox settings {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} panel. You can enable or disable additional New Tab page settings under {for not fx152}'''Firefox Home Content'''{/for}{for fx152}'''Firefox Home'''{/for}:
+;{for not fx152}[[Image:Fx140Settings-FirefoxHomeContent]]{/for}{for fx152}[[Image:fx152firefoxhome]]{/for}
+*'''Sponsored shortcuts:''' Select this check box to see the occasional sponsored site.
+*'''Sponsored stories:''' Select this check box to see the occasional sponsored story.
+*;{note}To learn more about sponsored shortcuts and stories, see [[Sponsors on the home page and New Tab page]].{/note}
+*'''Recent activity:''' Select this checkbox to display recent Web activity (pages you've downloaded, visited or bookmarked).
+[[UI:details_end]]
+
+[[UI:details_start]]
+=Wallpapers=
+Firefox allows you to customize your new tab page with a selection of wallpapers, giving your browser a fresh look that suits your style. Choose from sleek solid colors, artistic abstract designs and captivating photographs, or upload your own image.
+{for not fx141}[[Image:Firefox new tab page]]{/for}{for fx141}[[Image:Fx141NewTabPage]]{/for}
+
+==Choose your wallpaper==
+#In the bottom right corner of the New Tab page, click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}[[Image:Fx141NewTabCustomizeIcon]]{/for}.
+#In the customization panel, under the ''Wallpapers'' section, you will see different categories like ''Firefox'', ''Solid colors'', ''Abstract'', ''Celestial'' and ''Photographs''.
+#*Click the category you prefer to see wallpapers. For example, selecting ''Abstract'' will show a variety of abstract designs.
+#Click a wallpaper from the selected category to preview it.
+#*The wallpaper will be applied immediately as you select it. For example, if you choose a wallpaper from the ''Abstract'' category, it will be displayed as the background on your New Tab page.
+#After selecting your desired wallpaper, in the top of the panel, click next to the wallpaper category name to return to the customization panel.
+#Click ''Close'' button {button &#10005;} at the top right to exit the panel.
+Now, whenever you open a new tab, your selected wallpaper will be displayed, giving your Firefox a personalized touch.
+
+==Reset wallpaper to default==
+To reset to your default background on the New Tab page:
+#In the bottom right corner of the New Tab page, click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}[[Image:Fx141NewTabCustomizeIcon]]{/for}.
+#In the customization panel, under the ''Wallpapers'' section, click {button Reset to Default}.
+#Click ''Close'' button {button &#10005;} at the top right to exit the customization panel.
+
+==Customize your wallpaper with your own image==
+To set your New Tab wallpaper to an image of your own:
+#In the bottom right corner of the New Tab page, click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}[[Image:Fx141NewTabCustomizeIcon]]{/for}.
+#In the customization panel, under the ''Wallpapers'' section, click {button Add an image}.
+#Using your operating system’s browse and image selection, select the image and click {button Open}.
+#The image will now be in place as the wallpaper in your new tab.
+Note that these images are not uploaded to Mozilla, but are kept locally on your computer.
+
+==Customize your wallpaper with a custom color==
+To set your New Tab wallpaper to a custom color of your own:
+#In the bottom right corner of the New Tab page, click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}[[Image:Fx141NewTabCustomizeIcon]]{/for}.
+#In the customization panel, under the ''Wallpapers'' section, click {button Colors}, and then {button Choose a color}.
+#Using your operating system’s color picker, select a color. Close the color picker.
+#The color will now be in place as the wallpaper on your New Tab page.
+
+{for fx145}
+==Customize your wallpaper with a Firefox image==
+You can set your New Tab wallpaper with a Firefox-designed image:
+#In the bottom right corner of the New Tab page, click the [[Image:Fx141NewTabCustomizeIcon]].
+#In the customization panel, under the ''Wallpapers'' section, click {button Firefox}.
+#Choose one of the Firefox-designed wallpapers.
+#The image will now be in place as the wallpaper on your New Tab page.
+{/for}
+[[UI:details_end]]
+
+[[UI:details_start]]
+=Weather=
+The Firefox New Tab page displays your local weather, so you can quickly see updates when browsing. This feature is available in most regions across the world. You can customize the weather display to match your preferences.
+[[Image:widgetweathernova]]
+
+==Change the location==
+#At the top of the New Tab page, hover over the weather information and click the three-dot menu.
+#Click {menu Change Location}.
+#Enter the new location in the field, then select from the drop-down.
+
+==Change the temperature unit==
+#At the top of the New Tab page, hover over the weather information and click the three-dot menu.
+#Select the option to switch the temperature unit (Celsius or Fahrenheit).
+
+==Change the weather display==
+#At the top of the New Tab page, hover over the weather information and click the three-dot menu.
+#Select the option to switch to your preferred display (simple view or detailed view).
+
+==Common questions==
+'''Where are these weather conditions from?'''<br>
+The weather conditions on the Firefox New Tab page are sourced from [https://www.accuweather.com/ AccuWeather].
+
+'''Why am I asked if I want to see the weather in my location?'''<br>
+In some countries, such as in the European Union, Firefox prompts the user to use their location for weather, or to choose not to. If accepted, the weather feature will be enabled to detect your location and provide weather automatically. If declined, the user can also remove the weather feature entirely.
+
+'''How is my location determined?'''<br>
+To see weather conditions for your location, Firefox uses your IP address to determine your approximate location. This information is then used to provide relevant weather conditions for your area.
+
+'''Do you share my IP address?'''<br>
+When the weather feature is enabled, Firefox doesn’t share your IP address or any personally identifiable information (PII) outside Mozilla servers.
+
+'''Does this feature use my location or other information if it’s disabled?'''<br>
+No, if the weather feature on the New Tab page is disabled, the related weather services and APIs are also disabled and no information is used.
+
+'''Why do I see “Sponsored” next to AccuWeather – what does this mean?'''<br>
+Firefox may receive revenue if you visit the AccuWeather website to see a more detailed weather forecast.
+
+For more details on the weather feature, see [[How it works - Firefox Weather]].
+[[UI:details_end]]
+
+[[UI:details_start]]
+=Shortcuts=
+Your Shortcuts are the sites you visit most and the sites that you choose to Pin for easy access. These sites will also appear when you click the address bar to start a search.
+
+==Add a Shortcut==
+'''If you have an empty tile:'''
+#Click the empty tile with a + labeled '''Add Shortcut'''.
+#Type in a title and URL (web address) for the site, add a custom image to appear on the Shortcut if you’d like, then click {button Add}.
+#A tile with the icon of the site or the custom image you added, will appear in your Shortcuts.
+'''If you don't have an empty tile:'''<br>
+You can edit an existing Shortcut to show a new title and URL.
+#Hover the mouse pointer over an existing Shortcut that you no longer need.
+#Click the three-dot menu that appears in the upper right corner of the Shortcut, and choose {menu Edit}.
+#In the ''Edit Shortcut'' dialog that opens, enter a new title and URL, add a custom image if you’d like, and click {button Save}.
+
+==Pin, unpin or remove a Shortcut==
+'''To pin a Shortcut''' (make it stay):
+#[[Template:tile menu]]
+#Click {menu Pin}.
+#A pin icon will show up on your pinned Shortcut.
+#;[[Image:pinned tile 57]]
+'''To unpin a Shortcut:'''
+#[[Template:tile menu]]
+#Click {menu Unpin}.
+'''To remove a Shortcut:'''
+#[[Template:tile menu]]
+#Click {menu Dismiss}.
+'''To edit a Shortcut:'''
+#[[Template:tile menu]]
+#Click {menu Edit}.
+#Change the Title or add a custom image.
+
+==Rearrange Shortcuts==
+Click and hold on a tile, and drag it to another spot.
+;[[Image:Rearrange Shortcuts Fx89]]
+
+==Show more or fewer Shortcuts==
+#In the bottom right corner of the New Tab page, click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}[[Image:Fx141NewTabCustomizeIcon]]{/for}.
+#In the panel that opens, under ''Shortcuts'', select the number of Shortcut rows you want to see from the drop-down menu.
+#;[[Image:Fx139NewTabSettings-Shortcuts]]
+[[UI:details_end]]
+
+[[UI:details_start]]
+=Recommended stories=
+The [[New Tab page in Firefox#w_recommended-stories|Recommended stories]] section displays content curated by Firefox’s recommendations team with the help of custom machine learning tools. These stories are not informed by your browsing data. You can view or bookmark stories, remove them, or open them in a new window.
+
+Recommended stories on the Firefox New Tab page is a feature currently available in the U.S., Canada, the U.K., Ireland, Germany, Austria, Switzerland, Italy, France, Spain and India. We’re working to bring it to other countries.
+
+==Bookmark a recommended story==
+#Hover over the article until the three-dot menu appears.
+#;[[Image:pocket menu 57]]
+#Click {menu Bookmark} in the menu and a prompt will ask you to give your bookmark a name and tags.
+#Click {button Done} when you're finished.
+
+==Remove a recommended story==
+#Hover over the article until the three-dot menu appears.
+#;[[Image:pocket menu 57]]
+#Click the menu and then click {menu Dismiss} to remove it from your recommended stories.
+More questions? See [[New Tab page in Firefox]].
+[[UI:details_end]]
+
+[[UI:details_start]]
+=Recent Activity=
+''Recent Activity'' displays recent downloads, sites you've recently visited and bookmarked sites. Firefox will show in each tile a download [[Image:GreenDownloadIcon]] icon, the bookmark [[Image:BlueBookmarkIcon]] star or the recent visit clock [[Image:ClockIcon]] icon.
+;[[Image:Fx113NewTabRecentActivity]]
+
+==Open a file or its folder, bookmark a site from the Recent Activity section==
+#Hover over the tile until the menu [[Image:3-dotMenu]] appears.
+#Click the menu and choose the action you wish to take.
+
+==Open a site from the Recent Activity section in a new window==
+#Hover over the tile until the menu [[Image:3-dotMenu]] appears.
+#Click {menu Open in a New Window} or {menu Open in a New Private Window} if you don't want it to be saved in your browsing history.
+{note}'''Tip:''' [[Template:contextmenu]] a tile, for more options in the context menu.{/note}
+
+==Remove a site from the Recent Activity section==
+#Hover over the tile until the menu [[Image:3-dotMenu]] appears.
+#Click the menu, then click {menu Dismiss} to remove it from the ''Recent Activity'' section.
+You can also click {menu Delete from History} to remove highlighted pages from your browsing history.
+[[UI:details_end]]
+
+=Change your New Tab page to Blank=
+The New Tab page opens by default each time you open a new tab. If you prefer a blank page when opening new tabs:
+#Click the {for not fx141}gear [[Image:Fx89Personalize-GearIcon]]{/for}{for fx141}[[Image:Fx141NewTabCustomizeIcon]]{/for} in the bottom right corner of the New Tab page.
+#Click '''Manage more settings''' at the bottom of the panel. The {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} settings panel will open.
+#Under ''New Windows and Tabs'', select {menu Blank Page} from the ''New tabs'' drop-down menu.
+If you prefer a blank page as your home page when you start Firefox or open a new window, follow the above steps but select {menu Blank Page} from the ''Homepage and new windows'' drop-down menu. For more information about changing your Firefox home page, see [[How to set the home page]].
+
+=Related articles=
+*[[Use widgets on your Firefox New Tab page]]
+*[[How to set the home page]]
+*[[Customize Firefox controls, buttons and toolbars]]

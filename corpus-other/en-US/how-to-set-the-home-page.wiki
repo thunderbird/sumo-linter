@@ -1,0 +1,51 @@
+The Firefox homepage is the first page you see when you open Firefox, click the Home button [[Image:Fx89HomeButton]] or start a new window. By default, Firefox uses the [[New Tab page in Firefox|New Tab page]] as your home page. This article explains how to set your Firefox home page.
+*If you want Firefox to open the windows and tabs from your previous session each time you start Firefox, instead of opening your home page, see [[Restore previous session - Configure when Firefox shows your most recent tabs and windows#w_configure-session-restore|Configure session restore]].
+
+__TOC__
+
+=Set or change your home page through the Home button=
+{note}'''Note:''' The Home button is not shown by default. To add or remove it, customize your toolbar as described in the article [[Customize Firefox controls, buttons and toolbars]]. If you don't see the Home button, you can set your home page through Firefox Settings as [[#w_set-your-home-page-through-firefox-settings|described below]]. The Home button will be added to the toolbar automatically when a custom home page is set.{/note}
+#Open the web page you want to use as your home page.
+#Drag and drop that tab onto the Home button [[Image:Fx89HomeButton]] on your toolbar.
+#;[[Image:Fx89 Set homepage drag-and-drop]]
+#Click {button Yes} on the prompt to set this page as your home page.
+
+=Set your home page through Firefox Settings=
+#[[T:optionspreferences]]
+#Click the {for not fx152}{menu Home}{/for}{for fx152}{menu Home and startup}{/for} panel.<br>{for not fx152}[[Image:Fx91HomePanel]]{/for}{for fx152}[[Image:fx152homeandstartup]]{/for}
+#Click the drop-down menu next to {for not fx152}{menu Homepage and new windows}{/for}{for fx152}{menu Homepage}{/for}. You can choose from the following options:
+#*{menu Firefox Home (Default)}
+#*{menu Custom URLs…}
+#*{menu Blank page}
+The ''Firefox Home (Default)'' option is selected by default. Firefox will display its default home page.
+
+==Set multiple pages as your home page==
+You can set a group of pages as your home page.
+#Open each page you want as your home page in a separate tab.
+#[[T:optionspreferences]]
+#{for not fx152}Go to the {menu Home} panel{/for}{for fx152}Go to {menu Settings}>{menu Home and startup}>{menu New windows}{/for}.
+#Select {menu Custom URLs…} from the{for not fx152} {menu Homepage and new windows} drop-down menu{/for}{for fx152}drop-down menu, and click on {button Choose a specific site}{/for}. Additional options will be displayed.
+#{for not fx152}Click {button Use Current Pages}{/for}{for fx152}Enter URLs one by one in the Enter address box, or click {button Use Current Pages}{/for}.
+;{for not fx152}[[Image:Fx91HomePanel-CustomURLs]]{/for}{for fx152}[[Image:fx152homepage]]{/for}
+
+==Set blank page as your home page==
+If you see ads or unwanted content, you can set a blank page as your home page:
+#[[T:optionspreferences]]
+#Go to the {menu Home} panel.
+#Select {menu Blank page} from the ''Homepage and new windows'' drop-down list. Now a blank page will be displayed as the homepage.
+
+=Having problems?=
+We have solutions:
+*If you don't see the Home button, see the [[Customize Firefox controls, buttons and toolbars]] article.
+*If you keep getting the ''Firefox has just updated'' tab every time Firefox starts, see the [[Firefox says it's just updated every time it starts - how to fix]] article.
+*If your home page settings are not saved, see the [[How to fix preferences that won't save]] article.
+*If your home page was hijacked or automatically changed, see the [[Remove a toolbar that has taken over your Firefox search or home page]] article.
+{for win}
+*It's possible the shortcut you are using to open Firefox has a link in it. Right-click the shortcut and check. See the article [[Wrong home page opens when I start Firefox - How to fix]] for details.
+{/for}
+*An extension may be controlling your home page. For more information, see the [[An extension changed my New Tab page or home page]] article.
+
+=Related articles=
+*[[Customize the Firefox home screen]]
+*[[Add a Firefox widget to your Home screen]]
+*[[Explore the Firefox for Android menu]]

@@ -1,0 +1,25 @@
+==Delete your Mozilla account==
+
+#Visit https://accounts.firefox.com.
+#Sign in to your account if you haven't already.
+#Scroll to the bottom and click the {button Delete Account} button.
+#Click the checkboxes to acknowledge you understand the effects of deleting your account, and click {button Continue}.
+#Enter your Mozilla account password.
+#Click the {button Delete Account} button. Once you do this, your account will be permanently deleted.
+You will return to the sign up page displaying a message saying ''Account deleted successfully''.
+{note}'''Note:''' Any add-ons or themes you have developed will be deleted when you delete your Mozilla account unless another account holder shares ownership of them. Please see [[Access your add-ons with Mozilla account]] for more information. 
+{/note}
+
+==What happens to my passkeys?==
+When you delete your Mozilla account, any passkeys associated with that account will no longer work for signing in to Mozilla services.
+
+Deleting your Mozilla account:
+*Removes the association between your account and its registered passkeys
+*Prevents those passkeys from being used to sign in to the deleted account
+However, deleting your Mozilla account does not automatically remove passkeys from your devices, browsers, password managers, or security keys. You may still see those passkeys listed there after the account has been deleted.
+
+If you no longer need them, you can remove the passkeys manually using your device's or password manager's passkey management tools.
+{note}'''Note:''' If you create a new Mozilla account using the same email address in the future, previously registered passkeys will not automatically be linked to the new account. You'll need to create new passkeys for that account.{/note}
+
+==Delete sync data==
+You can also [[Delete sync data from Firefox by signing out of your Mozilla account|delete synced data]] on a device you are signed into with your Mozilla account if you don't wish to delete your Mozilla account.

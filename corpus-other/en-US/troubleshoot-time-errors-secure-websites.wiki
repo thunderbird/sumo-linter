@@ -1,0 +1,96 @@
+Firefox checks the [[Secure website certificate|security certificate]] for [[How do I tell if my connection to a website is secure?|secure websites]] (those with {for not fx149}a padlock [[Image:Fx89Padlock]]{/for}{for fx149}a shield [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} in the address bar) to make sure it’s valid and hasn’t expired. If your computer’s date, time or time zone is incorrect, Firefox may show a security warning instead of loading the page.
+
+This article helps you:
+*Identify if your error is caused by incorrect time settings.
+*Fix your system clock on Windows, macOS, or Linux.
+*Learn why some security errors can't be bypassed.
+*Troubleshoot special cases like live USBs or virtual machines.
+
+__TOC__
+
+=Step 1 – Check if your error is time-related=
+If you see an error page such as {for not fx149}'''“Your Computer Clock is Wrong”''' or a '''“Warning: Potential Security Risk Ahead”''' {/for}{for fx149}'''“Your Computer Clock is Wrong”''' or '''“Be careful. Something doesn’t look right.”'''{/for}, your system clock may be the cause.
+;{for not fx149}[[Image:Fx142WarningPotentialSecurityRisk-Clock]]{/for}{for fx149}[[Image:Fx149BetaWarning-SecurityRiskTimeRelated]]{/for}
+How to confirm:
+#On the error page, click {for not fx149}{button Advanced…}{/for}{for fx149}{button Advanced}{/for}.
+#Look for one of these error codes:
+#*<sub>SEC_ERROR_EXPIRED_CERTIFICATE</sub> page
+#*<sub>SEC_ERROR_EXPIRED_ISSUER_CERTIFICATE</sub>
+#*<sub>SEC_ERROR_OCSP_FUTURE_RESPONSE</sub>
+#*<sub>SEC_ERROR_OCSP_OLD_RESPONSE</sub>
+#*<sub>MOZILLA_PKIX_ERROR_NOT_YET_VALID_CERTIFICATE</sub>
+#*<sub>MOZILLA_PKIX_ERROR_NOT_YET_VALID_ISSUER_CERTIFICATE</sub>
+{note}'''Tip:''' The {for fx149}''Advanced'' section of the {/for}error page may also show the time Firefox detects on your system — compare it to your local time.{/note}
+;{for not fx149}{for win}[[Image:Fx67YourComputerClockIsWrong]]{/for}{for mac}[[Image:Computer time wrong Mac]]{/for}{/for}
+<!--L10N, you can get this error message by setting your computer clock back a year, but feel free to use this image if you can't get a screenshot in your language -->{for fx149}[[Image:Fx149BetaWarning-SecurityRiskTimeRelatedAdvanced]]{/for}
+
+=Step 2 – Set your system clock to the correct date and time=
+{for win11}
+#Click the ''Windows Start'' {button [[Image:Windows11StartButton|width=15]]} button on the taskbar or press {key [[Image:Windows11Key|width=15]]} on the keyboard.
+#Type '''Date''' in the search bar.
+#Select {menu Date and time settings}.
+#Click {button Sync now} to update from an internet timeserver.
+#Make sure your time zone matches your location.
+If {button Sync now} is disabled or fails:
+*Turn off '''Set time automatically'''.
+*Set the date, time, and time zone manually.
+[[Image:timewindows11]]
+{/for}
+{for win10}
+#Click the ''Windows'' Start {button [[Image:Windows10StartButton|width=15]]} button on the taskbar or press {key [[Image:windowskey-win10]]} on the keyboard.
+#In the Start menu, select {menu Settings}.
+#In ''Settings'', select {menu Time & language}.
+#Go to {menu Date & time}.
+#Below ''Change date and time'', click {button Change}.
+#*You can also expand the '''Time zone''' dropdown menu.{note}If your system is set to manage the time and time zone automatically, you cannot make manual changes.{/note}
+#If you are done with your changes, close the ''Settings'' window.
+{/for}
+{for win8}
+#From the Start Screen, click the '''Desktop''' tile.
+#Select {menu Control Panel} from the {menu Settings}.
+#:[[Image:Control Panel - Win8]]
+#Click '''Clock, Language, and Region''' and then '''Date and Time'''.
+#Click the {button Change date and time} or {button Change time zone} button.
+# To confirm your changes, click {button OK}.
+{/for}
+{for win7}
+#Click the Windows Start button or press the Windows key {key [[Image:Windows Key]]}.
+#Click {menu Control Panel}.
+#:[[Image:Control Panel - Win7]]
+#Click '''Clock, Language, and Region''' and then '''Date and Time'''.
+#Click the {button Change date and time} or {button Change time zone} button.
+#To confirm your changes, click {button OK}.
+{/for}
+{for mac}
+#Click the Apple menu and select {menu System Preferences}.
+#In the ''System Preferences'' window, click '''Date & Time'''.
+#Disable {pref Set date and time automatically}.
+#Manually enter the date and time.
+#Click {button Save} to confirm your changes.
+{/for}
+'''Special cases – live USB, virtual machines, dual-boot systems'''
+
+If you use a live USB, virtual machine, or dual-boot system, your time may reset each time you start the OS. Set it manually every session or configure automatic time sync.
+
+=Step 3 – If the problem isn’t your system clock=
+If your time and time zone are correct, the website’s security certificate may be expired or been misconfigured.
+
+==Contact the website owner==
+If you know the site administrator, let them know the certificate is expired or invalid. They may need to renew or fix it.
+
+=Why you can’t always override these errors=
+Firefox’s security checks are automated—Firefox doesn’t decide which sites are “safe” based on reputation or government ownership. If a certificate is expired or invalid, Firefox will block the page to protect your privacy and data.
+
+In most cases, these blocks can’t be bypassed for expired certificates because they present real security risks (like allowing attackers to intercept your connection).
+
+=Quick checklist before trying again=
+*✅ System date and time are correct.
+*✅ Time zone matches your location.
+*✅ For live USB/VM users: time sync is configured.
+*✅ Website’s certificate isn’t expired (contact site owner if unsure).
+
+=Related articles=
+*[[How do I tell if my connection to a website is secure?]]
+*[[What do the security warning codes mean?]]
+*[[Firefox and other browsers can't load websites]]
+*[[Websites don't load - troubleshoot and fix error messages]]

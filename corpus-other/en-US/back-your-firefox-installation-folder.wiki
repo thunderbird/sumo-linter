@@ -1,0 +1,44 @@
+Here’s how to back up your Firefox installation folder on different operating systems, if you need to do so:
+{note}'''Note:''' Backing up your Firefox installation folder is normally not necessary, since your user data and settings are stored in a separate [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile folder]] location.{/note} 
+
+=Windows=
+#Locate your Firefox installation folder. The default location is usually one of the following:
+#*'''<code>C:\Program Files\Mozilla Firefox\</code>'''<br>for 32-bit Firefox on 32-bit Windows or 64-bit Firefox on 64-bit Windows
+#*'''<code>C:\Program Files (x86)\Mozilla Firefox\</code>'''<br>for 32-bit Firefox on 64-bit Windows
+#Copy your installation folder:
+#;*Ensure Firefox is closed to avoid any file conflicts.
+#;*Navigate to the installation folder.
+#;*Right-click the Mozilla Firefox folder, and select {menu Copy}.
+#;*Paste the folder to a safe location, such as an external drive or cloud storage.
+
+=macOS=
+#Locate your Firefox installation folder:
+#;*Open the Applications folder.
+#;*Locate the '''<code>Firefox.app</code>''' file.
+#Copy your installation folder:
+#;*Ensure Firefox is closed.
+#;*Hold the {key Option} key, click and drag '''<code>Firefox.app</code>''' to your backup location (for example, an external drive or another folder). Holding {key Option} ensures the app is copied and not moved.
+
+=Linux=
+#Locate your Firefox installation folder:
+#;*The installation directory can typically be found in '''<code>/usr/lib/firefox/</code>''' or '''<code>/opt/firefox/</code>'''. Use the terminal command '''<code>whereis firefox</code>''' to confirm the exact location.
+#Copy your installation folder:
+#;*Ensure Firefox is closed.
+#;*Use the command line or a file manager with superuser privileges to copy the directory:
+#;'''<code>sudo cp -r /usr/lib/firefox /path/to/backup/location/</code>'''
+#;*Replace '''<code>/usr/lib/firefox</code>''' with the actual path if it differs on your system and '''<code>/path/to/backup/location/</code>''' with your desired backup location.
+{note}This method will back up the installation files of Firefox, but it won’t include your user profile data, which is stored separately. If you want to restore your exact browser setup – including bookmarks, settings, extensions and other personal data – you’ll also need to back up your Firefox profiles. Refer to [[Back up and restore information in Firefox profiles|this article]] for instructions on backing up your Firefox profile.{/note}
+
+=Related articles=
+*[[Profile Manager - Create, remove or switch Firefox profiles]]
+*[[Uninstall Firefox from your computer]]
+{for win}
+*[[How to install Firefox on Windows]]
+*[[Custom installation of Firefox on Windows]]
+{/for}
+{for mac}
+*[[How to download and install Firefox on Mac]]
+{/for}
+{for linux}
+*[[Install Firefox on Linux]]
+{/for}

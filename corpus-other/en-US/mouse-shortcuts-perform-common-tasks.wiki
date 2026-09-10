@@ -1,0 +1,368 @@
+This is a list of mouse shortcuts in Mozilla Firefox.{for linux} The shortcuts only work if they are not used by the desktop environment or window manager.{/for}
+*For keyboard shortcuts, see [[Keyboard shortcuts - Perform common Firefox tasks quickly|this article]].
+
+__TOC__
+
+=Navigation=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Go Back
+|{for win,linux}{key Alt} + Scroll down{/for}{for mac}{key option} + Scroll down{/for}
+|-
+|Go Forward
+|{for win,linux}{key Alt} + Scroll up{/for}{for mac}{key option} + Scroll up{/for}
+|-
+|Go Back or Forward but in a New Foreground Tab
+|Middle-click the Back or Forward button<br>{for win,linux}{key Ctrl}{/for}{for mac}{key control}{/for} + Click the Back or Forward button
+|-
+|Go Back or Forward but in a New Background Tab
+|{key Shift} + Middle-click the Back or Forward button<br>{for win,linux}{key Ctrl+Shift}{/for}{for mac}{key command+shift}{/for} + Click the Back or Forward button
+|-
+|Go Back or Forward but in a New Window
+|{key Shift} + Click the Back or Forward button
+|-
+|Reload Page (override cache)
+|{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Click Reload button
+|}
+
+=Links=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Open Link in Current Tab
+|Left-click Link
+|-
+|Open Link in New Background Tab[[#fgbg|*]]
+|{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Left-click Link<br>Middle-click Link
+|-
+|Open Link in New Foreground Tab[[#fgbg|*]]
+|{for win,linux}{key Ctrl+Shift}{/for}{for mac}{key command+shift}{/for} + Left-click Link<br>{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Middle-click Link
+|-
+|Open Link in New Window
+|{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Left-click Link
+|-
+|Open Link or Selected URL in an Existing Tab
+|Drag Link or Selected URL to Tab
+|-
+|Open Link or Selected URL in a New Background Tab beside an Existing Tab[[#fgbg|*]]
+|Drag Link or Selected URL beside Existing Tab
+|-
+|Open Link or Selected URL in a New Foreground Tab beside an Existing Tab[[#fgbg|*]]
+|{key Shift} + Drag Link or Selected URL beside Existing Tab
+|-
+|Save Link
+|{for win,linux}{key Alt}{/for}{for mac}{key option}{/for} + Left-Click on Link<sup>1</sup><br>{for linux}{key Windows-Key+Alt} + Left-Click on Link<sup>1</sup><br>{/for}1) when {pref browser.altClickSave} is set to {pref true} (as in the [[Configuration Editor for Firefox|Configuration Editor]]), which is not the default.<br><br>Drag Link to Downloads Button
+|}
+
+<div id="fgbg" />
+<nowiki>*</nowiki> These Open Foreground or Background Tab shortcuts will be switched if the setting '''When you open a link in a new tab, switch to it immediately''' is enabled in the [[Tab preferences and settings|General settings panel]].
+[[Template:aboutconfigwarning]]
+
+=Miscellaneous=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Focus the Page
+|Click the page or the movable (often darker) part of a scrollbar
+|-
+|Focus an input field
+|Click the input field
+|-
+|Open an item's context menu
+|Right-click the item {for mac} (or [[Template:contextmenu]] the item){/for}
+|-
+|Show an item's tooltip
+|Put mouse cursor on the item
+|}
+
+=Scrolling a Page=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Scroll
+|Drag the movable (often darker) part of a scrollbar.<br>{for win}Click arrow at end of scroll bar.{/for}
+|-
+|Scroll down or up one Page
+|{for win}Click under or over the movable (often darker) part of the vertical scrollbar{/for}{for linux}Right-Click or {key Shift} + Click under or over the movable (often darker) part of the vertical scrollbar.{/for}
+|-
+|Scroll to Clicked Position
+|{for win}{key Shift} + Click non-movable (often lighter) part of scrollbar (not an arrow){/for}{for linux}Click non-movable (often lighter) part of scrollbar{/for}
+|-
+|Scroll Down
+|Scroll down (on page or scrollbar)
+|-
+|Scroll Up
+|Scroll up (on page or scrollbar)
+|-
+|Scroll Right
+|{key Shift} + Scroll down (on page or scrollbar)
+|-
+|Scroll Left
+|{key Shift} + Scroll up (on page or scrollbar)
+|}
+
+==Autoscrolling a Page==
+This only works if the setting “Use autoscrolling” is enabled in the [[Change Firefox options, preferences and settings|Settings]].
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Autoscroll the Page
+|Press and hold middle mouse button on page{for win} or scrollbar{/for}, and move mouse
+|-
+|Start Autoscroll Mode
+|Middle-click on page{for win} or scrollbar{/for}
+|-
+|Scroll in Autoscroll Mode
+|Move mouse
+|-
+|Stop Autoscroll Mode
+|Click<br>Middle-click{for linux}<br>Right-click{/for}<br>Scroll
+|}
+
+=Zooming Pages=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Zoom In
+|{for win,linux}{key Ctrl}{/for}{for mac}{key control}{/for} + Scroll up
+|-
+|Zoom Out
+|{for win,linux}{key Ctrl}{/for}{for mac}{key control}{/for} + Scroll down
+|-
+|Reset Zoom to Default Zoom Level
+|Click zoom level indicator on Address Bar (when zoom level is not the default)
+|}
+
+=Selecting or Editing Text=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Copy Selected Text
+|{for win,linux}{key Ctrl} + Drag Selected Text{/for}
+|-
+|Move Selected Text
+|Drag Selected Text
+|-
+|Select a Paragraph
+|Triple-Click the Paragraph
+|-
+|Select a Word
+|Double-Click the Word
+|-
+|Select Text
+|
+#Click at the beginning of the text
+#{key Shift} + Click at the end of the text
+|-
+|Select Text
+|Drag from beginning to end of text
+|-
+|Select Link Text
+|{for win}{key Alt} + {key Windows} + Drag from beginning to end of text{/for}{for linux}{key Alt} + Drag from beginning to end of text{/for}{for mac}{key option} + Drag from beginning to end of text{/for}
+|-
+|Select a Table Cell
+|{for win,linux}{key Ctrl} + Click the Table Cell{/for}
+|-
+|Select Table Cells
+|{for win,linux}{key Ctrl} + Drag across the Table Cells{/for}
+|}
+
+=Tabs=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Close Tab
+|Middle-click on Tab
+|-
+|Duplicate (Copy) Tab
+|{for win,linux}{key Ctrl}{/for}{for mac}{key option}{/for} + Drag Tab to Tab Bar
+|-
+|Duplicate (Copy) Current Tab in New Foreground Tab
+|Middle-click on Reload button<br>{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Click on Reload button
+|-
+|Duplicate (Copy) Current Tab in New Background Tab
+|{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Middle-click on Reload button<br>{for win,linux}{key Ctrl+Shift}{/for}{for mac}{key command+shift}{/for} + Click on Reload button
+|-
+|Move Tab
+|Drag Tab to Tab Bar (also between windows)
+|-
+|Move Tab to New Window
+|Drag Tab to Address Bar or Page
+|-
+|Open New Foreground Tab on Right End of Tab Bar
+|Click "New Tab" Button<br>Middle-click on Tab Bar<br>Double-click on Tab Bar (if title bar is shown)
+|-
+|Open New Foreground Tab to the Right of Current Tab
+|Middle-Click “New Tab” Button<br>{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Click “New Tab” Button
+|-
+|Open New Background Tab to the Right of Current Tab
+|{key Shift} + Middle-Click “New Tab” Button<br>{for win,linux}{key Ctrl+Shift}{/for}{for mac}{key command+shift}{/for} + Click “New Tab” Button
+|-
+|Open New Tab in New Window
+|{key Shift} + Click “New Tab” Button
+|-
+|Scroll the Tab Bar (when it does not show all tabs)
+|Scroll on Tab Bar
+|-
+|Scroll the Tab Bar by one page (when it does not show all tabs)
+|Double-Click the left or right arrow button on the tab bar
+|-
+|Scroll to Beginning or End of Tab Bar (when it does not show all tabs)
+|Triple-Click the left or right arrow button on the tab bar
+|}
+
+==Selection of Multiple Tabs==
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Select a tab. Deselect all other tabs.
+|Click the tab
+|-
+|Select or deselect a tab. The other tabs stay selected or deselected.
+|{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Click the tab
+|-
+|Select a tab and the most recently clicked or {for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for}-clicked selected tab and all tabs in between. Deselect all other tabs.
+|{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Click the tab
+|-
+|Like above but the other tabs stay selected or deselected.
+|{for win,linux}{key Ctrl+Shift}{/for}{for mac}{key command+shift}{/for} + Click the tab
+|-
+|Open two tabs in a [[Split View in Firefox|split view]].
+|With the two tabs open, {for win,linux}{key Alt}{/for}{for mac}{key Option}{/for} while one tab is in focus then click the second tab
+|}
+
+=Web Search=
+Search the Web for Selected Text (not a web address) with the Default Search Engine…
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|in Current Tab
+|Drag Selected Text to Address Bar
+|-
+|in Existing Tab
+|Drag Selected Text to Tab
+|-
+|in New Background Tab[[#fgbg|*]]
+|Drag Selected Text beside Tab
+|-
+|in New Foreground Tab[[#fgbg|*]]
+|{key Shift} + Drag Selected Text beside Tab
+|-
+|in New Background Tab on Right End of Tab Bar[[#fgbg|*]]
+|Drag Selected Text to “New Tab” Button
+|-
+|in New Foreground Tab on Right End of Tab Bar[[#fgbg|*]]
+|{key Shift} + Drag Selected Text to “New Tab” Button
+|}
+
+=Bookmarks & History Pages=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Add Existing Tag to Bookmark
+|Drag Bookmark to Tag in Library
+|-
+|Create Bookmark for Tab, Link, History Page or Selected URL
+|Drag Tab, Link, History Page or Selected URL to Bookmarks Toolbar, Sidebar, Menu, or Library
+|-
+|Copy Bookmark or Folder
+|{for win,linux}{key Ctrl}{/for}{for mac}{key option}{/for} + Drag bookmark or folder to Bookmarks Toolbar, Sidebar, Menu, or Library
+|-
+|Move Bookmark or Folder
+|Drag Bookmark or folder to Bookmarks Toolbar, Sidebar, Menu, or Library
+|-
+|Open Bookmark or History Page in Current Tab
+|Left-click Bookmark or History Page (not in Library).<br>Double-click Bookmark or History Page (in Library).
+|-
+|Open Bookmark or History Page in New Foreground Tab
+|Middle-click Bookmark or History Page<br>{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Left-click Bookmark or History Page (not in Library)<br>{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Double-click Bookmark or History Page (in Library)
+|-
+|Open Bookmark or History Page in New Background Tab
+|{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Middle-click Bookmark or History Page<br>{for win,linux}{key Ctrl+Shift}{/for}{for mac}{key command+shift}{/for} + Left-click Bookmark or History Page (not in Library)<br>{for win,linux}{key Ctrl+Shift}{/for}{for mac}{key command+shift}{/for} + Double-click Bookmark or History Page (in Library)
+|-
+|Open Bookmark or History Page in New Window
+|{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Left-click Bookmark or History Page (not in Library)<br>{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Double-click Bookmark or History Page (in Library)
+|-
+|Open Bookmark or History Page in an Existing Tab
+|Drag Bookmark or History Page to Tab
+|-
+|Open Bookmark or History Page in a New Background Tab beside an Existing Tab[[#fgbg|*]]
+|Drag Bookmark or History Page beside Existing Tab
+|-
+|Open Bookmark or History Page in a New Foreground Tab beside an Existing Tab[[#fgbg|*]]
+|{key Shift} + Drag Bookmark or History Page beside Existing Tab
+|-
+|Open All Bookmarks of a Folder (not in Library) in New Tabs or a New Window (except those in subfolders)
+|
+New Tabs (first bookmark is opened in foreground tab):<br>Middle-click the bookmark folder<br>{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Click the bookmark folder<br>
+
+New Background Tabs:<br>{key Shift} + Middle-click the bookmark folder<br>{for win,linux}{key Ctrl+Shift}{/for}{for mac}{key command+shift}{/for} + Click the bookmark folder<br>
+
+New Window:<br>{key Shift} + Click the bookmark folder
+|-
+|Open All Bookmarks of a Folder in New Tabs (except those in subfolders)
+|
+New Tabs (first bookmark is opened in foreground tab)[[#fgbg|*]]:<br>{for win,linux}{key Shift}{/for}{for mac}{key shift}{/for} + Drag Folder beside Tab<br>
+
+New Background Tabs[[#fgbg|*]]:<br>Drag Folder beside Tab
+|}
+
+=Home Page(s)=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Open the Home Page(s) in a New Foreground Tab
+|Middle-Click Home Page Button<br>{for win,linux}{key Ctrl}{/for}{for mac}{key command}{/for} + Click Home Page Button
+|-
+|Open the Home Page(s) in a New Window
+|{key Shift} + Click Home Page Button
+|-
+|Set Tab, Bookmark, History Page, Link or Selected URL as New Home Page
+|Drag Tab, Bookmark, History Page, Link or Selected URL to Home Page Button
+|-
+|Set All Bookmarks of a Folder (except those in subfolders) as New Home Pages
+|Drag Bookmark Folder to Home Page Button
+|-
+|Set Selected Tabs as New Home Pages
+|Drag Selected Tabs to Home Page Button
+|}
+
+=Main Window=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Change Sidebar Width
+|Drag Sidebar Border
+|-
+|Change Widths of Address Bar and Search Bar
+|Drag Border between Address Bar and Search Bar
+|}
+
+=Library Window=
+{|
+!'''Command'''
+!'''Shortcut'''
+|-
+|Change Column Widths in Library
+|Drag Border between Column Headers
+|-
+|Move Column in Library
+|Drag Column Header
+|-
+|Sort List in Library by a Property
+|Click the column header (e.g., “Name”, “Most Recent Visit”).<br>Click again to sort in the opposite direction.<br>Click again to remove the sorting.
+|}

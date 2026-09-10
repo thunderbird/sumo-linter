@@ -1,0 +1,65 @@
+Firefox lets you import bookmarks from other browsers installed on your computer. It also lets you import other data, such as browsing history and saved passwords, from some of these browsers. If you have logins and passwords stored in another browser, sometimes Firefox will suggest importing that login data to help you log in to websites.
+{note}'''Note:''' Firefox does '''not''' save or sync login data from another browser unless you choose to import it. This data is stored locally in a readable form on your computer by the other browser.{/note}
+
+__TOC__
+
+=How to import your data from another browser=
+Use one of these methods to import your data into Firefox:
+
+==Import from the Firefox Settings panel==
+You can import your bookmarks and other data from the Firefox Settings panel:
+#[[Template:optionspreferences]]
+#In the {for not fx152}{menu General}{/for}{for fx152}{menu Account and sync}{/for} panel, click on {button Import Data} under the ''Import browser data'' section.
+#;{for not fx151}[[Image:Import data]]{/for}{for =fx151}[[Image:Fx151ImportBrowserData]]{/for}{for fx152}[[Image:Fx152ImportBrowserData]]{/for}
+The Import Wizard will open. From here, you can choose the browser, profile, and data you wish to import ([[#w_choose-data-and-complete-the-import|see below]]).
+
+==Import from the Library window==
+You can import data from another browser into Firefox from the Bookmarks Library window:
+#Click the Firefox menu button [[Image:Menu button 1]] to open the menu panel. 
+#Click {menu Bookmarks} and then click the {menu Manage bookmarks} bar at the bottom. The Library window will open.
+#From the toolbar in the Library window, click {for mac}[[Image:import-export-arrows]]{/for}{for not mac}{menu [[Image:import-export-arrows]]Import and Backup}{/for}.
+#Choose {menu Import Data from Another Browser…}. The Import Wizard will open.
+#;{for win,linux}[[Image:Import data from another  browser]]{/for}{for mac}[[Image:macOS import]]{/for}
+#;{note}'''Tip:''' Another way to import from another browser is to {for not mac}[[Restore the Menu bar in Firefox|enable the Menu bar]] (press {key Alt} on the keyboard to enable it temporarily),{/for} click {menu File} in Menu bar at the top of the screen and select {menu Import from Another Browser…}{/note}
+
+=Choose data and complete the import=
+#In the Import Wizard, select the browser, profile and data you wish to import.
+#;[[Image:chromeimportfirefox|width=300]]
+#The import will start. You may be prompted to add your system password to proceed.
+#All set! Click {button Done} to finish the import.
+The import process will transfer the selected data to Firefox, for example:
+{for mac}
+;*'''Saved passwords:''' Your saved usernames and passwords.
+{/for}
+;*'''Bookmarks:''' Web pages you have saved in your bookmarks.
+;*'''Browsing history:''' Information on the sites you have visited.
+;*'''Extensions:''' Google Chrome extensions that match similar Firefox versions.
+;*'''Form autofill data:''' Information you use to populate online forms.
+;[[Image:importcomplete|width=350]]
+{for win}{note}'''Note:''' You won’t be able to import payment methods from Chrome on Windows to Firefox anymore, as the capability will no longer be supported due to changes in Chrome’s encryption mechanism.{/note}{/for}
+Afterward, the Firefox {menu Bookmarks} menu or [[Bookmarks Toolbar - Display your favorite websites at the top of the Firefox window|Bookmarks Toolbar]] will include the bookmarks imported from the other browser. The Bookmarks toolbar will automatically appear to help you easily find your newly imported bookmarks.
+{note}'''Note:''' If the Import Wizard does not list your other browser, you can still import bookmarks from that browser, but you will need to first export and save the bookmarks as an HTML file (visit the support site for your other browser if you need help with that). You can then import those bookmarks into Firefox from the HTML file.{/note}
+
+==Import passwords from Chrome with the CSV file via the migration wizard==
+{for win}{note}'''Important:''' You'll no longer be able to import passwords from Chrome to Firefox automatically on Windows. You’ll have to import them using a CSV file via the migration wizard.{/note}{/for}
+You’ll need to export the CSV file containing your passwords from Chrome.
+#Open '''Chrome''', then the ''main menu'' [[Image:chromemenu]], and go to {menu Passwords and Autofill} > {menu Google Passwords Manager}.
+#;[[Image:Chrome password manager]]
+#Select {menu Settings} from the menu.
+#Next to '''Export passwords''', click {button Download file}, and save the CSV file to your device.
+#;[[Image:Download file]]
+Then, import the CSV file using one of the methods explained [[#w_how-to-import-your-data-from-another-browser|above]].
+{warning}Please be aware that while the issue will be broadly applicable to all Firefox versions, for now we're only updating the Firefox UI starting in [[Find what version of Firefox you are using|Firefox version]] 139 (English locales only) and version 140 (all locales) to reflect the change.{/warning}
+
+==Import extensions from Chrome==
+To easily import bookmarks and other data from Google Chrome, see [[Import bookmarks and other data from Google Chrome]].
+
+=Related content=
+*[[Import Bookmarks and other data from Microsoft Edge]]
+*[[Importing Safari data into Firefox]]
+{for fx116}
+*To import passwords from a CSV file, see [[Import login and password data from a file]].
+{/for}
+*[[Import Bookmarks from an HTML file]].
+*[[Recovering important data from an old profile]].
+*[[Bookmarks in Firefox]].

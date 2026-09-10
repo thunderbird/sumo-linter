@@ -1,0 +1,30 @@
+Third-party cookies, also known as cross-site cookies, are [[Cookies - Information that websites store on your computer|cookies]] set by a website other than the one you are currently on. For example, cnn<!-- -->.com might have a Facebook like button on their site. The like button will set a cookie that can be read by Facebook. That would be considered a third-party (cross-site) cookie. Some advertisers use these types of cookies to track your visits to the various websites on which they advertise. This is called [[Third-party trackers|cross-site tracking]].
+{note}'''Note:'''{for not fx132}Cross-site tracking cookies are now disabled by default for all Firefox users. See [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] for more information about how Firefox protects you against tracking.{/for}{for fx132} Cross-site tracking cookies are now disabled by default for all Firefox users. Enhanced Tracking Protection Strict mode now disables all cross-site cookies. See [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] for more information about how Firefox protects you against tracking.{/for}{/note}
+When third-party cookies are disabled, it can stop some, but not all types of tracking. If you are concerned about tracking, see also:
+{for not fx135}
+*[[How do I turn on the Do Not Track feature?]]
+{/for}
+*[[Enhanced Tracking Protection in Firefox for desktop]]
+*[[Trackers and scripts Firefox blocks in Enhanced Tracking Protection]]
+
+=Disable third-party cookies=
+To block cross-site trackers or all third-party (cross-site) cookies:
+#[[T:optionspreferences]]
+#Select the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Privacy and security}{/for} page.
+#Under ''[[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]]'', select the '''Custom''' radio button.
+#Check '''Cookies''' and use the drop-down menu to select the types of cookies you wish to block.
+#;{for not fx152}[[Image:Fx111settings-ETPcustom]]{/for}{for fx152}[[Image:fx152enhancedprotection]]{/for}
+#;To block all third-party cookies, select ''All cross-site cookies (may cause websites to break)'' from the drop-down.
+#;{for fx132}{note}'''Note:''' Firefox also blocks third-party cookies in [[Enhanced Tracking Protection in Firefox for desktop#w_strict-enhanced-tracking-protection|ETP Strict mode]]. This differs from blocking all third-party cookies through the custom cookie blocking settings in technical details. For more information, see [https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API Storage AccessAPI] on ''MDN Web Docs''.{/note}{/for}
+#Select the [[Image:reload all tabs retina|width=150]]<!--{button Reload All Tabs}--> button (shown when multiple tabs are open) to apply your new setting.
+#;{note}'''Note:''' Firefox also includes [[Introducing Total Cookie Protection in Standard Mode|Total Cookie Protection]], which creates a “cookie jar” for every website. This feature keeps cookies in the site where they were created so that they can't track you across websites. Total Cookie protection is enabled when the ''Cross-site tracking cookies, and isolate other cross-site cookies'' setting is selected.<!--https://bugzilla.mozilla.org/show_bug.cgi?id=1740828#c1 -->{/note}
+
+=Enable third-party cookies for specific sites=
+Some websites may not work properly when third-party (cross-site) cookies are blocked. To turn off [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] for a specific website:
+#Visit the website.
+#At the left of the address bar, click the shield icon [[Image:Fx89ShieldIcon|width=30]].
+#At the top of the panel, toggle off the Enhanced Tracking Protection switch [[Image:Fx91ETPbluetoggle|width=40]]. This will disable Enhanced Tracking Protection for the site, causing the page to automatically reload and enable trackers.
+#;{for not fx138}[[Image:Protection panel|width=400]]{/for}{for fx138}[[Image:Fx138ProtectionPanelOff]]{/for}
+Follow the same process to turn Enhanced Tracking Protection back on.
+
+If the issue persists, consider reporting it by submitting a ''Broken Site Report''. This allows the Webcompat team to examine the problem. For more information, see [[How do I report a broken site in Firefox desktop?]]

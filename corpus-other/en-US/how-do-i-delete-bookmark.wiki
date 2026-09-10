@@ -1,0 +1,23 @@
+This article describes different methods for removing a bookmark from your Firefox browser. 
+
+* For more information on using bookmarks, see [[Create bookmarks to save your favorite webpages]].
+
+{note}If you've set up [[How do I choose what types of information to sync on Firefox? | Firefox Sync]] to synchronize your bookmarks, the bookmarks you remove from one device will also be deleted from your synchronized devices.{/note}
+
+__TOC__
+
+= Deleting a single bookmark =
+# Go to the page in your bookmarks that you want to remove.
+# Click on the star icon to the right of your search bar. 
+# In the ''Edit Bookmark'' window, click {button Remove Bookmark}.
+#;[[Image:Remove bookmark Fx89]] 
+
+
+= Deleting more than one bookmark or folder =
+#[[T:OpenBookmarksLibrary]]
+# In the left pane, click on the folder you want to view. Its contents will appear in the right pane.
+# In the right pane, click to select the item you want to delete. {for win,linux}Hold down the {key CTRL} key to select more than one item.{/for}{for mac}Hold down the {key command} key to select more than one item.{/for} 
+# With the items to be deleted selected, click on the {for win,linux}{button Organize} button{/for}{for mac}[[Image:d7a1d14cc7b5aa780656b5967aad6fbf-1252026590-54-1.png]] icon{/for} and then select {menu Delete}.
+;{for win}{for not fx57}[[Image:remove mult]]{/for}{for fx57}[[Image:windows delete bookmark 57]]{/for}{/for}
+;{for mac}[[Image:remove bookmarks mac]]{/for}
+;{for linux}[[Image:delete bookmarks linux]]{/for}

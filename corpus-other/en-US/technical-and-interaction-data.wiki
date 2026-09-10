@@ -1,0 +1,56 @@
+[[Template:FirefoxPrivacyNotice]]
+Firefox collects technical and interaction data and sends it to Mozilla, to understand how you use the browser and to make it better. This data helps Mozilla fix bugs, improve performance, and add features that people love.
+
+This article explains what data is collected, how Mozilla uses it, and how to turn off technical and interaction data collection on your device.
+
+__TOC__
+
+=What is technical and interaction data?=
+Technical and interaction data, also called ''telemetry'' data, is information about how Firefox functions on your device and how you use its features. This includes performance details like page load times, and memory usage, as well as insights into which Firefox features you interact with, such as bookmarks, tabs or settings. Additionally, it collects general device information, including your operating system, browser version and hardware specifications. Mozilla uses this data to enhance Firefox while respecting your privacy.
+{note}This data doesn’t include information such as your browsing history, search queries or saved passwords.{/note}
+
+=Where can I learn more about what specific data is collected?=
+For a more detailed view of the technical and interaction data collected by Firefox, see the definitions in the [https://dictionary.telemetry.mozilla.org/ Glean Dictionary].
+
+=How does Mozilla use this data?=
+Mozilla uses technical and interaction data for many things, including to:
+*'''Fix problems:''' Identify bugs and improve Firefox’s performance.
+*'''Build better features:''' See which features are popular and how we can improve them.
+*'''Understand trends:''' Learn how people use Firefox without compromising their privacy.
+You can learn about all the ways Mozilla uses technical and interaction data in the [https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice].
+
+=How to turn off technical and interaction data collection=
+If you prefer, you can easily turn off this data collection in Firefox.{for fx136}{note}Turning this off does not disable or prevent the DAU (daily active users) ping. To learn more about daily usage data collection and how to opt out, see [[Manage daily usage ping data collection settings in Firefox]].{/note}{/for} Here’s how to turn off technical and interaction data collection on your device:
+
+[[UI:details_start]]
+==On desktop==
+#[[Template:optionspreferences]]
+#Go to the {for not fx151}{menu Privacy & Security}{/for}{for =fx151}{menu Privacy and Security}{/for}{for fx152}{menu Permissions and data}{/for} panel.
+#Scroll down to {for not fx151}''Firefox Data Collection and Use''{/for}{for fx151}''Firefox data collection and use''{/for}.
+#Uncheck the box next to '''Send technical and interaction data to Mozilla'''
+#;{for not fx148}[[Image:Fx136settings-DataCollectionOptOut]]{/for}{for =fx148,=fx149,=fx150}[[Image:Fx148DataCollection-OptOut]]{/for}{for =fx151}[[Image:Fx151DataCollection-OptOut]]{/for}{for fx152}[[Image:fx152datacollection]]{/for}
+If you opt out of sending technical and interaction data, Mozilla will also treat this as a request to delete any data that was previously collected. Data will be deleted within 30 days after you opt out.
+
+==On Android==
+#[[Template:menupreview]]
+#Select {menu Settings}.
+#Tap '''Privacy and Security''', then tap '''Data collection'''.
+#Toggle off '''Send technical and interaction data'''.
+[[Image:Data collection android|width=350]]
+
+==On iOS==
+#[[Template:iosmenu]]
+#Select {menu Settings}.
+#Scroll down to the ''Support'' section.
+#Toggle off '''Send Technical and Interaction Data'''.
+#;[[Image:ios send data|width=350]]
+[[UI:details_end]]
+
+=Related content=
+If you’d like to dive deeper into how Firefox handles your data, check out these resources:
+*[[Manage Firefox data collection and privacy settings]]
+*[[Mobile - Manage Firefox data collection and privacy settings]]
+*[https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/index.html Telemetry – Firefox Source Docs documentation]
+{for win}
+*[[Telemetry collection - Windows default browser trends]]
+{/for}

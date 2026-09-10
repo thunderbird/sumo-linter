@@ -1,0 +1,25 @@
+When you browse the web, Firefox protects you by isolating each website from your other tabs and the rest of your computer. You don’t have to do anything special to get this kind of protection. It happens by default.
+
+Websites rarely have a good reason to bypass this protection, but there are occasional exceptions: for example, a site for musicians might want to access an audio synthesizer device that is plugged into your computer.
+
+__TOC__
+
+=What are site permission add-ons?=
+Site permission add-ons are a type of software that websites can ask you to install to modify Firefox’s default security behavior and give them extra privileges, such as unrestricted access to devices connected to your computer.
+
+These add-ons can be powerful, but like any other software installed on your computer, they can also be dangerous. There is no way to guarantee that sites are not abusing their extended access, which could include:
+*Causing physical damage or transmitting malware to your connected devices;
+*Making changes that are impossible to reverse;
+*Using the extra information they see to identify who you are (see [[Firefox's protection against fingerprinting|fingerprinting]]).
+
+=How can I stay safe?=
+If you’re considering whether to install a site permission add-on, we recommend asking yourself the following questions:
+*'''Do you trust the website?''' Unless you fully trust the source, avoid installing the site permissions add-on. (Keep in mind, some malicious sites may mimic the look and feel of popular, trusted brands.)
+*'''Do you really need what the site is offering?''' This may seem obvious, but it is worth mentioning – will granting these permissions offer you a clear benefit?
+These are just a few tips for figuring out if a permission add-on is trustworthy, but it is by no means a comprehensive guide. Be cautious when considering any software that modifies Firefox's default settings.
+
+Once installed, site permission add-ons will appear in a separate panel in the add-ons manager, where you can [[Find and install add-ons to add features to Firefox#w_viewing-and-managing-your-installed-add-ons|view and manage your add-ons]].
+
+=Related articles=
+*[[Permission request messages for Firefox extensions]]
+*[[Tips for assessing the safety of an extension]]

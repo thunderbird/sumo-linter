@@ -1,0 +1,41 @@
+Whether you're using Windows 10 or the latest Windows 11, this guide will help you set Firefox as your default browser with minimal fuss. Setting Firefox as your default browser on Windows has become a bit more involved due to changes in how Windows manages default applications. We introduced a new guidance notification feature to help you easily navigate these changes.
+
+{note}'''Note:''' {for win7,win8,winxp,linux,mac}This article applies to Windows 10 or Windows 11. For macOS, Linux or previous versions of Windows, see [[Make Firefox your default browser]].{/for}{for win10,win11}If you don’t currently have Firefox installed on your computer, first [[How to install Firefox on Windows|download and install Firefox]].{/for}{/note}
+
+__TOC__
+=How to set Firefox as your default browser=
+==Make Firefox your default browser in Firefox Settings==
+#[[Template:optionspreferences]]
+#{for not fx152}At the top of the {menu General} panel, go to the  {for not fx149}'''Startup'''{/for}{for fx149}'''Default browser'''{/for} section{/for}{for fx152}In the {menu Account and sync} page (or in the {menu Home and startup} page) go to the '''Default browser''' section{/for}.
+#If Firefox isn't currently set as your default browser, you'll see the message {for not fx149}''Firefox is not your default browser''. Click {button Make Default…}{/for}{for fx149}''Psst, Firefox isn't your default.'' Click {button Make default}.{/for}{note}'''Note:''' If Firefox is already your default browser, the button will be missing and you will see the message, {for not fx149}"Firefox is currently your default browser".{/for}{for fx149}"Firefox is your default browser. Good choice."{/for}{/note}
+#;{for not fx149}[[Image:Fx140esrMakeDefault]]{/for}{for fx149}{for not fx152}[[Image:Fx149settings-MakeDefault]]{/for}{for fx152}[[Image:fx152accountandsync]]{/for}{/for}
+#If you see this ''toast'' notification, it indicates that the one-click default setting did not work, and you will need to take additional steps in your Windows settings.
+#;[[Image:Toast notification - set Firefox as default|width=400]]
+To easily open Firefox later, add a shortcut to your taskbar:
+#On your computer, open Firefox.
+#At the bottom, in the Windows taskbar, right-click the Firefox icon.
+#Click {menu Pin to taskbar}.
+
+==Manually set Firefox as your default browser in Windows settings==
+If the guidance notifications do not appear, don't worry. You can manually set Firefox as your default browser by following these steps (click  '''For Windows 10''' or '''For Windows 11''' below, to view the steps):
+[[UI:details_start]]
+===For Windows 10===
+#Click the ''Windows Start'' [[Image:Windows10StartButton|width=20]] button.
+#Type ''Default apps'' into the search bar.
+#Select '''Default apps''' from the search results.
+#In the ''Default apps'' menu, find and click on your current default browser listed under '''Web browser'''.
+#Choose Firefox from the list of available options to set it as your default browser.
+[[UI:details_end]]
+[[UI:details_start]]
+===For Windows 11===
+#Click the ''Windows Start'' [[Image:Windows11StartButton|width=20]] button.
+#Type ''Default apps'' into the search bar.
+#Select '''Default apps''' from the search results.
+#In the ''Default apps'' window, scroll to find '''Firefox'''.
+#Click on Firefox.
+#Set Firefox as the default for each file type or link type you need by navigating through the settings provided.
+[[UI:details_end]]
+
+=Related articles=
+*[[Make Firefox your default browser]] 
+*[[Setting Firefox as the default browser does not work - What to do]]

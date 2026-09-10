@@ -1,0 +1,11 @@
+To signal that their local DNS resolver implements special features that make the network unsuitable for [https://wikipedia.org/wiki/DNS_over_HTTPS DNS-over-HTTPS] (DoH), network administrators may configure their networks to modify DNS requests for the following special-purpose domain, called a ''canary domain'': '''use-application-dns.net'''.
+{note}'''Note:''' The canary domain only applies to users who have DoH enabled as the default option. It does not apply for users who have made the choice to turn on DoH by themselves.{/note}
+Firefox will attempt to resolve this domain using the DNS server(s) configured in the operating system of the device, and examine the result. The result will be considered '''negative''' if:
+*A response code other than NOERROR is returned, such as NXDOMAIN (non-existent domain) or SERVFAIL.
+*A NOERROR response code is returned, but contains neither A nor AAAA records.
+The result will be considered '''positive''' if the query completes with NOERROR and contains A or AAAA records (or both).
+
+A negative result will be a signal to disable application DNS, (i.e., DoH).
+
+The use of this domain is specified by Mozilla, as a limited-time measure until a method for signaling the presence of DNS-based content filtering is defined and adopted by an Internet standards body.
+{note}'''Note:''' Some existing DNS filtering providers implement similar domains for users to verify that filtering is working. This canary domain differs by being intended to be checked by software such as Firefox, rather than checked explicitly by the user, and by working across filtering providers.{/note}

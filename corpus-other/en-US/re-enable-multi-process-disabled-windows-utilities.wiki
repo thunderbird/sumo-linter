@@ -1,0 +1,7 @@
+{for not win}{warning}This article applies to Windows computers only.{/warning}{/for}
+Some accessibility tools on Windows might turn off Firefox's multi-process support. Follow these steps to re-enable it:
+[[Template:aboutconfigwarning]]
+#[[Template:aboutconfig]]
+# Toggle the {pref accessibility.loadedInLastSession} preference to change its value to {pref '''false'''}.
+# Toggle the {pref accessibility.lastLoadDate} preference to reset its value to the default setting.
+#Restart Firefox.

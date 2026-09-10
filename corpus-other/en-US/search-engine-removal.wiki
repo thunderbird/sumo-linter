@@ -1,0 +1,22 @@
+Firefox lets you choose from a number of built-in search engines to set as your default (see [[Manage Firefox search settings|this article]] for details). After updating Firefox, you may notice that your default search engine has changed.
+
+__TOC__
+
+=Why did my search engine change?=
+From time to time, Mozilla may update the list of search engines that are available in Firefox or set as default in specific regions. If your default search engine is changed, you'll receive a notification in Firefox so you can further customize your default search settings.
+
+If you received a notification that your default search engine has changed after updating Firefox, you can keep the new default or set a search engine of your choice.
+
+[[Image:SearchEngineInfobar98]]
+
+=Will I be able to reconfigure my preferred search engines after this change takes place?=
+If you wish to continue using a search engine that has been removed, you will need to install a third-party search plugin or add-on for that engine. To learn more, see [[Add or remove a search engine in Firefox]].
+
+You can also choose a different default search engine from the available ones:
+#[[Template:optionspreferences]]
+#Select {menu Search} in the left pane.
+#;{for not fx122}[[Image:Fx97SearchSettings]]{/for}{for fx122}[[Image:Fx122settings-SearchPanel]]{/for}
+#Use the drop-down menu under ''Default Search Engine'' to change the default search engine.
+
+=What countries are affected by this change?=
+This change will apply to people in all countries who are using an affected search engine in Firefox.

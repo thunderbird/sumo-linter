@@ -1,0 +1,29 @@
+You can unload tabs you are not actively using to help reduce memory and CPU usage, while keeping your tabs available to revisit later. When you unload a tab, it remains visible but doesn’t use resources in the background. When you're ready to return to it, Firefox will reload the page automatically.
+
+Starting in [[Find what version of Firefox you are using|Firefox version]] 140, you can unload tabs directly from the [[Tab context menu|tab context menu (right-click)]].
+;[[Image:unloadtabsmozilla]]
+For more information, see [[Unload inactive tabs to save system memory in Firefox]].
+
+__TOC__
+
+=Unload a single tab=
+You can unload a single tab to free up resources for other tasks, while keeping the tab ready for when you need it again.
+
+To do this:
+#[[Template:contextmenu]] on the tab.
+#Select {menu Unload Tab}.
+#;[[Image:unloadsingletab|width=600]]
+The tab’s icon will gray out, indicating it’s unloaded. When you click the tab again, Firefox will automatically reload the page and restore its content.
+
+=Unload multiple tabs=
+You can also unload multiple tabs at once for more efficient tab management.
+#Select the tabs you want to unload ({key Ctrl} + click on Windows and Linux, {key Command} + click on Mac).
+#[[Template:contextmenu]] one of these tabs and select {menu Unload <''n''> Tabs}.
+#;[[Image:unloadtabs|width=600]]
+{note}'''Tip:''' If you often keep many tabs open, unloading unused ones can significantly improve Firefox’s performance and responsiveness.{/note}
+
+=Related articles=
+*[[Restore previous session - Configure when Firefox shows your most recent tabs and windows]]
+*[[Use tabs to organize lots of websites in a single window]]
+*[[Fix Firefox using too much memory or CPU resources]]
+*[[Tab context menu]]

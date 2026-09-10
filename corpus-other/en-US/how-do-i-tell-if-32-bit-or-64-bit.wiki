@@ -1,0 +1,24 @@
+{for mac}{note}This article applies to Windows and Linux. All Firefox versions are 64-bit on macOS.{/note}{/for}
+
+Both 32-bit and 64-bit versions of Firefox can be installed on 64-bit Windows and Linux operating systems.{for win} See [https://www.mozilla.org/firefox/windows-64-bit/ this blog post] to learn more.{/for}{for linux} On Linux, [[Find what version of Firefox you are using|Firefox version]] 144 and [[Firefox ESR release cycle|Firefox Extended Support Release (ESR)]] version 140 are the last available 32-bit versions.  To learn more, see [[Firefox has ended support for 32-bit Linux]].{/for}
+
+Not sure whether you're running 32-bit or 64-bit Firefox? This article explains how to find out.
+
+<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=597738 -->
+="About Mozilla Firefox" window=
+You can find what version of Firefox you are using in the "About Mozilla Firefox" window. Click the menu button [[Image:Fx89menuButton]], click {menu Help} and select {menu About Firefox}. The "About Mozilla Firefox" window will open. (32-bit) or (64-bit) will be shown below the Firefox name, next to the version number.
+
+{for win,linux}''Here is an example of what the "About Mozilla Firefox" window will look like:''{/for}
+;{for win}[[Image:Fx91AboutFirefoxWindow]]{/for}{for linux}[[Image:Fx86aboutFirefox-linux]]{/for}
+{note}'''Note:''' Opening the "About Mozilla Firefox" window will, by default, start an update check. If an updated version of Firefox is available, it will be automatically downloaded.{for linux} On Linux, this will happen only if you use a build downloaded from Mozilla's website; otherwise the updates will come through your Package Manager.{/for} See [[Update Firefox to the latest release]] for more information.{/note}
+
+{for win}
+=Windows program listing=
+You can also check the installed version of Firefox from the Windows list of installed programs. {for win7, win8}Open the Windows Control Panel, click on {menu Programs}, then {menu Programs and Features}.{/for}{for win10}Open Windows Settings, click on {menu System}, then {menu Apps & features}.{/for}{for win11}Open Windows Settings, click on {menu Apps}, then {menu Installed Apps}.{/for} This will show you a list of software that is currently installed on your computer. 
+<!-- [[Image:Win7Programs]] -->
+
+To see if the 32-bit or 64-bit version of Firefox is installed, locate '''Mozilla Firefox''' in the list of programs. The program name will be followed by the the bit version and language, in parentheses.  If the program name contains '''x86''', the 32-bit version of Firefox is installed. If the program name contains '''x64''', the 64-bit version of Firefox is installed.
+{note}'''Note:''' You can have both 32-bit and 64-bit Firefox program versions listed, if you installed one version without uninstalling the other. Firefox creates [[Dedicated profiles per Firefox installation|dedicated profiles for each installation]] (see [[Recover user data missing after Firefox update or reinstall]] if this results in lost data). <!--https://bugzilla.mozilla.org/show_bug.cgi?id=1557117 https://www.reddit.com/r/firefox/comments/bx0y4v/firefox_updated_and_deleted_all_my_addons_and/ -->
+You can [[Uninstall Firefox from your computer|uninstall the unwanted version]]. The Firefox uninstaller doesn't remove any of your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox user profile data]], such as passwords or bookmarks.{/note}
+{/for}
+<!-- References: https://www.404techsupport.com/2015/12/tell-firefox-32-64/ http://superuser.com/questions/1023356/where-to-see-which-firefox-version-is-running-64-bit-or-32-bit and https://bugzilla.mozilla.org/show_bug.cgi?id=1120124 -->

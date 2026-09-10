@@ -1,0 +1,5 @@
+This article describes why Firefox may start in Troubleshoot Mode (previously known as Firefox Safe Mode) when you expect it to start normally, and how to fix the problem.
+* See the [[Use Troubleshoot Mode in Firefox]] article for information about using this special startup mode to fix Firefox problems.
+If you started Firefox in Troubleshoot Mode, it will remain in Troubleshoot Mode until Firefox is completely closed. The easiest way to make sure Firefox is completely closed is to restart your computer. Once your computer starts up again, start up Firefox.
+
+When Firefox crashes at startup, the next time you launch Firefox, it displays the [[Use Troubleshoot Mode in Firefox#w_troubleshoot-mode-window|Troubleshoot Mode window]]. This lets you choose between starting in Firefox Troubleshoot Mode or [[Refresh Firefox - reset add-ons and settings|refreshing Firefox]] because you may have something wrong with your configuration (such as graphics, add-ons, or third-party software). See [[Troubleshoot Firefox crashes (closing or quitting unexpectedly)]] for help to solve crashes when starting Firefox.

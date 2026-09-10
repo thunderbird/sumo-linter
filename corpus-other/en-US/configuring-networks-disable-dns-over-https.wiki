@@ -1,0 +1,15 @@
+At Mozilla, we believe that [[Firefox DNS over HTTPS|DNS over HTTPS (DoH)]] is a feature that everyone should use to enhance their privacy. By encrypting these DNS requests, DoH hides your browsing data from anyone on the network path between you and your nameserver. For instance, using standard DNS queries on a public network can potentially disclose every website you visit to other users on the network as well as the network operator. While we would like to encourage everyone to use DoH, we also recognize that there are a few circumstances in which DoH can be undesirable, namely:
+*Networks that have implemented some sort of filtering via the default DNS resolver. This can be used to implement parental controls or to block access to malicious websites.
+*Networks that respond to names that are private, and/or that provide different responses than are provided publicly. For example, a company may only expose the address of an application used by employees on their internal network.
+Networks can signal to Firefox that there are special features such as these in place that would be disabled if DoH were used for domain name resolution. Checking for this signaling will be implemented in Firefox when DoH is enabled by default for users. This will first happen for users in the United States in the Fall of 2019, in Canada in the Summer of 2021 and in Russia and Ukraine in March 2022. If a user has chosen to manually enable DoH, the signal from the network will be ignored and the user’s preference will be honored.
+
+Network administrators may configure their networks to treat DNS requests for a [[Canary domain - use-application-dns.net|canary domain]] differently, to signal that their local DNS resolver implements special features that make the network unsuitable for DoH.
+
+In addition to the canary domain signal described above, Firefox will perform some checks for network features that are incompatible with DoH before enabling it for a user. These checks will be performed at browser startup, and each time the browser detects that it has moved to a different network, such as when a laptop is used at home, work, and a coffee shop. When any of these checks indicates a potential issue, Firefox will disable DoH for the remainder of the network session, unless the user has enabled the “DoH always” preference as mentioned above.
+The additional checks that will be performed for content filtering are:
+*Resolve canary domains of certain known DNS providers to detect content filtering.
+*Resolve the “safe-search” variants of google<!-- -->.com and youtube<!-- -->.com to determine if the network redirects to them.
+*On Windows and macOS, detect parental controls enabled in the operating system.
+The additional checks that will be performed for private “enterprise” networks are:
+*Is the Firefox {pref security.enterprise_roots.enabled} preference set to {pref true}?
+*Is any [[Enforce policies on Firefox for Enterprise|enterprise policy]] configured?

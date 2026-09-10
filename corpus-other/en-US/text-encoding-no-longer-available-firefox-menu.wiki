@@ -1,0 +1,16 @@
+The ''Text Encoding'' menu item was removed from the Firefox menu [[Image:Fx89menuButton]] panel in [[Find what version of Firefox you are using|Firefox version]] 89. Instead, you can use the Menu bar{for not mac}, [[Restore the Menu bar in Firefox|when the Menu bar is enabled]],{/for} by clicking {menu View} and selecting {menu Repair Text Encoding} from the drop-down menu. {for win,linux}You can press and release the {key Alt} key to temporarily show the Menu bar.{/for}
+
+;[[Image:Fx91View-RepairTextEncoding]]
+{note}'''Note:''' On most modern pages, the {menu Repair Text Encoding} menu item will be greyed-out because character encoding changes are not supported.<!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1706566#c5 --> {/note}
+
+[[Find what version of Firefox you are using|Firefox version]] 91 introduced a new "Repair Text Encoding" feature. There is no longer a sub-menu with a list of encoding choices. When the {menu Repair Text Encoding} menu item is activated and you click on it, Firefox will automatically change the text encoding based on page content, when this is possible. See [https://hsivonen.fi/no-encoding-menu/ this article] for more information.
+
+You can view what text encoding in used on the page in the {menu General} tab of [[View site information with Page Info|Page Info window]]. (To open the Page Info window, {for mac}go to the Menu bar{/for}{for not mac}[[Restore the Menu bar in Firefox|enable the Menu bar]]{/for}, click {menu Tools} and select {menu Page Info} from the drop-down menu).
+
+{note}
+'''Tip:''' You can also [[Customize Firefox controls, buttons and toolbars|customize your Firefox toolbar]] to add a {button Repair Text Encoding} button:
+#[[Template:customizefx29]]
+#*A special tab will open, where you can drag and drop items in or out of the overflow menu and the toolbar. 
+#Drag the {button Repair Text Encoding} button to the toolbar.
+#Click {button Done}.
+{/note}

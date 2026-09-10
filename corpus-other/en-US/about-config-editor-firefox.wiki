@@ -1,0 +1,48 @@
+The Configuration Editor (''about:config'' Advanced Preferences page) lists Firefox preference settings that are read from the {filepath prefs.js} and {filepath user.js} files in the [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile]] and from application defaults. Many of these preferences are advanced settings that are not present in the [[Change Firefox options, preferences and settings|Settings]] panels. This article describes how to use the about:config page to view, change, or reset Firefox preference settings, if you need to do so.
+
+[[Template:aboutconfigwarning]]
+
+__TOC__
+
+=Opening the about:config page=
+[[T:aboutconfig]]
+[[Image:Fx145aboutconfig]]
+Click {button Show All} to view all preferences currently set in the profile or use the ''Search preference name'' box to filter the list.
+
+=Searching for preferences=
+You can use the ''Search preference name'' box at the top of the ''about:config'' page to quickly find specific preferences. For example, if you enter ''ocsp'' in the Search box, it will bring up the {pref security.OCSP.enabled} preference. {note}'''Note:''' Preference names are case-sensitive. Search terms are not.{/note}
+
+If you enter a search term and a preference does not exist, you will have the option to add a new preference ([[#w_adding-preferences|see below]]).
+
+=Modifying preferences=
+[[Image:Fx145aboutconfig-showall]]
+
+To change a '''boolean (true-false)''' preference's value, double-click the preference.
+*Alternatively, you can click the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button.
+
+To change a '''string (text)''' or a '''number''' preference's value:
+#Double-click the preference.
+#*Alternatively, you can click the ''Edit'' [[Image:Fx71aboutconfig-EditButton]] button.
+#Enter a new value.<br>[[Image:Fx145aboutconfig-editpref]]
+#Click the ''Save'' [[Image:Fx71aboutconfig-Checkmark]] button to save the change. 
+
+=Resetting or deleting preferences=
+{note}'''Note:''' You can only reset or remove '''modified''' preferences, which are listed in bold type. To reset all preferences, see [[Reset Firefox preferences to troubleshoot and fix problems]].{/note}
+
+To reset a preference to its default value, click the ''Reset'' [[Image:Fx71aboutconfig-ResetButton]] button.
+
+To remove an added preference, click the ''Delete'' [[Image:Fx71aboutconfig-DeleteButton]] button. If you added the preference entry yourself, it will no longer be listed after restarting Firefox. {note}'''Note:''' A ''Delete'' [[Image:Fx71aboutconfig-DeleteButton]] button may be shown for some preferences that appear in bold type that you did not modify or add, such as preferences whose values are system-specific. Those preferences will be added back, as appropriate, if deleted.{/note}
+
+=Adding preferences=
+To add a new preference, enter its name into the ''Search preference name'' box at the top of the about:config page. At the bottom of the search results (if any), there will be the option to create a new preference. To do so, specify the type of value that preference will store:
+*'''Boolean''' is true or false.
+*'''Number''' is an integer.
+*'''String''' is any sequence of text.
+[[Image:Fx145aboutconfig-newpref]]
+
+Click the ''Add'' [[Image:Fx71aboutconfig-AddButton]] button to create the new preference and set its value. Boolean preferences are set to {pref true} by default, use the ''Toggle'' [[Image:Fx71aboutconfig-ToggleButton]] button for them to change the value. For string or number preferences, enter a value and click the ''Save'' [[Image:Fx71aboutconfig-Checkmark]] button.
+
+Click the ''Delete'' [[Image:Fx71aboutconfig-DeleteButton]] button to discard the new preference (see [[#w_resetting-or-deleting-preferences|above]]).
+
+<!-- MZ credit --> <br><br> 
+'''''Based on information from [http://kb.mozillazine.org/About:config About:config (mozillaZine KB)]'''''

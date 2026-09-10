@@ -1,0 +1,17 @@
+In addition to performing general web searches using your default search engine, you can also easily search specific websites directly from the Firefox address bar. You can assign a keyword shortcut to your favorite search engines to make it easier to perform a search.
+
+For example, you might assign '''@shopping''' to your built-in Amazon search or an abbreviated search engine name:
+;[[Image:search shortcut populate]]
+{note}Popular search engine shortcuts will appear on your new tab page as a tile with a magnifying glass. Clicking on these tiles has the same effect as typing the search shortcut keyword and a space into your address bar.{/note}
+
+=Assign search shortcuts=
+You can assign search shortcuts to your favorite search engines:
+#[[Template:optionspreferences]]
+#Click {menu Search} on the left panel.
+#Scroll down to {for not fx152}''Search Shortcuts''{/for}{for fx152}''Additional search engines''{/for}.
+#{for not fx152}Double-click on the '''Keyword''' column{/for}{for fx152}Click the ''pencil'' icon{/for} for the search engine you want to assign a shortcut to.
+#Enter your search shortcut keyword; for example, ''youtube'' (it does not have to begin with ''@'').
+#Press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.
+#;{for not fx152}[[Image:Fx102AddSearchShortcutKeyword]]{/for}{for fx152}[[Image:fx152additionalsearchengines]]{/for}
+{note}'''Note:''' Some of the search engines featured above are regionally bound and may not be accessible from every location. To ensure a smooth experience, make sure the search engine you are interested in adding or using is compatible with your region.{/note}
+Search shortcut keywords are already included for default search engines, but you can add additional keywords, or you can assign search shortcut keywords to [[Add or remove a search engine in Firefox|search engines added to Firefox]].

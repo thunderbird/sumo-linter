@@ -1,0 +1,45 @@
+If sign-in attempts on your Mozilla account are blocked and your account has been locked for security reasons, it means unusual activity was detected on your account. We understand this is frustrating, however this security measure prevents access until we verify your identity. To proceed, we’ll send you an email to confirm it’s you trying to sign in or to report unfamiliar activity.
+
+__TOC__
+
+=Verification E-mail=
+If your Mozilla account blocks a sign-in attempt, you will receive an email with a verification code. The email will include details about the attempt, such as the device type, location, IP address and time. If the activity looks familiar, enter the verification code from the email to confirm your identity.
+;[[Image:MZA confirmation email]]
+{note}'''How do I know that this email is really from Mozilla?''' Mozilla will never request your passwords, credit card details or bank information. Always check the sender’s email address for an official Mozilla domain and be cautious of any suspicious links or requests for personal information. Codes may contain numbers and letters; be careful with similar-looking characters like O (letter) and 0 (zero).{/note}
+'''Why am I locked out after one attempt?'''
+This can happen if multiple verification codes are requested in a short time. Only the most recent code is valid - entering an old one counts as a failed attempt. This triggers a 15-minute lockout for security.
+
+<!-- Missing "Reporting this activity" link in the above Image:MZA confirmation email (see discussion)
+=I don’t recognize the sign in attempt. What should I do?=
+If someone else was trying to sign in to your account, click the '''Reporting this activity''' link in the email.
+-->
+=I haven’t received the verification email. What should I do?=
+First, check your spam folder and filters to make sure it didn’t end up in the wrong folder. Also ensure your inbox isn’t full, and check for typos in your email address. After waiting a few minutes, try requesting the code again.
+
+For other solutions, see [[I'm having problems confirming my Mozilla account]]. You can also contact the Mozilla account support team by completing [https://support.mozilla.org/questions/new/mozilla-account/form this form], linked from the {button Contact Support} button in the ''Still need help?'' block shown below.
+
+=My verification code was rejected. What can I do?=
+If your verification code is not accepted:
+#Double-check that you're entering the most recent code sent to your email. Older codes will not work.
+#The code is case-sensitive. Make sure Caps Lock is off.
+#Try typing the code manually if copy/paste doesn’t work.
+#Avoid using autofill or browser extensions that may overwrite fields.
+Still not working?
+*Wait 15 minutes, then request a new code.
+*Try signing in using a different browser or a private window.
+*If the issue continues, contact Mozilla account support.
+
+=I no longer have access to the email on my Mozilla account.=
+If you can't access your original email address, Mozilla support cannot recover your account for privacy and security reasons.
+
+You can create a new Mozilla account using a new email address. However, if you are signed in on another device, update your account email by following the path:
+*Account Settings
+*Manage Account
+*Change Email before logging out
+
+{note}Mozilla account supports a [[Passwordless login for Mozilla accounts|passwordless sign-in option]] for selected services. Instead of entering a password, you can use a one-time code sent to your email address. Passwordless login cannot be used for Firefox Sync. Sync requires a password because it uses end-to-end encryption to protect your data.{/note}
+
+=Related articles=
+*[[How to change or reset your Mozilla account password]]
+*[[Mozilla account - Managing account data]]
+*[[How do I set up Sync on my computer?]]

@@ -1,0 +1,34 @@
+This article explains how to {for win}prevent children from using Firefox,{/for} block websites or filter website content in Firefox that may be offensive or inappropriate for children.
+
+= Parental controls and web filtering software =
+{for mac,win}
+Firefox checks the parental controls on your computer and sets itself to ''Prefer:Safe'' mode. This automatically turns on the safety feature on each website your child visits, as long as you have the parental controls active on your computer. 
+
+This feature can be turned off only through your password-protected parental settings on your operating system, so your child will not be able to deactivate this feature through the browser.
+
+To turn on parental controls on your computer, please see the support documentation for your operating system or see the following:
+{for win11}
+*[https://support.microsoft.com/en-us/account-billing/getting-started-with-microsoft-family-safety-b6280c9d-38d7-82ff-0e4f-a6cb7e659344 Getting started with Microsoft Family Safety] at microsoft<!-- -->.com.
+{/for}
+{for win10}
+*[https://support.microsoft.com/help/10551/microsoft-account-set-up-family-after-upgrade=windows-10 Set up family features on Windows 10] at microsoft<!-- -->.com.
+{/for}
+{for win8}
+*[https://support.microsoft.com/kb/2782156 Set up Family Safety] at microsoft<!-- -->.com.
+{/for}
+{for win7}
+*[https://www.howtogeek.com/howto/10524/how-to-use-parental-controls-in-windows-7/ How To Use Parental Controls in Windows 7] at howtogeek<!-- -->.com and [https://blogs.msdn.microsoft.com/e7/2009/05/26/safeguarding-windows-7-parental-controls/ Safeguarding Windows 7 – Parental Controls] at microsoft<!-- -->.com.
+{/for}
+{for mac}
+*[https://support.apple.com/guide/mac-help/set-up-family-sharing-mh3d6eb198/12.0/mac/12.0 Set up Family Sharing on Mac] and [https://support.apple.com/guide/mac-help/set-up-content-and-privacy-restrictions-mchl8490d51e/mac Set up content and privacy restrictions in Screen Time on Mac] at apple<!-- -->.com.
+{/for}
+{/for}
+{for win,mac}In addition to parental controls built into your operating system, third-party software is also available. {/for}For a list of web filtering software, see [https://wikipedia.org/wiki/Comparison_of_content-control_software_and_providers Comparison of content-control software and providers] at wikipedia<!-- -->.org.
+
+= Web filtering extensions for Firefox =
+This [https://addons.mozilla.org/firefox/search?q=parental+control&cat=all addons.mozilla.org search for parental control] lists several extensions that can provide content blocking.
+{note}'''Note:''' Extensions can be easily disabled by a knowledgeable user and don't work in other browsers.{/note}
+
+<!-- MZ credit -->
+<br/> <br/>
+'''''Based on information from [http://kb.mozillazine.org/Parental_controls Parental controls (mozillaZine KB)]'''''

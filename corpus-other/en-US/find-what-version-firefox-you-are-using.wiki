@@ -1,0 +1,9 @@
+It's often important to know what version of Firefox you are using, to help you troubleshoot a problem or just to know if Firefox is up to date. Here is how you can find out.
+
+{for win,linux}Click the menu button [[Image:Fx89menuButton]], click {menu Help} and select {menu About Firefox}.{/for}{for mac}On the menu bar, click the {menu Firefox} menu and select {menu About Firefox}.{/for} The About Firefox window will appear. The version number is listed underneath the Firefox name.
+
+''Here is an example of what the About Firefox window will look like:''
+;{for mac}[[Image:Fx149AboutFirefox-mac]]{/for}{for win}[[Image:Fx149AboutFirefox-Windows]]{/for}{for linux}[[Image:Fx86aboutFirefox-linux]]{/for}
+
+Opening the About Firefox window will, by default, start an update check. If an updated version of Firefox is available, it will be automatically downloaded. {for linux}On Linux, this will happen only if you use a build downloaded from Mozilla's website; otherwise, updates will come through your Package Manager. {/for}For more information, see [[Update Firefox to the latest release]].
+{note}'''Tip:''' You can also find your Firefox version on the [[Use the Troubleshooting Information page to help fix Firefox issues|Troubleshooting Information]] (about:support) page. Your Firefox version is listed underneath the '''Application Basics''' section of the page.{/note}

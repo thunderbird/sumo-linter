@@ -1,0 +1,27 @@
+Firefox lets you choose a different browser icon on Windows. Choose from the available icons to personalize how Firefox appears in Windows.
+
+{note}'''Note''': This feature is currently available only for Firefox on Windows. It isn't available for Firefox installed from the Microsoft Store, macOS or Linux.{/note}
+
+__TOC__
+
+=Change the Firefox icon=
+#Open Firefox and go to {menu Settings}.
+#Select the {menu Appearance} panel and scroll down to {menu Browser icon}.
+#;[[Image:browsericonsettings]]
+#Click {button Change browser icon}.
+#Choose an icon from {menu Standard} or {menu Special}.
+#;[[Image:firefoxbrowsericons]]
+#Close {menu Settings}. Firefox applies your selection automatically.
+
+==Unlock special icons==
+Some icons in the '''Special''' section may require you to complete an action before you can use them.
+
+For example, if you set Firefox as your default browser and also pin the browser, you’ll unlock bonus icons. 
+
+{note}'''Note''': The new icon will only be available on the taskbar, desktop, and Start menu. The desktop launcher icon will not update.<!--bugzil.la/2056314-->{/note}
+
+Enabling a custom browser icon may add a shortcut to your Start Menu Program folder.
+
+=Related articles=
+*[[Customize your Firefox app icon on iOS]]
+*[[Make Firefox your default browser]]

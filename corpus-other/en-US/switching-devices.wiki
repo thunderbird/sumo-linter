@@ -1,0 +1,54 @@
+Learn how to move, install or migrate Firefox to a new device using Firefox Sync. Once you enable your [[Sync Firefox data|Firefox Sync backup]], whenever you change your phone or computer to a new device, you will be able to install Firefox without losing your data. Your bookmarks, browsing history, passwords and open tabs will migrate with you securely.
+*To learn how to create and restore a backup file if you prefer not to use Sync, see [[Restore your Firefox browsing data with a backup file]].
+
+=Backup assistant=
+To begin running Firefox Sync:
+#[[Template:optionspreferences]]
+#Click {for not fx152}{menu Sync}{/for}{for fx152}{menu Account and sync}{/for} and then, if necessary, sign into your Mozilla account to begin.
+Use the interactive walkthrough below to understand the steps of how to move your data to your new device using Firefox Sync.
+[[UI:device_migration_wizard]]
+
+The data you sync should include your bookmarks, logins and passwords, addresses, payment methods, extensions and important settings. If your bookmarks failed to populate correctly, see [[Restore bookmarks from backup or move them to another computer]].
+
+=Frequently asked questions=
+[[UI:details_start]]
+
+==How can I manually back up my data?==
+If you prefer not to use Firefox Sync and instead manually back up your data, learn how to [[Back up and restore information in Firefox profiles|backup and restore information from your Firefox profile]]. Once you complete a manual backup, you will then be able to restore it on a new device.
+
+==How can I back up my data later?==
+If you aren’t able to perform a data backup at this time, you can do it later from the Firefox menu. These are the steps you need to follow:
+#{for not mac}Click the menu [[Image:IG main menu]] button in the top right corner and click {menu Help}{/for}{for mac}Click {menu Help} in the Menu bar{/for}.
+#Select {menu Switching to a new device} from the Help menu.
+#;{for not mac}[[Image:switching_devices_button|width=300]]{/for}
+#Follow the steps in the setup assistant to back up your data.
+
+==What can I do if I lost my password?==
+To access your backed-up Firefox data, you need to log in to the same Mozilla account you used on your old device. If you forgot your password, you’ll need to reset it using recovery keys. Resetting your password without [[Reset your Mozilla account password with Recovery Keys|recovery keys]] will wipe all your data for security reasons.
+
+==What data is included in a backup?==
+In this process, we back up the following data:
+*Bookmarks
+*History
+*Lists of open tabs
+*Passwords
+*Saved addresses
+*Payment methods
+*Installed add-ons
+*Selected settings
+
+==Can I choose what data I want to sync?==
+Yes, you can choose the data you want to sync in step 2 of the wizard, by clicking the '''browser settings''' link. You can also change this later by following the steps in [[How do I choose what information to sync on Firefox?]]
+
+==How do you handle my data?==
+When backing up your data, your history, passwords, addresses, and credit cards are included. However, we do not collect this information and it remains accessible to you alone. Here is a list of frequently asked questions regarding [https://www.mozilla.org/privacy/faq/ how we handle user data].
+
+==How do I sync my data from Android or iOS?==
+See the following resources based on your mobile device type:
+*[[Sync bookmarks, tabs, history and passwords on Android]]
+*[[Sync bookmarks, logins and browsing history on Firefox for iOS]]
+
+==Can I back up my data without a Mozilla account?==
+Yes. You can learn how to save your browser data without having to sign up for an account by checking out the steps in [[Manually back up and restore Firefox profile data]].
+
+[[UI:details_end]]

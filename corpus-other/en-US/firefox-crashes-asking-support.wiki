@@ -1,0 +1,35 @@
+If Firefox is still crashing after you have already attempted the steps in [[Troubleshoot Firefox crashes (closing or quitting unexpectedly)]], our Mozilla Support Community volunteers may be able to help.
+
+To best assist you with unresolved issues related to Firefox crashing, please have the following information ready:
+
+# Get the Report ID of your latest crash report:
+#* Open Firefox, either normally or in {for not fx88}[[Troubleshoot Firefox issues using Safe Mode|Firefox Safe Mode]]{/for}{for fx88}[[Troubleshoot Firefox issues using Safe Mode|Troubleshoot Mode]]{/for} and enter ''about:crashes'' in the address bar to get a list of Submitted Crash Reports:<br>[[Image:aboutcrashes_fx66]] 
+#* Click {button View} on the latest crash report. The ''crash-stats.mozilla.com'' page will open with technical details about the crash. When the report is finished processing, close the report tab.<br>{note}'''Note:''' If there is a newer crash report in the ''Unsubmitted Crash Reports'' section, you will need to click {button Submit} before anyone can view the report.{/note}
+# [https://support.mozilla.org/questions/new/desktop/fix-problems/form?search=Firefox+crashes&step=aaq-question Click on this link] to begin a help request for your crash issue from our Mozilla Support Community volunteers.
+# Provide as much information as you have about your crash, including which steps you've already tried from [[Troubleshoot Firefox crashes (closing or quitting unexpectedly)]].
+# Copy and paste the Report ID for the latest Submitted Crash Report into the ''Details'' section and submit your question. (A Report ID is the string of characters that begin with the letters ''bp-'' as shown in the ''Submitted Crash Reports'' section in the example screenshot above.)
+
+{for not fx88}
+'''If you cannot open Firefox at all (even in Safe Mode):'''
+
+Find the text file for your latest Submitted Crash Report using these steps:
+{/for}
+{for fx88}
+'''If you can't open Firefox at all (even in Troubleshoot Mode):'''
+
+Find the text file for your latest Submitted Crash Report using these steps:
+{/for}
+{for win}
+#{key [[Image:Windows Key]]} + {key R} to open the Run dialog.
+#In the textbox, type {filepath %APPDATA%\Mozilla\Firefox\Crash Reports\submitted}
+#Press {button Ok}.
+{/for}
+{for linux}
+Crash reports are stored in {filepath ~/.mozilla/firefox/Crash Reports/submitted/}
+{/for}
+{for mac}
+Submitted crash reports are stored in {filepath ~/Library/Application Support/Firefox/Crash Reports/submitted/}
+
+Click the Finder icon in the dock. On the menu bar, click the Go menu. Hold down the {key option} or {key alt} key to unhide the ''Library'' folder. When the ''Library'' folder appears, click it to open the folder. Open the ''Application Support'' folder, and the ''Firefox'' folder, followed by ''Crash Reports'' and finally the ''submitted'' folder.
+{/for}
+Use the ''View'' menu to arrange the files by date, then open the newest file.

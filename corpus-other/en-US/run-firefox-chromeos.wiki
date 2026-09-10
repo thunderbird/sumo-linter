@@ -1,0 +1,58 @@
+Firefox can now be installed on Chromebooks and other devices running ChromeOS. This article will explain the system requirements needed in order to run Firefox on ChromeOS and how to set this up.
+
+=How to run Firefox on ChromeOS=
+To run Firefox on ChromeOS, you first need to ensure that your system meets the following requirements:
+
+==System Requirements==
+*'''x86 based Chromebook running ChromeOS 80 or later'''
+You can check this by going to <code>'''chrome://version'''</code> in the Chrome browser address bar. [https://support.google.com/chromebook/answer/177889 Follow these instructions from Google] if you need to upgrade your OS.
+
+==Enable Linux support for ChromeOS==
+*'''Visit [https://support.google.com/chromebook/answer/9145439 this Google Support page] to learn more about how to set up Linux (Beta) on your Chromebook.'''
+*'''Once you've enabled Linux, check the Terminal to see if you have the correct version:'''
+*;<code>'''cat /etc/os-release'''</code>
+*'''If the version is not 10 (buster) or above, you'll need to run the update script:'''
+*;<code>'''sudo bash /opt/google/cros-containers/bin/upgrade_container'''</code>
+This script will take some time depending on how fast your Chromebook and internet speeds are. Once it's done, you'll need to restart your Linux container. You can either right-click the ''Terminal'' icon and select '''Shut down Linux (Beta)''' or just restart your Chromebook.
+
+= Install Firefox DEB package (recommended) =
+To install the <code>'''DEB'''</code> package through the APT repository, do the following:
+#Create a directory to store APT repository keys if it doesn't exist:
+#;<code>'''sudo install -d -m 0755 /etc/apt/keyrings'''</code>
+#Import the Mozilla APT repository signing key:
+#;<code>'''wget -q https://packages.mozilla<!-- -->.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null'''</code>
+#;If you do not have <code>'''wget'''</code> installed, you can install it with: <code>'''sudo apt-get install wget'''</code>
+#The fingerprint should be '''35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3'''.<!-- Please check with the Release Engineering team (release@mozilla.com) before changing/removing this fingerprint --> You may check it with the following command:
+#;<code>'''gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}''''</code>
+#Next, add the Mozilla APT repository to your sources.list:
+#*For Debian 12 (Bookworm) and Older:
+#;<code>'''echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla<!-- -->.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null'''</code>
+#*For Debian 13 (Trixie) and Newer:
+#;<code>'''<nowiki>sudo tee /etc/apt/sources.list.d/mozilla.sources > /dev/null << EOF</nowiki>'''</code>
+#;<code>'''Types: deb'''</code>
+#;<code>'''URIs: https://packages.mozilla<!-- -->.org/apt'''</code>
+#;<code>'''Suites: mozilla'''</code>
+#;<code>'''Components: main'''</code>
+#;<code>'''Signed-By: /etc/apt/keyrings/packages.mozilla.org.asc'''</code>
+#;<code>'''EOF'''</code>
+#Configure APT to prioritize packages from the Mozilla repository:
+#;<code>'''<nowiki>sudo tee /etc/apt/preferences.d/mozilla > /dev/null << EOF</nowiki>'''</code>
+#;<code>'''Package: *'''</code>
+#;<code>'''Pin: origin packages.mozilla<!-- -->.org'''</code>
+#;<code>'''Pin-Priority: 1000'''</code>
+#;<code>'''EOF'''</code>
+#Update your package list, and install ''firefox'' (or one of ''firefox-esr'', ''-beta'', ''-nightly'', ''-devedition''):
+#;<code>'''sudo apt-get update'''</code>
+#;<code>'''sudo apt-get install firefox'''</code>
+
+== Use different languages on Firefox DEB package  ==
+For those of you who would like to use Firefox in a different language than American English, we have also created DEB packages containing the Firefox language packs. To install a specific language pack, replace fr in the example below with the desired language code. In this example, we are installing the French language pack of Firefox.
+;<code>'''sudo apt-get install firefox-l10n-fr'''</code>
+To list all the available language packs, you can use this command after adding the Mozilla repository and running <code>sudo apt-get update</code>:
+;<code>'''apt-cache search firefox-l10n'''</code>
+Localization are also available as ''firefox-esr-l10n'', ''-beta-l10n'', ''-nightly-l10n'', ''-devedition-l10n'' packages for other releases/editions.
+
+==Install from Flatpak==
+To install Firefox from Flatpak, [https://flatpak.org/setup/ install and configure Flatpak] on your computer. Once Flatpak is installed, go to the [https://flathub.org/apps/details/org.mozilla.firefox Firefox Flathub's page], and click the {button Install} button. Alternatively, you can type the following command in a terminal:
+;<code>'''flatpak install flathub org.mozilla.firefox'''</code>
+By default, Flatpak installs Firefox in the same locale as your operating system. To use a different language, please follow the instructions on [[Use Firefox in another language|how to use Firefox in another language]].

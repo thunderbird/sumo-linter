@@ -1,0 +1,94 @@
+You can take screenshots to capture visible parts of web pages, or even  full web pages, and copy or save these images.
+
+__TOC__
+
+=How do I take a screenshot?=
+To take a screenshot:
+#[[T:contextmenu]] on an empty part of the page to open the context menu.
+#Select {menu Take Screenshot}.
+Alternatively, use the keyboard shortcut {for win,linux}{key Ctrl+Shift+S}{/for}{for mac}{key Command+Shift+S}{/for}.
+{note}
+'''Tip:''' You can also [[Customize Firefox controls, buttons and toolbars|customize your Firefox toolbar]] to add a Screenshot button:
+#Click the menu button [[Image:Fx89menuButton]], click {menu More Tools} and choose {menu Customize Toolbar…}
+#*A special tab opens, where you can drag and drop items in or out of the overflow menu and the toolbar.
+#Drag the Screenshot [[Image:Fx88Customize-ScreenshotButton]] item to wherever you like in the toolbar.
+#Click {button Done}.
+{/note}
+
+=What types of screenshots can I capture?=
+There are several options for capturing screenshots:
+*'''Select a region of the page:''' Click and drag on the page to select a custom region of the page that you wish to capture. After selecting a region, you can still change the size and area to be captured using the marker points on the edge of the area.
+*'''Select a part of the page automatically:''' When you move the mouse cursor over the page, different parts of the page will be automatically highlighted. Click on the one you want to capture. After choosing a part, you can also change the size and area to be captured using the marker points around the area.
+*'''Capture the full page:''' Select {button Save full page} in the upper right corner.
+*'''Capture the visible part of the page:''' Select {button Save visible} in the upper right corner to capture the currently visible area of the web page.
+
+=How do I use a screenshot?=
+After selecting what to capture, you have following options:
+;[[Image:Fx108-Screenshot-DownloadCopyCancel]]
+*'''Download as image file:''' Click {button Download} to save the screenshot as an image file, named {pref <code>Screenshot ''year''-''month''-''day'' at ''hour''-''minute''-''second'' ''Page title''.png</code>}. The file will be saved in the same folder you use as [[Where to find and manage downloaded files in Firefox|Firefox's default download location]].
+;You can also use the keyboard shortcut {key Command+S} for macOS and {key Ctrl+S} for Windows and Linux to save the screenshot as an image file.
+*'''Copy to clipboard:''' Click {button Copy} to copy the image on your clipboard and paste it into any application later.
+;You can also use the keyboard shortcut {key Command+C} for macOS and {key Ctrl+C} for Windows and Linux to copy the image on your clipboard.
+*'''Cancel:''' Click the {button &#10005;} button to discard the screenshot. You can also use the {key Esc} key to cancel.
+
+=Keyboard accessibility=
+{note}'''Note:''' moving the crosshair does not work on Wayland.{/note}
+'''When the screenshots UI opens, the crosshairs can be moved with the arrow keys:'''
+*Move crosshair left 1 pixel – {key Left Arrow}
+*Move crosshair up 1 pixel – {key Up Arrow}
+*Move crosshair right 1 pixel – {key Right Arrow}
+*Move crosshair down 1 pixel – {key Down Arrow}
+'''Use arrow keys with shift'''
+*Move crosshair left 10 pixels – {key Shift+Left Arrow}
+*Move crosshair up 10 pixels – {key Shift+Up Arrow}
+*Move crosshair right 10 pixels – {key Shift+Right Arrow}
+*Move crosshair down 10 pixels – {key Shift+Down Arrow}
+'''Start/stop a selection'''
+*Start/end selecting a region – {key Space Bar}
+*Select the current hovered region – {key Enter} (if there is no hovered region, {key Enter} will behave like {key Space Bar})
+'''To resize the selection region, the corners of the selected region and the selected region itself can be focused and moved via the keyboard:'''
+*Move corner/region left 1 pixel – {key Left Arrow}
+*Move corner/region up 1 pixel – {key Up Arrow}
+*Move corner/region right 1 pixel – {key Right Arrow}
+*Move corner/region down 1 pixel – {key Down Arrow}
+'''Use arrow keys with shift:'''
+*Move corner/region left 10 pixels – {key Shift+Left Arrow}
+*Move corner/region up 10 pixels – {key Shift+Up Arrow}
+*Move corner/region right 10 pixels – {key Shift+Right Arrow}
+*Move corner/region down 10 pixels – {key Shift+Down Arrow}
+'''Use arrow keys with {key Ctrl}/{key Command}'''
+*Move corner/region to left edge of viewport – {key Ctrl}/{key Command} + {key Left Arrow}
+*Move corner/region to top edge of viewport – {key Ctrl}/{key Command} + {key Up Arrow}
+*Move corner/region to right edge of viewport – {key Ctrl}/{key Command} + {key Right Arrow}
+*Move corner/region to bottom edge of viewport – {key Ctrl}/{key Command} + {key Down Arrow}
+
+=What data does Firefox Screenshots collect?=
+Firefox Screenshots collects event data in a manner consistent with the [https://www.mozilla.org/privacy/firefox/ Firefox Browser Privacy Notice]. We collect this data to learn how people use Screenshots so that we can make it better for everyone. We only collect interaction data such as your use of the {button Copy} or {button Save full page} button. We never collect data such as the URL or details of the image captured. You can view all the events that we capture in [https://probes.telemetry.mozilla.org/?search=screenshots the telemetry portal here].
+
+=Can I opt out of data collection?=
+Definitely. Screenshots consists of a web-based component and a browser-based component. Firefox’s [[T:optionsorpreferences]] undergo a remodel, so disabling metrics works slightly differently depending on which version of Firefox you use.
+
+'''Disable add-on data collection'''
+#[[T:optionspreferences]]
+#Click the {for not fx152}{menu Privacy & Security}{/for}{for fx152}{menu Permissions and data}{/for} page.
+#Go to the ''Firefox Data Collection and Use'' section.
+#Uncheck the {for not fx136}'''Allow Firefox to send technical and interaction data to Mozilla'''{/for}{for fx136}'''Send technical and interaction data to Mozilla'''{/for} checkbox.
+To learn more, see [[Manage technical and interaction data collection settings in Firefox]].
+
+<!-- Do Not Track option was removed in fx135 (bug 1929974)--> 
+{for not fx135}
+'''Disable website data collection'''<br>
+Screenshots respects your browser’s ''Do Not Track'' setting to determine whether or not to collect website data. This applies to Firefox as well as other browsers that support Do Not Track.
+{for not fx120}
+#[[T:optionspreferences]]
+#Select the {menu Privacy & Security} panel.
+#Set the '''Send websites a “Do Not Track” signal that you don’t want to be tracked''' toggle to '''Always'''.
+{/for}
+{for fx120}
+<!-- Do Not Track setting changed in fx120-->
+#[[T:optionspreferences]]
+#Select the {menu Privacy & Security} panel.
+#Under '''Website Privacy Preferences''', check the box next to {menu Send websites a “Do Not Track” request}.
+{/for}
+To learn more, see [[How do I turn on the Do Not Track feature?]]
+{/for}

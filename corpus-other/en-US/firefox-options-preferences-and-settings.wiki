@@ -1,0 +1,305 @@
+Firefox Settings let you customize how your browser works, from restoring sessions and blocking ads to syncing data and managing privacy. This article explains each settings panel and includes links to common tasks.
+
+To open Firefox Settings:
+[[Template:optionspreferences]] The {for not fx152}{menu General} settings panel{/for}{for fx152}{menu Account and sync} settings page{/for} will open.
+For other settings, select a different  {for not fx152}panel{/for}{for fx152}page{/for} from the left column.
+;{for not fx148}[[Image:Fx130Settings-Simplified|width=600]]{/for}{for fx148}{for not fx152}[[Image:Fx148Settings-Simplified|width=600]]{/for}{for fx152}[[Image:Fx152BetaSettings-Simplified|width=600]]{/for}
+
+__TOC__
+
+=Overview of Firefox Settings=
+{for fx152}
+==Account and sync==
+This page includes default browser, Mozilla account, sync, import browser data, Profiles and more:
+*'''Default browser:''' Make Firefox your [[Make Firefox your default browser|default browser]].
+*'''Account:''' Manage your Mozilla account and [[Access Mozilla services with a Mozilla account|access Mozilla services]] with your Mozilla account.
+*'''Sync:''' [[Sync Firefox data|Sync Firefox data]] such as bookmarks, passwords, history and more across devices:
+**[[How do I set up Sync on my computer?]]
+**[[How do I choose what types of information to sync on Firefox?]]
+*'''Import browser data:''' [[Import data from another browser|Import data]] from another browser.
+*'''Profiles:''' [[Manage Firefox profiles]].
+*'''Backup:''' [[Restore your Firefox browsing data with a backup file|Back up and restore Firefox data with a backup file]].
+{/for}
+{for not fx152}
+==General==
+This panel includes startup, tab behavior, downloads, language settings and more:
+*'''Startup:''' Set Firefox as your default browser and restore previous sessions.
+**Make Firefox your [[Make Firefox your default browser|default browser]].
+**Set Firefox to [[Restore previous session - Configure when Firefox shows your most recent tabs and windows|restore your previous session]] at startup.
+**[[Import data from another browser|Import data]] from another browser.
+*'''Tabs:''' Manage your tabs.
+**Choose how [[Tab preferences and settings|tabs are opened]].
+*'''Language and appearance:''' Change fonts, colors, zoom level and interface language.
+**[[Change website appearance settings in Firefox|Change website appearance]] settings in Firefox.
+**Change [[Change the fonts and colors websites use|the fonts and colors websites use]].
+**Change [[Font size and zoom - increase the size of web pages|the size of webpage content]].
+**Choose [[Use Firefox in another language|the language to display menus, notifications, messages and other parts]] of the Firefox interface.
+**Choose [[Choose display languages for multilingual web pages|a preferred display language for web pages]].
+**Use [[How do I use the Firefox spell checker?|the Firefox spell checker]].
+*'''Downloads:''' Choose where downloaded files are saved.
+**[[Where to find and manage downloaded files in Firefox#w_change-where-downloads-are-saved|Change the download folder Firefox uses]] to save files.
+*'''Firefox updates:'''
+**Check your update history or change update settings for Firefox.
+*'''Applications:''' Set how Firefox handles different file types.
+**[[Manage file types and download actions in Firefox|Change the application used or the action taken]] for different file types.
+**Choose whether to [[Watch DRM content on Firefox|watch DRM content in Firefox]].
+*'''Performance:''' Adjust hardware acceleration and content processes.
+**Customize [[Firefox's performance settings|performance settings]] in Firefox.
+*'''Browsing:'''
+**[[Accessibility features in Firefox - Make Firefox and web content work for all users#w_using-a-keyboard-to-navigate-within-webpages|Always use the cursor keys to navigate within pages (caret browsing)]].
+**[[Accessibility features in Firefox - Make Firefox and web content work for all users#w_search-for-text-when-you-start-to-type|Search for text when you start typing]].
+**[[Turn picture-in-picture mode controls on and off|Enable Picture-in-Picture video controls]].
+**[[Control audio or video playback with your keyboard|Control media via keyboard, headset or virtual device]].
+**[[Recommendations from Firefox|Recommend extensions as you browse]].
+**[[Recommendations from Firefox|Recommend features as you browse]].
+*{for not fx149}'''Network Settings:'''{/for}{for fx149}'''Proxy settings:'''{/for} Set up proxies or manage connection settings.
+**Change [[Connection settings in Firefox|Firefox connection settings]] and set a proxy to connect to the Internet.
+{/for}
+
+{for not fx152}
+==Home==
+Customize what appears when you open Firefox:
+*'''Homepage and new windows:''' Set a custom URL or use the default Firefox Home.
+**Choose what you see when you open your [[How to set the home page|home page]], a new Firefox window or a new tab.
+**Set your home page or new windows to the [[New Tab page in Firefox|default Firefox home page]], a blank page or a custom URL.
+*'''New tabs:''' Choose what appears on new tab pages.
+**You can set new tabs to open the default Firefox home page or a blank page.
+*'''Firefox Home content:''' Toggle web search, top sites, recommendations and more.
+**Customize content on the [[New Tab page in Firefox|New Tab page]], including Web Search, shortcuts to most visited sites, [[Recommended stories on the Firefox New Tab page - FAQ|recommended stories]] and recent activity.
+{note}'''Note:''' For more information about these features, see [[Customize items on your Firefox New Tab page]].{/note}
+{/for}
+{for fx152}
+==Home and startup==
+Customize what appears when you open Firefox:
+*'''Default browser:''' [[Make Firefox your default browser]].
+*'''On startup:''' Set Firefox to [[Restore previous session - Configure when Firefox shows your most recent tabs and windows|restore your previous windows and tabs]] at startup.
+*'''Homepage:''' Set a custom URL or use the default Firefox Home.
+**Choose what you see when you open your [[How to set the home page|home page]], a new Firefox window or a new tab.
+**Set your home page or new windows to the default [[New Tab page in Firefox|default Firefox home page]], a blank page or a custom URL.
+*'''Firefox Home:''' Toggle web search, top sites, recommendations and more.
+**Customize content on the [[New Tab page in Firefox|New Tab page]], including Web Search, shortcuts to most visited sites, [[Recommended stories on the Firefox New Tab page - FAQ|recommended stories]] and recent activity.
+{note}'''Note:''' For more information about these features, see [[Customize items on your Firefox New Tab page]].{/note}
+{/for}
+
+==Search==
+Control your default search engine and how search works in the address bar:
+{for not fx152}
+*[[Manage Firefox search settings]].
+*Manage one-click search shortcuts.
+*Control the [[Address bar autocomplete suggestions in Firefox|address bar settings]].
+{/for}
+{for fx152}
+*[[Manage Firefox search settings]], such as your default search engine and additional search engines.
+*Enable or disable [[Search suggestions in Firefox|Search engine suggestions]].
+*[[Customize Firefox Suggest settings]].
+{/for}
+
+{for not fx152}
+==Privacy & Security==
+Manage privacy, security and site permissions:
+*'''Enhanced Tracking Protection:''' Block trackers and cookies.
+**Control settings for the Firefox [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]].
+*'''Cookies and site data:''' Manage or clear data stored by websites.
+**Control whether [[Global Privacy Control|websites can sell or share your data]].
+**Manage [[Cookies - Information that websites store on your computer|website cookies]].
+**Manage [[Manage local site storage settings|website data storage]].
+**Manage [[How to clear the Firefox cache|cached web content]].
+*'''Logins and passwords:''' Control password saving and autofill.
+**Manage [[Password Manager - Remember, delete and edit logins and passwords in Firefox|passwords]].
+**Fill in [[Control whether Firefox automatically fills in forms|forms]].
+*'''History:''' Manage browsing, download and search history.
+**Manage [[Delete browsing, search and download history on Firefox|your browsing, download, search and form history]].
+*'''Permissions:''' Control website access to your location, camera, notifications and more.
+**Manage [[Web Push notifications in Firefox|Web Push notifications]].
+**Manage [[Pop-up blocker settings, exceptions and troubleshooting|pop-up windows]].
+**Manage warnings when websites try to [[Find and install add-ons to add features to Firefox|install add-ons]].
+*'''Firefox data collection and use:''' Decide whether to share usage data.
+**Allow Firefox to [[Share telemetry data with Mozilla to help improve Firefox|send technical and interactive data]] to Mozilla.
+**Install and run [[About Studies|studies]].
+**Send [[Mozilla Crash Reporter|crash reports]] to Mozilla.
+**View and manage [[Secure website certificate|website certificates]] and security devices.
+**Block [[How does built-in Phishing and Malware Protection work?|dangerous content or downloads]].
+{for not fx143}
+*'''Website Advertising Preferences''' <!-- setting and Learn more link no longer exists in fx143 and above. See https://support.mozilla.org/en-US/kb/privacy-preserving-attribution/discuss/15382 (bug 1979093) -->
+**Allow websites to perform [[Privacy-Preserving Attribution|privacy-preserving ad measurement]]
+{/for}
+*'''HTTPS-Only Mode:''' Enable encrypted connections only.
+**Enable or disable [[HTTPS-Only Mode in Firefox|HTTPS-Only Mode]].
+{/for}
+{for fx152}
+==Privacy and security==
+*'''Enhanced Tracking Protection:''' Block trackers and cookies.
+**Control settings for Firefox [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]].
+**[[Manage Enhanced Tracking Protection exceptions|Customize tracking protection]].
+*'''Built-in VPN:''' [[Use built-in VPN in Firefox]].
+*'''Browsing data'''
+**'''Cookies, History and Site Data:''' Manage or clear data stored by websites.
+**Control whether [[Global Privacy Control|websites can sell or share your data]].
+**Manage [[Cookies - Information that websites store on your computer|website cookies]].
+**Manage [[Manage local site storage settings|website data storage]].
+**Manage [[How to clear the Firefox cache|cached web content]].
+*'''History'''
+**Manage [[Delete browsing, search and download history on Firefox|your browsing, download, search and form history]].
+*'''Additional protections:''' Control whether [[Global Privacy Control|websites can sell or share your data]].
+*'''DNS over HTTPS'''
+**Advanced settings: [[Configure DNS over HTTPS protection levels in Firefox]]
+*'''Connection and software security'''
+**Enable or disable [[HTTPS-Only Mode in Firefox|HTTPS-Only Mode]].
+**Manage [[Connection settings in Firefox|Proxy connection settings in Firefox]].
+**Block [[How does built-in Phishing and Malware Protection work?|dangerous content or downloads]].
+**View and manage [[Secure website certificate|website certificates]] and security devices.
+{/for}
+{for not fx152}
+==Sync==
+Sign in with your [[Access Mozilla services with a Mozilla account|Mozilla account]] to sync bookmarks, passwords, history and more across devices:
+#Click {menu Sync} in the Settings sidebar.
+#Sign in or create an account.
+#Choose what types of data to [[Sync Firefox data|sync]].
+{note}'''Note:''' For more information, see [[How do I set up Sync on my computer?]] and [[How do I choose what types of information to sync on Firefox?]]{/note}
+{/for}
+
+{for fx152}
+==Passwords and autofill==
+Manage your passwords, credentials, automatic payments and addresses.
+*'''Passwords:'''
+**[[Password Manager - Remember, delete and edit logins and passwords in Firefox|Save, manage and autofill your usernames and passwords in Firefox]].
+**Have Firefox [[Generate a secure password in Firefox|suggest strong passwords]].
+*'''Additional protections:'''
+**[[Use a Primary Password to protect stored logins and passwords]]
+**[[Firefox Password Manager - Alerts for breached websites]].
+*'''Payment methods:'''
+**[[Automatically fill in credit and debit card payment methods data on web forms]].
+*'''Addresses and more:'''
+**[[Control whether Firefox automatically fills in forms]].
+
+==Appearance==
+Customize your browsing experience.
+*'''Website appearance:''' [[Change website appearance settings in Firefox]].
+*'''Browser theme:''' [[Use themes to change the look of Firefox]].
+*'''Related settings:'''
+**Change [[Change the fonts and colors websites use|the fonts and colors websites use]].
+**Customize [[Font size and zoom - increase the size of web pages|zoom and font settings to change the size of webpage content]].
+
+==Downloads==
+Choose where to save your downloads, and how to open files and applications in Firefox.
+*'''Saves files to:'''
+**Choose [[Where to find and manage downloaded files in Firefox#w_change-where-downloads-are-saved|what download folder Firefox uses to save files]] and whether Firefox asks where to save a file before downloading.
+*'''Files and applications:'''
+**Choose the [[Manage file types and download actions in Firefox|application or the action taken for different types of files]] 
+
+==Tabs and browsing==
+Manage and organize tabs, and improve the browsing experience in Firefox.
+*'''Browser layout:'''
+**Choose horizontal or vertical tabs.
+**Choose whether to [[Use the sidebar to access tools and vertical tabs|use the sidebar]].
+*'''Tabs:'''
+** Review and change [[Tab preferences and settings|tab settings]]{for fx153} and learn [[How to use Firefox containers|how to use container tabs]]{/for}.
+*'''Page navigation:'''
+** Choose whether to always use the cursor keys or search for text as you type.
+** Choose whether to [[Preview webpages in Firefox with link preview|enable link previews]].
+*'''Media:'''
+**Choose whether to [[Turn picture-in-picture mode controls on and off|use Picture-In-Picture mode]].
+**Choose whether to [[Watch DRM content on Firefox|watch DRM content in Firefox]].
+*'''Performance:'''
+**Customize [[Firefox's performance settings]] to use hardware acceleration when available.
+*'''Recommendations:'''
+**Choose whether to receive [[Recommendations from Firefox|recommendations from Firefox]] for extensions and features as you browse.
+
+==Accessibility==
+Customize [[Accessibility features in Firefox - Make Firefox and web content work for all users|accessibility features]] in Firefox.
+*'''Default Zoom:'''
+**Set the default [[Font size and zoom - increase the size of web pages|Zoom level for webpage size and text]]
+*'''Fonts:'''
+**Choose the [[Change the fonts and colors websites use|type of font and font size used on websites]]
+*'''Website contrast:'''
+**Change foreground and background website colors
+*'''Keyboard navigation and scrolling:'''
+**[[Accessibility features in Firefox - Make Firefox and web content work for all users#w_using-a-keyboard-to-navigate-within-webpages|Use the keyboard to navigate within webpages]]
+**[[Control audio or video playback with your keyboard]]
+*'''Motion and link styling:'''
+**Choose whether to underline links or use smooth scrolling 
+
+==Languages==
+Customize browser and website languages. Set up translations and spell checking in Firefox.
+*'''Browser language:''' Choose [[Use Firefox in another language|the language to display menus, notifications and other parts]] of the Firefox interface.
+*'''Website language:''' Choose a [[Choose display languages for multilingual web pages|preferred display language for multilingual web pages]].
+*'''Translations:''' Use the built-in [[Firefox Translations]] tool.
+*'''Spell check:''' Use the [[How do I use the Firefox spell checker?|Firefox spell checker]].
+
+{/for}
+{for fx148}
+==AI Controls==
+This panel provides a place to [[Block generative AI features with Firefox AI controls|block generative AI features in Firefox]]:
+*You can use the '''Block AI enhancements''' switch to block all new or current AI features in Firefox.
+*You can review and manage individual AI features available in Firefox, in [[Firefox Translations|website translations]], when you [[Add alt text to images in your PDFs using Firefox|add alt text to PDF images]], when you use AI-enhanced [[How to use AI-enhanced tab groups|Tab group suggestions]] or when you [[Preview webpages in Firefox with link preview|view key points in link previews]].
+*You can block or manage [[Access AI chatbots in Firefox|AI Chatbots in Firefox]].
+{/for}
+{for fx152}
+==Permissions and data==
+Control permissions for website access and manage data collection in Firefox.
+*'''Permissions:'''
+**Control website access to your location, camera, notifications and more.<!-- https://support.mozilla.org/en-US/kb/control-personal-device-local-network-permissions-firefox/discuss/15302 and https://bugzilla.mozilla.org/show_bug.cgi?id=2054512 -->
+***Manage [[Control personal device and local network permissions in Firefox|personal device and local network permissions]].
+***Manage [[Web Push notifications in Firefox|Web Push notifications]].
+***Manage [[Pop-up blocker settings, exceptions and troubleshooting|pop-up windows]].
+***Manage warnings when websites try to [[Find and install add-ons to add features to Firefox|install add-ons]].
+*'''Firefox data collection and use:'''
+**Decide whether to share usage data, install and run studies and more.
+***Allow Firefox to [[Share telemetry data with Mozilla to help improve Firefox|send technical and interactive data]] to Mozilla.
+***Allow [[Personalized extension recommendations|personalized extension recommendations]].
+***Install and run [[About Studies|studies]].
+***Allow Firefox to [[Manage remote improvements settings in Firefox|improve features, performance, and stability between updates]].
+***Send [[Manage daily usage ping data collection settings in Firefox|daily usage ping data]] to Mozilla.
+***[[Crash reports in Firefox for Desktop|Automatically send crash reports]] to Mozilla.
+{/for}
+
+==Firefox Labs==
+Try out experimental features before they’re released:
+*Toggle experimental settings to preview in-development features.
+*Features here may change or be removed in future releases.
+{note}'''Note:''' For more information, see the [[Firefox Labs - Explore experimental features in Firefox]] article and [https://developer.mozilla.org/docs/Mozilla/Firefox/Experimental_features Experimental features in Firefox] at ''MDN Web Docs''.{/note}
+{for fx152}
+==About Firefox==
+Check for Firefox updates and update history, find your Firefox version or change update settings:
+*[[Update Firefox to the latest version]].
+*[[Find what version of Firefox you are using]].
+Visit Mozilla Connect to share ideas and feedback:
+*[[What is Mozilla Connect?]]
+{/for}
+==More from Mozilla==
+Discover other Mozilla tools and services:
+*[https://monitor.mozilla.org/ Mozilla Monitor]: Get alerts if your email is in a data breach.
+*[https://relay.firefox.com/ Firefox Relay]: Mask your email with private aliases.
+*[https://www.mozilla.org/products/vpn/ Mozilla VPN]: Browse securely with a VPN.
+*[https://www.mozilla.org/firefox/browsers/mobile/ Firefox Mobile]: Sync browsing across devices.
+
+{for not fx152}
+<!-- Update for fx152? Is this section even needed?-->
+=Common questions about Firefox settings=
+==How do I restore a previous session or reopen closed tabs?==
+Firefox can restore your tabs from your last browsing session:
+#[[Template:optionspreferences]]
+#Open the {menu General} panel.
+#Under ''Startup'', check the box for '''Open tabs from the previous session'''.
+{note}'''Note:''' If you accidentally closed a tab or window, press {key Ctrl+Shift+T} (Windows/Linux) or {key Command+Shift+T} (Mac) to reopen it.{/note}
+
+==How can I block or reduce ads?==
+Firefox includes Enhanced Tracking Protection and optional add-ons to help block intrusive ads:
+#[[Template:optionspreferences]]
+#Open the {menu Privacy and security} panel.
+#Under ''Enhanced Tracking Protection'', select '''Strict''' for more ad and tracker blocking.
+#To block more ads, consider installing a content blocker like uBlock Origin from the [https://addons.mozilla.org/firefox/ Firefox Add-ons site].
+
+==How do I organize my bookmarks?==
+You can manage bookmarks from the Library:
+#Click the menu [[Image:Fx89menuButton]] button and select {menu Bookmarks}.
+#Select {menu Manage bookmarks} at the bottom.
+#Use folders to organize your saved pages.
+{/for}
+
+=Related articles=
+*[[Restore previous session - Configure when Firefox shows your most recent tabs and windows]]
+*[[Use bookmark folders to organize your bookmarks]]
+*[[Enhanced Tracking Protection in Firefox for desktop]]
+*[[How do I set up Sync on my computer?]]
+*[[Recover lost or missing Bookmarks]]

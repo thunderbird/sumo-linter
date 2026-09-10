@@ -1,0 +1,5 @@
+You may encounter a harmful or dangerous download warning message when downloading Firefox using a different browser. This could be a standard warning of some browsers when downloading executable files, and it is not unique to Firefox. The message usually appears when Google Safe Browsing or Microsoft SmartScreen features are disabled for that browser.
+
+[[Image:harmfulDownloadWarning|width=400]]
+
+We want to assure you that Firefox is safe and secure software and we take the security of our users very seriously. For more information, read [https://www.mozilla.org/firefox/browsers/best-browser/ Find your best browser for speed, privacy and security] and [[Firefox privacy and security features#w_security|Firefox privacy and security features]].

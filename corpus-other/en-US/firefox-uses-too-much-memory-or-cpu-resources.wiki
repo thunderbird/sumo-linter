@@ -1,0 +1,87 @@
+At times, Firefox may require significant system resources to download, process, and display web content. We know it’s frustrating when Firefox slows down, especially if it interrupts your work or browsing. If you are experiencing periods of sustained high resource usage while using Firefox, this article presents some options for you to review.
+* The CPU (Central Processing Unit) is the "brain" of the computer.
+* The RAM (Random Access Memory) or Memory helps your computer perform multiple tasks at the same time.
+* When your system resources are being heavily used, the overall performance and stability of the computer can be impacted.
+* Depending on your operating system, you can review and monitor resource usage through specific tools. See the [[#w_use-additional-troubleshooting-tools|Use additional troubleshooting tools]] section below for more information.
+{note}'''Note:''' If you [[Manage Firefox data collection and privacy settings|send performance data]], Mozilla will gather data including memory and CPU usage, which will help make Firefox better for future versions.{/note}
+
+__TOC__
+
+= Update to the latest version =
+The latest Firefox version may include performance improvements. [[Update Firefox to the latest release]].
+
+= Check for problematic extensions and themes =
+Extensions and themes can cause Firefox to use more system resources than it normally would.
+
+To determine if an extension or theme is causing Firefox to use too many resources, [[Use Troubleshoot Mode in Firefox|start Firefox in Troubleshoot Mode]] and observe its memory and CPU usage. In Troubleshoot Mode, extensions and themes are disabled, so if you notice a significant improvement, you can try disabling or uninstalling extensions.
+* For more information on starting Firefox in Troubleshoot Mode and on how to find which extension or theme is causing your problem, see [[Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems]].
+
+= Hide intrusive content =
+Many web pages have content you don't need, but which still use system resources to display its content. Firefox's built-in content blocking can help save resources by preventing third-party tracking content from loading. See [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] for details.
+
+Some extensions allow you to block unnecessary content; for example:
+* [https://addons.mozilla.org/firefox/addon/adblock-plus/ Adblock Plus] and [https://addons.mozilla.org/firefox/addon/ublock-origin/ uBlock Origin] allow you to hide ads on websites.
+* [https://addons.mozilla.org/firefox/addon/noscript NoScript] allows you to selectively enable and disable scripts running on websites.
+[[T:addonsupport]]
+
+= Use fewer tabs =
+Each tab requires Firefox to store a web page in memory. If you frequently have '''more than 100 tabs open''', consider using a more lightweight mechanism to keep track of pages to read and things to do, such as:
+* [[Bookmarks in Firefox|Bookmarks]]. ''Hint: "[[Use tabs to organize lots of websites in a single window#w_tab-tips|Bookmark All Tabs]]" will bookmark a set of tabs.''
+* [http://lifehacker.com/378062/five-best-gtd-applications To-do list applications].
+
+= Close tabs that use too many system resources =
+Some websites use scripts that use a lot of memory and/or CPU to keep them up to date, such as online mail client pages. If these scripts are not optimized, they can lead to the use of too many system resources. You can see which tabs are using the most system resources by opening the [[Task Manager - see what tabs or extensions are slowing down Firefox|Firefox Task Manager]] (''about:processes'' page). If you do not need these tabs open all the time, you can close them to reduce system resources usage.
+
+= Check Firefox hardware acceleration =
+Firefox hardware acceleration eases memory and CPU usage in many cases.
+Check in [[Firefox's performance settings|Firefox's performance settings]] that hardware acceleration is turned on.  Also make sure that [[Upgrade your graphics drivers to use hardware acceleration and WebGL|your graphics drivers are up-to-date]].
+
+= Close other applications =
+Having many applications running simultaneously may cause your computer to run slowly and other applications to do so as well. By closing down some of the unnecessary applications, system usage will be reduced.
+
+= Delete content-prefs.sqlite file =
+Firefox stores your data in various files in your profile folder. The file used for saving individual website settings might be corrupt. If you delete (or rename) that file, your zoom level settings will be reset but it could decrease CPU usage.
+# [[T:OpenProfileFolder]]
+# [[T:closeFirefox]]
+# In your profile folder, delete the file {filepath content-prefs.sqlite}. It will be recreated next time you open Firefox.
+
+= Refresh Firefox =
+The ''Refresh Firefox'' feature can fix many issues by restoring your [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|Firefox profile]] to its default state while saving your essential information.
+See [[Refresh Firefox - reset add-ons and settings]] for details.
+
+= Use additional troubleshooting tools =
+There are a variety of troubleshooting tools that can be used both in Firefox and on your operating system to troubleshoot elevated system resource usage.
+
+== Firefox tools ==
+* The [[Task Manager - see whether tabs or extensions are slowing down Firefox|Firefox Task Manager]] (not to be confused with Windows Task Manager) is a great tool to see whether tabs and extensions are using too many system resources.
+* The '''about:memory''' page allows you to troubleshoot specific issues relating to memory (for instance, caused by a website, an extension, a theme, etc.) and sometimes its {button Minimize memory usage} button may help you instantly reduce memory usage. For guidance on use of '''about:memory''' visit [https://firefox-source-docs.mozilla.org/performance/memory/about_colon_memory.html about:memory].
+* Even if you're not a programmer, you can try your hand at some other  [https://firefox-source-docs.mozilla.org/performance/index.html#memory-profiling-and-leak-detection-tools tools and tips Firefox developers use to debug leaks].
+
+== Operating system tools ==
+{for win}
+* View how system resources are being used by checking [https://wikipedia.org/wiki/Task_Manager_(Windows) the Windows Task Manager] ''Performance'' tab{for win8, win10, win11} (click on "More details" in the Task Manager to show all tabs){/for}. See [https://blogs.windows.com/windowsexperience/2013/06/06/windows-8-task-manager-in-depth/ this Windows blog post] at Microsoft's site for more information. 
+{/for}
+{for mac}
+* View how system resources are being used by checking Activity Monitor. See [https://support.apple.com/en-ca/HT201464 How to use Activity Monitor on your Mac] at Apple's site for more information.
+{/for}
+{for linux}
+* Although it's not included on every distribution of Linux, most versions of Linux have a graphical resource monitor. It's often called System Monitor, but there are other alternatives also available.
+* Running the <code>top</code> command in the terminal will display a list of all the running processes and their system resource consumption.
+{/for}
+{warning}'''WARNING:''' There are a variety of third-party programs that promise to increase your computer's performance. You should exercise caution when installing third-party software and only use reputable software provided by an official source.{/warning}
+
+= Restart Firefox =
+Firefox may use more system resources if it's left open for long periods of time. A workaround for this is to periodically restart Firefox. You can configure Firefox to save your tabs and windows so that when you start it again, you can start where you left off. See [[Restore previous session - Configure when Firefox shows your most recent tabs and windows]] for details.
+
+= Restart your computer =
+Firefox may grind to a halt due to operating system issues{for win10, win11}, such as a pending Windows update,{/for} that can be resolved by restarting your computer.
+
+= Address hardware-related performance issues =
+If you've tried all the above and your memory usage is still close to the maximum, maybe it's time for you to add more memory to your computer. Adding RAM will provide a huge performance boost.
+
+Alternatively, it may be time to upgrade your computer. As technology progresses, software is becoming more advanced and requires more powerful computers to run effectively.
+
+=Related articles=
+*[[Unload tabs to reduce system memory usage in Firefox]]
+*[[Crash reports in Firefox for Desktop]]
+*[[Firefox's performance settings]]

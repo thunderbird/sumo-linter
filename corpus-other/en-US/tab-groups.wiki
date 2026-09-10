@@ -1,0 +1,69 @@
+Tab groups in Firefox let you organize your tabs into separate, labeled groups. This makes it easy to keep work, personal, or research browsing organized without opening extra windows. You don’t need an add-on as the feature is built-in for all Firefox users.
+*Firefox also includes an enhanced tab groups feature, starting with [[Find what version of Firefox you are using|Firefox version]] 141. See [[How to use AI-enhanced tab groups]] for details.
+
+__TOC__
+
+=Create a tab group=
+;[[Image:Tab group example]] 
+#Select a tab from your tab bar (either vertical or horizontal).
+#Drag the tab onto another tab, wait until you see a highlighted area and then release the tab.
+#You will then have the option to name the group and choose a color. These can be changed at any time.
+[[Image:Tab group colors]] 
+
+The tab bar will show the group with its label and tabs together, underlined by the group color, or edged with a color line if you use [[Use the sidebar to access tools and vertical tabs|vertical tabs]]. You can select the group label to collapse the tabs into the tab group, or select it again to expand the group to see the tabs within it.
+
+=Add a tab to a tab group=
+'''If you have no tab groups yet:''' [[Template:contextmenu]] a tab and select {menu Add Tab to New Group}. You will see a panel where you can name the group and choose a color. For now, the group will have that tab only.
+
+'''If you already have groups:''' [[Template:contextmenu]] a tab and select {menu Add Tab to Group} to see the options. Select either {menu New Group} to create a new group or choose an existing group. You can also just drag a tab into an expanded group on the tab bar.
+
+=Remove a tab from a group=
+[[Template:contextmenu]] a tab in a group and select {menu Remove from Group}. You can also select the tab you want to remove from the group and drag it out from the group to a different position on the tab bar.
+
+When you remove all tabs from a group, the tab group is deleted. 
+
+=Move a tab from one group to another=
+[[Template:contextmenu]] a tab, select {menu Add Tab to Group} and select another existing group. You can also just drag a tab into another expanded group on the tab bar.
+
+{for fx145}
+=Preview a tab group on hover=
+When you '''hover over the label of a collapsed tab group''', Firefox shows a small panel with a list of the tabs inside that group.
+*You can see what tabs are inside without expanding the group
+*Click on any tab in the preview panel to make it the active tab
+*This helps you quickly navigate without cluttering your tab bar
+{note}'''Tip''': Hovering only previews, but does not expand the group.{/note}
+[[Image:tabhoverpreview]]
+{/for}
+
+=Keep an active tab visible in a collapsed tab group=
+When collapsing a tab group that contains your currently active tab, Firefox will continue to display that tab in the tab bar.
+#Create a '''tab group'''.
+#Open several tabs inside the group.
+#Select one of those tabs.
+#Collapse the tab group.
+The selected tab will remain visible, even though the group is collapsed. Firefox also displays a visual indicator to show which group the active tab belongs to.
+[[Image:tabgrouppreview]]
+
+=Drag a tab into a collapsed group=
+You can drag a tab into a collapsed tab group without expanding it. This allows you to stay organized with minimal screen clutter.
+#Click and hold the tab you want to move
+#Drag it over a collapsed group label
+#Drop the tab — it will be added to the group, but the group stays collapsed
+{note}'''Tip''': Great for moving tabs quickly without expanding everything.{/note}
+[[Image:tabgrouppreview]]
+
+=Manage a tab group=
+[[Template:contextmenu]] a group label to see the options for that tab group:
+*You can change the name and the color for the tab group.
+*{menu New tab in group} will add a new tab to the selected group.
+*{menu Move group to new window} will open that group in a new Firefox window.
+*You can {menu Save and close group}, which will save and close the group for you to be able to re-open from the ''List all tabs'' [[Image:tab icon 2|width=20]] icon on the tab bar (or the [[Image:Fx137ListAllTabs|width=20]] toolbar icon, if you use vertical tabs).
+*;This icon can be removed if you wish; [[Customize Firefox controls, buttons and toolbars|this support article]] will help.
+*{menu Ungroup tabs} will keep the tabs open, but no longer grouped.
+*{menu Delete group} will delete the group. All tabs from the group will be closed.
+
+=Troubleshooting tab issues=
+*Tab groups created when using [[Private Browsing - Use Firefox without saving history|Private Browsing]] will be deleted when you close the Private Browsing window.
+*If your tabs become unexpectedly grouped or ungrouped, it may be due to a compatibility issue with a tab [[Find and install add-ons to add features to Firefox#w_what-types-of-add-ons-can-i-install|extension]].
+*Tab groups are local only and don’t sync with Firefox Sync.
+*If you close a tab group, all tabs in that group will close, but you can reopen them from your browsing history.

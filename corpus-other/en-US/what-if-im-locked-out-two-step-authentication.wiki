@@ -1,0 +1,42 @@
+This article explains what to do if you have been locked out of your Mozilla account [[Set up two-factor authentication on your Mozilla account|two-step authentication]] login.
+*If you received a message that your Mozilla account was locked because a confirmation email was returned, see the [[I'm having problems confirming my Mozilla account#w_your-mozilla-account-has-been-locked]] article instead.
+Two-step authentication adds extra security to your Mozilla account by making it harder for someone else to sign in to your account. If you’ve gotten locked out of your two-step authentication login, you can use one of your previously saved backup authentication codes to securely regain access to your account. Alternatively, if you have a device still signed in to your account, you can use that device to disable two-factor authentication, so you can sign in to your account without two-step authentication.
+
+__TOC__
+
+=I have my two-step authentication device but it says invalid code=
+#Ensure you’re using the correct authentication application. You may see a name on it such as “Firefox:”.
+#If you're using ''Google Authenticator'', tap on the three-dot menu, go to '''Settings''', select '''Time correction for codes''' and then '''Sync now'''.
+#Check your device clocks: Authentication apps rely on accurate time settings. Ensure that both your authentication device and the device you're logging into have the correct date and time settings. Consider enabling automatic time synchronization in your device settings.
+
+=I lost my two-step authentication device but I have another signed-in device=
+If you're locked out of your account but have a device still signed in via two-step authentication, you can use that device to disable two-step authentication:
+#Go to https://accounts.firefox.com and sign in.
+#Under ''Security'', click the {button Disable} button next to '''Two-step authentication'''.
+#Click the {button Disable} button in the ''Disable two-step authentication?'' prompt.
+If you don't have access to your signed-in devices and lost your two-step authentication devices, continue to the sections below.
+
+=I lost my two-step authentication device but I have a backup authentication code=
+#Go to https://accounts.firefox.com and sign in.
+#If you are prompted for a two-step authentication code, click '''Trouble entering code?'''.
+#If you are prompted with a choice between '''Recovery phone''' and '''Backup authentication code''', choose '''Backup authentication code'''.
+#Enter one of your previously saved backup authentication codes.
+#*If you don't remember saving your backup authentication codes, search your device or cloud storage for a file named '''<your_email> backup authentication codes.txt''' or '''<your_email> Firefox backup authentication codes.txt'''.
+#Go to ''Security'' and click the {button Disable} button next to '''Two-step authentication'''.
+
+=I lost my two-step authentication device but I have a recovery phone=
+After you enter your account’s password to sign in, the login process will request the code from your authenticator app. If you lose access to your authenticator app, you can request a code via SMS to regain access to your Mozilla account, as long as you have previously set up your recovery phone number.
+#Go to https://accounts.firefox.com and sign in.
+#If you are prompted for a two-step authentication code, click '''Trouble entering code?'''.
+#Choose the recovery phone option to receive the text message.
+#Enter the six-digit code that you received via SMS.
+#Go to ''Security'' and click the {button Disable} button next to '''Two-step authentication'''.
+
+=I lost my two-step authentication device, can’t find my backup authentication codes and don’t have a signed-in device but I did previously register my phone number=
+If you have set up a recovery phone and can transfer that number to another sim card or device, you will be able to receive your one-time password as long as you have previously saved your recovery phone number.
+
+If you don’t have a recovery phone number, unfortunately, deactivation by Mozilla of two-step authentication is not supported, and you will not be able to access your existing Sync data. For more information, see [[Sync Firefox data]]. You can however create a new account with a different email address to begin syncing again and reach out to our support team to cancel any active subscription.
+{note}'''Note:''' If you are an Add-on developer user who lost access to their Mozilla account, Two-step authentication and/or phone recovery number, please contact our support team for further assistance.{/note}
+
+=I lost my two-step authentication device, can’t find my backup authentication codes and don’t have a signed-in device. Can I request to delete my Mozilla account?=
+As long as you still have access to the Mozilla account's primary email, you can request that your account be deleted. You can do this by submitting a deletion request to OneTrust via our [https://privacyportal.onetrust.com/webform/1350748f-7139-405c-8188-22740b3b5587/4ba08202-2ede-4934-a89e-f0b0870f95f0 Privacy Web Form].

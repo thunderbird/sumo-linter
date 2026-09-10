@@ -1,0 +1,36 @@
+__TOC__
+
+=What are profiles?=
+Firefox saves information such as bookmarks, passwords and user preferences in a set of files called a profile. This profile is stored in a location separate from the Firefox {for mac, linux}application{/for}{for win}program files{/for}. See [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|this article]] for details.
+
+=What happens if I have more than one installation of Firefox?=
+Some users have multiple installations of Firefox, each in separate {for mac, linux}application{/for}{for win}program{/for} folders. Firefox uses a dedicated profile for each installation of Firefox, including [https://www.firefox.com/channel/desktop/ Nightly, Beta, Developer Edition] and [https://www.firefox.com/browsers/enterprise/ Extended Support Release (ESR)] installations. This makes Firefox more stable when switching between installations on the same computer, and also allows you to run different Firefox installations at the same time.
+
+If you install a new, additional installation of Firefox, a new profile will be created. You will not lose the personal data or customizations you had before, since your old profile data is saved and associated with the previous Firefox installation. 
+
+=What are my options?=
+You don't need to do anything. Your profile data will be different for each installation of Firefox.
+If you would like the information you save to Firefox to be the same on all installations, you can [[How do I set up Sync on my computer?|use a Mozilla account to keep them in sync]]. Sync is the easiest way to make your profiles consistent on all of your installations of Firefox. You also get additional benefits like sending tabs and secure password storage. [https://accounts.firefox.com/ Get started with Sync here].
+
+=Can I change which Firefox installation uses a previous profile?=
+Yes. You can use the Profile Manager for each installation, to set a new default profile. Directions are available in these articles:
+* [[Profile Manager - Create, remove, or switch Firefox profiles]]
+* [[Recover user data missing after Firefox update or reinstall]] 
+
+=I am a Sync user, will my saved data still remain synced?=
+Yes. Once you sign in to your Mozilla account on Firefox, any data saved to Sync from other installation of Firefox should appear.
+
+=What happens to my profile if I downgrade to a previous version of Firefox?=
+You’ll have to create a new profile to avoid corruption issues.
+
+Starting with [[Find what version of Firefox you are using|Firefox version]] 67, each Firefox installation requires a separate profile. Any previous [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile data]] is saved and associated with the first Firefox installation opened after the change.
+
+If you try to launch a Firefox installation with a profile that was last used in a more recent version, you'll see a warning that using an older version of Firefox can corrupt profile data such as bookmarks and browsing history:
+;[[Image:Fx140esrDowngradeProtection]]
+Click the {button Create New Profile} button to start Firefox with a new profile.
+
+When you downgrade Firefox and use a new profile, any profile that was used in the higher version is still available in the [[Profile Manager - Create, remove, or switch Firefox profiles|Profile Manager]], for use in a more recent version of Firefox.
+{note}'''Note:''' Downgrade protection can be overridden when you [https://wiki.mozilla.org/Firefox/CommandLineOptions launch Firefox through the command line] using the '''--allow-downgrade''' parameter.  Alternatively, you can open the Firefox [[Profiles - Where Firefox stores your bookmarks, passwords and other user data|profile folder]] for the profile you wish to use and delete (or rename) the {filepath compatibility.ini} file.{/note}
+
+=I already use separate profiles for my different Firefox installations=
+If you have already manually created separate profiles for different installations, you will not notice the change (this has been the recommended procedure on Nightly for a while).

@@ -1,0 +1,23 @@
+Firefox may ask you to send some of your unsent crash reports, displaying the notification below. By sending the reports, you will help in resolving issues and making Firefox better for everyone.
+
+;[[Image:UnsentCrashReportsDesktop]]
+
+__TOC__
+
+=Why am I seeing this notification?=
+When Firefox crashes, it will extract relevant information to debug and better understand the root cause of the crash. Two sets of data will be created: a telemetry crash ping with very basic information (which will be sent automatically unless you opted out of [[Manage technical and interaction data collection settings in Firefox|technical and interaction data collection]]) and a crash report that contains more detailed data. For more information, please see [[Crash reports in Firefox for Desktop]].
+
+Crash reports may contain personally identifiable information, so they are not submitted automatically. They are only sent when you either check the corresponding option in the ''Crash Reporter'' or when you manually click Submit on ''about:crashes''.
+
+However, sometimes the ''Crash Reporter'' cannot be opened, such as when the affected Firefox component is run in the background and restarted automatically. We may also not have enough data from the sent crash reports to fully investigate an issue. In such cases, Firefox can explicitly ask you to submit some of your unsent crash reports, displaying the notification above.
+
+=When will I be asked to submit my crash reports?=
+Using collected technical and interaction data (also called ''telemetry'' data), we determine the crash signatures that are occurring frequently (therefore impacting you in one way or another) and for which we lack crash reports. When we find crash reports of interest, we inform you of that and ask for your consent to send us those reports.
+
+=How will I benefit from submitting these reports?=
+Crashes disrupt your browsing experience, degrade performance and may even hide a security issue. While we are informed about them via the telemetry crash ping, sometimes we need extra information from the crash reports to fix the issue.
+
+Submitting a crash report you help us eliminate its cause and prevent the crash from happening again. Moreover, you also help other Firefox users who may experience the same issue.
+
+=How else can I help?=
+You can manually submit your crash reports by entering ''about:crashes'' in the address bar. You can also [[Crash reports in Firefox for Desktop#w_allow-firefox-to-automatically-send-crash-reports|allow Firefox to automatically send crash reports]].

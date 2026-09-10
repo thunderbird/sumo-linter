@@ -1,0 +1,17 @@
+This article describes how to organize your bookmarks with bookmark folders.
+* For more information on using bookmarks, see [[Bookmarks in Firefox]].
+
+__TOC__
+
+= Making new folders =
+#[[T:OpenBookmarksLibrary]]
+# [[T:contextmenu]] on the folder which will contain the new folder, then select {menu New Folder...}. {for win,linux}<br><br>[[Image:how-to-create-a-new-bookmark-folder]]<br>{/for}
+# In the New Folder window, type a name and (optionally) a description for the folder you want to create.
+
+= Putting bookmarks into folders =
+#[[T:OpenBookmarksLibrary]]
+# Click on the folder that holds the bookmark you want to move.
+# Drag the bookmark over the folder you want it moved to. Release the button to move the bookmark into the folder.
+
+= Sorting folders =
+For instructions on how to sort your bookmarks folders, see [[Sort your bookmarks to quickly find the ones you want]].

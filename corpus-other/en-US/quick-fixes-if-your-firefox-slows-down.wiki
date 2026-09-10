@@ -1,0 +1,44 @@
+What good is that super fast Internet connection when your browser is running at dial-up speed? This article will point you in the right direction to track down and fix the problem. Of course, if you need extra help with any of this, we have a community of volunteers standing by.
+
+{note}'''Note:''' [[Template:reset-fx]]{/note}
+
+__TOC__
+
+= Update Firefox =
+We're constantly improving Firefox. The latest version is faster than ever before and contains fixes for many problems that could slow down your Firefox. See [[Update Firefox to the latest release]] to learn how to update.
+
+= Update your video drivers =
+Having outdated drivers might slow down performance. See your manufacturer's instructions on how to update your video drivers.
+
+= High hardware resource usage =
+If a monitoring tool shows you high hardware resource usage, try the suggestions in the [[Fix Firefox using too much memory or CPU resources]] article.
+
+= Firefox hangs or stops responding =
+If Firefox freezes and {for win}gives you the spinning wheel and turns white{/for}{for mac}gives you the spinning beach ball{/for}{for linux}turns gray{/for}, try the [[Firefox hangs or is not responding - How to fix]] article.
+
+= I get a Warning Unresponsive script error =
+“Unresponsive script error”? What does that even mean? We've got an article about that called, believe it or not, [[Warning Unresponsive script - What it means and how to fix it]] that will help clear things up.
+
+= Firefox takes a long time to start up =
+Try the suggestions in the [[Firefox takes a long time to start up]] article.
+
+= Check if you have malware on your computer =
+To resolve slowness problems not specifically mentioned above, you should scan your computer for viruses, spyware, and other malware and read [[Troubleshoot Firefox issues caused by malware]].
+
+{for win}
+= Optimize Windows =
+Speed up Windows and make your computer work better. {for winxp, win8}See  [https://support.microsoft.com/en-us/help/3064207/speed-up-your-computer Speed up your computer] at microsoft<!-- -->.com.{/for}{for win7} See  [https://support.microsoft.com/en-us/help/3064207/speed-up-your-computer Speed up your computer] and [https://support.microsoft.com/en-us/help/15055/windows-7-optimize-windows-better-performance Optimize Windows 7 for better performance] at microsoft<!-- -->.com.{/for}{for win10}See [https://support.microsoft.com/en-us/help/4002019/windows-10-improve-pc-performance Tips to improve PC performance in Windows 10] at microsoft<!-- -->.com.{/for} 
+{/for}
+
+= Block unneeded content =
+Content you don't need such as ads or tracking scripts can significantly slow down page loading. Firefox's built-in content-blocking feature can make the pages load faster by preventing third-party trackers from loading. See [[Enhanced Tracking Protection in Firefox for desktop]] for details.
+
+There are also Firefox add-ons that can block content you don't need, such as:
+* The [https://addons.mozilla.org/firefox/addon/disconnect/ Disconnect add-on] blocks invisible webpage parts that track you online.
+* The [https://addons.mozilla.org/firefox/addon/ublock-origin/ uBlock Origin add-on] blocks ads, trackers and other unneeded content while using less memory and CPU resources than other adblockers.
+* The [https://addons.mozilla.org/firefox/addon/noscript NoScript add-on] allows you to selectively enable and disable all scripts running on websites.
+
+[[Template:addonsupport]]
+
+= This didn't solve my problem. What do I do now? =
+Sometimes  tracking down the source of these kinds of problems is difficult. We have a community of volunteers ready to help you figure it out. See [[Get community support]].

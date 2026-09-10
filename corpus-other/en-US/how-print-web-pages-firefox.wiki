@@ -1,0 +1,23 @@
+Learn more on how to print web pages using Firefox's printing features.
+* For troubleshooting printing problems, see [[Fix printing problems in Firefox]].
+*To print pages in a simplified format, see [[Print simplified, clutter-free pages in Firefox]].
+
+__TOC__
+
+= Print a web page =
+#Click the menu button [[Image:Fx89menuButton]] and then click {button Print…}
+#*This will open a print preview for that web page.
+#;[[Image:Fx82PrintUI]]
+#Choose your printing options:
+#*'''Destination:''' Use the dropdown menu to choose the device or document to print to or save. Select {menu Save to PDF} in the drop-down menu to save the shown preview as a PDF file.
+#*'''Copies:''' Choose how many copies to make (available for printers and faxes).
+#*'''Orientation:''' Allows you to choose between {button Portrait} and {button Landscape} orientation of the printed page.
+#*'''Pages:''' Allows you to choose what pages you would like to print.
+#*'''Color mode:''' This allows you to choose whether to print in {menu Color} or {menu Black and white} (this may not be customizable for some printers).
+#*'''More settings:''' Expand this section for more options, such as '''Paper size''', '''Scale''', '''Pages per sheet''', '''Margins''', '''Format''' ('''Original''' or [[Print simplified, clutter-free pages in Firefox|'''Simplified''']], if available), '''Two-sided printing''', '''Print headers and footers''' and '''Print backgrounds'''. (If you select ''Simplified'' under ''Format'', you won't be able to select ''Print backgrounds''.)
+#After adjusting the settings, click {button Print} to start printing.
+
+= Advanced tips =
+*If you want to edit the web page content before printing, you can use an extension from [https://addons.mozilla.org/firefox/ Firefox Add-ons] such as [https://addons.mozilla.org/firefox/addon/print-edit-we/ Print Edit WE].
+*To print a single image from a page, you can typically right-click it, and select {menu Open Image in New Tab} or {menu View Background Image} then print using the instructions above.
+*Web pages can set themselves up to appear different on paper to how they look on screen, so don't be surprised to see some changes.

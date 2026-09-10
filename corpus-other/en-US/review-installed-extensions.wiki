@@ -1,0 +1,45 @@
+[[Find and install add-ons to add features to Firefox|Extensions]] enable you to add features to Firefox to customize your browsing experience. For a safe browsing experience, it is a great idea to review the extensions installed periodically. Doing so can make it harder for bad actors to put your security and privacy at risk.
+
+If you are looking to disable or remove an extension, see [[Disable or remove Add-ons]].
+
+= Why should I review the extensions I have installed? =
+Extensions are most often created by third-party developers to modify the way Firefox works. While most developers are trustworthy, some developers are not, and may create extensions that do malicious things such as improperly handling your browsing data. This is why it is a good idea to periodically check the extensions you have installed in the past to make sure you still want them, as well as look for extensions that were inadvertently installed. By reviewing your extensions regularly and removing the ones you don't use or didn't install, you can reduce the likelihood of malicious actors attempting to compromise your security or privacy.
+
+To get started, navigate to the Add-ons Manager: [[T:Open Add-ons|type=Extensions]]
+
+You can also type '''about:addons''' in the address bar of a new tab to access the Add-ons Manager.
+
+Begin by reading the name of each extension. We recommend that you review all extensions installed individually, even those that are disabled.
+
+If you come across an extension you do not recognize, the following process will guide you in reviewing it.
+
+== Do I recall installing the extension? ==
+If you do not remember installing the extension, it is best to remove it. Such extensions may have been installed without your knowledge and could be malicious.
+
+If you are experiencing difficulties with uninstalling an extension, see [[Cannot remove an add-on (extension or theme)]].
+
+== Do I need this extension? ==
+Ask yourself if you still need the extension. You might have installed an extension in the past to complete a task. Remove the extension if it no longer serves a purpose for you. If you are questioning whether you should keep the extension, continue to the next question.
+
+== What permissions have I granted? ==
+If you plan on using the extension in the near future, you should look into what the extension is allowed to do.
+# To view an extension's permissions, click on the extension in the Add-ons Manager {menu Extensions} panel.
+#; [[Image:select-extension]]
+# Select the {menu Permissions} tab.
+#; [[Image: extensions permissions tab]]
+# Review the permissions granted.
+For information on permissions, see [[Permission request messages for Firefox extensions]].
+
+You can also disable an extension to prevent it from being active and enable it when needed. Extensions submitted to [https://addons.mozilla.org/ addons.mozilla.org] are scanned for common issues and may be subject to human review.
+{note}'''Note:''' Extensions no longer automatically run in private browsing. See [[Extensions in Private Browsing]].{/note}
+
+== Is it trustworthy? ==
+If you have reviewed the permissions granted, and are unsure if you would like to keep the extension, read the product’s description and explore its reviews (for extensions installed through [https://addons.mozilla.org/ addons.mozilla.org]). The extension’s description should enable you to understand its purpose.
+# To read the extension’s description, click on the extension in the Add-ons Manager {menu Extensions} panel.
+#; [[Image:select-extension]]
+# Select the {menu Details} tab.
+#; [[Image:extensions details tab]]
+On the same page, you can also navigate to view the extension’s reviews by clicking on the ''number of reviews'' the extension has in the ''Rating'' section.
+;[[Image:Add-onsManagerRating]]
+{note}'''Note:''' ratings and reviews are left by other Firefox users – keep in mind that the reviews are simply users expressing their opinion.{/note}
+For further guidance, see [[Tips for assessing the safety of an extension]].

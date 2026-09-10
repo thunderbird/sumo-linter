@@ -31,9 +31,21 @@ if (!anonFile) {
   process.exit(2);
 }
 
+// A truncated listing is worse than none: every article it failed to reach
+// would be filed as an unpublished draft and dropped from the committed corpus.
+// `--list-only` states which it produced, so this can refuse rather than guess.
+const raw = await readFile(anonFile, 'utf8');
+if (!raw.includes('# COMPLETE')) {
+  console.error(
+    `${anonFile} is not a complete listing (no '# COMPLETE' marker).\n` +
+      `Re-run the --list-only pass; a partial list would mark public articles as drafts.`
+  );
+  process.exit(1);
+}
+
 // The listing is `slug<TAB>products<TAB>title`, with progress lines mixed in.
 const anon = new Set(
-  (await readFile(anonFile, 'utf8'))
+  raw
     .split('\n')
     .filter((l) => l.includes('\t'))
     .map((l) => l.split('\t')[0].trim())

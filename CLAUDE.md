@@ -15,17 +15,22 @@ their own conventions. This is why the style layer must be a configurable preset
 
 Scope: products `thunderbird` + `thunderbird-android` on **production**
 (`support.mozilla.org`). Locale-aware architecture from day one, but **only en-US is
-implemented**. The corpus is 203 articles; 193 public ones are committed under `corpus/`.
+implemented**. The corpus is 203 articles; 196 public ones are committed under `corpus/`,
+refreshed 2026-09-09. `corpus/README.md` records how the public/non-public split is decided
+and why it cannot be inferred from the API.
 
 ## Current state
 
 Phases 1 and 2 are implemented and tested. `cargo test` runs 34 tests, including property
 tests over every corpus article.
 
-Linting the committed corpus reports **5 errors, all verified by hand** and all filed:
+Linting the committed corpus reports **4 errors, all verified by hand** and all filed:
 issues #223, #224, #225 (unbalanced `'''`) and #228 (two `{for}` bugs in
 `keyboard-shortcuts-thunderbird` that the earlier regex audit could not detect, because the
-file's 294/294 tag totals balance).
+file's 294/294 tag totals balance). It was 5 until the 2026-09-09 refresh: the SW004 in
+`thunderbird-desktop-and-thundermail` has since been fixed upstream — so **re-lint after a
+rescrape and treat a change in that count as a real signal**, about either the articles or
+the linter.
 
 The WASM build and web app are **verified working in a real browser**: all six exports load,
 diagnostics render with correct line/column, both buttons behave, and a 124 KB input with
@@ -63,9 +68,11 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 - Phase 3: non-English locales. Locale is already threaded through; no en-US assumptions
   live in rule logic.
 
-**Do not redo:** the corpus is already scraped and committed; the heading data is already
-measured; the four bugs are already filed with rendered-output evidence. **Every test now
-runs in CI** — `rust`, `vscode` (34 grammar + 51 link assertions), `emacs`
+**Do not redo:** the corpus is already scraped and committed (rescraping is cheap to *ask*
+for and expensive to *run* — a full pass is ~200 signed-in page fetches and reliably earns
+a 429 for the rest of the hour); the heading data is already measured; the four bugs are
+already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
+`vscode` (34 grammar + 51 link assertions), `emacs`
 (63 mode assertions, against the real CLI), `vim` (61 plugin assertions, run under
 both Vim and Neovim) and `web` (31 assertions on the fix arithmetic) — so there is no
 by-hand test suite left.

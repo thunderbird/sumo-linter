@@ -181,6 +181,17 @@ async function fetchPath(ctx, page, path) {
       await sleep(5000);
       continue;
     }
+    // A 5xx is transient by definition and SUMO returns them under load — the
+    // whole-KB listing died on `page=52 -> HTTP 503` and lost 51 pages of work.
+    // Retry rather than fail the run; the caller cannot tell a 503 from a bug.
+    if (res.status() >= 500) {
+      const wait = Math.min(30 * attempt, 300);
+      console.log(
+        `  HTTP ${res.status()} — retrying in ${wait}s (attempt ${attempt}, ${new Date().toLocaleTimeString()})`
+      );
+      await sleep(wait * 1000);
+      continue;
+    }
     if (res.status() === 429) {
       const wait = banWait(res, attempt);
       console.log(
@@ -254,15 +265,24 @@ async function listArticles(ctx, page, product) {
   // one. That is the only way to see articles belonging to no product — Template:
   // pages, which are where `{{{n}}}` lives (sumo-linter #1).
   let path = product === '*' ? '/api/1/kb/' : `/api/1/kb/?product=${encodeURIComponent(product)}`;
+  let complete = true;
   while (path) {
     const r = await fetchPath(ctx, page, path);
-    if (r.status !== 200) throw new Error(`list ${path} -> HTTP ${r.status}`);
+    if (r.status !== 200) {
+      // Keep what we have and say so. Throwing here discarded 51 pages once;
+      // a partial list is still useful for sampling. It is NOT useful for
+      // deciding what is public, which is why the flag travels with the data
+      // instead of being inferred from the count.
+      console.log(`  list stopped: ${path} -> HTTP ${r.status} (partial)`);
+      complete = false;
+      break;
+    }
     const j = JSON.parse(r.body);
     out.push(...(j.results || []));
     path = j.next;
     if (path) await sleep(CONFIG.delayMs);
   }
-  return out;
+  return { items: out, complete };
 }
 
 /** Public API detail: metadata plus Kitsune's own rendered HTML (the free oracle). */
@@ -340,9 +360,11 @@ async function main() {
 
     // Enumerate. A slug can belong to both products, so dedupe.
     const bySlug = new Map();
+    let listComplete = true;
     for (const product of CONFIG.products) {
-      const items = await listArticles(ctx, page, product);
-      console.log(`  ${product}: ${items.length} articles`);
+      const { items, complete } = await listArticles(ctx, page, product);
+      if (!complete) listComplete = false;
+      console.log(`  ${product}: ${items.length} articles${complete ? '' : ' (PARTIAL)'}`);
       for (const it of items) {
         const prev = bySlug.get(it.slug);
         if (prev) prev.products.push(product);
@@ -369,6 +391,11 @@ async function main() {
 
     if (CONFIG.listOnly) {
       for (const a of articles) console.log(`${a.slug}\t${a.products.join(',')}\t${a.title}`);
+      // Machine-readable, because public-index.mjs must refuse a partial listing:
+      // an article missing from it would be filed as an unpublished draft and
+      // dropped from the committed corpus.
+      console.log(listComplete ? '# COMPLETE' : '# INCOMPLETE — do not use for the public/private split');
+      if (!listComplete) process.exitCode = 1;
       return;
     }
 

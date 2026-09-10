@@ -1,0 +1,3 @@
+#[[Template:clickfpnbutton]]
+#Click the slider to turn it on or off.
+#;[[Image:switch fpn on new|width=350]]

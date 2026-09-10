@@ -1,0 +1,1 @@
+{warning}Effective December 13, 2021, Mozilla has ended support for the Firefox Lockwise app on Android and iOS. To continue to access and use your password management, see [[End of support for Firefox Lockwise]].{/warning}

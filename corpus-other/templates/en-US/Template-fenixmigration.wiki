@@ -1,0 +1,1 @@
+<!--{note}We are rolling out a new, improved version of Firefox for Android. If your experience is different from what's shown here, stay tuned. You'll get the updated release soon.{/note}-->

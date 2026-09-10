@@ -1,0 +1,1 @@
+{warning}This is a new feature that is not yet available in released versions of Firefox.  You can try it on [https://www.mozilla.org/firefox/channel/ Firefox Beta].{/warning}

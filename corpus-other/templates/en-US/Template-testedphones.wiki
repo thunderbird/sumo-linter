@@ -1,0 +1,209 @@
+==Acer==
+*Acer Liquid mini E310
+*Acer Liquid C1
+==Alcatel==
+*Alcatel One Touch 903
+*Alcatel One Touch 908
+*Alcatel One Touch 918
+*Alcatel One Touch 979
+*Alcatel One Touch 990
+*Alcatel One Touch 991
+*Alcatel One Touch 993
+*Alcatel One Touch 995 Ultra
+*Alcatel One Touch 997 Ultra
+*Alcatel One Touch 4030X
+*Alcatel One Touch 5020X M'Pop
+*Alcatel One Touch 5035X X'Pop
+*Alcatel One Touch 6030X
+*Alcatel One Touch 6033M
+*Alcatel One Touch 8000D
+*Alcatel One Touch Evo 7
+==Asus==
+*ASUS Fonepad ME371
+==Garmin-Asus==
+*Garmin-Asus Nuvifone A10
+==HTC==
+*HTC Amaze, 4G
+*HTC Aria
+*HTC ChaCha A810e 
+*HTC Desire HD (AT&T Inspire 4G)
+*HTC Desire S
+*HTC Desire Z (T-Mobile G2)
+*HTC Doubleshot (T-Mobile myTouch 4G)
+*HTC Droid DNA
+*HTC Droid Incredible
+*HTC Droid Incredible 2
+*HTC EVO 3D
+*HTC EVO 4G LTE
+*HTC EVO 4G, EVO Shift 4G
+*HTC EVO Design 4G
+*HTC Glacier (T-Mobile myTouch 4G)
+*HTC Hero (T-Mobile G2 Touch) (Beta only)
+*HTC Incredible S
+*HTC Inspire 4G
+*HTC Jetstream LTE
+*HTC Legend
+*HTC Merge
+*HTC Nexus One
+*HTC One (M7, M8)
+*HTC One S
+*HTC One V
+*HTC One X (X+)
+*HTC One XL
+*HTC Raider 4G LTE
+*HTC Rezound
+*HTC Rhyme
+*HTC Sensation 4G
+*HTC Status (ChaCha)
+*HTC Status A810a 
+*HTC Thunderbolt 4G
+*HTC Wildfire S 
+==Huawei==
+*Huawei CM980 (hwcm980) 
+*Huawei Impulse 4G
+*Huawei M650
+*Huawei Mercury
+*Huawei U8651
+==Kyocera==
+*Kyocera M9300 (Echo)
+*Kyocera Milano (C5120) 
+==Lenovo==
+*Lenovo S880
+*Lenovo S720
+*Lenovo P770   
+*Lenovo P700i
+*Lenovo K860
+*Lenovo K900 IdeaPHone
+==LG==
+*LG G2X
+*LG Lucid
+*LG Marquee (LS855)
+*LG Nexus 4
+*LG Nexus 5
+*LG Optimus Chat C550
+*LG Optimus chat L-04C
+*LG Optimus 2X
+*LG Optimus 3D
+*LG Optimus 4G, LTE
+*LG Optimus 4X HD
+*LG Optimus Black (P970)
+*LG Optimus G (E975, 2600)
+*LG Optimus G Pro (E985)
+*LG Optimus Hub LG-E510f 
+*LG Optimus Net Dual LG-P698f 
+*LG Optimus L9
+*LG Optimus One KU3700 
+*LG Optimus One LU3700
+*LG Optimus One Thunder P500
+*LG Optimus One SU370
+*LG Optimus Q
+*LG Optimus Slider
+*LG Optimus Z
+*LG Revolution
+*LG Spectrum
+*LG Thrill 4G
+*LG Optimus Q L55C 
+==Motorola==
+*Motorola Atrix 2
+*Motorola Atrix 4G
+*Motorola Cliq 2
+*Motorola Defy
+*Motorola Droid 2, Droid 2 Global
+*Motorola Droid 3 (Milestone 3)
+*Motorola Droid 4
+*Motorola Droid Bionic
+*Motorola Droid Pro (Milestone Plus)
+*Motorola Droid Razr, 
+*Motorola Droid Razr Maxx (4G)
+*Motorola Droid Razr HD (XT925, XT926)
+*Motorola Droid X (Milestone X)
+*Motorola Droid X2
+*Motorola Fire XT XT531 
+*Motorola Flipout
+*Motorola Photon, Photon 4G
+*Motorola Triumph
+*Motorola Moto X
+*Motorola RAZR i
+*Motorola XPRT MB612
+*Motorola XT806
+*Motorola RAZR D1
+==MyTouch==
+*MyTouch 3G Slide
+==MUSN==
+*MUSN M500
+==Nokia==
+*Nokia X
+==Oppo==
+*Oppo Find 5
+==Pantech==
+*Pantech Breakout
+==Samsung==
+*Samsung Admire
+*Samsung Admire SCH-R720 
+*Samsung Conquer 4G
+*Samsung Continuum (i400)
+*Samsung Droid Charge 4G LTE (Inspiration, Stealth)
+*Samsung Galaxy 551 (GT-i5510)
+*Samsung Galaxy Chat
+*Samsung Galaxy Fit (GT-S5670, GT-S5670B, GT-S5670L)
+*Samsung Galaxy Gio
+*Samsung Galaxy Nexus
+*Samsung Galaxy Next
+*Samsung Galaxy Note
+*Samsung Galaxy Note II
+*Samsung Galaxy Note III
+*Samsung Galaxy Pop
+*Samsung Galaxy Q
+*Samsung Galaxy R
+*Samsung Galaxy S (i9000, Captivate, Fascinate, Mesmerize, Vibrant)
+*Samsung Galaxy S 4G
+*Samsung Galaxy S II, 4G, HD LTE, X
+*Samsung Galaxy S III, Mini
+*Samsung Galaxy S IV
+*Samsung Galaxy S V
+*Samsung Galaxy S Pro (Epic 4G)
+*Samsung Galaxy W
+*Samsung Illusion
+*Samsung i8150 Galaxy W
+*Samsung Infuse 4G
+*Samsung Nexus S
+*Samsung Replenish (SPH M580)
+*Samsung Stratosphere
+*Samsung T-Mobile Sidekick 4G
+==Sharp==
+*Sharp ADS1
+*Sharp SH8118U
+*Sharp SH8128U
+==Sony==
+*Sony Xperia S
+*Sony Ericsson Xperia Arc
+*Sony Ericsson Xperia Arc S
+*Sony Ericsson Xperia Mini
+*Sony Ericsson Xperia Mini Pro
+*Sony Ericsson Xperia Neo
+*Sony Ericsson Xperia Play
+*Sony Ericsson Xperia Pro
+*Sony Ericsson Xperia Ray
+*Sony Ericsson Xperia S
+*Sony Ericsson Xperia T
+*Sony Ericsson Xperia X8
+*Sony Ericsson Xperia Z1
+*Sony Ericsson Xperia ZL
+==Spice==
+*Spice Mi-350
+==T-Mobile==
+*T-Mobile Move
+==ViewSonic==
+*ViewSonic V350
+==Vodafone==
+*Vodafone 945 (ZTE Joe) 
+==Wellcom==
+*Wellcom A89
+==ZTE==
+*ZTE Atlas W (Blade2) 
+*ZTE Blade (P729C)
+*ZTE-C R750
+*ZTE Skate N960 
+*ZTE X500
+*ZTE V9
+*ZTE Z990

@@ -1,0 +1,60 @@
+==Acer==
+*Acer Iconia Tab A200
+*Acer Iconia Tab A500
+*Acer Iconia Tab A510
+==Archos==
+*Archos 101 Internet Tablet
+==Asus==
+*Asus EEE Pad Transformer Pad Tablet TF101
+*Asus EEE Pad Transformer Pad Tablet TF201
+*Asus EEE Pad Transformer Pad Tablet TF300T, TL, TG
+*Asus EEE Pad Transformer Pad Tablet TF700T
+*Asus Memo Pad Smart 10
+*Asus Google Nexus 7 (2012, 2013)
+*Asus Transformer Pad Infinity/TF700T
+==Axioo==
+*Axioo Picopad QGN
+==Camangi==
+*Camangi FM600
+==Cherry==
+*Cherry Mobile Superion
+==Commtiva==
+*Commtiva N700
+==CSL==
+*CSL Spice Mi700
+==Dell==
+*Dell Streak 7
+==EVGA==
+*Tegra Note 7
+==HTC==
+*HTC EVO View 4G
+*HTC Flyer
+==Huawei==
+*Huawei MediaPad 7
+==Lenovo==
+*Lenovo Ideapad K1
+==Motorola==
+*Motorola Xoom
+==Samsung==
+*Samsung Galaxy Mega
+*Samsung Galaxy Note 10.1
+*Samsung Galaxy Tab 2 7.0, 8.9, 10.1
+*Samsung Galaxy Tab 7.0 Plus
+*Samsung Galaxy Tab 7.7, 10.1
+*Samsung Galaxy Tab 2 7.0, 8.9, 10.1
+*Samsung Galaxy Tab 3 7.0, 8.0, 8.9, 10.1
+*Samsung Nexus 10
+==Sony==
+*Sony Tablet S
+*Sony Xperia Tablet Z
+==Tesco==
+*Hudl 7 
+==Toshiba==
+*Toshiba AT 200
+*Toshiba Excite 7.7, 10, 13
+*Toshiba Thrive
+==ViewSonic==
+*ViewSonic G Tablet
+*ViewSonic ViewPad 7
+==Wellcom==
+*Wellcom A800

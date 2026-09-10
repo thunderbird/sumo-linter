@@ -1,0 +1,5 @@
+Welcome to a new version of Firefox for Android.
+
+With this release, you get the latest fixes for a more stable and secure browsing experience. 
+
+Thank you for supporting Firefox/Mozilla and our [https://www.mozilla.org/mission/ mission for privacy, safety and inclusion on the Web].

@@ -1,0 +1,1 @@
+{note}Firefox ScreenshotGo is no longer supported and will not be getting any further updates.{/note}

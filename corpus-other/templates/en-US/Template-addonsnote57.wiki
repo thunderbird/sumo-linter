@@ -1,0 +1,1 @@
+{warning} In [[Find what version of Firefox you are using|Firefox version]] 57 and above, only extensions built using WebExtensions APIs will work. See [[Firefox add-on technology is modernizing]] and these [[Frequently asked questions - Firefox add-on technology is modernizing|Frequently Asked Questions]] for details.{/warning}

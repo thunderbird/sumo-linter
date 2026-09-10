@@ -1,0 +1,8 @@
+#[[T:optionspreferences]]. In the {for win}Options{/for}{for mac,linux}Preferences{/for} window, click on the {menu Sync} tab.
+#Click {button Set Up Firefox Sync}.<br>[[Image:Sync Setup 1]] 
+#Click {button Create a New Account}.<br>[[Image:Sync Setup 2]] 
+#Enter your email address, create a password and confirm it. Then check "''I agree to the Terms of Service and Privacy Policy''" and click {button {for win,linux}Next{/for}{for mac}Continue{/for}}. 
+#This is your {for not fx9}Sync Key{/for}{for fx9}Recovery Key{/for}. Now is a good time to save or print a copy of your key and store it somewhere safe. When you are done with this step, click {button {for win,linux}Next{/for}{for mac}Continue{/for}}.<br>[[Image:Sync Setup 4]] {note}[[Template:whatissynckey]]{/note}
+#Confirm that you are not a robot by entering the text from the image. Then click {button {for win,linux}Next{/for}{for mac}Continue{/for}}.
+#You will see a ''Setup Complete!'' message. Click {button {for win,linux}Finish{/for}{for mac}Done{/for}} to close the setup window and take you back to the Sync panel.<br>[[Image:setup complete]] 
+# You do not need to do anything else. Firefox Sync will automatically sync your data in the background from here on. {note}This first sync should happen quickly but may take more than 30 minutes depending on how much information needs to be synced.{/note}

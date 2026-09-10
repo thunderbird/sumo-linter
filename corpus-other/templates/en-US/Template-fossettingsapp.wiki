@@ -1,0 +1,1 @@
+{for not fxos1.4}[[Image:Settings 1.3]]{/for}{for =fxos1.4}[[Image:Settings 1.4]]{/for}{for fxos2.0}[[Image:Settings- 2.0 (small)]]{/for}

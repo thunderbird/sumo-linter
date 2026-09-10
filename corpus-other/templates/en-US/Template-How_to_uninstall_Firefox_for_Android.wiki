@@ -1,0 +1,6 @@
+To uninstall Firefox, follow these steps:
+# Open the Google Play Store application and tap on the search icon which looks like a magnifying glass.<br><br>[[Image:ICS - Android - Tapping Search icon in Google Play]]
+# Type "Firefox" and tap on the magnifying glass search icon.
+# Tap on {button Firefox}.<br><br>[[Image:ICS - Android - Searching for Firefox in Google Play]]
+# Tap on {button Uninstall}.<br><br>[[Image:ICS - Android - Uninstalling from Google Play]]
+Your uninstall of Firefox is finished.

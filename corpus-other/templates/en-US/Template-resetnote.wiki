@@ -1,0 +1,1 @@
+{note}'''Note''': When you refresh Firefox, your bookmarks, browsing history, open tabs, windows, passwords, cookies and web form auto-fill information will be saved. However, your extensions and themes will be removed and your preferences will be reset. [[Refresh Firefox - reset add-ons and settings|Learn more.]]{/note}

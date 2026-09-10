@@ -1,0 +1,1 @@
+{note}Support ended for all [https://wikipedia.org/wiki/NPAPI#Plugins NPAPI plugins], except for Adobe Flash, in [[Find what version of Firefox you are using|Firefox version]] 52. See [[Why do Java, Silverlight, Adobe Acrobat and other plugins no longer work?|this article]] for details.{/note}

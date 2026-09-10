@@ -1,0 +1,1 @@
+{note}Removing or disabling the add-on does not cancel your subscription. See [[How do I cancel my subscription to Firefox Private Network?]]{/note}

@@ -1,0 +1,2 @@
+Click the ''Relay'' icon [[Image:relayIcon]] in the toolbar. If you don't see the icon, click the extensions [[Image:extensions_button]] button and then click ''Firefox Relay''.
+;[[Image:Fx111-NewManagealias]]

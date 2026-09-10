@@ -68,6 +68,9 @@ node_modules/
 # plus corpus/README.md are the record that matters.
 /corpus/templates/index.json
 
-# Other-product scrape. Pending a per-document publication check before
-# anything here is committed; see corpus/README.md on published content.
-/corpus-other/
+# Other-product templates that are NOT publicly reachable. Probed anonymously
+# 2026-09-09: 207 of 209 return 200, these two 404. Same rule as the draft
+# articles above — do not publish what SUMO has not.
+/corpus-other/templates/en-US/Template-Fx56OptionsPrefs.wiki
+/corpus-other/templates/en-US/Template-_shaping_the_next_decade.wiki
+/corpus-other/templates/index.json

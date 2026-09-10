@@ -1,0 +1,2 @@
+{note}
+This article is for an old version of Firefox for Android that's no longer supported. Please [https://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en_US update to the latest version] to get the most up-to-date features and fixes.{/note}

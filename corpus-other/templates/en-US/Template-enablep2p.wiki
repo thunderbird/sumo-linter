@@ -1,0 +1,7 @@
+<!--Copied from https://support.mozilla.org/en-US/kb/turn-picture-picture-mode/revision/190545. L10N, please copy and paste your localized versions-->
+If you don’t want to see the controls while hovering, you can hide that option in Firefox. (Note: You can still turn on picture-in-picture view by right-clicking a video.) Or you can use this to re-enable the control when you want to use it again.
+#[[Template:optionspreferences]]
+# In the {menu General} panel, scroll down to the ''Browsing'' section.
+#Clear the check mark for '''Enable picture-in-picture video controls'''.
+#;[[Image:Fx111settings-UncheckPIP]]
+If you later want to re-enable the controls, simply add back the check mark.

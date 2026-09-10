@@ -1,0 +1,7 @@
+#[[Template:optionspreferences]]
+#In the {menu General} panel, scroll down to ''Network Settings'' and click the  {button Settings…} button.
+#In the dialog box that opens, scroll down to ''Enable DNS over HTTPS''.
+#;*'''On:''' Select the '''Enable DNS over HTTPS''' checkbox. Select a provider or set up a custom provider.
+#;*'''Off:''' Deselect the '''Enable DNS over HTTPS''' checkbox.
+#;[[Image:toggle doh]]
+#Click {button OK} to save your changes and close the window.

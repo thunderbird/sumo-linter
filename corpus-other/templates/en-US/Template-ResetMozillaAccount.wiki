@@ -1,0 +1,7 @@
+# Visit the {{{serviceURL}}}.
+# Enter your Mozilla account email address, and click '''Sign up or sign in'''.
+# Click '''Forgot password?'''
+# Enter the email address associated with your Mozilla account. Firefox will send you a reset email.
+# Follow the instructions received in your email to change your password.
+# After signing in with your new password, remember to update your password on each of your synced devices.
+# Once you’ve changed your password, sign in to {{{service}}} with your new password.

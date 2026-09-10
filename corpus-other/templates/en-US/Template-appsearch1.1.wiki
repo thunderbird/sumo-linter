@@ -1,0 +1,2 @@
+On some devices with Firefox OS v1.1, Adaptive Search has moved to the home screen. Just unlock your phone and it's right there - no need to swipe to the right. [[Use Adaptive Search to discover personalized apps|Learn how it works.]]
+:[[Image:Homescreen 1.1]]

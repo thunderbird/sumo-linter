@@ -1,0 +1,2 @@
+Click the settings icon on the top right of the Private Network panel:
+;[[Image:fpn settings new|width=300]]

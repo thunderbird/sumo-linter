@@ -1,0 +1,42 @@
+{for not fx10}
+#Click {button Set Up Firefox Sync}.<br>[[Image:Sync Setup 1]] 
+#Click {button I Have A Firefox Sync Account}.
+#Enter your Sync email address and password and then click {for win,linux}{button Next}{/for}{for mac}{button Continue}{/for}.
+#Enter your Sync Key and then click {for win,linux}{button Next}{/for}{for mac}{button Continue}{/for}.<br>[[Image:Add comp 2]][[Template:synckey-note]]
+#You will see a '''Setup Complete''' screen. Click {for win,linux}{button Finish}{/for}{for mac}{button Done}{/for} to finish adding this computer to your Sync account.
+{/for}
+{for fx10}
+{for win}
+#At the top of the Firefox window, {for win7,win8}click the {button Firefox} button{/for}{for winxp}click the {menu Tools} menu{/for} and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button I Have an Account}.
+#Since you're not near the device with Sync already set up, click the '''I don't have the device with me''' link.
+#Sign in to your Sync account:
+#*Enter your account email address
+#*Enter your password
+#*Enter your [[How do I manage my Firefox Sync account?#w_where-can-i-find-my-recovery-key|Recovery Key]]
+#*Then click {button Next}
+#You will see a '''Setup Complete''' screen. Click {button Finish} to complete adding this device to your Sync account.
+{/for}
+{for mac}
+#On the menu bar, click the {menu Tools} menu and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button I Have an Account}.
+#Since you're not near the device with Sync already set up, click the '''I don't have the device with me''' link.
+#Sign in to your Sync account:
+#*Enter your account email address
+#*Enter your password
+#*Enter your [[How do I manage my Firefox Sync account?#w_where-can-i-find-my-recovery-key|Recovery Key]]
+#*Then click {button Continue}
+#You will see a '''Setup Complete''' screen. Click {button Done} to complete adding this device to your Sync account.
+{/for}
+{for linux}
+#At the top of the Firefox window, click the {menu Tools} menu and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button I Have an Account}.
+#Since you're not near the device with Sync already set up, click the '''I don't have the device with me''' link.
+#Sign in to your Sync account:
+#*Enter your account email address
+#*Enter your password
+#*Enter your [[How do I manage my Firefox Sync account?#w_where-can-i-find-my-recovery-key|Recovery Key]]
+#*Then click {button Next}
+#You will see a '''Setup Complete''' screen. Click {button Finish} to complete adding this device to your Sync account.
+{/for}
+{/for}

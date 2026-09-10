@@ -1,0 +1,3 @@
+{for not m69}{note}
+You are using our older mobile browser, but this article is for Firefox Preview, our newest, fastest browser. Download [https://play.google.com/store/apps/details?id=org.mozilla.fenix Firefox Preview here] or visit the [https://support.mozilla.org/products/mobile old Firefox for Android knowledge base].{/note}
+{/for}

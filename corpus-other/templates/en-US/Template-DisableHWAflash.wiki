@@ -1,0 +1,6 @@
+#Go to [http://helpx.adobe.com/flash-player/kb/video-playback-issues.html#main_Solve_video_playback_issues this Adobe Flash Player Help page].  
+#[[T:contextmenu]] on the Flash Player logo on that page, then click on {menu Settings} in the context menu. The Adobe Flash Player Settings screen will open.
+# Click on the icon at the bottom-left of the Adobe Flash Player Settings window to open the Display panel.
+# Remove the check mark from '''Enable hardware acceleration'''. <br/> <br/>[[Image:fpSettings1.png]] <br/>
+# Click {button Close} to close the Adobe Flash Player Settings Window.
+# Restart Firefox.

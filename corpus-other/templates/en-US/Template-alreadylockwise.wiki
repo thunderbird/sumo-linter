@@ -1,0 +1,1 @@
+{note}Firefox Lockwise is already built into Firefox 70+, replacing [[Password Manager - Remember, delete, change and import saved passwords in Firefox | Password Manager]]. Click the Firefox Accounts avatar in the toolbar, then select {menu Logins and Passwords}. See [[Find what version of Firefox you are using]].{/note}

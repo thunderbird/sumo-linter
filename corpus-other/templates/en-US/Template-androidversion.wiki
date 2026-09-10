@@ -1,0 +1,6 @@
+<!--
+Samsung Note 8, Android 7.1.1 Settings->About phone->Software information
+Samsung S3, Android 4.4.2 Settings->tap on 'More' tab->About device
+Samsung SII, Android 4.1.2 Settings->About device
+-->
+{note}To find your version of Android, open the Settings app, tap '''About phone''', '''About tablet''' or '''About device''' (you may have to tap on the '''More''' tab on some versions of Android) and if your Android version is not shown, tap '''Android version''' (or '''Software information''' on some versions of Android).{/note}

@@ -1,0 +1,3 @@
+{note}
+=='''Mozilla Fun Fact'''==
+Did you know Mozilla is a non-profit whose support is done mostly by volunteers? And that we are independent and open source? Keep browsing freely!{/note}

@@ -1,0 +1,2 @@
+* [[How to fix the Update Failed error message when updating Firefox]]
+* [[Fix problems connecting to websites after updating Firefox]]

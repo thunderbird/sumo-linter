@@ -1,0 +1,5 @@
+[[Template:OpenBookmarksLibrary]]
+<li>In the toolbar of the Library window, click {for mac}the ''Import and Backup'' [[Image:import-export-arrows]] button<br>[[Image:Fx80BookmarksLibrary-mac]]<br>{/for}{for not mac}{menu [[Image:import-export-arrows]] Import and Backup}{/for} and choose {menu Import Bookmarks from HTML…}{for win}<br>[[Image:importBookmarks]]{/for}</li>
+<li>Within the ''Import Bookmarks File'' window that opens, navigate to the bookmarks HTML file you are importing and select the file.</li>
+<li>Click the {button Open} button. The ''Import Bookmarks File'' window will close.</li>
+<li>Close the Library window.</li>

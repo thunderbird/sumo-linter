@@ -1,0 +1,6 @@
+#(In Firefox for desktop) [[Template:fx29menu]]
+#Click your Mozilla account name or email address (or click {menu Sign in}).
+#Click {menu Manage Account}
+#*Alternatively, go to [https://accounts.firefox.com/signin Mozilla account Sign in].
+#On the Mozilla account page, scroll down to the '''Security''' section and click the {button Change} button next to  '''Password'''.
+#Follow the steps to enter your old and new passwords, then click {button Save} to finish.

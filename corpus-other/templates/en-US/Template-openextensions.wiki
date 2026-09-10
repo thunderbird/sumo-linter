@@ -1,0 +1,1 @@
+Click the menu button [[Image:Fx89menuButton]], click {for not fx140}{menu Add-ons and themes}{/for}{for fx140}{menu Extensions and themes}{/for} and select {menu Extensions}.

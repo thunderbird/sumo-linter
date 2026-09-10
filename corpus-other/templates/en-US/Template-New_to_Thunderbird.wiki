@@ -1,0 +1,6 @@
+* [[New in Thunderbird]]
+* [[Thunderbird FAQ]]
+* [[Automatic Account Configuration]]
+* [[Keyboard Shortcuts TB]]
+* [[Make Thunderbird the Default Mail Client]]
+* [[Switching to Thunderbird from Windows or Web-Based Email Applications]]

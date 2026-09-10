@@ -1,0 +1,1 @@
+{note}'''Note:''' If you're having trouble with a website, click the {for not fx149}padlock icon [[Image:Fx89Padlock]]{/for}{for fx149}shield icon [[Image:Fx149UnifiedTrustIcon-Secure]]{/for} in the address bar to see if Firefox has blocked insecure parts of the page. See [[Mixed content blocking in Firefox]] for details.{/note}

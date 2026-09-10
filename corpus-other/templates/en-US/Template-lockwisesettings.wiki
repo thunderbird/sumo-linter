@@ -1,0 +1,2 @@
+Click the Firefox logins menu [[Image:Three dot menu|width=40]], then click {for win}{menu Options}{/for}{for mac,linux}{menu Preferences}{/for}.
+;{for mac,linux}[[Image:Firefox logins menu|width=400]]{/for}{for win}[[Image:Fx122 WIN 3 Dot Menu Options|width=400]]{/for}

@@ -1,0 +1,3 @@
+=Lists of policies=
+*[https://github.com/mozilla/policy-templates/releases Release-specific policies]
+*[https://github.com/mozilla/policy-templates All policies]

@@ -1,0 +1,1 @@
+<!-- see discusson https://support.mozilla.org/en-US/kb/templatetop5afterword/discuss/6608 {note}This article, like all Firefox support, is brought to you mostly by volunteers, who keep Mozilla proudly independent and open source. Keep browsing freely!{/note} -->

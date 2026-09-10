@@ -1,0 +1,1 @@
+{warning}This applies to Firefox 70+. Please see [[Find what version of Firefox you are using]].{/warning}

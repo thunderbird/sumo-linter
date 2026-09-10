@@ -1,0 +1,1 @@
+In addition, there may be third-party Firefox extensions that can help you. For more information on searching for and installing extensions, see [[Find and install add-ons to add features to Firefox]].

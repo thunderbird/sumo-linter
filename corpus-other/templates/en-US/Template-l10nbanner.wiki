@@ -1,0 +1,5 @@
+<!--- Use this template only when necessary - that is, when you want to direct users from an out-of-date page in your locale to an up-to-date page in a backup locale - in other cases, the use and localization of this template are optional --->
+<!--- Use this template *only* in LOCALIZED versions of the articles - and *never* in the EN versions --->
+<!--- The default version was created for Portuguese - please edit for you locale as you see fit - change the "Portugese", the "click here for more information" link and the "Brazilian Portugese" parts as necessary --->
+
+{note}This page may be out of date. If you want to help us translate it into Portuguese, [https://support.mozilla.org/forums/l10n-forum/711196 click here for more information]. You can check the Brazilian Portuguese version of it by changing the language using the option at the top of the page.{/note}

@@ -1,0 +1,17 @@
+<!--I copied this over from https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature/. We have to turn this into a template because we expect more DNT-related articles in the future.-->
+The Do Not Track feature is turned off by default, except in [[Private Browsing - Use Firefox without saving history|Private Windows]], where it is always on by default. To always use Do Not Track:
+{for not fx120}
+#[[T:optionspreferences]]
+#Select the {menu Privacy & Security} panel.
+#*This takes you to the [[Enhanced Tracking Protection in Firefox for desktop|Enhanced Tracking Protection]] section of your Browser Privacy settings.
+#;[[Image:Fx70ETP-DoNotTrack]]
+#Under ''Send websites a “Do Not Track” signal that you don’t want to be tracked'', choose '''Always'''.
+#[[T:closeOptionsPreferences]]
+{/for}
+{for fx120}
+#[[T:optionspreferences]]
+#Select the {menu Privacy & Security} panel.
+#Under ''Website Privacy Preferences'', check the box next to {menu Send websites a “Do Not Track” request}.
+#;[[Image:Fx121-DoNotTrack]]
+#[[T:closeOptionsPreferences]]
+{/for}

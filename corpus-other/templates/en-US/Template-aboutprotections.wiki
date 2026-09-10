@@ -1,0 +1,1 @@
+Type '''about:protections''' in the [https://wikipedia.org/wiki/Address_bar address bar] and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.

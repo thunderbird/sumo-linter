@@ -1,0 +1,1 @@
+{note}'''New feature!''' Starting with [[Find what version of Firefox you are using|Firefox version]] 67, all Firefox installations will use dedicated profiles. See [[Dedicated profiles per Firefox installation]] for details.{/note}

@@ -1,0 +1,4 @@
+{note}
+{for fx}[[Image:progressive rollout banner]]{/for}
+This feature is only available in English locales worldwide.
+{/note}

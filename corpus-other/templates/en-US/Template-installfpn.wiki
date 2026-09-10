@@ -1,0 +1,6 @@
+#Visit [https://fpn.firefox.com/ the Firefox Private Network page].
+#Click the {button Add to Firefox} button
+#Follow the prompts to install the extension.
+#[[Template:clickfpnbutton]]
+#;[[Image:fpn toolbar icon|width=400]]
+#Sign in or create a [[Access Mozilla services with a Mozilla account|Firefox Account]] by following the prompts.

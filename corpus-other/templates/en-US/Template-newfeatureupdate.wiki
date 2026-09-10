@@ -1,0 +1,1 @@
+{note}To use this new feature, please [[Update Firefox to the latest release|update Firefox]] if you don't have the latest version.{/note}

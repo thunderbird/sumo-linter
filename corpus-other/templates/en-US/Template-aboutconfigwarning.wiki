@@ -1,0 +1,2 @@
+{warning}'''Warning:''' These instructions are for experienced Firefox users. Changing settings in the [[Configuration Editor for Firefox|Configuration Editor]] (''about:config'') can have serious effects on your browser’s stability, security and performance.
+<br>'''Only proceed if you are comfortable with advanced settings and understand the potential impacts'''.{/warning}

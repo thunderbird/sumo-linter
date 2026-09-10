@@ -1,0 +1,3 @@
+#Tap the {button Menu} button [[Template:AndroidMenuLocation]], choose {menu Settings} [[Template:AndroidMore]] and, finally, {menu Sync}.
+#The code to add this device appears.
+#:[[Image:sync_recovery3]]

@@ -1,0 +1,1 @@
+You can join an existing Hubs room using a URL or a numeric code. If you have a URL, navigate to the URL in your browser. If you have a numeric code, visit [https://hubs.link hubs.link] to use it.

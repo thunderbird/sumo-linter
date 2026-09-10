@@ -1,0 +1,7 @@
+#Click the menu button and click {menu Add-ons}.
+#Find ''Firefox Private Network'' on your list of add-ons.
+#Click the options menu for ''Firefox Private Network''.
+#;[[Image:remove addon 74]]
+# Click {menu Remove}.
+
+[[Template:fpncancelsubscription]]

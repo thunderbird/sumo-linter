@@ -1,0 +1,1 @@
+The [[Refresh Firefox - reset add-ons and settings|Refresh Firefox feature]] can fix many issues by restoring Firefox to its default state while saving your essential information. Consider using it before going through a lengthy troubleshooting process.

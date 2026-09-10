@@ -1,0 +1,1 @@
+{warning}This article applies to the latest version of Firefox for Android. Please [[Update to the latest version of Firefox for Android|update your version]] first to enjoy these features.{/warning}

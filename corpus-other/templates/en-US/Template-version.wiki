@@ -1,0 +1,1 @@
+{menu {for win}Help > About{/for}{for linux}Help > About Thunderbird{/for}{for mac}Thunderbird > About Thunderbird{/for}}

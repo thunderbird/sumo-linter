@@ -1,0 +1,1 @@
+{note}This page describes some new features in Firefox Focus. If your Firefox Focus looks different, don't fret, you'll be able to get the new version soon.{/note}

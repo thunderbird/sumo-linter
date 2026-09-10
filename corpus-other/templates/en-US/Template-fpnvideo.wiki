@@ -1,0 +1,1 @@
+Firefox Private Network may block parts of real-time communication sites like Skype for Web, Google Hangouts and Meet, Messenger.com, Appear.in, Jitsi.org, Talky.io and webex.com to protect your connection. In these cases, Firefox Private Network will prompt you to turn it off to enable a site’s functionality (turning off Private Network will make your connection less secure.)

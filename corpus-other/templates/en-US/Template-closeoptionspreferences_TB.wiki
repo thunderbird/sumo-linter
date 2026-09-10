@@ -1,0 +1,1 @@
+{for win}Click {button OK} to close the Options window.{/for}{for linux}Click {button Close} to close the Preferences window.{/for}{for mac}Close the Preferences window.{/for}

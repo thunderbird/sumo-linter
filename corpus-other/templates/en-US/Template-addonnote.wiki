@@ -1,0 +1,1 @@
+{note}'''Note:''' This add-on is not maintained by Mozilla.{/note}

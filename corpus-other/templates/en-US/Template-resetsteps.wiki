@@ -1,0 +1,5 @@
+#Click the menu button [[Image:Fx89menuButton]], click {menu Help}, and select {menu More Troubleshooting Information}.
+#Click {button Refresh Firefox…} then {button Refresh Firefox} in the confirmation window that opens. Firefox will close to refresh itself.<!--[[Image:Fx91RefreshBoxWin10]]-->
+#When finished, a window will list your imported information. Click the {button Finish} button. Firefox will open.<!--[[Image: Fx91ImportWizardWin10]]-->
+#Select whether you want Firefox to restore all or some windows and tabs, and click the {button Let's go!} button.<!--[[Image: Fx91LetsGoButtonWin10]]-->
+{note}'''Note:''' There's a Refresh Firefox button in the Firefox [[Use Troubleshoot Mode in Firefox|Troubleshoot Mode]] window, if you can't start Firefox normally. You can also do a manual refresh by [[Restore bookmarks, passwords, and data from an old Firefox profile#w_create-a-new-firefox-profile|creating a new profile and transferring your important data to the new profile]].{/note}

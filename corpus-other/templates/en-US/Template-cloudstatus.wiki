@@ -1,0 +1,1 @@
+{warning}'''Before you begin:''' Please check the [https://status.services.mozilla.com/ Cloud Services Status] to make sure that your service isn't temporarily down.{/warning}

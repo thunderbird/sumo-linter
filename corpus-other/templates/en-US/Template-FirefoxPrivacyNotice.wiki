@@ -1,0 +1,4 @@
+{note} 
+[[Image:progressive rollout banner]]
+Firefox handles your data with transparency. To learn more, read the [https://www.mozilla.org/privacy/firefox/ Firefox Privacy Notice].
+{/note}

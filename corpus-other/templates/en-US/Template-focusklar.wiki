@@ -1,0 +1,1 @@
+{note}'''Living in Germany, Austria or Switzerland?''' [https://support.mozilla.org/de/products/klar Firefox Klar] is the German language version of Firefox Focus. See [[I can't find Firefox Focus in Germany, Austria or Switzerland]].{/note}

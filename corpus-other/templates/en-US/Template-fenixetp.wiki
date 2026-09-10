@@ -1,0 +1,10 @@
+Enhanced Tracking Protection is on by default, but you can turn it off or change your level of protection:
+#[[Template:menupreview]]
+#Tap {menu Settings}.
+#Under ''Privacy and Security'', tap {menu Enhanced Tracking Protection}.
+#Tap the switch to turn it on or off.
+#If turning it on, choose the level of protection you want.
+#*'''Standard:''' Protects you from social media trackers, cross-site trackers and cryptominers.
+#*'''Strict:''' Blocks tracking content (videos, ads and other content that contain tracking code) in addition to trackers blocked in the Standard setting. The ''Strict'' setting might block some website functionality.
+#*'''Custom:''' Blocks tracking content (videos, ads and other content that contain tracking code) but you can choose which trackers and scripts to block (cookies, tracking content, cryptominers and fingerprinters).
+[[Image:AndroidFx142EnglishFxETPSettings|width=300]]

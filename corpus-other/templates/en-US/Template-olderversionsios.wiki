@@ -1,0 +1,9 @@
+{note}'''Learn more about other versions of Firefox for iOS:'''
+
+*[[What's New in Firefox for iOS (version 4.0) | What's new in Firefox for iOS 4.0]]
+*[[What's new in Firefox for iOS (version 3.0) | What's new in Firefox for iOS 3.0]]
+*[[What's new in Firefox for iOS 2.0]]
+
+{/note}
+
+<!--This is to be used only in the newest "What's New article" for fxios-->

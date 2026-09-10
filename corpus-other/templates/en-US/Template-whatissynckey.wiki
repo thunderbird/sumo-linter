@@ -1,0 +1,1 @@
+The {for not fx9}Sync Key{/for}{for fx9}Recovery Key{/for} is used to encrypt your data before it's sent to the Mozilla servers. Think of it as a key that locks your information in a vault that only you can open. This means that neither Mozilla nor anyone else can read your information without having your {for not fx9}Sync Key{/for}{for fx9}Recovery Key{/for} to unlock it.

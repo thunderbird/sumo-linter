@@ -1,0 +1,9 @@
+If you can sign in to your Mozilla account, you can change your password by following these simple steps:
+#Go to [https://accounts.firefox.com/signin Mozilla account Sign in].
+#;[[Image:Sign in MA|width=350]]
+#Sign in with your current password.
+#In the ''Security'' section, next to ''Password'', click {button Change}.
+#;[[Image:CHANGE PASSWORD]]
+#Enter your old password, then your new password.
+#Click {button Save} to complete the change.
+#;[[Image:SAVE button|width=350]]

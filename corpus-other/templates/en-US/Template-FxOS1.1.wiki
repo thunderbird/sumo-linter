@@ -1,0 +1,1 @@
+{note}'''Note:''' This feature is available in Firefox OS version 1.1 and higher. Not sure what version of Firefox OS you have? [[How do I find what version of Firefox OS I have?|Here's how to find out.]]{/note}

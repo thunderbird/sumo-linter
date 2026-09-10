@@ -1,0 +1,1 @@
+{note}'''Note:''' Your device manufacturer, together with your service provider, is responsible for providing Firefox OS system updates to you.{/note}

@@ -1,0 +1,1 @@
+{warning}Since April 30, 2021, we no longer support Firefox on Amazon Fire TV or Echo Show. See [[End of support for Firefox on Amazon Devices]].{/warning}

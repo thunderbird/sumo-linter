@@ -1,0 +1,1 @@
+{warning}This article applies only to an experimental version of Firefox for Android (Beta/Nightly formerly called Firefox Preview) that's no longer supported. Please download the supported version of Firefox for Android at the [https://play.google.com/store/apps/details?id=org.mozilla.firefox Google Play store]{/warning}

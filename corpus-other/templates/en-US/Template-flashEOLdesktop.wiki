@@ -1,0 +1,1 @@
+{warning}'''End of Flash support:''' Like other browsers and Adobe, Firefox ended Flash support at the end of 2020. Please see [[End of support for Adobe Flash]] for more information.{/warning}

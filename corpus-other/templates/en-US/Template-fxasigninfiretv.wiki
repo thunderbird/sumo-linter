@@ -1,0 +1,2 @@
+Click {button Send Firefox tabs to Fire TV} from the toolbar on the Firefox home screen on your Fire TV.
+;[[Image:fire tv receive tab home]]

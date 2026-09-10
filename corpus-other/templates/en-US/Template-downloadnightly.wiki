@@ -1,0 +1,1 @@
+Download the installer for your language and system from the [https://www.mozilla.org/firefox/nightly/all/ Firefox Nightly download page].

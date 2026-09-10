@@ -1,0 +1,3 @@
+{for m69}{note}
+This article is for the old Firefox for Android, but you seem to be on Firefox Preview, our newest, fastest Android browser. Please visit [https://support.mozilla.org/products/firefox-preview the Firefox Preview knowledge base] instead.{/note}
+{/for}

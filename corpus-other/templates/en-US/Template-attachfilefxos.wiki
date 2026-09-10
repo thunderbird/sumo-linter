@@ -1,0 +1,1 @@
+{for not fxos2.0}[[Image:MMS attach]]{/for}{for =fxos2.0}[[Image:attach message 2.0]]{/for}{for fxos2.1}[[Image:attach file fxos2.1]]{/for}

@@ -1,0 +1,1 @@
+{warning}This feature will be available to all Firefox for Android users soon. In the meantime, try it on [https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta Firefox Beta].{/warning}<!--Replace Google Play with the most popular store/source in your country-->

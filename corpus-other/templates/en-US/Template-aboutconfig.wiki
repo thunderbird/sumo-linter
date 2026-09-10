@@ -1,0 +1,1 @@
+Type '''about:config''' in the [[Search with the Firefox address bar|address bar]] and press {for win,linux}{key Enter}{/for}{for mac}{key Return}{/for}.<br>A warning page may appear. Click {button Accept the Risk and Continue} to go to the ''about:config'' page.

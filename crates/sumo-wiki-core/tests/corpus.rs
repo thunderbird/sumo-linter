@@ -21,6 +21,13 @@ fn template_files() -> Vec<PathBuf> {
     wiki_files("../../corpus/templates/en-US")
 }
 
+/// Other products' templates — overwhelmingly Firefox. Not the measured corpus
+/// and not subject to Thunderbird style; they are here as lexer input, because
+/// markup nobody on this side would write still has to round-trip.
+fn other_product_files() -> Vec<PathBuf> {
+    wiki_files("../../corpus-other/templates/en-US")
+}
+
 fn wiki_files(rel: &str) -> Vec<PathBuf> {
     let dir = Path::new(env!("CARGO_MANIFEST_DIR")).join(rel);
     let Ok(rd) = std::fs::read_dir(dir) else {
@@ -203,6 +210,45 @@ fn round_trips_every_template() {
         assert!(Document::parse(&fixed).is_lossless());
     }
     eprintln!("round-trip verified on {} templates", files.len());
+}
+
+/// Round-trip and lint every other-product template.
+///
+/// sumo-linter #1: `{{{name}}}` and `REDIRECT` occur only outside the Thunderbird
+/// corpus, so without these files those lexer paths have no production markup
+/// behind them at all. Linting must also not panic — these carry constructs and
+/// combinations Thunderbird articles never use.
+#[test]
+fn round_trips_every_other_product_template() {
+    let files = other_product_files();
+    if files.is_empty() {
+        eprintln!("other-product corpus not present; skipping");
+        return;
+    }
+    let mut params = 0usize;
+    for f in &files {
+        let src = std::fs::read_to_string(f).unwrap();
+        let name = f.file_name().unwrap().to_string_lossy().to_string();
+        let doc = Document::parse(&src);
+        assert!(doc.is_lossless(), "round-trip failed for {name}");
+        let _ = doc.diagnostics();
+        let (fixed, _) = doc.apply_fixes(false);
+        assert!(
+            Document::parse(&fixed).is_lossless(),
+            "{name}: fixed output not lossless"
+        );
+        params += src.matches("{{{").count();
+    }
+    // A floor, so the file that carries the point of this corpus cannot silently
+    // stop being part of it: 31 parameters were measured across 6 templates.
+    assert!(
+        params >= 25,
+        "expected template parameters in this corpus, found {params}"
+    );
+    eprintln!(
+        "round-trip verified on {} other-product templates ({params} parameters)",
+        files.len()
+    );
 }
 
 /// The committed known-bad fixture must parse and report its planted errors.

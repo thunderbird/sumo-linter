@@ -1,0 +1,1 @@
+{for not win}{warning}This article only applies to Firefox on Windows.{/warning}{/for}

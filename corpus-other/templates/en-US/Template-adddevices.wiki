@@ -1,0 +1,5 @@
+# On the device you want to add, launch Firefox and click on the menu button {for not fx57}[[Image:new FX Menu]]{/for}{for fx57}[[Image:Fx57Menu]]{/for}.
+# Click on {menu Sign in to Sync} at the bottom of the menu.
+# In the {for not fx56}{menu Sync}{/for}{for fx56}{menu Firefox account} panel that opens, click {button Sign In}.
+# On the Sign In page, enter the same email address and password you used on your other device.
+# After you've signed in, Firefox will start syncing your information. You're all done!

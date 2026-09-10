@@ -1,0 +1,1 @@
+{note}'''Note:''' This applies to the latest Firefox {{{channel}}} version which can be downloaded from [http://www.mozilla.org/{{{slug}}} mozilla.org/{{{slug}}}].{/note}

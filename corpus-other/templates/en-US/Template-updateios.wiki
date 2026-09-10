@@ -1,0 +1,1 @@
+{note}'''Does your screen look different?''' You might be on an old version of Firefox. Get the new version from the App Store!{/note}

@@ -1,0 +1,12 @@
+{note}To learn more about the newest version of Firefox for iOS, see [[What's new in Firefox for iOS (version 6.0)]].{/note}
+
+
+<!--When there are multiple new versions, replace this article with a list format like this:
+
+{note}'''Learn more about older versions of Firefox for iOS:'''
+
+*[[What's new in Firefox for iOS (version 3.0)]]
+
+{/note}
+
+-->

@@ -1,0 +1,1 @@
+{for win}<br/>''While this screenshot is for Linux, it will look similar on Windows.''<br/>{/for}{for mac}<br/>''While this screenshot is for Linux, it will look similar on Mac OS X.''<br/>{/for}

@@ -1,0 +1,5 @@
+#[[Template:OpenBookmarksLibrary]]
+#In the toolbar of the ''Library'' window click {for mac}the [[Image:import-export-arrows]] ''Import and Backup'' button<br>[[Image:Fx80BookmarksLibrary-mac]]<br>{/for}{for not mac} {menu [[Image:import-export-arrows]]Import and Backup}{/for} and choose {menu Export Bookmarks to HTML…} from the drop-down menu.{for win}<br>[[Image:Library window - Export Bookmarks to HTML]]{/for}{for linux}<br>[[Image:Fx80BookmarksLibrary-linux]]{/for}
+#In the ''Export Bookmarks File'' window that opens, choose a location to save the file, which is named {filepath bookmarks.html} by default. The desktop is usually a good spot, but any place that is easy to remember will work.
+#Click {button Save}. The ''Export Bookmarks File'' window will close.
+#Close the ''Library'' window.

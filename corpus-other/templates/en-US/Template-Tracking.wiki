@@ -1,0 +1,5 @@
+Most major websites track their visitors' behavior and then sell or provide that information to other companies.  This information can be used to show ads, products or services specifically targeted to you. Firefox has a '''Do Not Track''' feature that lets you tell every website you visit, their advertisers, and content providers that you don't want your browsing behavior tracked. 
+
+Honoring this setting is voluntary — individual websites are not required to respect it. Websites that do honor this setting should automatically stop tracking your behavior without any further action from you.  Turning on this feature will not affect your ability to log in to websites nor cause Firefox to forget your private information, such as the contents of shopping carts, location information or login information.
+
+{note}'''Note:''' You may see less relevant advertising on websites if you have the Do Not Track option activated.{/note}

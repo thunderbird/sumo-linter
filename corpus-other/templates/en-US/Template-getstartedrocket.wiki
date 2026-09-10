@@ -1,0 +1,1 @@
+{note}Firefox Lite has loads of other features to help you save data and browse faster as well as saving and sharing content. See [[Get Started with Firefox Lite]] for more information.{/note}

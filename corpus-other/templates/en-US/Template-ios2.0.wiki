@@ -1,0 +1,1 @@
+{note}These features are available on Firefox version 2.0 or later. See [[Which version of Firefox am I using?]] to find your version number.{/note}

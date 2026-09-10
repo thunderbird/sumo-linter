@@ -1,0 +1,1 @@
+{warning}Please [[Update Firefox to the latest version|update your version of Firefox]] for the latest features and security updates.{/warning}

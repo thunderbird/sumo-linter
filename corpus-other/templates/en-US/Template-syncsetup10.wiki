@@ -1,0 +1,36 @@
+{for win}
+#At the top of the Firefox window, {for win7,win8}click the {button Firefox} button{/for}{for winxp}click the {menu Tools} menu{/for} and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button Create a New Account}.
+#Fill in your account details:<br>[[Image:Sync Setup 10 - Win]]
+#*Email address
+#*Choose a password and enter it a second time to make sure you have it right.
+#*Agree to the Terms of Service and Privacy Policy.
+#*Confirm that you're not a robot by filling the captcha form!
+#*To change what information gets synced, click {button Sync Options}. {for not fx11}The default is to sync your bookmarks, passwords, preferences, history and tabs.{/for}{for fx11}The default is to sync your add-ons, bookmarks, passwords, preferences, history and tabs.{/for}
+#*Finally, click {button Next}. 
+#You will see a ''Setup Complete!'' message. Click {button Close} to close the progress window and take you back to Firefox. Don't worry, your data will continue to be encrypted and uploaded in the background.{note}'''Note:''' This first sync should happen quickly but may take more than 30 minutes depending on how much information needs to be synced.{/note}
+{/for}
+{for mac}
+#On the menu bar, click the {menu Tools} menu and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button Create a New Account}.
+#Fill in your account details:<br>[[Image:Sync Setup 10 - Mac]]
+#*Email address
+#*Choose a password and enter it a second time to make sure you have it right.
+#*Agree to the Terms of Service and Privacy Policy.
+#*Confirm that you're not a robot by filling the captcha form!
+#*To change what information gets synced, click {button Sync Options}. {for not fx11}The default is to sync your bookmarks, passwords, preferences, history and tabs.{/for}{for fx11}The default is to sync your add-ons, bookmarks, passwords, preferences, history and tabs.{/for}
+#*Finally, click {button Continue}. 
+#You will see a ''Setup Complete!'' message. Click {button Close} to close the progress window and take you back to Firefox. Don't worry, your data will continue to be encrypted and uploaded in the background.{note}'''Note:''' This first sync should happen quickly but may take more than 30 minutes depending on how much information needs to be synced.{/note}
+{/for}
+{for linux}
+#At the top of the Firefox window, click the {menu Tools} menu and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button Create a New Account}.
+#Fill in your account details:<br>[[Image:Sync Setup 10 - Lin]]
+#*Email address
+#*Choose a password and enter it a second time to make sure you have it right.
+#*Agree to the Terms of Service and Privacy Policy.
+#*Confirm that you're not a robot by filling the captcha form!
+#*To change what information gets synced, click {button Sync Options}. {for not fx11}The default is to sync your bookmarks, passwords, preferences, history and tabs.{/for}{for fx11}The default is to sync your add-ons, bookmarks, passwords, preferences, history and tabs.{/for}
+#*Finally, click {button Next}. 
+#You will see a ''Setup Complete!'' message. Click {button Close} to close the progress window and take you back to Firefox. Don't worry, your data will continue to be encrypted and uploaded in the background.{note}'''Note:''' This first sync should happen quickly but may take more than 30 minutes depending on how much information needs to be synced.{/note}
+{/for}

@@ -1,0 +1,1 @@
+{warning}This article is intended for IT administrators who wish to set up Firefox on the computers within their organization.{/warning}

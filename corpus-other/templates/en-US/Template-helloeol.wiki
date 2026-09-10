@@ -1,0 +1,1 @@
+{warning}Firefox Hello has been removed from Firefox. [[Support for Hello discontinued in Firefox 49  | Learn more.]]{/warning}

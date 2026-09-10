@@ -1,0 +1,23 @@
+{for fx35, =fx4, =fx5, =fx6, =fx7, =fx8, =fx9}
+#[[Template:optionspreferences]]
+#Click on the {menu Sync} tab.
+#Click {button Set Up Firefox Sync}.<br>[[Image:Sync Setup 1]]
+#Under ''I already have a Firefox Sync account'' click {button Connect} and the code to add this computer will be displayed.<br>[[Image:Comp Code]]
+{/for}
+{for fx10}
+{for win}
+#At the top of the Firefox window, {for win7,win8}click the {button Firefox} button{/for}{for winxp}click the {menu Tools} menu{/for} and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button I Have an Account}.
+#The code to add this computer will be displayed.<br>[[Image:Pair - Win]]
+{/for}
+{for mac}
+#On the menu bar, click the {menu Tools} menu and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button I Have an Account}.
+#The code to add this computer will be displayed.<br>[[Image:Pair - Mac]]
+{/for}
+{for linux}
+#At the top of the Firefox window, click the {menu Tools} menu and select {menu Set Up Sync}. The Firefox Sync Setup window will open.
+#Click {button I Have an Account}.
+#The code to add this computer will be displayed.<br>[[Image:Pair - Lin]]
+{/for}
+{/for}

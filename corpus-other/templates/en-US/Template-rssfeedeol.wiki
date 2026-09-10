@@ -1,0 +1,1 @@
+{note}'''December 2018''': Firefox's built-in feed reader and Live Bookmarks have been removed, starting with [[Find what version of Firefox you are using|Firefox version]] 64. For alternatives, see [[Feed reader replacements for Firefox]].{/note}

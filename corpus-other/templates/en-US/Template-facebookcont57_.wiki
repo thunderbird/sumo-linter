@@ -1,0 +1,5 @@
+If you're on version 57+ and still unable to install Facebook Container, you might have another extension or configuration that causes Firefox to conceal its version.
+
+To work around this, copy and paste this link into your address bar: '''https://addons.mozilla.org/firefox/downloads/latest/facebook-container/platform:2/addon-954390-latest.xpi'''.
+
+{note}Firefox may ask for your permission to install the add-on. If it does, click the '''Add''' button.{/note}

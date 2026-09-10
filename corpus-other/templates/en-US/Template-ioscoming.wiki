@@ -1,0 +1,1 @@
+{warning} This article shows an upcoming version of Firefox for iOS, so yours might look different. Please update in a few weeks to get these features.{/warning}

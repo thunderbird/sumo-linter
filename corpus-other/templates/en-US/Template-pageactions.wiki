@@ -1,0 +1,2 @@
+Tap the page actions menu (three dots) in the address bar.
+;[[Image:PageActionsIOS29]]

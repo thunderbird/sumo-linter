@@ -1,0 +1,1 @@
+At this time, Firefox Private Network is available for download in the U.S. and U.S. territories (American Samoa, Northern Mariana Islands, Puerto Rico, U.S. Virgin Islands and U.S. Minor Outlying Islands). Once downloaded, it will work as long as you can connect to the [https://www.cloudflare.com/network/ Cloudflare network].

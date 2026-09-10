@@ -1,0 +1,1 @@
+{warning}This feature has been improved in the latest version of Firefox for Android. [[Update to the latest version of Firefox for Android | Update Firefox for Android]] to use the improved version.{/warning}

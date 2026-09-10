@@ -1,0 +1,9 @@
+You can update your Firefox Private Network Browse Extension by following these steps:
+#Enter '''about:addons''' in the Firefox address bar to see a list of your add-ons.
+#Select '''Firefox Private Network''' from the list.
+
+#Click the settings Selecting the gear icon and clicking {menu Check for updates}. 
+#;[[Image:fpn addon update|width=500]]
+#Once updated, sign in with your Firefox Account.
+
+{note}As with all Firefox Private Network Beta clients, you need to be in the United States to successfully sign in and use the service.{/note}

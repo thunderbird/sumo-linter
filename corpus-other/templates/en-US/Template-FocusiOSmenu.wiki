@@ -1,0 +1,3 @@
+Tap the {menu Menu} button in the toolbar: 
+
+[[Image:iOS_focusMenu|width=350]]

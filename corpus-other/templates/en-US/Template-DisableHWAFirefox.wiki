@@ -1,0 +1,7 @@
+# [[T:optionspreferences]]
+# Select the {for not fx152}{menu General} panel{/for}{for fx152}{menu Tabs and browsing} panel{/for} on the left.
+# Under ''Performance'', uncheck '''Use recommended performance settings'''.<br>An additional setting will be displayed.
+#;[[Image:Fx115Performance-disableHWA]]
+# Uncheck '''Use hardware acceleration when available'''.
+# [[T:closeFirefox]]
+# Start Firefox the way you normally do.

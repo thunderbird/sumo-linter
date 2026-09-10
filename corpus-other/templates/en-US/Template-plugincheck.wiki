@@ -1,0 +1,1 @@
+<!--To check if any of your installed plugins are out of date, visit [https://www.mozilla.org/plugincheck/ Mozilla's Plugin Check & Updates page].-->

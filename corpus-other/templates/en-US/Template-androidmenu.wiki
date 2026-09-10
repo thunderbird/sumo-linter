@@ -1,0 +1,2 @@
+<!-- Bug filed for image display issue https://bugzilla.mozilla.org/show_bug.cgi?id=727181 -->
+Tap the {button Menu} button [[Image:Android Menu Button]] below the screen, select {menu More} and then choose {menu Settings}.

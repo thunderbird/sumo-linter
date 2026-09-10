@@ -1,0 +1,1 @@
+Click {for not fx89}{menu Logins and Passwords}{/for}{for fx89}{menu Passwords}{/for}.

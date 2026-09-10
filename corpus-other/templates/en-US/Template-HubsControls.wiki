@@ -1,0 +1,1 @@
+{note}See the [https://hubs.mozilla.com/docs/hubs-controls.html Hubs Documentation]  for more information on Hubs controls. {/note}

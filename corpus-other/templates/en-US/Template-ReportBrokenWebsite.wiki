@@ -1,0 +1,3 @@
+Occasionally, you may come across a page that simply doesn't work in Firefox. If the same page works in another browser, please report the problem by visiting [https://webcompat.com/ Webcompat.com]. 
+
+If a page that is broken in Firefox can be fixed by [[Enhanced Tracking Protection in Firefox for desktop#w_what-to-do-if-a-site-seems-broken|turning off Enhanced Tracking Protection]], you can report the site by following the instructions in the [[How do I report a broken site in Firefox desktop?]] article.

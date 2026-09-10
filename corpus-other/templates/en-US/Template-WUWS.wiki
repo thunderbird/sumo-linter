@@ -1,0 +1,12 @@
+==Big things this week==
+<!-- [[Video:YOUTUBEURL]] --><!-- This is where a recap video goes --><!-- We can't add videos to this template until this bug is fixed https://bugzilla.mozilla.org/show_bug.cgi?id=900647 -->
+*[https://etherpad.mozilla.org/sumo-2013-09-23 Notes] and [http://youtu.be/zuSR7X9zFg4 video] from this meeting.
+*It was a short meeting but a lot of celebration!
+*Everyone: please help us in testing Persona
+*We have a list with the top contributors of all time, check the etherpad or watch the video to see it! We had a nice celebration!
+*Update on the buddy program and on our Summit planned to unite all SUMO warriors!
+*Contributors of the week: AlicyWyman, philipp, john99, italian team
+*Current SUMO development sprint – [http://scrumbu.gs/t/james-rifles/2013.18 2013.18].
+*Next SUMO meeting - [https://etherpad.mozilla.org/sumo-2013-09-30 Monday, Sept. 30th - (call in details & meeting notes)] at 9:00 am PST. Please add your comments, questions and updates to the etherpad. You can also participate in [https://www.mibbit.com/?server=irc.mozilla.org&channel=%23sumo #sumo] during the meeting. We’re going to record and post a video of the meeting.
+<!--===Meeting video===-->
+<!--[[Video:YOUTUBEURL]]--><!-- We can't add videos to this template until this bug is fixed https://bugzilla.mozilla.org/show_bug.cgi?id=900647 -->

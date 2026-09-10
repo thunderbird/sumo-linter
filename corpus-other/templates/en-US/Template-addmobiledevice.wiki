@@ -1,0 +1,5 @@
+#Tap the {button Menu} button [[Template:AndroidMenuLocation]], choose {menu Settings} [[Template:AndroidMore]] and, finally, {menu Sync}.
+#Tap the "'''Advanced setup...'''" link.
+#:[[Image:sync_recovery3]]
+#Next, enter your Account Name (email address), Password, Recovery Key and tap {button Connect}.
+#:[[Image:sync_recovery4]]

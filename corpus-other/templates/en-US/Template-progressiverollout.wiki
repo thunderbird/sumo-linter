@@ -1,0 +1,4 @@
+{note} 
+{for fx}[[Image:progressive rollout banner]]{/for}
+This feature is experimental and is being introduced to the Firefox user base through a progressive rollout. It may not yet be available to all users. Additionally, [[Manage remote improvements settings in Firefox|remote improvements]] must be enabled.
+{/note}

@@ -1,0 +1,22 @@
+{for win}
+# Go to Adobe's [http://get.adobe.com/flashplayer Flash Player download page] and download the Flash installer.  {note} '''Caution:''' Adobe's download page may include a checkbox   for  optional software (such as Google Chrome or McAfee Security Scan)  that is selected by default.  If you do not clear the checkbox  before downloading, that  software will be installed on your computer when you open the  Flash installer.{/note}
+# When the download has finished, close Firefox.  [[T:closeFirefox]]
+# Open the Flash installer file you downloaded and follow the instructions.
+
+{note} '''Note:''' If you are having problems with the Flash installer from Adobe's download page, you can use [http://download.macromedia.com/pub/flashplayer/latest/help/install_flash_player.exe this Flash Player installer link] to directly download the full installer.{/note}
+{/for}
+{for mac}
+# Go to Adobe's [http://get.adobe.com/flashplayer Flash Player download page]  and download the Flash installer.
+# [[T:closeFirefox]]
+# Open the file you downloaded (i.e. {filepath install_flash_player_osx_intel.dmg}).
+# In the Finder, open the {filepath Install Adobe Flash Player.app} to run the installer, then follow the installer's instructions.
+{/for}
+{for linux}
+# Go to Adobe's [http://get.adobe.com/flashplayer Flash Player download page].
+# When prompted, save the file (i.e. {filepath install_flash_player_"version"_linux."processor".tar.gz}).
+# [[T:closeFirefox]]
+# Open a Terminal window (in Gnome, click on the {menu Applications} menu, select {menu Accessories}, and then select {menu Terminal}.)
+# In the Terminal window, change to the directory where you saved the file you downloaded (e.g. '''''cd /home/user/Downloads''''').
+# Extract {filepath libflashplayer<b></b>.so} from the file you downloaded with the command '''''tar -zxvf install_flash_player_"version"_linux."processor".tar.gz'''''.
+# As the [http://help.ubuntu.com/community/RootSudo super user], copy the extracted file, {filepath libflashplayer<b></b>.so}, to your Firefox installation directory's {filepath plugins} sub-directory. For example, if Firefox is installed in {filepath /usr/lib/mozilla}, use the command '''''sudo cp libflashplayer<b></b>.so /usr/lib/mozilla/plugins''''' and then enter your super user password when prompted. <br/> <br/> [[Image:0a85171f1802a3b0d9f46ffb997ddc02-1260326970-447-1.png]]
+{/for}

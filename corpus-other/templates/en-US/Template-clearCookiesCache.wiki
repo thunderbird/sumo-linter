@@ -1,0 +1,5 @@
+# [[Template:fx29menu]]
+# Click {menu History} and select {menu Clear recent history…}
+# In the ''When:'' drop-down, select '''Everything'''.
+# Below the drop-down menu, select both  '''Cookies and site data''' and '''Temporary cached files and pages'''. Make sure other items you want to keep are not selected.
+# Click {button Clear}.

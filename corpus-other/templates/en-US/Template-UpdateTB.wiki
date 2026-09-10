@@ -1,0 +1,1 @@
+{warning}'''This version of Thunderbird is no longer supported.''' Please [[Updating Thunderbird|update your version of Thunderbird]] to enjoy the latest features.{/warning}

@@ -1,0 +1,1 @@
+Close the {menu Settings} page. Any changes you've made will automatically be saved.

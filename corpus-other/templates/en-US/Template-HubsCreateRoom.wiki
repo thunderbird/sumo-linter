@@ -1,0 +1,3 @@
+With Hubs, you can create a room and invite others to join. Visit [https://hubs.mozilla.com hubs.mozilla.com] and click {button Create Room}.
+
+Once your room is created, you will be brought to the room’s lobby. This room is private and no one else can join unless they are invited.

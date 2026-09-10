@@ -1,0 +1,1 @@
+{for win}Click the Firefox menu [[Image:Fx89menuButton]] and select {menu Exit}.{/for}{for mac}Click the Firefox menu at the top of the screen and select {menu Quit Firefox}.{/for}{for linux}Click the Firefox menu [[Image:Fx89menuButton]] and select {menu Quit}.{/for}

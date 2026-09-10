@@ -1,0 +1,2 @@
+In the tab view, tap the three-dot [[Image:android menu icon]] menu button.
+;[[Image:managetabs|width=300]]

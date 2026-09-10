@@ -1,0 +1,6 @@
+{for =fx35,=fx4,=fx5,=fx6,=fx7,=fx8}
+{note}Your Sync Key is a long series of characters that was created for you when you set up your Sync account. You can find it by following the instructions in [[How do I manage my Firefox Sync account?#w_where-can-i-find-my-sync-key|Where can I find my Sync Key?]]{/note}
+{/for}
+{for fx9}
+{note}Your Recovery Key is a long series of characters that was created for you when you set up your Sync account. You can find it by following the instructions in [[How do I manage my Firefox Sync account?#w_where-can-i-find-my-recovery-key|Where can I find my Recovery Key?]]{/note}
+{/for}

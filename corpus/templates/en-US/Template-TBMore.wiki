@@ -1,0 +1,1 @@
+{warning}More for Thunderbird: '''o''' Vote on & suggest improvements at [https://connect.mozilla.org/t5/ideas/idb-p/ideas/label-name/thunderbird Connect] '''o''' [https://www.thunderbird.net/participate/ Participate/Contribute] '''o''' [https://support.mozilla.org/questions/new/thunderbird/form Get Support]{/warning}

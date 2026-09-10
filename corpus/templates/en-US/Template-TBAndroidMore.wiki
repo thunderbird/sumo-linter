@@ -1,0 +1,1 @@
+{warning}More for Thunderbird for Android: '''o''' Vote on & suggest improvements at [https://connect.mozilla.org/t5/ideas/idb-p/ideas/label-name/thunderbird%20android Connect] '''o''' [https://www.thunderbird.net/participate/ Participate/Contribute] '''o''' [https://support.mozilla.org/questions/new/thunderbird-android/form Get Support]{/warning}

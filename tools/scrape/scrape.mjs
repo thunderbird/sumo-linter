@@ -34,6 +34,8 @@
  *   node scrape.mjs --products '*' --list-only   # every article in the KB
  *   node scrape.mjs --list-only --profile /tmp/anon  # what anonymous users see
  *   node scrape.mjs --products firefox --only /tmp/anon.txt --out corpus-other
+ *   node scrape.mjs --slugs /tmp/templates.txt --out corpus/templates
+ *   node scrape.mjs --probe /tmp/candidates.txt   # which slugs exist; no login
  *   node scrape.mjs --products firefox --out corpus-other --limit 40
  *                              # sample another product, kept out of corpus/
  */
@@ -75,6 +77,7 @@ const CONFIG = {
   // every .wiki in it, and corpus/README.md documents exactly what it contains.
   // A Firefox article dropped in there would silently join both.
   outDir: resolve(REPO, String(flag('out', 'corpus'))),
+  outRel: String(flag('out', 'corpus')),
   loginOnly: argv.includes('--login'),
   // Enumerating needs no login — only fetching *source* does. Listing on its own
   // answers "what changed since the last snapshot" without a session, which is
@@ -85,6 +88,18 @@ const CONFIG = {
   // unpublished drafts; pointing this at an *anonymous* listing means a draft is
   // never fetched, never written, and so can never be committed by accident.
   only: flag('only', null),
+  // Fetch these slugs and nothing else, skipping enumeration. Template pages
+  // need this: `/api/1/kb/` omits them entirely (measured — a COMPLETE listing
+  // of 1325 public articles contains none), so no listing can name them.
+  slugs: flag('slugs', null),
+  // Fetch one arbitrary path and print the body. For questions the structured
+  // modes cannot answer — "what *is* a template's slug?" — where the value is in
+  // reusing the challenge, 429 and 5xx handling rather than reinventing it.
+  path: flag('path', null),
+  // Ask which of these slugs exist, by status code on the *view* page. Needs no
+  // login — only source does — so slug discovery costs no session, and this mode
+  // cannot fetch content at all: it prints statuses, never bodies.
+  probe: flag('probe', null),
   force: argv.includes('--force'),
 };
 
@@ -224,6 +239,18 @@ async function loginState(ctx, page) {
   return !r.url.includes('/users/auth');
 }
 
+/**
+ * Filename for a slug. Templates have slugs like `Template:optionspreferences TB`
+ * — a colon and spaces — so the mapping has to be deterministic (a test recreates
+ * it) and cannot let a slug from a file escape the output directory.
+ */
+function fileFor(slug) {
+  return slug
+    .replace(/:/g, '-')
+    .replace(/\s+/g, '_')
+    .replace(/[^A-Za-z0-9._-]/g, '_');
+}
+
 /** Read back the actual username — never infer identity from a missing redirect. */
 async function whoami(ctx, page) {
   const r = await fetchPath(ctx, page, `/${CONFIG.locale}/`);
@@ -338,6 +365,29 @@ async function main() {
     await solveChallenge(ctx, page);
     console.log('Past the Fastly challenge.');
 
+    if (CONFIG.probe) {
+      const slugs = (await readFile(String(CONFIG.probe), 'utf8'))
+        .split('\n')
+        .map((l) => l.split('\t')[0].trim())
+        .filter((l) => l && !l.startsWith('#'));
+      let found = 0;
+      for (const slug of slugs) {
+        const r = await fetchPath(ctx, page, `/${CONFIG.locale}/kb/${encodeURI(slug)}`);
+        if (r.status === 200) found++;
+        console.log(`${r.status === 200 ? 'EXISTS ' : String(r.status).padEnd(7)} ${slug}`);
+        await sleep(CONFIG.delayMs);
+      }
+      console.log(`\n${found} of ${slugs.length} exist`);
+      return;
+    }
+
+    if (CONFIG.path) {
+      const r = await fetchPath(ctx, page, String(CONFIG.path));
+      console.log(`# ${r.status} ${r.url}`);
+      console.log(r.body);
+      return;
+    }
+
     const signedIn = await loginState(ctx, page);
     if (CONFIG.loginOnly) {
       if (signedIn) {
@@ -358,10 +408,21 @@ async function main() {
       console.log('Not signed in — listing only, which needs no session.');
     }
 
+    // An explicit slug list bypasses enumeration: see CONFIG.slugs.
+    let explicit = null;
+    if (CONFIG.slugs) {
+      explicit = (await readFile(String(CONFIG.slugs), 'utf8'))
+        .split('\n')
+        .map((l) => l.split('\t')[0].trim())
+        .filter((l) => l && !l.startsWith('#'));
+      if (explicit.length === 0) throw new Error(`--slugs ${CONFIG.slugs} contained no slugs`);
+      console.log(`${explicit.length} slugs given explicitly; skipping enumeration.`);
+    }
+
     // Enumerate. A slug can belong to both products, so dedupe.
     const bySlug = new Map();
     let listComplete = true;
-    for (const product of CONFIG.products) {
+    for (const product of explicit ? [] : CONFIG.products) {
       const { items, complete } = await listArticles(ctx, page, product);
       if (!complete) listComplete = false;
       console.log(`  ${product}: ${items.length} articles${complete ? '' : ' (PARTIAL)'}`);
@@ -372,7 +433,9 @@ async function main() {
       }
       await sleep(CONFIG.delayMs);
     }
-    let listed = [...bySlug.values()];
+    let listed = explicit
+      ? explicit.map((slug) => ({ id: null, title: slug, slug, products: [] }))
+      : [...bySlug.values()];
     if (CONFIG.only) {
       const allowed = new Set(
         (await readFile(String(CONFIG.only), 'utf8'))
@@ -408,8 +471,8 @@ async function main() {
     let done = 0, skipped = 0, failed = 0;
 
     for (const art of articles) {
-      const srcPath = resolve(srcDir, `${art.slug}.wiki`);
-      const relSrc = `corpus/${CONFIG.locale}/${art.slug}.wiki`;
+      const srcPath = resolve(srcDir, `${fileFor(art.slug)}.wiki`);
+      const relSrc = `${CONFIG.outRel}/${CONFIG.locale}/${fileFor(art.slug)}.wiki`;
 
       if (!CONFIG.force && (await exists(srcPath))) {
         skipped++;
@@ -469,7 +532,7 @@ async function main() {
     );
 
     console.log(`\nfetched ${done}   cached ${skipped}   failed ${failed}`);
-    console.log('corpus/index.json written. Next: npm run report');
+    console.log(`${CONFIG.outRel}/index.json written. Next: npm run report`);
   } finally {
     await ctx.close();
   }

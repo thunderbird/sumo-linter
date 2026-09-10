@@ -1,0 +1,1 @@
+{for win,linux}Right-click{/for}{for mac}Right-click (or hold down the {key Control} key while you click){/for}

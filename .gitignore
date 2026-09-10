@@ -63,3 +63,7 @@ node_modules/
 
 # Where a batched scrape stopped. Local run state, not content.
 .batch-state
+
+# Provenance of the template scrape; churns on every re-run and the .wiki files
+# plus corpus/README.md are the record that matters.
+/corpus/templates/index.json

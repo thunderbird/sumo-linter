@@ -27,12 +27,18 @@ requests — they are unpublished drafts. Committing them to a public repository
 publish content SUMO has not published. They are listed explicitly in the repository
 `.gitignore`, so a stray `git add -A` cannot include them.
 
-**How "public" is decided:** by asking what an anonymous visitor sees, because the API has
-no such field. Signed in, the listing returns 203 articles; anonymously it returns 196, and
-the difference is the drafts. `tools/scrape/public-index.mjs` does that subtraction and
-writes `index.public.json`. Running the listing with the saved session by mistake would
-silently mark every draft public, which is why that script takes an anonymous listing as an
-explicit argument rather than fetching one itself.
+**How "public" is decided:** the test is *is this content published*, not *is this page
+anonymously reachable*. For articles the two coincide, and the API has no "public" field, so
+it is decided by asking what an anonymous visitor sees: signed in the listing returns 203
+articles, anonymously 196, and the difference is the drafts.
+`tools/scrape/public-index.mjs` does that subtraction and writes `index.public.json`. It
+takes an anonymous listing as an explicit argument rather than fetching one itself, because
+running the listing with the saved session by mistake would silently mark every draft
+public.
+
+For **templates** the two tests come apart — see below. A template page can 404 anonymously
+while SUMO serves its text to the public inside every article that includes it. Page
+visibility is not publication.
 
 Three more articles that were fetched in August — `age-calculation`,
 `chitlink-smart-url-shortener-link-management-platf` (spam) and `invalid-certificates` (a
@@ -44,6 +50,32 @@ gitignored; they are simply no longer refreshed.
 `index.public.json` is the committed, public-only equivalent.
 
 The excluded files still exist locally after a scrape, under `corpus/en-US/`, for review.
+
+## Templates
+
+`templates/en-US/` holds the templates the public articles include — the `[[Template:X]]`
+and `[[T:X]]` constructs, 66 references across 44 of the 196 articles. They are here
+because Thunderbird's *rendered* articles depend on them: a reader sees the template's text,
+not the reference.
+
+They are kept out of `en-US/` deliberately. That directory is the measured corpus — the Rust
+property tests walk it and every "N of 203 articles" figure refers to it — so a template
+dropped in there would silently join both.
+
+Two things about templates, both measured on 2026-09-09 and neither guessable:
+
+- **The API does not list them.** A `# COMPLETE` anonymous enumeration of `/api/1/kb/`
+  returned 1325 public articles and zero template pages, so no listing names them. They are
+  fetched by explicit slug (`scrape.mjs --slugs`).
+- **Their slug is the title, colon included** — `Template:contextmenu`, not
+  `template-contextmenu`. Filenames replace the colon with `-` and spaces with `_`, so
+  `Template:optionspreferences TB` is stored as `Template-optionspreferences_TB.wiki`.
+
+Some template pages return 404 to anonymous requests even though their content is published.
+`message-threading-thunderbird` includes `[[Template:optionspreferences TB]]`, whose page
+404s anonymously, yet the API's rendered `html` for that article — served to anyone — expands
+it to "Click Thunderbird app menu ☰ > Settings" with no broken-link markup. So these are
+committed: the text is already public, and only the template's own page is restricted.
 
 ## Regenerating
 

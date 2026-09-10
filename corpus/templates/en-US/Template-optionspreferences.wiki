@@ -1,0 +1,1 @@
+{for mac}In the Menu bar at the top of the screen, click {menu Firefox} and select {menu Settings} (or {menu Preferences}, in some cases).{/for}{for win,linux}Click the menu button [[Image:Fx89menuButton]] and select {menu Settings}.{/for}

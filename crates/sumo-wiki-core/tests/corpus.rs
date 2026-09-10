@@ -12,7 +12,17 @@ use std::path::{Path, PathBuf};
 use sumo_wiki_core::Document;
 
 fn corpus_files() -> Vec<PathBuf> {
-    let dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../corpus/en-US");
+    wiki_files("../../corpus/en-US")
+}
+
+/// The templates public articles include. Kept in their own directory: this one
+/// is the measured corpus, and every "N of 203" figure refers to it.
+fn template_files() -> Vec<PathBuf> {
+    wiki_files("../../corpus/templates/en-US")
+}
+
+fn wiki_files(rel: &str) -> Vec<PathBuf> {
+    let dir = Path::new(env!("CARGO_MANIFEST_DIR")).join(rel);
     let Ok(rd) = std::fs::read_dir(dir) else {
         return Vec::new();
     };
@@ -78,6 +88,131 @@ fn safe_fixes_are_idempotent_on_the_corpus() {
         assert_eq!(n, 0, "{name}: still had {n} fixes on the second pass");
         assert_eq!(once, twice, "{name}: fixing is not idempotent");
     }
+}
+
+/// Every `[[Template:X]]` a committed article references must be fetched.
+///
+/// The set is derived from the articles at test time, not from a list kept beside
+/// them, so it cannot drift: add a template reference to an article and this fails
+/// until the template is fetched. That is the point — "did we get them all" was
+/// otherwise something a human had to remember to check.
+#[test]
+fn every_referenced_template_is_present() {
+    // Pages that 404 even signed in, or that need a session we did not have.
+    // Emptying this list is the goal; an entry needs a reason, not a shrug.
+    // These seven 404 anonymously while their content is demonstrably published
+    // (verified through the rendered-HTML oracle), so they await a signed-in
+    // fetch — sumo-linter #1.
+    const PENDING: &[&str] = &[
+        "TBproEarlyBirdInviteOnly",
+        "accountsettings",
+        "appmenu TB",
+        "customizefx29",
+        "openProfileFolderTB",
+        "optionsorpreferences",
+        "optionspreferences TB",
+    ];
+
+    let articles = corpus_files();
+    if articles.is_empty() {
+        eprintln!("corpus not present; skipping (run tools/scrape)");
+        return;
+    }
+
+    let mut referenced: Vec<String> = Vec::new();
+    for f in &articles {
+        let src = std::fs::read_to_string(f).unwrap();
+        for name in template_names(&src) {
+            if !referenced.contains(&name) {
+                referenced.push(name);
+            }
+        }
+    }
+    referenced.sort();
+    assert!(
+        referenced.len() >= 10,
+        "expected the corpus to reference templates, found {referenced:?}"
+    );
+
+    let have: Vec<String> = template_files()
+        .iter()
+        .map(|p| p.file_name().unwrap().to_string_lossy().to_string())
+        .collect();
+
+    let mut missing = Vec::new();
+    for name in &referenced {
+        // The scraper's mapping: slug `Template:optionspreferences TB` is stored
+        // as `Template-optionspreferences_TB.wiki`.
+        let file = format!("Template-{}.wiki", name.replace(' ', "_"));
+        if !have.contains(&file) && !PENDING.contains(&name.as_str()) {
+            missing.push(format!("{name} (expected {file})"));
+        }
+    }
+    assert!(
+        missing.is_empty(),
+        "templates referenced by articles but not fetched: {missing:#?}"
+    );
+
+    // A stale exemption is as bad as a missing file: it hides a template that has
+    // since been fetched, or one no longer referenced at all.
+    for p in PENDING {
+        assert!(
+            referenced.iter().any(|r| r == p),
+            "{p} is exempted but no article references it — drop it from PENDING"
+        );
+        let file = format!("Template-{}.wiki", p.replace(' ', "_"));
+        assert!(
+            !have.contains(&file),
+            "{p} has been fetched — drop it from PENDING"
+        );
+    }
+    eprintln!(
+        "{} templates referenced, {} present, {} pending",
+        referenced.len(),
+        have.len(),
+        PENDING.len()
+    );
+}
+
+/// `[[Template:name]]` and the `[[T:name]]` short form, name only.
+fn template_names(src: &str) -> Vec<String> {
+    let mut out = Vec::new();
+    for prefix in ["[[Template:", "[[T:"] {
+        let mut at = 0;
+        while let Some(p) = src[at..].find(prefix).map(|i| at + i) {
+            let rest = &src[p + prefix.len()..];
+            let end = rest.find(['|', ']']).unwrap_or(rest.len());
+            let name = rest[..end].trim();
+            if !name.is_empty() {
+                out.push(name.to_string());
+            }
+            at = p + prefix.len();
+        }
+    }
+    out
+}
+
+/// Templates must round-trip and lint like anything else — they are the same
+/// dialect, and `--fix` on one would corrupt every article that includes it.
+#[test]
+fn round_trips_every_template() {
+    let files = template_files();
+    if files.is_empty() {
+        eprintln!("templates not present; skipping");
+        return;
+    }
+    for f in &files {
+        let src = std::fs::read_to_string(f).unwrap();
+        let doc = Document::parse(&src);
+        assert!(
+            doc.is_lossless(),
+            "round-trip failed for {}",
+            f.file_name().unwrap().to_string_lossy()
+        );
+        let (fixed, _) = doc.apply_fixes(false);
+        assert!(Document::parse(&fixed).is_lossless());
+    }
+    eprintln!("round-trip verified on {} templates", files.len());
 }
 
 /// The committed known-bad fixture must parse and report its planted errors.

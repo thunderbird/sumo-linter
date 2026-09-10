@@ -100,6 +100,15 @@ const CONFIG = {
   // login — only source does — so slug discovery costs no session, and this mode
   // cannot fetch content at all: it prints statuses, never bodies.
   probe: flag('probe', null),
+  // Page through /kb/all and print `slug<TAB>title` for every document.
+  //
+  // This is the only complete index: `/api/1/kb/` omits templates entirely, and
+  // a template's slug cannot be derived from its title — measured, the KB
+  // contains all three of `templatesharearticle` (lowercased),
+  // `templateopenProfileFolderTB` (case kept) and `Template:optionspreferences`
+  // (colon kept). Kitsune resolves `[[Template:X]]` by *title*, so a title->slug
+  // map is the only way to fetch one.
+  allDocs: argv.includes('--all-docs'),
   force: argv.includes('--force'),
 };
 
@@ -365,6 +374,32 @@ async function main() {
     await solveChallenge(ctx, page);
     console.log('Past the Fastly challenge.');
 
+    if (CONFIG.allDocs) {
+      const seen = new Map();
+      for (let n = 1; n <= 200; n++) {
+        const r = await fetchPath(ctx, page, `/${CONFIG.locale}/kb/all?page=${n}`);
+        if (r.status !== 200) {
+          console.log(`# stopped at page ${n}: HTTP ${r.status}`);
+          break;
+        }
+        const rows = [...r.body.matchAll(/<a href="\/[a-zA-Z-]+\/kb\/([^"\/]+)">\s*([^<]+?)\s*<\/a>/g)];
+        let added = 0;
+        for (const [, slug, title] of rows) {
+          if (slug === 'all' || seen.has(slug)) continue;
+          seen.set(slug, title);
+          added++;
+        }
+        if (added === 0 && n > 1) {
+          console.log(`# page ${n} added nothing; stopping`);
+          break;
+        }
+        await sleep(CONFIG.delayMs);
+      }
+      for (const [slug, title] of seen) console.log(`${slug}\t${title}`);
+      console.log(`# ${seen.size} documents`);
+      return;
+    }
+
     if (CONFIG.probe) {
       const slugs = (await readFile(String(CONFIG.probe), 'utf8'))
         .split('\n')
@@ -411,10 +446,18 @@ async function main() {
     // An explicit slug list bypasses enumeration: see CONFIG.slugs.
     let explicit = null;
     if (CONFIG.slugs) {
+      // `slug` or `slug<TAB>name`. The second column names the output file, so a
+      // template can be stored under the title articles reference it by while
+      // being fetched from a slug that looks nothing like it — measured, the
+      // title `Template:appmenu TB` lives at slug `templateappmenu-tb`.
       explicit = (await readFile(String(CONFIG.slugs), 'utf8'))
         .split('\n')
-        .map((l) => l.split('\t')[0].trim())
-        .filter((l) => l && !l.startsWith('#'));
+        .map((l) => l.trim())
+        .filter((l) => l && !l.startsWith('#'))
+        .map((l) => {
+          const [slug, name] = l.split('\t');
+          return { slug: slug.trim(), name: (name ?? slug).trim() };
+        });
       if (explicit.length === 0) throw new Error(`--slugs ${CONFIG.slugs} contained no slugs`);
       console.log(`${explicit.length} slugs given explicitly; skipping enumeration.`);
     }
@@ -434,7 +477,7 @@ async function main() {
       await sleep(CONFIG.delayMs);
     }
     let listed = explicit
-      ? explicit.map((slug) => ({ id: null, title: slug, slug, products: [] }))
+      ? explicit.map(({ slug, name }) => ({ id: null, title: name, slug, name, products: [] }))
       : [...bySlug.values()];
     if (CONFIG.only) {
       const allowed = new Set(
@@ -471,8 +514,9 @@ async function main() {
     let done = 0, skipped = 0, failed = 0;
 
     for (const art of articles) {
-      const srcPath = resolve(srcDir, `${fileFor(art.slug)}.wiki`);
-      const relSrc = `${CONFIG.outRel}/${CONFIG.locale}/${fileFor(art.slug)}.wiki`;
+      const outName = fileFor(art.name ?? art.slug);
+      const srcPath = resolve(srcDir, `${outName}.wiki`);
+      const relSrc = `${CONFIG.outRel}/${CONFIG.locale}/${outName}.wiki`;
 
       if (!CONFIG.force && (await exists(srcPath))) {
         skipped++;

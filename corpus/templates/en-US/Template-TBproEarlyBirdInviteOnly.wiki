@@ -1,0 +1,1 @@
+{warning}NOTE: Thundermail (formerly known as Thunderbird Pro) is currently in its Early Bird release and available  by invitation only. To learn more and join the waitlist, visit [https://tb.pro/ our website]. We’ll be opening Thundermail to the public once the Early Bird release concludes.{/warning}

@@ -1,0 +1,1 @@
+Click the menu button [[Image:Fx89menuButton]], then click {menu More tools} and select {menu Customize Toolbar…}

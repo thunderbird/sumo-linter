@@ -98,20 +98,10 @@ fn safe_fixes_are_idempotent_on_the_corpus() {
 /// otherwise something a human had to remember to check.
 #[test]
 fn every_referenced_template_is_present() {
-    // Pages that 404 even signed in, or that need a session we did not have.
-    // Emptying this list is the goal; an entry needs a reason, not a shrug.
-    // These seven 404 anonymously while their content is demonstrably published
-    // (verified through the rendered-HTML oracle), so they await a signed-in
-    // fetch — sumo-linter #1.
-    const PENDING: &[&str] = &[
-        "TBproEarlyBirdInviteOnly",
-        "accountsettings",
-        "appmenu TB",
-        "customizefx29",
-        "openProfileFolderTB",
-        "optionsorpreferences",
-        "optionspreferences TB",
-    ];
+    // A template that genuinely cannot be fetched goes here *with its reason*.
+    // Empty is the correct state: all 12 referenced templates are committed. The
+    // assertions below reject a stale entry, so this cannot rot quietly.
+    const PENDING: &[&str] = &[];
 
     let articles = corpus_files();
     if articles.is_empty() {

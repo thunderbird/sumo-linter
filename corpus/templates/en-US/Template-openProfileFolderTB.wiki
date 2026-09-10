@@ -1,0 +1,3 @@
+* Click {menu ≡} > {menu Help} and select {menu Troubleshooting Information}. The '''Troubleshooting Information''' tab will open.
+* Under the '''Application Basics''' section, find the {for win,mac}''Profile Folder''{/for}{for linux}''Profile Directory''{/for} row, then click on {button {for win}Open Folder{/for}{for mac}Show in Finder{/for}{for linux}Open Directory{/for}}. {for mac}A window will open that contains your profile folder.{/for}{for win,linux}Your profile folder will open.{/for}
+{note}'''Note:''' If you are unable to open or use Thunderbird, follow the instructions in [[Profiles - Where Thunderbird stores your messages and other user data#w_finding-your-profile-without-opening-thunderbird|Finding your profile without opening Thunderbird]].{/note}

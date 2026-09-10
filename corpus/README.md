@@ -67,15 +67,24 @@ Two things about templates, both measured on 2026-09-09 and neither guessable:
 - **The API does not list them.** A `# COMPLETE` anonymous enumeration of `/api/1/kb/`
   returned 1325 public articles and zero template pages, so no listing names them. They are
   fetched by explicit slug (`scrape.mjs --slugs`).
-- **Their slug is the title, colon included** — `Template:contextmenu`, not
-  `template-contextmenu`. Filenames replace the colon with `-` and spaces with `_`, so
-  `Template:optionspreferences TB` is stored as `Template-optionspreferences_TB.wiki`.
+- **A template's slug cannot be derived from its title.** The KB contains all three of
+  `templatesharearticle` (colon dropped, lowercased), `templateopenProfileFolderTB` (case
+  kept) and `Template:optionspreferences` (colon kept) — three conventions, so no rule
+  finds them and 44 guessed candidates all 404ed. Kitsune resolves `[[Template:X]]` by
+  *title*, so fetching one needs a title→slug map, and `/en-US/kb/all` is the only index
+  that has both (`scrape.mjs --all-docs`, 5299 documents, 221 of them templates).
+  Filenames come from the *title* — colon to `-`, spaces to `_` — so
+  `Template:optionspreferences TB` is stored as `Template-optionspreferences_TB.wiki`
+  regardless of the slug it was fetched from.
 
-Some template pages return 404 to anonymous requests even though their content is published.
-`message-threading-thunderbird` includes `[[Template:optionspreferences TB]]`, whose page
-404s anonymously, yet the API's rendered `html` for that article — served to anyone — expands
-it to "Click Thunderbird app menu ☰ > Settings" with no broken-link markup. So these are
-committed: the text is already public, and only the template's own page is restricted.
+A template's content is published even where its own page looks absent, and the
+rendered-HTML oracle is what shows it: `message-threading-thunderbird` includes
+`[[Template:optionspreferences TB]]`, and the API's rendered `html` for that article —
+served to anyone — expands it to "Click Thunderbird app menu ☰ > Settings" with no
+broken-link markup. That is also how the slug map was verified: the fetched
+`Template-optionspreferences_TB.wiki` contains exactly that sentence, which proves
+`templateoptionspreferences` is the document `Template:optionspreferences TB` and not a
+lookalike.
 
 ## Regenerating
 

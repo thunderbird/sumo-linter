@@ -15,7 +15,7 @@
 # just the resumable scraper with a bigger `--limit`. Interrupting it loses
 # nothing; re-running continues from the same place.
 #
-#   tools/scrape/batch.sh firefox corpus-other       # 60 at a time
+#   tools/scrape/batch.sh firefox corpus-other 60 /tmp/anon.txt
 #   tools/scrape/batch.sh firefox corpus-other 40    # 40 at a time
 #
 # Stops when a pass fetches nothing new, which means everything listed for the
@@ -26,9 +26,12 @@
 # Resuming is the same command again; the scraper skips what is already fetched.
 set -eu
 
-product=${1:?usage: batch.sh <product> <outdir> [batch-size]}
-out=${2:?usage: batch.sh <product> <outdir> [batch-size]}
+product=${1:?usage: batch.sh <product> <outdir> [batch-size] [allow-list]}
+out=${2:?usage: batch.sh <product> <outdir> [batch-size] [allow-list]}
 batch=${3:-60}
+# An anonymous `--list-only` dump. Passing one is strongly advised: the scrape
+# runs signed in, so the product's listing includes its unpublished drafts.
+allow=${4:-}
 
 cd "$(dirname "$0")"
 repo=$(cd ../.. && pwd)
@@ -49,7 +52,8 @@ while :; do
   # No pipe into tee: the exit status of a pipeline is the last command's, so a
   # scraper failure would read as success. Print the log afterwards instead.
   if node scrape.mjs --base https://support.mozilla.org \
-      --products "$product" --out "$out" --limit "$limit" >"$log" 2>&1; then
+      --products "$product" --out "$out" --limit "$limit" \
+      ${allow:+--only "$allow"} >"$log" 2>&1; then
     cat "$log"
   else
     rc=$?

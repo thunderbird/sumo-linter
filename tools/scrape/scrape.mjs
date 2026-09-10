@@ -33,6 +33,7 @@
  *   node scrape.mjs --list-only # enumerate slugs; no login needed
  *   node scrape.mjs --products '*' --list-only   # every article in the KB
  *   node scrape.mjs --list-only --profile /tmp/anon  # what anonymous users see
+ *   node scrape.mjs --products firefox --only /tmp/anon.txt --out corpus-other
  *   node scrape.mjs --products firefox --out corpus-other --limit 40
  *                              # sample another product, kept out of corpus/
  */
@@ -79,10 +80,30 @@ const CONFIG = {
   // answers "what changed since the last snapshot" without a session, which is
   // how you find out whether a rescrape needs new .gitignore entries.
   listOnly: argv.includes('--list-only'),
+  // Fetch only slugs named in this file (a `--list-only` dump). The scraper
+  // enumerates while signed in, so a product's listing includes that product's
+  // unpublished drafts; pointing this at an *anonymous* listing means a draft is
+  // never fetched, never written, and so can never be committed by accident.
+  only: flag('only', null),
   force: argv.includes('--force'),
 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * How long to stay quiet after a 429, in seconds.
+ *
+ * Retry-After is 600 and honouring it exactly is not enough: the probe that
+ * checks whether the ban has lifted is itself a request, and a request made
+ * during a ban appears to restart the window. Measured 2026-09-09 — two
+ * consecutive waits of Retry-After+15 both came back 429, i.e. the retry was
+ * feeding the thing it was waiting for. So each successive attempt waits
+ * longer, up to an hour, instead of knocking politely every ten minutes.
+ */
+function banWait(res, attempt) {
+  const ra = Number(res.headers()['retry-after'] || 600);
+  return Math.min((ra + 15) * attempt, 3600);
+}
 const exists = (p) => access(p).then(() => true, () => false);
 const isChallenge = (body) => body.includes('Client Challenge') && body.includes('_fs-ch-');
 
@@ -104,9 +125,8 @@ async function ensureNotRateLimited(ctx) {
       return; // transient network problem — let the normal flow report it
     }
     if (res.status() !== 429) return;
-    const ra = Number(res.headers()['retry-after'] || 600);
-    const wait = Math.min(ra + 15, 900);
-    console.log(`Edge is rate limiting (429, Retry-After: ${ra}s).`);
+    const wait = banWait(res, cycle);
+    console.log(`Edge is rate limiting (429, Retry-After: ${res.headers()['retry-after'] ?? '600'}s).`);
     console.log(`Waiting ${wait}s quietly — any request now would restart the window.`);
     await sleep(wait * 1000);
   }
@@ -162,9 +182,10 @@ async function fetchPath(ctx, page, path) {
       continue;
     }
     if (res.status() === 429) {
-      const ra = Number(res.headers()['retry-after'] || 600);
-      const wait = Math.min(ra + 15, 900);
-      console.log(`  rate limited (429, Retry-After: ${ra}s) — waiting ${wait}s quietly`);
+      const wait = banWait(res, attempt);
+      console.log(
+        `  rate limited (429) — waiting ${wait}s quietly (attempt ${attempt}, ${new Date().toLocaleTimeString()})`
+      );
       await sleep(wait * 1000);
       continue;
     }
@@ -329,7 +350,21 @@ async function main() {
       }
       await sleep(CONFIG.delayMs);
     }
-    const articles = [...bySlug.values()].slice(0, CONFIG.limit);
+    let listed = [...bySlug.values()];
+    if (CONFIG.only) {
+      const allowed = new Set(
+        (await readFile(String(CONFIG.only), 'utf8'))
+          .split('\n')
+          .filter((l) => l.includes('\t'))
+          .map((l) => l.split('\t')[0].trim())
+          .filter(Boolean)
+      );
+      if (allowed.size === 0) throw new Error(`--only ${CONFIG.only} contained no slugs`);
+      const before = listed.length;
+      listed = listed.filter((a) => allowed.has(a.slug));
+      console.log(`  --only: ${listed.length} of ${before} listed articles are in the allow-list`);
+    }
+    const articles = listed.slice(0, CONFIG.limit);
     console.log(`${articles.length} unique articles to fetch.\n`);
 
     if (CONFIG.listOnly) {

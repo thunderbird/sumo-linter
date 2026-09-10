@@ -334,6 +334,58 @@ mod tests {
         }
     }
 
+    /// The constructs sumo-linter #1 was about, on markup taken verbatim from KB
+    /// templates. All three lexer paths had zero real input behind them until the
+    /// 2026-09-09 template scrape; these are the shapes it actually found.
+    #[test]
+    fn template_parameters_and_redirects_from_real_templates() {
+        // Real usage is *named*, not numbered: {{{ver}}}, {{{type}}}, {{{slug}}},
+        // {{{channel}}}, {{{service}}}, {{{serviceURL}}} — 31 occurrences across
+        // 6 of 221 templates, and not one `{{{1}}}`. A parameter must stay inert
+        // text: treating `{{{` as a macro would misfire on every one of them.
+        for src in [
+            "Click the Firefox app menu button {menu [[Image:IG main menu]]} and select {{{type}}}.\n",
+            "# Visit the {{{serviceURL}}}.\n",
+            "{note}latest Firefox {{{channel}}} from [http://www.mozilla.org/{{{slug}}} mozilla.org/{{{slug}}}].{/note}\n",
+            "[https://ftp.mozilla.org/{{{ver}}}/Firefox%20Setup%20{{{ver}}}.exe Firefox {{{ver}}}]\n",
+        ] {
+            let d = Document::parse(src);
+            assert!(d.is_lossless(), "{src:?}");
+            assert_eq!(d.diagnostics(), vec![], "{src:?} should be clean");
+            assert_eq!(d.apply_fixes(false).1, 0, "{src:?} needs no fixes");
+        }
+
+        // `Template:Open Add-ons` escapes its closing braces as HTML entities to
+        // get a parameter past the parser. It is inside a {menu} macro, so the
+        // macro must still close on the single real `}` — the entities are text.
+        let odd = "Click {menu {{{type&#125;&#125;&#125;}.<!--  &#125; means } in HTML -->\n";
+        let d = Document::parse(odd);
+        assert!(d.is_lossless());
+        let kinds: Vec<&TokenKind> = d.tokens().iter().map(|t| &t.kind).collect();
+        assert!(kinds.contains(&&TokenKind::MacroClose), "{kinds:?}");
+        assert!(
+            kinds.iter().any(|k| matches!(k, TokenKind::Opaque { .. })),
+            "the trailing comment must stay opaque: {kinds:?}"
+        );
+
+        // `Template:portugese banner` is one line: a bare REDIRECT, no leading
+        // `#`. It is not a construct the lexer needs to model — the target is an
+        // ordinary link — but it must not be mistaken for anything else.
+        let d = Document::parse("REDIRECT [[Template:l10nbanner]]\n");
+        assert!(d.is_lossless());
+        assert_eq!(d.diagnostics(), vec![]);
+        assert!(d.tokens().iter().any(|t| t.kind
+            == TokenKind::Link {
+                kind: LinkKind::Template
+            }));
+
+        // The MediaWiki spelling, which SUMO does not use: `#` is the ordered-list
+        // marker, so this is a list item whose text happens to read REDIRECT.
+        let d = Document::parse("#REDIRECT [[Some Article]]\n");
+        assert!(d.is_lossless());
+        assert_eq!(d.tokens()[0].kind, TokenKind::ListMarker);
+    }
+
     #[test]
     fn fixes_never_break_round_trip() {
         let d = Document::parse("* \n**bold** [x](http://y)\n");

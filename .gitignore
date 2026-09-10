@@ -67,3 +67,7 @@ node_modules/
 # Provenance of the template scrape; churns on every re-run and the .wiki files
 # plus corpus/README.md are the record that matters.
 /corpus/templates/index.json
+
+# Other-product scrape. Pending a per-document publication check before
+# anything here is committed; see corpus/README.md on published content.
+/corpus-other/

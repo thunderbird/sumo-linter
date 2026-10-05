@@ -276,7 +276,7 @@ about muscle memory, which does not survive being available in one editor only.
 | Fix / style whole buffer | code action, `codeActionsOnSave` | `C-c C-f` / `C-c C-s` | CLI |
 | Syntax highlighting | TextMate grammar | font-lock | *(none yet)* |
 | Insert link (prompts) | `Cmd+K Cmd+L` | `C-c C-l` | `<LocalLeader>l` |
-| Toggle bold `'''…'''` | `Cmd+K Cmd+B` | `C-c C-b` | `<LocalLeader>b` |
+| Toggle bold `'''…'''` | `Cmd+B` | `C-c C-b` | `<LocalLeader>b` |
 | Paste URL over selection | `Cmd+V` | `C-y` | visual `p`/`P` |
 
 Idiom per editor, gesture in common: a VS Code paste provider, an Emacs `yank` remap and a

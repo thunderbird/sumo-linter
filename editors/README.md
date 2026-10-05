@@ -297,8 +297,8 @@ leading-space preformatted lines described above.
 cd editors/vscode
 npm install
 npm test                  # 34 grammar + 51 link + 26 bold assertions
-npx vsce package          # produces sumo-lint-0.4.0.vsix
-code --install-extension sumo-lint-0.4.0.vsix
+npx vsce package          # produces sumo-lint-0.4.1.vsix
+code --install-extension sumo-lint-0.4.1.vsix
 ```
 
 If `sumo-lint-lsp` is not on your `PATH`, set `sumoLint.serverPath` to an
@@ -332,7 +332,7 @@ Two deliberate choices:
 - It does not rewrite an existing link. Select `[text](url)` and the prompts come
   up empty — the tool for that is SW009's quick fix, which knows the span.
 
-### Toggle bold: `Cmd+K Cmd+B`
+### Toggle bold: `Cmd+B`
 
 `SUMO: Toggle Bold` wraps the selection in `'''three quotes'''`, which is what SUMO
 reads as bold — `**bold**` is Markdown, and SW010 flags it. Press it again and the
@@ -340,9 +340,10 @@ markers come off, because the command re-selects the inner text. Selecting a wor
 *inside* a bold span removes the markers around it too, so double-click and press works.
 With nothing selected it inserts `''''''` and puts the caret between the runs.
 
-`Cmd+B` is the usual bold key elsewhere, but it is **Toggle Sidebar** here, and
-`Cmd+K` is already this extension's prefix, so the chord sits next to `Cmd+K Cmd+L`
-and shadows nothing.
+The keybinding is scoped `editorLangId == sumo-wiki`, where it shadows **Toggle
+Sidebar**. `Cmd+B` is the bold key in every other editor and chat box, and that muscle
+memory is the whole point of the command. Everywhere outside a SUMO file, `Cmd+B` still
+toggles the sidebar.
 
 The command refuses, with a warning, rather than guessing: a selection spanning lines,
 or one carrying a stray `'''` that is not its own wrapper, has no single right reading.

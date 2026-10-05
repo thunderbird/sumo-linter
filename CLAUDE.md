@@ -97,7 +97,8 @@ CI-green as of 2026-08-17;
 the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19, and
 paste-a-URL-over-a-selection (sumo-linter #2) on 2026-08-28, and insert-link in Emacs and
 Vim the same day, which brought the three editors to parity; toggle-bold landed in all
-three at once on 2026-10-05 (sumo-linter #10);
+three at once on 2026-10-05 (sumo-linter #10), bound to `Cmd+B` in VS Code at Roland's
+request and confirmed working in his editor the same day;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 

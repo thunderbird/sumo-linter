@@ -19,6 +19,23 @@ cp target/release/sumo-lint-lsp target/release/sumo-lint ~/.local/bin/
 Treat `*.sumo` and `*.wiki` as SUMO markup. Remember that SUMO itself is the
 source of truth — these are local drafts you paste back into the article editor.
 
+## Keys, at a glance
+
+Every editing gesture exists in all three editors. The keystrokes differ because
+each editor has its own idiom, and chasing identical keys would fight all three:
+
+| Gesture | VS Code | Emacs | Vim / Neovim |
+|---|---|---|---|
+| Toggle bold `'''…'''` | `Cmd+B` | `C-c C-b` | `<LocalLeader>b` |
+| Insert a link, by prompt | `Cmd+K Cmd+L` | `C-c C-l` | `<LocalLeader>l` |
+| Paste a URL over a selection | `Cmd+V` | `C-y` | visual `p` / `P` |
+| Quick fix on the diagnostic | `Cmd+.` | `M-x eglot-code-actions` | `vim.lsp.buf.code_action()` |
+| Fix or style the whole buffer | code action, `codeActionsOnSave` | `C-c C-f` / `C-c C-s` | the CLI |
+
+`Cmd` is `Ctrl` outside macOS. `<LocalLeader>` is `\` unless you have changed it,
+so `\b` and `\l`. Each section below gives the full behaviour, including when a
+gesture deliberately does nothing.
+
 ## Quick fixes
 
 Every diagnostic that carries a fix is offered as an LSP code action, so the

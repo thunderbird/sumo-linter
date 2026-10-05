@@ -310,6 +310,121 @@
       (eq (lookup-key sumo-wiki-mode-map (kbd "C-c C-l"))
           'sumo-wiki-insert-link)))
 
+;; 9. sumo-wiki-toggle-bold -- SUMO bold is `'''three quotes''', so producing
+;; `**bold**' here would be the worst possible bug: it is the exact syntax
+;; SW010 flags.  nil means "refuse and say so", and the refusals matter most:
+;; a toggle that guesses turns markup into a run of quotes.
+(defun sumo-test-bold (before selected after)
+  "Apply the toggle to BEFORE, SELECTED and AFTER, marking the result.
+
+Returns the whole line with `|' where point lands, or `[...]' around what
+stays marked, so the cases below read as text rather than as offsets."
+  (let ((e (sumo-wiki--toggle-bold before selected after)))
+    (when e
+      (let* ((text (plist-get e :text))
+             (s (plist-get e :sel-start))
+             (x (plist-get e :sel-end)))
+        (concat (substring before 0 (- (length before) (plist-get e :cut-before)))
+                (if (= s x)
+                    (concat (substring text 0 s) "|" (substring text s))
+                  (concat (substring text 0 s) "[" (substring text s x) "]"
+                          (substring text x)))
+                (substring after (plist-get e :cut-after)))))))
+
+(ok "a region becomes bold"
+    (equal (sumo-test-bold "See " "release notes" " today")
+           "See '''[release notes]''' today"))
+(ok "outer whitespace stays outside the markers"
+    (equal (sumo-test-bold "See" "  release notes  " ".")
+           "See  '''[release notes]'''  ."))
+(ok "an italic span nests, giving bold+italic"
+    (equal (sumo-test-bold "" "''both''" "") "'''[''both'']'''"))
+(ok "a multibyte region survives"
+    (equal (sumo-test-bold "le " "café" " noir") "le '''[café]''' noir"))
+(ok "a marked bold span loses the markers"
+    (equal (sumo-test-bold "See " "'''release notes'''" ".") "See [release notes]."))
+(ok "a word marked inside a bold span loses them too"
+    (equal (sumo-test-bold "See '''" "release notes" "''' today")
+           "See [release notes] today"))
+(ok "bold+italic loses only the bold layer"
+    (equal (sumo-test-bold "" "'''''both'''''" "") "[''both'']"))
+(ok "an empty bold span is removed"
+    (equal (sumo-test-bold "a" "''''''" "b") "a|b"))
+(ok "no region inserts markers and leaves point between them"
+    (equal (sumo-test-bold "See " "" " today") "See '''|''' today"))
+(ok "whitespace only is treated as empty"
+    (equal (sumo-test-bold "See" "  " "today") "See  '''|'''today"))
+(ok "a multi-line region is refused"
+    (null (sumo-wiki--toggle-bold "" "one\ntwo" "")))
+(ok "a stray marker inside the region is refused"
+    (null (sumo-wiki--toggle-bold "" "x '''b'''" "")))
+(ok "part of a bold span is refused, since splitting it is a guess"
+    (null (sumo-wiki--toggle-bold "See '''release " "notes" "''' today")))
+(ok "toggle-bold never produces markdown"
+    (null (string-match-p "\\*" (plist-get (sumo-wiki--toggle-bold "" "words" "")
+                                           :text))))
+
+;; Toggling twice is the identity, because the first edit leaves marked exactly
+;; the text the second one needs.
+(let* ((first (sumo-wiki--toggle-bold "See " "release notes" " today"))
+       (text (plist-get first :text))
+       (s (plist-get first :sel-start))
+       (x (plist-get first :sel-end))
+       (second (sumo-wiki--toggle-bold (concat "See " (substring text 0 s))
+                                       (substring text s x)
+                                       (concat (substring text x) " today"))))
+  (ok "toggling twice restores the text"
+      (equal (plist-get second :text) "release notes")))
+
+;; Then the command, in a real buffer.  `transient-mark-mode' is nil under
+;; --batch, so bind it or `use-region-p' is nil and the region cases pass
+;; vacuously.
+(let ((transient-mark-mode t))
+  (with-temp-buffer
+    (sumo-wiki-mode)
+    (insert "See the release notes for details.")
+    (goto-char (point-min))
+    (search-forward "the release notes")
+    (push-mark (match-beginning 0) t t)
+    (sumo-wiki-toggle-bold)
+    (ok "the command bolds the region"
+        (equal (buffer-string) "See '''the release notes''' for details."))
+    ;; The region is left on the inner text, so a second press undoes the first.
+    (ok "the region survives the edit" (use-region-p))
+    (sumo-wiki-toggle-bold)
+    (ok "a second press takes the bold off"
+        (equal (buffer-string) "See the release notes for details."))))
+
+(with-temp-buffer
+  (sumo-wiki-mode)
+  (insert "See  for details.")
+  (goto-char (point-min))
+  (search-forward "See ")
+  (sumo-wiki-toggle-bold)
+  (ok "with no region the markers go in at point"
+      (equal (buffer-string) "See '''''' for details."))
+  (insert "now")
+  (ok "point is between the markers"
+      (equal (buffer-string) "See '''now''' for details.")))
+
+;; A region spanning lines is refused, and refusing must not touch the buffer.
+(let ((transient-mark-mode t))
+  (with-temp-buffer
+    (sumo-wiki-mode)
+    (insert "one\ntwo\n")
+    (push-mark (point-min) t t)
+    (goto-char (point-max))
+    (ok "a multi-line region errors rather than mangling the buffer"
+        (and (eq 'error (condition-case nil (progn (sumo-wiki-toggle-bold) nil)
+                          (user-error 'error)))
+             (equal (buffer-string) "one\ntwo\n")))))
+
+(with-temp-buffer
+  (sumo-wiki-mode)
+  (ok "keymap has C-c C-b"
+      (eq (lookup-key sumo-wiki-mode-map (kbd "C-c C-b"))
+          'sumo-wiki-toggle-bold)))
+
 ;;; Summary and exit status
 ;;
 ;; `--batch' exits 0 however many FAILs were printed, so without this the whole
@@ -321,7 +436,7 @@
 ;; would otherwise just print fewer lines and still pass. Raise it when adding
 ;; assertions.
 
-(let ((expected 63))
+(let ((expected 85))
   (when (< sumo-test-total expected)
     (setq sumo-test-failed (1+ sumo-test-failed))
     (princ (format "  %-46s FAIL (ran %d)\n"

@@ -88,15 +88,16 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 for and expensive to *run* — a full pass is ~200 signed-in page fetches and reliably earns
 a 429 for the rest of the hour); the heading data is already measured; the four bugs are
 already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
-`vscode` (34 grammar + 51 link assertions), `emacs`
-(63 mode assertions, against the real CLI), `vim` (61 plugin assertions, run under
+`vscode` (34 grammar + 51 link + 26 bold assertions), `emacs`
+(85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
 both Vim and Neovim) and `web` (31 assertions on the fix arithmetic) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
 the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19, and
 paste-a-URL-over-a-selection (sumo-linter #2) on 2026-08-28, and insert-link in Emacs and
-Vim the same day, which brought the three editors to parity;
+Vim the same day, which brought the three editors to parity; toggle-bold landed in all
+three at once on 2026-10-05 (sumo-linter #10);
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 
@@ -202,7 +203,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-cli` | `sumo-lint` binary: hand-rolled args, `--fix`, `--style`, `--diff`, JSON |
 | `crates/sumo-lint-lsp` | LSP over stdio: diagnostics, `textDocument/formatting`, `codeAction` quick fixes |
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
-| `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
+| `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + `SUMO: Toggle Bold` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
 | `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js` and tested under Node |
 
@@ -275,16 +276,18 @@ about muscle memory, which does not survive being available in one editor only.
 | Fix / style whole buffer | code action, `codeActionsOnSave` | `C-c C-f` / `C-c C-s` | CLI |
 | Syntax highlighting | TextMate grammar | font-lock | *(none yet)* |
 | Insert link (prompts) | `Cmd+K Cmd+L` | `C-c C-l` | `<LocalLeader>l` |
+| Toggle bold `'''…'''` | `Cmd+K Cmd+B` | `C-c C-b` | `<LocalLeader>b` |
 | Paste URL over selection | `Cmd+V` | `C-y` | visual `p`/`P` |
 
 Idiom per editor, gesture in common: a VS Code paste provider, an Emacs `yank` remap and a
 Vim visual mapping are the *same* feature even though the keystrokes differ. Do not chase
 identical keybindings.
 
-Keep each editor's decision logic a **pure function** — `link.js`,
-`sumo-wiki--build-link` / `--link-from-paste`, `sumo_wiki#build_link` /
-`#link_from_paste` — so it is testable headlessly and lands in CI. Linting itself lives
-once in `sumo-lint-lsp` and is never duplicated; only editing gestures are. The remaining
+Keep each editor's decision logic a **pure function** — `link.js` and `bold.js`,
+`sumo-wiki--build-link` / `--link-from-paste` / `--toggle-bold`, `sumo_wiki#build_link` /
+`#link_from_paste` / `#toggle_bold` — so it is testable headlessly and lands in CI.
+Linting itself lives once in `sumo-lint-lsp` and is never duplicated; only editing
+gestures are. The remaining
 gap is **syntax highlighting in Vim**: VS Code has a TextMate grammar and Emacs has
 font-lock, Vim has no syntax file yet.
 

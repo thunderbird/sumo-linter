@@ -33,6 +33,17 @@ if !hasmapto('<Plug>(sumo-wiki-insert-link)', 'x')
   xmap <buffer> <LocalLeader>l <Plug>(sumo-wiki-insert-link)
 endif
 
+" '''bold''' is six characters to type by hand. <LocalLeader>b alongside
+" <LocalLeader>l, with the same hasmapto guard.
+if !hasmapto('<Plug>(sumo-wiki-toggle-bold)', 'n')
+  nmap <buffer> <LocalLeader>b <Plug>(sumo-wiki-toggle-bold)
+endif
+if !hasmapto('<Plug>(sumo-wiki-toggle-bold)', 'x')
+  xmap <buffer> <LocalLeader>b <Plug>(sumo-wiki-toggle-bold)
+endif
+
 let b:undo_ftplugin .= ' | silent! xunmap <buffer> p | silent! xunmap <buffer> P'
       \ . ' | silent! nunmap <buffer> <LocalLeader>l'
       \ . ' | silent! xunmap <buffer> <LocalLeader>l'
+      \ . ' | silent! nunmap <buffer> <LocalLeader>b'
+      \ . ' | silent! xunmap <buffer> <LocalLeader>b'

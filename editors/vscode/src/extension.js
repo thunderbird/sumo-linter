@@ -9,6 +9,7 @@
 const vscode = require('vscode');
 const { workspace, window, commands, languages } = vscode;
 const { LanguageClient } = require('vscode-languageclient/node');
+const { toggleBold } = require('./bold');
 const {
   buildLink,
   isUrl,
@@ -62,6 +63,46 @@ async function insertLink() {
   // syntax, and escaping it correctly is a bug waiting to happen.
   const selection = editor.selection;
   await editor.edit((builder) => builder.replace(selection, buildLink(target, label)));
+}
+
+// `SUMO: Toggle Bold` — SUMO bold is `'''three quotes'''`, which is six
+// characters to type and easy to leave unbalanced (SW003). The decision logic
+// is in ./bold.js; this half is a range replace plus the new selection.
+async function toggleBoldCommand() {
+  const editor = window.activeTextEditor;
+  if (!editor) {
+    return;
+  }
+  const selection = editor.selection;
+  const line = selection.start.line;
+  const text = editor.document.lineAt(line).text;
+  const edit = selection.isSingleLine
+    ? toggleBold(
+      text.slice(0, selection.start.character),
+      text.slice(selection.start.character, selection.end.character),
+      text.slice(selection.end.character),
+    )
+    : undefined;
+
+  if (edit === undefined) {
+    // Saying so beats doing nothing: the alternative is a key that looks broken.
+    window.showWarningMessage(
+      "SUMO: cannot toggle bold here — select text on one line, clear of any stray '''.",
+    );
+    return;
+  }
+
+  const from = selection.start.character - edit.cutBefore;
+  const to = selection.end.character + edit.cutAfter;
+  const applied = await editor.edit((builder) =>
+    builder.replace(new vscode.Range(line, from, line, to), edit.text));
+  if (!applied) {
+    return;
+  }
+  // Re-selecting the inner text is what makes a second press undo the first.
+  editor.selection = new vscode.Selection(
+    line, from + edit.selStart, line, from + edit.selEnd,
+  );
 }
 
 // Paste a URL over selected text and get a link, the way Markdown mode does.
@@ -135,6 +176,7 @@ function activate(context) {
     // Registered outside the client's lifetime on purpose: inserting a link is
     // pure text editing, and still works if the server failed to start.
     commands.registerCommand('sumoLint.insertLink', insertLink),
+    commands.registerCommand('sumoLint.toggleBold', toggleBoldCommand),
   );
   registerPasteProvider(context);
 }

@@ -227,3 +227,124 @@ function! sumo_wiki#insert_link(visual) abort
   endif
   redraw
 endfunction
+
+" --- bold -------------------------------------------------------------------
+" SUMO bold is '''three quotes''', which is six characters to type by hand and
+" easy to leave unbalanced (SW003). The same rules live in bold.js (VS Code)
+" and `sumo-wiki--toggle-bold' (Emacs).
+
+let s:mark = "'''"
+
+" Counted without overlap, so ''''' -- bold plus italic -- counts as the one
+" bold marker it is.
+function! s:count_marks(text) abort
+  return len(split(a:text, s:mark, 1)) - 1
+endfunction
+
+" BEFORE and AFTER are the rest of the line on either side of SELECTED: '''
+" does not span lines, so one line is all the context there is.
+"
+" An empty dict means "do nothing and say so". A toggle that guesses turns
+" markup into a run of quotes that renders as something else entirely.
+"
+" Otherwise: replace from cut_before bytes before the selection to cut_after
+" bytes after it with `text`, then select sel_start to sel_end, counted from
+" the start of `text`. Leaving the inner text selected is what makes a second
+" press undo the first.
+function! sumo_wiki#toggle_bold(before, selected, after) abort
+  let l:sel = a:selected
+  if stridx(l:sel, "\n") >= 0
+    return {}
+  endif
+  let l:width = strlen(s:mark)
+
+  " Outer whitespace stays outside the markers: ''' x ''' renders the spaces
+  " inside the bold run, which is never what selecting a word and a trailing
+  " space meant.
+  let l:core = trim(l:sel)
+  if empty(l:core)
+    let [l:lead, l:trail] = [l:sel, '']
+  else
+    let l:start = stridx(l:sel, l:core)
+    let l:lead = strpart(l:sel, 0, l:start)
+    let l:trail = strpart(l:sel, l:start + strlen(l:core))
+  endif
+
+  " The selection is exactly a bold span: take the markers off. Five quotes is
+  " bold+italic, so stripping three from each end leaves the italic behind,
+  " which is the right answer for a *bold* toggle.
+  if strlen(l:core) >= 2 * l:width
+        \ && strpart(l:core, 0, l:width) ==# s:mark
+        \ && strpart(l:core, strlen(l:core) - l:width) ==# s:mark
+    let l:inner = strpart(l:core, l:width, strlen(l:core) - 2 * l:width)
+    if stridx(l:inner, s:mark) >= 0
+      return {}
+    endif
+    return {'text': l:lead . l:inner . l:trail, 'cut_before': 0, 'cut_after': 0,
+          \ 'sel_start': strlen(l:lead),
+          \ 'sel_end': strlen(l:lead) + strlen(l:inner)}
+  endif
+
+  " The selection sits inside a bold span -- `viw` on a word in '''release
+  " notes''' lands here, not in the case above.
+  if strpart(a:before, strlen(a:before) - l:width) ==# s:mark
+        \ && strpart(a:after, 0, l:width) ==# s:mark
+        \ && stridx(l:core, s:mark) < 0
+    return {'text': l:sel, 'cut_before': l:width, 'cut_after': l:width,
+          \ 'sel_start': 0, 'sel_end': strlen(l:sel)}
+  endif
+
+  " An odd number of markers earlier on the line means the selection is inside
+  " a span that opened before it. Wrapping would nest, and nesting renders as
+  " quotes; un-bolding part of a span means splitting it, which is a guess
+  " about where the author wanted it to end. Refuse both.
+  if s:count_marks(a:before) % 2 == 1
+    return {}
+  endif
+
+  " A stray marker inside the selection has no single right reading.
+  if stridx(l:core, s:mark) >= 0
+    return {}
+  endif
+
+  return {'text': l:lead . s:mark . l:core . s:mark . l:trail,
+        \ 'cut_before': 0, 'cut_after': 0,
+        \ 'sel_start': strlen(l:lead) + l:width,
+        \ 'sel_end': strlen(l:lead) + l:width + strlen(l:core)}
+endfunction
+
+" VISUAL is 1 when called from a visual-mode mapping. With nothing selected the
+" markers go in at the cursor, like `i`, with the cursor left between them.
+function! sumo_wiki#bold(visual) abort
+  let l:span = a:visual ? s:span() : []
+  if a:visual && empty(l:span)
+    return s:warn('bold needs a selection on one line')
+  endif
+  let [l:lnum, l:startcol, l:after] = empty(l:span)
+        \ ? [line('.'), col('.'), col('.')]
+        \ : l:span
+  let l:line = getline(l:lnum)
+  let l:edit = sumo_wiki#toggle_bold(
+        \ strpart(l:line, 0, l:startcol - 1),
+        \ strpart(l:line, l:startcol - 1, l:after - l:startcol),
+        \ strpart(l:line, l:after - 1))
+  if empty(l:edit)
+    " Saying so beats doing nothing: the alternative is a key that looks broken.
+    return s:warn("cannot toggle bold here -- select text on one line, clear "
+          \ . "of any stray '''")
+  endif
+
+  let l:from = l:startcol - l:edit.cut_before
+  call s:replace(l:lnum, l:from, l:after + l:edit.cut_after, l:edit.text)
+  " `gv` then reselects what the toggle produced, so a second press undoes it.
+  call setpos("'<", [0, l:lnum, l:from + l:edit.sel_start, 0])
+  call setpos("'>", [0, l:lnum, max([l:from + l:edit.sel_start,
+        \ l:from + l:edit.sel_end - 1]), 0])
+  call cursor(l:lnum, l:from + l:edit.sel_start)
+endfunction
+
+function! s:warn(msg) abort
+  echohl WarningMsg
+  echomsg 'sumo-wiki: ' . a:msg
+  echohl None
+endfunction

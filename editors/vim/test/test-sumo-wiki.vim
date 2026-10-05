@@ -295,9 +295,117 @@ call s:ok('LocalLeader l reaches the <Plug> mapping in normal mode',
 call s:ok('LocalLeader l reaches the <Plug> mapping in visual mode',
       \ maparg('\l', 'x') =~# 'sumo-wiki-insert-link', 1)
 
+" --- toggle_bold ------------------------------------------------------------
+" SUMO bold is '''three quotes''', so producing `**bold**` here would be the
+" worst possible bug: it is the exact syntax SW010 flags. An empty dict means
+" "refuse and say so", and the refusals matter most.
+"
+" Renders an edit as text: `|` is where the cursor lands, `[...]` what stays
+" selected, so the cases read as markup rather than as offsets.
+function! s:bold(before, selected, after) abort
+  let l:e = sumo_wiki#toggle_bold(a:before, a:selected, a:after)
+  if empty(l:e)
+    return ''
+  endif
+  let l:marked = l:e.sel_start == l:e.sel_end
+        \ ? strpart(l:e.text, 0, l:e.sel_start) . '|'
+        \   . strpart(l:e.text, l:e.sel_start)
+        \ : strpart(l:e.text, 0, l:e.sel_start) . '['
+        \   . strpart(l:e.text, l:e.sel_start, l:e.sel_end - l:e.sel_start)
+        \   . ']' . strpart(l:e.text, l:e.sel_end)
+  return strpart(a:before, 0, strlen(a:before) - l:e.cut_before)
+        \ . l:marked . strpart(a:after, l:e.cut_after)
+endfunction
+
+call s:ok('a selection becomes bold',
+      \ s:bold('See ', 'release notes', ' today'),
+      \ "See '''[release notes]''' today")
+call s:ok('outer whitespace stays outside the markers',
+      \ s:bold('See', '  release notes  ', '.'),
+      \ "See  '''[release notes]'''  .")
+call s:ok('an italic span nests, giving bold+italic',
+      \ s:bold('', "''both''", ''), "'''[''both'']'''")
+call s:ok('a multibyte selection survives',
+      \ s:bold('le ', 'café', ' noir'), "le '''[café]''' noir")
+call s:ok('a selected bold span loses the markers',
+      \ s:bold('See ', "'''release notes'''", '.'), 'See [release notes].')
+call s:ok('a word selected inside a bold span loses them too',
+      \ s:bold("See '''", 'release notes', "''' today"),
+      \ 'See [release notes] today')
+call s:ok('bold+italic loses only the bold layer',
+      \ s:bold('', "'''''both'''''", ''), "[''both'']")
+call s:ok('an empty bold span is removed', s:bold('a', "''''''", 'b'), 'a|b')
+call s:ok('no selection inserts markers and a cursor',
+      \ s:bold('See ', '', ' today'), "See '''|''' today")
+call s:ok('whitespace only is treated as empty',
+      \ s:bold('See', '  ', 'today'), "See  '''|'''today")
+call s:ok('a multi-line selection is refused',
+      \ sumo_wiki#toggle_bold('', "one\ntwo", ''), {})
+call s:ok('a stray marker inside the selection is refused',
+      \ sumo_wiki#toggle_bold('', "x '''b'''", ''), {})
+call s:ok('part of a bold span is refused, since splitting it is a guess',
+      \ sumo_wiki#toggle_bold("See '''release ", 'notes', "''' today"), {})
+call s:ok('toggle_bold never produces markdown',
+      \ sumo_wiki#toggle_bold('', 'words', '').text =~# '\*', 0)
+
+" Toggling twice is the identity, because the first edit leaves selected
+" exactly the text the second one reads.
+let s:first = sumo_wiki#toggle_bold('See ', 'release notes', ' today')
+call s:ok('toggling twice restores the text',
+      \ sumo_wiki#toggle_bold(
+      \   'See ' . strpart(s:first.text, 0, s:first.sel_start),
+      \   strpart(s:first.text, s:first.sel_start,
+      \           s:first.sel_end - s:first.sel_start),
+      \   strpart(s:first.text, s:first.sel_end) . ' today').text,
+      \ 'release notes')
+
+" --- the mapping, end to end ------------------------------------------------
+function! s:bold_keys(text, keys) abort
+  enew!
+  setfiletype sumo-wiki
+  call setline(1, a:text)
+  execute 'normal ' . a:keys
+  return join(getline(1, '$'), "\n")
+endfunction
+
+enew!
+setfiletype sumo-wiki
+call s:ok('<Plug> toggle-bold is defined in normal mode',
+      \ execute('nmap <Plug>(sumo-wiki-toggle-bold)') =~# 'bold(0)', 1)
+call s:ok('<Plug> toggle-bold is defined in visual mode',
+      \ execute('xmap <Plug>(sumo-wiki-toggle-bold)') =~# 'bold(1)', 1)
+call s:ok('LocalLeader b reaches the <Plug> mapping in normal mode',
+      \ maparg('\b', 'n') =~# 'sumo-wiki-toggle-bold', 1)
+call s:ok('LocalLeader b reaches the <Plug> mapping in visual mode',
+      \ maparg('\b', 'x') =~# 'sumo-wiki-toggle-bold', 1)
+
+call s:ok('visual-mode bold wraps the selection',
+      \ s:bold_keys('See the release notes for details.', '0wv3e\b'),
+      \ "See '''the release notes''' for details.")
+" `gv` reselects what the toggle produced, so a second press takes it off.
+call s:ok('a second press on the same words takes the bold off',
+      \ s:bold_keys('See the release notes for details.', '0wv3e\bgv\b'),
+      \ 'See the release notes for details.')
+" viw inside a bold span: the markers around the word come off.
+call s:ok('viw inside a bold span unbolds it',
+      \ s:bold_keys("See '''notes''' today", "fnviw\\b"),
+      \ 'See notes today')
+call s:ok('normal-mode bold inserts an empty pair at the cursor',
+      \ s:bold_keys('See  for details.', '5|\b'),
+      \ "See '''''' for details.")
+" Refusing must leave the line exactly as it was.
+call s:ok('a refused toggle leaves the line alone',
+      \ s:bold_keys("See x '''b''' y for details.", '0wv3e\b'),
+      \ "See x '''b''' y for details.")
+" A multibyte selection: '> holds the first byte of the last character, so a
+" naive slice cuts it in half and produces mojibake.
+call s:ok('a multibyte selection is not cut in half',
+      \ s:bold_keys('See le café for details.', '0wv2e\b'),
+      \ "See '''le café''' for details.")
+
 " A floor on the count: a file that stops running its body would otherwise
 " print no failures and pass.
-let s:expected = 61
+let s:expected = 86
 if s:total < s:expected
   let s:failed += 1
   call s:say(printf('  only %d assertions ran, expected at least %d', s:total, s:expected))

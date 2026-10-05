@@ -37,6 +37,7 @@
 
 ;;; Code:
 
+(require 'cl-lib)
 (require 'flymake)
 (require 'json)
 
@@ -360,6 +361,128 @@ The region, if any, seeds the prompts and is replaced."
       (delete-region (region-beginning) (region-end)))
     (insert (sumo-wiki--build-link target label))))
 
+;;; Bold
+;;
+;; SUMO bold is `'''three quotes''', which is six characters to type by hand
+;; and easy to leave unbalanced (SW003).  The same rules live in `bold.js'
+;; (VS Code) and `sumo_wiki#toggle_bold' (Vim).
+
+(defconst sumo-wiki--bold-mark "'''"
+  "The marker SUMO uses for bold text.  Not `**'; that is what SW010 flags.")
+
+(defun sumo-wiki--count-bold-marks (text)
+  "Return how many bold markers TEXT contains, counted without overlap.
+
+So `'''''' -- bold plus italic -- counts as the one bold marker it is."
+  (let ((n 0) (i 0))
+    (while (string-match sumo-wiki--bold-mark text i)
+      (setq n (1+ n) i (match-end 0)))
+    n))
+
+(defun sumo-wiki--toggle-bold (before selected after)
+  "Return the edit that toggles bold over SELECTED, or nil to refuse.
+
+BEFORE and AFTER are the rest of the line on either side: `''' does not
+span lines, so one line is all the context there is.
+
+nil means \"do nothing and say so\".  A toggle that guesses turns markup
+into a run of quotes that renders as something else entirely.
+
+On success the value is a plist: replace the region from CUT-BEFORE
+characters before SELECTED to CUT-AFTER characters after it with TEXT,
+then mark SEL-START to SEL-END, counted from the start of TEXT.  Leaving
+the inner text marked is what makes a second press undo the first."
+  (let* ((sel (or selected ""))
+         (head (or before ""))
+         (tail (or after ""))
+         (mark sumo-wiki--bold-mark)
+         (width (length mark)))
+    (unless (string-match-p "\n" sel)
+      (let* ((len (length sel))
+             (lead-end (if (string-match "\\`[ \t]+" sel) (match-end 0) 0))
+             (trail-start (if (string-match "[ \t]+\\'" sel)
+                              (match-beginning 0) len))
+             ;; A region of nothing but whitespace has no core to wrap, and the
+             ;; two matches above overlap on it.
+             (blank (<= trail-start lead-end))
+             ;; Outer whitespace stays outside the markers: `''' x ''' renders
+             ;; the spaces inside the bold run, which is never what marking a
+             ;; word and a trailing space meant.
+             (lead (if blank sel (substring sel 0 lead-end)))
+             (core (if blank "" (substring sel lead-end trail-start)))
+             (trail (if blank "" (substring sel trail-start))))
+        (cond
+         ;; The region is exactly a bold span: take the markers off.  Five
+         ;; quotes is bold+italic, so stripping three from each end leaves the
+         ;; italic behind, which is the right answer for a *bold* toggle.
+         ((and (>= (length core) (* 2 width))
+               (string-prefix-p mark core)
+               (string-suffix-p mark core))
+          (let ((inner (substring core width (- (length core) width))))
+            (unless (string-match-p (regexp-quote mark) inner)
+              (list :text (concat lead inner trail)
+                    :cut-before 0 :cut-after 0
+                    :sel-start (length lead)
+                    :sel-end (+ (length lead) (length inner))))))
+         ;; The region sits inside a bold span -- double-click a word in
+         ;; `'''release notes''' and you get this, not the case above.
+         ((and (string-suffix-p mark head)
+               (string-prefix-p mark tail)
+               (not (string-match-p (regexp-quote mark) core)))
+          (list :text sel :cut-before width :cut-after width
+                :sel-start 0 :sel-end len))
+         ;; An odd number of markers earlier on the line means the region is
+         ;; inside a span that opened before it.  Wrapping would nest, and
+         ;; nesting renders as quotes; un-bolding part of a span means
+         ;; splitting it, which is a guess about where it should end.
+         ((cl-oddp (sumo-wiki--count-bold-marks head)) nil)
+         ;; A stray marker inside the region has no single right reading.
+         ((string-match-p (regexp-quote mark) core) nil)
+         (t
+          (list :text (concat lead mark core mark trail)
+                :cut-before 0 :cut-after 0
+                ;; With nothing marked, point lands between the two runs.
+                :sel-start (+ (length lead) width)
+                :sel-end (+ (length lead) width (length core)))))))))
+
+;;;###autoload
+(defun sumo-wiki-toggle-bold ()
+  "Make the region bold, or take the bold off it.
+
+With no region, insert an empty pair of markers and leave point between
+them.  The counterpart of `SUMO: Toggle Bold' in VS Code and
+`<LocalLeader>b' in the Vim plugin.
+
+Refuses, with a message, on a region spanning lines or one carrying a
+stray `''' -- see `sumo-wiki--toggle-bold'."
+  (interactive "*")
+  (let* ((region (use-region-p))
+         (beg (if region (region-beginning) (point)))
+         (end (if region (region-end) (point)))
+         (edit (and (= (line-number-at-pos beg) (line-number-at-pos end))
+                    (sumo-wiki--toggle-bold
+                     (buffer-substring-no-properties
+                      (save-excursion (goto-char beg) (line-beginning-position))
+                      beg)
+                     (buffer-substring-no-properties beg end)
+                     (buffer-substring-no-properties
+                      end
+                      (save-excursion (goto-char end) (line-end-position)))))))
+    (unless edit
+      (user-error
+       "Cannot toggle bold here: mark text on one line, clear of any `'''"))
+    (let ((from (- beg (plist-get edit :cut-before)))
+          (to (+ end (plist-get edit :cut-after))))
+      (delete-region from to)
+      (goto-char from)
+      (insert (plist-get edit :text))
+      (if region
+          (progn
+            (set-mark (+ from (plist-get edit :sel-start)))
+            (goto-char (+ from (plist-get edit :sel-end)))
+            (activate-mark))
+        (goto-char (+ from (plist-get edit :sel-start)))))))
+
 ;;;###autoload
 (defun sumo-wiki-fix-buffer ()
   "Apply safe fixes to the current buffer via `sumo-lint --fix'.
@@ -446,6 +569,7 @@ Use this instead of Eglot if you would rather not run a language server."
     (define-key map (kbd "C-c C-f") #'sumo-wiki-fix-buffer)
     (define-key map (kbd "C-c C-s") #'sumo-wiki-apply-style)
     (define-key map (kbd "C-c C-l") #'sumo-wiki-insert-link)
+    (define-key map (kbd "C-c C-b") #'sumo-wiki-toggle-bold)
     ;; A remap rather than a key, so this follows `yank' wherever it is bound —
     ;; `C-y', and `s-v' on macOS — instead of guessing at one of them.
     (define-key map [remap yank] #'sumo-wiki-yank)

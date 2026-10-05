@@ -14,3 +14,7 @@ let g:loaded_sumo_wiki = 1
 " suppress the prompt itself, leaving the user typing into an invisible reply.
 nnoremap <Plug>(sumo-wiki-insert-link) :<C-u>call sumo_wiki#insert_link(0)<CR>
 xnoremap <Plug>(sumo-wiki-insert-link) :<C-u>call sumo_wiki#insert_link(1)<CR>
+
+" Bold is a plain edit with no prompt, so <silent> is right here.
+nnoremap <silent> <Plug>(sumo-wiki-toggle-bold) :<C-u>call sumo_wiki#bold(0)<CR>
+xnoremap <silent> <Plug>(sumo-wiki-toggle-bold) :<C-u>call sumo_wiki#bold(1)<CR>

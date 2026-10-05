@@ -111,6 +111,23 @@ nmap <Leader>k <Plug>(sumo-wiki-insert-link)
 xmap <Leader>k <Plug>(sumo-wiki-insert-link)
 ```
 
+### Toggle bold: `<LocalLeader>b`
+
+Select some words and press `\b`: they become `'''bold'''`. Press it again on the same
+words, or `viw` a word inside a bold span and press it, and the markers come off. In
+normal mode with nothing selected it inserts an empty `''''''` and leaves the cursor
+between the two runs, ready for `i`.
+
+After the edit, `gv` reselects what the toggle produced, so `\bgv\b` is a round trip.
+
+It **refuses, with a message**, rather than guessing: a selection spanning lines, or one
+carrying a stray `'''` that is not its own wrapper, has no single right reading, and
+wrapping it anyway produces a run of quotes that renders as something else. Five quotes is
+bold plus italic, so toggling `'''''both'''''` leaves `''both''`.
+
+Both modes go through `<Plug>(sumo-wiki-toggle-bold)`, with the same `hasmapto` guard as
+insert-link.
+
 Verify the plugin after changing it:
 
 ```sh
@@ -118,8 +135,8 @@ vim  -es -Nu NONE -S editors/vim/test/test-sumo-wiki.vim
 nvim -es -u NONE  -S editors/vim/test/test-sumo-wiki.vim
 ```
 
-61 assertions, run against both editors in CI as the `vim` job: the pure link and paste
-functions, the real `p` and insert-link mappings driven end to end, filetype detection,
+86 assertions, run against both editors in CI as the `vim` job: the pure link, paste and bold
+functions, the real `p`, insert-link and bold mappings driven end to end, filetype detection,
 `'selection'` both ways, a multibyte label, and that the register survives. Four things to
 know if you add cases:
 
@@ -210,6 +227,7 @@ Commands:
 | `C-c C-f` | `sumo-wiki-fix-buffer` | apply safe fixes (phase 1) |
 | `C-c C-s` | `sumo-wiki-apply-style` | apply house style (phase 2) |
 | `C-c C-l` | `sumo-wiki-insert-link` | ask for a target and text, write the link |
+| `C-c C-b` | `sumo-wiki-toggle-bold` | make the region `'''bold'''`, or take it off |
 | `C-y` | `sumo-wiki-yank` | yank a URL over the region → a link |
 
 The first two report *"nothing to fix"* / *"already consistent"* rather than appearing to do
@@ -231,6 +249,12 @@ line, not itself a URL, and free of `[` and `]`. `sumo-wiki-paste-url-as-link` s
 turns it off. Only the external form is produced — an internal link goes by article
 **title**, which a `/kb/<slug>` URL does not carry.
 
+`sumo-wiki-toggle-bold` is the counterpart of `SUMO: Toggle Bold` in VS Code. With no
+region it inserts `''''''` and leaves point between the markers. It leaves the inner text
+marked, so pressing `C-c C-b` again takes the bold straight off, and marking a word
+*inside* a bold span removes the markers around it. It refuses, with a message, on a region
+spanning lines or one carrying a stray `'''`.
+
 `delete-selection-mode` deletes the region in `pre-command-hook`, which would leave the
 command with no link text, so the command carries a function-valued `delete-selection`
 property that suppresses the deletion for exactly this case. If you turn
@@ -250,7 +274,8 @@ PATH="$PWD/target/release:$PATH" \
 ```
 
 That checks mode activation, every font-lock rule, Eglot registration, the CLI commands
-against the real binary, the Flymake JSON path, and both link paths — 63 assertions. **CI runs it too**, as the `emacs` job, on `emacs-nox` from Ubuntu's archive.
+against the real binary, the Flymake JSON path, both link paths and the bold toggle — 85
+assertions. **CI runs it too**, as the `emacs` job, on `emacs-nox` from Ubuntu's archive.
 
 Two wrinkles if you add cases: `transient-mark-mode` is nil under `--batch` but t in any
 interactive Emacs, so a region test must bind it or it passes vacuously; and the prompts are
@@ -271,9 +296,9 @@ leading-space preformatted lines described above.
 ```sh
 cd editors/vscode
 npm install
-npm test                  # 34 grammar assertions + 51 link assertions
-npx vsce package          # produces sumo-lint-0.3.0.vsix
-code --install-extension sumo-lint-0.3.0.vsix
+npm test                  # 34 grammar + 51 link + 26 bold assertions
+npx vsce package          # produces sumo-lint-0.4.0.vsix
+code --install-extension sumo-lint-0.4.0.vsix
 ```
 
 If `sumo-lint-lsp` is not on your `PATH`, set `sumoLint.serverPath` to an
@@ -306,6 +331,22 @@ Two deliberate choices:
   of little use in an article; `Cmd+Alt+[` still folds.
 - It does not rewrite an existing link. Select `[text](url)` and the prompts come
   up empty — the tool for that is SW009's quick fix, which knows the span.
+
+### Toggle bold: `Cmd+K Cmd+B`
+
+`SUMO: Toggle Bold` wraps the selection in `'''three quotes'''`, which is what SUMO
+reads as bold — `**bold**` is Markdown, and SW010 flags it. Press it again and the
+markers come off, because the command re-selects the inner text. Selecting a word
+*inside* a bold span removes the markers around it too, so double-click and press works.
+With nothing selected it inserts `''''''` and puts the caret between the runs.
+
+`Cmd+B` is the usual bold key elsewhere, but it is **Toggle Sidebar** here, and
+`Cmd+K` is already this extension's prefix, so the chord sits next to `Cmd+K Cmd+L`
+and shadows nothing.
+
+The command refuses, with a warning, rather than guessing: a selection spanning lines,
+or one carrying a stray `'''` that is not its own wrapper, has no single right reading.
+Five quotes is bold plus italic, so toggling `'''''both'''''` leaves `''both''`.
 
 ### Paste a URL over selected text: `Cmd+V`
 

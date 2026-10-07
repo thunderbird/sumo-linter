@@ -35,13 +35,41 @@
   .lede { color: var(--muted); margin: 0 0 1.25rem; }
   .grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
   @media (min-width: 62rem) { .grid { grid-template-columns: 1fr 1fr; } }
-  textarea {
-    width: 100%; min-height: 26rem; padding: .75rem;
-    font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
-    color: var(--fg); background: var(--code-bg);
-    border: 1px solid var(--line); border-radius: 6px; resize: vertical;
+  /* The gutter sits beside the textarea, not inside it, and follows its scroll.
+     Both must share one font and line height, or the numbers drift off their
+     lines; `--gutter` is set from the digit count by app.js. */
+  .editor {
+    --mono: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    --gutter: 4ch;
+    position: relative; padding-left: calc(var(--gutter) + 1.2rem);
+    background: var(--code-bg);
+    border: 1px solid var(--line); border-radius: 6px;
   }
-  textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .editor:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+  #gutter {
+    position: absolute; top: 0; bottom: 0; left: 0;
+    width: calc(var(--gutter) + .9rem); overflow: hidden;
+    padding: .75rem .4rem 0 .5rem; border-right: 1px solid var(--line);
+    font: var(--mono); color: var(--muted); text-align: right;
+    user-select: none; pointer-events: none;
+  }
+  /* Room below the last number, so the gutter can scroll as far as the
+     textarea does even when the textarea shows a horizontal scrollbar. */
+  #gutter::after { content: ""; display: block; height: 4rem; }
+  #gutter .error { color: var(--err); font-weight: 700; }
+  #gutter .warning { color: var(--warn); font-weight: 700; }
+  /* Measures how many rows each line wraps to; never visible. */
+  #mirror {
+    position: absolute; top: 0; left: 0; height: 0; overflow: hidden;
+    visibility: hidden; font: var(--mono);
+    white-space: pre-wrap; overflow-wrap: break-word;
+  }
+  textarea {
+    display: block; width: 100%; min-height: 26rem; padding: .75rem .75rem .75rem 0;
+    font: var(--mono); color: var(--fg); background: transparent;
+    border: none; border-radius: 0 6px 6px 0; resize: vertical;
+  }
+  textarea:focus-visible { outline: none; }
   .bar { display: flex; gap: .5rem; align-items: center; margin: .6rem 0; flex-wrap: wrap; }
   button {
     font: inherit; padding: .4rem .8rem; border-radius: 5px;
@@ -96,8 +124,12 @@
       <div class="bar">
         <button id="sample" type="button">Load an example with errors</button>
       </div>
-      <textarea id="src" spellcheck="false"
-        placeholder="Paste SUMO wiki markup here…"></textarea>
+      <div class="editor">
+        <div id="gutter" aria-hidden="true"></div>
+        <div id="mirror" aria-hidden="true"></div>
+        <textarea id="src" spellcheck="false"
+          placeholder="Paste SUMO wiki markup here…"></textarea>
+      </div>
     </section>
 
     <section>
@@ -138,6 +170,7 @@
   </footer>
 
   <script src="./fixes.js"></script>
+  <script src="./gutter.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

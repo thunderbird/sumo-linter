@@ -90,7 +90,7 @@ a 429 for the rest of the hour); the heading data is already measured; the four 
 already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
 `vscode` (34 grammar + 51 link + 26 bold assertions), `emacs`
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
-both Vim and Neovim) and `web` (31 assertions on the fix arithmetic) — so there is no
+both Vim and Neovim) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
@@ -206,7 +206,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
 | `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + `SUMO: Toggle Bold` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
-| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js` and tested under Node |
+| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, both tested under Node |
 
 **Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an
 unmodified parse is byte-identical. This is asserted in the lexer, property-tested over

@@ -69,7 +69,9 @@ jobs:
         run: |
           node --check web/app.js
           node --check web/fixes.js
+          node --check web/gutter.js
           node web/test/fixes.test.mjs
+          node web/test/gutter.test.mjs
 
   emacs:
     runs-on: ubuntu-latest

@@ -115,10 +115,74 @@ function applyOne(fix, snapshot) {
   run();
 }
 
+/**
+ * Worst severity per line, from the most recent lint. Between an edit and the
+ * debounced re-lint it can be stale; see drawGutter.
+ */
+let gutterMarks = [''];
+let gutterFrame = 0;
+
+/** Redraw the gutter once, on the next frame, however often this is called. */
+function scheduleGutter() {
+  if (!gutterFrame) gutterFrame = requestAnimationFrame(drawGutter);
+}
+
+/**
+ * Number every line the linter counts, including lines the textarea wraps.
+ *
+ * Wrapping is why the numbers cannot simply be one per row: a SUMO paragraph is
+ * one long source line, and a wrapped one would push every later number off its
+ * line. So each line is laid out in a hidden mirror at the textarea's own content
+ * width, and its number is given the height that line takes.
+ */
+function drawGutter() {
+  gutterFrame = 0;
+  const ta = document.getElementById('src');
+  const gutter = document.getElementById('gutter');
+  const mirror = document.getElementById('mirror');
+  const text = ta.value;
+
+  // If an edit added or removed lines since the last lint, the marks would sit
+  // on the wrong lines until the re-lint, so show none. An edit within a line
+  // keeps them, which stops them flickering on every keystroke.
+  if (gutterMarks.length !== lineCount(text)) gutterMarks = lineSeverities(text, []);
+
+  // Set the width first: it changes the textarea's width, and so the wrapping.
+  const digits = Math.max(2, String(gutterMarks.length).length);
+  ta.parentElement.style.setProperty('--gutter', `${digits}ch`);
+
+  const cs = getComputedStyle(ta);
+  const width = ta.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  mirror.style.width = `${width}px`;
+  mirror.replaceChildren(
+    ...text.split('\n').map((line) => {
+      const row = document.createElement('div');
+      // An empty line still takes one row.
+      row.textContent = line || ' ';
+      return row;
+    }),
+  );
+  const heights = Array.from(mirror.children, (row) => row.getBoundingClientRect().height);
+  mirror.replaceChildren();
+
+  gutter.replaceChildren(
+    ...gutterMarks.map((mark, i) => {
+      const n = document.createElement('div');
+      n.textContent = String(i + 1);
+      if (mark) n.className = mark;
+      n.style.height = `${heights[i]}px`;
+      return n;
+    }),
+  );
+  gutter.scrollTop = ta.scrollTop;
+}
+
 function run() {
   if (!wasm) return;
   const text = document.getElementById('src').value;
   const diags = call(wasm.lint, text);
+  gutterMarks = lineSeverities(text, diags);
+  scheduleGutter();
   const list = document.getElementById('diags');
   const summary = document.getElementById('summary');
 
@@ -241,9 +305,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Debounced so typing in a 15 KB article stays responsive.
   let t = null;
   ta.addEventListener('input', () => {
+    scheduleGutter();
     clearTimeout(t);
     t = setTimeout(run, 120);
   });
+  ta.addEventListener('scroll', () => {
+    document.getElementById('gutter').scrollTop = ta.scrollTop;
+  });
+  // Resizing the window or dragging the textarea's handle changes the wrapping.
+  new ResizeObserver(scheduleGutter).observe(ta);
   document.getElementById('fixbtn').addEventListener('click', applyFixes);
   document.getElementById('stylebtn').addEventListener('click', applyStyle);
   document.getElementById('sample').addEventListener('click', () => {

@@ -98,7 +98,8 @@ the VS Code `SUMO: Insert Link` command (`Cmd+K Cmd+L`) was added 2026-08-19, an
 paste-a-URL-over-a-selection (sumo-linter #2) on 2026-08-28, and insert-link in Emacs and
 Vim the same day, which brought the three editors to parity; toggle-bold landed in all
 three at once on 2026-10-05 (sumo-linter #10), bound to `Cmd+B` in VS Code at Roland's
-request and confirmed working in his editor the same day;
+request and confirmed working in his editor the same day; the web app gained a
+line-number gutter on 2026-10-07 (sumo-linter #9), verified in Chromium and live on Pages;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 
@@ -230,6 +231,15 @@ web app follows the same rule with a **Fix** button on each diagnostic, and earn
 deprecated but still the only way to keep a textarea's native undo stack — assigning
 `.value` throws the history away. It also refuses to splice if the text changed since the
 lint that produced the offsets, because linting is debounced and a click can arrive first.
+
+**The web app's line numbers keep the textarea wrapping.** A SUMO paragraph is one long
+source line, so `wrap="off"` would mean constant horizontal scrolling. Instead `gutter.js`
+counts lines exactly as `line_col` does (only `\n`), and `app.js` gives each number the
+height its line takes in a hidden mirror at the textarea's content width. Gutter and
+textarea must share one font and line height, or the numbers drift. Measured: alignment
+is exact to the last line after a resize, and a 126 KB text lints and redraws in 39 ms.
+Line marks clear while an edit changes the line count, until the debounced re-lint, so
+they never sit on the wrong line.
 
 **Pages caches `app.js` and the `.wasm` independently** (`max-age=600`), so for ten minutes
 after a deploy a returning visitor can run new JS against the previous module. Measured on

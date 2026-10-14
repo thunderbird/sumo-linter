@@ -177,7 +177,28 @@ function drawGutter() {
   gutter.scrollTop = ta.scrollTop;
 }
 
+let copyTimer = 0;
+
+/** Copy the textarea as it is, and say on the button whether that worked. */
+async function copyMarkup() {
+  const btn = document.getElementById('copybtn');
+  const state = await copyText(document.getElementById('src').value, navigator.clipboard);
+  btn.textContent = copyLabel(state);
+  btn.className = state === 'failed' ? 'err' : '';
+  clearTimeout(copyTimer);
+  copyTimer = setTimeout(() => {
+    btn.textContent = copyLabel('idle');
+    btn.className = '';
+  }, COPY_RESET_MS);
+}
+
+/** Nothing to copy from an empty textarea. Works before the module loads. */
+function updateCopy() {
+  document.getElementById('copybtn').disabled = document.getElementById('src').value === '';
+}
+
 function run() {
+  updateCopy();
   if (!wasm) return;
   const text = document.getElementById('src').value;
   const diags = call(wasm.lint, text);
@@ -305,6 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Debounced so typing in a 15 KB article stays responsive.
   let t = null;
   ta.addEventListener('input', () => {
+    updateCopy();
     scheduleGutter();
     clearTimeout(t);
     t = setTimeout(run, 120);
@@ -316,6 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
   new ResizeObserver(scheduleGutter).observe(ta);
   document.getElementById('fixbtn').addEventListener('click', applyFixes);
   document.getElementById('stylebtn').addEventListener('click', applyStyle);
+  document.getElementById('copybtn').addEventListener('click', copyMarkup);
   document.getElementById('sample').addEventListener('click', () => {
     ta.value = [
       '= Example article =',

@@ -71,9 +71,11 @@ jobs:
           node --check web/fixes.js
           node --check web/gutter.js
           node --check web/copy.js
+          node --check web/save.js
           node web/test/fixes.test.mjs
           node web/test/gutter.test.mjs
           node web/test/copy.test.mjs
+          node web/test/save.test.mjs
 
   emacs:
     runs-on: ubuntu-latest

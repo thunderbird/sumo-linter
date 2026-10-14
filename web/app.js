@@ -192,13 +192,145 @@ async function copyMarkup() {
   }, COPY_RESET_MS);
 }
 
-/** Nothing to copy from an empty textarea. Works before the module loads. */
-function updateCopy() {
-  document.getElementById('copybtn').disabled = document.getElementById('src').value === '';
+/** Nothing to copy, save or clear in an empty textarea. Works before the module loads. */
+function updateButtons() {
+  const empty = document.getElementById('src').value === '';
+  for (const id of ['copybtn', 'savebtn', 'clearbtn']) document.getElementById(id).disabled = empty;
+}
+
+/** localStorage, or null where the browser blocks it: even reading it can throw. */
+function draftStorage() {
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Where the markup is kept, for the note beside the buttons. Every failure is
+ * shown, because a save the author believes happened and did not loses work.
+ */
+const kept = {
+  draft: 'saved', // 'saved' or 'failed', from the last autosave
+  fileName: null, // Chrome and Edge: the file every change is written to
+  file: 'saved', // 'saved' or 'failed', from the last write to that file
+  writeFile: null, // fileWriter for that file, or null once a write fails
+  downloaded: false, // Firefox and Safari: a copy was downloaded since the last change
+};
+
+function renderSaveNote() {
+  const parts = [];
+  const empty = document.getElementById('src').value === '';
+  if (kept.draft === 'failed') parts.push('could not save in this browser');
+  else if (!empty) parts.push('saved in this browser');
+  if (kept.fileName) {
+    parts.push(kept.file === 'failed'
+      ? `could not write ${kept.fileName}: press Save to file again`
+      : `saving to ${kept.fileName}`);
+  }
+  if (kept.downloaded) parts.push(`downloaded ${FILE_NAME}`);
+  const note = document.getElementById('savenote');
+  note.textContent = parts.join(' · ');
+  note.className = kept.draft === 'failed' || kept.file === 'failed' ? 'err' : '';
+}
+
+/** Autosave the text, and write it to the chosen file if there is one. */
+function keep() {
+  const text = document.getElementById('src').value;
+  kept.draft = saveDraft(draftStorage(), text);
+  kept.downloaded = false;
+  if (kept.writeFile) kept.writeFile(text);
+  renderSaveNote();
+}
+
+/**
+ * Stop writing to the chosen file. Clear and the example call this first:
+ * otherwise autosave would overwrite the author's saved article with an empty
+ * text box or with the example.
+ */
+function forgetFile() {
+  kept.writeFile = null;
+  kept.fileName = null;
+  kept.file = 'saved';
+}
+
+/**
+ * Save to a .wiki file. Chrome and Edge choose a file once and then write every
+ * change to it; elsewhere each click downloads a new copy.
+ */
+async function saveToFile() {
+  if (typeof window.showSaveFilePicker !== 'function') {
+    download(document.getElementById('src').value);
+    return;
+  }
+  let handle;
+  try {
+    handle = await window.showSaveFilePicker({
+      suggestedName: FILE_NAME,
+      types: [{ description: 'SUMO wiki markup', accept: { 'text/plain': ['.wiki'] } }],
+    });
+  } catch (e) {
+    // Cancelling the dialog is a choice, not a failure. Anything else (for
+    // example, a page in a cross-origin frame) falls back to a download.
+    if (e.name !== 'AbortError') download(document.getElementById('src').value);
+    return;
+  }
+  const writeFile = fileWriter(
+    async (text) => {
+      // A writable stream goes to a temporary file that replaces the real one
+      // on close, so a failed write never leaves the article half-written.
+      const stream = await handle.createWritable();
+      await stream.write(text);
+      await stream.close();
+    },
+    (state) => {
+      if (kept.writeFile !== writeFile) return; // a file since forgotten
+      kept.file = state;
+      // A failed write usually means the permission is gone; retrying on every
+      // keystroke would only fail again. Save to file asks again.
+      if (state === 'failed') kept.writeFile = null;
+      renderSaveNote();
+    },
+  );
+  kept.writeFile = writeFile;
+  kept.fileName = handle.name;
+  kept.file = 'saved';
+  kept.downloaded = false;
+  // The current text, which may have changed while the dialog was open.
+  writeFile(document.getElementById('src').value);
+  renderSaveNote();
+}
+
+/** Download `text` as a .wiki file. Each call is a new file. */
+function download(text) {
+  const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = FILE_NAME;
+  // Firefox ignores a click on a link that is not in the document.
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+  kept.downloaded = true;
+  renderSaveNote();
+}
+
+/**
+ * Replace the whole text, undoably, without writing it to the chosen file.
+ * Undo brings the old text back and autosaves it again.
+ */
+function startOver(text) {
+  forgetFile();
+  const ta = document.getElementById('src');
+  replaceRange(ta, 0, ta.value.length, text);
+  run();
 }
 
 function run() {
-  updateCopy();
+  updateButtons();
+  keep();
   if (!wasm) return;
   const text = document.getElementById('src').value;
   const diags = call(wasm.lint, text);
@@ -326,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Debounced so typing in a 15 KB article stays responsive.
   let t = null;
   ta.addEventListener('input', () => {
-    updateCopy();
+    updateButtons();
     scheduleGutter();
     clearTimeout(t);
     t = setTimeout(run, 120);
@@ -339,8 +471,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('fixbtn').addEventListener('click', applyFixes);
   document.getElementById('stylebtn').addEventListener('click', applyStyle);
   document.getElementById('copybtn').addEventListener('click', copyMarkup);
+  document.getElementById('savebtn').addEventListener('click', saveToFile);
+  document.getElementById('clearbtn').addEventListener('click', () => startOver(''));
+  // Typing is debounced, so a tab closed within that window has not autosaved.
+  window.addEventListener('pagehide', () => saveDraft(draftStorage(), ta.value));
+  // The browser may have restored the text itself on reload; keep that if so.
+  if (ta.value === '') ta.value = loadDraft(draftStorage());
+  updateButtons();
+  renderSaveNote();
   document.getElementById('sample').addEventListener('click', () => {
-    ta.value = [
+    // Undoable, because the example replaces whatever was there.
+    startOver([
       '= Example article =',
       '',
       '==Asymmetric heading ===',
@@ -352,8 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
       '* see [label](http://example.com) and **bold**',
       '',
       '{note}A note that never closes.',
-    ].join('\n');
-    run();
+    ].join('\n'));
   });
   boot();
 });

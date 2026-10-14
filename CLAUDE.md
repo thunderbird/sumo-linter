@@ -91,7 +91,7 @@ already filed with rendered-output evidence. **Every test now runs in CI** — `
 `vscode` (34 grammar + 51 link + 26 bold assertions), `emacs`
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
 both Vim and Neovim) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
-button) — so there is no
+button, 27 on autosave and save-to-file) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
@@ -102,7 +102,9 @@ three at once on 2026-10-05 (sumo-linter #10), bound to `Cmd+B` in VS Code at Ro
 request and confirmed working in his editor the same day; the web app gained a
 line-number gutter on 2026-10-07 (sumo-linter #9), verified in Chromium and live on Pages; a Copy button (sumo-linter #12) on 2026-10-14, which
 copies the textarea exactly as it is, never with pending fixes applied, and says *Copy failed*
-rather than failing silently;
+rather than failing silently; and autosave to `localStorage`, a Clear button and Save to
+file (sumo-linter #13) the same day, saving `article.wiki` (all three editor modes open
+`.wiki`), verified in Chromium and in Playwright's Firefox;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 
@@ -210,7 +212,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
 | `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + `SUMO: Toggle Bold` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
-| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, all tested under Node |
+| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, all tested under Node |
 
 **Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an
 unmodified parse is byte-identical. This is asserted in the lexer, property-tested over
@@ -243,6 +245,13 @@ textarea must share one font and line height, or the numbers drift. Measured: al
 is exact to the last line after a resize, and a 126 KB text lints and redraws in 39 ms.
 Line marks clear while an edit changes the line count, until the debounced re-lint, so
 they never sit on the wrong line.
+
+**Autosave never writes the example or a cleared box over the author's file.** In Chrome
+and Edge, Save to file keeps a File System Access handle and writes every change to it,
+one write at a time with the latest text winning (`fileWriter`). Clear and *Load an
+example* both drop that handle first and replace the text undoably, so Cmd+Z brings the
+old text back and autosaves it again, while the file on disk keeps the last real version.
+Firefox and Safari have no such API, so there each click downloads a new copy.
 
 **Pages caches `app.js` and the `.wasm` independently** (`max-age=600`), so for ten minutes
 after a deploy a returning visitor can run new JS against the previous module. Measured on

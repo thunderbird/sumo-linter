@@ -79,6 +79,7 @@
   button:hover:not(:disabled) { border-color: var(--accent); }
   button:disabled { opacity: .5; cursor: default; }
   #summary { font-weight: 600; }
+  #savenote { font-size: .85rem; color: var(--muted); }
   .ok { color: var(--ok); } .err { color: var(--err); } .warn { color: var(--warn); }
   #status { font-size: .85rem; color: var(--muted); margin-bottom: 1rem; }
   ul { list-style: none; margin: 0; padding: 0; }
@@ -124,6 +125,9 @@
       <div class="bar">
         <button id="sample" type="button">Load an example with errors</button>
         <button id="copybtn" type="button" title="Copy the wiki markup exactly as it is, to paste back into SUMO" disabled>Copy</button>
+        <button id="savebtn" type="button" title="Save the wiki markup to a .wiki file" disabled>Save to file</button>
+        <button id="clearbtn" type="button" title="Empty the text box and delete the copy saved in this browser. Cmd+Z brings it back." disabled>Clear</button>
+        <span id="savenote"></span>
       </div>
       <div class="editor">
         <div id="gutter" aria-hidden="true"></div>
@@ -148,7 +152,9 @@
   <footer>
     <p>
       <strong>Everything runs in your browser.</strong> Your markup is never
-      uploaded, so unpublished drafts stay private.
+      uploaded, so unpublished drafts stay private. It is saved in this
+      browser as you type and comes back when you reopen the page, until you
+      press <strong>Clear</strong>. On a shared computer, press Clear when you finish.
     </p>
     <p>
       <strong>House style</strong> normalises headings to whichever style the
@@ -164,6 +170,13 @@
       result. Every fix is undoable with the usual keystroke.
     </p>
     <p>
+      <strong>Save to file</strong> saves the markup as a <code>.wiki</code> file,
+      which the SUMO modes for VS Code, Emacs and Vim open. In Chrome and Edge you
+      choose the file once, and the page then saves every change to it until you
+      close the tab. Firefox and Safari cannot do that, so each click downloads a
+      new copy.
+    </p>
+    <p>
       Source and issues:
       <a href="https://github.com/thunderbird/sumo-linter">thunderbird/sumo-linter</a>.
       Scoped to Thunderbird conventions.
@@ -173,6 +186,7 @@
   <script src="./fixes.js"></script>
   <script src="./gutter.js"></script>
   <script src="./copy.js"></script>
+  <script src="./save.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

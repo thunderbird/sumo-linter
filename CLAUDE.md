@@ -68,6 +68,11 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   and `troubleshoot-pdf-and-email-issues-thunderbird` reads like machine-generated filler.
 
 **Open, for a future session:**
+- **Shipped 2026-10-14:** the web app preview with the `{for}` System/version selector (#14)
+  and SW012, `{for fxN}` in a Thunderbird article (#15). Unverified against live SUMO: how
+  SUMO treats `fxN` in a Thunderbird article (the preview ignores it), and the heading-id
+  slug for duplicate headings. Settle both with a `--rendered` scrape if a mismatch is
+  reported.
 - sumo-linter **#1 is answered** (2026-09-09), and the answers are in
   `corpus-other/README.md`: `{{{n}}}` does not exist but `{{{name}}}` does (31 uses, all
   named); `REDIRECT` is real but appears once, bare, with no leading `#`; and

@@ -22,7 +22,7 @@ use std::collections::HashMap;
 use std::io::{self, BufRead, Write};
 use std::ops::Range;
 
-use sumo_wiki_core::{Applicability, Diagnostic, Document, Severity, Style};
+use sumo_wiki_core::{Applicability, Diagnostic, Document, Product, Severity, Style};
 
 fn main() -> io::Result<()> {
     let stdin = io::stdin();
@@ -111,7 +111,7 @@ fn main() -> io::Result<()> {
 fn publish(uri: &str, text: &str) -> io::Result<()> {
     let doc = Document::parse(text);
     let items: Vec<String> = doc
-        .diagnostics()
+        .diagnostics_for(Product::Thunderbird)
         .iter()
         .map(|d| diagnostic_json(text, d))
         .collect();
@@ -163,7 +163,7 @@ fn code_actions(uri: &str, text: &str, body: &str) -> String {
     };
 
     let doc = Document::parse(text);
-    let diagnostics = doc.diagnostics();
+    let diagnostics = doc.diagnostics_for(Product::Thunderbird);
     let mut actions: Vec<String> = Vec::new();
 
     for d in &diagnostics {
@@ -193,7 +193,7 @@ fn code_actions(uri: &str, text: &str, body: &str) -> String {
 
     // Offered whenever anything is safely fixable, even for a single fix, so
     // `editor.codeActionsOnSave` has something to call.
-    let (fixed, count) = doc.apply_fixes(false);
+    let (fixed, count) = doc.apply_fixes_for(Product::Thunderbird, false);
     if count > 0 && fixed != text {
         let plural = if count == 1 { "fix" } else { "fixes" };
         actions.push(format!(

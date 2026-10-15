@@ -40,7 +40,24 @@ pub const RULES: &[(&str, &str)] = &[
     ("SW009", "Markdown link syntax instead of wiki syntax"),
     ("SW010", "Markdown bold syntax instead of wiki syntax"),
     ("SW011", "empty macro argument"),
+    (
+        "SW012",
+        "Firefox version condition {for fxN} in a Thunderbird article",
+    ),
 ];
+
+/// Which product's articles are being linted.
+///
+/// The rules in [`check`] are product-neutral. A few constructs are right in
+/// one product and wrong in another, so those rules run only from
+/// [`check_product`], and only when the product is known.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum Product {
+    /// Product-neutral rules only.
+    #[default]
+    Any,
+    Thunderbird,
+}
 
 /// Run every rule over an already-lexed document.
 pub fn check(input: &str, tokens: &[Token]) -> Vec<Diagnostic> {
@@ -54,6 +71,15 @@ pub fn check(input: &str, tokens: &[Token]) -> Vec<Diagnostic> {
     markdown_syntax(input, tokens, &mut out);
     empty_macros(input, tokens, &mut out);
     out.sort_by_key(|d| (d.span.start, d.code));
+    out
+}
+
+/// Run the product-specific rules for `product`. [`check`] runs the others.
+pub fn check_product(input: &str, tokens: &[Token], product: Product) -> Vec<Diagnostic> {
+    let mut out = Vec::new();
+    if product == Product::Thunderbird {
+        firefox_versions(input, tokens, &mut out);
+    }
     out
 }
 
@@ -535,6 +561,69 @@ fn empty_macros(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
                 format!("`{{{name}}}` has an empty argument"),
                 t.span.start..end,
             ));
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// SW012 — Firefox version conditions in a Thunderbird article
+// ---------------------------------------------------------------------------
+
+/// `how-to-use-for` says Firefox articles use `fxN` and Thunderbird articles
+/// `tbN`, so `fxN` in a Thunderbird article is probably a copy from a Firefox
+/// article. The fix keeps the number, which is a guess: the Thunderbird version
+/// that matches is not known, and the text around it may describe Firefox, as
+/// in `what-mozilla-maintenance-service`. So the fix needs review.
+fn firefox_versions(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
+    for t in tokens {
+        if t.kind != TokenKind::ForOpen {
+            continue;
+        }
+        // `{for not fx152, win}`: conditions are separated by commas, and each
+        // may start with `not` and then `=`.
+        let text = t.text(input);
+        let Some(body) = text.strip_prefix("{for").and_then(|b| b.strip_suffix('}')) else {
+            continue;
+        };
+        let mut at = t.span.start + "{for".len();
+        for item in body.split(',') {
+            let start = at + (item.len() - item.trim_start().len());
+            at += item.len() + 1;
+            let mut cond = item.trim();
+            let mut offset = start;
+            if let Some(rest) = cond.strip_prefix("not ") {
+                let rest_trimmed = rest.trim_start();
+                offset += cond.len() - rest_trimmed.len();
+                cond = rest_trimmed;
+            }
+            if let Some(rest) = cond.strip_prefix('=') {
+                offset += 1;
+                cond = rest;
+            }
+            let Some(version) = cond.strip_prefix("fx") else {
+                continue;
+            };
+            if version.is_empty() || !version.bytes().all(|b| b.is_ascii_digit()) {
+                continue;
+            }
+            out.push(
+                Diagnostic::new(
+                    "SW012",
+                    Severity::Warning,
+                    format!(
+                        "`{cond}` is a Firefox version condition; Thunderbird articles use `tbN`"
+                    ),
+                    offset..offset + cond.len(),
+                )
+                .with_fix(Fix {
+                    span: offset..offset + 2,
+                    replacement: "tb".to_string(),
+                    applicability: Applicability::Unsafe,
+                    description: format!(
+                        "change `{cond}` to `tb{version}` (check the version number)"
+                    ),
+                }),
+            );
         }
     }
 }

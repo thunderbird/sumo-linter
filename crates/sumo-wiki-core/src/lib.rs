@@ -23,6 +23,7 @@ pub mod style;
 
 pub use diagnostic::{line_col, Applicability, Diagnostic, Fix, LineCol, Severity};
 pub use lexer::{lex, LinkKind, MacroKind, Opaque, Token, TokenKind};
+pub use rules::Product;
 pub use style::{HeadingSpacing, Style};
 
 /// A parsed document: the source, plus tokens that tile it exactly.
@@ -74,8 +75,17 @@ impl Document {
         style::format(&self.source, &self.tokens, style)
     }
 
+    /// Product-neutral diagnostics. Same as `diagnostics_for(Product::Any)`.
     pub fn diagnostics(&self) -> Vec<Diagnostic> {
-        rules::check(&self.source, &self.tokens)
+        self.diagnostics_for(Product::Any)
+    }
+
+    /// Diagnostics, including the rules that apply only to `product`.
+    pub fn diagnostics_for(&self, product: Product) -> Vec<Diagnostic> {
+        let mut out = rules::check(&self.source, &self.tokens);
+        out.extend(rules::check_product(&self.source, &self.tokens, product));
+        out.sort_by_key(|d| (d.span.start, d.code));
+        out
     }
 
     /// Apply fixes and return the rewritten source.
@@ -84,8 +94,13 @@ impl Document {
     /// fixes are dropped rather than merged: applying two edits to the same bytes
     /// would produce something neither rule intended.
     pub fn apply_fixes(&self, include_unsafe: bool) -> (String, usize) {
+        self.apply_fixes_for(Product::Any, include_unsafe)
+    }
+
+    /// [`Document::apply_fixes`], including fixes from rules for `product`.
+    pub fn apply_fixes_for(&self, product: Product, include_unsafe: bool) -> (String, usize) {
         let mut fixes: Vec<Fix> = self
-            .diagnostics()
+            .diagnostics_for(product)
             .into_iter()
             .filter_map(|d| d.fix)
             .filter(|f| include_unsafe || f.applicability == Applicability::Safe)
@@ -430,5 +445,61 @@ mod tests {
         let d = Document::parse("* \n**bold** [x](http://y)\n");
         let (fixed, _) = d.apply_fixes(false);
         assert!(Document::parse(&fixed).is_lossless());
+    }
+
+    /// SW012 finds every form of `fxN`, and only in a Thunderbird article.
+    #[test]
+    fn firefox_version_conditions_in_thunderbird() {
+        let sw012 = |src: &str, product| -> Vec<String> {
+            let d = Document::parse(src);
+            d.diagnostics_for(product)
+                .into_iter()
+                .filter(|x| x.code == "SW012")
+                .map(|x| src[x.span].to_string())
+                .collect()
+        };
+        let tb = Product::Thunderbird;
+        assert_eq!(sw012("{for fx152}x{/for}", tb), ["fx152"]);
+        assert_eq!(sw012("{for not fx152}x{/for}", tb), ["fx152"]);
+        assert_eq!(sw012("{for =fx150}x{/for}", tb), ["fx150"]);
+        assert_eq!(sw012("{for not =fx150}x{/for}", tb), ["fx150"]);
+        assert_eq!(
+            sw012("{for mac, win10, =fx150, fx153}x{/for}", tb),
+            ["fx150", "fx153"]
+        );
+        // Thunderbird and OS conditions are correct, and `fx` alone or with
+        // letters is not a version condition.
+        for src in [
+            "{for tb115}x{/for}",
+            "{for not tb60}x{/for}",
+            "{for win,linux}x{/for}",
+            "{for}x{/for}",
+            "{for fx}x{/for}",
+            "{for fxa}x{/for}",
+            "<nowiki>{for fx152}</nowiki>",
+        ] {
+            assert!(sw012(src, tb).is_empty(), "{src:?}");
+        }
+        // Correct in a Firefox article, so product-neutral linting is silent.
+        assert!(sw012("{for fx152}x{/for}", Product::Any).is_empty());
+        assert!(Document::parse("{for fx152}x{/for}")
+            .diagnostics()
+            .iter()
+            .all(|x| x.code != "SW012"));
+    }
+
+    /// The fix is a guess about the version, so it applies only with unsafe fixes.
+    #[test]
+    fn firefox_version_fix_needs_review() {
+        let src = "{for not fx152}a{/for}{for win, =fx150}b{/for}\n";
+        let d = Document::parse(src);
+        let tb = Product::Thunderbird;
+        assert_eq!(d.apply_fixes_for(tb, false), (src.to_string(), 0));
+        let (fixed, n) = d.apply_fixes_for(tb, true);
+        assert_eq!(n, 2);
+        assert_eq!(fixed, "{for not tb152}a{/for}{for win, =tb150}b{/for}\n");
+        assert!(Document::parse(&fixed).diagnostics_for(tb).is_empty());
+        // Product-neutral fixing leaves `fxN` alone.
+        assert_eq!(d.apply_fixes(true).1, 0);
     }
 }

@@ -13,7 +13,7 @@ use std::path::{Path, PathBuf};
 use std::process::ExitCode;
 
 use sumo_wiki_core::{
-    line_col, rules::RULES, Applicability, Document, HeadingSpacing, Severity, Style,
+    line_col, rules::RULES, Applicability, Document, HeadingSpacing, Product, Severity, Style,
 };
 
 const USAGE: &str = "\
@@ -28,6 +28,10 @@ OPTIONS:
     --unsafe-fixes       also apply fixes whose intent is a guess (implies --fix)
     --style              apply house-style formatting in place (phase 2)
     --diff               show what --fix / --style would change, without writing
+    --product <thunderbird|any>
+                         thunderbird (default) adds the rules that hold only for
+                         Thunderbird articles, such as SW012 ({for fxN}). Use any
+                         for other products' articles.
 
 STYLE OPTIONS:
     --heading-spacing <preserve|spaced|tight>
@@ -64,10 +68,14 @@ struct Opts {
     stdin: bool,
     heading_spacing: HeadingSpacing,
     strip_trailing_whitespace: bool,
+    product: Product,
 }
 
 fn main() -> ExitCode {
-    let mut o = Opts::default();
+    let mut o = Opts {
+        product: Product::Thunderbird,
+        ..Opts::default()
+    };
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
         match a.as_str() {
@@ -92,6 +100,14 @@ fn main() -> ExitCode {
                     eprintln!(
                         "error: --heading-spacing expects preserve|spaced|tight, got {other:?}"
                     );
+                    return ExitCode::from(2);
+                }
+            },
+            "--product" => match args.next().as_deref() {
+                Some("thunderbird") => o.product = Product::Thunderbird,
+                Some("any") => o.product = Product::Any,
+                other => {
+                    eprintln!("error: --product expects thunderbird|any, got {other:?}");
                     return ExitCode::from(2);
                 }
             },
@@ -178,7 +194,7 @@ fn main() -> ExitCode {
             return ExitCode::from(2);
         }
 
-        for d in doc.diagnostics() {
+        for d in doc.diagnostics_for(o.product) {
             match d.severity {
                 Severity::Error => errors += 1,
                 Severity::Warning => warnings += 1,
@@ -218,7 +234,7 @@ fn main() -> ExitCode {
             // Fixes repair errors; style expresses a convention. Both are applied
             // through the same write path so a file is only rewritten once.
             let (mut out, n) = if o.fix || o.diff {
-                doc.apply_fixes(o.unsafe_fixes)
+                doc.apply_fixes_for(o.product, o.unsafe_fixes)
             } else {
                 (src.clone(), 0)
             };

@@ -24,7 +24,7 @@
 
 use std::cell::RefCell;
 
-use sumo_wiki_core::{line_col, Applicability, Document, HeadingSpacing, Style};
+use sumo_wiki_core::{line_col, Applicability, Document, HeadingSpacing, Product, Style};
 
 thread_local! {
     /// Holds the last result so its memory stays valid until the next call.
@@ -67,7 +67,7 @@ pub unsafe extern "C" fn lint(ptr: *const u8, len: usize) -> *const u8 {
     let src = read_input(ptr, len);
     let doc = Document::parse(src.clone());
     let rows: Vec<String> = doc
-        .diagnostics()
+        .diagnostics_for(Product::Thunderbird)
         .iter()
         .map(|d| {
             let pos = line_col(&src, d.span.start);
@@ -108,7 +108,7 @@ pub unsafe extern "C" fn lint(ptr: *const u8, len: usize) -> *const u8 {
 #[no_mangle]
 pub unsafe extern "C" fn fix(ptr: *const u8, len: usize, unsafe_fixes: u32) -> *const u8 {
     let src = read_input(ptr, len);
-    let (out, n) = Document::parse(src).apply_fixes(unsafe_fixes != 0);
+    let (out, n) = Document::parse(src).apply_fixes_for(Product::Thunderbird, unsafe_fixes != 0);
     hand_back(format!(r#"{{"text":{},"applied":{}}}"#, json_str(&out), n))
 }
 

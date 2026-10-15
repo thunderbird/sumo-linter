@@ -21,7 +21,7 @@ and why it cannot be inferred from the API.
 
 ## Current state
 
-Phases 1 and 2 are implemented and tested. `cargo test` runs 34 tests, including property
+Phases 1 and 2 are implemented and tested. `cargo test` runs 42 tests, including property
 tests over every corpus article.
 
 The corpus is no longer Thunderbird-only: `corpus-other/` holds 475 public Firefox
@@ -221,6 +221,16 @@ otherwise corrupt articles silently.
 
 It is a **token stream**, not a full CST. That is enough for phase-1 rules and phase-2
 formatting; do not describe it as a tree.
+
+**Product-specific rules sit behind `Product`, never in the neutral core.** A construct can be
+right in one product and wrong in another: `{for fx152}` is correct in a Firefox article and
+probably a copy-paste error in a Thunderbird one (SW012, #15). So `rules::check` stays
+product-neutral, `rules::check_product` holds the rest, and `Document::diagnostics()` means
+`diagnostics_for(Product::Any)`. The CLI, LSP and web app lint as `Thunderbird`, because they are
+scoped to it; `sumo-lint --product any` turns the product rules off. Measured: the 475 Firefox
+articles give 1804 SW012 warnings by default and none with `--product any`. The one `fx152` in
+`corpus/` (`what-mozilla-maintenance-service`) is inside an HTML comment, so the Thunderbird
+corpus reports none — correctly.
 
 Diagnostics carry a stable code (`SW001`), severity, byte span, message, and an optional
 fix marked `Safe` or `Unsafe`; only `Safe` fixes apply without `--unsafe-fixes`. **`Safe`

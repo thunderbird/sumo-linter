@@ -91,7 +91,7 @@ already filed with rendered-output evidence. **Every test now runs in CI** — `
 `vscode` (34 grammar + 51 link + 26 bold assertions), `emacs`
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
 both Vim and Neovim) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
-button, 27 on autosave and save-to-file) — so there is no
+button, 27 on autosave and save-to-file, 82 on the preview) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
@@ -212,7 +212,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
 | `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + `SUMO: Toggle Bold` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
-| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, all tested under Node |
+| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, the preview renderer and `{for}` rules in `preview.js`, all tested under Node |
 
 **Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an
 unmodified parse is byte-identical. This is asserted in the lexer, property-tested over
@@ -255,6 +255,18 @@ textarea must share one font and line height, or the numbers drift. Measured: al
 is exact to the last line after a resize, and a 126 KB text lints and redraws in 39 ms.
 Line marks clear while an edit changes the line count, until the debounced re-lint, so
 they never sit on the wrong line.
+
+**The preview is a JavaScript renderer, not a WASM export** (#14). It needs no module, so it
+works before the linter loads, and it cannot hit the stale-module trap below. It approximates
+Kitsune: templates, images and videos are placeholders, article links have no target (a title
+does not give a URL). Its output goes into `innerHTML`, so raw HTML keeps only allow-listed tags
+with no attributes, and links only http/https/ftp/mailto; the test asserts that every corpus
+article renders with no tag outside that list. `{for}` follows `how-to-use-for`: hidden
+branches stay in the DOM with `hidden`, as on SUMO, and leave the table of contents; `fxN`/`mN`
+are ignored, and SW012 reports them. A comment leaves a marker until the end, because
+`{<!-- -->key}` is the documented way to show a macro literally. Measured: 131 KB renders in
+29 ms under Node; checked in Chromium and Playwright's Firefox (columns, hide controls, `{for}`
+selector, persistence across reload).
 
 **Autosave never writes the example or a cleared box over the author's file.** In Chrome
 and Edge, Save to file keeps a File System Access handle and writes every change to it,

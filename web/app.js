@@ -328,9 +328,48 @@ function startOver(text) {
   run();
 }
 
+/** Visible columns and the `{for}` platform, kept in this browser. */
+let view = { preview: true, problems: true, os: null, version: null };
+
+function saveView() {
+  try {
+    draftStorage()?.setItem(VIEW_KEY, JSON.stringify(view));
+  } catch {
+    // Storage full or blocked: the view still applies until the page closes.
+  }
+}
+
+/** Show or hide the columns, and give the visible ones the width. */
+function applyView() {
+  const previewCol = document.getElementById('previewcol');
+  const problemsCol = document.getElementById('problemscol');
+  previewCol.hidden = !view.preview;
+  problemsCol.hidden = !view.problems;
+  const cols = 1 + view.preview + view.problems;
+  document.querySelector('.grid').style.setProperty('--cols', String(cols));
+  document.body.classList.toggle('wide', cols === 3);
+  document.getElementById('showpreview').checked = view.preview;
+  document.getElementById('showproblems').checked = view.problems;
+  document.getElementById('foros').value = view.os ?? '';
+  document.getElementById('forversion').value = view.version ?? '';
+  // The column widths changed, so the textarea wraps differently.
+  scheduleGutter();
+}
+
+/** Render the preview, unless its column is hidden. */
+function renderPreview() {
+  const el = document.getElementById('preview');
+  // An older cached page has no preview column, or no preview.js.
+  if (!el || !view.preview || typeof renderWiki !== 'function') return;
+  const platform = { os: view.os, version: view.version };
+  el.classList.toggle('show-all', platform.os == null && platform.version == null);
+  el.innerHTML = renderWiki(document.getElementById('src').value, platform);
+}
+
 function run() {
   updateButtons();
   keep();
+  renderPreview();
   if (!wasm) return;
   const text = document.getElementById('src').value;
   const diags = call(wasm.lint, text);
@@ -479,6 +518,40 @@ document.addEventListener('DOMContentLoaded', () => {
   if (ta.value === '') ta.value = loadDraft(draftStorage());
   updateButtons();
   renderSaveNote();
+  if (typeof parseView === 'function' && document.getElementById('previewcol')) {
+    let saved = null;
+    try {
+      saved = draftStorage()?.getItem(VIEW_KEY) ?? null;
+    } catch {
+      saved = null;
+    }
+    view = parseView(saved);
+    applyView();
+    const changeView = (update) => {
+      update();
+      saveView();
+      applyView();
+      renderPreview();
+    };
+    document.getElementById('showpreview').addEventListener('change', (e) => {
+      changeView(() => { view.preview = e.target.checked; });
+    });
+    document.getElementById('showproblems').addEventListener('change', (e) => {
+      changeView(() => { view.problems = e.target.checked; });
+    });
+    document.getElementById('foros').addEventListener('change', (e) => {
+      changeView(() => { view.os = e.target.value || null; });
+    });
+    document.getElementById('forversion').addEventListener('input', (e) => {
+      const n = Number(e.target.value);
+      // Not applyView: rewriting the field while the author types in it
+      // would fight the cursor.
+      view.version = e.target.value !== '' && Number.isInteger(n) && n > 0 ? n : null;
+      saveView();
+      renderPreview();
+    });
+  }
+  renderPreview();
   document.getElementById('sample').addEventListener('click', () => {
     // Undoable, because the example replaces whatever was there.
     startOver([

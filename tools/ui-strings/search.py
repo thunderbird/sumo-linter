@@ -15,6 +15,15 @@ Usage, from the repository root:
         tools/ui-strings/tb-desktop-settings-account-settings-changes-158-and-newer.csv \
         --json /tmp/results.json --markdown /tmp/report.md
 
+The 158 sheet covers two windows, in row order: records 1-225 are the
+Settings panes and records 226-243 are Account Settings. Report them apart:
+
+    ... --records 1-225 --scope "the Settings window, Thunderbird 158 and newer"
+    ... --records 226-243 --scope "Account Settings, Thunderbird 160 and newer"
+
+A record is one CSV row after the header, counted from 1, so a cell with line
+breaks still counts once. Strings are de-duplicated within the selection only.
+
 Standard library only. It searches the *committed* corpus (`git ls-files`),
 never the working tree, because `corpus/en-US/` also holds gitignored
 non-public drafts that must not be named in a public issue.
@@ -154,7 +163,7 @@ def corpus_date():
     return m.group(1) if m else "unknown"
 
 
-def markdown(results, csv_name, n_articles, date):
+def markdown(results, csv_name, n_articles, date, scope=None, records=None):
     ch = [x for x in results if x["changed"] and x["hits"] and x["string"] not in NOISE]
     multi = [x for x in ch if x["words"] >= 2]
     single = [x for x in ch if x["words"] < 2]
@@ -175,8 +184,12 @@ def markdown(results, csv_name, n_articles, date):
     a(
         "This report lists the Thunderbird KB articles whose wiki source contains "
         f"a string from the **Current content** column of `{csv_name}` that the "
-        "release changes.\n\n"
+        "release changes"
+        + (f", for {scope}" if scope else "")
+        + ".\n\n"
     )
+    if records:
+        a(f"It uses CSV records {records} (rows after the header, counted from 1).\n\n")
     a(f"- **{len(arts)} articles** contain at least one changed string of two words or more.\n")
     a(
         f"- {len(multi)} changed multi-word strings match at least one article. "
@@ -223,15 +236,24 @@ def main():
     ap.add_argument("csv")
     ap.add_argument("--json", help="write every string and its matches here")
     ap.add_argument("--markdown", help="write the issue-ready report here")
+    ap.add_argument("--records", help="use only CSV records FIRST-LAST, counted from 1")
+    ap.add_argument("--scope", help='what the selection covers, e.g. "Account Settings"')
     args = ap.parse_args()
     with open(args.csv, encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
+    if args.records:
+        m = re.fullmatch(r"(\d+)-(\d+)", args.records)
+        if not m or not 1 <= int(m.group(1)) <= int(m.group(2)) <= len(rows):
+            sys.exit(f"--records must be FIRST-LAST within 1-{len(rows)}")
+        rows = rows[int(m.group(1)) - 1 : int(m.group(2))]
     files = corpus_files()
     results = search(rows, files)
     if args.json:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=1, ensure_ascii=False)
-    report = markdown(results, os.path.basename(args.csv), len(files), corpus_date())
+    report = markdown(
+        results, os.path.basename(args.csv), len(files), corpus_date(), args.scope, args.records
+    )
     if args.markdown:
         with open(args.markdown, "w", encoding="utf-8") as f:
             f.write(report)

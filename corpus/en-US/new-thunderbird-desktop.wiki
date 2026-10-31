@@ -2,16 +2,37 @@
 This article introduces the most interesting new features, improvements, and changes visible to users which are available in [[Thunderbird Release|Thunderbird Release for Desktop]]. For full details, please refer to [[Thunderbird release notes - What's new and known issues]].
 
 __TOC__
-
+=Thunderbird 157=
+* If your organization uses Microsoft 365 for email, and you’re currently using EWS to connect to your accounts, please read [[Microsoft EWS to Graph Migration October 2026]]
+* Thundermail add-on improvements.
+[[UI:details_start]]
+=Thunderbird 156=
+==Custom OAuth manual configuration for POP3==
+* You can now configure custom OAuth for POP3 (as well as IMAP, Exchange and Graph).
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 155=
+==Custom OAuth manual configuration for Exchange and Graph==
+* POP3 manual configuration will be added in 156.
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 154=
+==Microsoft Graph==
+* Enabled for Microsoft 365.
+[[UI:details_end]]
+[[UI:details_start]]
 =Thunderbird 153 / ESR 153 “Meadow”=
 * ESR 153 “Meadow” includes all the improvements since 140, plus these version 153 highlights…
+==Account Name custom account color indicator for unified folders==
 * Unified folders display your custom account color indicator with an account name tooltip.
 *# Thunderbird app menu {menu ☰} > {menu Account Settings} > Click your email account, for example <code>nemo@thundermail.com</code>
 *# Click the {button button} underneath '''Color:''' and select a color for that account, for example pink.
 *#; [[Image:tb153-change-account-color]]
 *# You will now see an indicator with that color (in our example: pink) for that account in the message list in a unified folder. There will also be a tooltip with the account name (in our example: <code>nemo@thundermail.com</code>).
 *#; [[Image:tb-153-account-color-indicator-tooltip]]
+==OAuth dialog opens in system web browser==
 * [[OAuth2 for Thunderbird|OAuth]] login for email accounts (for example: Gmail, Thundermail, etc.) opens in the system default web browser. Thunderbird 152 and older versions opened the OAuth login in a Thunderbird tab.
+[[UI:details_end]]
 [[UI:details_start]]
 =Thunderbird 152=
 ==Improved Thundermail configuration==
@@ -21,7 +42,6 @@ __TOC__
 =Thunderbird 151=
 ==Thundermail configuration==
 * [[Thunderbird for Desktop and Thundermail|Thundermail]] configuration is now built-in to Thunderbird.
-
 ==EWS OAuth improvements==
 * You can now override OAuth provider details for EWS accounts.
 [[UI:details_end]]

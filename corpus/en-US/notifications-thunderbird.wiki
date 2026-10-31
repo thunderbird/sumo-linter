@@ -1,24 +1,18 @@
-{warning}''In-app notifications'' is available starting with Thunderbird beta 134 or newer. It is not available in older versions of Thunderbird.
-
-
-If this article loaded in your browser while you are running Thunderbird Daily or Beta, this is just a test of the notification system.
-{/warning}
-
 __TOC__
 
 =Introducing In-App Scheduled Notifications: A Powerful New Tool for Thunderbird =
 
-Thunderbird users, get ready for a game-changing feature in the next major release! As part of Thunderbird Beta 134, we're introducing In-App Scheduled Notifications, a dynamic and intelligent notification system designed to keep you informed about essential updates—without overwhelming you. Whether it’s an important security notice, a donation appeal, or a quick survey, you'll stay in the loop without interrupting your workflow.
+We've introduced In-App Scheduled Notifications, a dynamic and intelligent notification system designed to keep you informed about essential updates—without overwhelming you. Whether it’s an important security notice, a donation appeal, or a quick survey, you'll stay in the loop without interrupting your workflow.
 
 = What are In-App Scheduled Notifications? =
 
-Thunderbird will now be equipped with a brand-new notification system that allows us to push important, time-sensitive information directly to your Thunderbird desktop client. Unlike traditional notifications, which appear whenever they want, these notifications are scheduled in a smart and structured way. They are tailored to you, based on your Thunderbird version, operating system, and locale.
+Thunderbird now has a notification system that allows us to push important, time-sensitive information directly to your Thunderbird desktop client. Unlike traditional notifications, which appear whenever they want, these notifications are scheduled in a smart and structured way. They are tailored to you, based on your Thunderbird version, operating system, and locale.
 
 = How Will This Benefit You? =
 
 == Stay Secure with Timely Updates ==
 
-One of the most significant benefits of this system is that you’ll get real-time security notices when they matter most. No need to sift through emails or websites for updates—Thunderbird will inform you about critical security issues right inside your application. This ensures that your system stays safe without lifting a finger!
+One of the most significant benefits of this system is that you get real-time security notices when they matter most. No need to sift through emails or websites for updates—Thunderbird will inform you about critical security issues right inside your application. This ensures that your system stays safe without lifting a finger!
 
 == Tailored Surveys to Improve Your Experience ==
 
@@ -52,12 +46,6 @@ What won’t you see? Things like blog posts, office hours, or non-client-specif
 * Dismiss and Move On: Don’t want to see a notification again? Dismiss it, and Thunderbird won’t bug you with the same message repeatedly.
 * A Better Way to Stay Informed: Gone are the days of missing crucial updates. Whether it’s a security notice or a fundraising appeal, you’ll have the information you need when you need it.
 
-= Coming Soon to Thunderbird=
-
-We’re excited to bring this feature to all of our users with Thunderbird beta 134. This enhancement is just one of the many ways we’re working to improve your experience with Thunderbird.
-
-Stay tuned, and get ready to enjoy the benefits of in-app scheduled notifications. Your inbox is about to get smarter, safer, and even more powerful!
-
 = Want to Learn More? =
 
-For more information on Thunderbird's upcoming features, head over to our official release notes or check out our [https://github.com/thunderbird/thunderbird-notifications GitHub repository] if you are more technical.
+For more information on Thunderbird's upcoming features, head over to [[New in Thunderbird Desktop]] or check out our [https://github.com/thunderbird/thunderbird-notifications notifications GitHub repository] if you are more technical.

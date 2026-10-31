@@ -10,9 +10,9 @@ Sometimes after the compact, no messages display in the folder due to an interru
 * Cloud syncing (which is not recommended)
 * [https://wiki.mozilla.org/Thunderbird:Testing:Antivirus_Related_Performance_Issues Antivirus software scans] (which is not recommended).
 Here's how you can cure the problem of an empty index file:
-* Right click the folder
-* Select {menu Properties...} from folder context menu
-* Use the {button Repair folder} button
+* Right click (control click on macOS) on the folder
+* Select {menu Properties} from folder context menu
+* Use the {button Repair Folder} button
 This will force a new index to be built and should recover from this situation without data loss.
 
 =Mail file has previously been deleted=
@@ -20,9 +20,6 @@ Compact occurs and displays mail since the deletion, so the missing mail is all 
 
 =Thunderbird using too much disk space=
 See the next heading. 
-
-=nstmp files in the Thunderbird profile=
-The compact process in version 115 and older may leave nstmp files in your [[Profiles - Where Thunderbird stores your messages and other user data|Thunderbird profile directory]], which can be large. You may delete these nstmp files.
 
 =Mail file corruption=
 If the underlying MBOX file is corrupt, then compact will write a new MBOX file that can at best be described as truncated.  In this case, the mail list often retains the earliest entries, but later ones are lost from the point where the MBOX file became corrupt. Some of the more common causes are:

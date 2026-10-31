@@ -1,5 +1,6 @@
 [[Template:TBproEarlyBirdInviteOnly]]
-{note}If you have a Thunderbird Pro invite, you can use Send as a Filelink provider. Please refer to the following for more details: [[Getting Started with Thunderbird Pro]] and [https://support.tb.pro/hc/sections/43937747865235 our Thunderbird Send Articles].{/note}
+{note}'''NOTE''':If you have a Thundermail invite, you can use '''Send''' as a Filelink provider by signing into Thundermail (Thunderbird app menu  {menu ≡} > {menu Sign in to Thundermail}). Please refer to the following for more details: [[Getting Started with Thunderbird Pro]] and [https://support.tb.pro/hc/sections/43937747865235 our Thunderbird Send Articles].{/note}
+
 With Thunderbird's FileLink feature, you can upload large attachments to the cloud and send a link instead of attaching them directly to your email message. This feature is provided by [https://addons.thunderbird.net/thunderbird/tag/filelink Filelink provider add-ons].
 
 __TOC__
@@ -12,37 +13,31 @@ Thunderbird’s Filelink feature eliminates this problem by providing support fo
 Note that you can use Thunderbird Filelink in addition to [[How to Use Attachments|regular attachments]]. For example, you can attach small files directly to a message and use Filelink for large attachments in the same message.
 
 The Thunderbird community has made available a number of [https://addons.thunderbird.net/thunderbird/tag/filelink Filelink provider add-ons] for various providers ([[#w_what-storage-services-are-currently-supported|more details below]]).
-{note}'''Note:''' The previously inbuilt support for the ''WeTransfer'' FileLink provider has been removed.{/note}
 
 = Adding Filelink =
 To use this feature, you need to install one of the [https://addons.thunderbird.net/thunderbird/tag/filelink Filelink provider add-ons] first, as described below. For some online storage service providers, you may have to first create a new account or configure an existing account with them.
-* Click {button ≡} > {menu Settings} > {menu Composition} > {menu Attachments} > {menu Find more providers...}
+* Click Thunderbird app menu  {menu ≡} > {menu Settings} > {menu Composition} > scroll down to the '''Attachments'''  section and then click on '''Find more providers...'''.
 * Choose a Filelink Provider add-on, and click {button ＋ Add to Thunderbird}.
-* Confirm add-on permissions from the popup panel with {button Add}.
-* In the {menu Attachments} section of the ''Settings'' (see above), click on the button {button Add [Your Filelink provider]}.
-* Add information as requested by the addon.
+* Confirm add-on permissions from the popup panel by clicking the {button Add} button.
+* In the '''Attachments''' section of the ''Settings'' (see above), click on the button {button Add [Your Filelink provider]}.
+* Add information as requested by the addon. For example, {button Add WebDAV} if you added the '''WebDAV''' provider.
 * Thunderbird will suggest using Filelink for attachments larger than 5 MB (you can change the threshold in the same section), or you can right-click on a regular attachment to convert it.
-{note}
-* If you want to be prompted to use Filelink when a message attachment exceeds a certain size, tick the following option:
-'''[✓] Offer to share for files larger than [5] MB'''
-* You may also change the threshold file size as required.{/note}
-
+* 5MB or larger is the default threshold for FileLink to automatically offer to share an attachment with one of its providers. Change the size by clicking the up and down arrows or un-check to turn off the automatic offer
+*;[[Image:tb157-macos-up-down-arrows-filelink]]]]
 = Using Filelink =
 When you attach a file to a message, and the file size exceeds the size you have specified above, Thunderbird will automatically offer to use Filelink:
-;[[Image:Proton-FileLink-LargeFileNotification]]
+;[[Image:tb157-macos-filelink-offer]]
 * Click the {button Link} button to upload the file to the online storage service provider.
 * If you prefer to attach the file as a [[How to Use Attachments|regular attachment]], choose {button Ignore}.
 After choosing {button Link}, your file will be uploaded in the background and the displayed message will update to:
-;[[Image:Proton-FileLink-UploadingFileNotification]]
+;[[Image:tb157-macos-filelink-your-file-is-being-linked]]
 {note} Regardless of the file size and the Filelink notification, you can always force a file to be attached using Filelink:
 * Choose the down arrow of the {button Attach | v} button on the composition toolbar to access the {menu Filelink} submenu.
 * Right-click on a regular attachment and from the context menu, choose {menu Convert to...} > {menu [Your FileLink provider]}. You can choose from a list of your enabled providers.{/note}
-When the linking is complete – that is, your attachment has been uploaded to the service provider – Thunderbird will automatically add a section in the message with a link to the online copy of your file  as shown below:
-;[[Image:TB78-filelink-linked-anonymous]]
+When the linking is complete – that is, your attachment has been uploaded to the service provider – Thunderbird will automatically add a section in the message with a link to the online copy of your file  as shown below (Filelink provider specific information greyed out in the example below):
+;[[Image:tb157-try2-filelink-linked-anonymous]]
 {note}'''Note:''' The link section will appear in plain text, if '''Compose messages in HTML format''' is turned off in Account Settings.{/note}
 When your recipients receive the message, they will see the same information and clicking the link in the message will take them to a page where they can download the attachment.
-
-----
 
 = Filelink FAQ =
 Attachments that you send via Filelink are not stored on Thunderbird servers. Each file storage service provider has its own privacy policy and terms of service. The file storage service provider has reviewed the Filelink feature to ensure that it is consistent with their policies.
@@ -51,7 +46,7 @@ Attachments that you send via Filelink are not stored on Thunderbird servers. Ea
 No. Thunderbird is unaware of which provider has been selected by a user. Provider configuration is stored on the local machine.
 
 == What storage services are currently supported? ==
-* A number of popular file storage providers are supported through [https://addons.thunderbird.net/thunderbird/tag/filelink Filelink provider add-ons].
+* Some popular file storage providers are supported through [https://addons.thunderbird.net/thunderbird/tag/filelink Filelink provider add-ons]. The '''Send''' Filelink provider that is part of Thundermail is part of Thunderbird 153 and newer. No need to install it.
 * You can also use Filelink with your preferred WebDAV server with the [https://addons.thunderbird.net/thunderbird/addon/filelink-provider-for-webdav/ Filelink provider for WebDAV] add-on.
 <!-- [https://addons.thunderbird.net/thunderbird/addon/dl-for-thunderbird DL for Thunderbird] may be the best if you prefer using your own server instead of relying on third-party providers.-->
 
@@ -69,6 +64,6 @@ Please check if the Thunderbird community has provided a [https://addons.thunder
 
 == I don't like the idea of storing my files with third-parties like this. Do regular attachments still work? ==
 Regular email attachments still work the same as they always have. We are just offering you an option to upload large attachments somewhere else if you wish. Thunderbird's notion of a large file defaults to 5 MB, but can be customized in Thunderbird’s Settings:
-# Click {button ≡} > {menu Settings} > {menu Composition} > {menu Attachments}
+# Click Thunderbird app menu  {menu ≡} > {menu Settings} > {menu Composition} and scroll down to the '''Attachments''' section.
 # '''[✓] Offer to share for files larger than [5] MB'''
-Removing the checkmark will prevent the automatical Filelink notification when you attach big files, but the Filelink feature will still be available from the {button Attach | v} button dropdown as well as other attachment menus and context menus.
+Removing the checkmark will prevent the automatical Filelink notification when you attach big files, but the Filelink feature will still be available from the {button 📎 Attach | v} button dropdown as well as other attachment menus and context menus.

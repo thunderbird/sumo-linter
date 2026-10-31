@@ -6,8 +6,8 @@ test corpus for `sumo-linter` and as a backup.
 - **Source:** https://support.mozilla.org (production)
 - **Products:** `thunderbird`, `thunderbird-android`
 - **Locale:** en-US
-- **Snapshot taken:** 2026-09-09 (first snapshot: 2026-08-04)
-- **Articles:** 196 public (of 203 fetched)
+- **Snapshot taken:** 2026-10-31 (earlier snapshots: 2026-08-04, 2026-09-09)
+- **Articles:** 196 public (the signed-in listing has 202)
 
 ## Provenance and licensing
 
@@ -29,8 +29,9 @@ publish content SUMO has not published. They are listed explicitly in the reposi
 
 **How "public" is decided:** the test is *is this content published*, not *is this page
 anonymously reachable*. For articles the two coincide, and the API has no "public" field, so
-it is decided by asking what an anonymous visitor sees: signed in the listing returns 203
-articles, anonymously 196, and the difference is the drafts.
+it is decided by asking what an anonymous visitor sees: signed in the listing returns 202
+articles, anonymously 196, and the difference is the drafts (2026-10-31; it was 203 and 196
+on 2026-09-09).
 `tools/scrape/public-index.mjs` does that subtraction and writes `index.public.json`. It
 takes an anonymous listing as an explicit argument rather than fetching one itself, because
 running the listing with the saved session by mistake would silently mark every draft
@@ -45,6 +46,12 @@ Three more articles that were fetched in August — `age-calculation`,
 misfiled support question) — are no longer listed at all, even to an admin, so they have
 been marked obsolete on SUMO since. Their August files are still on disk locally and remain
 gitignored; they are simply no longer refreshed.
+
+`fix-missing-reply-all-button-152` was in the 2026-09-09 snapshot and is not in the
+2026-10-31 one, because the Thunderbird listing no longer includes it. It is not a draft: the
+page and `/api/1/kb/fix-missing-reply-all-button-152` still answer anonymously, with product
+`thunderbird`. It is probably marked obsolete, but that is not verified. Its file was
+removed from `en-US/`, because the corpus follows the listing.
 
 `index.json` and `report.md` are also excluded, because both name those non-public articles.
 `index.public.json` is the committed, public-only equivalent.

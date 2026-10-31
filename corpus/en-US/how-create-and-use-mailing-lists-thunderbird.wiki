@@ -1,74 +1,130 @@
-A mailing list is a sub list of an address book. 
-An address book can have more than one mailing list. <br>
-Any contact in an address book which has a valid email address can be placed in a mailing list. <br>
-A mailing list is used to send one email to a group of contacts.
+A mailing list is a sub list of an address book, used to send mail to a group of contacts. Each contact must be in the same address book and have a valid email address.
+
+An address book can have multiple mailing lists.
 
 __TOC__
 
 = Create a mailing list =
 #Open the Address Book.
-#Select {menu File} > {menu New} > {menu Mailing List}.
-#Enter a suitable name for the mailing list.
-#At this point you have two options:
-#*'''Option 1:'''
-#*#Manually enter the email addresses of your contacts. 
-#*#Type one email address per line. 
-#*#;You cannot sort email addresses in this list in this window. They will appear in the order added.  
-#*#Click {button OK} when finished.
-#*'''Option 2:'''
-#*#Do not enter any email addresses via this window.
-#*#Close the window by clicking {button OK}.
-#*#Select the address book with contacts you wish to put into a mailing list.
-#*#Select to highlight contacts. 
-#*#*To select various contacts: Hold down the {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} key and left click on the contacts.
-#*#*To select a block: Select the first contact, hold down the {key Shift} key and select the last contact.<br>
-#*#Left click and hold down on the selected highlighted contacts to grab.
-#*#Drag the contacts to the left and hover over the mailing list.
-#*#Release the mouse button to drop contacts into the mailing list.
+#In the left pane, to the right side of {button New Contact}, click the ''Create a new mailing list'' icon. See image below as a guide.
+#;[[Image:New List icon]] 
+#The 'New Mailing List' window opens. Enter all the Mailing List required details as indicated below.
+#*'''Add to''': Click on the drop down icon and select Address book name
+#*'''List Name''': Enter a suitable name for the mailing list.
+#*'''List Nickname''': optional
+#*'''Description''':optional, but useful to differentiate between multiple or similar Mailing Lists.
+#;[[Image:New Mailing List]] 
+== Adding contacts to a mailing list ==
+There are  options to add contacts to the mailing list:<br><br>
+'''Option 1 - Add contacts by typing email addresses:'''
+#Type one email address per line. 
+#Contacts will appear in the order added, they cannot be sorted in this list in this window.
+#Click {button OK} when finished.
+'''Option 2 - Add contacts by selecting in the address book:'''
+#Do not add email addresses using the Mailing List dialog.
+#Save and Close the Mailing List window by clicking {button OK}. This creates an empty Mailing List which can be populated using the list of contacts in the address book:
+#;[[Image:New Empty List]] 
+#Select the address book which contains the new mailing list.
+#Select to highlight contacts. 
+#*To select various contacts: Hold down the {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} key and left click the contacts.
+#*To select a block: Select the first contact, hold down the {key Shift} key and select the last contact.
+#Left click and hold down on the selected highlighted contacts to grab.
+#Drag the contacts to the left and hover over the mailing list name.
+#Release the mouse button to drop contacts into the mailing list. The example image below shows three contacts were selected in the ''Business'' address book and dragged over the ''Group 1'' Mailing List.
+#;[[Image:Add contacts to List]] 
+#Select the Mailing List name to check all contacts are listed.The example below shows all three contacts successfully added to the new Mailing List.
+#;[[Image:New List Populated]] 
 
-If the contacts were not already in the associated address book, they will also be entered into the associated address book. <br>
-The image below shows an example of a new mailing list called 'Test'. It is a mailing list in the Personal Address Book.
+=Alternative method to create a Mailing List=
+#Open the Address Book.
+#Select an address book name.
+#Select to highlight contacts in the address book.
+#*To select various contacts: Hold down the {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} key and left click the contacts.
+#*To select a block: Select the first contact, hold down the {key Shift} key and select the last contact.
+It will say X number of selected contacts and below offer some options:
+# Click the {button New List} icon.
+# A new Mailing List window opens with contacts already pre entered.
+# Give Mailing List a suitable name and complete any other required fields.
+# Click the {button OK} button.
 
-[[Image:Mailing List add contacts]] 
+= Edit a Mailing List =
+There are two ways to edit a Mailing List, either via the ''Edit Mailing List'' name window or via the Mailing List display list.
+
+== Add or remove a contact via the ''Edit Mailing List'' window ==
+#Open the Address Book.
+#Select the Mailing List name to highlight, click on the far right 3 dot menu icon and select {menu Edit List}.
+#'''OR''' right click on a Mailing List name and select {menu Edit List}.
+
+=== Add another contact ===
+# Type one contact's email address per line.
+# Click {button OK} when finished.
+
+=== Remove a contact ===
+# Highlight contact email address you wish to remove.
+# Right click on highlighted email address and click {menu Delete}.
+# Click {button OK} when finished.
+
+== Add or remove a contact directly to the Mailing List display list ==
+#Open the Address Book.
+
+===Add a contact to a Mailing List===
+#Select the address book name which contains the Mailing List.
+#Left click and hold down on selected highlighted contact(s) to grab.
+#Drag the contact(s) to the left and hover over the mailing list name.
+#Release the mouse button to drop contact(s) into the mailing list.
+
+===Remove a contact from Mailing List===
+#Select the Mailing List name.
+#Select the contact name in the Mailing List.
+#Click the {button Edit} button shown in contact details.
+#Click {button Delete}.
+#Click {button Save}.
+
+=Create a new Mailing List using a subset of contacts already in a Mailing List=
+#Open the Address Book.
+#Select the Mailing List name to see contacts.
+#Select to highlight contacts in the Mailing List.
+#*To select various contacts: Hold down the {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} key and left click the contacts.
+#*To select a block: Select the first contact, hold down the {key Shift} key and select the last contact. 
+# Below '''N selected contacts''', click {button New List}.
+# A new Mailing List window opens with contacts already pre entered.
+# Give the Mailing List a suitable name and complete any other required fields.
+# Click the {button OK} button.
+A new Mailing List is auto created with the subset of selected contacts.
 
 = Create email using a mailing list =
 There are two methods producing different results.
 
-=='''Via the Address Book'''==
-On the Mail Toolbar, locate 'Address Book'.
-#Click {menu Address Book} to open it.
-#Select the mailing list.
-#Click the {menu Write} button.
-This will open a new Write message window, and each contact in the mailing list will appear in a separate To field. This allows you to remove a name, if desired. <br>
-You may also need to manually select {button Bcc} for each email address, as your contacts may not want you to distribute their email address.<br>
+==Via the Address Book==
+Useful if you need to select a subset or omit a contact or send list as individual named contacts.<br>
+On the ''Spaces'' toolbar:
+*Click the ''Address Book'' icon.
+'''OR'''
+On the ''Menu Bar'' toolbar:
+*Click {menu Tools} and select {menu Address Book} to open.
+#Select the mailing list to see contacts.
+#Select to highlight contacts. 
+#*To select various contacts: Hold down the {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for} key and left click the contacts.
+#*To select a block: Select the first contact, hold down the {key Shift} key and select the last contact.
+#*To select all: Select the first contact and use {for win,linux}{key Ctrl}{/for}{for mac}{key Command}{/for}{key A}.
+#You will see X number selected contacts. Click the {menu Write} button.
+This will open a new Write compose message window, and each contact in the mailing list will appear in the ''To'' field. This allows you to remove a name, if desired.<br>
+If required, you may need to manually select {button Bcc} to enable the ''Bcc'' field, then select all contacts and drag into the ''Bcc'' field - as your contacts may not want you to distribute their email address.<br>
 Enter the Subject; Compose the email and click {button Send}.
 
 =='''Via a new Write message'''==
-On the Mail Toolbar, locate the 'Write' button.
-#Click the {menu Write} button.
-#;A new Write message window will open, and on the left side there should be the 'Contacts Sidebar'. <br>
-#*If you cannot see the Contacts Sidebar, you need to enable it.<br>
-#**Click {menu View} > {menu Contacts Sidebar} or use the {key F9} key to toggle the view.
+On the ''Folder Pane Header'' Toolbar:
+*Click the {menu + New Message} button.
+A new Write message window will open, and on the left side there should be the 'Contacts Sidebar'.
+*If you cannot see the Contacts Sidebar, you need to enable it.
+**Click {menu View} > {menu Contacts Sidebar} or use the {key F9} key to toggle the view.
 #Select the address book containing the mailing list.
+#Use search to help locate Mailing List.
 #Select the mailing list.
 #Click the {button Add to Bcc} button or another option.
+;[[Image:Mailing List Write]] 
+This will add the mailing list name into the ''Bcc'' or ''Cc'' or ''To'' field. Note: it shows the Mailing List ''Description'' in brackets. 
 
-[[Image:Mailing Lists]] 
+You cannot see or alter the individual contacts of the mailing list in this format. But you can switch to individual names: Right click on the Mailing List name and select {menu Expand List}.
 
-This will add the mailing list as the mailing list name. You cannot see individual contacts. This saves you from needing to change eg. To to Bcc, but you cannot edit any names from that email using this method.<br>
-Enter the Subject; Compose the email and click {button Send}.
-
-= How to add two contacts who use the same email address =
-As an example: <br>
-In your address book you have two people with the same email address. <br>
-a) Bob Smith has email address: thesmiths @ domain. <br>
-b) Jan Smith has email address: thesmiths @ domain. <br>
-
-These two people are perfectly OK in an address book, but to get them into a mailing list will not work using the conventional method. So do the following to get them into the mailing list.
-
-In the Address Book, select one of the people and edit their email address. In the example I put a letter A in the front. <br>
-Jan Smith has the email address Athesmiths @ domain.
-
-Now move both people to the mailing list. As the email addresses are not the same, they will both move to the mailing list. Once in the mailing list, select the mailing list and double click Jan Smith to edit the email address by removing the 'A'. Click {button OK} when finished.
-
-Now you should have two people sharing the same email address in the mailing list, and if you go back and check the address Book entries, you will find them correct.
+You can now complete the email with the subject and message content, then click {button Send}.

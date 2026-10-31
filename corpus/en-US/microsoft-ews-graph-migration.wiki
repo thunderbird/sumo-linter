@@ -1,0 +1,10 @@
+{warning}'''Note:''' If your organization uses Microsoft 365 for email and you’re currently using EWS to connect to that account, then you need to take action before October 2026. Note that on-premises Microsoft Exchange accounts can continue to use EWS. This applies only to users on Microsoft 365.{/warning}
+Earlier this year, Microsoft announced that they would begin a phased shutdown of EWS on Microsoft 365/Exchange Online starting in October of 2026 with the goal of a complete shutdown in 2027. If you are currently using Thunderbird’s EWS support to connect to a Microsoft 365/Exchange Online email account, then you will need to switch to the Microsoft Graph API support to keep using Thunderbird beyond these dates. Microsoft Graph support is available in [[Find what version of Thunderbird you are using|Thunderbird versions]]  154 and higher.
+
+Thunderbird does not support migrating accounts to different protocols. Instead, you will need to set up a new account. If you have an existing EWS-connected Microsoft 365 account, first you’ll need to delete that account in Thunderbird. You can do this from the Thunderbird app menu:
+* Click {menu ☰} > {menu Account Settings} > click your EWS account in the left sidebar > {button Delete}.
+'''Deleting the account locally in Thunderbird will not affect any data stored on Microsoft 365, so your data is safe.'''
+
+Once your previous EWS account has been deleted, you can use the [[Account Hub for Thunderbird Desktop|Account Hub]] to set up a new account. In the Thunderbird app menu:
+* Click {menu ☰} > {menu Add Account} > {menu Email} and enter your Microsoft 365 hosted email account.
+Thunderbird should automatically detect that your email is hosted on Microsoft 365 and will give you a few options for getting connected. Click the {button Microsoft Graph API} button when presented with the list of available protocols.

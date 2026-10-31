@@ -1,5 +1,7 @@
 Thunderbird can merge multiple inboxes from various POP accounts to make what is called a global inbox, where all of the received mail can be displayed in one convenient place. This article demonstrates how to set up a global inbox in Thunderbird.
 
+Another, more modern method to consider using is [[Switching the folder pane view|unified folders]] folder mode.
+
 # Select one of the accounts from the left pane to add to a global inbox. 
 # Under the ''Accounts'' heading, click on '''View settings for this account'''.
 #;[[Image:GI Step 1]]

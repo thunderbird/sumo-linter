@@ -1,3 +1,5 @@
+[[Template:TBproEarlyBirdInviteOnly]]
+
 =Thunderbird Pro brief introduction=
 Thunderbird Pro is a subscription-based bundle of services that consists of:
 * Thundermail: An email service.

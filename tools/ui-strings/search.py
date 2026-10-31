@@ -144,7 +144,17 @@ def name(p, lines=None):
     return text
 
 
-def markdown(results, csv_name, n_articles):
+def corpus_date():
+    """The snapshot date recorded in corpus/README.md, or "unknown"."""
+    try:
+        with open("corpus/README.md", encoding="utf-8") as f:
+            m = re.search(r"Snapshot taken:\*\* (\S+)", f.read())
+    except OSError:
+        return "unknown"
+    return m.group(1) if m else "unknown"
+
+
+def markdown(results, csv_name, n_articles, date):
     ch = [x for x in results if x["changed"] and x["hits"] and x["string"] not in NOISE]
     multi = [x for x in ch if x["words"] >= 2]
     single = [x for x in ch if x["words"] < 2]
@@ -174,7 +184,7 @@ def markdown(results, csv_name, n_articles):
         "because single words give many false hits.\n"
     )
     a(f"- The CSV gives {len(results)} distinct strings. {n_changed} of them change.\n")
-    a(f"- The search covers {n_articles} committed corpus files.\n\n")
+    a(f"- The search covers {n_articles} committed corpus files, from the snapshot of {date}.\n\n")
     a("## Method\n\n")
     a("Produced by `tools/ui-strings/search.py`. Its docstring gives the matching rules.\n\n")
     a(
@@ -201,6 +211,10 @@ def markdown(results, csv_name, n_articles):
     a("The number is the count of matching files.\n\n")
     for x in single:
         a(f"- \"{x['string']}\" ({x['pane']}, setting: {x['setting']}): {len(x['hits'])}\n")
+    a("\n## Known limits\n\n")
+    a(f"- The corpus is a snapshot from {date}, not the live KB.\n")
+    a("- Only en-US source is searched. Localized articles need the same review after the en-US articles change.\n")
+    a("- A string that is paraphrased, or split by markup such as `{menu}` or a link, does not match.\n")
     return "".join(out)
 
 
@@ -217,7 +231,7 @@ def main():
     if args.json:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=1, ensure_ascii=False)
-    report = markdown(results, os.path.basename(args.csv), len(files))
+    report = markdown(results, os.path.basename(args.csv), len(files), corpus_date())
     if args.markdown:
         with open(args.markdown, "w", encoding="utf-8") as f:
             f.write(report)

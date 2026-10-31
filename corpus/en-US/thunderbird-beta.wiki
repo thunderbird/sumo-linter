@@ -4,13 +4,13 @@ __TOC__
 
 =README BEFORE using beta=
 Don't be intimidated by this common sense list - they are presented here for your protection.
-* Protect your Thunderbird data by doing regular [[Profiles - Where Thunderbird stores your messages and other user data#w_backing-up-a-profile|backups of your Thunderbird profile]].
-* High-impact flaws such as data loss are rare but may occur, so protect your data with backups. 
-* New features require new code, so flaws are possible. Please [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird report flaws], but please be patient because flaws in test versions may not be fixed quickly due to competing development priorities.  
-* Use the [https://thunderbird.topicbox.com/groups/beta/ beta topicbox] to learn about new features and connect with the experience of other beta users.
+* '''Protect your Thunderbird data by doing regular [[Profiles - Where Thunderbird stores your messages and other user data#w_backing-up-a-profile|backups of your Thunderbird profile]].'''
+** High-impact flaws such as data loss are rare but may occur, so protect your data with backups. 
+** New features require new code, so flaws are possible. Please [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird report flaws], but please be patient because flaws may not be fixed quickly due to competing development priorities.  
+* Subscribe and contribute to the [https://thunderbird.topicbox.com/groups/beta/ beta community discussion list] to share your thoughts, help other users, and learn about new features and user experience.
 * Expect frequent updates, which we use to quickly provide improvements and fixes.
+* Add-ons may not work, because authors are not obligated to make their add-ons work for this channel. See [[#w_add-ons|Add-ons]] for more information.
 * If you use filters, then you must decide where to run your filters for which email accounts - in your beta profile or your other profile. Do not use filters for an account in both profiles. 
-* Some [https://addons.thunderbird.net/thunderbird/ add-ons] may not work in beta. If you have difficulty, please submit your issues to the add-on author, and consult the [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|Add-ons FAQ]].
 * If you using POP accounts, then you must make a choice of how to use them, because your only copy of POP mail is currently in one Thunderbird profile on your computer, and not on a mail server (unless you changed the default settings):
 **'''Don't use a POP account with your beta or daily install:''' Using POP  is not recommended because you risk losing your email if you do not configure ALL of your email clients correctly with your POP accounts.
 **'''Change your account in Thunderbird to use IMAP instead of POP.'''
@@ -24,14 +24,14 @@ Don't be intimidated by this common sense list - they are presented here for you
 How you can help improve Thunderbird, find help, and give help:
 * Ask and answer beta-specific  questions in the [https://thunderbird.topicbox.com/groups/beta beta topicbox community].
 * Post general Thunderbird questions in [https://support.mozilla.org/questions/new/thunderbird/form Thunderbird support (SUMO)]. [https://support.mozilla.org/questions/thunderbird?filter=recently-unanswered&show=all You can also answer SUMO questions].
-* [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird Report bugs] that you find. Report performance issues by [[Profiling Thunderbird Performance|creating a performance profile]] and add it to your bug report.
+* [https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird Report bugs] that you find, with a [[Profiling Thunderbird Performance|performance profile]] if it is a performance issue.
 * Read informative Release Notes at {menu ≡} > {menu Help} > {menu About Thunderbird Beta} > {button Release Notes} in Thunderbird, or visit [https://www.thunderbird.net/notes/beta Beta release notes].
-* [[Mozilla Crash Reporter TB|Submit all crash reports]].
-* Check the [https://start.thunderbird.net/en-US/beta/ Beta Start Page] which has handy information, available inside Thunderbird with {for win, linux} {key ALT} > {/for}{menu Go} > {menu Mail Start Page} ([[Keyboard shortcuts - perform common Thunderbird tasks quickly#w_moving-around-thunderbird|keyboard shortcuts]]).  
+* [[Mozilla Crash Reporter TB|Submit every crash report]]. Multiple reoprts of the same crash are helpful, and wanted.
+* Join us in [https://www.thunderbird.net/participate/ other ways to contribute to the project.]
 
 = Add-ons =
 <!-- DO NOT REMOVE THIS HEADING ANCHOR, there are links to it from other locations -->
-Add-on authors are not obligated to have their add-ons work in beta. Some might not work. Consult the [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|add-ons FAQ]] if you have difficulty. 
+Add-on authors are not obligated to have their add-ons work for this channel, so some might not work. Consult the [[Thunderbird add-ons - frequently asked questions#w_what-if-my-add-on-is-broken|add-ons FAQ]] if you have difficulty. 
 
 = How to install and run beta =
 Install Thunderbird Beta into its own program directory, which official Mozilla downloads should do correctly. But be cautious - pay attention that the installer does not target a non-beta program directory which may result in corrupting your production data profile.

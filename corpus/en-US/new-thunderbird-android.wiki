@@ -2,9 +2,37 @@
 This article introduces the most interesting new features, improvements, and changes visible to users which are available in Thunderbird for Android. For full details, please refer to [[Thunderbird release notes - What's new and known issues]].
 
 __TOC__
+=Thunderbird 24=
+*HTML signatures now work with individual identities.
+*You can now choose {menu Reply} or {menu Reply all} when both are applicable by tapping the reply arrow icon or the menu {menu ⋮} (also known as the '''kebab''' menu because the 3 vertical dots resemble a kebab).
+=Older Releases=
+[[UI:details_start]]
+==Thunderbird 23==
+* Multiple line signature issue fixed.
+* Attachment filenames with non-ASCII characters issue fixed.
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 22==
+* Thundermail integration improvements.
+* New indicator dot for the sort menu {button [[Image:tba24-sort-icon]]}:
+**In the three horizontal bar sort menu for each folder (for example: your '''Inbox''' ):
+**;[[Image:tba24-sort-menu]] 
+** When you tap the icon for the sort menu {button [[Image:tba24-sort-icon]]}, it displays an indicator dot by the selected option (for example '''Date''' for sorting by date).
+**;[[Image:tba24-sort-indicator-dot]] 
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 21==
+* Empty trash folder action fixed in 21.1.
+* Composition defaults and "Fetching mail" modernization. 
+[[UI:details_end]]
+[[UI:details_start]]
+==Thunderbird 20==
+* Thundermail email account setup improvements. Full instructions:[[Thundermail and Thunderbird for Android]].
+[[UI:details_end]]
+[[UI:details_start]]
 ==Thunderbird 19==
 * The QR Code scanner now works with Thundermail QR codes to quickly setup your Thundermail email account. Full instructions:[[Thundermail and Thunderbird for Android]].
-=Older Releases=
+[[UI:details_end]]
 [[UI:details_start]]
 ==Thunderbird 18==
 * PNG custom avatars are now supported (as well as JPEGs and stylized letter monograms as per the Thunderbird 17 section).

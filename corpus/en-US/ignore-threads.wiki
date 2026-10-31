@@ -1,4 +1,4 @@
-The Ignore Thread feature is especially useful for mailing lists. It lets you skip reading the rest of a conversation you're not really interested in following, while still being able to keep up with all the other conversations.
+The Ignore Thread feature lets you skip reading a full or partial conversation that you're not interested in following, while still being able to keep up with all the other conversations. It hides the ignored item(s) in the message list pane. It does not affect notification of new incoming email messages or news articles.
 
 __TOC__
 

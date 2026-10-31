@@ -186,7 +186,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 8338,
+      "bytes": 9598,
       "source": "corpus/en-US/thunderbird-and-gmail.wiki",
       "rendered": null
     },
@@ -234,7 +234,7 @@
     },
     {
       "id": 17035,
-      "title": "Thunderbird and Hotmail",
+      "title": "Thunderbird and Microsoft email (Office365, Hotmail, outlook.com, etc)",
       "slug": "thunderbird-and-hotmail",
       "products": [
         "thunderbird"
@@ -242,7 +242,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 3308,
+      "bytes": 3638,
       "source": "corpus/en-US/thunderbird-and-hotmail.wiki",
       "rendered": null
     },
@@ -410,7 +410,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 9667,
+      "bytes": 9819,
       "source": "corpus/en-US/thunderbird-and-yahoo.wiki",
       "rendered": null
     },
@@ -494,7 +494,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 6081,
+      "bytes": 6089,
       "source": "corpus/en-US/compacting-folders.wiki",
       "rendered": null
     },
@@ -1040,7 +1040,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 7236,
+      "bytes": 8349,
       "source": "corpus/en-US/thunderbird-and-junk-spam-messages.wiki",
       "rendered": null
     },
@@ -1054,7 +1054,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 8391,
+      "bytes": 8792,
       "source": "corpus/en-US/filelink-large-attachments.wiki",
       "rendered": null
     },
@@ -1250,7 +1250,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 1831,
+      "bytes": 1926,
       "source": "corpus/en-US/ignore-threads.wiki",
       "rendered": null
     },
@@ -1306,7 +1306,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 4254,
+      "bytes": 7529,
       "source": "corpus/en-US/how-create-and-use-mailing-lists-thunderbird.wiki",
       "rendered": null
     },
@@ -1516,7 +1516,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 542,
+      "bytes": 279,
       "source": "corpus/en-US/find-what-version-thunderbird-you-are-using.wiki",
       "rendered": null
     },
@@ -1572,7 +1572,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 1574,
+      "bytes": 1688,
       "source": "corpus/en-US/unify-your-pop-email-accounts-global-inbox.wiki",
       "rendered": null
     },
@@ -1642,7 +1642,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 6724,
+      "bytes": 6465,
       "source": "corpus/en-US/thunderbird-beta.wiki",
       "rendered": null
     },
@@ -1880,7 +1880,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 3353,
+      "bytes": 3102,
       "source": "corpus/en-US/compacting-folders-potential-complications.wiki",
       "rendered": null
     },
@@ -2259,13 +2259,13 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 11897,
+      "bytes": 14140,
       "source": "corpus/en-US/thunderbird-android-import.wiki",
       "rendered": null
     },
     {
       "id": 66301,
-      "title": "Notifications in Thunderbird",
+      "title": "In-app Notifications",
       "slug": "notifications-thunderbird",
       "products": [
         "thunderbird"
@@ -2273,7 +2273,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 5282,
+      "bytes": 4484,
       "source": "corpus/en-US/notifications-thunderbird.wiki",
       "rendered": null
     },
@@ -2344,7 +2344,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 13649,
+      "bytes": 14494,
       "source": "corpus/en-US/new-thunderbird-desktop.wiki",
       "rendered": null
     },
@@ -2392,7 +2392,7 @@
     },
     {
       "id": 68491,
-      "title": "Thunderbird and Exchange",
+      "title": "Thunderbird and Microsoft protocols (Exchange and Graph)",
       "slug": "thunderbird-and-exchange",
       "products": [
         "thunderbird"
@@ -2400,7 +2400,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 6552,
+      "bytes": 5569,
       "source": "corpus/en-US/thunderbird-and-exchange.wiki",
       "rendered": null
     },
@@ -2428,7 +2428,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 6990,
+      "bytes": 6989,
       "source": "corpus/en-US/thunderbird-desktop-and-thundermail.wiki",
       "rendered": null
     },
@@ -2443,7 +2443,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 2452,
+      "bytes": 2491,
       "source": "corpus/en-US/getting-started-thunderbird-pro.wiki",
       "rendered": null
     },
@@ -2518,20 +2518,6 @@
       "rendered": null
     },
     {
-      "id": 75307,
-      "title": "Fix missing Reply All  Button in 152",
-      "slug": "fix-missing-reply-all-button-152",
-      "products": [
-        "thunderbird"
-      ],
-      "locale": "en-US",
-      "status": "ok",
-      "via": "textarea[name=content]",
-      "bytes": 3348,
-      "source": "corpus/en-US/fix-missing-reply-all-button-152.wiki",
-      "rendered": null
-    },
-    {
       "id": 75338,
       "title": "Close to tray starting in 154",
       "slug": "close-tray-starting-154",
@@ -2541,7 +2527,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 2624,
+      "bytes": 2618,
       "source": "corpus/en-US/close-tray-starting-154.wiki",
       "rendered": null
     },
@@ -2555,7 +2541,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 2831,
+      "bytes": 2828,
       "source": "corpus/en-US/tb-custom-oauth.wiki",
       "rendered": null
     },
@@ -2723,7 +2709,7 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 4533,
+      "bytes": 5858,
       "source": "corpus/en-US/new-thunderbird-android.wiki",
       "rendered": null
     },
@@ -2751,8 +2737,22 @@
       "locale": "en-US",
       "status": "ok",
       "via": "textarea[name=content]",
-      "bytes": 5629,
+      "bytes": 5625,
       "source": "corpus/en-US/thundermail-and-thunderbird-android.wiki",
+      "rendered": null
+    },
+    {
+      "id": 79029,
+      "title": "Microsoft EWS to Graph Migration October 2026",
+      "slug": "microsoft-ews-graph-migration",
+      "products": [
+        "thunderbird"
+      ],
+      "locale": "en-US",
+      "status": "ok",
+      "via": "textarea[name=content]",
+      "bytes": 1883,
+      "source": "corpus/en-US/microsoft-ews-graph-migration.wiki",
       "rendered": null
     }
   ]

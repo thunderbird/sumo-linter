@@ -5,7 +5,7 @@ __TOC__
 
 =Configure Thundermail in Thunderbird for Android=
 == Automatic Setup for Thunderbird 18 or newer==
-{note} '''Note:''' Thunderbird Pro requires Thunderbird for Android version 18 or newer (also K-9). We recommend using the latest monthly release version documented in [[New in Thunderbird for Android]].{/note}
+{note} '''Note:''' Thundermail requires Thunderbird for Android version 18 or newer (also K-9). We recommend using the latest monthly release version documented in [[New in Thunderbird for Android]].{/note}
 # Thunderbird app menu {menu ≡} > Settings gear icon {button [[Image:gear icon]]} > {menu Add account}.
 # Enter your Thundermail email address. For example: <code>nemo@thundermail.com</code>
 # Click {button Next}.

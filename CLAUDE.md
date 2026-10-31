@@ -15,8 +15,8 @@ their own conventions. This is why the style layer must be a configurable preset
 
 Scope: products `thunderbird` + `thunderbird-android` on **production**
 (`support.mozilla.org`). Locale-aware architecture from day one, but **only en-US is
-implemented**. The corpus is 203 articles; 196 public ones are committed under `corpus/`,
-refreshed 2026-09-09. `corpus/README.md` records how the public/non-public split is decided
+implemented**. The signed-in listing has 202 articles. The 196 public ones are committed under `corpus/`,
+refreshed 2026-10-31 (#17). `corpus/README.md` records how the public/non-public split is decided
 and why it cannot be inferred from the API.
 
 ## Current state
@@ -30,11 +30,13 @@ documents of en-US source in total, all round-tripped in CI. It exists for lexer
 *and* for the markup-aware search in issue #6. Thunderbird **style** still applies only to
 `corpus/`.
 
-Linting the committed corpus reports **4 errors, all verified by hand** and all filed:
-issues #223, #224, #225 (unbalanced `'''`) and #228 (two `{for}` bugs in
+Linting the committed corpus reports **5 errors, all verified by hand**. Four are filed:
+#223 and #225 (unbalanced `'''`) and #228 (two `{for}` bugs in
 `keyboard-shortcuts-thunderbird` that the earlier regex audit could not detect, because the
-file's 294/294 tag totals balance). It was 5 until the 2026-09-09 refresh: the SW004 in
-`thunderbird-desktop-and-thundermail` has since been fixed upstream — so **re-lint after a
+file's 294/294 tag totals balance). The fifth is new in the 2026-10-31 refresh and not yet
+filed: SW007 in `filelink-large-attachments` line 26, an image link closed with `]]]]`, which
+SUMO renders as a literal `]]`. It was 5 until the 2026-09-09 refresh as well: the SW004 in
+`thunderbird-desktop-and-thundermail` (#224) has since been fixed upstream — so **re-lint after a
 rescrape and treat a change in that count as a real signal**, about either the articles or
 the linter.
 

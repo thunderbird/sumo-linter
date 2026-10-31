@@ -51,7 +51,7 @@ How to setup Thunderbird Desktop for [https://support.tb.pro/hc/articles/5125380
 
 ==Send and receive email with Thundermail custom domain aliases using Thunderbird identities==
 For every [https://support.tb.pro/hc/articles/46804820453907-Setting-Up-Email-Aliases alias] you create in Thundermail, you will have to create a new [[Using Identities|identity]] in Thunderbird in order to send email with that alias. Here's how using our example custom domain <code>glamroc.com</code>, our example Thundermail address of <code>roc@thundermail.com</code>, and custom domain alias of <code>roc@glamroc.com</code>:
-# Click the Thunderbird app menu {menu ☰} > {menu Account Settings} > Click on the thundermail.com account in the left sidebar, which in our example is: <code>roc@thundermail.com</code> > {button Manage Identities…"} > {button Add…}.
+# Click the Thunderbird app menu {menu ☰} > {menu Account Settings} > Click on the thundermail.com account in the left sidebar, which in our example is: <code>roc@thundermail.com</code> > {button Manage Identities…} > {button Add…}.
 # Add your alias e.g. <code>roc@glamroc.com</code> by filling in the '''New Identity''' form, and then click {button OK} when you are done.
 # If you want this to be the default identity when composing new email, click on the new identity, and then click on {button Set Default} and {button Close}.
 Now the custom domain alias <code>roc@glamroc.com</code> is the default identity when writing new email, and you can send and receive email on both <code>roc@thundermail.com</code> and <code>roc@glamroc.com</code> by selecting the appropriate identity.

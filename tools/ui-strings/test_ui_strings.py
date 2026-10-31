@@ -180,6 +180,29 @@ class ProposeEdits(unittest.TestCase):
         self.assertIn(f"{{/for}}{{for tb159}}{bold}Enable auto-scrolling{bold}", out[26])
 
 
+class StrongGuesses(unittest.TestCase):
+    def test_strong_guess_is_used_and_flagged_once(self):
+        table = propose_edits.pairs(built())
+        old = "Automatically install updates (recommended: improved security)"
+        src, out, rows = propose_edits.propose("advanced-panel-settings-in-thunderbird", {old: [104]}, table)
+        self.assertIn("{for tb159}'''Automatically install updates (recommended)'''", out[103])
+        self.assertTrue(out[103].endswith("{/for}" + propose_edits.GUESSED))
+        self.assertEqual(rows, [(104, "guessed: check", old, "Automatically install updates (recommended)")])
+
+    def test_weak_guess_keeps_the_old_text(self):
+        table = propose_edits.pairs(built())
+        src, out, rows = propose_edits.propose(
+            "advanced-panel-settings-in-thunderbird", {"No proxy for:": [74]}, table
+        )
+        self.assertEqual(rows[0][1], "CHECK comment")
+        self.assertIn('<!-- CHECK 159: "No proxy for:"', out[73])
+        self.assertNotIn(propose_edits.GUESSED, out[73])
+
+    def test_straight_and_curly_double_quotes_match(self):
+        line = "* Move it to my \"Sent\" folder: x"
+        self.assertEqual(propose_edits.raw_span(line, "Move it to my “Sent” folder"), (2, 29))
+
+
 class Committed(unittest.TestCase):
     def test_tables_are_up_to_date(self):
         b = built()

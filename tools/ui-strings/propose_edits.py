@@ -27,16 +27,21 @@ What is replaced automatically: a one-for-one change only, where the row of
 the localizer table has exactly one old text and one new text, without
 placeholders ("Use autoscrolling" -> "Enable auto-scrolling"). Every other
 match is a guess: the old text belongs to a group of strings that changed
-together, or was removed. In the 159 branch the old text stays, followed by
-an HTML comment, as Roland decided on #28:
+together, or was removed. The guess is the most similar new text in the group.
 
-    <old text><!-- CHECK 159: "<old text>" → "<closest new text>"? -->
+- A strong guess (at least STRONG similar) replaces the old text in the 159
+  branch, and the line ends with `<!-- CHECK the 159 string is correct -->`.
+  Measured on the two test articles, these were almost always right.
+- A weaker guess is not used. The old text stays in the 159 branch, followed
+  by an HTML comment, as Roland decided on #28:
+
+      <old text><!-- CHECK 159: "<old text>" → "<closest new text>"? -->
 
 Headings are not wrapped, because a {for} inside a heading can affect the
 table of contents and the heading's anchor. They get the same kind of
 comment inside the heading, before the closing run of "=". A match that is
 not in the line as written gets the comment at the end of the line. Search
-the proposal for "CHECK 159" to find them all. A forgotten comment is
+the proposal for "CHECK" to find them all. A forgotten comment is
 invisible to readers, but it leaves the old text in the 159 branch.
 
 The matches come from shipped_search.py (Settings window, changed in 159).
@@ -89,10 +94,19 @@ def raw_span(line, old):
     """
     for cand in (old, old.rstrip(" :…").strip()):
         pat = re.escape(cand).replace("\\'", "['’]").replace("’", "['’]")
+        pat = re.sub('\\\\?["“”]', '["“”]', pat)
         m = re.search(pat, line, re.I)
         if m:
             return m.span()
     return None
+
+
+STRONG = 0.75  # similarity at or above which the closest new text is used (measured on #28)
+GUESSED = "<!-- CHECK the 159 string is correct -->"
+
+
+def similarity(a, b):
+    return difflib.SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
 
 def closest(old, new_cell):
@@ -143,6 +157,13 @@ def propose(slug, matches, table):
                 rows.append((ln, "replaced", old, new_cell))
             else:
                 guess = closest(old, new_cell)
+                if guess != "removed" and similarity(old, guess) >= STRONG:
+                    # Strong guess: use it, and ask once per line for a check.
+                    new_body = new_body[:a] + guess + new_body[b:]
+                    if GUESSED not in tail:
+                        tail = GUESSED + tail
+                    rows.append((ln, "guessed: check", old, guess))
+                    continue
                 at = after_markup(new_body, b)
                 new_body = new_body[:at] + check(old, guess) + new_body[at:]
                 rows.append((ln, "CHECK comment", old, guess))
@@ -199,7 +220,7 @@ def lint_errors(text):
 
 def report(slug, rows, before_err, after_err):
     count = lambda k: sum(1 for r in rows if r[1] == k)
-    lines_changed = len({r[0] for r in rows if r[1] in ("replaced", "CHECK comment")})
+    lines_changed = len({r[0] for r in rows if r[1] in ("replaced", "guessed: check", "CHECK comment")})
     out = [
         f"# Proposed edit: {slug}",
         "",
@@ -208,12 +229,14 @@ def report(slug, rows, before_err, after_err):
         "",
         f"Made by `tools/ui-strings/propose_edits.py` (thunderbird/sumo-linter#28) from the corpus "
         f"snapshot of {shipped_search.search.corpus_date()}. Paste `{slug}.wiki` into the edit page, "
-        "search it for `CHECK 159` and resolve every comment, check the screenshots, preview with "
+        "search it for `CHECK` and resolve every comment, check the screenshots, preview with "
         "the version selector "
         "set to 159 and to 153, then submit.",
         "",
         f"- {lines_changed} lines wrapped in `{OLD_FOR}…{{/for}}{NEW_FOR}…{{/for}}`.",
         f"- {count('replaced')} texts replaced automatically (one-for-one changes).",
+        f"- {count('guessed: check')} texts replaced by a strong guess (at least {STRONG:.0%} similar), "
+        f"each line marked `{GUESSED}`.",
         f"- {count('CHECK comment')} texts with a `CHECK 159` comment: the new text is a guess, "
         "decide by hand.",
         f"- {sum(1 for r in rows if r[1].startswith('heading'))} heading matches and "

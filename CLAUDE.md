@@ -97,7 +97,7 @@ a 429 for the rest of the hour); the heading data is already measured; the four 
 already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
 `vscode` (34 grammar + 51 link + 26 bold assertions), `emacs`
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
-both Vim and Neovim), `ui-strings` (30 tests, including that the committed comparison tables
+both Vim and Neovim), `ui-strings` (33 tests, including that the committed comparison tables
 are up to date) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
 button, 67 on autosave, save-to-file and the file name, 99 on the preview) — so there is no
 by-hand test suite left.

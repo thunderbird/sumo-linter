@@ -12,6 +12,7 @@ that quote them. They use the Python standard library only.
 | `compare.py` | Compares all versions in `strings/` and maps them to the sheet (`string-versions.*`). |
 | `l10n_tables.py` | Writes simple old-text/new-text tables for SUMO localizers, one for Settings and one for Account Settings (`strings-<versions>-<window>.*`). |
 | `shipped_search.py` | Finds KB articles that quote a string that really changed in 159 or 160, from the shipped strings (`affected-*.md`, the bodies of knowledgebase-issues #247 and #249). |
+| `propose_edits.py` | Proposes a `{for not tb159}…{/for}{for tb159}…{/for}` edit for named articles, with `CHECK 159` comments where a person must decide (`proposals/`, sumo-linter #28). |
 | `test_ui_strings.py` | Tests for `extract.py`, `compare.py`, `l10n_tables.py` and `shipped_search.py`. CI runs it. |
 
 ## Copies on wiki.mozilla.org

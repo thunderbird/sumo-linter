@@ -20,6 +20,7 @@ sys.path.insert(0, HERE)
 import compare  # noqa: E402
 import extract  # noqa: E402
 import l10n_tables  # noqa: E402
+import propose_edits  # noqa: E402
 import shipped_search  # noqa: E402
 
 CSV = os.path.join(HERE, "tb-desktop-settings-account-settings-changes-158-and-newer.csv")
@@ -152,6 +153,31 @@ class ShippedSearch(unittest.TestCase):
         for win, text in shipped_search.reports(built()).items():
             with open(os.path.join(HERE, f"affected-{win}.md"), encoding="utf-8") as f:
                 self.assertEqual(f.read(), text, f"affected-{win}.md is stale: run shipped_search.py")
+
+
+class ProposeEdits(unittest.TestCase):
+    def test_comment_never_lands_inside_a_macro_or_link(self):
+        text = "click {button Clear Now}: frees space"
+        self.assertEqual(propose_edits.after_markup(text, text.index("Now") + 3), text.index("}") + 1)
+        link = "see [http://example.com Proxy settings] here"
+        self.assertEqual(propose_edits.after_markup(link, link.index("settings") + 8), link.index("]") + 1)
+        self.assertEqual(propose_edits.after_markup("plain text", 5), 5)
+
+    def test_check_comment_is_well_formed(self):
+        c = propose_edits.check("A -- B", "C", "heading")
+        self.assertTrue(c.startswith("<!-- CHECK 159, heading:") and c.endswith(" -->"))
+        self.assertNotIn("--", c[4:-3])
+
+    def test_one_for_one_is_replaced_and_both_versions_kept(self):
+        table = propose_edits.pairs(built())
+        self.assertEqual(table["Use autoscrolling"], ("Enable auto-scrolling", True))
+        src, out, rows = propose_edits.propose(
+            "advanced-panel-settings-in-thunderbird", {"Use autoscrolling": [27]}, table
+        )
+        self.assertEqual(len(src), len(out))
+        bold = "'" * 3
+        self.assertTrue(out[26].startswith(f"* {{for not tb159}}{bold}Use autoscrolling{bold}"))
+        self.assertIn(f"{{/for}}{{for tb159}}{bold}Enable auto-scrolling{bold}", out[26])
 
 
 class Committed(unittest.TestCase):

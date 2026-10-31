@@ -70,6 +70,7 @@ LABEL = re.compile(r"^[A-Za-z][A-Za-z0-9 /()-]{0,40}?:\s+(.*)$")
 NOISE = {"Checkboxes", "Meter", "Dropdown", "Field", "true"}
 
 KB = "https://support.mozilla.org/en-US/kb/"
+REPO = "https://github.com/thunderbird/sumo-linter/blob/main/tools/ui-strings/"
 
 
 def norm(s):
@@ -183,7 +184,7 @@ def markdown(results, csv_name, n_articles, date, scope=None, records=None):
     a("## Summary\n\n")
     a(
         "This report lists the Thunderbird KB articles whose wiki source contains "
-        f"a string from the **Current content** column of `{csv_name}` that the "
+        f"a string from the **Current content** column of [`{csv_name}`]({REPO}{csv_name}) that the "
         "release changes"
         + (f", for {scope}" if scope else "")
         + ".\n\n"

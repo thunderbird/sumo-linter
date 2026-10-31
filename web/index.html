@@ -226,8 +226,8 @@
             <option value="linux">Linux</option>
           </select>
         </label>
-        <label title="Which Thunderbird version's {for} content to show. Empty shows all.">Thunderbird
-          <input id="forversion" type="number" min="1" max="999" step="1" placeholder="all" inputmode="numeric">
+        <label title="Which Thunderbird version's {for} content to show. Empty means the latest release, as on SUMO. Type all to show every version.">Thunderbird
+          <input id="forversion" type="text" size="10" placeholder="latest" spellcheck="false" autocomplete="off">
         </label>
         <span id="previewnote">Approximate. Templates, images and videos are shown as placeholders.</span>
       </div>
@@ -278,7 +278,11 @@
       Templates, images and videos are placeholders, and article links have no
       target, because the page cannot fetch from SUMO. Choose a system and a
       Thunderbird version to see only the <code>{for}</code> content for them,
-      as a reader would. <strong>Show all</strong> shows every branch, labelled.
+      as a reader would. An empty version box means the latest monthly release,
+      which is what SUMO shows a visitor who picks nothing. The page asks
+      product-details.mozilla.org which release that is. Type <code>all</code>
+      in the version box to show every version. <strong>Show all</strong>
+      systems with version <code>all</code> shows every branch, labelled.
       Use <strong>Show</strong> to hide the Preview or Problems column.
     </p>
     <p>

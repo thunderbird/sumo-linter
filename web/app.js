@@ -359,6 +359,35 @@ function startOver(text) {
 /** Visible columns and the `{for}` platform, kept in this browser. */
 let view = { preview: true, problems: true, os: null, version: null };
 
+/** The latest monthly Thunderbird release: SUMO's default version (#29). */
+let latest = typeof FALLBACK_LATEST_RELEASE === 'number' ? FALLBACK_LATEST_RELEASE : null;
+
+/** Ask product-details for the latest release. On any failure, keep the fallback. */
+async function loadLatestRelease() {
+  if (typeof latestRelease !== 'function') return;
+  const abort = new AbortController();
+  const timer = setTimeout(() => abort.abort(), 5000);
+  try {
+    const res = await fetch(RELEASES_URL, { signal: abort.signal });
+    const n = res.ok ? latestRelease(await res.text()) : null;
+    if (n) {
+      latest = n;
+      showVersionHint();
+      renderPreview();
+    }
+  } catch {
+    // Offline or blocked: the fallback release stays.
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/** The version box's placeholder names the release an empty box stands for. */
+function showVersionHint() {
+  const box = document.getElementById('forversion');
+  if (box) box.placeholder = latest ? `latest (${latest})` : 'latest';
+}
+
 function saveView() {
   try {
     draftStorage()?.setItem(VIEW_KEY, JSON.stringify(view));
@@ -380,6 +409,7 @@ function applyView() {
   document.getElementById('showproblems').checked = view.problems;
   document.getElementById('foros').value = view.os ?? '';
   document.getElementById('forversion').value = view.version ?? '';
+  showVersionHint();
   // The column widths changed, so the textarea wraps differently.
   scheduleGutter();
 }
@@ -389,7 +419,9 @@ function renderPreview() {
   const el = document.getElementById('preview');
   // An older cached page has no preview column, or no preview.js.
   if (!el || !view.preview || typeof renderWiki !== 'function') return;
-  const platform = { os: view.os, version: view.version };
+  const platform = typeof platformFor === 'function'
+    ? platformFor(view, latest)
+    : { os: view.os, version: view.version };
   el.classList.toggle('show-all', platform.os == null && platform.version == null);
   el.innerHTML = renderWiki(document.getElementById('src').value, platform);
 }
@@ -579,15 +611,22 @@ document.addEventListener('DOMContentLoaded', () => {
       changeView(() => { view.os = e.target.value || null; });
     });
     document.getElementById('forversion').addEventListener('input', (e) => {
-      const n = Number(e.target.value);
       // Not applyView: rewriting the field while the author types in it
       // would fight the cursor.
-      view.version = e.target.value !== '' && Number.isInteger(n) && n > 0 ? n : null;
+      // Guarded: Pages caches app.js and preview.js separately, so for a
+      // while after a deploy this can run beside the previous preview.js.
+      if (typeof parseVersionInput === 'function') {
+        view.version = parseVersionInput(e.target.value);
+      } else {
+        const n = Number(e.target.value);
+        view.version = e.target.value !== '' && Number.isInteger(n) && n > 0 ? n : null;
+      }
       saveView();
       renderPreview();
     });
   }
   renderPreview();
+  loadLatestRelease();
   document.getElementById('sample').addEventListener('click', () => {
     // Undoable, because the example replaces whatever was there.
     startOver([

@@ -150,6 +150,33 @@ check('saved view', parseView('{"preview":false,"problems":true,"os":"mac","vers
 check('invalid fields fall back', parseView('{"preview":"no","os":"beos","version":-3}'), fresh);
 check('win is a condition, not a system', parseView('{"os":"win"}').os, null);
 check('version must be a whole number', parseView('{"version":1.5}').version, null);
+check('saved "all" is kept', parseView('{"version":"all"}').version, 'all');
+check('other saved text is the latest release', parseView('{"version":"latest"}').version, null);
+
+// --- the version: latest release by default, as on SUMO (#29) ----------------
+const { latestRelease, parseVersionInput, platformFor, FALLBACK_LATEST_RELEASE } = preview;
+check('product-details reply', latestRelease('{"LATEST_THUNDERBIRD_VERSION": "159.0"}'), 159);
+check('point release', latestRelease('{"LATEST_THUNDERBIRD_VERSION": "159.0.1"}'), 159);
+check('missing field', latestRelease('{"THUNDERBIRD_ESR": "153.6.0esr"}'), null);
+check('not JSON reply', latestRelease('<html>'), null);
+check('fallback is a release number', Number.isInteger(FALLBACK_LATEST_RELEASE) && FALLBACK_LATEST_RELEASE > 100, true);
+check('empty box is latest', parseVersionInput(''), null);
+check('spaces are latest', parseVersionInput('  '), null);
+check('a number', parseVersionInput(' 153 '), 153);
+check('all', parseVersionInput('All'), 'all');
+check('nonsense is latest', parseVersionInput('15x'), null);
+check('default view uses the latest release',
+  platformFor({ os: null, version: null }, 159), { os: null, version: 159 });
+check('a chosen version wins', platformFor({ os: 'mac', version: 153 }, 159), { os: 'mac', version: 153 });
+check('all shows every version', platformFor({ os: null, version: 'all' }, 159), { os: null, version: null });
+{
+  const src = '{for not tb159}Old{/for}{for tb159}New{/for}';
+  const at = (v) => renderWiki(src, platformFor({ os: null, version: v }, 159));
+  check('latest release hides the old branch', at(null),
+    '<p><span class="for" data-for="not tb159" hidden>Old</span><span class="for" data-for="tb159">New</span></p>');
+  check('153 hides the new branch', at(153),
+    '<p><span class="for" data-for="not tb159">Old</span><span class="for" data-for="tb159" hidden>New</span></p>');
+}
 
 // --- the whole corpus renders ------------------------------------------------
 // Every article renders without throwing, and the only tags in the output are

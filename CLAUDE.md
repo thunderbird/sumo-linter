@@ -99,7 +99,7 @@ already filed with rendered-output evidence. **Every test now runs in CI** — `
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
 both Vim and Neovim), `ui-strings` (30 tests, including that the committed comparison tables
 are up to date) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
-button, 67 on autosave, save-to-file and the file name, 82 on the preview) — so there is no
+button, 67 on autosave, save-to-file and the file name, 99 on the preview) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;

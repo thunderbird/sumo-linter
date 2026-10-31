@@ -592,11 +592,57 @@ function parseView(json) {
   if (typeof saved.problems === 'boolean') view.problems = saved.problems;
   if (OS_NAMES.includes(saved.os) && saved.os !== 'win') view.os = saved.os;
   if (Number.isInteger(saved.version) && saved.version > 0) view.version = saved.version;
+  else if (saved.version === 'all') view.version = 'all';
   return view;
+}
+
+/*
+ * The Thunderbird version of the preview, as on SUMO (sumo-linter #29).
+ *
+ * SUMO's "Customize this article" sidebar defaults to the latest monthly
+ * release, so `{for not tb159}` text is hidden from a visitor who picks
+ * nothing. The preview does the same: `view.version` is null for "latest
+ * release", a number for one version, or 'all' to show every branch.
+ *
+ * The latest release comes from Mozilla's product-details feed, which allows
+ * any origin. Until it answers, and if it never does, FALLBACK_LATEST_RELEASE
+ * is used, so update it now and then.
+ */
+const FALLBACK_LATEST_RELEASE = 159;
+const RELEASES_URL = 'https://product-details.mozilla.org/1.0/thunderbird_versions.json';
+
+/** The major version of the latest release in a product-details reply, or null. */
+function latestRelease(json) {
+  let data;
+  try {
+    data = JSON.parse(json);
+  } catch {
+    return null;
+  }
+  const m = /^(\d+)\./.exec(String(data?.LATEST_THUNDERBIRD_VERSION ?? ''));
+  const n = m ? Number(m[1]) : NaN;
+  return Number.isInteger(n) && n > 0 ? n : null;
+}
+
+/** What the version box means: null (empty: latest release), a number, or 'all'. */
+function parseVersionInput(text) {
+  const t = String(text).trim().toLowerCase();
+  if (t === 'all') return 'all';
+  const n = Number(t);
+  return t !== '' && Number.isInteger(n) && n > 0 ? n : null;
+}
+
+/** The `{ os, version }` to render for a view, given the latest release. */
+function platformFor(view, latest) {
+  const version = view.version === 'all' ? null : (view.version ?? latest);
+  return { os: view.os, version };
 }
 
 // Loaded as a plain <script> in the browser, where these are globals; required
 // as CommonJS by the test.
 if (typeof module !== 'undefined') {
-  module.exports = { renderWiki, forMatches, slugify, parseView, VIEW_KEY, OS_NAMES, ALLOWED_TAGS };
+  module.exports = {
+    renderWiki, forMatches, slugify, parseView, VIEW_KEY, OS_NAMES, ALLOWED_TAGS,
+    FALLBACK_LATEST_RELEASE, RELEASES_URL, latestRelease, parseVersionInput, platformFor,
+  };
 }

@@ -54,6 +54,11 @@ folder. The tools only read the app. They do not start it or change it.
    `ACCOUNT_FILES` in `l10n_tables.py` lists the Account Settings files. If you remove a version
    set from `TABLES`, delete its four files.
 
+   The tables mark changes so that a reader can scan them. Bold marks the words that changed
+   from the previous version. A table with three or more versions also has a "Changed in"
+   column, and writes "same as 159" (for example) where a version did not change the text. The
+   wikitext tables also give each changed cell a light background colour.
+
 4. Run the tests:
 
    ```sh

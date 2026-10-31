@@ -37,6 +37,7 @@ How rows are built, from the strings compare.py already loads and maps:
 Rows that match a CSV record come first, in record order.
 """
 
+import difflib
 import os
 import re
 import sys
@@ -135,26 +136,102 @@ def rows_for(versions, built, win):
     return rows
 
 
+CHANGED_BG = "#fff3c4"  # wikitext only, an extra signal on top of the text markers
+
+
+def short(v):
+    return v.split(".")[0]
+
+
+def mark_words(old, new):
+    """Segments of `new` as (text, changed), word by word against `old`.
+
+    Only for one-line texts that exist in both versions. A text that is new,
+    removed, or one of several strings in a cell gets no word marks: a
+    word-level comparison between different strings means nothing.
+    """
+    if ABSENT in (old, new) or "\n" in old or "\n" in new:
+        return [(new, False)]
+    a, b = old.split(), new.split()
+    segs = []
+    for op, _, _, j1, j2 in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
+        if j2 > j1:
+            segs.append((" ".join(b[j1:j2]), op != "equal"))
+    return segs or [(new, False)]
+
+
+def decorate(versions, row):
+    """(changed_in, cells) for one row. Each cell is ("same", earlier version)
+    when it repeats the previous version, else ("text", segments, changed)."""
+    changed_in = [short(versions[i]) for i in range(1, len(row)) if row[i] != row[i - 1]]
+    cells = [("text", [(row[0], False)], False)]
+    for i in range(1, len(row)):
+        if row[i] == row[i - 1] == ABSENT:
+            cells.append(("text", [(ABSENT, False)], False))  # still absent: "—", not "same as"
+        elif row[i] == row[i - 1]:
+            # Name the version the text first appeared in, not just the previous one.
+            j = i - 1
+            while j > 0 and row[j - 1] == row[j]:
+                j -= 1
+            cells.append(("same", short(versions[j])))
+        else:
+            cells.append(("text", mark_words(row[i - 1], row[i]), True))
+    return ", ".join(changed_in), cells
+
+
 def render(fmt, versions, rows, title):
-    esc = compare.esc_md if fmt == "md" else compare.esc_wiki
+    md = fmt == "md"
+    esc = (lambda x: compare.esc_md(x).replace("*", "\\*")) if md else compare.esc_wiki
+    bold = (lambda x: f"**{x}**") if md else (lambda x: f"'''{x}'''")
+    italic = (lambda x: f"*{x}*") if md else (lambda x: f"''{x}''")
     names = [LABELS.get(v, v) for v in versions]
+    three = len(versions) > 2
+    header = (["Changed in"] if three else []) + names
+
+    def cell(c):
+        if c[0] == "same":
+            return italic(f"same as {c[1]}"), False
+        segs, changed = c[1], c[2]
+        parts = []
+        for text, hot in segs:
+            # Mark line by line, so a bold run never spans a line break.
+            lines = [esc(x) for x in text.split("\n")]
+            joined = ("<br>" if md else "<br />").join(bold(x) if hot and x else x for x in lines)
+            parts.append(joined)
+        return " ".join(parts), changed
+
     intro = (
         f"{title} texts that changed between Thunderbird "
         f"{' and '.join(names) if len(names) == 2 else ', '.join(names[:-1]) + ' and ' + names[-1]}, "
-        f"in en-US. {ABSENT} means the text does not exist in that version. A cell with several "
-        "lines lists all the texts that changed together for one setting. Made by "
-        "tools/ui-strings/l10n_tables.py (sumo-linter #19)."
+        f"in en-US. {ABSENT} means the text does not exist in that version. Bold marks the words "
+        "that changed from the previous version. A cell with several lines lists all the texts "
+        "that changed together for one setting, and gets no bold."
     )
+    if three:
+        intro += (
+            f" \"Changed in\" names the versions that changed the row. \"same as {short(versions[1])}\" "
+            "means that version did not change the text."
+        )
+    intro += " Made by tools/ui-strings/l10n_tables.py (sumo-linter #19, #23)."
     out = [intro, ""]
-    if fmt == "md":
-        out.append("| " + " | ".join(names) + " |")
-        out.append("|" + "---|" * len(names))
-        out += ["| " + " | ".join(esc(c) for c in r) + " |" for r in rows]
+    if md:
+        out.append("| " + " | ".join(header) + " |")
+        out.append("|" + "---|" * len(header))
     else:
         out.append('{| class="wikitable sortable"')
-        out.append("! " + " !! ".join(names))
-        for r in rows:
-            out += ["|-", "| " + " || ".join(esc(c) for c in r)]
+        out.append("! " + " !! ".join(header))
+    for r in rows:
+        changed_in, cells = decorate(versions, r)
+        rendered = [cell(c) for c in cells]
+        if md:
+            vals = ([changed_in] if three else []) + [t for t, _ in rendered]
+            out.append("| " + " | ".join(vals) + " |")
+        else:
+            vals = ([changed_in] if three else []) + [
+                f'style="background:{CHANGED_BG}" | {t}' if hot else t for t, hot in rendered
+            ]
+            out += ["|-", "| " + " || ".join(vals)]
+    if not md:
         out.append("|}")
     return "\n".join(out) + "\n"
 

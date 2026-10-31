@@ -144,6 +144,40 @@ class Localizer(unittest.TestCase):
                 self.assertFalse(any("Empty Trash on Exit" in c for r in rows for c in r))
                 self.assertTrue(all(len(set(r)) > 1 for r in rows))
 
+    def test_changed_words_are_bold_in_the_version_that_changed(self):
+        three = ("153.6.0", "159.0", "160.0")
+        changed_in, cells = l10n_tables.decorate(three, ["Restore Default", "Restore default", "Restore default"])
+        self.assertEqual(changed_in, "159")
+        self.assertEqual(cells[1], ("text", [("Restore", False), ("default", True)], True))
+        self.assertEqual(cells[2], ("same", "159"))
+
+    def test_same_as_names_the_first_version_with_the_text(self):
+        three = ("153.6.0", "159.0", "160.0")
+        changed_in, cells = l10n_tables.decorate(three, ["A b", "A b", "A c"])
+        self.assertEqual(changed_in, "160")
+        self.assertEqual(cells[1], ("same", "153"))
+        changed_in, cells = l10n_tables.decorate(three, ["—", "—", "New text"])
+        self.assertEqual(cells[1][1], [("—", False)])  # still absent is "—", not "same as"
+
+    def test_no_word_marks_for_new_removed_or_multiline(self):
+        self.assertEqual(l10n_tables.mark_words("—", "New text"), [("New text", False)])
+        self.assertEqual(l10n_tables.mark_words("Old", "—"), [("—", False)])
+        self.assertEqual(l10n_tables.mark_words("A\nB", "A\nC"), [("A\nC", False)])
+
+    def test_rendered_markers(self):
+        rows = [["Restore Default", "Restore default", "Restore default"]]
+        three = ("153.6.0", "159.0", "160.0")
+        md = l10n_tables.render("md", three, rows, "Settings")
+        self.assertIn("| 159 | Restore Default | Restore **default** | *same as 159* |", md)
+        wiki = l10n_tables.render("mediawiki", three, rows, "Settings")
+        self.assertIn(
+            "| 159 || Restore Default || style=\"background:#fff3c4\" | Restore \'\'\'default\'\'\' || \'\'same as 159\'\'",
+            wiki,
+        )
+        two = l10n_tables.render("md", ("153.6.0", "159.0"), [rows[0][:2]], "Settings")
+        self.assertIn("| Restore Default | Restore **default** |", two)
+        self.assertNotIn("Changed in", two)
+
     def test_window_is_decided_by_file(self):
         account = [
             "chrome/en-US/locale/en-US/messenger/am-offline.dtd",

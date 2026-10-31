@@ -11,7 +11,8 @@ that quote them. They use the Python standard library only.
 | `extract.py` | Reads the strings out of an installed Thunderbird app into `strings/<version>.tsv`. |
 | `compare.py` | Compares all versions in `strings/` and maps them to the sheet (`string-versions.*`). |
 | `l10n_tables.py` | Writes simple old-text/new-text tables for SUMO localizers, one for Settings and one for Account Settings (`strings-<versions>-<window>.*`). |
-| `test_ui_strings.py` | Tests for `extract.py`, `compare.py` and `l10n_tables.py`. CI runs it. |
+| `shipped_search.py` | Finds KB articles that quote a string that really changed in 159 or 160, from the shipped strings (`affected-*.md`, the bodies of knowledgebase-issues #247 and #249). |
+| `test_ui_strings.py` | Tests for `extract.py`, `compare.py`, `l10n_tables.py` and `shipped_search.py`. CI runs it. |
 
 ## Copies on wiki.mozilla.org
 
@@ -83,16 +84,21 @@ folder. The tools only read the app. They do not start it or change it.
    column, and writes "same as 159" (for example) where a version did not change the text. The
    wikitext tables also give each changed cell a light background colour.
 
-4. Run the tests:
+4. Find the affected articles again. First update `VERSIONS` and `SECTIONS` at the top of
+   `shipped_search.py`. Then run it with the same CSV argument, and paste each `affected-*.md`
+   file into its issue: Settings into knowledgebase-issues #247, Account Settings into #249.
+   Keep the boxes that someone already ticked.
+
+5. Run the tests:
 
    ```sh
    python3 tools/ui-strings/test_ui_strings.py
    ```
 
-5. Commit the new `.tsv` file and all the tables together. If you commit the `.tsv` file
+6. Commit the new `.tsv` file and all the tables together. If you commit the `.tsv` file
    without the tables, the CI test fails, because the tables are then out of date.
 
-6. If the 3-column tables changed, update the copies on wiki.mozilla.org (see above).
+7. If the 3-column tables changed, update the copies on wiki.mozilla.org (see above).
 
 ## Check the result
 

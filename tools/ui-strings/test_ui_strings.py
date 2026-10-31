@@ -20,6 +20,7 @@ sys.path.insert(0, HERE)
 import compare  # noqa: E402
 import extract  # noqa: E402
 import l10n_tables  # noqa: E402
+import shipped_search  # noqa: E402
 
 CSV = os.path.join(HERE, "tb-desktop-settings-account-settings-changes-158-and-newer.csv")
 _BUILT = []
@@ -121,6 +122,36 @@ class FormatOnly(unittest.TestCase):
         cells = [c for r in rows for c in r]
         for gone in ("Use %S (default)", "Preview in %S", "What's up?", "(%1$S)"):
             self.assertFalse(any(gone in c for c in cells), gone)
+
+
+class ShippedSearch(unittest.TestCase):
+    def test_placeholder_needs_three_words(self):
+        self.assertIsNone(shipped_search.pattern("%S content")[0])
+        rx, words = shipped_search.pattern("Use { $appName } as the default app")
+        self.assertEqual(words, 5)
+        self.assertTrue(rx.search("use thunderbird as the default app"))
+
+    def test_quoted_form_drops_ellipsis_colon_and_bold(self):
+        self.assertEqual(shipped_search.as_quoted("Config Editor…"), "config editor")
+        self.assertEqual(shipped_search.as_quoted("'''No proxy for:'''"), "no proxy for")
+
+    def test_text_still_shown_is_not_a_change(self):
+        # Settings kept the button "Return Receipts…" while the dialog title
+        # became "Read receipts", so "Return Receipts" is no evidence.
+        found = shipped_search.changes(built())
+        self.assertNotIn("Return Receipts", found["settings", 1])
+        self.assertIn("Use autoscrolling", found["settings", 1])
+        self.assertIn("Security Settings", found["account-settings", 2])
+
+    def test_android_articles_are_not_searched(self):
+        docs = shipped_search.corpus()
+        self.assertFalse(any("stop-screen-brightness-dimming-thunderbird-android" in p for p in docs))
+        self.assertTrue(any(p.endswith("/advanced-panel-settings-in-thunderbird.wiki") for p in docs))
+
+    def test_reports_are_up_to_date(self):
+        for win, text in shipped_search.reports(built()).items():
+            with open(os.path.join(HERE, f"affected-{win}.md"), encoding="utf-8") as f:
+                self.assertEqual(f.read(), text, f"affected-{win}.md is stale: run shipped_search.py")
 
 
 class Committed(unittest.TestCase):

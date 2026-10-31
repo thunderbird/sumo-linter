@@ -96,7 +96,7 @@ already filed with rendered-output evidence. **Every test now runs in CI** — `
 `vscode` (34 grammar + 51 link + 26 bold assertions), `emacs`
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
 both Vim and Neovim) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
-button, 27 on autosave and save-to-file, 82 on the preview) — so there is no
+button, 67 on autosave, save-to-file and the file name, 82 on the preview) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
@@ -109,7 +109,10 @@ line-number gutter on 2026-10-07 (sumo-linter #9), verified in Chromium and live
 copies the textarea exactly as it is, never with pending fixes applied, and says *Copy failed*
 rather than failing silently; and autosave to `localStorage`, a Clear button and Save to
 file (sumo-linter #13) the same day, saving `article.wiki` (all three editor modes open
-`.wiki`), verified in Chromium and in Playwright's Firefox;
+`.wiki`), verified in Chromium and in Playwright's Firefox; and on 2026-10-30 a
+file-name box (sumo-linter #16): a typed name, else the first h1, else the first h2, else
+`article.wiki`, with the fallback shown as the box's placeholder because the first h1 is a
+section heading and can be as generic as `Background`;
 the editor-side setup they need is in `editors/README.md`, including the GhostText
 `fileExtension` setting without which the extension never activates on a SUMO textarea.
 

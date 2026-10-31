@@ -12,7 +12,9 @@ import assert from 'node:assert/strict';
 // CommonJS module: the default import is its `module.exports` object.
 import save from '../save.js';
 
-const { DRAFT_KEY, FILE_NAME, saveDraft, loadDraft, fileWriter } = save;
+const {
+  DRAFT_KEY, FILE_NAME, NAME_KEY, NAME_LIMIT, fileName, saveDraft, loadDraft, fileWriter,
+} = save;
 
 let failed = 0;
 let checks = 0;
@@ -73,6 +75,65 @@ check(
 );
 check('the key is namespaced', DRAFT_KEY, 'sumo-lint:draft');
 check('the file opens in the editors\' SUMO modes', FILE_NAME, 'article.wiki');
+
+// --- fileName (#16) ---------------------------------------------------------
+const names = [
+  // [what, typed, text, expected]
+  ['no heading keeps the old name', '', 'Just a paragraph.', 'article.wiki'],
+  ['empty text keeps the old name', '', '', 'article.wiki'],
+  ['first h1, spaced', '', 'Intro\n= Change the sound =\n= Later =', 'Change the sound.wiki'],
+  ['first h1, tight', '', '=Overview=\n', 'Overview.wiki'],
+  ['h1 wins over an earlier h2', '', '== Sub ==\n= Main =', 'Main.wiki'],
+  ['no h1: first h2', '', 'x\n== First ==\n== Second ==', 'First.wiki'],
+  ['h3 does not count', '', '=== Deep ===', 'article.wiki'],
+  ['asymmetric: the shorter run is the level', '', '==Asym ===', 'Asym =.wiki'],
+  ['no closing run is not a heading', '', '=h1\n== Real ==', 'Real.wiki'],
+  ['trailing whitespace and CRLF', '', '= Win = \r\nx', 'Win.wiki'],
+  ['a commented-out heading is skipped', '', '<!--\n= Old =\n-->\n= New =', 'New.wiki'],
+  ['first {for} branch only', '',
+    "== {for not tb31}Don't ask{/for}{for tb31}Use the profile{/for} ==", "Don't ask.wiki"],
+  ['text around {for} stays', '', '= Set up {for win}Windows{/for}{for mac}macOS{/for} =',
+    'Set up Windows.wiki'],
+  ['bold and italic go', '', "= '''Bold''' and ''italic'' =", 'Bold and italic.wiki'],
+  ['article link keeps its text', '', '= See [[Profiles|your profile]] =', 'See your profile.wiki'],
+  ['bare article link keeps its title', '', '= See [[Profiles]] =', 'See Profiles.wiki'],
+  ['external link keeps its text', '', '= Get [https://x.org/a it] =', 'Get it.wiki'],
+  ['an image-only heading falls through', '', '= [[Image:a.png]] =\n= Next =', 'Next.wiki'],
+  ['macros keep their argument', '', '= Open {menu Tools} =', 'Open Tools.wiki'],
+  ['illegal characters become spaces', '', '= Why? A/B: "x" | z* =', 'Why A B x z.wiki'],
+  ['an HTML tag in a heading goes', '', '= Use <code>prefs.js</code> =', 'Use prefs.js.wiki'],
+  ['typed < > \\ become spaces', 'a<b>c\\d', '', 'a b c d.wiki'],
+  ['curly quotes are legal and stay', '', '= Why “admin” =', 'Why “admin”.wiki'],
+  ['leading and trailing dots go', '', '= ...hidden. =', 'hidden.wiki'],
+  ['the typed name wins', 'My article', '= Background =', 'My article.wiki'],
+  ['a typed .wiki is not doubled', 'notes.wiki', '', 'notes.wiki'],
+  ['a typed .WIKI is not doubled', 'notes.WIKI', '', 'notes.wiki'],
+  ['a blank typed name falls back', '   ', '= Background =', 'Background.wiki'],
+  ['a typed name is cleaned', ' a/b?c ', '', 'a b c.wiki'],
+  ['a typed name of only illegal characters falls back', '???', '', 'article.wiki'],
+  ['typed markup is kept: it is a name, not a heading', "it's", '', "it's.wiki"],
+];
+for (const [what, typed, text, want] of names) check(`fileName: ${what}`, fileName(typed, text), want);
+
+{
+  const long = 'x'.repeat(100);
+  check('fileName: 80 characters, then .wiki', fileName('', `= ${long} =`), `${'x'.repeat(NAME_LIMIT)}.wiki`);
+  check('fileName: a typed name is cut too', fileName(long, ''), `${'x'.repeat(NAME_LIMIT)}.wiki`);
+  const birds = '🐦'.repeat(100);
+  const got = fileName('', `= ${birds} =`);
+  check('fileName: 80 code points, never half a surrogate pair', got, `${'🐦'.repeat(80)}.wiki`);
+  check('fileName: a cut never ends in a space', fileName('', `= ${'a'.repeat(79)} b =`), `${'a'.repeat(79)}.wiki`);
+}
+
+{
+  const s = memoryStorage();
+  check('typed name: saved under its own key', saveDraft(s, 'notes', NAME_KEY), 'saved');
+  check('typed name: loads back', loadDraft(s, NAME_KEY), 'notes');
+  check('typed name: does not touch the draft', loadDraft(s), '');
+  saveDraft(s, '', NAME_KEY);
+  check('typed name: emptying it removes the key', s.map.has(NAME_KEY), false);
+  check('typed name: the key is namespaced', NAME_KEY, 'sumo-lint:filename');
+}
 
 // --- fileWriter -------------------------------------------------------------
 /** A write that only finishes when the test says so. */
@@ -142,7 +203,7 @@ const tick = () => new Promise((r) => setTimeout(r, 0));
 
 // A floor on the count: a file that stops running its body would otherwise
 // print no failures and pass.
-const expected = 27;
+const expected = 67;
 if (checks < expected) {
   console.error(`\nonly ${checks} save assertions ran, expected at least ${expected}`);
   process.exit(1);

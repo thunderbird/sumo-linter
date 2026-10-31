@@ -20,6 +20,87 @@ const DRAFT_KEY = 'sumo-lint:draft';
  */
 const FILE_NAME = 'article.wiki';
 
+/** The localStorage key for the file name the author typed (#16). */
+const NAME_KEY = 'sumo-lint:filename';
+
+/** The longest name, in code points, before `.wiki` is added. */
+const NAME_LIMIT = 80;
+
+/**
+ * The name to save `text` under (#16): the name the author typed, else the
+ * first h1, else the first h2, else `article.wiki`.
+ *
+ * The heading is only a fallback because it is a section heading, not the
+ * article title: SUMO keeps the title outside the markup, so an article can
+ * give `Background.wiki`. The text box shows this name as its placeholder, so
+ * the author sees it before saving and types a better one when needed.
+ */
+function fileName(typed, text) {
+  const own = safeName(String(typed ?? '').replace(/\.wiki\s*$/i, ''));
+  if (own) return `${own}.wiki`;
+  const heading = firstHeading(text, 1) || firstHeading(text, 2);
+  return heading ? `${heading}.wiki` : FILE_NAME;
+}
+
+/**
+ * The visible text of the first heading of `level`, made safe as a file name,
+ * or '' if there is none. As in preview.js, the level is the shorter of the two
+ * `=` runs, and a line with no closing run is not a heading. A heading whose
+ * text is all markup (an image, say) gives nothing, and the next one is tried.
+ * Comments are removed first, because a commented-out heading is not shown.
+ */
+function firstHeading(text, level) {
+  const source = String(text ?? '').replace(/<!--[\s\S]*?(?:-->|$)/g, '');
+  for (const line of source.split('\n')) {
+    const m = /^(=+)(.*?)(=+)[ \t\r]*$/.exec(line);
+    if (!m || m[2].trim() === '') continue;
+    const n = Math.min(m[1].length, m[3].length);
+    if (n !== level) continue;
+    // The extra `=` of the longer run is heading text, as on SUMO.
+    const inner = m[1].slice(n) + m[2] + m[3].slice(n);
+    const name = safeName(visibleText(inner));
+    if (name) return name;
+  }
+  return '';
+}
+
+/**
+ * The text a reader sees in a heading. Of several `{for}` branches only the
+ * first is kept (decided in #16), so `{for not tb31}A{/for}{for tb31}B{/for}`
+ * gives `A`, not `AB`.
+ */
+function visibleText(s) {
+  let branches = 0;
+  return s
+    .replace(/\{for [^}]*\}([\s\S]*?)\{\/for\}/g, (_, body) => (branches++ ? '' : body))
+    .replace(/\{\/?for\b[^}]*\}/g, '') // an unclosed or stray tag
+    .replace(/\[\[(?:Image|Video|Template|Include|UI):[^\]]*\]\]/gi, '')
+    .replace(/\[\[[^\]|]*\|([^\]]*)\]\]/g, '$1')
+    .replace(/\[\[([^\]]*)\]\]/g, '$1')
+    .replace(/\[[a-z]+:\S+\s+([^\]]*)\]/gi, '$1')
+    .replace(/\[[a-z]+:\S+\]/gi, '')
+    .replace(/\{[a-z]+ ([^}]*)\}/gi, '$1') // `{menu Tools}`, `{key Ctrl}`
+    .replace(/\{\/?[a-z]+\}/gi, '')
+    .replace(/'{2,}/g, '')
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)));
+}
+
+/**
+ * `s` as a file name: no character any of Windows, macOS or Linux rejects,
+ * space runs collapsed, at most NAME_LIMIT code points, never cutting a
+ * surrogate pair. Leading and trailing dots go too: a leading one hides the
+ * file on macOS and Linux, and Windows drops a trailing one.
+ */
+function safeName(s) {
+  const clean = (t) => t.replace(/\s+/g, ' ').replace(/^[ .]+|[ .]+$/g, '');
+  // eslint-disable-next-line no-control-regex
+  const legal = clean(s.replace(/[\/\\:*?"<>|\u0000-\u001f\u007f]/g, ' '));
+  return clean(Array.from(legal).slice(0, NAME_LIMIT).join(''));
+}
+
 /**
  * Save `text` as the draft; returns 'saved' or 'failed'. Never throws.
  *
@@ -27,21 +108,24 @@ const FILE_NAME = 'article.wiki';
  * nothing behind. `storage` is null where the browser blocks localStorage, and
  * `setItem` throws when the quota is full; both count as a failure.
  */
-function saveDraft(storage, text) {
+function saveDraft(storage, text, key = DRAFT_KEY) {
   try {
     if (!storage) return 'failed';
-    if (text === '') storage.removeItem(DRAFT_KEY);
-    else storage.setItem(DRAFT_KEY, text);
+    if (text === '') storage.removeItem(key);
+    else storage.setItem(key, text);
     return 'saved';
   } catch {
     return 'failed';
   }
 }
 
-/** The saved draft, or '' if there is none or storage is unreadable. */
-function loadDraft(storage) {
+/**
+ * The saved draft, or '' if there is none or storage is unreadable. With
+ * NAME_KEY, both functions keep the typed file name instead.
+ */
+function loadDraft(storage, key = DRAFT_KEY) {
   try {
-    const text = storage ? storage.getItem(DRAFT_KEY) : null;
+    const text = storage ? storage.getItem(key) : null;
     return typeof text === 'string' ? text : '';
   } catch {
     return '';
@@ -92,5 +176,8 @@ function fileWriter(write, onResult) {
 // Loaded as a plain <script> in the browser, where these are globals; required
 // as CommonJS by the test.
 if (typeof module !== 'undefined') {
-  module.exports = { DRAFT_KEY, FILE_NAME, saveDraft, loadDraft, fileWriter };
+  module.exports = {
+    DRAFT_KEY, FILE_NAME, NAME_KEY, NAME_LIMIT,
+    fileName, saveDraft, loadDraft, fileWriter,
+  };
 }

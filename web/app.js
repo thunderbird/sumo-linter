@@ -216,7 +216,7 @@ const kept = {
   fileName: null, // Chrome and Edge: the file every change is written to
   file: 'saved', // 'saved' or 'failed', from the last write to that file
   writeFile: null, // fileWriter for that file, or null once a write fails
-  downloaded: false, // Firefox and Safari: a copy was downloaded since the last change
+  downloaded: null, // Firefox and Safari: the name of a copy downloaded since the last change
 };
 
 function renderSaveNote() {
@@ -229,7 +229,7 @@ function renderSaveNote() {
       ? `could not write ${kept.fileName}: press Save to file again`
       : `saving to ${kept.fileName}`);
   }
-  if (kept.downloaded) parts.push(`downloaded ${FILE_NAME}`);
+  if (kept.downloaded) parts.push(`downloaded ${kept.downloaded}`);
   const note = document.getElementById('savenote');
   note.textContent = parts.join(' · ');
   note.className = kept.draft === 'failed' || kept.file === 'failed' ? 'err' : '';
@@ -239,7 +239,8 @@ function renderSaveNote() {
 function keep() {
   const text = document.getElementById('src').value;
   kept.draft = saveDraft(draftStorage(), text);
-  kept.downloaded = false;
+  kept.downloaded = null;
+  showFileName();
   if (kept.writeFile) kept.writeFile(text);
   renderSaveNote();
 }
@@ -249,6 +250,24 @@ function keep() {
  * otherwise autosave would overwrite the author's saved article with an empty
  * text box or with the example.
  */
+/**
+ * The name Save to file will use (#16): the typed one, else the first heading,
+ * else `article.wiki`.
+ */
+function currentFileName() {
+  const box = document.getElementById('filename');
+  return fileName(box ? box.value : '', document.getElementById('src').value);
+}
+
+/**
+ * Show the fallback name in the empty box, so the author sees a generic name
+ * such as `Background.wiki` before saving and can type a better one.
+ */
+function showFileName() {
+  const box = document.getElementById('filename');
+  if (box) box.placeholder = fileName('', document.getElementById('src').value);
+}
+
 function forgetFile() {
   kept.writeFile = null;
   kept.fileName = null;
@@ -267,7 +286,8 @@ async function saveToFile() {
   let handle;
   try {
     handle = await window.showSaveFilePicker({
-      suggestedName: FILE_NAME,
+      // Only names a new file: one already chosen keeps its name (#16).
+      suggestedName: currentFileName(),
       types: [{ description: 'SUMO wiki markup', accept: { 'text/plain': ['.wiki'] } }],
     });
   } catch (e) {
@@ -296,7 +316,7 @@ async function saveToFile() {
   kept.writeFile = writeFile;
   kept.fileName = handle.name;
   kept.file = 'saved';
-  kept.downloaded = false;
+  kept.downloaded = null;
   // The current text, which may have changed while the dialog was open.
   writeFile(document.getElementById('src').value);
   renderSaveNote();
@@ -307,13 +327,14 @@ function download(text) {
   const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
   const a = document.createElement('a');
   a.href = url;
-  a.download = FILE_NAME;
+  const name = currentFileName();
+  a.download = name;
   // Firefox ignores a click on a link that is not in the document.
   document.body.append(a);
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 0);
-  kept.downloaded = true;
+  kept.downloaded = name;
   renderSaveNote();
 }
 
@@ -323,6 +344,13 @@ function download(text) {
  */
 function startOver(text) {
   forgetFile();
+  // A different article, so the typed name no longer applies. Undo restores
+  // the text but not the name, which falls back to the heading.
+  const box = document.getElementById('filename');
+  if (box) {
+    box.value = '';
+    saveDraft(draftStorage(), '', NAME_KEY);
+  }
   const ta = document.getElementById('src');
   replaceRange(ta, 0, ta.value.length, text);
   run();
@@ -516,6 +544,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('pagehide', () => saveDraft(draftStorage(), ta.value));
   // The browser may have restored the text itself on reload; keep that if so.
   if (ta.value === '') ta.value = loadDraft(draftStorage());
+  const nameBox = document.getElementById('filename');
+  if (nameBox) {
+    if (nameBox.value === '') nameBox.value = loadDraft(draftStorage(), NAME_KEY);
+    nameBox.addEventListener('input', () => {
+      saveDraft(draftStorage(), nameBox.value, NAME_KEY);
+    });
+  }
+  showFileName();
   updateButtons();
   renderSaveNote();
   if (typeof parseView === 'function' && document.getElementById('previewcol')) {

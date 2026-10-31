@@ -141,6 +141,10 @@
   button:disabled { opacity: .5; cursor: default; }
   #summary { font-weight: 600; }
   #savenote { font-size: .85rem; color: var(--muted); }
+  #filename {
+    font: inherit; width: 16rem; padding: .4rem .5rem; border-radius: 5px;
+    border: 1px solid var(--line); background: transparent; color: var(--fg);
+  }
   .ok { color: var(--ok); } .err { color: var(--err); } .warn { color: var(--warn); }
   #status { font-size: .85rem; color: var(--muted); margin-bottom: 1rem; }
   ul { list-style: none; margin: 0; padding: 0; }
@@ -193,6 +197,9 @@
         <button id="sample" type="button">Load an example with errors</button>
         <button id="copybtn" type="button" title="Copy the wiki markup exactly as it is, to paste back into SUMO" disabled>Copy</button>
         <button id="savebtn" type="button" title="Save the wiki markup to a .wiki file" disabled>Save to file</button>
+        <input id="filename" type="text" spellcheck="false" autocomplete="off"
+          aria-label="File name"
+          title="The name for Save to file. Leave it empty to use the first heading.">
         <button id="clearbtn" type="button" title="Empty the text box and delete the copy saved in this browser. Cmd+Z brings it back." disabled>Clear</button>
         <span id="savenote"></span>
       </div>

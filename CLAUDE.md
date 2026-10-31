@@ -275,7 +275,10 @@ does not give a URL). Its output goes into `innerHTML`, so raw HTML keeps only a
 with no attributes, and links only http/https/ftp/mailto; the test asserts that every corpus
 article renders with no tag outside that list. `{for}` follows `how-to-use-for`: hidden
 branches stay in the DOM with `hidden`, as on SUMO, and leave the table of contents; `fxN`/`mN`
-are ignored, and SW012 reports them. A comment leaves a marker until the end, because
+are ignored, and SW012 reports them. The version defaults to the latest monthly Thunderbird
+release, as SUMO's sidebar does (#29): the page reads it from product-details.mozilla.org, with a
+built-in fallback (`FALLBACK_LATEST_RELEASE` in `preview.js`, update it now and then), and the
+version box also takes a number or `all`. A comment leaves a marker until the end, because
 `{<!-- -->key}` is the documented way to show a macro literally. Measured: 131 KB renders in
 29 ms under Node; checked in Chromium and Playwright's Firefox (columns, hide controls, `{for}`
 selector, persistence across reload).

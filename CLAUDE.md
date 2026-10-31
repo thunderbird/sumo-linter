@@ -220,7 +220,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
 | `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + `SUMO: Toggle Bold` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
-| `tools/ui-strings/` | dev-only Python (stdlib) search for KB articles that quote UI strings a release changes, plus the 158 string sheet; made knowledgebase-issues #247. Its docstring lists the matching lessons the markup-aware search (#6) must keep |
+| `tools/ui-strings/` | dev-only Python (stdlib) search for KB articles that quote UI strings a release changes, plus the 158 string sheet. It made knowledgebase-issues #247. Its docstring lists the matching lessons that the markup-aware search (#6) must keep |
 | `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, the preview renderer and `{for}` rules in `preview.js`, all tested under Node |
 
 **Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an

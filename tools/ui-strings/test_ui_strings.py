@@ -127,7 +127,7 @@ class Localizer(unittest.TestCase):
         self.assertEqual(l10n_tables.show(v, {}), "Choose… (macOS) / Browse… (Windows, Linux)")
 
     def test_start_page_is_one_paired_row(self):
-        rows = l10n_tables.rows_for(("153.6.0", "159.0"), built())
+        rows = l10n_tables.rows_for(("153.6.0", "159.0"), built(), "settings")
         self.assertIn(
             [
                 "When Thunderbird launches, show the Start Page in the message area",
@@ -139,22 +139,53 @@ class Localizer(unittest.TestCase):
     def test_unchanged_text_is_left_out(self):
         # "Empty Trash on Exit" is the same in all three versions.
         for versions in l10n_tables.TABLES:
-            rows = l10n_tables.rows_for(versions, built())
-            self.assertFalse(any("Empty Trash on Exit" in c for r in rows for c in r))
-            self.assertTrue(all(len(set(r)) > 1 for r in rows))
+            for win, _ in l10n_tables.WINDOWS:
+                rows = l10n_tables.rows_for(versions, built(), win)
+                self.assertFalse(any("Empty Trash on Exit" in c for r in rows for c in r))
+                self.assertTrue(all(len(set(r)) > 1 for r in rows))
+
+    def test_window_is_decided_by_file(self):
+        account = [
+            "chrome/en-US/locale/en-US/messenger/am-offline.dtd",
+            "chrome/en-US/locale/en-US/messenger/prefs.properties",
+            "localization/en-US/messenger/preferences/am-copies.ftl",
+            "localization/en-US/messenger/openpgp/openpgp.ftl",
+            "localization/en-US/messenger/accountManager.ftl",
+        ]
+        settings = [
+            "localization/en-US/messenger/preferences/preferences.ftl",
+            "localization/en-US/messenger/preferences/receipts.ftl",
+            "localization/en-US/calendar/preferences.ftl",
+            "chrome/en-US/locale/en-US/messenger/preferences/preferences.properties",
+        ]
+        for f in account:
+            self.assertEqual(l10n_tables.window((f, "x")), "account-settings", f)
+        for f in settings:
+            self.assertEqual(l10n_tables.window((f, "x")), "settings", f)
+
+    def test_shared_text_is_judged_per_window(self):
+        # "Disk Space" is in both windows. Settings renamed it in 159
+        # ("Temporary storage"). Account Settings still shows it in 160, as
+        # the name of the account-tree page, so its tables must not list it.
+        def has(versions, win):
+            return any("Disk Space" in r[0] for r in l10n_tables.rows_for(versions, built(), win))
+
+        for versions in l10n_tables.TABLES:
+            self.assertTrue(has(versions, "settings"), versions)
+            self.assertFalse(has(versions, "account-settings"), versions)
 
     def test_tables_are_up_to_date(self):
         for versions in l10n_tables.TABLES:
-            rows = l10n_tables.rows_for(versions, built())
-            stem = os.path.join(HERE, "strings-" + "-".join(versions))
-            for fmt, ext in (("md", ".md"), ("mediawiki", ".mediawiki")):
-                with open(stem + ext, encoding="utf-8") as f:
-                    self.assertEqual(
-                        f.read(),
-                        l10n_tables.render(fmt, versions, rows),
-                        f"{os.path.basename(stem)}{ext} is stale: run l10n_tables.py",
-                    )
-
+            for win, title in l10n_tables.WINDOWS:
+                rows = l10n_tables.rows_for(versions, built(), win)
+                stem = os.path.join(HERE, "strings-" + "-".join(versions) + "-" + win)
+                for fmt, ext in (("md", ".md"), ("mediawiki", ".mediawiki")):
+                    with open(stem + ext, encoding="utf-8") as f:
+                        self.assertEqual(
+                            f.read(),
+                            l10n_tables.render(fmt, versions, rows, title),
+                            f"{os.path.basename(stem)}{ext} is stale: run l10n_tables.py",
+                        )
 
 if __name__ == "__main__":
     unittest.main()

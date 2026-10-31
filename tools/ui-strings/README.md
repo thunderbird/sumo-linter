@@ -10,7 +10,7 @@ that quote them. They use the Python standard library only.
 | `table.py` | Writes an old-string/new-string table from the sheet (`settings-strings-158.*`). |
 | `extract.py` | Reads the strings out of an installed Thunderbird app into `strings/<version>.tsv`. |
 | `compare.py` | Compares all versions in `strings/` and maps them to the sheet (`string-versions.*`). |
-| `l10n_tables.py` | Writes simple old-text/new-text tables for SUMO localizers (`strings-<versions>.*`). |
+| `l10n_tables.py` | Writes simple old-text/new-text tables for SUMO localizers, one for Settings and one for Account Settings (`strings-<versions>-<window>.*`). |
 | `test_ui_strings.py` | Tests for `extract.py`, `compare.py` and `l10n_tables.py`. CI runs it. |
 
 ## Add a version
@@ -48,8 +48,11 @@ folder. The tools only read the app. They do not start it or change it.
        tools/ui-strings/tb-desktop-settings-account-settings-changes-158-and-newer.csv
    ```
 
-   Each table is written as `strings-<versions>.md` and `strings-<versions>.mediawiki`. If you
-   remove a version set from `TABLES`, delete its two files.
+   Each version set gets a Settings table and an Account Settings table, each as Markdown and
+   wikitext, for example `strings-153.6.0-159.0-settings.md` and
+   `strings-153.6.0-159.0-account-settings.mediawiki`. The string file decides the window:
+   `ACCOUNT_FILES` in `l10n_tables.py` lists the Account Settings files. If you remove a version
+   set from `TABLES`, delete its four files.
 
 4. Run the tests:
 

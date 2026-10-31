@@ -1,4 +1,4 @@
-Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and Beta 160.0, in en-US. — means the text does not exist in that version. A cell with several lines lists all the texts that changed together for one setting. Made by tools/ui-strings/l10n_tables.py (sumo-linter #19).
+Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and Beta 160.0, in en-US. — means the text does not exist in that version. A cell with several lines lists all the texts that changed together for one setting. Made by tools/ui-strings/l10n_tables.py (sumo-linter #19).
 
 | ESR 153.6.0 | Release 159.0 | Beta 160.0 |
 |---|---|---|
@@ -12,7 +12,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Font Control<br>Allow messages to use other fonts<br>Use fixed width font for plain text messages | Allow incoming messages to use their own fonts<br>Display plain text messages in a fixed-width font<br>Message font permissions<br>Text & font options<br>Customize fonts… | Allow incoming messages to use their own fonts<br>Display plain text messages in a fixed-width font<br>Message font permissions<br>Text & font options<br>Customize fonts… |
 | App Icon Options… | App icon options… | App icon options… |
 | Animate the app icon when a new message arrives<br>Count of new messages<br>Count of unread messages<br>Badge app icon with:<br>App icon options<br>You can disable the badge on the Notification pane of System Settings. | Show a badge for<br>Animate the app icon for new messages<br>App icon notification settings<br>Notification badges can also be turned on or off in the computer’s system settings.<br>Total new messages<br>Total unread messages<br>When a new message arrives: | Show a badge for<br>Animate the app icon for new messages<br>App icon notification settings<br>Notification badges can also be turned on or off in the computer’s system settings.<br>Total new messages<br>Total unread messages<br>When a new message arrives: |
-| Allow immediate server notifications when new messages arrive<br>Change preferences for the app icon<br>Incoming Mails<br>When new messages arrive: | Allow immediate server notifications when new messages arrive<br>Show an alert for new emails | Show an alert for new emails |
+| Change preferences for the app icon<br>Incoming Mails<br>When new messages arrive: | Show an alert for new emails | Show an alert for new emails |
 | — | Customize alerts… | Customize alerts… |
 | — | Use custom sound for alerts | Use custom sound for alerts |
 | Files & Attachments | Files & attachments | Files & attachments |
@@ -28,7 +28,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | — | Message list | Message list |
 | Show only display name for people in my address book | — | — |
 | Experimental feature based on Gloda, use it at your own risk<br>Enable conversation view | This is an early preview feature. It groups related messages together, but it might not always work as expected.<br>Show conversation view | This is an early preview feature. It groups related messages together, but it might not always work as expected.<br>Show conversation view |
-| If I’m not in the To or Cc of the message: | — | — |
+| Leave it in my Inbox<br>If I’m not in the To or Cc of the message:<br>When I receive a request for a return receipt:<br>Return Receipts<br>When sending messages, always request a return receipt<br>If the sender is outside my domain: | — | — |
 | Enable dark message mode<br>Force the message body to follow dark themes<br>Message reader style | Use dark mode for message text<br>Message appearance<br>Applies a dark background to all incoming messages, even if the sender formatted them in light colors. | Use dark mode for message text<br>Message appearance<br>Applies a dark background to all incoming messages, even if the sender formatted them in light colors. |
 | Show a toggle in the message header to quickly disable the dark message mode | Lets you quickly switch an email back to light mode while reading, without changing your main settings. | Lets you quickly switch an email back to light mode while reading, without changing your main settings. |
 | Folder Management Options<br>Options for listing and sorting folders where messages were recently moved to.<br>Recent Destinations | Folder settings<br>Controls how recently used folders appear when moving messages.<br>Recent folders | Folder settings<br>Controls how recently used folders appear when moving messages.<br>Recent folders |
@@ -41,16 +41,16 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Connection Settings | Connection settings | Connection settings |
 | Configure Proxies to Access the Internet<br>Connections to localhost, 127.0.0.1/8, and ::1 are never proxied.<br>No proxy for:<br>Also use this proxy for HTTPS<br>Do not prompt for authentication if password is saved<br>Proxy DNS when using SOCKS v5<br>Automatic proxy configuration URL:<br>Manual proxy configuration:<br>Auto-detect proxy settings for this network<br>Network & Disk Space<br>Configure how Thunderbird connects to the Internet | Internet connection & proxy<br>Local network connections (like localhost) never use a proxy.<br>Do not use a proxy for these addresses:<br>Automatically log in if a password is saved<br>Automatic setup script URL:<br>Automatically detect network proxy<br>Use this proxy for secure web addresses (HTTPS)<br>Manual proxy setup:<br>Route domain requests (DNS) through SOCKS v5 proxy<br>Control how Thunderbird connects to the internet.<br>Connection options…<br>Network and storage | Internet connection & proxy<br>Local network connections (like localhost) never use a proxy.<br>Do not use a proxy for these addresses:<br>Automatically log in if a password is saved<br>Automatic setup script URL:<br>Automatically detect network proxy<br>Use this proxy for secure web addresses (HTTPS)<br>Manual proxy setup:<br>Route domain requests (DNS) through SOCKS v5 proxy<br>Control how Thunderbird connects to the internet.<br>Connection options…<br>Network and storage |
 | Clear cache on shutdown | Clear temporary files when Thunderbird closes | Clear temporary files when Thunderbird closes |
-| Clear Now | Clear temporary files<br>Temporary storage | Clear temporary files<br>Temporary storage |
+| Clear Now<br>Disk Space | Clear temporary files<br>Temporary storage | Clear temporary files<br>Temporary storage |
 | Override automatic cache management | Manually set storage limits for temporary files | Manually set storage limits for temporary files |
 | — | MB of space for temporary files | MB of space for temporary files |
 | Compact all folders when it will save over | Remove data from folders when they have already been deleted to free up storage | Remove data from folders when they have already been deleted to free up storage |
 | Ask every time before compacting | Ask before cleaning up folders | Ask before cleaning up folders |
 | Enable Global Search and Indexer | Turn on search across all email accounts<br>Search & performance | Turn on search across all email accounts<br>Search & performance |
 | — | Show search results as a plain list | Show search results as a plain list |
-| Config Editor… | — | — |
+| Config Editor… | Advanced settings | Advanced settings |
 | Define the color used for primary buttons and highlighted elements: | Select color for primary button and highlights | Select color for primary button and highlights |
-| Use hardware acceleration when available<br>Message Store Type for new accounts: | Use graphics acceleration for smoother scrolling and performance<br>Single file per folder (mbox)<br>Storage format for new accounts: | Use graphics acceleration for smoother scrolling and performance<br>Single file per folder (mbox)<br>Storage format for new accounts: |
+| Use hardware acceleration when available<br>File per folder (mbox)<br>Message Store Type for new accounts: | Use graphics acceleration for smoother scrolling and performance<br>Single file per folder (mbox)<br>Storage format for new accounts: | Use graphics acceleration for smoother scrolling and performance<br>Single file per folder (mbox)<br>Storage format for new accounts: |
 | Auto hide tab bar<br>Hide system window titlebar | Automatically hides tabs until you open a second tab.<br>Removes the top bar showing the window name to save screen space<br>Hide title bar | Automatically hides tabs until you open a second tab.<br>Removes the top bar showing the window name to save screen space<br>Hide title bar |
 | — | Card view<br>Select view style: | Card view<br>Select view style: |
 | Row Count: | Row count: | Row count: |
@@ -76,7 +76,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Local Address Books | Company or network directory | Company or network directory |
 | Automatically add outgoing email addresses to my: | Where new contacts are saved when created manually or added from emails.<br>Automatically save outgoing email addresses to: | Where new contacts are saved when created manually or added from emails.<br>Automatically save outgoing email addresses to: |
 | — | Where new contacts are saved from emails.<br>Save manually added contacts to: | Where new contacts are saved from emails.<br>Save manually added contacts to: |
-| — | Manage directories… | Manage directories… |
+| Edit Directories… | Manage directories… | Manage directories… |
 | Default startup directory in the address book window: | Show directory in the address book window when opening Thunderbird | Show directory in the address book window when opening Thunderbird |
 | Offer to share for files larger than | Offer to share files by link when they exceed: | Offer to share files by link when they exceed: |
 | Attachment Reminder Keywords | Attachment reminder keywords | Attachment reminder keywords |
@@ -116,37 +116,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Create a QR code to export your accounts<br>Quickly transfer your account settings from desktop to mobile by generating a QR code. Select which accounts to include, decide if you want to transfer your password, and scan the code with your mobile device. Fast, secure, and simple.<br>Don’t have Thunderbird on mobile yet? &lt;a data-l10n-name="app-link">Get it on Google Play&lt;/a><br>Export accounts to Thunderbird Mobile | Transfer your email accounts from this computer to Thunderbird on your phone using a QR code.<br>&lt;a data-l10n-name="app-link">Get Thunderbird on Google Play&lt;/a><br>Export to Thunderbird mobile<br>Select accounts to export: | Transfer your email accounts from this computer to Thunderbird on your phone using a QR code.<br>&lt;a data-l10n-name="app-link">Get Thunderbird on Google Play&lt;/a><br>Export to Thunderbird mobile<br>Select accounts to export: |
 | Not seeing all your accounts? Some accounts may be disabled because they are not supported by Thunderbird for Android. &lt;a data-l10n-name="account-support-link">Support&lt;/a><br>Select which accounts to export: | Missing an account? Accounts that are not supported on Thunderbird for Android cannot be selected. &lt;a data-l10n-name="account-support-link">Learn which account types are supported&lt;/a> | Missing an account? Accounts that are not supported on Thunderbird for Android cannot be selected. &lt;a data-l10n-name="account-support-link">Learn which account types are supported&lt;/a> |
 | Include all accounts passwords<br>Some of your accounts use an authentication method that may require re-authentication on your mobile device. You may need to enter your passwords again during this process.<br>By scanning the following QR codes, your account settings—including your email and password—will be transferred securely. We do not collect, store, or share any of this data during the process. The transfer occurs directly between your devices.<br>For your security, please ensure you are in a private setting and only scan QR codes from trusted sources. | Include account passwords in the QR code<br>&lt;strong>Private transfer:&lt;/strong> Your settings and passwords move directly from this computer to your phone. Nothing is sent to or stored on Mozilla servers.<br>&lt;strong>Tip:&lt;/strong> Keep your screen hidden from others while the QR code is displayed. | Include account passwords in the QR code<br>&lt;strong>Private transfer:&lt;/strong> Your settings and passwords move directly from this computer to your phone. Nothing is sent to or stored on Mozilla servers.<br>&lt;strong>Tip:&lt;/strong> Keep your screen hidden from others while the QR code is displayed. |
-| Security Settings | Security Settings | — |
-| When I delete a message:<br>Check for new messages at startup<br>Remove it immediately<br>Just mark it as deleted | When I delete a message:<br>Check for new messages at startup<br>Remove it immediately<br>Just mark it as deleted | — |
-| When sending messages, automatically:<br>Leave the address field blank to always show the address row when starting a new message. | When sending messages, automatically:<br>Leave the address field blank to always show the address row when starting a new message. | Other folder:<br>Note: Checking these boxes adds automatic Cc/Bcc rows when composing new messages.<br>Sent folder on:<br>Other folder |
-| Message Archives | Message Archives | Archives folder on:<br>Message archives |
-| Show confirmation dialog when messages are saved<br>Drafts and Templates | Show confirmation dialog when messages are saved<br>Drafts and Templates | Show a confirmation when messages are saved<br>Drafts and templates<br>Drafts folder on:<br>Templates folder on: |
-| Compose messages in HTML format | Compose messages in HTML format | — |
-| When looking up addresses:<br>Use a different LDAP server:<br>Use my global LDAP server preferences for this account | When looking up addresses:<br>Use a different LDAP server:<br>Use my global LDAP server preferences for this account | — |
-| Spam Settings<br>Do not automatically mark mail as spam if the sender is in:<br>Enable adaptive spam controls for this account<br>If enabled, you must first train Thunderbird to identify spam by using the Spam toolbar button to mark messages as spam or not. You need to identify both spam and non spam messages. After that Thunderbird will be able to mark spam automatically. | Manage spam<br>Turn on automatic spam detection for this account<br>Trust email addresses in these address books: | Manage spam<br>Turn on automatic spam detection for this account<br>Trust email addresses in these address books: |
-| Global Spam Settings… | Global spam settings… | Global spam settings… |
-| Destination and Retention | — | — |
-| Keep messages in all folders for this account on this computer<br>Note: Changing this affects all folders in this account. To set individual folders, use the Advanced… button.<br>Message Synchronizing | Keep messages in all folders for this account on this computer<br>Note: Changing this affects all folders in this account. To set individual folders, use the Advanced… button.<br>Message Synchronizing | — |
-| Don't download messages larger than<br>To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. | Don't download messages larger than<br>To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. | — |
 | Move it to my “Sent” folder | Read receipts<br>Leave in Inbox<br>Move to Sent folder<br>If not listed in To or CC field:<br>When a sender requests a return receipt:<br>Always request a return receipt when sending emails<br>If sender is outside company or domain: | Read receipts<br>Leave in Inbox<br>Move to Sent folder<br>If not listed in To or CC field:<br>When a sender requests a return receipt:<br>Always request a return receipt when sending emails<br>If sender is outside company or domain: |
-| Preferred encryption technology:<br>Default settings for sending messages<br>Attach my public key when adding an OpenPGP digital signature<br>Send OpenPGP public key(s) in the email headers for compatibility with Autocrypt<br>Disable encryption for new messages<br>You will be able to disable encryption for individual messages.<br>Enable encryption for new messages<br>Store draft messages in encrypted format<br>Encrypt the subject of OpenPGP messages<br>Sign unencrypted messages<br>A digital signature allows recipients to verify that the message was sent by you and its content was not changed. Encrypted messages are always signed by default. | Preferred encryption technology:<br>Default settings for sending messages<br>Attach my public key when adding an OpenPGP digital signature<br>Send OpenPGP public key(s) in the email headers for compatibility with Autocrypt<br>Disable encryption for new messages<br>You will be able to disable encryption for individual messages.<br>Enable encryption for new messages<br>Store draft messages in encrypted format<br>Encrypt the subject of OpenPGP messages<br>Sign unencrypted messages<br>A digital signature allows recipients to verify that the message was sent by you and its content was not changed. Encrypted messages are always signed by default. | Advanced encryption settings<br>Do not encrypt new messages by default<br>Encrypt new messages by default<br>Preferred encryption technology<br>Digitally sign unencrypted messages<br>Default message encryption |
-| Addressing | Addressing | — |
-| &quot;Archives&quot; Folder on: | &quot;Archives&quot; Folder on: | — |
-| &quot;Drafts&quot; Folder on: | &quot;Drafts&quot; Folder on: | — |
-| &quot;Sent&quot; Folder on: | &quot;Sent&quot; Folder on: | — |
-| &quot;Templates&quot; Folder on: | &quot;Templates&quot; Folder on: | — |
-| Username: | — | — |
-| Notify on new Mail | — | — |
-| Proxy Settings: | — | — |
-| 300 | — | — |
-| Advanced… | Advanced… | — |
-| Show newsgroup names in the Mail Folder pane as: | — | — |
-| Abbreviate names (For example, 'n.p.m.mail-news') | — | — |
-| Full names (For example, 'netscape.public.mozilla.mail-news') | — | — |
-| Clean up (&quot;Expunge&quot;) Inbox on Exit | Clean up (&quot;Expunge&quot;) Inbox on Exit | — |
-| Set Personal Key… | — | — |
-| Personal key for encryption and digital signing: | — | — |
-| Digital Signing | — | — |
 | The following applications can be used to handle %S. | The following applications can be used to handle %S. | — |
 | %S content | %S content | — |
 | %S links | %S links | — |
@@ -165,28 +135,6 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | (%1$S) | (%1$S) | — |
 | Use %S | Use %S | — |
 | Use %S (default) | Use %S (default) | — |
-| Thunderbird Settings | — | — |
-| — | — | Attach the public key for this identity when digitally signing messages |
-| — | — | Encrypt message subject line |
-| — | — | Encryption can be turned off for individual messages while writing emails. |
-| — | — | Include this account’s public key in message headers (for Autocrypt compatibility) |
-| — | — | Proves to recipients that the message came from you and was not altered in transit. Encrypted messages are signed by default. |
-| The attachment ‘{ $name }’ you are opening appears to be an OpenPGP key file. Click ‘Import’ to import the keys contained or ‘View’ to view the file contents in a browser window | — | — |
-| — | The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains? | The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains? |
-| — | &Open… | &Open… |
-| — | &Save | &Save |
-| &View | — | — |
-| — | Version | Version |
-| — | Generate PQC Encryption Subkey | Generate PQC Encryption Subkey |
-| — | The key, or subordinate parts of the key, could not be unlocked. | The key, or subordinate parts of the key, could not be unlocked. |
-| — | Generate an encryption subkey using post-quantum cryptography (PQC)? Generation may take several minutes. | Generate an encryption subkey using post-quantum cryptography (PQC)? Generation may take several minutes. |
-| — | The PQC encryption subkey could not be generated. | The PQC encryption subkey could not be generated. |
-| — | — | Choose where to save copies of sent messages, and set up automatic Cc/Bcc rules |
-| — | — | Copies and folders |
-| Selection | — | — |
-| — | Detecting spam | Detecting spam |
-| — | Storage and deletion | Storage and deletion |
-| — | When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam. | When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam. |
 | — | — | The following applications can be used to handle { $description } content. |
 | — | — | The following applications can be used to handle { $description } links. |
 | — | Show a reminder for missing attachments if the email contains matching keywords. | Show a reminder for missing attachments if the email contains matching keywords. |
@@ -220,6 +168,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | — | — | What’s up? |
 | — | — | I’m trying Thunderbird! ;-) |
 | — | Always check to see if Thunderbird is the default email app when opened | Always check to see if Thunderbird is the default email app when opened |
+| Choose… | — | — |
 | — | When Thunderbird is closed, move it to the tray | When Thunderbird is closed, move it to the tray |
 | Allow Thunderbird to send backlogged crash reports on your behalf | — | — |
 | — | &lt;strong>Data sharing is turned off.&lt;/strong> Past usage data will be permanently deleted from { -vendor-short-name } servers within 30 days. | &lt;strong>Data sharing is turned off.&lt;/strong> Past usage data will be permanently deleted from { -vendor-short-name } servers within 30 days. |

@@ -1,4 +1,4 @@
-Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0 and Release 159.0, in en-US. — means the text does not exist in that version. A cell with several lines lists all the texts that changed together for one setting. Made by tools/ui-strings/l10n_tables.py (sumo-linter #19).
+Settings texts that changed between Thunderbird ESR 153.6.0 and Release 159.0, in en-US. — means the text does not exist in that version. A cell with several lines lists all the texts that changed together for one setting. Made by tools/ui-strings/l10n_tables.py (sumo-linter #19).
 
 | ESR 153.6.0 | Release 159.0 |
 |---|---|
@@ -28,7 +28,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | — | Message list |
 | Show only display name for people in my address book | — |
 | Experimental feature based on Gloda, use it at your own risk<br>Enable conversation view | This is an early preview feature. It groups related messages together, but it might not always work as expected.<br>Show conversation view |
-| If I’m not in the To or Cc of the message: | — |
+| Leave it in my Inbox<br>If I’m not in the To or Cc of the message:<br>When I receive a request for a return receipt:<br>Return Receipts<br>When sending messages, always request a return receipt<br>If the sender is outside my domain: | — |
 | Enable dark message mode<br>Force the message body to follow dark themes<br>Message reader style | Use dark mode for message text<br>Message appearance<br>Applies a dark background to all incoming messages, even if the sender formatted them in light colors. |
 | Show a toggle in the message header to quickly disable the dark message mode | Lets you quickly switch an email back to light mode while reading, without changing your main settings. |
 | Folder Management Options<br>Options for listing and sorting folders where messages were recently moved to.<br>Recent Destinations | Folder settings<br>Controls how recently used folders appear when moving messages.<br>Recent folders |
@@ -41,16 +41,16 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Connection Settings | Connection settings |
 | Configure Proxies to Access the Internet<br>Connections to localhost, 127.0.0.1/8, and ::1 are never proxied.<br>No proxy for:<br>Also use this proxy for HTTPS<br>Do not prompt for authentication if password is saved<br>Proxy DNS when using SOCKS v5<br>Automatic proxy configuration URL:<br>Manual proxy configuration:<br>Auto-detect proxy settings for this network<br>Network & Disk Space<br>Configure how Thunderbird connects to the Internet | Internet connection & proxy<br>Local network connections (like localhost) never use a proxy.<br>Do not use a proxy for these addresses:<br>Automatically log in if a password is saved<br>Automatic setup script URL:<br>Automatically detect network proxy<br>Use this proxy for secure web addresses (HTTPS)<br>Manual proxy setup:<br>Route domain requests (DNS) through SOCKS v5 proxy<br>Control how Thunderbird connects to the internet.<br>Connection options…<br>Network and storage |
 | Clear cache on shutdown | Clear temporary files when Thunderbird closes |
-| Clear Now | Clear temporary files<br>Temporary storage |
+| Clear Now<br>Disk Space | Clear temporary files<br>Temporary storage |
 | Override automatic cache management | Manually set storage limits for temporary files |
 | — | MB of space for temporary files |
 | Compact all folders when it will save over | Remove data from folders when they have already been deleted to free up storage |
 | Ask every time before compacting | Ask before cleaning up folders |
 | Enable Global Search and Indexer | Turn on search across all email accounts<br>Search & performance |
 | — | Show search results as a plain list |
-| Config Editor… | — |
+| Config Editor… | Advanced settings |
 | Define the color used for primary buttons and highlighted elements: | Select color for primary button and highlights |
-| Use hardware acceleration when available<br>Message Store Type for new accounts: | Use graphics acceleration for smoother scrolling and performance<br>Single file per folder (mbox)<br>Storage format for new accounts: |
+| Use hardware acceleration when available<br>File per folder (mbox)<br>Message Store Type for new accounts: | Use graphics acceleration for smoother scrolling and performance<br>Single file per folder (mbox)<br>Storage format for new accounts: |
 | Auto hide tab bar<br>Hide system window titlebar | Automatically hides tabs until you open a second tab.<br>Removes the top bar showing the window name to save screen space<br>Hide title bar |
 | — | Card view<br>Select view style: |
 | Row Count: | Row count: |
@@ -76,7 +76,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Local Address Books | Company or network directory |
 | Automatically add outgoing email addresses to my: | Where new contacts are saved when created manually or added from emails.<br>Automatically save outgoing email addresses to: |
 | — | Where new contacts are saved from emails.<br>Save manually added contacts to: |
-| — | Manage directories… |
+| Edit Directories… | Manage directories… |
 | Default startup directory in the address book window: | Show directory in the address book window when opening Thunderbird |
 | Offer to share for files larger than | Offer to share files by link when they exceed: |
 | Attachment Reminder Keywords | Attachment reminder keywords |
@@ -116,35 +116,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Create a QR code to export your accounts<br>Quickly transfer your account settings from desktop to mobile by generating a QR code. Select which accounts to include, decide if you want to transfer your password, and scan the code with your mobile device. Fast, secure, and simple.<br>Don’t have Thunderbird on mobile yet? &lt;a data-l10n-name="app-link">Get it on Google Play&lt;/a><br>Export accounts to Thunderbird Mobile | Transfer your email accounts from this computer to Thunderbird on your phone using a QR code.<br>&lt;a data-l10n-name="app-link">Get Thunderbird on Google Play&lt;/a><br>Export to Thunderbird mobile<br>Select accounts to export: |
 | Not seeing all your accounts? Some accounts may be disabled because they are not supported by Thunderbird for Android. &lt;a data-l10n-name="account-support-link">Support&lt;/a><br>Select which accounts to export: | Missing an account? Accounts that are not supported on Thunderbird for Android cannot be selected. &lt;a data-l10n-name="account-support-link">Learn which account types are supported&lt;/a> |
 | Include all accounts passwords<br>Some of your accounts use an authentication method that may require re-authentication on your mobile device. You may need to enter your passwords again during this process.<br>By scanning the following QR codes, your account settings—including your email and password—will be transferred securely. We do not collect, store, or share any of this data during the process. The transfer occurs directly between your devices.<br>For your security, please ensure you are in a private setting and only scan QR codes from trusted sources. | Include account passwords in the QR code<br>&lt;strong>Private transfer:&lt;/strong> Your settings and passwords move directly from this computer to your phone. Nothing is sent to or stored on Mozilla servers.<br>&lt;strong>Tip:&lt;/strong> Keep your screen hidden from others while the QR code is displayed. |
-| Spam Settings<br>Do not automatically mark mail as spam if the sender is in:<br>Enable adaptive spam controls for this account<br>If enabled, you must first train Thunderbird to identify spam by using the Spam toolbar button to mark messages as spam or not. You need to identify both spam and non spam messages. After that Thunderbird will be able to mark spam automatically. | Manage spam<br>Turn on automatic spam detection for this account<br>Trust email addresses in these address books: |
-| Global Spam Settings… | Global spam settings… |
-| Destination and Retention | — |
 | Move it to my “Sent” folder | Read receipts<br>Leave in Inbox<br>Move to Sent folder<br>If not listed in To or CC field:<br>When a sender requests a return receipt:<br>Always request a return receipt when sending emails<br>If sender is outside company or domain: |
-| Username: | — |
-| Notify on new Mail | — |
-| Proxy Settings: | — |
-| 300 | — |
-| Show newsgroup names in the Mail Folder pane as: | — |
-| Abbreviate names (For example, 'n.p.m.mail-news') | — |
-| Full names (For example, 'netscape.public.mozilla.mail-news') | — |
-| Set Personal Key… | — |
-| Personal key for encryption and digital signing: | — |
-| Digital Signing | — |
-| Thunderbird Settings | — |
-| The attachment ‘{ $name }’ you are opening appears to be an OpenPGP key file. Click ‘Import’ to import the keys contained or ‘View’ to view the file contents in a browser window | — |
-| — | The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains? |
-| — | &Open… |
-| — | &Save |
-| &View | — |
-| — | Version |
-| — | Generate PQC Encryption Subkey |
-| — | The key, or subordinate parts of the key, could not be unlocked. |
-| — | Generate an encryption subkey using post-quantum cryptography (PQC)? Generation may take several minutes. |
-| — | The PQC encryption subkey could not be generated. |
-| Selection | — |
-| — | Detecting spam |
-| — | Storage and deletion |
-| — | When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam. |
 | — | Show a reminder for missing attachments if the email contains matching keywords. |
 | Example: .mozilla.org, .net.nz, 192.168.1.0/24 | Examples: .mozilla.org, .net.nz, 192.168.1.0/24 |
 | — | Main font style: |
@@ -167,6 +139,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Cards View Options | — |
 | — | App badges and notifications |
 | — | Always check to see if Thunderbird is the default email app when opened |
+| Choose… | — |
 | — | When Thunderbird is closed, move it to the tray |
 | Allow Thunderbird to send backlogged crash reports on your behalf | — |
 | — | &lt;strong>Data sharing is turned off.&lt;/strong> Past usage data will be permanently deleted from { -vendor-short-name } servers within 30 days. |
@@ -177,10 +150,12 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | — | (Includes basic technical info like your operating system, memory usage, and feature activity. Thunderbird never collects email content, contacts, or personal messages.) |
 | — | Share anonymous performance data with { -vendor-short-name } |
 | Automatic | — |
+| Addressing | — |
 | Customize… | — |
 | Ascending | — |
 | Descending | — |
 | — | Only show display name for contacts saved in the address book |
+| Advanced… | — |
 | — | Email notifications |
 | Indexing | — |
 | Inline | — |

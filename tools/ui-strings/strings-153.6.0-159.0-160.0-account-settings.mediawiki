@@ -1,0 +1,115 @@
+Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and Beta 160.0, in en-US. — means the text does not exist in that version. A cell with several lines lists all the texts that changed together for one setting. Made by tools/ui-strings/l10n_tables.py (sumo-linter #19).
+
+{| class="wikitable sortable"
+! ESR 153.6.0 !! Release 159.0 !! Beta 160.0
+|-
+| Allow immediate server notifications when new messages arrive || Allow immediate server notifications when new messages arrive || —
+|-
+| Security Settings || Security Settings || —
+|-
+| When I delete a message:<br />Check for new messages at startup<br />Remove it immediately<br />Just mark it as deleted || When I delete a message:<br />Check for new messages at startup<br />Remove it immediately<br />Just mark it as deleted || —
+|-
+| When sending messages, automatically:<br />Leave the address field blank to always show the address row when starting a new message. || When sending messages, automatically:<br />Leave the address field blank to always show the address row when starting a new message. || Other folder:<br />Note: Checking these boxes adds automatic Cc/Bcc rows when composing new messages.<br />Sent folder on:<br />Other folder
+|-
+| Message Archives || Message Archives || Archives folder on:<br />Message archives
+|-
+| Show confirmation dialog when messages are saved<br />Drafts and Templates || Show confirmation dialog when messages are saved<br />Drafts and Templates || Show a confirmation when messages are saved<br />Drafts and templates<br />Drafts folder on:<br />Templates folder on:
+|-
+| Compose messages in HTML format || Compose messages in HTML format || —
+|-
+| When looking up addresses:<br />Use a different LDAP server:<br />Use my global LDAP server preferences for this account || When looking up addresses:<br />Use a different LDAP server:<br />Use my global LDAP server preferences for this account || —
+|-
+| Spam Settings<br />Do not automatically mark mail as spam if the sender is in:<br />Enable adaptive spam controls for this account<br />If enabled, you must first train Thunderbird to identify spam by using the Spam toolbar button to mark messages as spam or not. You need to identify both spam and non spam messages. After that Thunderbird will be able to mark spam automatically. || Manage spam<br />Turn on automatic spam detection for this account<br />Trust email addresses in these address books: || Manage spam<br />Turn on automatic spam detection for this account<br />Trust email addresses in these address books:
+|-
+| Global Spam Settings… || Global spam settings… || Global spam settings…
+|-
+| Destination and Retention || — || —
+|-
+| Keep messages in all folders for this account on this computer<br />Note: Changing this affects all folders in this account. To set individual folders, use the Advanced… button.<br />Message Synchronizing || Keep messages in all folders for this account on this computer<br />Note: Changing this affects all folders in this account. To set individual folders, use the Advanced… button.<br />Message Synchronizing || —
+|-
+| Don't download messages larger than<br />To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. || Don't download messages larger than<br />To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. || —
+|-
+| Preferred encryption technology:<br />Default settings for sending messages<br />Attach my public key when adding an OpenPGP digital signature<br />Send OpenPGP public key(s) in the email headers for compatibility with Autocrypt<br />Disable encryption for new messages<br />You will be able to disable encryption for individual messages.<br />Enable encryption for new messages<br />Store draft messages in encrypted format<br />Encrypt the subject of OpenPGP messages<br />Sign unencrypted messages<br />A digital signature allows recipients to verify that the message was sent by you and its content was not changed. Encrypted messages are always signed by default. || Preferred encryption technology:<br />Default settings for sending messages<br />Attach my public key when adding an OpenPGP digital signature<br />Send OpenPGP public key(s) in the email headers for compatibility with Autocrypt<br />Disable encryption for new messages<br />You will be able to disable encryption for individual messages.<br />Enable encryption for new messages<br />Store draft messages in encrypted format<br />Encrypt the subject of OpenPGP messages<br />Sign unencrypted messages<br />A digital signature allows recipients to verify that the message was sent by you and its content was not changed. Encrypted messages are always signed by default. || Advanced encryption settings<br />Do not encrypt new messages by default<br />Encrypt new messages by default<br />Preferred encryption technology<br />Digitally sign unencrypted messages<br />Default message encryption
+|-
+| Addressing || Addressing || —
+|-
+| Composition || Composition || —
+|-
+| &quot;Archives&quot; Folder on: || &quot;Archives&quot; Folder on: || —
+|-
+| &quot;Drafts&quot; Folder on: || &quot;Drafts&quot; Folder on: || —
+|-
+| &quot;Sent&quot; Folder on: || &quot;Sent&quot; Folder on: || —
+|-
+| &quot;Templates&quot; Folder on: || &quot;Templates&quot; Folder on: || —
+|-
+| Username: || — || —
+|-
+| Notify on new Mail || — || —
+|-
+| Proxy Settings: || — || —
+|-
+| Change… || — || —
+|-
+| 300 || — || —
+|-
+| Advanced… || Advanced… || —
+|-
+| Show newsgroup names in the Mail Folder pane as: || — || —
+|-
+| Abbreviate names (For example, 'n.p.m.mail-news') || — || —
+|-
+| Full names (For example, 'netscape.public.mozilla.mail-news') || — || —
+|-
+| Clean up (&quot;Expunge&quot;) Inbox on Exit || Clean up (&quot;Expunge&quot;) Inbox on Exit || —
+|-
+| Set Personal Key… || — || —
+|-
+| Personal key for encryption and digital signing: || — || —
+|-
+| Digital Signing || — || —
+|-
+| Thunderbird Settings || — || —
+|-
+| — || — || Attach the public key for this identity when digitally signing messages
+|-
+| — || — || Encrypt message subject line
+|-
+| — || — || Encryption can be turned off for individual messages while writing emails.
+|-
+| — || — || Include this account’s public key in message headers (for Autocrypt compatibility)
+|-
+| — || — || Proves to recipients that the message came from you and was not altered in transit. Encrypted messages are signed by default.
+|-
+| The attachment ‘{ $name }’ you are opening appears to be an OpenPGP key file. Click ‘Import’ to import the keys contained or ‘View’ to view the file contents in a browser window || — || —
+|-
+| — || The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains? || The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains?
+|-
+| — || &Open… || &Open…
+|-
+| — || &Save || &Save
+|-
+| &View || — || —
+|-
+| — || Version || Version
+|-
+| — || Generate PQC Encryption Subkey || Generate PQC Encryption Subkey
+|-
+| — || The key, or subordinate parts of the key, could not be unlocked. || The key, or subordinate parts of the key, could not be unlocked.
+|-
+| — || Generate an encryption subkey using post-quantum cryptography (PQC)? Generation may take several minutes. || Generate an encryption subkey using post-quantum cryptography (PQC)? Generation may take several minutes.
+|-
+| — || The PQC encryption subkey could not be generated. || The PQC encryption subkey could not be generated.
+|-
+| — || — || Choose where to save copies of sent messages, and set up automatic Cc/Bcc rules
+|-
+| — || — || Copies and folders
+|-
+| Selection || — || —
+|-
+| — || Detecting spam || Detecting spam
+|-
+| — || Storage and deletion || Storage and deletion
+|-
+| — || When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam. || When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam.
+|}

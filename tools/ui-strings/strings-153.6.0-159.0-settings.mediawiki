@@ -1,4 +1,4 @@
-Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0 and Release 159.0, in en-US. — means the text does not exist in that version. A cell with several lines lists all the texts that changed together for one setting. Made by tools/ui-strings/l10n_tables.py (sumo-linter #19).
+Settings texts that changed between Thunderbird ESR 153.6.0 and Release 159.0, in en-US. — means the text does not exist in that version. A cell with several lines lists all the texts that changed together for one setting. Made by tools/ui-strings/l10n_tables.py (sumo-linter #19).
 
 {| class="wikitable sortable"
 ! ESR 153.6.0 !! Release 159.0
@@ -55,7 +55,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 |-
 | Experimental feature based on Gloda, use it at your own risk<br />Enable conversation view || This is an early preview feature. It groups related messages together, but it might not always work as expected.<br />Show conversation view
 |-
-| If I’m not in the To or Cc of the message: || —
+| Leave it in my Inbox<br />If I’m not in the To or Cc of the message:<br />When I receive a request for a return receipt:<br />Return Receipts<br />When sending messages, always request a return receipt<br />If the sender is outside my domain: || —
 |-
 | Enable dark message mode<br />Force the message body to follow dark themes<br />Message reader style || Use dark mode for message text<br />Message appearance<br />Applies a dark background to all incoming messages, even if the sender formatted them in light colors.
 |-
@@ -81,7 +81,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 |-
 | Clear cache on shutdown || Clear temporary files when Thunderbird closes
 |-
-| Clear Now || Clear temporary files<br />Temporary storage
+| Clear Now<br />Disk Space || Clear temporary files<br />Temporary storage
 |-
 | Override automatic cache management || Manually set storage limits for temporary files
 |-
@@ -95,11 +95,11 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 |-
 | — || Show search results as a plain list
 |-
-| Config Editor… || —
+| Config Editor… || Advanced settings
 |-
 | Define the color used for primary buttons and highlighted elements: || Select color for primary button and highlights
 |-
-| Use hardware acceleration when available<br />Message Store Type for new accounts: || Use graphics acceleration for smoother scrolling and performance<br />Single file per folder (mbox)<br />Storage format for new accounts:
+| Use hardware acceleration when available<br />File per folder (mbox)<br />Message Store Type for new accounts: || Use graphics acceleration for smoother scrolling and performance<br />Single file per folder (mbox)<br />Storage format for new accounts:
 |-
 | Auto hide tab bar<br />Hide system window titlebar || Automatically hides tabs until you open a second tab.<br />Removes the top bar showing the window name to save screen space<br />Hide title bar
 |-
@@ -151,7 +151,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 |-
 | — || Where new contacts are saved from emails.<br />Save manually added contacts to:
 |-
-| — || Manage directories…
+| Edit Directories… || Manage directories…
 |-
 | Default startup directory in the address book window: || Show directory in the address book window when opening Thunderbird
 |-
@@ -231,63 +231,7 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 |-
 | Include all accounts passwords<br />Some of your accounts use an authentication method that may require re-authentication on your mobile device. You may need to enter your passwords again during this process.<br />By scanning the following QR codes, your account settings—including your email and password—will be transferred securely. We do not collect, store, or share any of this data during the process. The transfer occurs directly between your devices.<br />For your security, please ensure you are in a private setting and only scan QR codes from trusted sources. || Include account passwords in the QR code<br />&lt;strong>Private transfer:&lt;/strong> Your settings and passwords move directly from this computer to your phone. Nothing is sent to or stored on Mozilla servers.<br />&lt;strong>Tip:&lt;/strong> Keep your screen hidden from others while the QR code is displayed.
 |-
-| Spam Settings<br />Do not automatically mark mail as spam if the sender is in:<br />Enable adaptive spam controls for this account<br />If enabled, you must first train Thunderbird to identify spam by using the Spam toolbar button to mark messages as spam or not. You need to identify both spam and non spam messages. After that Thunderbird will be able to mark spam automatically. || Manage spam<br />Turn on automatic spam detection for this account<br />Trust email addresses in these address books:
-|-
-| Global Spam Settings… || Global spam settings…
-|-
-| Destination and Retention || —
-|-
 | Move it to my “Sent” folder || Read receipts<br />Leave in Inbox<br />Move to Sent folder<br />If not listed in To or CC field:<br />When a sender requests a return receipt:<br />Always request a return receipt when sending emails<br />If sender is outside company or domain:
-|-
-| Username: || —
-|-
-| Notify on new Mail || —
-|-
-| Proxy Settings: || —
-|-
-| 300 || —
-|-
-| Show newsgroup names in the Mail Folder pane as: || —
-|-
-| Abbreviate names (For example, 'n.p.m.mail-news') || —
-|-
-| Full names (For example, 'netscape.public.mozilla.mail-news') || —
-|-
-| Set Personal Key… || —
-|-
-| Personal key for encryption and digital signing: || —
-|-
-| Digital Signing || —
-|-
-| Thunderbird Settings || —
-|-
-| The attachment ‘{ $name }’ you are opening appears to be an OpenPGP key file. Click ‘Import’ to import the keys contained or ‘View’ to view the file contents in a browser window || —
-|-
-| — || The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains?
-|-
-| — || &Open…
-|-
-| — || &Save
-|-
-| &View || —
-|-
-| — || Version
-|-
-| — || Generate PQC Encryption Subkey
-|-
-| — || The key, or subordinate parts of the key, could not be unlocked.
-|-
-| — || Generate an encryption subkey using post-quantum cryptography (PQC)? Generation may take several minutes.
-|-
-| — || The PQC encryption subkey could not be generated.
-|-
-| Selection || —
-|-
-| — || Detecting spam
-|-
-| — || Storage and deletion
-|-
-| — || When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam.
 |-
 | — || Show a reminder for missing attachments if the email contains matching keywords.
 |-
@@ -333,6 +277,8 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 |-
 | — || Always check to see if Thunderbird is the default email app when opened
 |-
+| Choose… || —
+|-
 | — || When Thunderbird is closed, move it to the tray
 |-
 | Allow Thunderbird to send backlogged crash reports on your behalf || —
@@ -353,6 +299,8 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 |-
 | Automatic || —
 |-
+| Addressing || —
+|-
 | Customize… || —
 |-
 | Ascending || —
@@ -360,6 +308,8 @@ Settings and Account Settings texts that changed between Thunderbird ESR 153.6.0
 | Descending || —
 |-
 | — || Only show display name for contacts saved in the address book
+|-
+| Advanced… || —
 |-
 | — || Email notifications
 |-

@@ -239,36 +239,6 @@ Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and B
 |-
 | 160 || %S links || ''same as 153'' || style="background:#fff3c4" | —
 |-
-| 160 || Add %S || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || Are you sure you want to remove the account "%S"? || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || What's up? || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || I'm trying Thunderbird! ;-) || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || Your cache is currently using %1$S %2$S of disk space || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || Application locale: %S || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || %S file || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || Default (%S) || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || Preview in %S || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || Regional settings locale: %S || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || %1$S %2$S || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || (%1$S: %2$S) || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || (%1$S) || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || Use %S || ''same as 153'' || style="background:#fff3c4" | —
-|-
-| 160 || Use %S (default) || ''same as 153'' || style="background:#fff3c4" | —
-|-
 | 160 || — || — || style="background:#fff3c4" | The following applications can be used to handle { $description } content.
 |-
 | 160 || — || — || style="background:#fff3c4" | The following applications can be used to handle { $description } links.
@@ -299,8 +269,6 @@ Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and B
 |-
 | 159 || Online || style="background:#fff3c4" | — || —
 |-
-| 160 || — || — || style="background:#fff3c4" | Your cache is currently using { $size } { $unit } of disk space
-|-
 | 159 || — || style="background:#fff3c4" | Add file type to attached messages || ''same as 159''
 |-
 | 159 || Show an alert || style="background:#fff3c4" | — || —
@@ -309,18 +277,6 @@ Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and B
 |-
 | 159 || View Style: || style="background:#fff3c4" | — || —
 |-
-| 160 || — || — || style="background:#fff3c4" | { $extension } file
-|-
-| 160 || — || — || style="background:#fff3c4" | Preview in Thunderbird
-|-
-| 160 || — || — || style="background:#fff3c4" | ({ $type-description }: { $type })
-|-
-| 160 || — || — || style="background:#fff3c4" | Use { $appName }
-|-
-| 160 || — || — || style="background:#fff3c4" | Use { $appName } (default)
-|-
-| 160 || — || — || style="background:#fff3c4" | { $appName }
-|-
 | 159 || Keywords… || style="background:#fff3c4" | — || —
 |-
 | 159 || Bold Italic || style="background:#fff3c4" | Bold '''italic''' || ''same as 159''
@@ -328,10 +284,6 @@ Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and B
 | 159 || Cards View Options || style="background:#fff3c4" | — || —
 |-
 | 159 || — || style="background:#fff3c4" | App badges and notifications || ''same as 159''
-|-
-| 160 || — || — || style="background:#fff3c4" | What’s up?
-|-
-| 160 || — || — || style="background:#fff3c4" | I’m trying Thunderbird! ;-)
 |-
 | 159 || — || style="background:#fff3c4" | Always check to see if Thunderbird is the default email app when opened || ''same as 159''
 |-
@@ -361,19 +313,11 @@ Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and B
 |-
 | 159 || Customize… || style="background:#fff3c4" | — || —
 |-
-| 160 || — || — || style="background:#fff3c4" | Application locale: { $localeName }
-|-
-| 160 || — || — || style="background:#fff3c4" | Regional settings locale: { $localeName }
-|-
 | 159 || Ascending || style="background:#fff3c4" | — || —
 |-
 | 159 || Descending || style="background:#fff3c4" | — || —
 |-
 | 159 || — || style="background:#fff3c4" | Only show display name for contacts saved in the address book || ''same as 159''
-|-
-| 160 || — || — || style="background:#fff3c4" | Add { $providerName }
-|-
-| 160 || — || — || style="background:#fff3c4" | Are you sure you want to remove the account "{ $accountName }"?
 |-
 | 159 || Advanced… || style="background:#fff3c4" | — || —
 |-

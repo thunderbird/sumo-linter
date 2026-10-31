@@ -24,15 +24,17 @@ The counts come from the 3-column localizer tables in `tools/ui-strings/`:
 
 | Table | Changed in 159 | Changed in 160 | Changed in both |
 |---|---|---|---|
-| Settings | 170 rows | 33 rows | 1 row |
-| Account Settings | 45 rows | 34 rows | 0 rows |
+| Settings | 170 rows | 5 rows | 1 row |
+| Account Settings | 44 rows | 34 rows | 0 rows |
 
 Read these counts with two limits:
 
-- Most of the 33 Settings rows marked 160 are not visible changes. Thunderbird moved those
-  strings from `.properties` files to Fluent, and only the placeholder syntax or the apostrophe
-  style changed. sumo-linter #24 proposes to leave such rows out.
-- Many of the 45 Account Settings rows marked 159 are strings that 159 removed, for example
+- Format-only changes are not counted (sumo-linter #24). In 160, Thunderbird moved many
+  Settings strings from `.properties` files to Fluent, and only the placeholder syntax or the
+  apostrophe style changed. Before #24, the table showed 33 Settings rows marked 160. Of the
+  remaining rows, 4 are one restructured string about the applications that handle a file type:
+  a reader sees the same text, but no general rule can detect that.
+- Many of the 44 Account Settings rows marked 159 are strings that 159 removed, for example
   "Notify on new Mail" or "Proxy Settings:". Nobody checked whether 153 still showed them, so
   some can be old strings that no page used.
 

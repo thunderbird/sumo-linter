@@ -30,7 +30,6 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159
 | 159 | Notify on new Mail | — | — |
 | 159 | Proxy Settings: | — | — |
 | 159 | Change… | — | — |
-| 159 | 300 | — | — |
 | 159 | Show newsgroup names in the Mail Folder pane as: | — | — |
 | 159 | Abbreviate names (For example, 'n.p.m.mail-news') | — | — |
 | 159 | Full names (For example, 'netscape.public.mozilla.mail-news') | — | — |

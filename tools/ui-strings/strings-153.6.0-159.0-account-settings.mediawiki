@@ -17,8 +17,6 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0 and Release 
 |-
 | Change… || style="background:#fff3c4" | —
 |-
-| 300 || style="background:#fff3c4" | —
-|-
 | Show newsgroup names in the Mail Folder pane as: || style="background:#fff3c4" | —
 |-
 | Abbreviate names (For example, 'n.p.m.mail-news') || style="background:#fff3c4" | —

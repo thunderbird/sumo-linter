@@ -120,21 +120,6 @@ Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and B
 | 160 | The following applications can be used to handle %S. | *same as 153* | — |
 | 160 | %S content | *same as 153* | — |
 | 160 | %S links | *same as 153* | — |
-| 160 | Add %S | *same as 153* | — |
-| 160 | Are you sure you want to remove the account "%S"? | *same as 153* | — |
-| 160 | What's up? | *same as 153* | — |
-| 160 | I'm trying Thunderbird! ;-) | *same as 153* | — |
-| 160 | Your cache is currently using %1$S %2$S of disk space | *same as 153* | — |
-| 160 | Application locale: %S | *same as 153* | — |
-| 160 | %S file | *same as 153* | — |
-| 160 | Default (%S) | *same as 153* | — |
-| 160 | Preview in %S | *same as 153* | — |
-| 160 | Regional settings locale: %S | *same as 153* | — |
-| 160 | %1$S %2$S | *same as 153* | — |
-| 160 | (%1$S: %2$S) | *same as 153* | — |
-| 160 | (%1$S) | *same as 153* | — |
-| 160 | Use %S | *same as 153* | — |
-| 160 | Use %S (default) | *same as 153* | — |
 | 160 | — | — | The following applications can be used to handle { $description } content. |
 | 160 | — | — | The following applications can be used to handle { $description } links. |
 | 159 | — | Show a reminder for missing attachments if the email contains matching keywords. | *same as 159* |
@@ -150,23 +135,14 @@ Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and B
 | 159 | — | Send messages waiting in your Outbox | *same as 159* |
 | 159 | Offline | — | — |
 | 159 | Online | — | — |
-| 160 | — | — | Your cache is currently using { $size } { $unit } of disk space |
 | 159 | — | Add file type to attached messages | *same as 159* |
 | 159 | Show an alert | — | — |
 | 159 | Cards view | — | — |
 | 159 | View Style: | — | — |
-| 160 | — | — | { $extension } file |
-| 160 | — | — | Preview in Thunderbird |
-| 160 | — | — | ({ $type-description }: { $type }) |
-| 160 | — | — | Use { $appName } |
-| 160 | — | — | Use { $appName } (default) |
-| 160 | — | — | { $appName } |
 | 159 | Keywords… | — | — |
 | 159 | Bold Italic | Bold **italic** | *same as 159* |
 | 159 | Cards View Options | — | — |
 | 159 | — | App badges and notifications | *same as 159* |
-| 160 | — | — | What’s up? |
-| 160 | — | — | I’m trying Thunderbird! ;-) |
 | 159 | — | Always check to see if Thunderbird is the default email app when opened | *same as 159* |
 | 159 | Choose… | — | — |
 | 159 | — | When Thunderbird is closed, move it to the tray | *same as 159* |
@@ -181,13 +157,9 @@ Settings texts that changed between Thunderbird ESR 153.6.0, Release 159.0 and B
 | 159 | Automatic | — | — |
 | 159 | Addressing | — | — |
 | 159 | Customize… | — | — |
-| 160 | — | — | Application locale: { $localeName } |
-| 160 | — | — | Regional settings locale: { $localeName } |
 | 159 | Ascending | — | — |
 | 159 | Descending | — | — |
 | 159 | — | Only show display name for contacts saved in the address book | *same as 159* |
-| 160 | — | — | Add { $providerName } |
-| 160 | — | — | Are you sure you want to remove the account "{ $accountName }"? |
 | 159 | Advanced… | — | — |
 | 159 | — | Email notifications | *same as 159* |
 | 159 | Indexing | — | — |

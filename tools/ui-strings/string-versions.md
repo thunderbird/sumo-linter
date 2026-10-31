@@ -1,8 +1,8 @@
 Settings and Account Settings strings in Thunderbird 153.6.0, 159.0, 160.0, compared by string ID and mapped to the records of tb-desktop-settings-account-settings-changes-158-and-newer.csv. Made by tools/ui-strings/compare.py (sumo-linter #18). A record number counts CSV rows after the header, from 1.
 
-## 1. Changed strings (738)
+## 1. Changed strings (566)
 
-Every string ID whose text differs between the versions, or that exists in only some of them. — means the ID does not exist in that version. Rows that match a CSV record come first.
+Every string ID whose text differs between the versions, or that exists in only some of them. — means the ID does not exist in that version. A string is left out if its visible text exists in every version, ignoring placeholder syntax and quote style, or if it has no words. Rows that match a CSV record come first.
 
 | CSV record | String ID | 153.6.0 | 159.0 | 160.0 | File |
 |---|---|---|---|---|---|
@@ -79,12 +79,6 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #52 Settings > General > Reading & display > Conversation view (experimental) | conversation-view-checkbox-label.label | Enable conversation view | — | — | messenger/preferences/preferences.ftl |
 | #52 Settings > General > Reading & display > Conversation view (experimental) | conversation-view-preview-description | — | This is an early preview feature. It groups related messages together, but it might not always work as expected. | This is an early preview feature. It groups related messages together, but it might not always work as expected. | messenger/preferences/preferences.ftl |
 | #52 Settings > General > Reading & display > Conversation view (experimental) | show-conversation-view-label.label | — | Show conversation view | Show conversation view | messenger/preferences/preferences.ftl |
-| #53 Settings > General > Reading & display > Return receipts<br>#240 Settings > Privacy & Security > Security > Return Receipts | receipt-leave-radio-control.label | Leave it in my Inbox | — | — | messenger/preferences/receipts.ftl |
-| #53 Settings > General > Reading & display > Return receipts<br>#240 Settings > Privacy & Security > Security > Return Receipts | receipt-not-to-cc-label.value | If I’m not in the To or Cc of the message: | — | — | messenger/preferences/receipts.ftl |
-| #53 Settings > General > Reading & display > Return receipts<br>#240 Settings > Privacy & Security > Security > Return Receipts | receipt-request-label | When I receive a request for a return receipt: | — | — | messenger/preferences/receipts.ftl |
-| #53 Settings > General > Reading & display > Return receipts<br>#240 Settings > Privacy & Security > Security > Return Receipts | receipts-dialog-title | Return Receipts | — | — | messenger/preferences/receipts.ftl |
-| #53 Settings > General > Reading & display > Return receipts<br>#240 Settings > Privacy & Security > Security > Return Receipts | return-receipt-checkbox-control.label | When sending messages, always request a return receipt | — | — | messenger/preferences/receipts.ftl |
-| #53 Settings > General > Reading & display > Return receipts<br>#240 Settings > Privacy & Security > Security > Return Receipts | sender-outside-domain-label.value | If the sender is outside my domain: | — | — | messenger/preferences/receipts.ftl |
 | #54 Settings > General > Reading & display > Dark message mode | dark-message-mode-checkbox-label.label | Enable dark message mode | — | — | messenger/preferences/preferences.ftl |
 | #54 Settings > General > Reading & display > Dark message mode | dark-message-mode-description | Force the message body to follow dark themes | — | — | messenger/preferences/preferences.ftl |
 | #54 Settings > General > Reading & display > Dark message mode | dark-message-mode-legend | Message reader style | — | — | messenger/preferences/preferences.ftl |
@@ -111,9 +105,7 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #63 Settings > General > Updates > Background update | check-updates-label.label | Check for updates, but let me choose whether to install them | — | — | messenger/preferences/preferences.ftl |
 | #63 Settings > General > Updates > Background update | check-updates-ask-label.label | — | Check for updates, but ask before installing | Check for updates, but ask before installing | messenger/preferences/preferences.ftl |
 | #64 Settings > General > Network & disk space > Offline settings | autodetect-online-label.label | Automatically follow detected online state | — | — | messenger/preferences/offline.ftl |
-| #64 Settings > General > Network & disk space > Offline settings<br>#240 Settings > Privacy & Security > Security > Return Receipts | going-offline-ask.label | Ask me | — | — | messenger/preferences/offline.ftl |
 | #64 Settings > General > Network & disk space > Offline settings | going-offline-label | Download messages for offline use when going offline? | — | — | messenger/preferences/offline.ftl |
-| #64 Settings > General > Network & disk space > Offline settings<br>#240 Settings > Privacy & Security > Security > Return Receipts | going-online-ask.label | Ask me | — | — | messenger/preferences/offline.ftl |
 | #64 Settings > General > Network & disk space > Offline settings | going-online-label | Send unsent messages when going online? | — | — | messenger/preferences/offline.ftl |
 | #64 Settings > General > Network & disk space > Offline settings | offline-dialog-title | Offline Settings | Offline settings | Offline settings | messenger/preferences/offline.ftl |
 | #64 Settings > General > Network & disk space > Offline settings | offline-preference-startup-label | Manual state when starting up: | — | — | messenger/preferences/offline.ftl |
@@ -161,9 +153,7 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #65 Settings > General > Network & disk space > Connection settings | general-network-and-storage-header | — | Network and storage | Network and storage | messenger/preferences/preferences.ftl |
 | #66 Settings > General > Network & disk space > Clear cache on shutdown | clear-cache-shutdown-label.label | Clear cache on shutdown | — | — | messenger/preferences/preferences.ftl |
 | #66 Settings > General > Network & disk space > Clear cache on shutdown | clear-temp-files-shutdown-label.label | — | Clear temporary files when Thunderbird closes | Clear temporary files when Thunderbird closes | messenger/preferences/preferences.ftl |
-| #67 Settings > General > Network & disk space > Cache size + clear<br>#238 Settings > Sync > Network & disk space > Disk space | diskspaceGroupTitle.label | Disk Space | Disk Space | — | messenger/am-offline.dtd |
 | #67 Settings > General > Network & disk space > Cache size + clear | clear-cache-button.label | Clear Now | — | — | messenger/preferences/preferences.ftl |
-| #67 Settings > General > Network & disk space > Cache size + clear<br>#238 Settings > Sync > Network & disk space > Disk space | diskspace-legend | Disk Space | — | — | messenger/preferences/preferences.ftl |
 | #67 Settings > General > Network & disk space > Cache size + clear | clear-temp-files-button.label | — | Clear temporary files | Clear temporary files | messenger/preferences/preferences.ftl |
 | #67 Settings > General > Network & disk space > Cache size + clear | temporary-storage-legend | — | Temporary storage | Temporary storage | messenger/preferences/preferences.ftl |
 | #68 Settings > General > Network & disk space > Smart cache sizing | smart-cache-label.label | Override automatic cache management | — | — | messenger/preferences/preferences.ftl |
@@ -177,22 +167,17 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #73 Settings > General > Network & disk space > Global indexing | enable-global-search-label.label | — | Turn on search across all email accounts | Turn on search across all email accounts | messenger/preferences/preferences.ftl |
 | #73 Settings > General > Network & disk space > Global indexing | general-search-performance-label | — | Search & performance | Search & performance | messenger/preferences/preferences.ftl |
 | #74 Settings > General > Network & disk space > Message store type | gloda-results-plain-list-label.label | — | Show search results as a plain list | Show search results as a plain list | messenger/preferences/preferences.ftl |
-| #75 Settings > General > Network & disk space > Config editor<br>#242 Settings > Send > Send format > Default setting for sending messages | e2e-advanced-section | Advanced settings | Advanced settings | — | messenger/openpgp/openpgp.ftl |
 | #75 Settings > General > Network & disk space > Config editor | config-editor-button.label | Config Editor… | — | — | messenger/preferences/preferences.ftl |
-| #75 Settings > General > Network & disk space > Config editor<br>#242 Settings > Send > Send format > Default setting for sending messages | advanced-settings-button.label | — | Advanced settings | Advanced settings | messenger/preferences/preferences.ftl |
 | #76 Settings > Appearance > Accent color | accent-color-label.value | Define the color used for primary buttons and highlighted elements: | — | — | messenger/preferences/preferences.ftl |
 | #76 Settings > Appearance > Accent color | accent-color-selection-label.value | — | Select color for primary button and highlights | Select color for primary button and highlights | messenger/preferences/preferences.ftl |
 | #77 Settings > General > Network & disk space > Hardware acceleration | allow-hw-accel.label | Use hardware acceleration when available | — | — | messenger/preferences/preferences.ftl |
-| #77 Settings > General > Network & disk space > Hardware acceleration<br>#228 Settings > Server > storage > Message Storage | mbox-store-label.label | File per folder (mbox) | — | — | messenger/preferences/preferences.ftl |
 | #77 Settings > General > Network & disk space > Hardware acceleration | store-type-label.value | Message Store Type for new accounts: | — | — | messenger/preferences/preferences.ftl |
 | #77 Settings > General > Network & disk space > Hardware acceleration | allow-graphics-accel.label | — | Use graphics acceleration for smoother scrolling and performance | Use graphics acceleration for smoother scrolling and performance | messenger/preferences/preferences.ftl |
 | #77 Settings > General > Network & disk space > Hardware acceleration | mbox-store-single-label.label | — | Single file per folder (mbox) | Single file per folder (mbox) | messenger/preferences/preferences.ftl |
 | #77 Settings > General > Network & disk space > Hardware acceleration | storage-format-label.value | — | Storage format for new accounts: | Storage format for new accounts: | messenger/preferences/preferences.ftl |
-| #78 Settings > Appearance > Auto-hide tab bar | auto-hide-tabbar-description | Hide the tab bar when only a single tab is open | — | — | messenger/preferences/preferences.ftl |
 | #78 Settings > Appearance > Auto-hide tab bar | auto-hide-tabbar-label.label | Auto hide tab bar | — | — | messenger/preferences/preferences.ftl |
 | #78 Settings > Appearance > Auto-hide tab bar | draw-in-titlebar-label.label | Hide system window titlebar | — | — | messenger/preferences/preferences.ftl |
 | #78 Settings > Appearance > Auto-hide tab bar | auto-hide-tabbar-second-tab-description | — | Automatically hides tabs until you open a second tab. | Automatically hides tabs until you open a second tab. | messenger/preferences/preferences.ftl |
-| #78 Settings > Appearance > Auto-hide tab bar | hide-tabbar-single-tab-label.label | — | Hide the tab bar when only a single tab is open | Hide the tab bar when only a single tab is open | messenger/preferences/preferences.ftl |
 | #78 Settings > Appearance > Auto-hide tab bar | hide-titlebar-description | — | Removes the top bar showing the window name to save screen space | Removes the top bar showing the window name to save screen space | messenger/preferences/preferences.ftl |
 | #78 Settings > Appearance > Auto-hide tab bar | hide-titlebar-label.label | — | Hide title bar | Hide title bar | messenger/preferences/preferences.ftl |
 | #80 Settings > Appearance > Message list view style | appearance-radio-card-view.label | — | Card view | Card view | messenger/preferences/preferences.ftl |
@@ -259,7 +244,6 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #109 Settings > Composition > Addressing > Collect outgoing | collect-outgoing-label.label | — | Automatically save outgoing email addresses to: | Automatically save outgoing email addresses to: | messenger/preferences/preferences.ftl |
 | #110 Settings > Composition > Addressing > Collection address book | save-added-contacts-description | — | Where new contacts are saved from emails. | Where new contacts are saved from emails. | messenger/preferences/preferences.ftl |
 | #110 Settings > Composition > Addressing > Collection address book | save-added-contacts-label.value | — | Save manually added contacts to: | Save manually added contacts to: | messenger/preferences/preferences.ftl |
-| #111 Settings > Composition > Addressing > Edit directories | edit-directories-label.label | Edit Directories… | — | — | messenger/preferences/preferences.ftl |
 | #111 Settings > Composition > Addressing > Edit directories | manage-directories-label.label | — | Manage directories… | Manage directories… | messenger/preferences/preferences.ftl |
 | #112 Settings > Composition > Addressing > Default startup directory | default-directory-label.value | Default startup directory in the address book window: | — | — | messenger/preferences/preferences.ftl |
 | #112 Settings > Composition > Addressing > Default startup directory | show-directory-startup-label.value | — | Show directory in the address book window when opening Thunderbird | Show directory in the address book window when opening Thunderbird | messenger/preferences/preferences.ftl |
@@ -268,18 +252,12 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #116 Settings > Composition > Attachments > Reminder options | attachment-reminder-dialog-title | Attachment Reminder Keywords | Attachment reminder keywords | Attachment reminder keywords | messenger/preferences/attachment-reminder.ftl |
 | #116 Settings > Composition > Attachments > Reminder options | attachment-reminder-label | Thunderbird will warn you about missing attachments if you’re about to send an email containing one of these keywords. | — | — | messenger/preferences/attachment-reminder.ftl |
 | #116 Settings > Composition > Attachments > Reminder options | edit-keywords-label.label | — | Edit keywords… | Edit keywords… | messenger/preferences/preferences.ftl |
-| #122 Settings > Privacy & Security > Mail content > Remote content exceptions | imagepermissionstext | You can specify from which web sites images and other remote content are allowed to load. You can also allow all remote content based on sender email address. Type the address of the site or email you want to manage and then click Block or Allow. | You can specify from which web sites images and other remote content are allowed to load. You can also allow all remote content based on sender email address. Type the address of the site or email you want to manage and then click Block or Allow. | — | messenger/preferences/preferences.properties |
-| #122 Settings > Privacy & Security > Mail content > Remote content exceptions | remote-content-permissions-description | — | — | You can specify from which web sites images and other remote content are allowed to load. You can also allow all remote content based on sender email address. Type the address of the site or email you want to manage and then click Block or Allow. | messenger/preferences/permissions.ftl |
 | #123 Settings > Privacy & Security > Mail content > Remote content | remote-content-info.value | Learn more about the privacy issues of remote content | — | — | messenger/preferences/preferences.ftl |
 | #123 Settings > Privacy & Security > Mail content > Remote content | remote-content-label.label | Allow remote content in messages | — | — | messenger/preferences/preferences.ftl |
 | #123 Settings > Privacy & Security > Mail content > Remote content | email-content | — | Email content | Email content | messenger/preferences/preferences.ftl |
 | #123 Settings > Privacy & Security > Mail content > Remote content | remote-content-images-label.label | — | Allow remote content (images and styles) | Allow remote content (images and styles) | messenger/preferences/preferences.ftl |
 | #123 Settings > Privacy & Security > Mail content > Remote content | remote-content-privacy-link | — | How remote content affects privacy | How remote content affects privacy | messenger/preferences/preferences.ftl |
 | #124 Settings > Privacy & Security > Web content > Keep history | web-content | Web Content | Web content | Web content | messenger/preferences/preferences.ftl |
-| #126 Settings > Privacy & Security > Web content > Cookie exceptions | cookiepermissionstext | You can specify which web sites are always or never allowed to use cookies.  Type the exact address of the site you want to manage and then click Block, Allow for Session, or Allow. | You can specify which web sites are always or never allowed to use cookies.  Type the exact address of the site you want to manage and then click Block, Allow for Session, or Allow. | — | messenger/preferences/preferences.properties |
-| #126 Settings > Privacy & Security > Web content > Cookie exceptions | cookiepermissionstitle | Exceptions - Cookies | Exceptions - Cookies | — | messenger/preferences/preferences.properties |
-| #126 Settings > Privacy & Security > Web content > Cookie exceptions | cookie-permissions-description | — | — | You can specify which web sites are always or never allowed to use cookies.  Type the exact address of the site you want to manage and then click Block, Allow for Session, or Allow. | messenger/preferences/permissions.ftl |
-| #126 Settings > Privacy & Security > Web content > Cookie exceptions | cookie-permissions-title | — | — | Exceptions - Cookies | messenger/preferences/permissions.ftl |
 | #127 Settings > Privacy & Security > Web content > Third-party cookies | third-party-visited.label | From visited | — | — | messenger/preferences/preferences.ftl |
 | #127 Settings > Privacy & Security > Web content > Third-party cookies | third-party-visited-only.label | — | From visited sites only | From visited sites only | messenger/preferences/preferences.ftl |
 | #128 Settings > Privacy & Security > Web content > Show cookies | cookiesAll | The following cookies are stored on your computer: | The following cookies are stored on your computer: | — | messenger/preferences/preferences.properties |
@@ -364,8 +342,6 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #159 Settings > Privacy & Security > DNS over HTTPS > Status | preferences-doh-maximum-desc | — | Strictly requires encrypted DNS. Websites will not load if secure connection fails. | Strictly requires encrypted DNS. Websites will not load if secure connection fails. | messenger/preferences/preferences.ftl |
 | #159 Settings > Privacy & Security > DNS over HTTPS > Status | preferences-doh-off-standard-desc | — | Uses standard internet provider or network to look up web addresses | Uses standard internet provider or network to look up web addresses | messenger/preferences/preferences.ftl |
 | #159 Settings > Privacy & Security > DNS over HTTPS > Status | preferences-doh-setting-maximum.label | — | Maximum protection | Maximum protection | messenger/preferences/preferences.ftl |
-| #167 Settings > Chat > Notifications > Play sound<br>#191 Settings > Calendar > Alarms / Reminders > Play sound<br>#195 Settings > General > Alarms / Reminders > Sound type | reminder-play-checkbox.label | Play a sound | — | — | calendar/preferences.ftl |
-| #170 Settings > Chat > Notifications > Sound type<br>#195 Settings > General > Alarms / Reminders > Sound type | mail-custom-sound-label.label | Use the following sound file | — | — | messenger/preferences/preferences.ftl |
 | #179 Settings > Calendar > Views > Timezone | set-timezone-manually-radio-button.label | Set timezone manually | — | — | calendar/preferences.ftl |
 | #179 Settings > Calendar > Views > Timezone | use-system-timezone-radio-button.label | Use system timezone | — | — | calendar/preferences.ftl |
 | #179 Settings > Calendar > Views > Timezone | auto-detect-timezone-radio-button.label | — | Automatically detect timezone | Automatically detect timezone | calendar/preferences.ftl |
@@ -445,13 +421,11 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #237 Settings > Sync > Network & disk space > Message Synchronizing | account-settings-save-all-messages.label | — | — | Save copies of all folders and messages on this computer for offline use | messenger/accountSettings.ftl |
 | #238 Settings > Sync > Network & disk space > Disk space | autosyncNotDownload.label | Don't download messages larger than | Don't download messages larger than | — | messenger/am-offline.dtd |
 | #238 Settings > Sync > Network & disk space > Disk space | doNotDownloadImap.label | To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. | To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. | — | messenger/am-offline.dtd |
-| #238 Settings > Sync > Network & disk space > Disk space | retention-button.label | Retention Policy | Retention Policy | — | messenger/retention.ftl |
 | #238 Settings > Sync > Network & disk space > Disk space | account-settings-deletion-description-imap | — | — | Set rules to automatically delete old emails from both this computer and the mail server to free up space. | messenger/accountSettings.ftl |
 | #238 Settings > Sync > Network & disk space > Disk space | account-settings-download-limits | — | — | Download limits | messenger/accountSettings.ftl |
 | #238 Settings > Sync > Network & disk space > Disk space | account-settings-download-limits-description | — | — | Choose which messages to store locally on this computer: | messenger/accountSettings.ftl |
 | #238 Settings > Sync > Network & disk space > Disk space | account-settings-set-deletion-rules.label | — | — | Set deletion rules | messenger/accountSettings.ftl |
 | #238 Settings > Sync > Network & disk space > Disk space | account-settings-skip-large-messages.label | — | — | Skip downloading messages larger than: | messenger/accountSettings.ftl |
-| #240 Settings > Privacy & Security > Security > Return Receipts | receipt-move-radio-control.label | Move it to my “Sent” folder | — | — | messenger/preferences/receipts.ftl |
 | #240 Settings > Privacy & Security > Security > Return Receipts | read-receipts-dialog-title | — | Read receipts | Read receipts | messenger/preferences/receipts.ftl |
 | #240 Settings > Privacy & Security > Security > Return Receipts | receipt-leave-inbox-control.label | — | Leave in Inbox | Leave in Inbox | messenger/preferences/receipts.ftl |
 | #240 Settings > Privacy & Security > Security > Return Receipts | receipt-move-sent-control.label | — | Move to Sent folder | Move to Sent folder | messenger/preferences/receipts.ftl |
@@ -478,99 +452,29 @@ Every string ID whose text differs between the versions, or that exists in only 
 | #242 Settings > Send > Send format > Default setting for sending messages | account-settings-sign-unencrypted.label | — | — | Digitally sign unencrypted messages | messenger/openpgp/openpgp.ftl |
 | #242 Settings > Send > Send format > Default setting for sending messages | e2e-default-message-encryption | — | — | Default message encryption | messenger/openpgp/openpgp.ftl |
 |   | addressingGroupTitle.label | Addressing | Addressing | — | messenger/am-addressing.dtd |
-|   | compositionGroupTitle.label | Composition | Composition | — | messenger/am-addressing.dtd |
-|   | archiveInOtherFolder.label | Other: | Other: | — | messenger/am-copies.dtd |
 |   | archivesFolderOn.label | &quot;Archives&quot; Folder on: | &quot;Archives&quot; Folder on: | — | messenger/am-copies.dtd |
-|   | draftInOtherFolder.label | Other: | Other: | — | messenger/am-copies.dtd |
 |   | draftsFolderOn.label | &quot;Drafts&quot; Folder on: | &quot;Drafts&quot; Folder on: | — | messenger/am-copies.dtd |
 |   | sentFolderOn.label | &quot;Sent&quot; Folder on: | &quot;Sent&quot; Folder on: | — | messenger/am-copies.dtd |
-|   | sentInOtherFolder.label | Other: | Other: | — | messenger/am-copies.dtd |
-|   | templateInOtherFolder.label | Other: | Other: | — | messenger/am-copies.dtd |
 |   | templatesFolderOn.label | &quot;Templates&quot; Folder on: | &quot;Templates&quot; Folder on: | — | messenger/am-copies.dtd |
 |   | account.name | Username: | — | — | messenger/am-im.dtd |
 |   | account.newMailNotification | Notify on new Mail | — | — | messenger/am-im.dtd |
 |   | account.proxySettings.caption | Proxy Settings: | — | — | messenger/am-im.dtd |
-|   | account.proxySettings.change.label | Change… | — | — | messenger/am-im.dtd |
-|   | accountWindow.width | 300 | — | — | messenger/am-im.dtd |
-|   | edit.label | Edit… | — | — | messenger/am-main.dtd |
-|   | offlineImapAdvancedOffline.label | Advanced… | Advanced… | — | messenger/am-offline.dtd |
 |   | abbreviate.label | Show newsgroup names in the Mail Folder pane as: | — | — | messenger/am-server-top.dtd |
 |   | abbreviateOff.label | Abbreviate names (For example, 'n.p.m.mail-news') | — | — | messenger/am-server-top.dtd |
 |   | abbreviateOn.label | Full names (For example, 'netscape.public.mozilla.mail-news') | — | — | messenger/am-server-top.dtd |
-|   | advancedButton.label | Advanced… | Advanced… | — | messenger/am-server-top.dtd |
-|   | authMethod.label | Authentication method: | Authentication method: | — | messenger/am-server-top.dtd |
 |   | expungeOnExit.label | Clean up (&quot;Expunge&quot;) Inbox on Exit | Clean up (&quot;Expunge&quot;) Inbox on Exit | — | messenger/am-server-top.dtd |
 |   | openpgpKey.button | Set Personal Key… | — | — | messenger/am-smime.dtd |
 |   | openpgpKey.message | Personal key for encryption and digital signing: | — | — | messenger/am-smime.dtd |
 |   | signingGroupTitle.label | Digital Signing | — | — | messenger/am-smime.dtd |
 |   | descriptionApplications | The following applications can be used to handle %S. | The following applications can be used to handle %S. | — | messenger/preferences/applicationManager.properties |
-|   | descriptionLocalApp | This application is located at: | This application is located at: | — | messenger/preferences/applicationManager.properties |
-|   | descriptionWebApp | This web application is hosted at: | This web application is hosted at: | — | messenger/preferences/applicationManager.properties |
 |   | handleFile | %S content | %S content | — | messenger/preferences/applicationManager.properties |
 |   | handleProtocol | %S links | %S links | — | messenger/preferences/applicationManager.properties |
-|   | addProvider | Add %S | Add %S | — | messenger/preferences/applications.properties |
-|   | dialog_removeAccount | Are you sure you want to remove the account "%S"? | Are you sure you want to remove the account "%S"? | — | messenger/preferences/applications.properties |
-|   | notConfiguredYet | This account has not been configured yet | This account has not been configured yet | — | messenger/preferences/applications.properties |
-|   | buddy1 | florian@im.instantbird.org | florian@im.instantbird.org | — | messenger/preferences/messagestyle.properties |
-|   | buddy2 | patrick@im.instantbird.org | patrick@im.instantbird.org | — | messenger/preferences/messagestyle.properties |
-|   | default | Default | Default | — | messenger/preferences/messagestyle.properties |
-|   | message1 | Hi! :-) | Hi! :-) | — | messenger/preferences/messagestyle.properties |
-|   | message2 | What's up? | What's up? | — | messenger/preferences/messagestyle.properties |
-|   | message3 | I'm trying Thunderbird! ;-) | I'm trying Thunderbird! ;-) | — | messenger/preferences/messagestyle.properties |
-|   | nick1 | Florian | Florian | — | messenger/preferences/messagestyle.properties |
-|   | nick2 | Patrick | Patrick | — | messenger/preferences/messagestyle.properties |
-|   | actualDiskCacheSize | Your cache is currently using %1$S %2$S of disk space | Your cache is currently using %1$S %2$S of disk space | — | messenger/preferences/preferences.properties |
-|   | actualDiskCacheSizeCalculated | Calculating cache size… | Calculating cache size… | — | messenger/preferences/preferences.properties |
-|   | alwaysAsk | Always ask | Always ask | — | messenger/preferences/preferences.properties |
-|   | appLocale.label | Application locale: %S | Application locale: %S | — | messenger/preferences/preferences.properties |
-|   | applications-type-pdf | Portable Document Format (PDF) | Portable Document Format (PDF) | — | messenger/preferences/preferences.properties |
-|   | chooseAttachmentsFolderTitle | Choose Folder | Choose Folder | — | messenger/preferences/preferences.properties |
-|   | confirmDeleteText | Are you sure you want to delete this action? | Are you sure you want to delete this action? | — | messenger/preferences/preferences.properties |
-|   | confirmDeleteTitle | Delete Action | Delete Action | — | messenger/preferences/preferences.properties |
-|   | confirmResetJunkTrainingText | Are you sure you want to reset the adaptive filter training data? | Are you sure you want to reset the adaptive filter training data? | — | messenger/preferences/preferences.properties |
-|   | confirmResetJunkTrainingTitle | Confirm | Confirm | — | messenger/preferences/preferences.properties |
-|   | cookiesFiltered | The following cookies match your search: | The following cookies match your search: | — | messenger/preferences/preferences.properties |
-|   | defaultUserContextLabel | None | None | — | messenger/preferences/preferences.properties |
-|   | delete | Delete Action | Delete Action | — | messenger/preferences/preferences.properties |
-|   | desktopFolderName | Desktop | Desktop | — | messenger/preferences/preferences.properties |
-|   | domainColon | Domain: | Domain: | — | messenger/preferences/preferences.properties |
-|   | expireAtEndOfSession | At end of session | At end of session | — | messenger/preferences/preferences.properties |
-|   | fileEnding | %S file | %S file | — | messenger/preferences/preferences.properties |
-|   | forAnyConnection | Any type of connection | Any type of connection | — | messenger/preferences/preferences.properties |
-|   | forSecureOnly | Encrypted connections only | Encrypted connections only | — | messenger/preferences/preferences.properties |
-|   | fpTitleChooseApp | Select Helper Application | Select Helper Application | — | messenger/preferences/preferences.properties |
-|   | hostColon | Host: | Host: | — | messenger/preferences/preferences.properties |
-|   | imagepermissionstitle | Exceptions - Remote Content | Exceptions - Remote Content | — | messenger/preferences/preferences.properties |
-|   | labelDefaultFont | Default (%S) | Default (%S) | — | messenger/preferences/preferences.properties |
-|   | labelDefaultFontUnnamed | Default | Default | — | messenger/preferences/preferences.properties |
-|   | manageApp | Application Details… | Application Details… | — | messenger/preferences/preferences.properties |
-|   | myDownloadsFolderName | My Downloads | My Downloads | — | messenger/preferences/preferences.properties |
-|   | noCookieSelected | &lt;no cookie selected> | &lt;no cookie selected> | — | messenger/preferences/preferences.properties |
-|   | previewInApp | Preview in %S | Preview in %S | — | messenger/preferences/preferences.properties |
-|   | rsLocale.label | Regional settings locale: %S | Regional settings locale: %S | — | messenger/preferences/preferences.properties |
-|   | saveFile | Save File | Save File | — | messenger/preferences/preferences.properties |
-|   | soundFilePickerTitle | Choose Sound | Choose Sound | — | messenger/preferences/preferences.properties |
-|   | typeDescriptionWithDetails | %1$S %2$S | %1$S %2$S | — | messenger/preferences/preferences.properties |
-|   | typeDetailsWithTypeAndExt | (%1$S: %2$S) | (%1$S: %2$S) | — | messenger/preferences/preferences.properties |
-|   | typeDetailsWithTypeOrExt | (%1$S) | (%1$S) | — | messenger/preferences/preferences.properties |
-|   | useApp | Use %S | Use %S | — | messenger/preferences/preferences.properties |
-|   | useDefault | Use %S (default) | Use %S (default) | — | messenger/preferences/preferences.properties |
-|   | useOtherApp | Use other… | Use other… | — | messenger/preferences/preferences.properties |
 |   | open-preferences-sidebar-button2 | Thunderbird Settings | — | — | messenger/accountManager.ftl |
 |   | attachment-pgp-key | The attachment ‘{ $name }’ you are opening appears to be an OpenPGP key file. Click ‘Import’ to import the keys contained or ‘View’ to view the file contents in a browser window | — | — | messenger/openpgp/openpgp.ftl |
 |   | dlg-button-view | &View | — | — | messenger/openpgp/openpgp.ftl |
-|   | import-info-bits | Bits | — | — | messenger/openpgp/openpgp.ftl |
-|   | import-info-created | Created | — | — | messenger/openpgp/openpgp.ftl |
-|   | import-info-details | View Details and manage key acceptance | — | — | messenger/openpgp/openpgp.ftl |
-|   | import-info-dialog-title | Success! Keys imported | — | — | messenger/openpgp/openpgp.ftl |
-|   | import-info-fpr | Fingerprint | — | — | messenger/openpgp/openpgp.ftl |
-|   | import-info-no-keys | No keys imported. | — | — | messenger/openpgp/openpgp.ftl |
 |   | spam-classification-legend | Selection | — | — | messenger/preferences/am-spam.ftl |
 |   | no-proxy-example | Example: .mozilla.org, .net.nz, 192.168.1.0/24 | Examples: .mozilla.org, .net.nz, 192.168.1.0/24 | Examples: .mozilla.org, .net.nz, 192.168.1.0/24 | messenger/preferences/connection.ftl |
-|   | proxy-password-prompt.tooltiptext | This option silently authenticates you to proxies when you have saved credentials for them. You will be prompted if authentication fails. | — | — | messenger/preferences/connection.ftl |
-|   | props-domain-label.value | Host: | Host: | — | messenger/preferences/cookies.ftl |
 |   | font-sans-serif-label.value | Sans-serif: | — | — | messenger/preferences/fonts.ftl |
-|   | fonts-dialog-title | Fonts | — | — | messenger/preferences/fonts.ftl |
 |   | fonts-language-legend.value | Fonts for: | — | — | messenger/preferences/fonts.ftl |
 |   | fonts-proportional-label.value | Proportional: | — | — | messenger/preferences/fonts.ftl |
 |   | going-offline-auto.label | Yes | — | — | messenger/preferences/offline.ftl |
@@ -585,49 +489,35 @@ Every string ID whose text differs between the versions, or that exists in only 
 |   | attachment-options-label.label | Keywords… | — | — | messenger/preferences/preferences.ftl |
 |   | bold-italic-style-item.label | Bold Italic | Bold italic | Bold italic | messenger/preferences/preferences.ftl |
 |   | cards-view-legend | Cards View Options | — | — | messenger/preferences/preferences.ftl |
-|   | choose-apply-sort-button.label | Choose… | — | — | messenger/preferences/preferences.ftl |
 |   | collection-backlogged-crash-reports.label | Allow Thunderbird to send backlogged crash reports on your behalf | — | — | messenger/preferences/preferences.ftl |
 |   | collection-health-report-telemetry-disabled | You’re no longer allowing { -vendor-short-name } to capture technical and interaction data. All past data will be deleted within 30 days. | — | — | messenger/preferences/preferences.ftl |
 |   | collection-health-report.label | Allow Thunderbird to send technical and interaction data to { -vendor-short-name } | — | — | messenger/preferences/preferences.ftl |
 |   | compose-send-automatic-option.label | Automatic | — | — | messenger/preferences/preferences.ftl |
 |   | composition-addressing-header | Addressing | — | — | messenger/preferences/preferences.ftl |
-|   | composition-category-header | Composition | — | — | messenger/preferences/preferences.ftl |
 |   | customize-alert-label.label | Customize… | — | — | messenger/preferences/preferences.ftl |
 |   | default-sort-ascending.label | Ascending | — | — | messenger/preferences/preferences.ftl |
 |   | default-sort-descending.label | Descending | — | — | messenger/preferences/preferences.ftl |
-|   | font-options-button.label | Advanced… | — | — | messenger/preferences/preferences.ftl |
 |   | general-indexing-label | Indexing | — | — | messenger/preferences/preferences.ftl |
 |   | inline-label.label | Inline | — | — | messenger/preferences/preferences.ftl |
 |   | language-selector-legend | Language | — | — | messenger/preferences/preferences.ftl |
-|   | mail-browse-sound-button.label | Browse… | — | — | messenger/preferences/preferences.ftl |
 |   | mail-content | Mail Content | — | — | messenger/preferences/preferences.ftl |
 |   | minimize-to-tray-label.label | When Thunderbird is minimized, move it to the tray | — | — | messenger/preferences/preferences.ftl |
 |   | network-settings-button.label | Settings… | — | — | messenger/preferences/preferences.ftl |
 |   | offline-legend | Offline | — | — | messenger/preferences/preferences.ftl |
 |   | preferences-doh-setting-default.label | Default Protection | — | — | messenger/preferences/preferences.ftl |
 |   | privacy-certificates-title | Certificates | — | — | messenger/preferences/preferences.ftl |
-|   | qr-export-security-legend | Security | — | — | messenger/preferences/preferences.ftl |
 |   | spam-read-manual-label.label | When manually marked as spam | — | — | messenger/preferences/preferences.ftl |
 |   | use-cache-after | MB of space for the cache | — | — | messenger/preferences/preferences.ftl |
-|   | reminder-play-sound-checkbox.label | — | Play | Play | calendar/preferences.ftl |
-|   | open-settings-sidebar-button | — | Settings | Settings | messenger/accountManager.ftl |
 |   | oauth-provider-extension-info | — | OAuth2 settings provided by extension: &lt;a data-l10n-name="extension">{ $extensionName }&lt;/a> | OAuth2 settings provided by extension: &lt;a data-l10n-name="extension">{ $extensionName }&lt;/a> | messenger/accountSettings.ftl |
 |   | oauth2-authorization-endpoint-label.value | — | Authorization endpoint: | Authorization endpoint: | messenger/accountSettings.ftl |
 |   | oauth2-client-id-label.value | — | Client ID: | Client ID: | messenger/accountSettings.ftl |
 |   | oauth2-client-secret-label.value | — | Client secret: | Client secret: | messenger/accountSettings.ftl |
 |   | oauth2-issuer-identifier-label.value | — | Issuer identifier: | Issuer identifier: | messenger/accountSettings.ftl |
-|   | oauth2-redirection-endpoint-label.value | — | Redirect URI: | Redirect URI: | messenger/accountSettings.ftl |
 |   | oauth2-scopes-label.value | — | Scopes: | Scopes: | messenger/accountSettings.ftl |
 |   | oauth2-token-endpoint-label.value | — | Token endpoint: | Token endpoint: | messenger/accountSettings.ftl |
 |   | oauth2-use-custom-details.label | — | Use custom OAuth2 settings | Use custom OAuth2 settings | messenger/accountSettings.ftl |
 |   | oauth2-use-pkce.label | — | Use PKCE | Use PKCE | messenger/accountSettings.ftl |
 |   | oauth2-use-system-browser.label | — | Use system web browser | Use system web browser | messenger/accountSettings.ftl |
-|   | import-info-created | — | Created | Created | messenger/openpgp/keyImportInfo.ftl |
-|   | import-info-details | — | View Details and manage key acceptance | View Details and manage key acceptance | messenger/openpgp/keyImportInfo.ftl |
-|   | import-info-dialog-title | — | Success! Keys imported | Success! Keys imported | messenger/openpgp/keyImportInfo.ftl |
-|   | import-info-fpr | — | Fingerprint | Fingerprint | messenger/openpgp/keyImportInfo.ftl |
-|   | import-info-no-keys | — | No keys imported. | No keys imported. | messenger/openpgp/keyImportInfo.ftl |
-|   | key-import-info-close.label | — | Close | Close | messenger/openpgp/keyImportInfo.ftl |
 |   | attachment-pgp-key-import | — | The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains? | The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains? | messenger/openpgp/openpgp.ftl |
 |   | dlg-button-open | — | &Open… | &Open… | messenger/openpgp/openpgp.ftl |
 |   | dlg-button-save | — | &Save | &Save | messenger/openpgp/openpgp.ftl |
@@ -640,7 +530,6 @@ Every string ID whose text differs between the versions, or that exists in only 
 |   | spam-storage-deletion-legend | — | Storage and deletion | Storage and deletion | messenger/preferences/am-spam.ftl |
 |   | training-description-learns | — | When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam. | When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam. | messenger/preferences/am-spam.ftl |
 |   | attachment-reminder-description | — | Show a reminder for missing attachments if the email contains matching keywords. | Show a reminder for missing attachments if the email contains matching keywords. | messenger/preferences/attachment-reminder.ftl |
-|   | proxy-auto-login-saved-password.tooltiptext | — | This option silently authenticates you to proxies when you have saved credentials for them. You will be prompted if authentication fails. | This option silently authenticates you to proxies when you have saved credentials for them. You will be prompted if authentication fails. | messenger/preferences/connection.ftl |
 |   | font-main-style-label.value | — | Main font style: | Main font style: | messenger/preferences/fonts.ftl |
 |   | fonts-character-set-legend.value | — | Character set: | Character set: | messenger/preferences/fonts.ftl |
 |   | sans-serif-font-label.value | — | Sans-serif font: | Sans-serif font: | messenger/preferences/fonts.ftl |
@@ -658,20 +547,17 @@ Every string ID whose text differs between the versions, or that exists in only 
 |   | general-email-notifications-header | — | Email notifications | Email notifications | messenger/preferences/preferences.ftl |
 |   | mail-select-audio-button.label | — | Select audio… | Select audio… | messenger/preferences/preferences.ftl |
 |   | mark-read-after-viewing.label | — | After viewing for | After viewing for | messenger/preferences/preferences.ftl |
-|   | qr-export-passwords-legend | — | Passwords | Passwords | messenger/preferences/preferences.ftl |
 |   | qr-export-web-sign-in-note | — | &lt;strong>Note:&lt;/strong> Accounts that use web sign-in (like Gmail or Yahoo), require authentication again on your device. | &lt;strong>Note:&lt;/strong> Accounts that use web sign-in (like Gmail or Yahoo), require authentication again on your device. | messenger/preferences/preferences.ftl |
 |   | spellcheck-while-typing-label.label | — | Check spelling while typing | Check spelling while typing | messenger/preferences/preferences.ftl |
 |   | start-in-tray-label.label | — | Start Thunderbird in the tray | Start Thunderbird in the tray | messenger/preferences/preferences.ftl |
 |   | underline-text-links-label.label | — | Underline text links in messages | Underline text links in messages | messenger/preferences/preferences.ftl |
 |   | check-default-email-app-label.label | — | Always check to see if Thunderbird is the default email app when opened | Always check to see if Thunderbird is the default email app when opened | messenger/preferences/system-integration.ftl |
 |   | smime-crypto-cipher | — | Encryption algorithm: | Encryption algorithm: | messenger/smime/smime.ftl |
-|   | smime-crypto-cipher-with-key-size | — | { $algorithm } ({ $keySize }-bit) | { $algorithm } ({ $keySize }-bit) | messenger/smime/smime.ftl |
 |   | smime-crypto-details-summary | — | Algorithms | Algorithms | messenger/smime/smime.ftl |
 |   | smime-crypto-digest-algorithm | — | Signature Digest algorithm: | Signature Digest algorithm: | messenger/smime/smime.ftl |
 |   | smime-crypto-key-encryption | — | Key Encryption algorithm: | Key Encryption algorithm: | messenger/smime/smime.ftl |
 |   | smime-crypto-signature-algorithm | — | Signature algorithm: | Signature algorithm: | messenger/smime/smime.ftl |
 |   | account-settings-clean-up-deleted-inbox.label | — | — | Permanently remove deleted messages from the Inbox on exit | messenger/accountSettings.ftl |
-|   | account-settings-folder-options.label | — | — | Advanced… | messenger/accountSettings.ftl |
 |   | account-settings-offline-advanced-options.label | — | — | Offline folder settings… | messenger/accountSettings.ftl |
 |   | account-settings-sign-in-method.value | — | — | Sign-in method: | messenger/accountSettings.ftl |
 |   | account-settings-use-global-directory.label | — | — | Use global LDAP directory settings | messenger/accountSettings.ftl |
@@ -686,64 +572,6 @@ Every string ID whose text differs between the versions, or that exists in only 
 |   | account-settings-copies-title.value | — | — | Copies and folders | messenger/preferences/am-copies.ftl |
 |   | app-manager-description-file | — | — | The following applications can be used to handle { $description } content. | messenger/preferences/application-manager.ftl |
 |   | app-manager-description-protocol | — | — | The following applications can be used to handle { $description } links. | messenger/preferences/application-manager.ftl |
-|   | app-manager-local-app.value | — | — | This application is located at: | messenger/preferences/application-manager.ftl |
-|   | app-manager-web-app.value | — | — | This web application is hosted at: | messenger/preferences/application-manager.ftl |
-|   | cookie-any-connection | — | — | Any type of connection | messenger/preferences/cookies.ftl |
-|   | cookie-default-user-context | — | — | None | messenger/preferences/cookies.ftl |
-|   | cookie-expires-at-end-of-session | — | — | At end of session | messenger/preferences/cookies.ftl |
-|   | cookie-none-selected | — | — | &lt;no cookie selected> | messenger/preferences/cookies.ftl |
-|   | cookie-secure-only | — | — | Encrypted connections only | messenger/preferences/cookies.ftl |
-|   | cookies-filtered-label.value | — | — | The following cookies match your search: | messenger/preferences/cookies.ftl |
-|   | props-domain-label2.value | — | — | Domain: | messenger/preferences/cookies.ftl |
-|   | props-host-label.value | — | — | Host: | messenger/preferences/cookies.ftl |
-|   | remote-content-permissions-title | — | — | Exceptions - Remote Content | messenger/preferences/permissions.ftl |
-|   | actual-disk-cache-size-calculating.value | — | — | Calculating cache size… | messenger/preferences/preferences.ftl |
-|   | actual-disk-cache-size.value | — | — | Your cache is currently using { $size } { $unit } of disk space | messenger/preferences/preferences.ftl |
-|   | applications-always-ask | — | — | Always ask | messenger/preferences/preferences.ftl |
-|   | applications-always-ask.label | — | — | Always ask | messenger/preferences/preferences.ftl |
-|   | applications-always-ask.tooltiptext | — | — | Always ask | messenger/preferences/preferences.ftl |
-|   | applications-choose-app-title | — | — | Select Helper Application | messenger/preferences/preferences.ftl |
-|   | applications-delete-action-confirm | — | — | Are you sure you want to delete this action? | messenger/preferences/preferences.ftl |
-|   | applications-delete-action-title | — | — | Delete Action | messenger/preferences/preferences.ftl |
-|   | applications-delete-action.label | — | — | Delete Action | messenger/preferences/preferences.ftl |
-|   | applications-file-ending | — | — | { $extension } file | messenger/preferences/preferences.ftl |
-|   | applications-manage-app.label | — | — | Application Details… | messenger/preferences/preferences.ftl |
-|   | applications-preview-in-app | — | — | Preview in Thunderbird | messenger/preferences/preferences.ftl |
-|   | applications-preview-in-app.label | — | — | Preview in Thunderbird | messenger/preferences/preferences.ftl |
-|   | applications-preview-in-app.tooltiptext | — | — | Preview in Thunderbird | messenger/preferences/preferences.ftl |
-|   | applications-save-file | — | — | Save File | messenger/preferences/preferences.ftl |
-|   | applications-save-file.label | — | — | Save File | messenger/preferences/preferences.ftl |
-|   | applications-save-file.tooltiptext | — | — | Save File | messenger/preferences/preferences.ftl |
-|   | applications-type-details-with-ext | — | — | ({ $type-description }: { $type }) | messenger/preferences/preferences.ftl |
-|   | applications-type-pdf | — | — | Portable Document Format (PDF) | messenger/preferences/preferences.ftl |
-|   | applications-use-app | — | — | Use { $appName } | messenger/preferences/preferences.ftl |
-|   | applications-use-app.label | — | — | Use { $appName } | messenger/preferences/preferences.ftl |
-|   | applications-use-app.tooltiptext | — | — | Use { $appName } | messenger/preferences/preferences.ftl |
-|   | applications-use-default | — | — | Use { $appName } (default) | messenger/preferences/preferences.ftl |
-|   | applications-use-default.label | — | — | Use { $appName } (default) | messenger/preferences/preferences.ftl |
-|   | applications-use-default.tooltiptext | — | — | { $appName } | messenger/preferences/preferences.ftl |
-|   | applications-use-other-app.label | — | — | Use other… | messenger/preferences/preferences.ftl |
-|   | applications-use-other-app.tooltiptext | — | — | Use other… | messenger/preferences/preferences.ftl |
-|   | chat-theme-preview-buddy-1 | — | — | florian@im.instantbird.org | messenger/preferences/preferences.ftl |
-|   | chat-theme-preview-buddy-2 | — | — | patrick@im.instantbird.org | messenger/preferences/preferences.ftl |
-|   | chat-theme-preview-default.label | — | — | Default | messenger/preferences/preferences.ftl |
-|   | chat-theme-preview-message-1 | — | — | Hi! :-) | messenger/preferences/preferences.ftl |
-|   | chat-theme-preview-message-2 | — | — | What’s up? | messenger/preferences/preferences.ftl |
-|   | chat-theme-preview-message-3 | — | — | I’m trying Thunderbird! ;-) | messenger/preferences/preferences.ftl |
-|   | chat-theme-preview-nick-1 | — | — | Florian | messenger/preferences/preferences.ftl |
-|   | chat-theme-preview-nick-2 | — | — | Patrick | messenger/preferences/preferences.ftl |
-|   | confirm-reset-junk-training-message | — | — | Are you sure you want to reset the adaptive filter training data? | messenger/preferences/preferences.ftl |
-|   | confirm-reset-junk-training-title | — | — | Confirm | messenger/preferences/preferences.ftl |
-|   | date-time-app-locale.label | — | — | Application locale: { $localeName } | messenger/preferences/preferences.ftl |
-|   | date-time-regional-locale.label | — | — | Regional settings locale: { $localeName } | messenger/preferences/preferences.ftl |
-|   | download-choose-folder-title | — | — | Choose Folder | messenger/preferences/preferences.ftl |
-|   | download-folder-desktop | — | — | Desktop | messenger/preferences/preferences.ftl |
-|   | download-folder-system | — | — | My Downloads | messenger/preferences/preferences.ftl |
-|   | filelink-account-not-configured.title | — | — | This account has not been configured yet | messenger/preferences/preferences.ftl |
-|   | filelink-add-provider.label | — | — | Add { $providerName } | messenger/preferences/preferences.ftl |
-|   | filelink-add-provider.tooltiptext | — | — | Add { $providerName } | messenger/preferences/preferences.ftl |
-|   | filelink-remove-account-confirm | — | — | Are you sure you want to remove the account "{ $accountName }"? | messenger/preferences/preferences.ftl |
-|   | sound-file-picker-title | — | — | Choose Sound | messenger/preferences/preferences.ftl |
 
 ## 2. CSV records with no matching string ID (3)
 
@@ -755,14 +583,17 @@ Planned changes whose text matches no string in any version. The sheet can parap
 | #120 Settings > Composition > Attachments > Cloud settings panel | Label: Add a file-sharing service | Out of Scope |
 | #143 Settings > Privacy & Security > Data collection > Crash reports | Checkbox: Allow Daily/ Thunderbird to send backlogged crash reports on your behalf. Button: Learn more | Checkbox: Share anonymous data when app crashes with Mozilla |
 
-## 3. CSV records that match only unchanged strings (12)
+## 3. CSV records that match only unchanged strings (17)
 
 Planned changes whose strings are the same in 153.6.0, 159.0, 160.0: no listed version has shipped them yet.
 
 | CSV record | String ID | Text in 160.0 | New content (sheet) |
 |---|---|---|---|
 | #12 Settings > General > System integration > Account Hub (experimental) | account-hub-legend<br>account-hub-manual-config-checkbox-label.label | Account hub<br>Use the new manual configuration flow in Account Hub | Title: Account setup<br>Badge: New<br>Checkbox: Use new manual account set up<br>Subtext link: https://support.mozilla.org/en-US/kb/manual-account-configuration |
+| #53 Settings > General > Reading & display > Return receipts | leaveIt.label<br>never.label<br>notInToCc.label<br>otherCases.label<br>outsideDomain.label<br>pane.title<br>receiptArrive.label<br>requestMDN.label<br>requestReceipt.label<br>returnSome.label<br>prefPanel-mdn<br>return-receipts-button.label<br>return-receipts-description<br>other-cases-text-label.value<br>receipt-arrive-label<br>receipt-leave-radio-control.label<br>receipt-not-to-cc-label.value<br>receipt-request-label<br>receipt-return-never-radio-control.label<br>receipt-return-some-radio-control.label<br>receipts-dialog-title<br>return-receipt-checkbox-control.label<br>sender-outside-domain-label.value | Leave it in my Inbox<br>Never send a return receipt<br>If I'm not in the To or Cc of the message:<br>In all other cases:<br>If the sender is outside my domain:<br>Return Receipts<br>When a receipt arrives:<br>When I receive a request for a return receipt:<br>When sending messages, always request a return receipt<br>Allow return receipts for some messages<br>Return Receipts<br>Return Receipts…<br>Determine how Thunderbird handles return receipts<br>In all other cases:<br>When a receipt arrives:<br>Never send a return receipt<br>Allow return receipts for some messages | Label: Choose how read receipts are handled<br>Button: Read receipt settings…<br>Dialog title: Read receipt settings<br>Radio button:  Leave it in Inbox<br>Radio button:   Move it to the Sent folder<br>Checkbox: Always request a read receipt when sending messages<br>Label: Arriving receipts:<br>Radio button: Never send a receipt<br>Radio button: Always send a receipt<br>• If not listed in To or Cc of the message<br>• If the sender is outside of my domain:<br>•  For all other messages<br>Button: Cancel \| Save |
 | #83 Settings > Appearance > Default sort type | default-flag-grouped.label<br>default-flag-label.value | Grouped by Sort<br>Default Threading: | Label: Default threading:<br>Radio button w/ image: Unthreaded<br>Radio button w/ image: Threaded<br>Radio button w/ image: Grouped by sort |
+| #122 Settings > Privacy & Security > Mail content > Remote content exceptions | imagepermissionstext<br>remote-content-permissions-description<br>remove-all-site-button.label<br>save-button.label<br>website-address-label.value<br>sync-dialog.buttonlabelaccept | You can specify from which web sites images and other remote content are allowed to load. You can also allow all remote content based on sender email address. Type the address of the site or email you want to manage and then click Block or Allow.<br>Remove All Sites<br>Save Changes<br>Address of website:<br>Save Changes | Dialog title: Remote content exceptions<br>Subtext: Allow or block images and remote files from specific websites or email addresses.<br>Label: Website or email address:<br>Field:<br>Button: Block \| Allow<br>List block: Site or Sender \| Status<br>Buttons 1: Remove sites \| Remove all sites<br>Buttons 2: Cancel \| Save |
+| #126 Settings > Privacy & Security > Web content > Cookie exceptions | cookiepermissionstext<br>cookiepermissionstitle<br>allow-session-button.label<br>cookie-permissions-description<br>cookie-permissions-title<br>permission-can-session-label<br>remove-all-site-button.label<br>save-button.label<br>website-address-label.value<br>sync-dialog.buttonlabelaccept | Allow for Session<br>You can specify which web sites are always or never allowed to use cookies.  Type the exact address of the site you want to manage and then click Block, Allow for Session, or Allow.<br>Exceptions - Cookies<br>Allow for Session<br>Remove All Sites<br>Save Changes<br>Address of website:<br>Save Changes | Button: Cookie exceptions…<br>Dialog title: Cookie exceptions<br>Subtext: Allow or block cookies from specific websites.<br>Label: Website address:<br>Field:<br>Button: Block \| Allow for Session \| Allow<br>List block: Website \| Status<br>Buttons 1: Remove websites \| Remove all sites<br>Buttons 2: Cancel \| Save |
 | #130 Settings > Privacy & Security > Web content > Do-Not-Track note | do-not-track-removal | We no longer support the “Do Not Track” signal | Q: can we deprecate this link? |
 | #134 Settings > Privacy & Security > Passwords > Change primary password | password-quality-meter<br>primary-password-os-auth-dialog-message-macosx<br>primary-password-description<br>primary-password-dialog.title<br>primary-password-warning<br>remove-password-old.label<br>set-password-meter<br>set-password-new.label<br>set-password-not-set.label<br>set-password-old.label | Password quality meter<br>create a Primary Password<br>A Primary Password is used to protect some sensitive information, like logins and passwords, on this device. If you create a Primary Password you will be asked to enter it once per session when Thunderbird retrieves saved information protected by the password.<br>Primary Password<br>Please make sure you remember the Primary Password you have set. If you forget your Primary Password, you will be unable to access any of the information protected by it on this device.<br>Current password:<br>Password quality meter<br>Enter new password:<br>Current password:<br>Current password: | Dialog title: Primary Password<br>Subtext: A primary password protects saved account passwords and sensitive data on this computer. You will be asked for it once during each session.<br>Label: Current password:<br>Text field:<br>Label: New password:<br>Text field:<br>Label: Confirm password:<br>Text field:<br>Label: Password strength<br>Support text: Important: If this password is lost or forgotten, protected passwords and saved data cannot be recovered. |
 | #154 Settings > Privacy & Security > Email end-to-end encryption > Reset key servers | email-e2ee-key-servers-reset | Reset Server List | button: Clear key directories |
@@ -770,6 +601,8 @@ Planned changes whose strings are the same in 153.6.0, 159.0, 160.0: no listed v
 | #156 Settings > Privacy & Security > Email end-to-end encryption > Key servers | email-e2ee-key-servers-intro<br>email-e2ee-key-servers-legend | A keyserver receives and then serves existing public keys to users. It allows you to publish your public key and find and refresh keys of others.<br>OpenPGP Keyservers | Title: Key servers (OpenPGP keyservers)<br>Subtext: Key directories store and share public security keys online. This makes it easy to find security keys for other people and publish your own. |
 | #160 Settings > Chat > Status > Startup action | auto-connect-label.label<br>startup-label.value | Connect my chat accounts automatically<br>When Thunderbird starts: | Section header: Chat<br>Title: Status<br>Label: When Thunderbird opens:<br>Dropdown Automatically connect chat accounts |
 | #162 Settings > Chat > Status > Report idle | idle-label.label | Let my contacts know that I am Idle after | Checkbox: Let contacts know that I am Idle after |
+| #195 Settings > General > Alarms / Reminders > Sound type | reminder-custom-sound-label.label<br>reminder-play-checkbox.label<br>chat-custom-sound-label.label<br>chat-play-sound-label.label<br>chat-system-sound-label.label<br>mail-custom-sound-label.label<br>mail-play-sound-label.label<br>mail-system-sound-label.label | Use the following sound file<br>Use the following sound file<br>Play a sound<br>Default system sound for new mail<br>{ PLATFORM() -> [macos] Play the following sound file: *[other] Play a sound }<br>Default system sound for new mail | Checkbox: Play<br>Radio button: Use this sound for new mail<br>Radio button: Use sound file |
+| #228 Settings > Server > storage > Message Storage | emptyTrashOnExit.label<br>mboxStore2.label<br>messageStorage.label<br>mbox-store-label.label | Empty Trash on Exit<br>File per folder (mbox)<br>Message Storage | Header section: Message storage<br>Checkbox: Clean up (permanently clear) deleted Inbox messages on exit<br>Label: Message Store Type: button File per folder (mbox)<br>Label: Storage location on computer: Field \| button: Browse… |
 | #239 Settings > Privacy & Security > Security > End-to-End Encryption | prefPanel-e2e<br>e2eEnc.description<br>e2eTitle.label<br>openpgp-manage-keys-openpgp-cmd.label<br>e2e-intro-description<br>e2e-intro-description-more<br>openpgp-add-key-button.label<br>openpgp-description-no-key<br>openpgp-key-man-dialog-title<br>openpgp-manager-button.label<br>openpgp-manager-description<br>account-encryption.label | End-To-End Encryption<br>Without end-to-end encryption the contents of messages are easily exposed to your email provider and to mass surveillance.<br>End-To-End Encryption<br>OpenPGP Key Manager<br>To send encrypted or digitally signed messages, you need to configure an encryption technology, either OpenPGP or S/MIME.<br>Select your personal key to enable the use of OpenPGP, or your personal certificate to enable the use of S/MIME. For a personal key or certificate you own the corresponding secret key.<br>Add Key…<br>Thunderbird doesn’t have a personal OpenPGP key for &lt;b>{ $identity }&lt;/b><br>OpenPGP Key Manager<br>OpenPGP Key Manager<br>Use the OpenPGP Key Manager to view and manage public keys of your correspondents and all other keys not listed above.<br>End-to-end Encryption | Section header: Email Encryption<br>Label: Encryption keeps your emails private so email providers or network monitoring cannot read them. To encrypt or sign messages, set up a security key or certificate below.<br>Link: How email encryption works<br>Section header: OpenPGP security keys<br>Icon \| Label: No OpenPGP key found for: &lt;email address><br>Button: Add Key…<br>Label: Use the key manager to view and import public keys for other people.<br>Button:  Key manager |
 | #241 Settings > Privacy & Security > Security > S/MIME | encryptionCert2.message<br>manageCerts3.label<br>manageDevices2.label<br>signingCert2.message<br>e2e-csr-button.label<br>e2e-csr-intro<br>certificate-button.label | Personal certificate for encryption:<br>Manage S/MIME Certificates<br>S/MIME Security Devices<br>Personal certificate for digital signing:<br>Generate and save a CSR file as…<br>To obtain a new personal S/MIME certificate, generate a Certificate Signing Request (CSR) and submit it to a Certificate Authority (CA).<br>Manage Certificates… | Title: Digital Certificates (S/MIME)<br>Label: Certificate for digital signing:<br>Field:<br>Button: Select \| Test \| Clear<br>Label: Certificate for encryption:<br>Field:<br>Button: Select \| Test \| Clear<br>Button: Manage certificates<br>Button: S/MIME Security Devices<br>Subtext: To get a new S/MIME certificate from a certificate provider, create a Certificate Signing Request file on this computer.<br>Link: Read about how certificates work<br>Button: Create certificate request… |
 | #243 Settings > General > Start page > Thunderbird/Daily Settings | accountTitle.label<br>accountTitle.label<br>account-button<br>account-settings | Account Settings<br>Account Settings<br>Account Settings<br>Account Settings | Settings<br>Account |

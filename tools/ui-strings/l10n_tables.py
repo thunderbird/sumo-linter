@@ -24,7 +24,9 @@ file preferences.ftl and in the Account Settings file am-offline.dtd.
 How rows are built, from the strings compare.py already loads and maps:
 
 - A text that appears in every version of the table, in the same window, is
-  unchanged and left out, even if its string ID or file changed. A localizer sees no difference.
+  unchanged and left out, even if its string ID or file changed. The
+  comparison ignores placeholder syntax and quote style (compare.same_text,
+  sumo-linter #24). A string with no words, such as "(%1$S)", is left out. A localizer sees no difference.
 - A string ID whose text changes is one row, and the pairing is exact.
 - When Thunderbird gives a reworded string a new ID, the CSV record links
   the old ID and the new one. If the record has exactly one old and one new
@@ -95,13 +97,18 @@ def rows_for(versions, built, win):
         for k in data
         if window(k) == win
     }
-    common = set.intersection(*({t[v] for t in text.values() if v in t} for v in versions))
+    # Unchanged means: the same text, ignoring format-only differences, exists
+    # in every version of the table, in this window (#24).
+    same = {k: {v: compare.same_text(x) for v, x in t.items()} for k, t in text.items()}
+    common = set.intersection(*({t[v] for t in same.values() if v in t} for v in versions))
 
     def changed(k):
         t = text[k]
-        if not t or all(x in common for x in t.values()):
+        if not t or all(x in common for x in same[k].values()):
             return False
-        return len(t) < len(versions) or len(set(t.values())) > 1
+        if not any(compare.has_words(x) for x in t.values()):
+            return False  # placeholders only, e.g. "(%1$S)"
+        return len(t) < len(versions) or len(set(same[k].values())) > 1
 
     keys = sorted(k for k in text if changed(k))
     by_rec, loose = {}, []
@@ -114,7 +121,7 @@ def rows_for(versions, built, win):
 
     def cells(ks):
         return [
-            "\n".join(dict.fromkeys(text[k][v] for k in ks if v in text[k] and text[k][v] not in common))
+            "\n".join(dict.fromkeys(text[k][v] for k in ks if v in text[k] and same[k][v] not in common))
             or ABSENT
             for v in versions
         ]

@@ -10,7 +10,8 @@ MediaWiki wikitext (sumo-linter #18):
 
 1. Changed strings: every string ID whose text differs between the versions,
    or that exists in only some of them, with one column per version and the
-   CSV records it matches. Rows with a CSV record come first, in record
+   CSV records it matches. Format-only changes are left out (see same_text,
+   sumo-linter #24), and so are strings with no words, such as "(%1$S)". Rows with a CSV record come first, in record
    order, so an old ID and the new ID that replaces it sit together.
 2. CSV records with no matching string ID: planned changes whose text matches
    no string in any version. The sheet paraphrases, or the string lives in a
@@ -93,6 +94,32 @@ def norm(s):
     return s.rstrip(" .:").strip()
 
 
+PLACEHOLDER = re.compile(
+    r"%(?:\d+\$)?[SsDd]"  # properties: %S, %1$S, %d
+    r"|\{\s*\$[\w-]+\s*\}"  # Fluent: { $appName }
+    r"|\bThunderbird\b"  # a placeholder a newer version fills with the name (#24)
+)
+
+
+def same_text(text):
+    """A form of a visible text that ignores format-only differences (#24).
+
+    Every placeholder and the product name become one token, curly and
+    straight quotes are equal, and `&quot;` is a quote. So "Use %S (default)"
+    and "Use { $appName } (default)", "What's up?" and "What’s up?", and
+    "Preview in %S" and "Preview in Thunderbird" are the same text.
+    """
+    t = text.replace("&quot;", '"').replace("\u2019", "'").replace("\u2018", "'")
+    t = t.replace("\u201c", '"').replace("\u201d", '"')
+    return re.sub(r"\s+", " ", PLACEHOLDER.sub("\u00a7", t)).strip()
+
+
+def has_words(text):
+    """False for a string of placeholders and punctuation only, such as
+    "(%1$S)". It shows no words that an article could quote."""
+    return bool(re.search(r"[^\W\d_]", PLACEHOLDER.sub("", text)))
+
+
 def variants(value, terms):
     """All texts a string can show, with brand and terms resolved."""
     v = BRAND.sub("Thunderbird", value)
@@ -162,10 +189,16 @@ def build(csv_path):
         key: {norm(x) for val in vals.values() for x in variants(val, terms)}
         for key, vals in data.items()
     }
+    # A text that exists in every version, in any string, is unchanged for a
+    # reader, even if its ID, file or format changed (#24).
+    shown = {k: {v: same_text(display(val, terms)) for v, val in vals.items()} for k, vals in data.items()}
+    common = set.intersection(*({t[v] for t in shown.values() if v in t} for v in versions))
     changed = {
         key
         for key, vals in data.items()
-        if len(vals) < len(versions) or len(set(vals.values())) > 1
+        if (len(vals) < len(versions) or len(set(shown[key].values())) > 1)
+        and not all(t in common for t in shown[key].values())
+        and any(has_words(t) for t in shown[key].values())
     }
     with open(csv_path, encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
@@ -252,8 +285,9 @@ def render(fmt, built, csv_name):
     heading(f"1. Changed strings ({len(t1)})")
     out.append(
         f"Every string ID whose text differs between the versions, or that exists in only "
-        f"some of them. {absent} means the ID does not exist in that version. Rows that "
-        "match a CSV record come first.\n"
+        f"some of them. {absent} means the ID does not exist in that version. A string is "
+        "left out if its visible text exists in every version, ignoring placeholder syntax "
+        "and quote style, or if it has no words. Rows that match a CSV record come first.\n"
     )
     body = []
     for key in t1:

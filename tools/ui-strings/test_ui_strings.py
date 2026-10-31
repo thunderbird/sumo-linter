@@ -102,6 +102,27 @@ class Matching(unittest.TestCase):
         )
 
 
+class FormatOnly(unittest.TestCase):
+    def test_same_text_ignores_format(self):
+        same = compare.same_text
+        self.assertEqual(same("Use %S (default)"), same("Use { $appName } (default)"))
+        self.assertEqual(same("What's up?"), same("What\u2019s up?"))
+        self.assertEqual(same("Preview in %S"), same("Preview in Thunderbird"))  # Roland, #24
+        self.assertEqual(same("&quot;Sent&quot; Folder on:"), same('"Sent" Folder on:'))
+        self.assertNotEqual(same("Restore Default"), same("Restore default"))  # case is a change
+
+    def test_has_words(self):
+        self.assertFalse(compare.has_words("(%1$S)"))
+        self.assertFalse(compare.has_words("%1$S %2$S"))
+        self.assertTrue(compare.has_words("%S content"))
+
+    def test_format_only_moves_leave_the_tables(self):
+        rows = l10n_tables.rows_for(("153.6.0", "159.0", "160.0"), built(), "settings")
+        cells = [c for r in rows for c in r]
+        for gone in ("Use %S (default)", "Preview in %S", "What's up?", "(%1$S)"):
+            self.assertFalse(any(gone in c for c in cells), gone)
+
+
 class Committed(unittest.TestCase):
     def test_tables_are_up_to_date(self):
         b = built()

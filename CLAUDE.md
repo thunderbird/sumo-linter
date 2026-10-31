@@ -97,7 +97,8 @@ a 429 for the rest of the hour); the heading data is already measured; the four 
 already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
 `vscode` (34 grammar + 51 link + 26 bold assertions), `emacs`
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
-both Vim and Neovim) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
+both Vim and Neovim), `ui-strings` (9 tests, including that the committed comparison tables
+are up to date) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
 button, 67 on autosave, save-to-file and the file name, 82 on the preview) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
@@ -222,7 +223,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
 | `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + `SUMO: Toggle Bold` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
-| `tools/ui-strings/` | dev-only Python (stdlib) search for KB articles that quote UI strings a release changes, plus the 158 string sheet. It made knowledgebase-issues #247. Its docstring lists the matching lessons that the markup-aware search (#6) must keep |
+| `tools/ui-strings/` | dev-only Python (stdlib) tools for UI string changes, plus the 158 string sheet. `search.py` finds KB articles that quote changed strings (knowledgebase-issues #247, #249), and its docstring lists the matching lessons that the markup-aware search (#6) must keep. `extract.py` reads the en-US Settings and Account Settings strings out of an installed app's `omni.ja` into `strings/<version>.tsv` (committed). `compare.py` writes `string-versions.md`/`.mediawiki`: one column per version, mapped to CSV records (#18). A reworded string usually gets a new ID, so the CSV record is what links old and new |
 | `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, the preview renderer and `{for}` rules in `preview.js`, all tested under Node |
 
 **Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an

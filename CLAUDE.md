@@ -64,7 +64,9 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 - **Staging test of the Thunderbird 159 string edits (#28).** Paste
   `tools/ui-strings/proposals/advanced-panel-settings-in-thunderbird.wiki` and
   `privacy-panel-settings-in-thunderbird.wiki` into support.allizom.org, work through the
-  checklist comment on #28, and report there. Then adjust `propose_edits.py` and do the other
+  checklist comment on #28 (walk it with `python3 -I tools/checklist/walk.py
+  https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976`), and report
+  there. Next session: read that comment's ticks and `Note:` lines first. Then adjust `propose_edits.py` and do the other
   knowledgebase-issues #247 articles. The 160 section of #249 waits for the 160 release.
 - Post the heading-convention consultation: `docs/heading-convention-discussion.md` plus
   the data gist <https://gist.github.com/rtanglao/2708f762f5a4ec71c699827d8bc4071f>.

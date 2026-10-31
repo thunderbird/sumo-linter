@@ -87,6 +87,9 @@ jobs:
         # Standard library only. It also regenerates string-versions.md and
         # .mediawiki from the committed strings, so stale tables fail here.
         run: python3 tools/ui-strings/test_ui_strings.py
+      - name: Checklist walker tests
+        # GitHub is replaced by a fake store, so this needs no network or token.
+        run: python3 tools/checklist/test_walk.py
 
   emacs:
     runs-on: ubuntu-latest

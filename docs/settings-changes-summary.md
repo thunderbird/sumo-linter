@@ -39,4 +39,7 @@ Read these counts with two limits:
   some can be old strings that no page used.
 
 The details are in `tools/ui-strings/strings-153.6.0-159.0-160.0-settings.md` and
-`tools/ui-strings/strings-153.6.0-159.0-160.0-account-settings.md`.
+`tools/ui-strings/strings-153.6.0-159.0-160.0-account-settings.md`. Copies of the wikitext
+versions are on wiki.mozilla.org:
+[Settings](https://wiki.mozilla.org/User:Rolandtb/strings-153.6.0-159.0-160.0-settings) and
+[Account Settings](https://wiki.mozilla.org/User:Rolandtb/strings-153.6.0-159.0-160.0-account-settings).

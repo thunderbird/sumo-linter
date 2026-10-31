@@ -13,6 +13,30 @@ that quote them. They use the Python standard library only.
 | `l10n_tables.py` | Writes simple old-text/new-text tables for SUMO localizers, one for Settings and one for Account Settings (`strings-<versions>-<window>.*`). |
 | `test_ui_strings.py` | Tests for `extract.py`, `compare.py` and `l10n_tables.py`. CI runs it. |
 
+## Copies on wiki.mozilla.org
+
+Roland copied the two 3-column wikitext tables by hand to these pages on 2026-10-31:
+
+- [User:Rolandtb/strings-153.6.0-159.0-160.0-settings](https://wiki.mozilla.org/User:Rolandtb/strings-153.6.0-159.0-160.0-settings),
+  from `strings-153.6.0-159.0-160.0-settings.mediawiki`
+- [User:Rolandtb/strings-153.6.0-159.0-160.0-account-settings](https://wiki.mozilla.org/User:Rolandtb/strings-153.6.0-159.0-160.0-account-settings),
+  from `strings-153.6.0-159.0-160.0-account-settings.mediawiki`
+
+Each page starts with one extra line that names the file it was copied from. Apart from that
+line, both pages matched the files in this folder on 2026-10-31.
+
+The pages do not update by themselves. After you change these files, paste the new content into
+the pages and keep the first line. To see whether a page is out of date, compare its raw text
+with the file:
+
+```sh
+p=strings-153.6.0-159.0-160.0-settings
+curl -s "https://wiki.mozilla.org/index.php?title=User:Rolandtb/$p&action=raw" | sed 1d \
+  | diff - tools/ui-strings/$p.mediawiki
+```
+
+A difference only at the last line ("No newline at end of file") does not matter.
+
 ## Add a version
 
 You need the macOS app of the new version, for example a new beta. The app can be in any
@@ -67,6 +91,8 @@ folder. The tools only read the app. They do not start it or change it.
 
 5. Commit the new `.tsv` file and all the tables together. If you commit the `.tsv` file
    without the tables, the CI test fails, because the tables are then out of date.
+
+6. If the 3-column tables changed, update the copies on wiki.mozilla.org (see above).
 
 ## Check the result
 

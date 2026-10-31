@@ -1,0 +1,1378 @@
+Setting,Current UI,Current content,New content,Pane,Section
+Show start page,"Content block, checkbox","Section header: General
+Subtitle: Thunderbird Start Page
+
+Checkbox: When Thunderbird launches, show the Start Page in the message area","Section header: General 
+Subtitle: Thunderbird Start Page
+
+Checkbox: Show the Start Page when Thunderbird opens",General,Start page
+Location,"Field for address, displays full address ",Field label: Location ,,General,Start page
+Restore default,Button,Button: Restore default ,,General,Start page
+Default web search,"Title, dropdown","Title: Default Search Engine
+
+Dropdown: Google (select provider)",,General,Default search engine
+Add engine,Button ,Button: Add…,,General,Default search engine
+Remove engine,Disabled button ,Button: Remove,,General,Default search engine
+Always check default,Checkbox,"Title: System Integration 
+
+Checkbox 1: Always check to see if Thunderbird is the default mail client on startup
+
+Checkbox 2: Allow Spotlight to search messages","Title: System settings
+
+Checkbox 1: Check if Thunderbird is the default email app when opened
+
+Checkbox 2: Allow Spotlight to search messages
+
+MacOS → Spotlight
+Windows → Windows Search
+GNOME → Activities Search",General,System integration
+Close to tray,"Cancel, set as default or tap outside",,,General,System integration
+Check now,Dialog with checkboxes,"Button: Check now…
+
+Dialog title: System Integration 
+Label: Use Daily/TB as the default client for: 
+Checkbox: Email
+Checkbox: Newsgroups 
+Checkbox: Feeds
+Checkbox: Calendar
+Checkbox: Custom Thunderbird links (net.thunderbird://)
+——
+Checkbox: Allow Spotlight to search messages
+Checkbox: Always perform this check when starting Daily","Button: Edit defaults… 
+
+Dialog title: System settings 
+Label: Use Daily/TB as the default app for: 
+Checkbox: Email
+Checkbox: Newsgroups 
+Checkbox: Feeds
+Checkbox: Calendar
+Checkbox: Custom Thunderbird links (net.thunderbird://)
+——
+Checkbox: Allow Spotlight to search emails
+
+Checkbox: Check if Thunderbird is the default email app when it opens",General,System integration
+Start in tray,,,,General,System integration
+System integration,,,,General,System integration
+Account Hub (experimental),Label ,"Title: Account Hub 
+Badge: Experimental 
+
+Subtext: Use the new manual configuration flow in Account Hub
+Checkbox: Use the new manual configuration flow in Account Hub","Title: Account setup
+Badge: New 
+
+Checkbox: Use new manual account set up 
+Subtext link: https://support.mozilla.org/en-US/kb/manual-account-configuration",General,System integration
+Auto scroll,Checkbox,"Title: Scrolling
+
+Checkbox: Use autoscrolling","Title: Scrolling 
+
+Checkbox: Enable auto-scrolling ",General,Scrolling
+Overlay scrollbars,,👋 can I get a screenshot of this?,,General,Scrolling
+Smooth scroll,Checkbox,Checkbox: Use smooth scrolling ,,General,Scrolling
+Primary language,Dropdown,"Section header: Language & Fonts
+
+Subtext: Language
+Support label: Choose the languages to display menus, messages, and notifications from Thunderbird.
+
+Dropdown: English","Section header: Language & fonts
+
+Subtext: Display language
+Support label: Choose the language used for menus, buttons, and notifications.
+
+Dropdown: Application language",General,Language
+Manage languages,Dialog with list,Button: Set Alternatives…,Button: Manage languages…,General,Language
+Action: Restart confirmation,Dropdown,"👋 can I get a screenshot of this? 
+",,General,Language
+Default font,Dropdown,Dropdown: Lucida Grande,,General,Fonts
+Default size,Dropdown,Dropdown: 15,,General,Fonts
+Advanced,"Dialog, multiple dropdowns and checkboxes","button: Advanced…
+
+Dialog title: Fonts
+Dropdown: Fonts for: Latin
+Dropdown: Proportional: Sans Serif | Dropdown: Size: 15 
+Dropdown: Default (Times) 
+Dropdown: Sans-serif: Lucida Grande
+Dropdown: Menlo | Dropdown: Size: 12 
+Dropdown: Minimum font size: None
+
+Dialog title 2: Font Control
+Checkbox: Allow messages to use other fonts
+Checkbox: Use fixed width font for plain text messages","button: Customize fonts… 
+
+Dialog title: Text & font options
+
+Dropdown: Character set: Latin
+Dropdown: Main font style: Sans Serif | Dropdown: Size: 15 
+Dropdown: Default (Times) 
+Dropdown: Sans-serif font: Lucida Grande
+Dropdown: Menlo | Dropdown: Size: 12 
+Dropdown: Minimum text size: None
+
+Part 2 title: Message font permissions
+Checkbox: Allow incoming messages to use their own fonts
+Checkbox: Display plain text messages in a fixed-width font",General,Fonts
+Regional format ,,👋 can I get a screenshot of this? ,,General,Date/time formatting
+Dock icon options,"Checkbox, radio buttons, floating text","Button: App icon Options…
+
+Dialog title: App icons options 
+Checkbox: Animate the app icon when a new message arrives
+
+Title: App icon badge
+Sub text: Badge app icon with:
+Radio button: Count of unread messages
+Radio button: Count of new messages
+
+Text: You can disable the badge on the Notification pane of System Settings.
+Button: Cancel 
+Button: Ok","Button: App icon options…
+
+Dialog title: App icon notification settings
+Checkbox: Animate the app icon for new messages
+
+Title: App icon badge
+Sub text: Show a badge for
+Radio button: Total unread messages
+Radio button: Total new messages  
+
+Text: Notification badges can also be turned on or off in the computer’s system settings.
+Button: Cancel 
+Button: Save",General,Incoming mail
+Show an alert,,"Section header: Incoming Mails
+Subtext: When new messages arrive:
+Support lable: Change preferences for the app icon
+
+Checkbox: Show an alert for messages","Section header: Notifications 
+Subtext: When a new message arrives:
+Subtext: App icon badges and alerts
+
+Checkbox: Show an alert for new emails",General,Incoming mail
+Customize alert,"Button, checkboxes","Button: Customize…
+
+Subtext: Choose which fields to show in the alert 
+
+Text: notification:
+Checkbox: Subject
+Checkbox: Sender
+Checkbox: Message Preview Text
+Checkbox: Message actions:
+
+Text: Mark as Read:
+Checkbox: Delete
+Checkbox: Mark as Starred
+Checkbox: Mark as Spam
+Checkbox: Archive","Button: Customize alerts…
+
+Subtext: Choose which fields to show in the alert 
+
+Text: notification:
+Checkbox: Subject
+Checkbox: Sender
+Checkbox: Message Preview Text
+Checkbox: Message actions:
+
+Text: Mark as Read:
+Checkbox: Delete
+Checkbox: Mark as Starred
+Checkbox: Mark as Spam
+Checkbox: Archive",General,Incoming mail
+Use system notifications,,,,General,Incoming mail
+Tray icon on unread,,,,General,Incoming mail
+Preview sound,play button,Button: Play,,General,Incoming mail
+Play a sound,Checkbox disabled until audio added,Checkbox: Play the following sound file:,"Checkbox: Use custom sound for alerts
+",General,Incoming mail
+Sound file,Text field ,,,General,Incoming mail
+Sound type,,,,General,Incoming mail
+Action: Browse sound,,Button: Browse…,,General,Incoming mail
+Handler filter,Search box,"Section header: Files & Attachments 
+Search box label: Filter content type and actions","Section header: Files & attachments 
+Subtext: Select what files are saved and where they are saved on your computer.
+Search box label: Search types of content",General,Attachments
+Save location,Radio button,"Radio button: Save files to 
+Button: Choose…
+Radio button: Always ask me where to save files",,General,Attachments
+Handlers table,List component ,List titles: Content Type | Action ,,General,Attachments
+New tag,Button,"Button: New…
+
+Dialog title: New Tag
+Field label: Tag Name
+Colour: colour selector 
+Buttons: Cancel | OK   ",,General,Tags
+Tag list,Content and list ,"Section header: Tags
+Subtext: Tags can be used to categorize and prioritize your messages. 
+
+List of tags","Section header: Tags
+Subtext: Use tags to categorize and prioritize messages. ",General,Tags
+Edit tag,Button,,,General,Tags
+Remove tag,button,,,General,Tags
+Inline attachments,Checkbox,Checkbox: View attachments inline,Checkbox: Show attachments inside the message body,General,Reading & display
+Underline links,Checkbox,"Section header: Reading & Display
+Checkbox: Always underline links ","Section header: Reading & viewing
+Checkbox: Underline text links in emails",General,Reading & display
+Auto mark as read,Checkbox,Checkbox: Automatically mark messages as read,,General,Reading & display
+Mark-read timing,Radio button,Radio button: Immediately on display ,Radio button: Immediately when opened,General,Reading & display
+Mark-read delay,Radio button,"Radio button: After displaying for 
+Number selector: # seconds ",Radio button: After viewing for [ 5 ] seconds,General,Reading & display
+Open message in,Radio buttons,"Title: Open messages in: 
+
+Radio button: A new tab
+Radio button: A new message window
+Radio button: An existing message window",,General,Reading & display
+Close on move/delete,Checkbox,Checkbox: Close message window/tab on move or delete,,General,Reading & display
+Quoted text style,Dropdowns ,Text: When displaying quoted plain text messages:,Text: Quoted text formatting,General,Reading & display
+Convert emoticons,"Content, checkbox","Title: Plain Text Messages
+
+Checkbox: Display emoticons as graphics",,General,Reading & display
+Citation color,Colour picker,,,General,Reading & display
+Address display format,Content,"Title: Message List
+Subtext: Preferred address display format:",,General,Reading & display
+Condensed addresses,Radio button,"Radio button: Full name and email address
+Radio button: Email only
+Radio button: Name only
+Checkbox: Show only display name for people in my address book","Radio button: Full name and email address
+Radio button: Email only
+Radio button: Name only
+Checkbox: Only show display name for people in my address book",General,Reading & display
+Conversation view (experimental),"Content, badge, checkbox","Title: Conversation View | Experimental
+Checkbox: Enable conversation view
+Supporting text: Experimental feature based on Gloda, use it at your own risk","Title: Conversation view
+Checkbox: Show conversation view
+Supporting text: This is an early preview feature. It groups related emails together, but it might not always work as expected.",General,Reading & display
+Return receipts,"Label, button","Label: Determine how Daily handles return receipts
+Button: Return Receipts…
+
+Dialog title: Return Receipts 
+Checkbox: When sending messages, always request a return receipt
+———
+Label: When a receipt arrives:
+Radio button: Never send a return receipt
+Radio button: Leave it in my Inbox
+———
+Label: When I receive a request for a return receipt:
+Radio button: Never send a return receipt
+Radio button: Allow return receipts for some messages
+
+  •  If I’m not in the To or Cc of the message | dropdown
+  • If the sender is outside of my domain: | dropdown
+  •  in all other cases | dropdown
+  • Button: Cancel | OK","Label: Choose how read receipts are handled
+Button: Read receipt settings…
+
+Dialog title: Read receipt settings
+Radio button:  Leave it in Inbox
+Radio button:   Move it to the Sent folder
+Checkbox: Always request a read receipt when sending messages
+———
+Label: Arriving receipts:
+Radio button: Never send a receipt
+Radio button: Always send a receipt
+
+  • If not listed in To or Cc of the message 
+  • If the sender is outside of my domain: 
+  •  For all other messages 
+
+Button: Cancel | Save
+
+",General,Reading & display
+Dark message mode,,"Title: Message reader style
+Checkbox: Enable dark message mode
+Support label: Force the message body to follow dark themes","Title: Message appearance
+Checkbox: Use dark mode for message text
+Support label: Applies a dark background to all incoming messages, even if the sender formatted them in light colors.",General,Reading & display
+Dark mode toggle,,"Checkbox: Show dark message mode toggle
+Support label: Show a toggle in the message header to quickly disable the dark message mode","Checkbox: Show the dark mode button in message headers
+Support label: Lets you quickly switch an email back to light mode while reading, without changing your main settings.",General,Reading & display
+Max recent,Number increment,Label: Maximum number of recent folders,,General,Folder options
+Recent sort order,Content,"Section header: Folder Management Options
+Title: Recent Destinations
+Sub text: Options for listing and sorting folders where messages were recently moved to.
+
+Label: Sort order | Dropdown: Most recent","Section header: Folder settings
+Title: Recent folders
+Sub text: Controls how recently used folders appear when moving emails.
+
+Label: Sort order | Dropdown: Most recent",General,Folder options
+Version + release notes,"Content block, button","Section Header: Updates
+Sub text: Daily/Thunderbird Updates
+Version number: 155
+Text: Updates disabled by your system admin
+
+Banner with link: Daily is managed by your organization","Section Header: Daily/ Thunderbird Updates
+Sub text: Daily/Thunderbird Updates
+Current version: 155
+Text: Updates are turned off by the system administrator.
+
+Banner with link: Thunderbird is managed by an organization",General,Updates
+Update history,Button,"Button: Show Update History
+
+Dialog text: Update History
+Sub text: The following updates have been installed
+Button: Update to 155…","Button: Show history
+
+Dialog text: Update History
+Sub text: The following updates have been installed
+Button: Update to 155…",General,Updates
+Update status,"Status text, button","Label: Daily/Thunderbird is up to date 
+Button: Check for Updates",,General,Updates
+Auto vs manual,Radio button,"Title: Allow Daily/Thunderbird to
+Radio button: Automatically install updates (recommended: improved security)","Title: Update settings
+Radio button: Automatically install updates (Recommended)
+Support text: Keeps Thunderbird secure with the latest security fixes.",General,Updates
+Use service,,👋 can I get a screenshot of this? ,,General,Updates
+Background update,Radio button,"Radio button: Check for updates, but let me choose whether I want to install them","Radio button: Check for updates, but ask before installing",General,Updates
+Offline settings,Dialog ,"Title: Offline 
+Label: Configure offline settings 
+
+
+Dialog title: Offline Settings
+
+Checkbox: Automatically follow detected online state
+Label: Manual state when starting up:
+Radio button: Remember previous online state
+Radio button: Ask me for online state
+Radio button: Online
+Radio button: Offline
+
+Label: Send unsent messages when going online?
+Radio button: Yes
+Radio button: No
+Radio button:  Ask me
+Label: Download messages for offline use when going offline?
+Radio button: Yes
+Radio button: No
+Radio button: Ask me","Title: Offline mode
+Label: Offline settings 
+
+
+Dialog title: Offline settings
+
+Checkbox: Automatically switch modes when an internet connection is found
+Label: When opening Thunderbird:
+Radio button: Use the last-used connection mode
+Radio button: Ask whether to connect online
+Radio button: Start online
+Radio button: Start offline
+
+Label: Send emails waiting in your Outbox
+Radio button: Yes, send automatically
+Radio button: No, keep in Outbox
+Radio button: Ask before sending
+Label: Do you want to download emails to read offline?
+Radio button: Yes, download automatically
+Radio button: No, do not download
+Radio button: Ask before downloading",General,Network & disk space
+Connection settings,Dialog ,"Section header: Network & Disk Space
+Title: Connection Settings
+Support text: Configure how Daily connects to the Internet 
+Button: Settings…
+
+Dialog title: Configure Proxies to Access the Internet
+Checkbox: No proxy
+Checkbox: Auto-detect proxy settings for this network
+Checkbox: Use system proxy settings
+Checkbox: Manual proxy configuration:
+Checkbox: Also use this proxy for HTTPS
+Radio button: SOCKS v4
+Radio button: SOCKS v5
+Radio button: Automatic proxy configuration URL:
+
+Label: No proxy for: 
+Support text: Example: .mozilla.org, .net.nz, 192.168.1.0/24
+Support text: Connections to localhost, 127.0.0.1/8, and ::1 are never proxied.
+Checkbox: Do not prompt for authentication if password is saved
+Checkbox: Proxy DNS when using SOCKS v5","Section header: Network and storage
+Title: Connection settings
+Support text: Control how Thunderbird/Daily connects to the internet.
+Button: Connection options…
+
+Dialog title: Internet connection & proxy
+Checkbox: No proxy
+Checkbox: Automatically detect network proxy
+Checkbox: Use system proxy settings
+Checkbox: Manual proxy setup:
+Checkbox: Use this proxy for secure web addresses (HTTPS)
+Radio button: SOCKS v4
+Radio button: SOCKS v5
+Radio button: Automatic setup script URL:
+
+Label: Do not use a proxy for these addresses:
+Support text: Examples: .mozilla.org, .net.nz, 192.168.1.0/24
+Support text: Local network connections (like localhost) never use a 
+Checkbox: Automatically log in if a password is saved
+Checkbox: Route domain requests (DNS) through SOCKS v5 proxy",General,Network & disk space
+Clear cache on shutdown,Checkbox,Checkbox: Clear cache on shutdown,Checkbox: Clear temporary files when Thunderbird closes,General,Network & disk space
+Cache size + clear,"Content, button","Title: Disk Space
+Sub text: Your cache is currently using 331 MB of disk space
+Button: Clear Now","Title: Temporary storage
+Sub text:  Temporary files are currently using 331 MB of space.
+Button: Clear temporary files",General,Network & disk space
+Smart cache sizing,Checkbox,Checkbox: Override automatic cache management ,Checkbox: Manually set storage limits for temporary files,General,Network & disk space
+Cache size,Disabled until selected,"Label: use up to | Number selector | MB space for cache 
+","Label: use up to | Number selector | MB space for temporary files
+",General,Network & disk space
+Compact prompt,Checkbox,Checkbox: Compact all folders when it will save order ,Checkbox: Remove data from folders when they have already been deleted to free up storage,General,Network & disk space
+Compact threshold,Number increment,Number selector | MB in total,,General,Network & disk space
+Compact automatically,Checkbox,Checkbox: Ask every time before compacting,Checkbox: Ask before cleaning up folders,General,Network & disk space
+Global indexing,"Content, checkbox","Title: Indexing 
+Checkbox: Enable Global Search and Indexer ","Title: Search & performance
+Checkbox: Turn on search across all email accounts ",General,Network & disk space
+Message store type,Checkbox,Checkbox: Show global search results as a list by default ,Checkbox: Show search results as a plain list,General,Network & disk space
+Config editor,Button,Button: Config Editor…,Button: Advanced settings,General,Network & disk space
+Accent color,"Content, dropdown","Section heading: Appearance
+Title: Accent Color
+Subtext: Define the colour used for primary buttons and highlighted elements
+Dropdown: Follow operating system","Section heading: Appearance
+Title: Accent Color
+Subtext: Select color for primary button and highlights
+Dropdown: Follow operating system",Appearance,
+Hardware acceleration,Dropdown,"Label: Message Store Type for new Accounts 
+Dropdown: File per folder (mbox) 
+Checkbox: Use hardware acceleration when available","Label: Storage format for new accounts:
+Dropdown: Single file per folder (mbox) 
+Checkbox: Use graphics acceleration for smoother scrolling and performance",General,Network & disk space
+Auto-hide tab bar,Checkbox,"Checkbox: Hide system window titlebar
+Checkbox: Auto hide tab bar
+Support text: Hide the tab bar when only a single tab is open","Checkbox: Hide title bar
+Support text: Removes the top bar showing the window name to save screen space
+Checkbox: Hide the tab bar when only a single tab is open
+Support text: Automatically hides tabs until you open a second tab.",Appearance,
+Draw in titlebar,Content,Title: Window Layout,"Title: Window Layout
+",Appearance,
+Message list view style,Content,"Title: Message List
+Radio button w/ image: View Style: Card view 
+Radio button w/ image: Table View","Title: Message List
+Subtext: Select view style: 
+Radio button w/ image: Card view
+Radio button w/ image: Table view",Appearance,
+Card rows,"Content, checkbox","Title: Card view options
+Label: Row count
+Radio button: 2 rows
+Radio button: 3 rows","Title: Card view options
+Label: Row count:
+Radio button: 2 rows
+Radio button: 3 rows",Appearance,
+Table horizontal scroll,,👋 can I get a screenshot of this? ,,Appearance,
+Default sort type,Radio button w/ image,"Label: Default Threading: 
+
+Radio button w/ image: Unthreaded 
+Radio button w/ image: Threaded
+Radio button w/ image: Grouped by Sort","Label: Default threading: 
+
+Radio button w/ image: Unthreaded 
+Radio button w/ image: Threaded
+Radio button w/ image: Grouped by sort",Appearance,
+Default threading,Content,"Title: Sorting and threading
+Sub text: Define the default sorting and threading options for newly created folders.","Title: Sorting and threading
+Sub text: Select default sorting and threading options for new folders",Appearance,
+Default sort order,Radio button,"Label: Default Sort by: 
+Dropdown: Date
+
+Label: Default Sort Order
+Radio button: Ascending
+Support text: New messages at the bottom
+Radio button: Descending 
+Support text: New messages at the top ","Label: Sort messages by:
+Dropdown: Date
+
+Label: Default sort order
+Radio button: Newest emails at the bottom 
+Support text: New messages at the bottom
+Radio button: Newest emails at the top 
+Support text: New messages at the top ",Appearance,
+Apply to all,"Button, dropdown","Label: Propagate threading and sorting settings to:
+Button: All existing folders 
+","Label: Apply these view settings to:
+Button: All folders and subfolders",Appearance,
+Apply to chosen folder,"Button, dropdown",Dropdown: Choose…,Dropdown: Select folders,Appearance,
+Forward messages,"Dropdown, checkbox","Section header: Composition
+Label: Forward messages: 
+Dropdown: Inline","Section header: Writing emails
+Label: Forward messages as:
+Dropdown: Inside the message (inline)",Composition,Composing (general)
+Add extension,Checkbox,Checkbox: add extension to file name,Checkbox: Add file type to attached emails,Composition,Composing (general)
+Auto save,Checkbox,Checkbox: Auto save every,Checkbox: Automatically save a draft every number of seconds,Composition,Composing (general)
+Warn on send shortcut,Checkbox,"Checkbox: Confirm when using keyboard shortcut to send message
+",,Composition,Composing (general)
+Auto save interval,Number increments,"Number selector
+Label: minutes",,Composition,Composing (general)
+Inline spellcheck,Checkbox,Checkbox: Check spelling before sending,Checkbox: Check spelling before sending,Composition,Spelling
+Add link previews,Checkbox,Checkbox: Add link previews when pasting URLs,,Composition,Composing (general)
+Check before send,Content,Title: Spelling,,Composition,Spelling
+Download dictionaries,"Content, checkbox, link","Title: Language:
+Checkbox: English (United States)
+Link: Download More Dictionaries","Title: Language:
+Checkbox: English (United States)
+Link: Download more dictionaries",Composition,Spelling
+Font face,Content,Title: HTML Style,Title: Message formatting ,Composition,HTML style
+Dictionaries,Checkbox,Checkbox: Enable spellcheck as you type,Checkbox: Check spelling as you type ,Composition,Spelling
+Font size,"Content, dropdown","Label: Font: 
+Dropdown: Variable width
+Label: Size: 
+Dropdown: Size","Label: Font: 
+Dropdown: Proportional (Regular)
+Label: Size: 
+Dropdown: Size",Composition,HTML style
+Use reader defaults,Checkbox,Checkbox: Use reader’s default colors,Checkbox: Ignore sender fonts and colors,Composition,HTML style
+Text color,Colour picker,Label: Text Color | Colour picker,,Composition,HTML style
+Background color,Colour picker,Label: Background Color | Colour picker,,Composition,HTML style
+Restore HTML defaults,Button,Button: Restore Defaults,,Composition,HTML style
+Default to paragraph,Checkbox,Checkbox: Use Paragraph format instead of Body Text by default,Checkbox: Pressing Enter starts a new paragraph with extra spacing,Composition,HTML style
+Send format,"Content, radio button","Title: Sending Format
+
+Radio button: Automatic
+Support text: If no styling is used in the message, send Plain Text. Otherwise, send HTML with a Plain Text fallback.
+
+Radio button: Both HTML and Plain Text
+Support text: The recipient’s email application will determine which version to show.
+
+Radio button: Only HTML
+Support text: Some recipients may not be able to read the message without a Plain Text fallback.
+
+Radio button: Only Plain Text
+Support text: Some styling will be converted into a plain alternative, while other composition features will be disabled.","Title: Sending format
+
+Radio button:  Automatic (recommended)
+Support text: Send formatted text if you add styles (like bold or links), or plain text if you don't.
+
+Radio button: Both rich text (HTML) and plain text
+Support text: Sends both versions so the recipient's email app can choose which one to display.
+
+Radio button:  Rich text (HTML) only
+Support text: Keeps custom fonts, colors, and images, but some older email apps may not display it properly.
+
+Radio button: Plain text only
+Support text: Removes all formatting, colors, and images. Best for simple text emails that work everywhere.",Composition,Send format
+Address autocomplete,Content,"Title: Addressing
+Subtext: When addressing messages, look for matching entries in:","Title: Address autocomplete
+Subtext: When typing a recipient’s name or email, look for matches in:",Composition,Addressing
+Directory,Checkbox,"Checkbox: Directory Server 
+Dropdown: None","Checkbox: Directory server
+Dropdown: None",Composition,Addressing
+LDAP autocomplete,Checkbox,Checkbox: Local Address Books,Checkbox: Company or network directory,Composition,Addressing
+Collect outgoing,"Checkbox, dropdown","Checkbox: Automatically add outgoing email addresses to my:
+Dropdown: Collected Addresses
+Support text: The location of new contacts saved from sent messages.","Checkbox: Automatically save outgoing email addresses to:
+Dropdown: Saved Addresses
+Support text: Where new contacts are saved when created manually or added from emails.",Composition,Addressing
+Collection address book,"Label, dropdown","Label: Default address book for manual added contacts
+Dropdown: Personal Address Book
+Support text: The location of new contacts saved from received messages.","Label: Save manually added contacts to:
+Dropdown: Personal Address Book
+Support text: Where new contacts are saved from emails.",Composition,Addressing
+Edit directories,"Checkbox, dialog","Button: Edit Directories…
+
+Dialog title: Button: LDAP Directory Servers
+Label: Select an LDAP Directory Server
+","Button: Manage directories…
+
+Dialog title: Button: Network directories
+Label: Select network directory ",Composition,Addressing
+Default startup directory,"Label, dropdown","Label: Default startup directory in the address book window
+Dropdown: All Address Books","Label: Show directory in the address book window when opening Thunderbird 
+Dropdown: All Address Books",Composition,Addressing
+Attachment reminder,Content,"Section header: Attachments
+",,Composition,Attachments
+Big-attachment notify,Checkbox,"Checkbox: Check for missing attachments
+Checkbox: Offer to share for files larger than
+","Checkbox: Check for missing attachments
+Checkbox: Offer to share files by link when they exceed:
+Files size: [5 MB]",Composition,Attachments
+Threshold,Number increment,,,Composition,Attachments
+Reminder options,Checkbox,"Checkbox: Check for missing attachments
+Button: Keywords…
+
+Dialog title: Attachment Reminder Keywords
+Subtext: Daily will warn you about missing attachments if you’re about to send an email containing one of these keywords.
+Buttons: OK | Cancel","Checkbox: Check for missing attachments
+Button: Edit keywords…
+
+Dialog title: Attachment reminder keywords
+Subtext: Show reminder for missing attachments if email contains keywords.
+Buttons: Save | Cancel",Composition,Attachments
+Cloud accounts,List,,,Composition,Attachments
+Add cloud account,Button?,👋 can I get a screenshot of this? ,,Composition,Attachments
+Remove cloud account,Button?,👋 can I get a screenshot of this? ,,Composition,Attachments
+Cloud settings panel,Panel,Label: Add a file-sharing service,Out of Scope,Composition,Attachments
+Find providers,Link,Link: Find more providers…,,Composition,Attachments
+Remote content exceptions,Button,"Dialog: Expectations - Remote Content
+Subtext: You can specify from which web sites images and other remote content are allowed to load. You can also allow all remote content based on sender email address. Type the address of the site or email you want to manage and then click Block or Allow. 
+
+Label: Address of website
+Field:
+Button: Block | Allow 
+
+List block: Site | Status
+Buttons 1: Remove Sites | Remove All Sites
+Buttons 2: Cancel | Save Changes","Dialog title: Remote content exceptions
+
+Subtext: Allow or block images and remote files from specific websites or email addresses. 
+
+Label: Website or email address:
+Field:
+Button: Block | Allow 
+
+List block: Site or Sender | Status
+Buttons 1: Remove sites | Remove all sites
+Buttons 2: Cancel | Save",Privacy & Security,Mail content
+Remote content,Checkbox,"Section header: Privacy
+Title:Mail Content
+Checkbox: Allow remote content in messages
+Link: Learn more about the privacy issues of remote content","Section header: Privacy
+Title: Email  content
+Checkbox: Allow remote content (images and styles)
+Link:  How remote content affects privacy",Privacy & Security,Mail content
+Keep history,Checkbox,"Title: Web Content
+Checkbox: Remember websites and links I’ve visited",,Privacy & Security,Web content
+Accept cookies,"Checkbox, dropdown","Checkbox: Accept cookies from sites
+Label: Accept third-party cookies: 
+Dropdown: Always",,Privacy & Security,Web content
+Cookie exceptions,"Button, dialog ","Button: Exceptions…
+
+Dialog title: Exceptions - cookies 
+Subtext: You can specify from which web sites always or never allowed to use cookies. Type the exact address of the site you want to manage and then click, Block, Allow for Session, or Allow. 
+
+Label: Address of website: 
+Field: 
+Button: Block | Allow for Session | Allow 
+
+List block: Site | Status
+Buttons 1: Remove Sites | Remove All Sites
+Buttons 2: Cancel | Save Changes","Button: Cookie exceptions…
+
+Dialog title: Cookie exceptions
+Subtext: Allow or block cookies from specific websites.
+
+Label: Website address:
+Field: 
+Button: Block | Allow for Session | Allow 
+
+List block: Website | Status
+Buttons 1: Remove websites | Remove all sites
+Buttons 2: Cancel | Save",Privacy & Security,Web content
+Third-party cookies,Dropdown,"Label: Accept third-party cookies
+Dropdown:
+• [ Always ▾ ]
+• [ From visited  ▾ ]
+• [ Never ▾ ]","Label: Accept cookies from external websites 
+Dropdown: 
+  • Always
+  • From visited sites only 
+  • Never",Privacy & Security,Web content
+Show cookies,Dialog ,"Dialog title: Cookies
+Label: Search 
+Text field:
+
+Label: The following cookies are stores on your computer 
+Panel: Site | Cookie name 
+
+Label: Name 
+Label: Content
+Label: Host
+Label: Path
+Label: Send For
+Label: Expires: 
+
+Button: Remove Selected | Remove All Cookies | Close","Dialog title: Cookies
+Label: Search 
+Text field:
+
+Label: Cookies are stored on this computer 
+Panel: Site | Cookie name 
+
+Label: Name 
+Label: Content
+Label: Host
+Label: Path
+Label: Send For
+Label: Expires: 
+
+Button: Remove selected | Remove all Cookies | Close",Privacy & Security,Web content
+Global Privacy Control,"Checkbox, link","Checkbox: Tell websites not to sell or share my data
+Link: Learn More",Checkbox: Ask websites not to sell or share personal data,Privacy & Security,Web content
+Do-Not-Track note,Link,Link: We no longer support the “Do Not Track” Signal,Q: can we deprecate this link?,Privacy & Security,Web content
+OS reauthentication,Checkbox,"Checkbox: Require device sign in to fill and manage passwords
+",,Privacy & Security,Passwords
+Saved passwords,"Button, dialog","Section header: Passwords
+Label: Daily can remember passwords for all of your accounts. 
+Button: Saved Passwords…
+
+
+Dialog title: Saved Logins
+Search field 
+Label: Logins for the following providers are stored on your computer
+
+List: Provider | Username | Last… | icon?
+Buttons: Remove | Remove All | Show Passwords | Close","Section header: Passwords
+Label: Thunderbird can save passwords for registered accounts.
+Button: View Saved Passwords…
+
+
+Dialog title: Saved Passwords
+Search field 
+Label: Passwords stored on this computer
+
+List: Account | Username | Last… | icon?
+Buttons: Remove | Remove all | Show passwords | Close",Privacy & Security,Passwords
+Use primary password,"Label, checkbox","Label: A Primary Password protects all your passwords, but you must enter it once per session.
+Checkbox: Use a Primary Password","Label: A Primary Password protects all passwords and entered once per session.
+Checkbox: Use Primary Password",Privacy & Security,Passwords
+Change primary password,"Dialog, ","Dialog title: Primary Password
+Subtext: A Primary Password is used to protect some sensitive information, like login passwords, on this device. If you create a Primary Password you will be asked to enter it once per session when Daily/Thunderbird retrieves saved information protected by the password.
+
+Label: Current password: 
+Text field: 
+
+Label: Enter new password: 
+Text field: 
+
+Label: Re-enter new password: 
+Text field:
+
+Label: Password quality meter
+Meter
+Support text: Please make sure you remember the Primary Password you set. If you forget your primary password, you will be unable to access any of the information by it on this device. ","Dialog title: Primary Password
+Subtext: A primary password protects saved account passwords and sensitive data on this computer. You will be asked for it once during each session.
+
+Label: Current password: 
+Text field: 
+
+Label: New password: 
+Text field: 
+
+Label: Confirm password: 
+Text field:
+
+Label: Password strength
+Support text: Important: If this password is lost or forgotten, protected passwords and saved data cannot be recovered.",Privacy & Security,Passwords
+FIPS info,Content,,,Privacy & Security,Passwords
+Manual mark mode,Content,"Checkbox:  When messages are marked as spam
+Checkbox: When Daily determines that they are spam
+","Checkbox: When marked manually
+Checkbox: When detected automatically by Thunderbird",Privacy & Security,Junk / spam
+Manual mark,Content,"Section header: Spam
+Subtext: Set your default spam settings. Account-specific spam settings can be configured in Account Settings.","Section header: Spam
+Subtext:  These settings apply to all accounts. Individual account options can be changed in Account Settings.",Privacy & Security,Junk / spam
+Junk logging,Checkbox,Checkbox: Enable adaptive spam filter logging,Checkbox: Keep a log of automatic spam detection,Privacy & Security,Junk / spam
+Mark junk as read,Radio button,"Radio button: Move them to the account’s “Spam” folder
+Radio button: Delete them","Radio button: Move to the Spam folder
+Radio button: Delete immediately",Privacy & Security,Junk / spam
+Health report,"Content, link, note, checkbox","Section header: Daily/ Thunderbird Data Collection and Use
+Subtext: We strive to provide you with choices and collect only what we need to provide and improve Daily/Thunderbird for everyone. We always ask permission before receiving personal information. 
+Link: Privacy Notice
+
+Note: You’re no longer allowing http://mozilla.org to caputre technical and interaction data. All past data will be deleted within 30 days. 
+Button: Learn more 
+
+Checkbox: Allow  Daily/ Thunderbird to send technical and interaction data to http://Mozilla.org Button: Learn more","Section header: Help improve Thunderbird
+Subtext: Thunderbird is built by a global community. Sharing anonymous performance data helps us fix bugs faster and make the app faster for everyone.
+Link: Read our privacy policy
+
+Note: Data sharing is turned off. Past usage data will be permanently deleted from Mozilla servers within 30 days. 
+
+Button: Learn more 
+
+Checkbox: Share anonymous performance data with Mozilla ((Includes basic technical info like your operating system, memory usage, and feature activity. Thunderbird never collect email content, contacts, or personal messages.)",Privacy & Security,Data collection
+Reset training data,Button,Button: Reset Training Data,,Privacy & Security,Junk / spam
+Open junk log,Button,Button: Show log,,Privacy & Security,Junk / spam
+Crash reports,Checkbox,Checkbox: Allow Daily/ Thunderbird to send backlogged crash reports on your behalf. Button: Learn more,Checkbox: Share anonymous data when app crashes with Mozilla,Privacy & Security,Data collection
+Anti-virus quarantine,Checkbox,"Title: Antivirus 
+Subtext: Daily can make it easy for antivirus software to analyze incoming mail messages for viruses before they are stored locally 
+
+Checkbox: Allow antivirus clients to quarantine individual incoming messages","Title: Antivirus
+Subtext: Allows antivirus software to check incoming messages individually before they are saved to your computer.
+
+Checkbox:  Allow antivirus software to isolate infected incoming emails",Privacy & Security,Security
+Phishing detection,Checkbox,"Section header: Security
+Title: Scam Detection 
+subtext: Daily/Thunderbird can analyze messages for suspected email scams by looking for common techniques used to deceive you. 
+
+Checkbox: Tell me if the messages I’m reading is a suspected email scam","Section header: Security
+Title: Scam Detection 
+subtext: Thunderbird checks messages for phishing links and common signs of email scams.
+
+Checkbox: Warn when reading a email that looks like a scam",Privacy & Security,Security
+Manage certificates,Dialog ,"Button: Manage Certificates…
+
+Dialog is complicated - didn’t write down for now",,Privacy & Security,Security
+OCSP,Checkbox,"Label: Query OCSP responder servers to 
+Checkbox: confirm the current validity of certificates ","Label: Check OCSP responder servers to
+Checkbox: Check certificate validation servers (OCSP) to confirm certificates are still correct.",Privacy & Security,Security
+Certificate selection,Radio button,"Title: Certificates 
+Subtext: When a server request my personal certificate: 
+Radio button: Select one automatically 
+Radio button: Ask me every time","Title: Security certificates 
+Subtext:  When a server asks for a certificate to verify your identity:
+Radio button: Choose a certificate automatically
+Radio button: Ask every time",Privacy & Security,Security
+Security devices,,Button: Security Devices ,,Privacy & Security,Security
+Auto-enable,Content ,"Title: Automatic Use of Encryption
+
+Subtext: Thunderbird can assist by automatically enabling or disabling encryption while composing an email. Auto enabling/disabling is based on the availability of valid and accepted correspondents’ keys or certificates.","Section header: Automatic use of encryption
+Subtext: Thunderbird can turn encryption on if valid accepted keys or 
+certificates are available for all recipients of a message.
+
+Note: You can also manually turn encryption on or off while writing a 
+message. Replying to an encrypted messages always turns on encryption.",Privacy & Security,Email end-to-end encryption
+Account settings link,,"Section header: Email End-To-End Encryption 
+Subtext: Set up email accounts and identities for End-To-End Encryption in the Account Settings.","Section header: Email end-to-end encryption
+Subtext:  Encrypted emails can only be read by you and your recipients. Set up email accounts and identities for end-to-end encryption in the Account settings.",Privacy & Security,Email end-to-end encryption
+Auto-disable,Checkbox ,"Checkbox: Automatically enable encryption when possible
+Checkbox: Automatically disable encryption when recipients change and encryption is no longer possible
+
+Subtext: Automatic decisions may be overridden by manually enabling or disabling encryption when composing a message. Note: encryption is always automatically enabled when replying to an encrypted message.","Checkbox: Automatically turn on encryption when possible
+
+Checkbox: Automatically turn off encryption when recipients change and encryption is no longer possible
+
+Subtext: Automatic decisions may be overridden by manually enabling or disabling encryption when composing a message. Note: encryption is always automatically enabled when replying to an encrypted message.",Privacy & Security,Email end-to-end encryption
+Notify on auto-disable,Checkbox,Checkbox disabled: Show a notification whenever encryption is disabled automatically,Checkbox: Show a notification whenever encryption is turned off automatically,Privacy & Security,Email end-to-end encryption
+Reset key servers,Button,button: Reset Server List,button: Clear key directories ,Privacy & Security,Email end-to-end encryption
+Add key server,"Checkbox, buttons","Label: Use the following keyservers:
+
+Checkbox: vks://keys.openpgp.org
+Checkbox: hkps://keys.mailvelope.com
+
+Button: Add…
+
+Dialog title: Add Keyserver
+Subtext: Enter the URL of the keyserver to add.
+Button: OK | Cancel ","Label: Search for security keys in these directories:
+
+Checkbox: keys.openpgp.org (Standard OpenPGP directory)
+Checkbox: keys.mailvelope.com (Mailvelope directory)
+
+Button: Add Key Directory…
+
+Dialog title: Add Key Directory
+Subtext: Directory server address (URL):
+Button: Save | Cancel ",Privacy & Security,Email end-to-end encryption
+Key servers,Content ,"Title: OpenPGP Keyservers
+
+Subtext: A keyserver receives and then serves existing public keys to users. It allows you to publish your public key and find and refresh keys of others.","Title: Key servers (OpenPGP keyservers)
+
+Subtext: Key directories store and share public security keys online. This makes it easy to find security keys for other people and publish your own.",Privacy & Security,Email end-to-end encryption
+Resolvers,"Radio button, link","Text: Thunderbird decides when to use secure DNS to protect your privacy.
+  • Use secure DNS in regions where it’s available
+  • Use your default DNS resolver if there is a problem with the secure DNS provider
+  • Use a local provider, if possible
+Learn more
+  • Turn off when VPN, parental control, or enterprise policies are active
+Turn off when a network tells Thunderbird it shouldn’t use secure DNS
+Learn more","Label: How secure DNS protects your privacy
+
+Radio block: Automatic protection (Recommended)
+
+Thunderbird automatically encrypts address lookups when available. Switches back to standard network lookups if there's a connection issue or if a VPN/managed network requires it.
+- Use secure DNS in regions where it’s available
+- Use your default DNS resolver if there is a problem with the secure DNS provider
+- Use a local provider, if possible Learn more
+- Turn off when VPN, parental control, or enterprise policies are active
+
+  • Turn off when a network tells Thunderbird it shouldn’t use secure DNS Learn more",Privacy & Security,DNS over HTTPS
+DoH mode,Content ,"Section header: DNS over HTTPS
+Title: DNS over HTTPS
+
+Subtext: Domain Name System (DNS) over HTTPS sends your request for a domain name through an encrypted connection, providing a secure DNS and making it harder for others to see which website you’re about to access.
+Link: Learn more
+Button? Status: off","Title: Secure DNS (DNS over HTTPS)
+Subtext: DNS over HTTPS
+Text: Secure DNS encrypts the lookup requests Thunderbird sends to find websites, keeping your browsing activity private from any network monitoring.
+
+Link: Learn more
+Button? Status: off",Privacy & Security,DNS over HTTPS
+Status,"Radio button, dropdown","Radio block: Increased Protection
+Text: You control when to use secure DNS and choose your provider.
+  • Use the provider you select
+  • Only use your default DNS resolver if there is a problem with secure DNS
+
+Choose provider:
+Dropdown Cloudflare (default)
+
+— 
+Radio block: Max Protection
+Text: Thunderbird will always use secure DNS. You’ll see a security risk warning before we use your system DNS.
+Only use the provider you select
+Always warn if secure DNS isn’t available
+If secure DNS is not available sites will not load or function properly
+
+Choose provider:
+Dropdown Cloudflare (default)
+
+— 
+Radio block: Off
+Text: Use your default DNS resolver","Radio block: Increased protection
+Text: Always uses chosen provider. Uses standard connection only if secure provider fails.
+
+Choose provider:
+Dropdown Cloudflare (default)
+
+— 
+Radio block: Maximum protection
+Text: Strictly requires encrypted DNS. Websites will not load if secure connection fails.
+
+Choose provider:
+Dropdown Cloudflare (default)
+
+— 
+Radio block: Off
+Text: Uses standard internet provider or network to look up web addresses",Privacy & Security,DNS over HTTPS
+Startup action,"Content, dropdown","Section header: Chat
+Title: Status
+Label: When Thunderbird starts: 
+Dropdown Connect my chat accounts automatically ","Section header: Chat
+Title: Status
+Label: When Thunderbird opens:
+Dropdown Automatically connect chat accounts ",Chat,Status
+Time before away,Number increment ,Label: minutes of inactivity,,Chat,Status
+Report idle,Checkbox,Checkbox: Let my contacts know that I am Idle afte,Checkbox: Let contacts know that I am Idle after,Chat,Status
+Away message,"Checkbox, text field? ","Label: and set my status to Away with this status message:
+",,Chat,Status
+Notification info,Checkbox,"Label: Show a notification
+Dropdown: with sender’s name and message preview 
+Checkbox: Animate dock icon ",,Chat,Notifications
+Desktop notifications,Checkbox,Checkbox: When messages directed at you arrive:,,Chat,Notifications
+Send typing,Checkbox,"Title: Notifications
+Checkbox: Send typing notifications in conversations
+",,Chat,Notifications
+Play sound,"Checkbox, radio button","Checkbox: Play a sound 
+Radio button: Default system sound for new mail",,Chat,Notifications
+Get attention,Checkbox,?,,Chat,Notifications
+Preview sound,Button,Button: Play,,Chat,Notifications
+Sound type,Radio button,Radio button: Use the following sound file,,Chat,Notifications
+Sound file,"Text field, button ",,,Chat,Notifications
+Preview,Preview,,,Chat,Styling
+Browse sound,"Text field, button ",Button: Browse…,,Chat,Notifications
+Theme,Dropdown,"Title header: Styling
+Label: Theme 
+Dropdown: Thunderbrid ",,Chat,Styling
+Timezone source,Dropdown,"Date Text Format: 
+Dropdown: Long weekday, month, date, year",,Calendar,Views
+Variant,Dropdown,"Label: Variant
+Dropdown: Light",,Chat,Styling
+Date format,Dropdown,"Section header: Calendar
+",,Calendar,Views
+Week starts,Dropdown,Label: Start the week on,,Calendar,Views
+Timezone,Radio button,"Radio button: Use system timezone
+Radio button: Set timezone manually
+Dropdown: America/Vancouver ","Radio button: Automatically detect timezone
+Radio button: Manually set timezone 
+Dropdown: America/Vancouver ",Calendar,Views
+Show week number,Checkbox,Checkbox: Show week number in views and minimonth,,Calendar,Views
+Visible hours,Dropdown,"Title: Day and Week Views
+Label: Show:
+Dropdown: | hours at a time",,Calendar,Views
+Workday checkboxes,Checkbox,"Label: Workweek days: 
+Checkbox: Sun
+Checkbox: Mon
+Checkbox: Tue
+Checkbox: Wed
+Checkbox: Thur
+Checkbox: Fri
+Checkbox: Sat",,Calendar,Views
+Show location,Checkbox,Checkbox: Show location,,Calendar,Views
+Day end hour,Dropdown,"Label: Day ends at:
+Dropdown: ",,Calendar,Views
+Day start hour,Dropdown,"Label: Day starts at:
+Dropdown: ",,Calendar,Views
+Multiweek total weeks,Dropdown,"MAYBE leave out for now because we are changing all of this? 
+
+Title: Multiweek View
+Label: Number of weeks to show (including previous weeks): 
+Dropdown: 4 weeks",,Calendar,Views
+Agenda days,Dropdown,"Label: The agenda shows:
+Dropdown: 2 weeks",,Calendar,General
+Multiweek previous weeks,Dropdown,"Label: Previous weeks to show
+Dropdown: none",,Calendar,Views
+Task default start,,Checkbox: Edit events and tasks in a tab instead of in a dialog window.,,Calendar,General
+Default event length,Number selector,"Title: Events and Tasks
+Label: Default Event and Task Length 
+Number increment ",,Calendar,General
+Play sound,Content,"Section header: Reminders
+Title: When a Reminder is Due:
+Checkbox: Play a sound","Section header: Reminders
+Title: When a Reminder is due:
+Checkbox: Play",Calendar,Alarms / Reminders
+New calendar dialog (experimental),Checkbox,"Title: New Calendar Event Dialog
+Badge: Experimental
+Checkbox: View calendar events in the new dialog
+Support text: Experimental new calendar dialog for viewing events",,Calendar,General
+Prompt on delete,Checkbox,Checkbox: Prompt before deleting events and tasks.,,Calendar,General
+Preview alarm,Button,Button: Play,,Calendar,Alarms / Reminders
+Sound type,Radio button,"Checkbox: Play a sound
+Radio button: Default system sound for new mail
+Radio button: Use the following sound file","Checkbox: Play
+Radio button: Use this sound for new mail
+Radio button: Use sound file",General,Alarms / Reminders
+Show alarms,Checkbox,Checkbox: Show the reminder dialog,,Calendar,Alarms / Reminders
+Event default alarm,Dropdown,"Label: Default reminder settings for events
+Dropdown",,Calendar,Alarms / Reminders
+Default snooze length,Content,"Title: Reminder Defaults
+Label: Default Snooze Length 
+Number increment",,Calendar,Alarms / Reminders
+Show missed,Checkbox,Checkbox: Show missed reminders for writable calendars,,Calendar,Alarms / Reminders
+Event alarm length/unit,"Content, number increment ","Title: Default time reminder is set before an event
+Label: Default Snooze Length: 
+Number increment
+Label: Minutes ",,Calendar,Alarms / Reminders
+Task default alarm,Dropdown,"Label: Default reminder settings for tasks
+Dropdown",,Calendar,Alarms / Reminders
+Customize hint,Content,Support text: Notifications can be customized for each calendar in the calendar’s properties window.,,Calendar,Notifications
+Notification times,Content,"Section header: Notifications
+Subtext: Show notifications for upcoming events",,Calendar,Notifications
+Task alarm length/unit,"Content, number increment ","Title: Default time reminder is set before a task
+Label: Default Snooze Length: 
+Number increment
+Label: Minutes 
+",,Calendar,Alarms / Reminders
+New category,Button,Button: New…,,Calendar,Categories
+Category list,,Section header: Categories ,,Calendar,Categories
+Delete category,Button,Button: Delete,,Calendar,Categories
+Signed out,,Not in scope 🛑,,Sync,Account states
+Edit category,Dialog ,Button Edit…,,Calendar,Categories
+"Account, verified",,Not in scope 🛑,,Sync,Account states
+"Account, rejected",,Not in scope 🛑,,Sync,Account states
+"Account, unverified",`````,Not in scope 🛑,,Sync,Account states
+Device name,,,,Sync,Account states
+Disconnected,,👋 can I get a screenshot of this? ,,Sync,Account states
+Connected,,👋 can I get a screenshot of this? ,,Sync,Account states
+Description + Play Store link,"Content, link","Section header: Export accounts to Thunderbird Mobile
+
+Subtext: Quickly transfer your account settings from desktop to mobile by generating a QR code. Select which accounts to include, decide if you want to transfer your password, and scan the code with your mobile device. Fast, secure, and simple.
+
+Support text: Don’t have Thunderbird on mobile yet? Get it on Google Play
+
+Title: Create a QR code to export your accounts","Section header: Export to Thunderbird mobile
+
+Subtext: Transfer your email accounts from this computer to Thunderbird on your phone using a QR code.
+
+Support text: Get Thunderbird on Google Play
+
+Title: Create a QR code to export your accounts
+
+Title: Select accounts to export:",QR Export,Intro
+Account selection,,"Title: Select which accounts to export:
+Block title: Email accounts
+
+Support text: Not seeing all your accounts? Some accounts may be disabled because they are not supported by Thunderbird for Android. Support","Title: Select accounts to export:
+Block title: Email accounts
+
+Support text: Missing an account? Accounts that are not supported on Thunderbird for Android cannot be selected.
+Link: : Learn which account types are supported",QR Export,Intro
+No-accounts message,"List, link",Not in scope 🛑,,QR Export,Intro
+Select all,List,,,QR Export,Intro
+Include passwords,"Block, checkboxes ","Title: Security
+Checkbox: Include all accounts passwords
+
+Icon: 
+Text: Some of your accounts use an authentication method that may require re-authentication on your mobile device. You may need to enter your passwords again during this process.
+
+Icon: 
+Text: By scanning the following QR codes, your account settings—including your email and password—will be transferred securely. We do not collect, store, or share any of this data during the process. The transfer occurs directly between your devices.
+
+Text: For your security, please ensure you are in a private setting and only scan QR codes from trusted sources.","Title: Passwords
+Checkbox: Include account passwords in the QR code
+
+Icon: 
+Text: Note: Accounts that use web sign-in (like Gmail or Yahoo) will require authentication again on your phone.
+
+Icon: 
+Text: Private transfer: Your settings and passwords move directly from this computer to your phone. Nothing is sent to or stored on Mozilla servers.
+
+Text: Tip: Keep your screen hidden from others while the QR code is displayed.",QR Export,Intro
+OAuth warning,,Not in scope 🛑,,QR Export,Intro
+Codes step,,Not in scope 🛑,,QR Export,Codes
+Start,,Not in scope 🛑,,QR Export,Intro
+Summary step,,Not in scope 🛑,,QR Export,Summary
+Enterprise policies ,Content block,"Table title: Active
+Header title 1: Policy Name
+List item: DisableAppUpdate
+
+Header title 2: Policy Value
+Listen item: true",,General,Updates
+Server Setting,Fields ,"Header section: Server Settings
+Label: Server Type: IMAP Mail Server
+Server Name: Field | Port # | Default: 993
+User Name: Field","Header section: Server settings
+Label: Server type: IMAP (keeps emails synced with server)
+Server Name: Field | Port # | Default: 993
+User Name: Field",Server,Type
+Security Settings,Dropdowns,"Header section: Security Settings
+Connection security: Dropdown
+Authentication method: Dropdown","Header section: Security and sign-in
+Connection security: Dropdown
+Sign-in method: Dropdown",Server,Security
+Message Storage,Checkboxes,"Header section: Message storage
+Checkbox: Clean (”Expunge”) Inbox on Exit 
+Checkbox: Empty Trash on Exit
+Label: Message Store Type: button File per folder (mbox)
+Label: Local Directory: Field | button: Browse… ","Header section: Message storage
+Checkbox: Clean up (permanently clear) deleted Inbox messages on exit
+Label: Message Store Type: button File per folder (mbox)
+Label: Storage location on computer: Field | button: Browse… ",Server,storage
+Server Settings,Checkboxes,"Header section: Server Settings
+Checkbox: Check for new messages at startup
+Checkbox: Check for new messages every | # Minutes 
+Checkbox: Allow immediate server notifications when new messages arrive
+
+Label: When I delete a message: 
+Radio button: Move it to this folder: Trash | Button: Advanced…
+Radio button: Just mark it as deleted 
+Radio button: Remove it immediately ","Header section: Message checking
+Checkbox: Check for new messages when Thunderbird opens
+Checkbox: Check for new messages every | # Minutes 
+Checkbox: Get new messages instantly when they arrive on the server
+
+Label: Deleting messages
+Radio button: Move it to this folder: Trash | Button: Folder Options…
+Radio button: Mark as deleted without moving
+Radio button: Delete permanently immediately",Server,General
+Copies & Folders,"Checkbox, dropdowns, checkboxes ohmy","Header section: Copies & Folders
+Subtext: When sending messages, automatically: 
+Radio button: “Sent” Folder on | Dropdown 
+Radio button: Other | Dropdown
+Checkbox: Place replies in the folder of the message being replied to
+Checkbox: Cc these email address | Field 
+Checkbox: Bcc these email address 
+Subtext: Leave the address field blank to always show the address row when starting a new message. ","Header section: Sent message copies
+Subtext: Choose where to save copies of outgoing emails and manage automatic copies.
+Radio button: Sent folder on:  | Dropdown 
+Radio button: Other folder | Dropdown
+Checkbox: Place replies in the folder of the message being replied to
+Checkbox: Cc these email address | Field
+Checkbox: Bcc these email address 
+Subtext: Note: Checking these boxes adds automatic CC/BCC rows when composing new emails.",Server,Folder options
+Message Archives,"Checkbox, dropdowns, checkboxes ohmy","Header section: Message Archives
+
+Checkbox: Keep message archives in: 
+Radio button: “Archives” Folder on: | Dropdown
+Radio button: Other: ","Header section: Message archives
+
+Checkbox: Keep message archives in: 
+Radio button: Archives folder on: | Dropdown
+Radio button: Other folder: ",Server,Folder options
+Drafts and Templates,"dropdowns, checkboxes","Header section: Drafts and Templates
+
+Label: Keep draft messages in: 
+Radio button: “Drafts” Folder on: | Dropdown
+Radio button: Other: 
+
+Keep message templates in: 
+Radio button: “Templates” Folder on: | Dropdown
+Radio button: Other: 
+Checkbox: Show confirmation dialog when messages are saved","Header section: Drafts and templates
+
+Label: Keep draft messages in: 
+Radio button: Drafts folder on: | Dropdown
+Radio button: Other folder: 
+
+Keep message templates in: 
+Radio button: Templates folder on: | Dropdown
+Radio button: Other folder: 
+Checkbox: Confirm when emails are saved",Folders,Folder options
+Composing and Addressing,"dropdowns, checkboxes","Header section: Composing and Addressing
+Subtext: Composition
+Checkbox: Compose messages in HTML Format
+Checkbox: Automatically quote the orginal message when replying
+Label: When quoting, | Dropdown
+Label: and place my signature | Dropdown
+Checkbox: Include signature for replies 
+Checkbox: Include signature for forwards","Header section: Writing messages 
+Subtext: Composition
+Checkbox: Write messages in rich text (HTML) 
+Checkbox: Automatically quote the original message when replying
+Label: When quoting, | Dropdown
+Label: and place my signature | Dropdown
+Checkbox: Include signature for replies 
+Checkbox: Include signature for forwards",Folders,Addressing
+Addressing,Radios,"Section header: Addressing 
+Label: When looking up addresses: 
+Radio button: Use my global LDAP server preferences for this account 
+Radio button: Use a different LDAP server: | Dropdown
+
+","Section header: Address autocomplete
+Label: When looking up contacts for this account:
+Radio button: Use global network directory settings
+Radio button: Use a specific directory: | Dropdown",Address,Composing (general)
+Spam Settings,"dropdowns, checkboxes","Section header: Spam Settings
+Label: Selection
+Checkbox:  Enable adaptive spam controls for this account
+Label: If enabled, you must first train Daily to identify spam by using the Spam toolbar button to mark messages as spam or not. You need to identify both spam and non spam messages. After that Daily will be able to mark spam automatically. 
+
+Label: Do not automatically mark mail as spam if the sender is in: 
+Checkboxes
+
+—- 
+
+Checkbox: Trust spam headers set by | Dropdown 
+Subtext: If enabled, Daily will automatically consider messages marked by this external classifier as spam.","Section header: Manage spam 
+Label: Selection
+Checkbox: Turn on automatic spam detection for this account
+Label: If turned on, Thunderbird learns over time based on the messages you mark as Spam or not. The more you mark as spam, the better Thunderbird gets at filtering junk automatically.
+
+Label: Trust email addresses in these address books:
+",Privacy & Security,Composing (general)
+Destination and Retention,"dropdowns, checkboxes, Buttons","Section heading: Destination and Retention
+Checkbox: Move new spam messages to
+Radio button: “Spam” folder on | DropdownRadio button: Other
+Checkbox: Automatically delete spam older than # days
+Button: Global Spam Settings…","Section heading: Spam folders 
+Checkbox: Move new spam messages to
+Radio button: Spam folder on | Dropdown
+Radio button: Other folder
+Checkbox: Automatically delete spam older than # days
+
+Button: Global spam settings…",Privacy & Security,Composing (general)
+Message Synchronizing ,,"Section heading: Synchronization & Storage
+Label: Message Synchronizing 
+Checkbox: Keep messages in all folders for this account on this computer
+Label: Note: Changing this affects all folders in this account. To set individual folders, use the Advanced…button.
+
+Button: Advanced…","Section heading: Offline message storage
+Label: Message Synchronizing 
+Checkbox: Save copies of all folders and messages on this computer for offline use
+Label: Applies to all folders in this account. 
+
+Button: Advanced options…",Sync,Network & disk space
+Disk space,,"Section heading: Disk Space
+Label: To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size.
+Radio button: Synchronize all messages locally regardless of age
+Radio button: Synchronize the most recent # days
+Checkbox: Don’t download messages larger than # KB
+
+Support text: To recover disk space, old messages can be permanently deleted, both local copies and originals on the remote server.
+
+button: Retention Policy ","Section heading: Download limits
+Label: Choose which messages to store locally on this computer:
+Radio button: Save all messages on this computer regardless of time
+Radio button: Only save messages from the last:
+Checkbox: Skip downloading messages larger than: 
+
+Support text: Set rules to automatically delete old messages from both this computer and the mail server to free up space.
+
+button: Set deletion rules",Sync,Network & disk space
+End-to-End Encryption,"Large icons, buttons, fields, ","Section header: End-to-end encryption
+Label: Without end-to-end encryption the contents of messages are easily exposed to your email provider and to mass surveillance.
+Link: Learn more
+
+To send encrypted or digitally signed messages, you need to configure an encryption technology, either OpenPGP or S/MIME.
+
+Select your personal key to enable the use of OpenPGP, or your personal certificate to enable the use of S/MIME. For a personal key or certificate you own the corresponding secret key.
+Link: Learn more
+
+Section header: OpenPGP
+Icon | Label: Daily doesn’t have a personal OpenPGP key for: <email address>
+Button: Add Key…
+Label: Use the OpenPGP Key Manager to view and manage public keys of your correspondents and all other keys not listed above.
+Button: OpenPGP Key Manager ","Section header: Email Encryption
+Label: Encryption keeps your emails private so email providers or network monitoring cannot read them. To encrypt or sign messages, set up a security key or certificate below. 
+
+Link: How email encryption works
+
+Section header: OpenPGP security keys
+Icon | Label: No OpenPGP key found for: <email address>
+Button: Add Key…
+Label: Use the key manager to view and import public keys for other people.
+Button:  Key manager ",Privacy & Security,Security
+Return Receipts ,,"Section header: Return Receipts
+Radio button: Use my global return receipt preferences for this account 
+button: Global Preferences…
+
+Radio button: Customize return receipts for this account 
+Checkbox: When sending messages, always request a return receipt
+
+Label: When a receipt arrives: 
+Radio button: Leave it in my Inbox
+Radio button: Move it to my “Sent” Folder 
+
+Label: When I receive a request for a return receipt: 
+Radio button: Never send a return receipt
+Radio button: Allow return receipt for some messages
+  • If I’m not in the To or CC of the message | Ask me
+  • If the sender is outside my domain | Ask me
+  • In all other cases | Ask me","Section header: Read receipts
+Radio button: Use global return receipt settings
+button: Global Preferences…
+
+Radio button: Customize return receipts for this account
+Checkbox: Always request a return receipt when sending emails
+
+Label: When a receipt arrives:
+Radio button: Leave in Inbox
+Radio button: Move to Sent folder
+
+Label: When a sender requests a return receipt:
+Radio button: Never send a return receipt
+Radio button: Allow return receipt for some messages
+  • If not listed in To or CC field: | Ask
+  • If sender is outside company or domain: | Ask 
+- In all other cases | Ask",Privacy & Security,Security
+S/MIME,,"Title: S/MIME
+Label: Personal certificate for digital signing: 
+Field: 
+Button: Select | Test | Clear 
+
+Label: Personal certificate for encryption
+Field: 
+Button: Select | Test | Clear 
+
+Button: Manage S/MIME Certificates 
+Button: S/MIME Security Devices
+
+Subtext: To obtain a new personal S/MIME certificate, generate a Certificate Signing Request (CSR) and submit it to a Certificate Authority (CA).
+Link: Learn more
+Button: Generate and save a CSR file as…","Title: Digital Certificates (S/MIME)
+Label: Certificate for digital signing:
+Field: 
+Button: Select | Test | Clear 
+
+Label: Certificate for encryption:
+Field: 
+Button: Select | Test | Clear 
+
+Button: Manage certificates 
+Button: S/MIME Security Devices
+
+Subtext: To get a new S/MIME certificate from a certificate provider, create a Certificate Signing Request file on this computer.
+Link: Read about how certificates work 
+Button: Create certificate request…",Privacy & Security,Security
+Default setting for sending messages,,"Section header: Default settings for sending messages
+Radio button: Disable encryption for new messages
+Radio button: Enable encryption for new messages 
+Helper text: You will be able to disable encryption for individual messages.
+
+Subtext: A digital signature allows recipients to verify that the message was sent by you and its content was not changed. Encrypted messages are always signed by default. 
+checkbox: Sign unencrypted messages
+
+—-
+Title: Advanced settings 
+Checkbox: Attach my public key when adding an Open PGP digital signature
+Checkbox: Send OpenPGP public Key(s) in the email headers for compatibility with autocrypt
+Checkbox: Encrypt the subject of OpenPGP messages 
+Checkbox: Store draft messages in encrypted format
+
+Subtext: Preferred encryption technology 
+Radio button: Select auotmatically based on available keys or certificates 
+Radio button: Prefer OpenPGP
+Radio button: Prefer S/MIME","Section header: Default message encryption
+Radio button: Do not encrypt new messages by default
+Radio button: Encrypt new messages by default
+Helper text: You can turn off encryption for individual messages while writing emails.
+
+Subtext: Digitally sign unencrypted messages
+checkbox: Digitally sign unencrypted messages
+
+Helper text: Proves to recipients that the message came from you and was not altered in transit. Encrypted emails are signed automatically.
+
+—-
+Title: Advanced encryption settings
+Checkbox: Attach public key when digitally signing messages
+Checkbox: Include public key in message headers (Autocrypt compatibility)
+Checkbox:Encrypt email subject line
+Checkbox: Encrypt saved draft emails
+
+Subtext: Preferred encryption type 
+Radio button: Select automatically based on available keys or certificates
+Radio button: Prefer OpenPGP
+Radio button: Prefer S/MIME",Send,Send format
+Thunderbird/Daily Settings,Label,"Daily Settings or Thunderbird Settings
+Account Settings 
+","Settings
+Account",General,Start page

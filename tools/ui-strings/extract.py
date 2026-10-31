@@ -30,9 +30,13 @@ Access keys and key shortcuts (`.accesskey`, `.key`, `.commandkey`) and
 `.style` attributes are left out: they are not text that an article quotes.
 Newlines, tabs and backslashes in a value are written as `\\n`, `\\t`, `\\\\`.
 
-SCOPE lists the files that hold Settings and Account Settings strings. It was
-chosen by searching every en-US string file for the lines of the UX sheet,
-and keeping the files where they occur.
+SCOPE lists the files that hold Settings and Account Settings strings. It
+was first chosen by searching every en-US string file for the lines of the UX
+sheet. That missed files whose strings the sheet does not quote, such as
+accountSettings.ftl, so extract.py now also runs a coverage check: it
+collects every Fluent ID that the Settings and Account Settings pages use
+(PAGES) and reports the IDs that live in a file outside SCOPE. Add such a
+file to SCOPE, or to NOT_SCOPE with the reason, then extract again.
 """
 
 import os
@@ -53,6 +57,26 @@ SCOPE = (
     "chrome/en-US/locale/en-US/messenger/preferences/",
     "chrome/en-US/locale/en-US/messenger/prefs.properties",
     "chrome/en-US/locale/en-US/messenger-newsblog/am-newsblog.dtd",
+    # Found by the coverage check (sumo-linter #21):
+    "localization/en-US/messenger/accountSettings.ftl",  # Account Settings pages
+    "localization/en-US/messenger/retention.ftl",  # deletion settings, Disk Space page
+    "localization/en-US/messenger/smime/smime.ftl",  # S/MIME on the encryption page
+    "localization/en-US/toolkit/preferences/preferences.ftl",  # Primary Password dialogs
+    "localization/en-US/messenger/aboutDialog.ftl",  # update status, Settings > General
+    "localization/en-US/calendar/category-dialog.ftl",  # Settings > Calendar categories
+)
+
+# Files the pages use that are deliberately left out.
+NOT_SCOPE = {
+    "localization/en-US/messenger/addressbook/vcard.ftl": "the address book card editor, reused",
+    "localization/en-US/toolkit/global/mozSupportLink.ftl": "only the generic 'Learn more' link",
+    "localization/en-US/toolkit/intl/languageNames.ftl": "language names in the language menus",
+}
+
+# The pages whose Fluent IDs the coverage check collects.
+PAGES = re.compile(
+    r"^chrome/messenger/content/messenger/(?:am-[^/]+|preferences/[^/]+|AccountManager)"
+    r"\.(?:xhtml|js|mjs)$"
 )
 
 SKIP_SUFFIX = (".accesskey", ".key", ".commandkey", ".style", ".accessKey", ".commandKey")
@@ -115,6 +139,25 @@ def escape(v):
     return v.replace("\\", "\\\\").replace("\t", "\\t").replace("\n", "\\n")
 
 
+def coverage(z, extracted_ids):
+    """Fluent IDs used by the pages but defined outside SCOPE, by file."""
+    used = set()
+    for name in z.namelist():
+        if PAGES.match(name):
+            text = z.read(name).decode("utf-8", "replace")
+            used |= set(re.findall(r'data-l10n-id="([a-z][\w-]*)"', text))
+            used |= set(re.findall(r'(?:setAttributes|formatValue|formatValues)\([^"\')]*["\']([a-z][\w-]*)["\']', text))
+    missing = {i for i in used if i not in extracted_ids}
+    where = {}
+    for name in z.namelist():
+        if name.startswith("localization/en-US/") and name.endswith(".ftl") and not in_scope(name):
+            ids = {sid.split(".")[0] for sid, _ in parse_ftl(z.read(name).decode("utf-8"))}
+            hit = sorted(missing & ids)
+            if hit and name not in NOT_SCOPE:
+                where[name] = hit
+    return where
+
+
 def extract(app):
     with open(os.path.join(app, "Contents", "Info.plist"), "rb") as f:
         version = plistlib.load(f)["CFBundleShortVersionString"]
@@ -132,9 +175,11 @@ def extract(app):
                 if sid.endswith(SKIP_SUFFIX):
                     continue
                 out.append(f"{name}\t{sid}\t{escape(value)}")
+        ids = {line.split("\t")[1].split(".")[0] for line in out}
+        gaps = coverage(z, ids)
     if not out:
         sys.exit(f"{app}: no strings found in scope")
-    return version, sorted(set(out))
+    return version, sorted(set(out)), gaps
 
 
 def main():
@@ -142,12 +187,18 @@ def main():
         sys.exit(__doc__)
     os.makedirs(os.path.join(HERE, "strings"), exist_ok=True)
     for app in sys.argv[1:]:
-        version, lines = extract(app)
+        version, lines, gaps = extract(app)
         path = os.path.join(HERE, "strings", f"{version}.tsv")
         with open(path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
         files = len({x.split("\t", 1)[0] for x in lines})
         print(f"{version}: {len(lines)} strings from {files} files -> {os.path.relpath(path)}")
+        for name, ids in sorted(gaps.items()):
+            print(
+                f"  coverage: {len(ids)} IDs the pages use are in {name}, outside SCOPE"
+                f" (for example {ids[0]}). Add it to SCOPE or NOT_SCOPE.",
+                file=sys.stderr,
+            )
 
 
 if __name__ == "__main__":

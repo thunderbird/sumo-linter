@@ -5,9 +5,17 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159
 |-
 | Allow immediate server notifications when new messages arrive || Allow immediate server notifications when new messages arrive || —
 |-
-| Security Settings || Security Settings || —
+| — || — || Writing emails
 |-
-| When I delete a message:<br />Check for new messages at startup<br />Remove it immediately<br />Just mark it as deleted || When I delete a message:<br />Check for new messages at startup<br />Remove it immediately<br />Just mark it as deleted || —
+| — || — || Address autocomplete
+|-
+| — || — || Delete immediately
+|-
+| — || — || Server settings
+|-
+| Security Settings || Security Settings || Security and sign-in
+|-
+| When I delete a message:<br />Check for new messages at startup<br />Remove it immediately<br />Just mark it as deleted || When I delete a message:<br />Check for new messages at startup<br />Remove it immediately<br />Just mark it as deleted || Check for new messages when Thunderbird opens<br />Deleting messages<br />Get new messages when they arrive on the server<br />Mark as deleted without moving<br />Message checking
 |-
 | When sending messages, automatically:<br />Leave the address field blank to always show the address row when starting a new message. || When sending messages, automatically:<br />Leave the address field blank to always show the address row when starting a new message. || Other folder:<br />Note: Checking these boxes adds automatic Cc/Bcc rows when composing new messages.<br />Sent folder on:<br />Other folder
 |-
@@ -15,9 +23,9 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159
 |-
 | Show confirmation dialog when messages are saved<br />Drafts and Templates || Show confirmation dialog when messages are saved<br />Drafts and Templates || Show a confirmation when messages are saved<br />Drafts and templates<br />Drafts folder on:<br />Templates folder on:
 |-
-| Compose messages in HTML format || Compose messages in HTML format || —
+| Compose messages in HTML format || Compose messages in HTML format || Write messages in rich text (HTML)
 |-
-| When looking up addresses:<br />Use a different LDAP server:<br />Use my global LDAP server preferences for this account || When looking up addresses:<br />Use a different LDAP server:<br />Use my global LDAP server preferences for this account || —
+| When looking up addresses:<br />Use a different LDAP server:<br />Use my global LDAP server preferences for this account || When looking up addresses:<br />Use a different LDAP server:<br />Use my global LDAP server preferences for this account || When looking up contacts for this account:
 |-
 | Spam Settings<br />Do not automatically mark mail as spam if the sender is in:<br />Enable adaptive spam controls for this account<br />If enabled, you must first train Thunderbird to identify spam by using the Spam toolbar button to mark messages as spam or not. You need to identify both spam and non spam messages. After that Thunderbird will be able to mark spam automatically. || Manage spam<br />Turn on automatic spam detection for this account<br />Trust email addresses in these address books: || Manage spam<br />Turn on automatic spam detection for this account<br />Trust email addresses in these address books:
 |-
@@ -25,9 +33,9 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159
 |-
 | Destination and Retention || — || —
 |-
-| Keep messages in all folders for this account on this computer<br />Note: Changing this affects all folders in this account. To set individual folders, use the Advanced… button.<br />Message Synchronizing || Keep messages in all folders for this account on this computer<br />Note: Changing this affects all folders in this account. To set individual folders, use the Advanced… button.<br />Message Synchronizing || —
+| Keep messages in all folders for this account on this computer<br />Note: Changing this affects all folders in this account. To set individual folders, use the Advanced… button.<br />Message Synchronizing || Keep messages in all folders for this account on this computer<br />Note: Changing this affects all folders in this account. To set individual folders, use the Advanced… button.<br />Message Synchronizing || Offline message storage<br />Applies to all folders in this account.<br />Save copies of all folders and messages on this computer for offline use
 |-
-| Don't download messages larger than<br />To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. || Don't download messages larger than<br />To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. || —
+| Don't download messages larger than<br />To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. || Don't download messages larger than<br />To save disk space, downloading messages from the server and keeping local copies for offline use can be restricted by age or size. || Set rules to automatically delete old emails from both this computer and the mail server to free up space.<br />Download limits<br />Choose which messages to store locally on this computer:<br />Set deletion rules<br />Skip downloading messages larger than:
 |-
 | Preferred encryption technology:<br />Default settings for sending messages<br />Attach my public key when adding an OpenPGP digital signature<br />Send OpenPGP public key(s) in the email headers for compatibility with Autocrypt<br />Disable encryption for new messages<br />You will be able to disable encryption for individual messages.<br />Enable encryption for new messages<br />Store draft messages in encrypted format<br />Encrypt the subject of OpenPGP messages<br />Sign unencrypted messages<br />A digital signature allows recipients to verify that the message was sent by you and its content was not changed. Encrypted messages are always signed by default. || Preferred encryption technology:<br />Default settings for sending messages<br />Attach my public key when adding an OpenPGP digital signature<br />Send OpenPGP public key(s) in the email headers for compatibility with Autocrypt<br />Disable encryption for new messages<br />You will be able to disable encryption for individual messages.<br />Enable encryption for new messages<br />Store draft messages in encrypted format<br />Encrypt the subject of OpenPGP messages<br />Sign unencrypted messages<br />A digital signature allows recipients to verify that the message was sent by you and its content was not changed. Encrypted messages are always signed by default. || Advanced encryption settings<br />Do not encrypt new messages by default<br />Encrypt new messages by default<br />Preferred encryption technology<br />Digitally sign unencrypted messages<br />Default message encryption
 |-
@@ -53,8 +61,6 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159
 |-
 | 300 || — || —
 |-
-| Advanced… || Advanced… || —
-|-
 | Show newsgroup names in the Mail Folder pane as: || — || —
 |-
 | Abbreviate names (For example, 'n.p.m.mail-news') || — || —
@@ -70,6 +76,36 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159
 | Digital Signing || — || —
 |-
 | Thunderbird Settings || — || —
+|-
+| — || — || Permanently remove deleted messages from the Inbox on exit
+|-
+| — || — || Offline folder settings…
+|-
+| — || — || Sign-in method:
+|-
+| — || — || Use global LDAP directory settings
+|-
+| — || — || Use a specific LDAP directory server:
+|-
+| — || OAuth2 settings provided by extension: &lt;a data-l10n-name="extension">{ $extensionName }&lt;/a> || OAuth2 settings provided by extension: &lt;a data-l10n-name="extension">{ $extensionName }&lt;/a>
+|-
+| — || Authorization endpoint: || Authorization endpoint:
+|-
+| — || Client ID: || Client ID:
+|-
+| — || Client secret: || Client secret:
+|-
+| — || Issuer identifier: || Issuer identifier:
+|-
+| — || Scopes: || Scopes:
+|-
+| — || Token endpoint: || Token endpoint:
+|-
+| — || Use custom OAuth2 settings || Use custom OAuth2 settings
+|-
+| — || Use PKCE || Use PKCE
+|-
+| — || Use system web browser || Use system web browser
 |-
 | — || — || Attach the public key for this identity when digitally signing messages
 |-
@@ -112,4 +148,16 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0, Release 159
 | — || Storage and deletion || Storage and deletion
 |-
 | — || When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam. || When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam.
+|-
+| — || Encryption algorithm: || Encryption algorithm:
+|-
+| — || { $algorithm } ({ $keySize }-bit) || { $algorithm } ({ $keySize }-bit)
+|-
+| — || Algorithms || Algorithms
+|-
+| — || Signature Digest algorithm: || Signature Digest algorithm:
+|-
+| — || Key Encryption algorithm: || Key Encryption algorithm:
+|-
+| — || Signature algorithm: || Signature algorithm:
 |}

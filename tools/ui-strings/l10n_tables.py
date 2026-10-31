@@ -58,6 +58,9 @@ ACCOUNT_FILES = re.compile(
     r"|/messenger-newsblog/am-newsblog\.dtd$"
     r"|/messenger/prefs\.properties$"  # account manager and wizard
     r"|/messenger/accountManager\.ftl$"
+    r"|/messenger/accountSettings\.ftl$"
+    r"|/messenger/retention\.ftl$"  # deletion settings, Disk Space page
+    r"|/messenger/smime/smime\.ftl$"
     r"|/messenger/otr/am-im-otr\.ftl$"
     r"|/messenger/preferences/am-[^/]+\.ftl$"
     r"|/messenger/openpgp/[^/]+\.ftl$"  # end-to-end encryption page, key manager

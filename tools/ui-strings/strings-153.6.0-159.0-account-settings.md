@@ -17,6 +17,16 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0 and Release 
 | Personal key for encryption and digital signing: | — |
 | Digital Signing | — |
 | Thunderbird Settings | — |
+| — | OAuth2 settings provided by extension: &lt;a data-l10n-name="extension">{ $extensionName }&lt;/a> |
+| — | Authorization endpoint: |
+| — | Client ID: |
+| — | Client secret: |
+| — | Issuer identifier: |
+| — | Scopes: |
+| — | Token endpoint: |
+| — | Use custom OAuth2 settings |
+| — | Use PKCE |
+| — | Use system web browser |
 | The attachment ‘{ $name }’ you are opening appears to be an OpenPGP key file. Click ‘Import’ to import the keys contained or ‘View’ to view the file contents in a browser window | — |
 | — | The attachment ‘{ $name }’ appears to be an OpenPGP key file. Do you want to import the keys it contains? |
 | — | &Open… |
@@ -31,3 +41,9 @@ Account Settings texts that changed between Thunderbird ESR 153.6.0 and Release 
 | — | Detecting spam |
 | — | Storage and deletion |
 | — | When turned on, Thunderbird learns from the messages you mark as spam or not spam. The more you train it, the better Thunderbird gets at detecting spam. |
+| — | Encryption algorithm: |
+| — | { $algorithm } ({ $keySize }-bit) |
+| — | Algorithms |
+| — | Signature Digest algorithm: |
+| — | Key Encryption algorithm: |
+| — | Signature algorithm: |

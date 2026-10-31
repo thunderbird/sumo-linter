@@ -151,12 +151,16 @@ class Localizer(unittest.TestCase):
             "localization/en-US/messenger/preferences/am-copies.ftl",
             "localization/en-US/messenger/openpgp/openpgp.ftl",
             "localization/en-US/messenger/accountManager.ftl",
+            "localization/en-US/messenger/accountSettings.ftl",
+            "localization/en-US/messenger/retention.ftl",
         ]
         settings = [
             "localization/en-US/messenger/preferences/preferences.ftl",
             "localization/en-US/messenger/preferences/receipts.ftl",
             "localization/en-US/calendar/preferences.ftl",
             "chrome/en-US/locale/en-US/messenger/preferences/preferences.properties",
+            "localization/en-US/toolkit/preferences/preferences.ftl",
+            "localization/en-US/messenger/aboutDialog.ftl",
         ]
         for f in account:
             self.assertEqual(l10n_tables.window((f, "x")), "account-settings", f)

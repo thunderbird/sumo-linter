@@ -37,14 +37,16 @@ Matching a CSV line to a string, after normalising both sides:
   of its variants.
 - Case, curly quotes, `…` against `...`, markup tags and trailing `.`, `:`
   and `…` are ignored.
-- A line matches a string if the two are equal, or if one contains the other
-  and the shorter has at least four words. Lines of one word are not
+- A line matches a string if the two are equal, if one contains the other
+  and the shorter has at least four words, or if both have at least five
+  words and are at least 90% similar (difflib), for slight paraphrases. Lines of one word are not
   matched: "Remove" or "General" would match dozens of unrelated strings.
   For the same reason, a line that matches more than MAX_HITS string IDs
   ("Learn more") is not used as evidence.
 """
 
 import csv
+import difflib
 import glob
 import os
 import re
@@ -135,7 +137,13 @@ def matches(frag, cand):
     if frag == cand:
         return True
     short, long_ = sorted((frag, cand), key=len)
-    return len(short.split()) >= 4 and short in long_
+    if len(short.split()) >= 4 and short in long_:
+        return True
+    # The sheet sometimes paraphrases slightly ("languages to display" for
+    # "languages used to display"). Accept a close match on long texts only.
+    if len(short.split()) >= 5 and len(short) >= 0.8 * len(long_):
+        return difflib.SequenceMatcher(None, frag, cand, autojunk=False).ratio() >= 0.9
+    return False
 
 
 def path_of(r):

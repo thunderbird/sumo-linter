@@ -19,8 +19,17 @@ sys.path.insert(0, HERE)
 
 import compare  # noqa: E402
 import extract  # noqa: E402
+import l10n_tables  # noqa: E402
 
 CSV = os.path.join(HERE, "tb-desktop-settings-account-settings-changes-158-and-newer.csv")
+_BUILT = []
+
+
+def built():
+    """compare.build takes seconds, so the tests share one result."""
+    if not _BUILT:
+        _BUILT.append(compare.build(CSV))
+    return _BUILT[0]
 
 
 class Parsers(unittest.TestCase):
@@ -81,26 +90,70 @@ class Matching(unittest.TestCase):
         # Containment needs four words in the shorter text.
         self.assertTrue(compare.matches("choose the languages to", "choose the languages to display menus"))
         self.assertFalse(compare.matches("learn more", "learn more about this"))
+        # A slight paraphrase of a long text matches; a different text does not.
+        self.assertTrue(
+            compare.matches(
+                "choose the languages to display menus, messages, and notifications from thunderbird",
+                "choose the languages used to display menus, messages, and notifications from thunderbird",
+            )
+        )
+        self.assertFalse(
+            compare.matches("newest messages at the top of the list", "oldest messages at the end of the folder")
+        )
 
 
 class Committed(unittest.TestCase):
     def test_tables_are_up_to_date(self):
-        built = compare.build(CSV)
+        b = built()
         for fmt, ext in (("md", ".md"), ("mediawiki", ".mediawiki")):
             with open(os.path.join(HERE, "string-versions" + ext), encoding="utf-8") as f:
                 self.assertEqual(
                     f.read(),
-                    compare.render(fmt, built, os.path.basename(CSV)),
+                    compare.render(fmt, b, os.path.basename(CSV)),
                     f"string-versions{ext} is stale: run compare.py",
                 )
 
     def test_start_page_maps_to_record_1(self):
-        built = compare.build(CSV)
-        key_recs = built[4]
+        key_recs = built()[4]
         old = ("localization/en-US/messenger/preferences/preferences.ftl", "start-page-label.label")
         new = ("localization/en-US/messenger/preferences/preferences.ftl", "show-start-page-label.label")
         self.assertIn(1, key_recs[old])
         self.assertIn(1, key_recs[new])
+
+
+class Localizer(unittest.TestCase):
+    def test_platform_variants_are_spelled_out(self):
+        v = "{ PLATFORM() ->\n[macos] Choose…\n*[other] Browse…\n}"
+        self.assertEqual(l10n_tables.show(v, {}), "Choose… (macOS) / Browse… (Windows, Linux)")
+
+    def test_start_page_is_one_paired_row(self):
+        rows = l10n_tables.rows_for(("153.6.0", "159.0"), built())
+        self.assertIn(
+            [
+                "When Thunderbird launches, show the Start Page in the message area",
+                "Show the Start Page when Thunderbird opens",
+            ],
+            rows,
+        )
+
+    def test_unchanged_text_is_left_out(self):
+        # "Empty Trash on Exit" is the same in all three versions.
+        for versions in l10n_tables.TABLES:
+            rows = l10n_tables.rows_for(versions, built())
+            self.assertFalse(any("Empty Trash on Exit" in c for r in rows for c in r))
+            self.assertTrue(all(len(set(r)) > 1 for r in rows))
+
+    def test_tables_are_up_to_date(self):
+        for versions in l10n_tables.TABLES:
+            rows = l10n_tables.rows_for(versions, built())
+            stem = os.path.join(HERE, "strings-" + "-".join(versions))
+            for fmt, ext in (("md", ".md"), ("mediawiki", ".mediawiki")):
+                with open(stem + ext, encoding="utf-8") as f:
+                    self.assertEqual(
+                        f.read(),
+                        l10n_tables.render(fmt, versions, rows),
+                        f"{os.path.basename(stem)}{ext} is stale: run l10n_tables.py",
+                    )
 
 
 if __name__ == "__main__":

@@ -10,7 +10,8 @@ that quote them. They use the Python standard library only.
 | `table.py` | Writes an old-string/new-string table from the sheet (`settings-strings-158.*`). |
 | `extract.py` | Reads the strings out of an installed Thunderbird app into `strings/<version>.tsv`. |
 | `compare.py` | Compares all versions in `strings/` and maps them to the sheet (`string-versions.*`). |
-| `test_ui_strings.py` | Tests for `extract.py` and `compare.py`. CI runs it. |
+| `l10n_tables.py` | Writes simple old-text/new-text tables for SUMO localizers (`strings-<versions>.*`). |
+| `test_ui_strings.py` | Tests for `extract.py`, `compare.py` and `l10n_tables.py`. CI runs it. |
 
 ## Add a version
 
@@ -38,13 +39,25 @@ folder. The tools only read the app. They do not start it or change it.
    each file in `strings/`, in version order. The script prints a summary line with the counts
    for the three tables.
 
-3. Run the tests:
+3. Write the localizer tables. First, edit two settings at the top of `l10n_tables.py`.
+   `TABLES` lists the version sets, one table each, for example `("159.0", "160.0", "161.0")`.
+   `LABELS` gives the column headings, for example `"161.0": "Beta 161.0"`. Then run:
+
+   ```sh
+   python3 -I tools/ui-strings/l10n_tables.py \
+       tools/ui-strings/tb-desktop-settings-account-settings-changes-158-and-newer.csv
+   ```
+
+   Each table is written as `strings-<versions>.md` and `strings-<versions>.mediawiki`. If you
+   remove a version set from `TABLES`, delete its two files.
+
+4. Run the tests:
 
    ```sh
    python3 tools/ui-strings/test_ui_strings.py
    ```
 
-4. Commit the new `.tsv` file and the two tables together. If you commit the `.tsv` file
+5. Commit the new `.tsv` file and all the tables together. If you commit the `.tsv` file
    without the tables, the CI test fails, because the tables are then out of date.
 
 ## Check the result

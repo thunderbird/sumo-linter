@@ -61,6 +61,11 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 <https://thunderbird.github.io/sumo-linter/>.
 
 **Open, on Roland's side (no deadline):**
+- **Staging test of the Thunderbird 159 string edits (#28).** Paste
+  `tools/ui-strings/proposals/advanced-panel-settings-in-thunderbird.wiki` and
+  `privacy-panel-settings-in-thunderbird.wiki` into support.allizom.org, work through the
+  checklist comment on #28, and report there. Then adjust `propose_edits.py` and do the other
+  knowledgebase-issues #247 articles. The 160 section of #249 waits for the 160 release.
 - Post the heading-convention consultation: `docs/heading-convention-discussion.md` plus
   the data gist <https://gist.github.com/rtanglao/2708f762f5a4ec71c699827d8bc4071f>.
   **This blocks nothing** — the per-article default needs no decision.

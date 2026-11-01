@@ -43,6 +43,16 @@ function fileName(typed, text) {
 }
 
 /**
+ * The name Save to file suggests in walk mode (#31): the loaded file's name
+ * with `-edited` before `.wiki`. A different name means that the saved copy
+ * can never replace the proposal that walk.py serves, even in its folder.
+ */
+function editedName(file) {
+  const base = safeName(String(file ?? '').replace(/\.wiki\s*$/i, ''));
+  return base ? `${base}-edited.wiki` : FILE_NAME;
+}
+
+/**
  * The visible text of the first heading of `level`, made safe as a file name,
  * or '' if there is none. As in preview.js, the level is the shorter of the two
  * `=` runs, and a line with no closing run is not a heading. A heading whose
@@ -178,6 +188,6 @@ function fileWriter(write, onResult) {
 if (typeof module !== 'undefined') {
   module.exports = {
     DRAFT_KEY, FILE_NAME, NAME_KEY, NAME_LIMIT,
-    fileName, saveDraft, loadDraft, fileWriter,
+    fileName, editedName, saveDraft, loadDraft, fileWriter,
   };
 }

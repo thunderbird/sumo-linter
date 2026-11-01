@@ -4,7 +4,7 @@
 
 """Walk through the unchecked items of a GitHub checklist (sumo-linter #30).
 
-    python3 -I tools/checklist/walk.py URL [--dry-run]
+    python3 -I tools/checklist/walk.py URL [--dry-run] [--web DIR]
 
 URL is an issue comment, for example
 https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976,
@@ -23,16 +23,29 @@ the script again continues with the items still unchecked. Before each save
 the script reads the text again and stops if someone changed it meanwhile,
 for example in the browser. `--dry-run` saves nothing.
 
+`--web DIR` also opens the web app on this computer and moves its cursor to
+the line that the current item names (#31). The item `Line 21: "Old" → "New"`
+under the heading `### some-article` selects "Old" on line 21 of
+DIR/some-article.wiki, or the whole line if "Old" is not on it. An item with no
+line number only loads the file of its heading. Save to file suggests
+`some-article-edited.wiki`, so it never replaces the file in DIR, and nothing
+is kept in the browser's storage. Build the linter first with
+tools/build-web.sh, or the page shows only the preview.
+
 It uses the `gh` command (signed in with `gh auth login`), so it needs no
 token of its own. Python standard library only.
 """
 
+import http.server
 import json
 import os
 import re
 import subprocess
 import sys
 import tempfile
+import threading
+import time
+import webbrowser
 
 URL = re.compile(r"github\.com/([^/\s]+)/([^/\s]+)/(?:issues|pull)/(\d+)(?:#issuecomment-(\d+))?")
 ITEM = re.compile(r"^(\s*)[-*] \[( |x|X)\] (.*)$")
@@ -40,6 +53,8 @@ HEADING = re.compile(r"^#{1,6}\s+(.*)$")
 BOLD = re.compile(r"^\*\*(.+?)\*\*")
 NOTE = re.compile(r"^\s+- Note: ")
 LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+LINE = re.compile(r'^Line (\d+):(?: "(.*?)"(?= →| \(|$))?')
+WEB = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "web")
 
 
 def parse_url(url):
@@ -89,6 +104,7 @@ def items(body):
                     "checked": m.group(2) != " ",
                     "text": m.group(3),
                     "context": " / ".join(x for x in (heading, bold) if x),
+                    "heading": heading,
                     "notes": notes,
                 }
             )
@@ -124,6 +140,133 @@ def readable(text):
     return LINK.sub(r"\1 <\2>", text).replace("`", "")
 
 
+def target(item):
+    """Where the web app should go for an item (#31): {file, line, find}.
+
+    The file is the heading plus `.wiki`, and None if the heading cannot be a
+    file name. The line is the number after `Line` at the start of the item,
+    and `find` is the quoted text after it. Both are None if the item does not
+    start with `Line N:`.
+    """
+    h = item["heading"]
+    name = f"{h}.wiki" if re.fullmatch(r"[A-Za-z0-9][\w.-]*", h) else None
+    m = LINE.match(item["text"])
+    return {
+        "file": name,
+        "line": int(m.group(1)) if m else None,
+        "find": m.group(2) if m and m.group(2) else None,
+    }
+
+
+class WebApp:
+    """The web app on localhost, and the item it shows (#31).
+
+    The page listens on /walk/events, a Server-Sent Events stream: one JSON
+    event each time the target changes, and the current one on connecting.
+    It fetches the article from /walk/file/NAME, which serves only `.wiki`
+    files directly in `folder`. Everything else is a file of web/.
+    """
+
+    def __init__(self, folder, web=WEB):
+        self.folder, self.web = os.path.realpath(folder), web
+        self.changed = threading.Condition()
+        self.current, self.version = None, 0
+        app = self
+
+        class Handler(http.server.SimpleHTTPRequestHandler):
+            extensions_map = {**http.server.SimpleHTTPRequestHandler.extensions_map, ".wasm": "application/wasm"}
+
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, directory=app.web, **kwargs)
+
+            def log_message(self, *args):
+                pass  # the terminal belongs to the checklist
+
+            def end_headers(self):
+                self.send_header("Cache-Control", "no-store")
+                super().end_headers()
+
+            def do_GET(self):
+                path = self.path.split("?", 1)[0]
+                if path == "/walk/events":
+                    return app.events(self)
+                if path.startswith("/walk/file/"):
+                    return app.file(self, path[len("/walk/file/"):])
+                return super().do_GET()
+
+        self.server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+        self.server.daemon_threads = True
+        self.url = f"http://127.0.0.1:{self.server.server_address[1]}/?walk=1"
+
+    def start(self):
+        threading.Thread(target=self.server.serve_forever, daemon=True).start()
+
+    def stop(self):
+        with self.changed:
+            self.current, self.version = "stop", self.version + 1
+            self.changed.notify_all()
+        time.sleep(0.2)  # time to tell the page, so it says that the walk ended
+        self.server.shutdown()
+        self.server.server_close()
+
+    def path_of(self, name):
+        """The file for `name`, or None if it is not a .wiki file in the folder."""
+        if not name or "/" in name or "\\" in name or not name.endswith(".wiki"):
+            return None
+        path = os.path.realpath(os.path.join(self.folder, name))
+        if os.path.dirname(path) != self.folder or not os.path.isfile(path):
+            return None
+        return path
+
+    def show(self, item):
+        """Send the page to the item. Returns a line for the terminal, or None."""
+        t = target(item)
+        if not t["file"]:
+            return None
+        if not self.path_of(t["file"]):
+            return f"  (web app: no file {os.path.join(self.folder, t['file'])})"
+        with self.changed:
+            self.current, self.version = t, self.version + 1
+            self.changed.notify_all()
+        return None
+
+    def file(self, handler, name):
+        path = self.path_of(name)
+        if not path:
+            return handler.send_error(404)
+        with open(path, "rb") as f:
+            data = f.read()
+        handler.send_response(200)
+        handler.send_header("Content-Type", "text/plain; charset=utf-8")
+        handler.send_header("Content-Length", str(len(data)))
+        handler.end_headers()
+        handler.wfile.write(data)
+
+    def events(self, handler):
+        handler.send_response(200)
+        handler.send_header("Content-Type", "text/event-stream")
+        handler.end_headers()
+        seen = -1
+        try:
+            while True:
+                with self.changed:
+                    if self.version == seen:
+                        self.changed.wait(timeout=15)
+                    version, current = self.version, self.current
+                if current == "stop":
+                    handler.wfile.write(b"event: stop\ndata: {}\n\n")
+                    handler.wfile.flush()
+                    return
+                if version != seen and current is not None:
+                    handler.wfile.write(f"data: {json.dumps(current)}\n\n".encode())
+                else:
+                    handler.wfile.write(b": still here\n\n")  # finds a closed tab
+                handler.wfile.flush()
+                seen = version
+        except (BrokenPipeError, ConnectionResetError):
+            return
+
+
 class GitHub:
     """Reads and writes one body through `gh api`."""
 
@@ -157,8 +300,12 @@ class GitHub:
             raise RuntimeError(res.stderr.strip() or "gh api failed")
 
 
-def walk(store, label, ask=input, say=print):
-    """The interactive loop. `ask` and `say` are parameters so tests can drive it."""
+def walk(store, label, ask=input, say=print, show=None):
+    """The interactive loop. `ask` and `say` are parameters so tests can drive it.
+
+    `show(item)`, if given, is called before each question, and any line it
+    returns is printed. `--web` passes WebApp.show.
+    """
     body = store.read()
     history = []  # bodies before each saved answer, for undo
     counts = {"checked": 0, "noted": 0, "skipped": 0}
@@ -176,6 +323,10 @@ def walk(store, label, ask=input, say=print):
         say(f"  {readable(it['text'])}")
         for n in it["notes"]:
             say(f"  Note so far: {n}")
+        if show:
+            extra = show(it)
+            if extra:
+                say(extra)
         answer = ask("c/n/s/u/q? ").strip().lower()
         if answer in ("q", "quit"):
             break
@@ -221,16 +372,38 @@ def walk(store, label, ask=input, say=print):
 
 
 def main():
-    args = [a for a in sys.argv[1:] if a != "--dry-run"]
+    args, dry_run, folder = sys.argv[1:], False, None
+    if "--dry-run" in args:
+        args.remove("--dry-run")
+        dry_run = True
+    if "--web" in args:
+        i = args.index("--web")
+        if i + 1 >= len(args):
+            sys.exit(__doc__)
+        folder = args.pop(i + 1)
+        args.pop(i)
+        if not os.path.isdir(folder):
+            sys.exit(f"--web: not a folder: {folder}")
     if len(args) != 1:
         sys.exit(__doc__)
+    app = None
     try:
         path, label = parse_url(args[0])
-        walk(GitHub(path, "--dry-run" in sys.argv), label)
+        if folder:
+            app = WebApp(folder)
+            app.start()
+            print(f"Web app: {app.url}")
+            if not os.path.isfile(os.path.join(WEB, "sumo_lint_wasm.wasm")):
+                print("The linter is not built, so the page shows only the preview. Run tools/build-web.sh.")
+            webbrowser.open(app.url)
+        walk(GitHub(path, dry_run), label, show=app.show if app else None)
     except (ValueError, RuntimeError) as e:
         sys.exit(str(e))
     except (KeyboardInterrupt, EOFError):
         print("\nStopped. Every answer so far is saved.")
+    finally:
+        if app:
+            app.stop()
 
 
 if __name__ == "__main__":

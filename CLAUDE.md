@@ -65,7 +65,8 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   `tools/ui-strings/proposals/advanced-panel-settings-in-thunderbird.wiki` and
   `privacy-panel-settings-in-thunderbird.wiki` into support.allizom.org, work through the
   checklist comment on #28 (walk it with `python3 -I tools/checklist/walk.py
-  https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976`), and report
+  https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976 --web
+  tools/ui-strings/proposals`, which also opens the web app at each item's line, #31), and report
   there. Next session: read that comment's ticks and `Note:` lines first. Then adjust `propose_edits.py` and do the other
   knowledgebase-issues #247 articles. The 160 section of #249 waits for the 160 release.
 - Post the heading-convention consultation: `docs/heading-convention-discussion.md` plus
@@ -104,9 +105,9 @@ a 429 for the rest of the hour); the heading data is already measured; the four 
 already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
 `vscode` (34 grammar + 51 link + 26 bold assertions), `emacs`
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
-both Vim and Neovim), `ui-strings` (33 tests, plus 9 for the checklist walker, including that the committed comparison tables
+both Vim and Neovim), `ui-strings` (33 tests, plus 17 for the checklist walker, including that the committed comparison tables
 are up to date) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
-button, 67 on autosave, save-to-file and the file name, 99 on the preview) — so there is no
+button, 72 on autosave, save-to-file and the file name, 99 on the preview, 19 on walk mode) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
@@ -230,9 +231,9 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `crates/sumo-lint-wasm` | four C-ABI exports (`lint`, `fix`, `style`, `is_lossless`) — no wasm-bindgen |
 | `editors/` | VS Code extension (LSP client + TextMate grammar + `SUMO: Insert Link` + `SUMO: Toggle Bold` + URL-paste handler); Emacs mode; `editors/vim/` Vim-script plugin (Vim 8+ and Neovim); LSP wiring for Neovim and ALE |
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
-| `tools/checklist/` | `walk.py URL`: walks the unchecked `- [ ]` items of a GitHub issue or comment through `gh`, checking each or adding a `  - Note:` line, and saves after every answer (#30). Made for the #28 test checklist |
+| `tools/checklist/` | `walk.py URL`: walks the unchecked `- [ ]` items of a GitHub issue or comment through `gh`, checking each or adding a `  - Note:` line, and saves after every answer (#30). Made for the #28 test checklist. `--web DIR` (#31) serves `web/` on `127.0.0.1` with `?walk=1` and sends the page each item's file (`DIR/<heading>.wiki`) and `Line N:` over Server-Sent Events, so the cursor follows the checklist in one tab. Walk mode never touches `localStorage`, and Save to file suggests `<file>-edited.wiki` so the proposal is never replaced. `-I` drops the script's folder from `sys.path`, so the server lives in `walk.py` itself |
 | `tools/ui-strings/` | dev-only Python (stdlib) tools for UI string changes, plus the 158 string sheet. `README.md` says how to add a version. `search.py` finds KB articles that quote changed strings (knowledgebase-issues #247, #249), and its docstring lists the matching lessons that the markup-aware search (#6) must keep. `extract.py` reads the en-US Settings and Account Settings strings out of an installed app's `omni.ja` into `strings/<version>.tsv` (committed). `compare.py` writes `string-versions.md`/`.mediawiki`: one column per version, mapped to CSV records (#18). `l10n_tables.py` writes the simpler visible-text tables for SUMO localizers, one for Settings and one for Account Settings per version set, `strings-<versions>-settings.*` and `strings-<versions>-account-settings.*` (#19, #20). The string file decides the window, because the same text can be in both. `shipped_search.py` finds the articles that quote a string that really changed, split into "changed in 159: edit now" and "changed in 160: edit when 160 is released"; its `affected-*.md` output is the body of knowledgebase-issues #247 and #249 (#27). The two 3-column wikitext tables are copied by hand to wiki.mozilla.org (`User:Rolandtb/strings-153.6.0-159.0-160.0-settings` and `-account-settings`), so update them after regenerating; the README has the check. A reworded string usually gets a new ID, so the CSV record is what links old and new |
-| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, the preview renderer and `{for}` rules in `preview.js`, all tested under Node |
+| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, the preview renderer and `{for}` rules in `preview.js`, the walk-mode line range in `walk.js`, all tested under Node |
 
 **Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an
 unmodified parse is byte-identical. This is asserted in the lexer, property-tested over

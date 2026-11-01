@@ -119,6 +119,8 @@
   #gutter::after { content: ""; display: block; height: 4rem; }
   #gutter .error { color: var(--err); font-weight: 700; }
   #gutter .warning { color: var(--warn); font-weight: 700; }
+  /* The line of the current checklist item, in walk mode (#31). */
+  #gutter .walk { background: var(--accent); color: var(--code-bg); border-radius: 3px; }
   /* Measures how many rows each line wraps to; never visible. */
   #mirror {
     position: absolute; top: 0; left: 0; height: 0; overflow: hidden;
@@ -297,6 +299,7 @@
   <script src="./copy.js"></script>
   <script src="./save.js"></script>
   <script src="./preview.js"></script>
+  <script src="./walk.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

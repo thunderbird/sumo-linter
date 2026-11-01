@@ -13,7 +13,7 @@ import assert from 'node:assert/strict';
 import save from '../save.js';
 
 const {
-  DRAFT_KEY, FILE_NAME, NAME_KEY, NAME_LIMIT, fileName, saveDraft, loadDraft, fileWriter,
+  DRAFT_KEY, FILE_NAME, NAME_KEY, NAME_LIMIT, fileName, editedName, saveDraft, loadDraft, fileWriter,
 } = save;
 
 let failed = 0;
@@ -115,6 +115,14 @@ const names = [
 ];
 for (const [what, typed, text, want] of names) check(`fileName: ${what}`, fileName(typed, text), want);
 
+// Walk mode (#31): the suggested name is never the name of the loaded file.
+check('editedName: -edited before .wiki',
+  editedName('advanced-panel-settings-in-thunderbird.wiki'), 'advanced-panel-settings-in-thunderbird-edited.wiki');
+check('editedName: the extension in any case', editedName('a.WIKI'), 'a-edited.wiki');
+check('editedName: a name with no .wiki', editedName('notes'), 'notes-edited.wiki');
+check('editedName: never a path', editedName('../x/y.wiki'), 'x y-edited.wiki');
+check('editedName: no file gives article.wiki', editedName(''), FILE_NAME);
+
 {
   const long = 'x'.repeat(100);
   check('fileName: 80 characters, then .wiki', fileName('', `= ${long} =`), `${'x'.repeat(NAME_LIMIT)}.wiki`);
@@ -203,7 +211,7 @@ const tick = () => new Promise((r) => setTimeout(r, 0));
 
 // A floor on the count: a file that stops running its body would otherwise
 // print no failures and pass.
-const expected = 67;
+const expected = 72;
 if (checks < expected) {
   console.error(`\nonly ${checks} save assertions ran, expected at least ${expected}`);
   process.exit(1);

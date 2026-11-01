@@ -18,6 +18,18 @@
 
 const WASM_URL = './sumo_lint_wasm.wasm';
 
+/**
+ * Walk mode (#31): walk.py serves this page with `?walk=1` and sends it each
+ * checklist item's file and line. The text then comes from walk.py, so the
+ * page keeps nothing in localStorage: the author's own draft stays as it was.
+ */
+const walkMode = typeof isWalkMode === 'function' && isWalkMode(location.search);
+const walking = {
+  file: null, // the .wiki file now in the text box
+  line: null, // the line of the current item, marked in the gutter
+  state: 'waiting', // 'waiting', 'on', 'stopped' or 'lost'
+};
+
 let wasm = null;
 
 async function boot() {
@@ -151,6 +163,23 @@ function drawGutter() {
   const digits = Math.max(2, String(gutterMarks.length).length);
   ta.parentElement.style.setProperty('--gutter', `${digits}ch`);
 
+  const heights = lineHeights(ta, mirror, text);
+
+  gutter.replaceChildren(
+    ...gutterMarks.map((mark, i) => {
+      const n = document.createElement('div');
+      n.textContent = String(i + 1);
+      if (mark) n.className = mark;
+      if (i + 1 === walking.line) n.classList.add('walk');
+      n.style.height = `${heights[i]}px`;
+      return n;
+    }),
+  );
+  gutter.scrollTop = ta.scrollTop;
+}
+
+/** The height each line of `text` takes in the textarea, wrapping included. */
+function lineHeights(ta, mirror, text) {
   const cs = getComputedStyle(ta);
   const width = ta.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
   mirror.style.width = `${width}px`;
@@ -164,17 +193,7 @@ function drawGutter() {
   );
   const heights = Array.from(mirror.children, (row) => row.getBoundingClientRect().height);
   mirror.replaceChildren();
-
-  gutter.replaceChildren(
-    ...gutterMarks.map((mark, i) => {
-      const n = document.createElement('div');
-      n.textContent = String(i + 1);
-      if (mark) n.className = mark;
-      n.style.height = `${heights[i]}px`;
-      return n;
-    }),
-  );
-  gutter.scrollTop = ta.scrollTop;
+  return heights;
 }
 
 let copyTimer = 0;
@@ -222,7 +241,8 @@ const kept = {
 function renderSaveNote() {
   const parts = [];
   const empty = document.getElementById('src').value === '';
-  if (kept.draft === 'failed') parts.push('could not save in this browser');
+  if (walkMode) parts.push(walkNote());
+  else if (kept.draft === 'failed') parts.push('could not save in this browser');
   else if (!empty) parts.push('saved in this browser');
   if (kept.fileName) {
     parts.push(kept.file === 'failed'
@@ -238,7 +258,7 @@ function renderSaveNote() {
 /** Autosave the text, and write it to the chosen file if there is one. */
 function keep() {
   const text = document.getElementById('src').value;
-  kept.draft = saveDraft(draftStorage(), text);
+  if (!walkMode) kept.draft = saveDraft(draftStorage(), text);
   kept.downloaded = null;
   showFileName();
   if (kept.writeFile) kept.writeFile(text);
@@ -256,7 +276,9 @@ function keep() {
  */
 function currentFileName() {
   const box = document.getElementById('filename');
-  return fileName(box ? box.value : '', document.getElementById('src').value);
+  const typed = box ? box.value : '';
+  if (walkMode && walking.file && typed.trim() === '') return editedName(walking.file);
+  return fileName(typed, document.getElementById('src').value);
 }
 
 /**
@@ -265,7 +287,10 @@ function currentFileName() {
  */
 function showFileName() {
   const box = document.getElementById('filename');
-  if (box) box.placeholder = fileName('', document.getElementById('src').value);
+  if (!box) return;
+  box.placeholder = walkMode && walking.file
+    ? editedName(walking.file)
+    : fileName('', document.getElementById('src').value);
 }
 
 function forgetFile() {
@@ -349,7 +374,7 @@ function startOver(text) {
   const box = document.getElementById('filename');
   if (box) {
     box.value = '';
-    saveDraft(draftStorage(), '', NAME_KEY);
+    if (!walkMode) saveDraft(draftStorage(), '', NAME_KEY);
   }
   const ta = document.getElementById('src');
   replaceRange(ta, 0, ta.value.length, text);
@@ -523,6 +548,80 @@ function run() {
   }
 }
 
+/** The walk's part of the note beside the buttons. */
+function walkNote() {
+  if (walking.state === 'stopped') return 'walk.py stopped: nothing here is saved unless you use Save to file';
+  if (walking.state === 'lost') return 'walk.py is not running';
+  if (!walking.file) return 'waiting for walk.py';
+  return walking.line ? `walk.py: ${walking.file}, line ${walking.line}` : `walk.py: ${walking.file}`;
+}
+
+/**
+ * Go to one item: load its file if it is a different one, then select its
+ * line and scroll it into view.
+ */
+async function walkTo(t) {
+  const ta = document.getElementById('src');
+  if (t.file && t.file !== walking.file) {
+    let text;
+    try {
+      const res = await fetch(`/walk/file/${encodeURIComponent(t.file)}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      text = await res.text();
+    } catch {
+      walking.state = 'lost';
+      renderSaveNote();
+      return;
+    }
+    // Set first, so the name box shows `…-edited.wiki` at once. startOver
+    // stops writing to a file saved from the previous article.
+    walking.file = t.file;
+    startOver(text);
+  }
+  walking.line = t.line;
+  scheduleGutter();
+  renderSaveNote();
+  const range = t.line ? lineRange(ta.value, t.line, t.find) : null;
+  if (!range) return;
+  ta.focus({ preventScroll: true });
+  ta.setSelectionRange(range[0], range[1]);
+  // A selection alone does not scroll a textarea in every browser, so put the
+  // line a third of the way down, measured as the gutter measures it.
+  const heights = lineHeights(ta, document.getElementById('mirror'), ta.value);
+  const top = heights.slice(0, t.line - 1).reduce((a, b) => a + b, 0);
+  ta.scrollTop = Math.max(0, top + parseFloat(getComputedStyle(ta).paddingTop) - ta.clientHeight / 3);
+  document.getElementById('gutter').scrollTop = ta.scrollTop;
+  ta.closest('.editor').scrollIntoView({ block: 'nearest' });
+}
+
+/** Listen to walk.py. Items are handled one at a time, in order. */
+function startWalk() {
+  let queue = Promise.resolve();
+  const events = new EventSource('/walk/events');
+  events.onmessage = (e) => {
+    const t = JSON.parse(e.data);
+    walking.state = 'on';
+    queue = queue.then(() => walkTo(t));
+  };
+  events.addEventListener('stop', () => {
+    events.close();
+    walking.state = 'stopped';
+    walking.line = null;
+    scheduleGutter();
+    renderSaveNote();
+  });
+  // EventSource tries again by itself, so a lost connection can come back.
+  events.onerror = () => {
+    if (walking.state === 'stopped') return;
+    walking.state = 'lost';
+    renderSaveNote();
+  };
+  events.onopen = () => {
+    if (walking.state === 'lost') walking.state = walking.file ? 'on' : 'waiting';
+    renderSaveNote();
+  };
+}
+
 /**
  * Apply phase-2 house style.
  *
@@ -571,13 +670,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('stylebtn').addEventListener('click', applyStyle);
   document.getElementById('copybtn').addEventListener('click', copyMarkup);
   document.getElementById('savebtn').addEventListener('click', saveToFile);
-  document.getElementById('clearbtn').addEventListener('click', () => startOver(''));
+  document.getElementById('clearbtn').addEventListener('click', () => {
+    walking.file = null; // the next item loads its file again
+    startOver('');
+  });
   // Typing is debounced, so a tab closed within that window has not autosaved.
-  window.addEventListener('pagehide', () => saveDraft(draftStorage(), ta.value));
-  // The browser may have restored the text itself on reload; keep that if so.
-  if (ta.value === '') ta.value = loadDraft(draftStorage());
+  // In walk mode the text comes from walk.py, and the stored draft and name
+  // are the author's own work, so they are neither read nor replaced.
+  if (!walkMode) {
+    window.addEventListener('pagehide', () => saveDraft(draftStorage(), ta.value));
+    // The browser may have restored the text itself on reload; keep that if so.
+    if (ta.value === '') ta.value = loadDraft(draftStorage());
+  }
   const nameBox = document.getElementById('filename');
-  if (nameBox) {
+  if (nameBox && !walkMode) {
     if (nameBox.value === '') nameBox.value = loadDraft(draftStorage(), NAME_KEY);
     nameBox.addEventListener('input', () => {
       saveDraft(draftStorage(), nameBox.value, NAME_KEY);
@@ -629,6 +735,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadLatestRelease();
   document.getElementById('sample').addEventListener('click', () => {
     // Undoable, because the example replaces whatever was there.
+    walking.file = null;
     startOver([
       '= Example article =',
       '',
@@ -643,5 +750,6 @@ document.addEventListener('DOMContentLoaded', () => {
       '{note}A note that never closes.',
     ].join('\n'));
   });
+  if (walkMode) startWalk();
   boot();
 });

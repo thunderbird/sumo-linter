@@ -10,7 +10,7 @@
 import assert from 'node:assert/strict';
 import walk from '../walk.js';
 
-const { isWalkMode, lineRange } = walk;
+const { isWalkMode, lineRange, guessEdit } = walk;
 
 let failed = 0;
 let checks = 0;
@@ -51,7 +51,48 @@ check('\\r\\n: the \\r stays on its line, as in the linter', lineRange('a\r\nb',
   check('offsets are UTF-16 units', lineRange(birds, 2, 'y'), [8, 9]);
 }
 
-const expected = 19;
+// Using a guess (#34). Each case is a real comment from the #28 proposals.
+function applied(text, line, old, guess) {
+  const e = guessEdit(text, line, old, guess);
+  return e.error ? e : text.slice(0, e.start) + e.replacement + text.slice(e.end);
+}
+check('a guess replaces the old text and the comment',
+  applied("x\n{for tb159}'''Enable Global Search and Indexer<!-- CHECK 159: \"Enable Global Search and Indexer\" → \"Search & performance\"? -->''': text{/for}",
+    2, 'Enable Global Search and Indexer', 'Search & performance'),
+  "x\n{for tb159}'''Search & performance''': text{/for}");
+check('case and a trailing colon, which the guess then loses',
+  applied("'''No Proxy For<!-- CHECK 159: \"No proxy for:\" → \"Manual proxy setup:\"? -->'''", 1, 'No proxy for:', 'Manual proxy setup:'),
+  "'''Manual proxy setup'''");
+check('a colon in the text keeps the colon of the guess',
+  applied('When a server requests my personal certificate:<!-- CHECK 159: "When a server requests my personal certificate:" → "When a server asks for a certificate:"? -->', 1,
+    'When a server requests my personal certificate:', 'When a server asks for a certificate:'),
+  'When a server asks for a certificate:');
+check('the closing brace of a macro stays',
+  applied('{for tb159}{button Clear Now}<!-- CHECK 159: "Clear Now" → "Clear temporary files"? -->{/for}', 1, 'Clear Now', 'Clear temporary files'),
+  '{for tb159}{button Clear temporary files}{/for}');
+check('curly quotes in the checklist, straight ones in the article',
+  applied("'''Tell me if the message I'm reading is a suspected email scam<!-- CHECK 159: \"Tell me if the message I’m reading is a suspected email scam\" → \"Check messages\"? -->'''",
+    1, 'Tell me if the message I’m reading is a suspected email scam', 'Check messages'),
+  "'''Check messages'''");
+{
+  const heading = '= Network & Disk Space tab<!-- CHECK 159, heading: "Network & Disk Space" → "Network and storage"? --><!-- CHECK 159, heading: "Disk Space" → "Temporary storage"? --> =';
+  const second = applied(heading, 1, 'Disk Space', 'Temporary storage');
+  check('looks past the other comment of a heading, and keeps it', second,
+    '= Network & Temporary storage tab<!-- CHECK 159, heading: "Network & Disk Space" → "Network and storage"? --> =');
+  check('then the other guess no longer matches', applied(second, 1, 'Network & Disk Space', 'Network and storage'),
+    { error: 'on line 1, the text before the comment is not "Network & Disk Space"' });
+}
+check('only the comment for this guess counts',
+  applied('a<!-- CHECK 159: "a" → "b"? -->', 1, 'a', 'c'), { error: 'line 1 has no CHECK comment for "a" → "c"' });
+check('no such line', guessEdit('a', 3, 'a', 'b'), { error: 'there is no line 3' });
+check('the old text a little earlier in the heading, the rest stays',
+  applied('= Network & Disk Space tab<!-- CHECK 159, heading: "Network & Disk Space" → "Network and storage"? --> =', 1, 'Network & Disk Space', 'Network and storage'),
+  '= Network and storage tab =');
+check('never from the other {for} part',
+  applied('{for not tb159}Old{/for}{for tb159}New text<!-- CHECK 159: "Old" → "X"? -->{/for}', 1, 'Old', 'X'),
+  { error: 'on line 1, the text before the comment is not "Old"' });
+
+const expected = 30;
 if (checks < expected) {
   console.error(`\nonly ${checks} walk assertions ran, expected at least ${expected}`);
   process.exit(1);

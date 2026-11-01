@@ -28,6 +28,7 @@ const walking = {
   file: null, // the .wiki file now in the text box
   line: null, // the line of the current item, marked in the gutter
   state: 'waiting', // 'waiting', 'on', 'stopped' or 'lost'
+  edits: new Set(), // ids of the guesses already used, so none is made twice
 };
 
 let wasm = null;
@@ -607,7 +608,8 @@ async function walkTo(t) {
   walking.line = t.line;
   scheduleGutter();
   renderSaveNote();
-  const range = t.line ? lineRange(ta.value, t.line, t.find) : null;
+  let range = t.line ? lineRange(ta.value, t.line, t.find) : null;
+  if (t.edit && t.line) range = useGuess(t) || range;
   if (!range) return;
   ta.focus({ preventScroll: true });
   ta.setSelectionRange(range[0], range[1]);
@@ -618,6 +620,34 @@ async function walkTo(t) {
   ta.scrollTop = Math.max(0, top + parseFloat(getComputedStyle(ta).paddingTop) - ta.clientHeight / 3);
   document.getElementById('gutter').scrollTop = ta.scrollTop;
   ta.closest('.editor').scrollIntoView({ block: 'nearest' });
+}
+
+/**
+ * Use the guess that walk.py sent (#34), undoably, and tell walk.py whether
+ * that worked: it checks the item only after a success. Returns the range of
+ * the new text, or null.
+ */
+function useGuess(t) {
+  const { id, old, guess } = t.edit;
+  if (walking.edits.has(id)) return null;
+  walking.edits.add(id);
+  const ta = document.getElementById('src');
+  const edit = guessEdit(ta.value, t.line, old, guess);
+  let range = null;
+  if (!edit.error) {
+    replaceRange(ta, edit.start, edit.end, edit.replacement);
+    range = [edit.start, edit.start + edit.replacement.length];
+    run();
+  }
+  const answer = { id, ok: !edit.error, message: edit.error ? `${edit.error}.` : '' };
+  fetch('/walk/result', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(answer),
+  }).catch(() => {
+    // walk.py stopped. It saves nothing without this answer.
+  });
+  return range;
 }
 
 /** Listen to walk.py. Items are handled one at a time, in order. */

@@ -12,6 +12,7 @@ import os
 import shutil
 import sys
 import tempfile
+import threading
 import unittest
 import urllib.error
 import urllib.request
@@ -158,6 +159,51 @@ class Targets(unittest.TestCase):
             self.assertIsNone(walk.target({"heading": heading, "text": "Line 1:"})["file"], heading)
 
 
+class Guesses(unittest.TestCase):
+    def test_guess_is_offered_only_for_real_text(self):
+        def g(text):
+            return walk.guess({"heading": "a", "text": text})
+
+        self.assertEqual(g('Line 41: "Enable Global Search and Indexer" (possible 159 text: "Search & performance")'), "Search & performance")
+        self.assertEqual(g('Line 31: "System Integration" (possible 159 text: "System settings")'), "System settings")
+        self.assertIsNone(g('Line 18: "Leave it" (possible 159 text: "removed")'))
+        self.assertIsNone(g('Line 21: "Old" → "New"'))
+        self.assertIsNone(g("Search the edit box for CHECK"))
+
+    def test_g_checks_and_notes_only_after_the_page_says_it_worked(self):
+        body = '### article-one\n\n- [ ] Line 4: "Old" (possible 159 text: "New")\n'
+        answers = [(False, "the text before the comment is not \"Old\"."), (True, "")]
+        store = Store(body)
+        counts, said = run_with(store, ["g", "g", "q"], use_guess=lambda it: answers.pop(0))
+        self.assertIn('  g: use the guess "New"', said)
+        self.assertIn('The guess was not used: the text before the comment is not "Old". Nothing saved.', said)
+        self.assertEqual(len(store.writes), 1)
+        self.assertIn('- [x] Line 4: "Old" (possible 159 text: "New")\n  - Note: Used the guess "New".', store.body)
+        self.assertEqual(counts["checked"], 1)
+        self.assertIn('Used the guess "New" in the web app.', said)
+
+    def test_g_is_not_an_answer_without_a_guess_or_without_web(self):
+        body = '### article-one\n\n- [ ] Line 4: "Old" (possible 159 text: "New")\n'
+        store = Store(body)
+        counts, said = run_with(store, ["g", "q"])
+        self.assertIn("Please answer c, n, s, u or q.", said)
+        self.assertEqual(store.writes, [])
+
+    def test_undo_of_a_guess_points_at_cmd_z(self):
+        body = '### a\n\n- [ ] Line 4: "Old" (possible 159 text: "New")\n- [ ] Next\n'
+        store = Store(body)
+        counts, said = run_with(store, ["g", "u", "q"], use_guess=lambda it: (True, ""))
+        self.assertIn("Undone. Cmd+Z in the web app takes back the guess.", said)
+        self.assertEqual(store.body, body)
+
+
+def run_with(store, answers, **kwargs):
+    queue = list(answers)
+    said = []
+    counts = walk.walk(store, "test", ask=lambda prompt: queue.pop(0), say=said.append, **kwargs)
+    return counts, said
+
+
 class Web(unittest.TestCase):
     """The local server, over real HTTP on 127.0.0.1."""
 
@@ -213,6 +259,36 @@ class Web(unittest.TestCase):
         self.assertIsNone(self.app.current)
         self.assertIsNone(self.app.show({"heading": "Evaluate this", "text": "Go?"}))
         self.assertIsNone(self.app.current)
+
+    def post(self, data):
+        req = urllib.request.Request(self.base + "/walk/result", data=json.dumps(data).encode(), method="POST")
+        with urllib.request.urlopen(req, timeout=5) as r:
+            return r.status
+
+    def test_use_guess_sends_the_edit_and_waits_for_the_page(self):
+        item = {"heading": "article-one", "text": 'Line 1: "Sent" (possible 159 text: "Kept")'}
+
+        def page():
+            with self.app.changed:
+                self.app.changed.wait_for(lambda: isinstance(self.app.current, dict) and "edit" in self.app.current, timeout=5)
+                edit = self.app.current["edit"]
+            self.assertEqual((edit["old"], edit["guess"]), ("Sent", "Kept"))
+            self.assertEqual(self.post({"id": edit["id"], "ok": False, "message": "no comment."}), 204)
+
+        threading.Thread(target=page).start()
+        self.assertEqual(self.app.use_guess(item), (False, "no comment."))
+        self.assertNotIn("edit", self.app.current)  # a page that connects later does nothing
+
+    def test_no_answer_is_a_failure(self):
+        item = {"heading": "article-one", "text": 'Line 1: "Sent" (possible 159 text: "Kept")'}
+        ok, message = self.app.use_guess(item, timeout=0.2)
+        self.assertFalse(ok)
+        self.assertIn("did not answer", message)
+
+    def test_a_bad_result_is_refused(self):
+        with self.assertRaises(urllib.error.HTTPError) as e:
+            self.post({"ok": True})
+        self.assertEqual(e.exception.code, 400)
 
     def test_walk_calls_show_before_each_question(self):
         shown = []

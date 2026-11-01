@@ -17,6 +17,7 @@ or an issue, which walks the issue body. The script shows each unchecked
 `- [ ]` item with the headings above it, and asks:
 
     c  check it
+    g  use the guess, with --web (see below)
     n  leave it unchecked, with a note
     s  skip it for now
     u  undo the last answer
@@ -34,7 +35,14 @@ under the heading `### some-article` selects "Old" on line 21 of
 DIR/some-article.wiki, or the whole line if "Old" is not on it. An item with no
 line number only loads the file of its heading. Save to file suggests
 `some-article-edited.wiki`, so it never replaces the file in DIR, and nothing
-is kept in the browser's storage. Build the linter first with
+is kept in the browser's storage.
+
+With `--web`, an item that ends with `(possible 159 text: "GUESS")` also
+offers `g` (#34). The web app then replaces the old text and its
+`<!-- CHECK 159: … -->` comment on that line with GUESS, undoably. Only if
+the page reports that the edit worked does the script check the item and add
+the note `Used the guess "GUESS".` The change is in the web app only: save or
+copy the text from there. Build the linter first with
 tools/build-web.sh, or the page shows only the preview.
 
 It uses the `gh` command (signed in with `gh auth login`), so it needs no
@@ -59,6 +67,7 @@ HEADING = re.compile(r"^#{1,6}\s+(.*)$")
 BOLD = re.compile(r"^\*\*(.+?)\*\*")
 NOTE = re.compile(r"^\s+- Note: ")
 LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+GUESS = re.compile(r'\(possible 159 text: "(.*)"\)\s*$')
 LINE = re.compile(r'^Line (\d+):(?: "(.*?)"(?= →| \(|$))?')
 WEB = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "web")
 
@@ -164,6 +173,17 @@ def target(item):
     }
 
 
+def guess(item):
+    """The possible 159 text of an item, or None (#34).
+
+    "removed" is not text, so it is not offered as a guess.
+    """
+    m = GUESS.search(item["text"])
+    if not m or m.group(1) == "removed" or not target(item)["find"]:
+        return None
+    return m.group(1)
+
+
 class WebApp:
     """The web app on localhost, and the item it shows (#31).
 
@@ -177,6 +197,7 @@ class WebApp:
         self.folder, self.web = os.path.realpath(folder), web
         self.changed = threading.Condition()
         self.current, self.version = None, 0
+        self.results = {}  # edit id -> (ok, message), from the page
         app = self
 
         class Handler(http.server.SimpleHTTPRequestHandler):
@@ -199,6 +220,11 @@ class WebApp:
                 if path.startswith("/walk/file/"):
                     return app.file(self, path[len("/walk/file/"):])
                 return super().do_GET()
+
+            def do_POST(self):
+                if self.path != "/walk/result":
+                    return self.send_error(404)
+                return app.result(self)
 
         self.server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
         self.server.daemon_threads = True
@@ -235,6 +261,39 @@ class WebApp:
             self.current, self.version = t, self.version + 1
             self.changed.notify_all()
         return None
+
+    def use_guess(self, item, timeout=10):
+        """Ask the page to use the item's guess. Returns (ok, message).
+
+        The page answers on /walk/result. No answer is a failure: a guess
+        that was never made must not look like one that was.
+        """
+        t, g = target(item), guess(item)
+        if not g or not self.path_of(t["file"] or ""):
+            return False, "there is no guess to use"
+        with self.changed:
+            self.version += 1
+            edit_id = self.version
+            self.current = {**t, "edit": {"id": edit_id, "old": t["find"], "guess": g}}
+            self.changed.notify_all()
+            got = self.changed.wait_for(lambda: edit_id in self.results, timeout=timeout)
+            # A page that connects later must not make the edit again.
+            self.current = t
+            if not got:
+                return False, "the web app did not answer. Is its page open?"
+            return self.results.pop(edit_id)
+
+    def result(self, handler):
+        try:
+            data = json.loads(handler.rfile.read(int(handler.headers.get("Content-Length", 0))))
+            edit_id, ok, message = int(data["id"]), bool(data["ok"]), str(data.get("message", ""))
+        except (ValueError, KeyError, TypeError):
+            return handler.send_error(400)
+        with self.changed:
+            self.results[edit_id] = (ok, message)
+            self.changed.notify_all()
+        handler.send_response(204)
+        handler.end_headers()
 
     def file(self, handler, name):
         path = self.path_of(name)
@@ -306,11 +365,12 @@ class GitHub:
             raise RuntimeError(res.stderr.strip() or "gh api failed")
 
 
-def walk(store, label, ask=input, say=print, show=None):
+def walk(store, label, ask=input, say=print, show=None, use_guess=None):
     """The interactive loop. `ask` and `say` are parameters so tests can drive it.
 
     `show(item)`, if given, is called before each question, and any line it
-    returns is printed. `--web` passes WebApp.show.
+    returns is printed. `use_guess(item)` makes the edit for `g` and returns
+    (ok, message). `--web` passes WebApp.show and WebApp.use_guess.
     """
     body = store.read()
     history = []  # bodies before each saved answer, for undo
@@ -321,6 +381,8 @@ def walk(store, label, ask=input, say=print, show=None):
     total = len(todo)
     say(f"{label}: {total} unchecked of {len(items(body))} items." + (" Dry run: nothing is saved." if store.dry_run else ""))
     say("Answer c (check), n (note, leave unchecked), s (skip), u (undo), q (quit).")
+    if use_guess:
+        say("Where an item has a possible 159 text, g uses it in the web app and checks the item.")
     pos = 0
     while pos < len(todo):
         it = items(body)[todo[pos]]
@@ -333,7 +395,10 @@ def walk(store, label, ask=input, say=print, show=None):
             extra = show(it)
             if extra:
                 say(extra)
-        answer = ask("c/n/s/u/q? ").strip().lower()
+        offer = guess(it) if use_guess else None
+        if offer:
+            say(f'  g: use the guess "{offer}"')
+        answer = ask("c/g/n/s/u/q? " if offer else "c/n/s/u/q? ").strip().lower()
         if answer in ("q", "quit"):
             break
         if answer in ("s", "skip", ""):
@@ -347,14 +412,26 @@ def walk(store, label, ask=input, say=print, show=None):
             if store.read() != body:
                 say("The text changed on GitHub since the last save. Stopping, so nothing is lost.")
                 break
-            body, last_pos, kind = history.pop()
+            body, last_pos, kind, guessed = history.pop()
             store.write(body)
             counts[kind] -= 1
             pos = last_pos
-            say("Undone.")
+            say("Undone. Cmd+Z in the web app takes back the guess." if guessed else "Undone.")
             continue
+        guessed = False
         if answer in ("c", "check", "y", "yes"):
             new, kind = check(body, it["line"]), "checked"
+        elif answer in ("g", "guess") and offer:
+            if store.read() != body:
+                say("The text changed on GitHub since the last save. Stopping, so nothing is lost.")
+                break
+            ok, message = use_guess(it)
+            if not ok:
+                say(f"The guess was not used: {message} Nothing saved.")
+                continue
+            new = add_note(check(body, it["line"]), it["line"], f'Used the guess "{offer}".')
+            kind, guessed = "checked", True
+            say(f'Used the guess "{offer}" in the web app.')
         elif answer in ("n", "note"):
             note = ask("Note: ").strip()
             if not note:
@@ -362,13 +439,13 @@ def walk(store, label, ask=input, say=print, show=None):
                 continue
             new, kind = add_note(body, it["line"], note), "noted"
         else:
-            say("Please answer c, n, s, u or q.")
+            say("Please answer c, g, n, s, u or q." if offer else "Please answer c, n, s, u or q.")
             continue
         if store.read() != body:
             say("The text changed on GitHub since the last save. Stopping, so nothing is lost.")
             break
         store.write(new)
-        history.append((body, pos, kind))
+        history.append((body, pos, kind, guessed))
         counts[kind] += 1
         body = new
         pos += 1
@@ -402,7 +479,8 @@ def main():
             if not os.path.isfile(os.path.join(WEB, "sumo_lint_wasm.wasm")):
                 print("The linter is not built, so the page shows only the preview. Run tools/build-web.sh.")
             webbrowser.open(app.url)
-        walk(GitHub(path, dry_run), label, show=app.show if app else None)
+        walk(GitHub(path, dry_run), label, show=app.show if app else None,
+             use_guess=app.use_guess if app else None)
     except (ValueError, RuntimeError) as e:
         sys.exit(str(e))
     except (KeyboardInterrupt, EOFError):

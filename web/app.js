@@ -255,6 +255,28 @@ function renderSaveNote() {
   note.className = kept.draft === 'failed' || kept.file === 'failed' ? 'err' : '';
 }
 
+/**
+ * The last text the author knows is kept (#33): what walk.py loaded, what was
+ * last saved to a file, or what Clear and the example put there. Autosave to
+ * this browser does not count, because that copy is not the one pasted into
+ * SUMO. Null until the page has read its first text.
+ */
+let knownText = null;
+
+/** Show the pink dot when the text differs from the known text. */
+function renderChanged() {
+  const dot = document.getElementById('changed');
+  if (!dot) return;
+  const text = document.getElementById('src').value;
+  dot.hidden = knownText === null || text === knownText;
+}
+
+/** Mark `text` as kept, for the dot. */
+function markKnown(text) {
+  knownText = text;
+  renderChanged();
+}
+
 /** Autosave the text, and write it to the chosen file if there is one. */
 function keep() {
   const text = document.getElementById('src').value;
@@ -328,6 +350,7 @@ async function saveToFile() {
       const stream = await handle.createWritable();
       await stream.write(text);
       await stream.close();
+      if (kept.writeFile === writeFile) markKnown(text);
     },
     (state) => {
       if (kept.writeFile !== writeFile) return; // a file since forgotten
@@ -359,6 +382,7 @@ function download(text) {
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 0);
+  markKnown(text);
   kept.downloaded = name;
   renderSaveNote();
 }
@@ -378,6 +402,7 @@ function startOver(text) {
   }
   const ta = document.getElementById('src');
   replaceRange(ta, 0, ta.value.length, text);
+  markKnown(text);
   run();
 }
 
@@ -453,6 +478,7 @@ function renderPreview() {
 
 function run() {
   updateButtons();
+  renderChanged();
   keep();
   renderPreview();
   if (!wasm) return;
@@ -657,6 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let t = null;
   ta.addEventListener('input', () => {
     updateButtons();
+    renderChanged();
     scheduleGutter();
     clearTimeout(t);
     t = setTimeout(run, 120);
@@ -689,6 +716,8 @@ document.addEventListener('DOMContentLoaded', () => {
       saveDraft(draftStorage(), nameBox.value, NAME_KEY);
     });
   }
+  // In walk mode the first file from walk.py sets the known text instead.
+  if (!walkMode) markKnown(ta.value);
   showFileName();
   updateButtons();
   renderSaveNote();

@@ -16,13 +16,13 @@
   :root {
     --bg: #ffffff; --fg: #15141a; --muted: #5b5b66; --line: #d7d7db;
     --err: #c50042; --warn: #a66b00; --ok: #017a4a; --accent: #0060df;
-    --code-bg: #f0f0f4;
+    --code-bg: #f0f0f4; --changed: #e31587;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #1c1b22; --fg: #fbfbfe; --muted: #b8b8c4; --line: #45454f;
       --err: #ff6a8a; --warn: #ffc169; --ok: #4bd48b; --accent: #7fb6ff;
-      --code-bg: #2b2a33;
+      --code-bg: #2b2a33; --changed: #ff6bba;
     }
   }
   * { box-sizing: border-box; }
@@ -143,6 +143,12 @@
   button:disabled { opacity: .5; cursor: default; }
   #summary { font-weight: 600; }
   #savenote { font-size: .85rem; color: var(--muted); }
+  /* Shows that the text differs from the last loaded or saved text (#33). */
+  #changed {
+    display: inline-block; width: .6rem; height: .6rem; margin-left: .35rem;
+    border-radius: 50%; background: var(--changed); vertical-align: middle;
+  }
+  #changed[hidden] { display: none; }
   #filename {
     font: inherit; width: 16rem; padding: .4rem .5rem; border-radius: 5px;
     border: 1px solid var(--line); background: transparent; color: var(--fg);
@@ -195,6 +201,9 @@
   <div class="grid">
     <section>
       <label for="src"><strong>Wiki markup</strong></label>
+      <span id="changed" role="img" hidden
+        title="Changed since it was loaded or saved to a file"
+        aria-label="Changed since it was loaded or saved to a file"></span>
       <div class="bar">
         <button id="sample" type="button">Load an example with errors</button>
         <button id="copybtn" type="button" title="Copy the wiki markup exactly as it is, to paste back into SUMO" disabled>Copy</button>

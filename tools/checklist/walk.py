@@ -17,7 +17,7 @@ or an issue, which walks the issue body. The script shows each unchecked
 `- [ ]` item with the headings above it, and asks:
 
     c  check it
-    g  use the guess, with --web (see below)
+    g  use the guess, with --web (see below). `g some text` adds a comment
     n  leave it unchecked, with a note
     s  skip it for now
     u  undo the last answer
@@ -41,7 +41,8 @@ With `--web`, an item that ends with `(possible 159 text: "GUESS")` also
 offers `g` (#34). The web app then replaces the old text and its
 `<!-- CHECK 159: … -->` comment on that line with GUESS, undoably. Only if
 the page reports that the edit worked does the script check the item and add
-the note `Used the guess "GUESS".` The change is in the web app only: save or
+the note `Used the guess "GUESS".`, followed by your comment if you typed
+one after the g, for example `g then I shortened it`. The change is in the web app only: save or
 copy the text from there. Build the linter first with
 tools/build-web.sh, or the page shows only the preview.
 
@@ -398,7 +399,12 @@ def walk(store, label, ask=input, say=print, show=None, use_guess=None):
         offer = guess(it) if use_guess else None
         if offer:
             say(f'  g: use the guess "{offer}"')
-        answer = ask("c/g/n/s/u/q? " if offer else "c/n/s/u/q? ").strip().lower()
+        word, _, comment = ask("c/g/n/s/u/q? " if offer else "c/n/s/u/q? ").strip().partition(" ")
+        answer, comment = word.lower(), comment.strip()
+        if comment and answer not in ("g", "guess"):
+            # Dropping the text silently would lose what the author typed.
+            say("Only g takes a comment after it. For a note, answer n.")
+            continue
         if answer in ("q", "quit"):
             break
         if answer in ("s", "skip", ""):
@@ -429,7 +435,8 @@ def walk(store, label, ask=input, say=print, show=None, use_guess=None):
             if not ok:
                 say(f"The guess was not used: {message} Nothing saved.")
                 continue
-            new = add_note(check(body, it["line"]), it["line"], f'Used the guess "{offer}".')
+            note = f'Used the guess "{offer}".' + (f" {comment}" if comment else "")
+            new = add_note(check(body, it["line"]), it["line"], note)
             kind, guessed = "checked", True
             say(f'Used the guess "{offer}" in the web app.')
         elif answer in ("n", "note"):

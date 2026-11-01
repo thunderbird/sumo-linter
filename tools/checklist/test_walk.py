@@ -182,6 +182,18 @@ class Guesses(unittest.TestCase):
         self.assertEqual(counts["checked"], 1)
         self.assertIn('Used the guess "New" in the web app.', said)
 
+    def test_g_with_a_comment_keeps_its_case(self):
+        body = '### a\n\n- [ ] Line 4: "Old" (possible 159 text: "New")\n'
+        store = Store(body)
+        run_with(store, ["G  Then I changed it to Newer  "], use_guess=lambda it: (True, ""))
+        self.assertIn('  - Note: Used the guess "New". Then I changed it to Newer\n', store.body)
+
+    def test_a_comment_after_another_answer_saves_nothing(self):
+        store = Store(BODY)
+        counts, said = run(store, ["c looks fine", "q"])
+        self.assertIn("Only g takes a comment after it. For a note, answer n.", said)
+        self.assertEqual(store.writes, [])
+
     def test_g_is_not_an_answer_without_a_guess_or_without_web(self):
         body = '### article-one\n\n- [ ] Line 4: "Old" (possible 159 text: "New")\n'
         store = Store(body)

@@ -1,10 +1,15 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.10"
+# dependencies = []
+# ///
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """Walk through the unchecked items of a GitHub checklist (sumo-linter #30).
 
-    python3 -I tools/checklist/walk.py URL [--dry-run] [--web DIR]
+    uv run tools/checklist/walk.py URL [--dry-run] [--web DIR]
 
 URL is an issue comment, for example
 https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976,
@@ -33,7 +38,8 @@ is kept in the browser's storage. Build the linter first with
 tools/build-web.sh, or the page shows only the preview.
 
 It uses the `gh` command (signed in with `gh auth login`), so it needs no
-token of its own. Python standard library only.
+token of its own. Python standard library only, so `uv run` installs nothing
+(#32). `python3 -I tools/checklist/walk.py …` works too.
 """
 
 import http.server

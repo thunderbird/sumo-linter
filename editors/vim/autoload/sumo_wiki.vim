@@ -351,18 +351,24 @@ endfunction
 
 " Claim a `.wiki` file for this plugin (#38), from ftdetect. Vim 9.2 and
 " Neovim 0.11 call every `*.wiki` file `mediawiki` before ftdetect runs, so
-" override that guess, and an empty file type, but no file type that another
-" wiki plugin set. `let g:sumo_wiki_claim_wiki = 0` turns the claim off.
+" override that guess. Anything else goes through :setfiletype, which yields to
+" a file type that another wiki plugin set but not to a FALLBACK one: Neovim
+" 0.9 has no `.wiki` rule and falls back to `conf` for any file with a line
+" that starts with `#`, which in SUMO markup is an ordered list.
+" `let g:sumo_wiki_claim_wiki = 0` turns the claim off.
 function! sumo_wiki#claim_wiki() abort
   if !get(g:, 'sumo_wiki_claim_wiki', 1)
-        \ || (&filetype !=# '' && &filetype !=# 'mediawiki')
+    return
+  endif
+  if &filetype !=# 'mediawiki'
+    setfiletype sumo-wiki
     return
   endif
   " Vim's ftplugin/mediawiki.vim builds b:undo_ftplugin with `+=`, which makes
   " it the Number 0. Leaving mediawiki would then run `:0`: on a new file that
   " is "E749: Empty buffer", and mediawiki's settings stay. So put back the
   " undo that it means. Measured in Vim 9.2 and Neovim 0.11.
-  if &filetype ==# 'mediawiki' && type(get(b:, 'undo_ftplugin', '')) == type(0)
+  if type(get(b:, 'undo_ftplugin', '')) == type(0)
     let b:undo_ftplugin = 'setl commentstring< comments< formatoptions< foldexpr<'
           \ . ' foldmethod< matchpairs< linebreak< wrap< textwidth<'
   endif

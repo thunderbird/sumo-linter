@@ -136,8 +136,9 @@ filetype plugin on
 
 `.sumo` and `.wiki` then get the `sumo-wiki` filetype, including the `.wiki` files the
 web app saves. Vim 9.2 and Neovim 0.11 themselves call every `*.wiki` file `mediawiki`, so
-the plugin overrides that guess, but it leaves a `.wiki` file alone if another plugin, such
-as vimwiki, gave it a file type (#38). If you edit real MediaWiki files as `.wiki`, turn the
+the plugin overrides that guess, and Neovim 0.9's `conf` fallback for a file with a `#`
+line, but it leaves a `.wiki` file alone if another plugin, such as vimwiki, gave it a file
+type (#38). If you edit real MediaWiki files as `.wiki`, turn the
 claim off in your vimrc:
 
 ```vim

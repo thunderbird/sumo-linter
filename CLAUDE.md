@@ -105,7 +105,7 @@ a 429 for the rest of the hour); the heading data is already measured; the four 
 already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
 `vscode` (31 grammar + 51 link + 26 bold assertions, plus all 905 articles against SUMO's
 highlighting rules), `emacs` (99 mode assertions, against the real CLI, plus the 905),
-`vim` (108 plugin assertions, run under both Vim and Neovim, plus the 905), `ui-strings` (33 tests, plus 26 for the checklist walker, including that the committed comparison tables
+`vim` (109 plugin assertions, run under both Vim and Neovim, plus the 905), `ui-strings` (33 tests, plus 26 for the checklist walker, including that the committed comparison tables
 are up to date) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
 button, 72 on autosave, save-to-file and the file name, 99 on the preview, 30 on walk mode, 35 on highlighting) — so there is no
 by-hand test suite left.
@@ -378,8 +378,11 @@ earliest-match-then-first-pattern rule is the same thing, Emacs needs one font-l
 (plain keywords color inside earlier matches) with the state cached on each newline, and
 Vim gives priority to the item defined **last**, so its file lists the rules in reverse.
 **Vim 9.2 and Neovim 0.11 call `*.wiki` `mediawiki`** before `ftdetect` runs, so
-`sumo_wiki#claim_wiki()` overrides that guess (and an empty file type), but no file type
-another plugin set; `g:sumo_wiki_claim_wiki = 0` opts out (#38). Vim's own
+`sumo_wiki#claim_wiki()` overrides that guess, and uses `:setfiletype` otherwise, which
+yields to a file type another plugin set but not to a FALLBACK one: Neovim 0.9 (Ubuntu's,
+so CI's) has no `.wiki` rule and falls back to `conf` for any file with a `#` line, an
+ordered list in SUMO markup, which made 85 corpus articles fail in CI before this was
+handled. `g:sumo_wiki_claim_wiki = 0` opts out (#38). Vim's own
 `ftplugin/mediawiki.vim` builds `b:undo_ftplugin` with `+=`, which makes it the Number 0, so
 leaving mediawiki ran `:0` ("E749: Empty buffer" on a new file) and left its settings;
 `claim_wiki` puts back the intended undo first. Measured in both, 2026-11-01.

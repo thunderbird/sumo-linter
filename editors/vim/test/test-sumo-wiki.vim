@@ -438,6 +438,29 @@ call s:ok('the opt-out leaves .wiki to Vim', s:ft_of('.wiki') !=# 'sumo-wiki', 1
 call s:ok('the opt-out leaves .sumo alone', s:ft_of('.sumo'), 'sumo-wiki')
 unlet g:sumo_wiki_claim_wiki
 
+" Neovim 0.9 has no .wiki rule and falls back to conf for a file with a line
+" that starts with #, an ordered list in SUMO markup. A fallback is no choice,
+" so the claim takes it. In Neovim, taking the .wiki rule away runs the real
+" fallback; Vim's rule is mediawiki, so there it is simulated. Last in this
+" section, because it removes every *.wiki detection rule.
+let s:fallback = tempname() . '.wiki'
+call writefile(['# one', '# two'], s:fallback)
+autocmd! filetypedetect BufRead,BufNewFile *.wiki
+if has('nvim')
+  lua vim.filetype.add({ extension = { wiki = function() end } })
+else
+  augroup filetypedetect
+    autocmd BufRead,BufNewFile *.wiki setfiletype FALLBACK conf
+  augroup END
+endif
+augroup filetypedetect
+  execute 'source ' . fnameescape(s:root . '/ftdetect/sumo-wiki.vim')
+augroup END
+execute 'silent edit! ' . fnameescape(s:fallback)
+call s:ok('a FALLBACK file type is claimed', &filetype, 'sumo-wiki')
+silent bwipeout!
+call delete(s:fallback)
+
 " --- highlighting with SUMO's rules (#36) ------------------------------------
 syntax on
 let s:letter_of = {'sumoWikiSyntax': 'S', 'sumoWikiLink': 'L', 'sumoWikiBold': 'B',
@@ -518,7 +541,7 @@ call s:ok('highlight: every article matches SUMO''s rules', v:shell_error, 0)
 
 " A floor on the count: a file that stops running its body would otherwise
 " print no failures and pass.
-let s:expected = 108
+let s:expected = 109
 if s:total < s:expected
   let s:failed += 1
   call s:say(printf('  only %d assertions ran, expected at least %d', s:total, s:expected))

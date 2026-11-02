@@ -712,7 +712,7 @@ function useEdit(t) {
       ? confirmEdit(ta.value, t.line)
       : { error: 'this page is older than walk.py: reload it' };
   } else {
-    edit = guessEdit(ta.value, t.line, t.edit.old, t.edit.guess);
+    edit = guessEdit(ta.value, t.line, t.edit.old, t.edit.guess, !!t.edit.own);
   }
   let range = null;
   const changes = !edit.error && !edit.none;

@@ -326,6 +326,7 @@ class Web(unittest.TestCase):
                 self.app.changed.wait_for(lambda: isinstance(self.app.current, dict) and "edit" in self.app.current, timeout=5)
                 edit = self.app.current["edit"]
             self.assertEqual((edit["old"], edit["guess"]), ("Sent", "Kept"))
+            self.assertIs(edit["own"], False)  # a guess, not the author's shot text
             self.assertEqual(self.post({"id": edit["id"], "ok": False, "message": "no comment."}), 204)
 
         threading.Thread(target=page).start()
@@ -399,6 +400,15 @@ class Screenshots(unittest.TestCase):
     def test_an_explicit_shot_wins(self):
         self.assertEqual(walk.shot_text(self.item('Line 1: "A" → "B" (shot: "Another label")')), "Another label")
         self.assertEqual(walk.shot_text(self.item('Line 18: "Old" (possible 159 text: "removed") (shot: "X")')), "X")
+        # The old text ends before a plain shot: (it was read as everything up
+        # to the last quote).
+        self.assertEqual(walk.target({"heading": "a", "text": 'Line 20: "Leave it in my Inbox" shot: "Leave in Inbox"'})["find"],
+                         "Leave it in my Inbox")
+        # The shot text is also what g writes, since the author chose it.
+        self.assertEqual(walk.guess({"heading": "a", "text": 'Line 20: "Leave it in my Inbox" shot: "Leave in Inbox"'}),
+                         "Leave in Inbox")
+        self.assertEqual(walk.guess({"heading": "a", "text": 'Line 9: "A" (possible 159 text: "B") shot: "C"'}), "C")
+        self.assertIsNone(walk.guess({"heading": "a", "text": 'Open the page shot: "C"'}))  # no old text
         # As Roland typed it on #28: no parentheses.
         self.assertEqual(walk.shot_text(self.item('Line 20: "Leave it in my Inbox" shot: "Leave in Inbox"')),
                          "Leave in Inbox")

@@ -73,7 +73,9 @@ An item whose possible 159 text is "removed" gets no screenshot, because
 there is nothing to search for. But "removed" can be wrong: 159 sometimes
 rewords a string and gives it a new ID. To capture such an item, add
 `(shot: "LABEL")`, where LABEL is the text exactly as Thunderbird 159 shows it.
-`shot: "LABEL"` without the parentheses works too.
+`shot: "LABEL"` without the parentheses works too. With --web, `g` then writes LABEL into
+the article in place of the old text, and deletes the line's
+`<!-- CHECK 159: "old" → …? -->` comment, as for a guess.
 The search ignores case, curly quotes and a trailing colon or ellipsis. Two
 ways to find LABEL:
 
@@ -119,7 +121,7 @@ GUESS = re.compile(r'\(possible 159 text: "(.*)"\)\s*$')
 # `(shot: "TEXT")`, or without the parentheses, as typed by hand.
 SHOT = re.compile(r'\(?\bshot: "(.*?)"\)?')
 NEW = re.compile(r'^Line \d+: ".*?" → "(.*?)"')
-LINE = re.compile(r'^Line (\d+):(?: "(.*?)"(?= →| \(|$))?')
+LINE = re.compile(r'^Line (\d+):(?: "(.*?)"(?= →| \(| shot: "|$))?')
 WEB = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "web")
 
 
@@ -225,12 +227,19 @@ def target(item):
 
 
 def guess(item):
-    """The possible 159 text of an item, or None (#34).
+    """The 159 text that `g` writes for an item, or None (#34).
 
-    "removed" is not text, so it is not offered as a guess.
+    `shot: "TEXT"` wins, because the author chose it: for an item whose
+    possible 159 text was wrong, such as "removed", it is the real label.
+    Else the possible 159 text, except "removed", which is not text.
     """
+    if not target(item)["find"]:
+        return None
+    m = SHOT.search(item["text"])
+    if m and m.group(1):
+        return m.group(1)
     m = GUESS.search(item["text"])
-    if not m or m.group(1) == "removed" or not target(item)["find"]:
+    if not m or m.group(1) == "removed":
         return None
     return m.group(1)
 
@@ -423,7 +432,9 @@ class WebApp:
         t, g = target(item), guess(item)
         if not g or not self.path_of(t["file"] or ""):
             return False, "there is no guess to use"
-        ok, message, _ = self.edit(item, {"kind": "guess", "old": t["find"], "guess": g}, timeout)
+        # `own`: the author's shot text, which the line's comment may not suggest.
+        own = bool(SHOT.search(item["text"]))
+        ok, message, _ = self.edit(item, {"kind": "guess", "old": t["find"], "guess": g, "own": own}, timeout)
         return ok, message
 
     def confirm(self, item, timeout=10):

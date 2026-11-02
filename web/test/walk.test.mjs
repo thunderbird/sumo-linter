@@ -52,8 +52,8 @@ check('\\r\\n: the \\r stays on its line, as in the linter', lineRange('a\r\nb',
 }
 
 // Using a guess (#34). Each case is a real comment from the #28 proposals.
-function applied(text, line, old, guess) {
-  const e = guessEdit(text, line, old, guess);
+function applied(text, line, old, guess, own = false) {
+  const e = guessEdit(text, line, old, guess, own);
   return e.error ? e : text.slice(0, e.start) + e.replacement + text.slice(e.end);
 }
 check('a guess replaces the old text and the comment',
@@ -106,7 +106,21 @@ check('never from the other {for} part',
   check('confirm: a guess comment stays', confirmEdit('<!-- CHECK 159: "A" → "B"? -->', 1), { none: true });
 }
 
-const expected = 35;
+// --- g with the author's own text (shot: "…"), against a "removed" comment ----
+{
+  const src = `{for tb159}'''Leave it in my Inbox<!-- CHECK 159: "Leave it in my Inbox" → "removed"? -->''': Return receipts.{/for}`;
+  check('shot text replaces the old text and the removed comment',
+    applied(src, 1, 'Leave it in my Inbox', 'Leave in Inbox', true),
+    "{for tb159}'''Leave in Inbox''': Return receipts.{/for}");
+  check('without shot text, a comment with another guess is refused',
+    applied(src, 1, 'Leave it in my Inbox', 'Leave in Inbox'),
+    { error: 'line 1 has no CHECK comment for "Leave it in my Inbox" → "Leave in Inbox"' });
+  check('the exact comment still wins over another for the same text',
+    applied('A<!-- CHECK 159: "A" → "X"? --> A<!-- CHECK 159: "A" → "B"? -->', 1, 'A', 'B', true),
+    'A<!-- CHECK 159: "A" → "X"? --> B');
+}
+
+const expected = 38;
 if (checks < expected) {
   console.error(`\nonly ${checks} walk assertions ran, expected at least ${expected}`);
   process.exit(1);

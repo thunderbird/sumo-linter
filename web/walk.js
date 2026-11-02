@@ -50,27 +50,37 @@ function lineRange(text, line, find) {
  * The old text matches without regard to quote style, case or a trailing
  * colon. If it matched without its colon, the guess loses its colon too. A
  * closing `}` between the old text and the comment stays, so
- * `{button Clear Now}` becomes `{button Clear temporary files}`. Other
+ * `{button Clear Now}` becomes `{button Clear temporary files}`. With
+ * `ownText`, a CHECK comment for the old text with another guess counts too. Other
  * comments directly before this one are looked past and kept. If the old
  * text is not directly before the comment, its last occurrence in the same
  * `{for}` part or heading is used, and the text between stays.
  */
-function guessEdit(text, line, old, guess) {
+function guessEdit(text, line, old, guess, ownText = false) {
   const range = lineRange(text, line);
   if (!range) return { error: `there is no line ${line}` };
   const [ls, le] = range;
   const src = text.slice(ls, le);
   const flat = plainQuotes(src);
   const key = `"${plainQuotes(old)}" → "${plainQuotes(guess)}"?`;
+  // With `ownText`, the author chose other text than the comment suggests
+  // (`shot: "…"` in walk.py), so the comment for the old text is the one.
+  // Otherwise a comment with another guess means the page is not what the
+  // checklist expects, and nothing is done.
+  const anyGuess = `"${plainQuotes(old)}" → `;
   const comments = /<!--[\s\S]*?-->/g;
   let at = -1;
   let end = -1;
-  for (let m; (m = comments.exec(flat));) {
-    if (m[0].startsWith('<!-- CHECK 159') && m[0].includes(key)) {
-      at = m.index;
-      end = at + m[0].length;
-      break;
+  for (const wanted of ownText ? [key, anyGuess] : [key]) {
+    comments.lastIndex = 0;
+    for (let m; (m = comments.exec(flat));) {
+      if (m[0].startsWith('<!-- CHECK 159') && m[0].includes(wanted)) {
+        at = m.index;
+        end = at + m[0].length;
+        break;
+      }
     }
+    if (at !== -1) break;
   }
   if (at === -1) return { error: `line ${line} has no CHECK comment for "${old}" → "${guess}"` };
   let before = at;

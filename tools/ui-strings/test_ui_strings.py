@@ -215,6 +215,56 @@ class Renames(unittest.TestCase):
         self.assertEqual(len(news), len(set(news)))
 
 
+class Checklist(unittest.TestCase):
+    """checklist.py: the #28 form, and answers carried over (#48)."""
+
+    OLD = (
+        "### art\n\n"
+        "- [x] Open the page\n"
+        '- [x] Line 18: "Old A" (possible 159 text: "removed")\n'
+        '- [x] Line 20: "Old B" shot: "New B"\n'
+        '  - Note: Used the guess "New B".\n'
+        '- [ ] Line 22: "Old C" (possible 159 text: "removed")\n'
+        '- [ ] Line 30: "Old D" shot: "Mine"\n'
+    )
+    NEW = (
+        "### art\n\n"
+        "- [ ] Open the page\n"
+        '- [ ] Line 18: "Old A" (possible 159 text: "New A")\n'
+        '- [ ] Line 20: "Old B" → "New B"\n'
+        '- [ ] Line 22: "Old C" (possible 159 text: "New C")\n'
+        '- [ ] Line 30: "Old D" (possible 159 text: "Wrong")\n'
+        '- [ ] Line 31: "Old E" → "New E"\n'
+    )
+
+    def test_answers_follow_the_line_and_old_text(self):
+        import checklist
+        text, n = checklist.carry(self.NEW, self.OLD)
+        self.assertIn("- [x] Open the page", text)
+        # A checked line stays checked, though its suggestion is new.
+        self.assertIn('- [x] Line 18: "Old A" (possible 159 text: "New A")', text)
+        # Its note comes along; a shot that the item now says itself is dropped.
+        self.assertIn('- [x] Line 20: "Old B" → "New B"\n  - Note: Used the guess "New B".', text)
+        self.assertIn('- [ ] Line 22: "Old C" (possible 159 text: "New C")', text)
+        # The author's label replaces a wrong suggestion.
+        self.assertIn('- [ ] Line 30: "Old D" shot: "Mine"', text)
+        self.assertIn('- [ ] Line 31: "Old E" → "New E"', text)
+        self.assertEqual(n, 4)
+
+    def test_report_rows_lose_the_rename_note(self):
+        import checklist
+        self.assertEqual(checklist.SOURCE.sub("", "Leave in Inbox (new ID `x` in `receipts.ftl`, was `y`)"),
+                         "Leave in Inbox")
+
+    def test_the_two_test_articles(self):
+        import checklist
+        text = checklist.checklist(
+            ["advanced-panel-settings-in-thunderbird", "privacy-panel-settings-in-thunderbird"], "Intro.")
+        self.assertIn('- [ ] Line 20: "Leave it in my Inbox" → "Leave in Inbox"', text)
+        self.assertNotIn('"removed"', text)
+        self.assertTrue(text.rstrip().endswith("any change to the script first."))
+
+
 class StrongGuesses(unittest.TestCase):
     def test_strong_guess_is_used_and_flagged_once(self):
         table = propose_edits.pairs(built())

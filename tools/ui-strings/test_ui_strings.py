@@ -180,6 +180,41 @@ class ProposeEdits(unittest.TestCase):
         self.assertIn(f"{{/for}}{{for tb159}}{bold}Enable auto-scrolling{bold}", out[26])
 
 
+class Renames(unittest.TestCase):
+    """A string that 159 reworded under a new ID is not "removed" (#47)."""
+
+    def test_return_receipts_on_line_18_20_22(self):
+        # Roland found "Leave in Inbox" in Thunderbird 159 for line 20, where the
+        # #28 checklist said "removed".
+        r = propose_edits.renames(built())
+        self.assertEqual(r["Leave it in my Inbox"][0], "Leave in Inbox")
+        self.assertEqual(r["When sending messages, always request a return receipt"][0],
+                         "Always request a return receipt when sending emails")
+        self.assertEqual(r["When I receive a request for a return receipt:"][0],
+                         "When a sender requests a return receipt:")
+        self.assertIn("`receipt-leave-inbox-control.label` in `receipts.ftl`", r["Leave it in my Inbox"][1])
+
+    def test_the_table_uses_the_rename(self):
+        table = propose_edits.pairs(built())
+        self.assertEqual(table["Leave it in my Inbox"], ("Leave in Inbox", False))
+        self.assertEqual(propose_edits.closest("Leave it in my Inbox", table["Leave it in my Inbox"][0]),
+                         "Leave in Inbox")
+
+    def test_the_sheet_plan_for_the_old_control(self):
+        _, _, _, rows, key_recs, *_ = built()
+        _, data, *_ = built()
+        old = next(k for k in data if k[1] == "receipt-leave-radio-control.label")
+        self.assertEqual(propose_edits.planned(rows, key_recs[old], "Leave it in my Inbox"), ("Leave it in Inbox", 53))
+
+    def test_a_string_with_no_successor_stays_removed(self):
+        r = propose_edits.renames(built())
+        self.assertFalse([o for o in r if o.startswith("Some recipients may not be able to read the message")])
+
+    def test_each_new_string_pairs_once(self):
+        news = [how.split("`")[1] for _, how in propose_edits.renames(built()).values()]
+        self.assertEqual(len(news), len(set(news)))
+
+
 class StrongGuesses(unittest.TestCase):
     def test_strong_guess_is_used_and_flagged_once(self):
         table = propose_edits.pairs(built())

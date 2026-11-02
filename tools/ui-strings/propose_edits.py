@@ -8,7 +8,9 @@
         tools/ui-strings/tb-desktop-settings-account-settings-changes-158-and-newer.csv \
         advanced-panel-settings-in-thunderbird privacy-panel-settings-in-thunderbird
 
-For each article it writes three files to tools/ui-strings/proposals/:
+For each article it writes three files to tools/ui-strings/proposals/, or to
+DIR with `--out DIR`, which leaves proposals/ alone while a checklist
+refers to it:
 
 - `<slug>.wiki`: the whole article with the proposed edit, ready to paste
   into the SUMO edit page.
@@ -44,6 +46,18 @@ not in the line as written gets the comment at the end of the line. Search
 the proposal for "CHECK" to find them all. A forgotten comment is
 invisible to readers, but it leaves the old text in the 159 branch.
 
+"Removed" is checked first (#47). 159 rewords some strings under a new ID,
+and the localizer table then shows the old string with no new text, in its
+own row. So for an old text with no new text, `renames` looks in the same
+file for a string that is new in 159, and pairs the most similar ones. The
+spreadsheet helps: its record for the old string often plans the new
+control's text, for example "Radio button: Leave it in Inbox", and the
+shipped string closest to that plan is the rename ("Leave in Inbox"). A
+shipped string wins over the plan, which only steers the choice. Each new
+string pairs with one old string, best pairs first. Only below RENAMED is the
+text "removed". The report says which file, ID and sheet record each such
+guess came from.
+
 The matches come from shipped_search.py (Settings window, changed in 159).
 The proposal must pass sumo-lint, with no new errors.
 """
@@ -68,9 +82,84 @@ MARKERS = re.compile(r"^([*#:;]+\s*)")
 HEADING = re.compile(r"^=+.*=+\s*$")
 
 
+# A new string in the same file is a rename (#47) if it is at least RENAMED
+# similar to the old text, or at least PLANNED similar to the spreadsheet's
+# plan for the old control. RENAMED is low on purpose: the result is only a
+# suggestion in a CHECK comment, unless it is also STRONG, and a question is
+# more use to the author than a wrong "removed". Measured on the #28
+# articles: 4 of their 5 "removed" were renames, at 0.59 to 0.96, and the
+# fifth, the backlogged crash reports, is 0.42 to its likely successor.
+RENAMED = 0.4
+PLANNED = 0.75
+CONTROL = re.compile(r"^\s*(?:•\s*)?([A-Za-z][A-Za-z ]{1,24}):\s+(.*?)\s*$")
+
+
+def planned(rows, recs, old):
+    """The spreadsheet's planned new text for the control that shows `old`.
+
+    In each record, the line of Current content that holds the old text names
+    its control, such as "Radio button". The most similar line of New content
+    for the same control is the plan. None if no record says.
+    """
+    best = None
+    for i in recs:
+        r = rows[i - 1]
+        controls = [CONTROL.match(x) for x in r["Current content"].split("\n")]
+        kinds = {m.group(1).strip().lower() for m in controls if m and compare.norm(m.group(2)) == compare.norm(old)}
+        for line in r["New content"].split("\n"):
+            m = CONTROL.match(line)
+            if m and m.group(1).strip().lower() in kinds:
+                score = similarity(old, m.group(2))
+                if best is None or score > best[0]:
+                    best = (score, m.group(2).strip(), i)
+    return (best[1], best[2]) if best else (None, None)
+
+
+def renames(built, win=WINDOW):
+    """{old text: (new text, how)} for strings that 159 gave a new ID (#47).
+
+    Within one file, an ID only in the old version and an ID only in the new
+    one are a rename if their texts are similar, or if the new text is close
+    to what the spreadsheet planned for the old control (RENAMED, PLANNED).
+    Each ID pairs once, best pairs first.
+    """
+    _, data, terms, rows, key_recs, _, _, _, _ = built
+    v_old, v_new = shipped_search.VERSIONS[STEP - 1], shipped_search.VERSIONS[STEP]
+    text = lambda k, v: l10n_tables.show(data[k][v], terms)
+    keys = [k for k in data if l10n_tables.window(k) == win]
+    gone = [k for k in keys if v_old in data[k] and v_new not in data[k]]
+    added = [k for k in keys if v_new in data[k] and v_old not in data[k]]
+    scored = []
+    for ok in gone:
+        old = text(ok, v_old)
+        plan, rec = planned(rows, key_recs.get(ok, []), old)
+        for nk in added:
+            if nk[0] != ok[0]:
+                continue
+            new = text(nk, v_new)
+            by_text, by_plan = similarity(old, new), (similarity(plan, new) if plan else 0)
+            if by_text >= RENAMED or by_plan >= PLANNED:
+                scored.append((max(by_text, by_plan), ok, nk, old, new, plan, rec))
+    out, used_old, used_new = {}, set(), set()
+    for score, ok, nk, old, new, plan, rec in sorted(scored, key=lambda x: -x[0]):
+        if ok in used_old or nk in used_new or old in out:
+            continue
+        used_old.add(ok)
+        used_new.add(nk)
+        how = f"new ID `{nk[1]}` in `{os.path.basename(nk[0])}`, was `{ok[1]}`"
+        if plan:
+            how += f"; sheet record {rec} planned “{plan}”"
+        out[old] = (new, how)
+    return out
+
+
 def pairs(built):
-    """{old text: (new cell, one_to_one)} for the Settings texts changed in 159."""
+    """{old text: (new cell, one_to_one)} for the Settings texts changed in 159.
+
+    An old text with no new text gets its rename, if `renames` finds one.
+    """
     wanted = shipped_search.changes(built)[WINDOW, STEP]
+    renamed = renames(built)
     out = {}
     for row in l10n_tables.rows_for(shipped_search.VERSIONS, built, WINDOW):
         before = shipped_search.lines(row[STEP - 1])
@@ -82,7 +171,10 @@ def pairs(built):
                     and len(after) == 1
                     and not shipped_search.PLACEHOLDER.search(old + after[0])
                 )
-                out[old] = (row[STEP], one)
+                new_cell = row[STEP]
+                if not shipped_search.lines(new_cell) and old in renamed:
+                    new_cell, one = renamed[old][0], False
+                out[old] = (new_cell, one)
     return out
 
 
@@ -218,7 +310,7 @@ def lint_errors(text):
     return int(m.group(1)) if m else 0
 
 
-def report(slug, rows, before_err, after_err):
+def report(slug, rows, before_err, after_err, sources=None):
     count = lambda k: sum(1 for r in rows if r[1] == k)
     lines_changed = len({r[0] for r in rows if r[1] in ("replaced", "guessed: check", "CHECK comment")})
     out = [
@@ -250,18 +342,30 @@ def report(slug, rows, before_err, after_err):
         "|---|---|---|---|",
     ]
     esc = lambda s: s.replace("|", "\\|").replace("\n", " ")
+    sources = sources or {}
     for ln, kind, old, new in rows:
-        out.append(f"| {ln} | {kind} | {esc(old)} | {esc(new)} |")
+        # Where a guess for a renamed string came from (#47).
+        how = f" ({sources[old][1]})" if old in sources and sources[old][0] == new else ""
+        out.append(f"| {ln} | {kind} | {esc(old)} | {esc(new)}{esc(how)} |")
     return "\n".join(out) + "\n"
 
 
 def main():
-    if len(sys.argv) < 3:
-        sys.exit("usage: propose_edits.py SHEET.csv SLUG...")
+    args = sys.argv[1:]
+    out_dir = os.path.join(HERE, "proposals")
+    if "--out" in args:
+        # Somewhere else than proposals/, which a running checklist refers to.
+        i = args.index("--out")
+        out_dir = os.path.abspath(args[i + 1])
+        del args[i:i + 2]
+    if len(args) < 2:
+        sys.exit("usage: propose_edits.py [--out DIR] SHEET.csv SLUG...")
+    sys.argv[1:] = args
     built = compare.build(sys.argv[1])
     table = pairs(built)
+    sources = renames(built)
     docs = shipped_search.corpus()
-    os.makedirs(os.path.join(HERE, "proposals"), exist_ok=True)
+    os.makedirs(out_dir, exist_ok=True)
     for slug in sys.argv[2:]:
         path = os.path.join(REPO, "corpus", "en-US", f"{slug}.wiki")
         key = os.path.relpath(path, REPO)
@@ -278,7 +382,7 @@ def main():
         assert len(src) == len(out), "the line count must not change"
         before, after = "\n".join(src), "\n".join(out)
         before_err, after_err = lint_errors(before), lint_errors(after)
-        base = os.path.join(HERE, "proposals", slug)
+        base = os.path.join(out_dir, slug)
         with open(base + ".wiki", "w", encoding="utf-8") as f:
             f.write(after)
         with open(base + ".diff", "w", encoding="utf-8") as f:
@@ -288,7 +392,7 @@ def main():
                 )
             )
         with open(base + ".md", "w", encoding="utf-8") as f:
-            f.write(report(slug, rows, before_err, after_err))
+            f.write(report(slug, rows, before_err, after_err, sources))
         kinds = {}
         for r in rows:
             kinds[r[1]] = kinds.get(r[1], 0) + 1

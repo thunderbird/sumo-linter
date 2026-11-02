@@ -405,6 +405,39 @@ call s:ok('a multibyte selection is not cut in half',
       \ s:bold_keys('See le café for details.', '0wv2e\b'),
       \ "See '''le café''' for details.")
 
+" --- which files get the plugin (#38) -----------------------------------------
+" Vim 9.2 and Neovim 0.11 call *.wiki mediawiki themselves; the plugin claims it.
+function! s:ft_of(name) abort
+  execute 'silent edit! ' . fnameescape(tempname() . a:name)
+  let ft = &filetype
+  silent bwipeout!
+  return ft
+endfunction
+call s:ok('.wiki gets sumo-wiki', s:ft_of('.wiki'), 'sumo-wiki')
+call s:ok('.sumo gets sumo-wiki', s:ft_of('.sumo'), 'sumo-wiki')
+" Leaving mediawiki must undo its settings. Vim's own undo for it is broken
+" (it is the Number 0), so this fails unless claim_wiki repairs it.
+execute 'silent edit! ' . fnameescape(tempname() . '.wiki')
+call s:ok('leaving mediawiki undoes its linebreak', [&filetype, &linebreak], ['sumo-wiki', 0])
+silent bwipeout!
+" Another wiki plugin's file type stays, whichever ftdetect runs first: here a
+" vimwiki-like one runs first, and a second copy of ours runs after it.
+augroup sumo_test_other_wiki
+  autocmd!
+  autocmd BufRead,BufNewFile *.wiki set filetype=vimwiki
+augroup END
+augroup sumo_test_ours_again
+  autocmd!
+  execute 'source ' . fnameescape(s:root . '/ftdetect/sumo-wiki.vim')
+augroup END
+call s:ok('another plugin''s .wiki file type stays', s:ft_of('.wiki'), 'vimwiki')
+autocmd! sumo_test_other_wiki
+autocmd! sumo_test_ours_again
+let g:sumo_wiki_claim_wiki = 0
+call s:ok('the opt-out leaves .wiki to Vim', s:ft_of('.wiki') !=# 'sumo-wiki', 1)
+call s:ok('the opt-out leaves .sumo alone', s:ft_of('.sumo'), 'sumo-wiki')
+unlet g:sumo_wiki_claim_wiki
+
 " --- highlighting with SUMO's rules (#36) ------------------------------------
 syntax on
 let s:letter_of = {'sumoWikiSyntax': 'S', 'sumoWikiLink': 'L', 'sumoWikiBold': 'B',
@@ -472,8 +505,6 @@ let s:n = 0
 set fileformats=unix,dos
 for s:f in s:files
   execute 'silent edit ' . fnameescape(s:f)
-  " Vim's own rules call *.wiki mediawiki, and ftdetect yields to them.
-  silent setlocal filetype=sumo-wiki
   let s:out = [s:f[len(s:repo) + 1 :]] + map(range(1, line('$')), 's:letters(v:val)')
   call writefile(s:out, printf('%s/%04d.hl', s:dumps, s:n))
   silent bwipeout!
@@ -487,7 +518,7 @@ call s:ok('highlight: every article matches SUMO''s rules', v:shell_error, 0)
 
 " A floor on the count: a file that stops running its body would otherwise
 " print no failures and pass.
-let s:expected = 102
+let s:expected = 108
 if s:total < s:expected
   let s:failed += 1
   call s:say(printf('  only %d assertions ran, expected at least %d', s:total, s:expected))

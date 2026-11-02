@@ -134,14 +134,14 @@ filetype plugin on
 { dir = '~/path/to/sumo-linter/editors/vim' }
 ```
 
-`.sumo` and `.wiki` then get the `sumo-wiki` filetype — `.wiki` via `:setfiletype`, so it
-yields to any wiki plugin you already use. **Vim 9.2 and Neovim 0.11 themselves call
-`*.wiki` `mediawiki`** (measured), so by default a `.wiki` file gets none of this plugin,
-including the files the web app saves. If you edit SUMO articles as `.wiki`, add this to
-your vimrc:
+`.sumo` and `.wiki` then get the `sumo-wiki` filetype, including the `.wiki` files the
+web app saves. Vim 9.2 and Neovim 0.11 themselves call every `*.wiki` file `mediawiki`, so
+the plugin overrides that guess, but it leaves a `.wiki` file alone if another plugin, such
+as vimwiki, gave it a file type (#38). If you edit real MediaWiki files as `.wiki`, turn the
+claim off in your vimrc:
 
 ```vim
-autocmd BufRead,BufNewFile *.wiki set filetype=sumo-wiki
+let g:sumo_wiki_claim_wiki = 0
 ```
 
 ### Paste a URL over a selection

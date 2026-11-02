@@ -110,11 +110,29 @@ function guessEdit(text, line, old, guess) {
   return { error: `on line ${line}, the text before the comment is not "${old}"` };
 }
 
+/** The comment on each line whose 159 text the author must confirm. */
+const CONFIRM_COMMENT = '<!-- CHECK the 159 string is correct -->';
+
+/**
+ * The edit for answering `c` (check) to an item without a guess: delete the
+ * comment `<!-- CHECK the 159 string is correct -->` on `line`. Returns
+ * {start, end, replacement: ''}, or {none: true} if the line has no such
+ * comment (an earlier item on the same line may have deleted it), or {error}.
+ */
+function confirmEdit(text, line) {
+  const range = lineRange(text, line);
+  if (!range) return { error: `there is no line ${line}` };
+  const [ls, le] = range;
+  const at = text.slice(ls, le).indexOf(CONFIRM_COMMENT);
+  if (at === -1) return { none: true };
+  return { start: ls + at, end: ls + at + CONFIRM_COMMENT.length, replacement: '' };
+}
+
 /** `s` with curly quotes made straight, keeping its length. */
 function plainQuotes(s) {
   return s.replace(/[“”„]/g, '"').replace(/[‘’‚]/g, "'");
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = { isWalkMode, lineRange, guessEdit };
+  module.exports = { isWalkMode, lineRange, guessEdit, confirmEdit, CONFIRM_COMMENT };
 }

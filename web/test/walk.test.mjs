@@ -10,7 +10,7 @@
 import assert from 'node:assert/strict';
 import walk from '../walk.js';
 
-const { isWalkMode, lineRange, guessEdit } = walk;
+const { isWalkMode, lineRange, guessEdit, confirmEdit, CONFIRM_COMMENT } = walk;
 
 let failed = 0;
 let checks = 0;
@@ -92,7 +92,21 @@ check('never from the other {for} part',
   applied('{for not tb159}Old{/for}{for tb159}New text<!-- CHECK 159: "Old" → "X"? -->{/for}', 1, 'Old', 'X'),
   { error: 'on line 1, the text before the comment is not "Old"' });
 
-const expected = 30;
+// --- confirmEdit: `c` deletes the line's CHECK comment ------------------------
+{
+  const line2 = `{for tb159}'''Move to Sent folder'''{/for}${CONFIRM_COMMENT}`;
+  const text = `first\n${line2}\nlast`;
+  const e = confirmEdit(text, 2);
+  const after = text.slice(0, e.start) + e.replacement + text.slice(e.end);
+  check('confirm: the comment goes', after, "first\n{for tb159}'''Move to Sent folder'''{/for}\nlast");
+  check('confirm: only that line', confirmEdit(text, 1), { none: true });
+  check('confirm: a second c on the line finds none', confirmEdit(after, 2), { none: true });
+  check('confirm: no such line', confirmEdit(text, 9), { error: 'there is no line 9' });
+  // A guess comment is not this comment, so it stays.
+  check('confirm: a guess comment stays', confirmEdit('<!-- CHECK 159: "A" → "B"? -->', 1), { none: true });
+}
+
+const expected = 35;
 if (checks < expected) {
   console.error(`\nonly ${checks} walk assertions ran, expected at least ${expected}`);
   process.exit(1);

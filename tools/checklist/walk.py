@@ -17,7 +17,8 @@ https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976,
 or an issue, which walks the issue body. The script shows each unchecked
 `- [ ]` item with the headings above it, and asks:
 
-    c  check it
+    c  check it. With --web, an item without a guess also loses its
+       `<!-- CHECK the 159 string is correct -->` comment in the web app
     g  use the guess, with --web (see below). `g some text` adds a comment
     n  leave it unchecked, with a note
     s  skip it for now
@@ -43,8 +44,11 @@ offers `g` (#34). The web app then replaces the old text and its
 `<!-- CHECK 159: … -->` comment on that line with GUESS, undoably. Only if
 the page reports that the edit worked does the script check the item and add
 the note `Used the guess "GUESS".`, followed by your comment if you typed
-one after the g, for example `g then I shortened it`. The change is in the web app only: save or
-copy the text from there. Build the linter first with
+one after the g, for example `g then I shortened it`. In the same way, `c` on
+an item without a guess deletes `<!-- CHECK the 159 string is correct -->`
+from the item's line in the web app, and checks the item only after the page
+says so. A line without that comment is checked as usual. The changes are in
+the web app only: save or copy the text from there. Build the linter first with
 tools/build-web.sh, or the page shows only the preview.
 
 `--shots DIR --thunderbird APP` also takes a screenshot of the setting that
@@ -53,7 +57,9 @@ DIR/<heading>-item-<N>.png. The setting is found by its 159 text: the text
 after `→`, or the possible 159 text, or `(shot: "TEXT")` anywhere in the
 item, which wins over both. tb_shot.py runs a second Thunderbird with an empty
 profile, so a Thunderbird you already use is not involved; see its docstring.
-`--expect 159` refuses an APP that is not version 159. `--real-account` uses
+Each new screenshot opens in the image viewer, behind the terminal, so the
+next answer can be typed at once. `--expect 159` refuses an APP that is not
+version 159. `--real-account` uses
 the signed-in test account of `tb_shot.py login` instead of a dummy one (#40).
 
 It uses the `gh` command (signed in with `gh auth login`), so it needs no
@@ -210,6 +216,19 @@ def shot_text(item):
     return None
 
 
+def open_file(path):
+    """Open a file in its viewer, without taking focus from the terminal."""
+    try:
+        if sys.platform == "darwin":
+            subprocess.Popen(["open", "-g", path])
+        elif sys.platform == "win32":
+            os.startfile(path)
+        else:
+            subprocess.Popen(["xdg-open", path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except OSError:
+        pass  # the path is printed anyway
+
+
 class Shots:
     """Screenshots of each item's setting, by tools/checklist/tb_shot.py (#39).
 
@@ -217,8 +236,9 @@ class Shots:
     A separate program, because walk.py must stay one file (#32).
     """
 
-    def __init__(self, folder, app, expect=None, command=None, real=False):
+    def __init__(self, folder, app, expect=None, command=None, real=False, opener=None):
         self.folder, self.done = folder, {}
+        self.opener = opener or open_file
         script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tb_shot.py")
         if command is None:  # tests pass a fake
             command = [sys.executable, script, "session", "--app", app, "--out", folder]
@@ -250,6 +270,8 @@ class Shots:
             if not line:
                 raise RuntimeError("tb_shot.py stopped")
             self.done[number] = json.loads(line)
+            if self.done[number].get("ok"):
+                self.opener(self.done[number]["path"])
         r = self.done[number]
         if r.get("ok"):
             return f"  screenshot: {r['path']} ({r['where']})"
@@ -344,35 +366,54 @@ class WebApp:
             self.changed.notify_all()
         return None
 
-    def use_guess(self, item, timeout=10):
-        """Ask the page to use the item's guess. Returns (ok, message).
+    def edit(self, item, edit, timeout=10):
+        """Ask the page to make an edit on the item's line.
 
-        The page answers on /walk/result. No answer is a failure: a guess
-        that was never made must not look like one that was.
+        Returns (ok, message, removed), where `removed` says whether the page
+        changed the text. The page answers on /walk/result. No answer is a
+        failure: an edit that was never made must not look like one that was.
         """
-        t, g = target(item), guess(item)
-        if not g or not self.path_of(t["file"] or ""):
-            return False, "there is no guess to use"
+        t = target(item)
         with self.changed:
             self.version += 1
             edit_id = self.version
-            self.current = {**t, "edit": {"id": edit_id, "old": t["find"], "guess": g}}
+            self.current = {**t, "edit": {"id": edit_id, **edit}}
             self.changed.notify_all()
             got = self.changed.wait_for(lambda: edit_id in self.results, timeout=timeout)
             # A page that connects later must not make the edit again.
             self.current = t
             if not got:
-                return False, "the web app did not answer. Is its page open?"
+                return False, "the web app did not answer. Is its page open?", False
             return self.results.pop(edit_id)
+
+    def use_guess(self, item, timeout=10):
+        """Ask the page to use the item's guess (#34). Returns (ok, message)."""
+        t, g = target(item), guess(item)
+        if not g or not self.path_of(t["file"] or ""):
+            return False, "there is no guess to use"
+        ok, message, _ = self.edit(item, {"kind": "guess", "old": t["find"], "guess": g}, timeout)
+        return ok, message
+
+    def confirm(self, item, timeout=10):
+        """Ask the page to delete the "string is correct" comment on the item's line.
+
+        Returns (ok, message, removed). An item without a line, or whose file
+        is not in the folder, needs no edit: (True, "", False).
+        """
+        t = target(item)
+        if not t["line"] or not self.path_of(t["file"] or ""):
+            return True, "", False
+        return self.edit(item, {"kind": "confirm"}, timeout)
 
     def result(self, handler):
         try:
             data = json.loads(handler.rfile.read(int(handler.headers.get("Content-Length", 0))))
             edit_id, ok, message = int(data["id"]), bool(data["ok"]), str(data.get("message", ""))
+            removed = bool(data.get("removed", False))
         except (ValueError, KeyError, TypeError):
             return handler.send_error(400)
         with self.changed:
-            self.results[edit_id] = (ok, message)
+            self.results[edit_id] = (ok, message, removed)
             self.changed.notify_all()
         handler.send_response(204)
         handler.end_headers()
@@ -447,14 +488,16 @@ class GitHub:
             raise RuntimeError(res.stderr.strip() or "gh api failed")
 
 
-def walk(store, label, ask=input, say=print, show=None, use_guess=None, shots=None):
+def walk(store, label, ask=input, say=print, show=None, use_guess=None, shots=None, confirm=None):
     """The interactive loop. `ask` and `say` are parameters so tests can drive it.
 
     `show(item)`, if given, is called before each question, and any line it
     returns is printed. `use_guess(item)` makes the edit for `g` and returns
     (ok, message). `--web` passes WebApp.show and WebApp.use_guess.
     `shots(item, number)`, if given, takes the item's screenshot and returns a
-    line for the terminal; `--shots` passes Shots.show.
+    line for the terminal; `--shots` passes Shots.show. `confirm(item)`
+    deletes the line's "string is correct" comment for `c` on an item without
+    a guess, and returns (ok, message, removed); `--web` passes WebApp.confirm.
     """
     body = store.read()
     history = []  # bodies before each saved answer, for undo
@@ -509,10 +552,21 @@ def walk(store, label, ask=input, say=print, show=None, use_guess=None, shots=No
             store.write(body)
             counts[kind] -= 1
             pos = last_pos
-            say("Undone. Cmd+Z in the web app takes back the guess." if guessed else "Undone.")
+            say("Undone. Cmd+Z in the web app takes back the edit there." if guessed else "Undone.")
             continue
         guessed = False
         if answer in ("c", "check", "y", "yes"):
+            if confirm and not offer:
+                if store.read() != body:
+                    say("The text changed on GitHub since the last save. Stopping, so nothing is lost.")
+                    break
+                ok, message, removed = confirm(it)
+                if not ok:
+                    say(f"Not checked: {message} Nothing saved.")
+                    continue
+                if removed:
+                    guessed = True  # an edit in the web app, which undo points at
+                    say("Deleted the CHECK comment on that line in the web app.")
             new, kind = check(body, it["line"]), "checked"
         elif answer in ("g", "guess") and offer:
             if store.read() != body:
@@ -598,7 +652,8 @@ def main():
             shots = Shots(shots_dir, tb_app, expect, real=real)
             print(f"Thunderbird {shots.version}: screenshots go to {shots_dir}")
         walk(GitHub(path, dry_run), label, show=app.show if app else None,
-             use_guess=app.use_guess if app else None, shots=shots.show if shots else None)
+             use_guess=app.use_guess if app else None, shots=shots.show if shots else None,
+             confirm=app.confirm if app else None)
     except (ValueError, RuntimeError) as e:
         sys.exit(str(e))
     except (KeyboardInterrupt, EOFError):

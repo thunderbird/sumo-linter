@@ -680,7 +680,7 @@ async function walkTo(t) {
   scheduleGutter();
   renderSaveNote();
   let range = t.line ? lineRange(ta.value, t.line, t.find) : null;
-  if (t.edit && t.line) range = useGuess(t) || range;
+  if (t.edit && t.line) range = useEdit(t) || range;
   if (!range) return;
   ta.focus({ preventScroll: true });
   ta.setSelectionRange(range[0], range[1]);
@@ -694,23 +694,36 @@ async function walkTo(t) {
 }
 
 /**
- * Use the guess that walk.py sent (#34), undoably, and tell walk.py whether
- * that worked: it checks the item only after a success. Returns the range of
- * the new text, or null.
+ * Make the edit that walk.py sent, undoably, and tell walk.py whether that
+ * worked: it checks the item only after a success. Two kinds: `guess` uses
+ * the possible 159 text (#34), and `confirm`, for `c` on an item without a
+ * guess, deletes `<!-- CHECK the 159 string is correct -->` from the line.
+ * Returns the range to select afterwards, or null.
  */
-function useGuess(t) {
-  const { id, old, guess } = t.edit;
+function useEdit(t) {
+  const { id, kind } = t.edit;
   if (walking.edits.has(id)) return null;
   walking.edits.add(id);
   const ta = document.getElementById('src');
-  const edit = guessEdit(ta.value, t.line, old, guess);
+  let edit;
+  if (kind === 'confirm') {
+    // Guarded: an older walk.js has no confirmEdit.
+    edit = typeof confirmEdit === 'function'
+      ? confirmEdit(ta.value, t.line)
+      : { error: 'this page is older than walk.py: reload it' };
+  } else {
+    edit = guessEdit(ta.value, t.line, t.edit.old, t.edit.guess);
+  }
   let range = null;
-  if (!edit.error) {
+  const changes = !edit.error && !edit.none;
+  if (changes) {
     replaceRange(ta, edit.start, edit.end, edit.replacement);
-    range = [edit.start, edit.start + edit.replacement.length];
+    range = kind === 'confirm'
+      ? lineRange(ta.value, t.line)
+      : [edit.start, edit.start + edit.replacement.length];
     run();
   }
-  const answer = { id, ok: !edit.error, message: edit.error ? `${edit.error}.` : '' };
+  const answer = { id, ok: !edit.error, removed: changes, message: edit.error ? `${edit.error}.` : '' };
   fetch('/walk/result', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

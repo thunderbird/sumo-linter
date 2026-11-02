@@ -205,8 +205,49 @@ class Guesses(unittest.TestCase):
         body = '### a\n\n- [ ] Line 4: "Old" (possible 159 text: "New")\n- [ ] Next\n'
         store = Store(body)
         counts, said = run_with(store, ["g", "u", "q"], use_guess=lambda it: (True, ""))
-        self.assertIn("Undone. Cmd+Z in the web app takes back the guess.", said)
+        self.assertIn("Undone. Cmd+Z in the web app takes back the edit there.", said)
         self.assertEqual(store.body, body)
+
+
+class Confirm(unittest.TestCase):
+    """`c` on an item without a guess deletes the line's CHECK comment."""
+
+    BODY = '### a\n\n- [ ] Line 4: "Old" → "New"\n- [ ] Line 5: "Old" (possible 159 text: "New")\n'
+
+    def test_c_deletes_the_comment_then_checks(self):
+        asked = []
+        store = Store(self.BODY)
+        counts, said = run_with(store, ["c", "q"],
+                                confirm=lambda it: asked.append(it["text"]) or (True, "", True))
+        self.assertEqual(asked, ['Line 4: "Old" → "New"'])
+        self.assertIn("Deleted the CHECK comment on that line in the web app.", said)
+        self.assertIn('- [x] Line 4: "Old" → "New"', store.body)
+
+    def test_a_line_without_the_comment_is_checked_as_usual(self):
+        store = Store(self.BODY)
+        counts, said = run_with(store, ["c", "q"], confirm=lambda it: (True, "", False))
+        self.assertEqual(counts["checked"], 1)
+        self.assertFalse([x for x in said if "Deleted" in x])
+
+    def test_no_answer_from_the_page_saves_nothing(self):
+        store = Store(self.BODY)
+        counts, said = run_with(store, ["c", "q"], confirm=lambda it: (False, "the web app did not answer.", False))
+        self.assertEqual(store.writes, [])
+        self.assertIn("Not checked: the web app did not answer. Nothing saved.", said)
+
+    def test_c_on_an_item_with_a_guess_does_not_ask_the_page(self):
+        asked = []
+        store = Store(self.BODY)
+        run_with(store, ["s", "c", "q"], use_guess=lambda it: (True, ""),
+                 confirm=lambda it: asked.append(it) or (True, "", True))
+        self.assertEqual(asked, [])
+        self.assertIn('- [x] Line 5:', store.body)
+
+    def test_undo_points_at_cmd_z(self):
+        store = Store(self.BODY)
+        counts, said = run_with(store, ["c", "u", "q"], confirm=lambda it: (True, "", True))
+        self.assertIn("Undone. Cmd+Z in the web app takes back the edit there.", said)
+        self.assertEqual(store.body, self.BODY)
 
 
 def run_with(store, answers, **kwargs):
@@ -291,6 +332,22 @@ class Web(unittest.TestCase):
         self.assertEqual(self.app.use_guess(item), (False, "no comment."))
         self.assertNotIn("edit", self.app.current)  # a page that connects later does nothing
 
+    def test_confirm_sends_the_edit_and_waits_for_the_page(self):
+        item = {"heading": "article-one", "text": 'Line 1: "Sent" → "Kept"'}
+
+        def page():
+            with self.app.changed:
+                self.app.changed.wait_for(lambda: isinstance(self.app.current, dict) and "edit" in self.app.current, timeout=5)
+                edit = self.app.current["edit"]
+            self.assertEqual(edit["kind"], "confirm")
+            self.assertEqual(self.post({"id": edit["id"], "ok": True, "removed": True}), 204)
+
+        threading.Thread(target=page).start()
+        self.assertEqual(self.app.confirm(item), (True, "", True))
+
+    def test_confirm_needs_no_page_for_an_item_without_a_line(self):
+        self.assertEqual(self.app.confirm({"heading": "article-one", "text": "Open the edit page"}), (True, "", False))
+
     def test_no_answer_is_a_failure(self):
         item = {"heading": "article-one", "text": 'Line 1: "Sent" (possible 159 text: "Kept")'}
         ok, message = self.app.use_guess(item, timeout=0.2)
@@ -344,7 +401,8 @@ class Screenshots(unittest.TestCase):
         self.assertEqual(walk.shot_text(self.item('Line 18: "Old" (possible 159 text: "removed") (shot: "X")')), "X")
 
     def shots(self):
-        s = walk.Shots("shots", None, command=[sys.executable, "-c", FAKE_SESSION])
+        self.opened = []
+        s = walk.Shots("shots", None, command=[sys.executable, "-c", FAKE_SESSION], opener=self.opened.append)
         self.addCleanup(s.stop)
         return s
 
@@ -356,12 +414,15 @@ class Screenshots(unittest.TestCase):
         self.assertEqual(s.show(self.item('Line 1: "A" → "missing"'), 4),
                          '  no screenshot: no setting with the text "missing"')
         self.assertIsNone(s.show(self.item("Open the edit page"), 5))
+        # Only the screenshot that exists opens.
+        self.assertEqual(self.opened, ["shots/article-one-item-3.png"])
 
     def test_each_item_is_taken_once(self):
         s = self.shots()
         first = s.show(self.item('Line 27: "A" → "B"'), 3)
         s.proc.stdin.close()  # a second request would now fail
         self.assertEqual(s.show(self.item('Line 27: "A" → "B"'), 3), first)
+        self.assertEqual(len(self.opened), 1)  # and it opens once
 
     def test_a_session_that_does_not_start_is_an_error(self):
         with self.assertRaisesRegex(RuntimeError, "did not start Thunderbird"):

@@ -115,6 +115,10 @@ jobs:
         # argument or JSON-shape change in the CLI breaks the mode, and nothing
         # else would notice.
         run: cargo build --release -p sumo-lint-cli
+      - uses: actions/setup-node@v4
+        # The highlighting test compares every article with web/highlight.js,
+        # through editors/highlight-check.mjs.
+        with: { node-version: '22' }
       - name: Mode tests
         run: |
           PATH="$PWD/target/release:$PATH" \
@@ -124,6 +128,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        # The highlighting test compares every article with web/highlight.js,
+        # through editors/highlight-check.mjs.
+        with: { node-version: '22' }
       - name: Install Vim and Neovim
         # Both, because the plugin is plain Vim script shared by the two and
         # they disagree often enough to be worth catching here rather than in

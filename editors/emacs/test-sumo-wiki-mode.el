@@ -425,6 +425,97 @@ stays marked, so the cases below read as text rather than as offsets."
       (eq (lookup-key sumo-wiki-mode-map (kbd "C-c C-b"))
           'sumo-wiki-toggle-bold)))
 
+;;; Highlighting with SUMO's rules (#37)
+
+(defun sumo-test--letter (face)
+  "The class letter of editors/highlight-check.mjs for FACE."
+  (pcase face
+    ('sumo-wiki-quote-face "Q") ('sumo-wiki-comment-face "C")
+    ('sumo-wiki-link-face "L") ('sumo-wiki-syntax-face "S")
+    ('sumo-wiki-bold-face "B") ('sumo-wiki-italic-face "I")
+    ('sumo-wiki-underline-face "U") ('sumo-wiki-strikethrough-face "X")
+    ('nil ".") (_ (format "?%s" face))))
+
+(defun sumo-test--letters ()
+  "One string of class letters per line of the current buffer."
+  (let (lines)
+    (save-excursion
+      (goto-char (point-min))
+      (while (not (eobp))
+        (let ((eol (line-end-position)) (s nil))
+          (while (< (point) eol)
+            (push (sumo-test--letter (get-text-property (point) 'face)) s)
+            (forward-char 1))
+          (push (apply #'concat (nreverse s)) lines)
+          (unless (eobp) (forward-char 1)))))
+    (nreverse lines)))
+
+(defun sumo-test--highlight (text)
+  "TEXT's class letters, one string per line."
+  (with-temp-buffer
+    (sumo-wiki-mode)
+    (insert text)
+    (font-lock-ensure)
+    (sumo-test--letters)))
+
+;; The cases in Roland's two screenshots of SUMO's editor (#35).
+(dolist (c '(("[[T:TBMore]]" "LLLLLLLLLLLL" "template shorthand is a link")
+             ("{for tb123}dddd{/for}" "SSSS.IIIIIS....SSSSSS" "{for} with a condition")
+             ("{key}key{/key}" "SSSSS........." "{/key} is plain, as on SUMO")
+             ("{button ok}" "SSSSSSSIIIS" "{button} argument is italic")
+             ("<--html comment-->" ".................." "<-- is not a comment")
+             ("the '''A''' b" "....SSSBSSS.." "bold markers and text")
+             ("==Card view ===" "BBBBBBBBBBBBBBB" "an asymmetric heading is bold")
+             ("** Click" "SS......" "list markers")
+             (" pre" "QQQQ" "a leading space is preformatted")
+             ("{for}x mac}" "SSSS...IIIS" "before a condition, } is plain")))
+  (ok (format "highlight: %s" (nth 2 c))
+      (equal (sumo-test--highlight (car c)) (list (nth 1 c)))))
+
+;; The state carries across lines, and an edit that changes it reaches the
+;; lines after it.
+(with-temp-buffer
+  (sumo-wiki-mode)
+  (insert "a\nb\nc")
+  (font-lock-ensure)
+  (ok "highlight: no comment yet" (equal (sumo-test--letters) '("." "." ".")))
+  (goto-char (point-min))
+  (insert "<!--")
+  (font-lock-ensure)
+  (ok "highlight: opening a comment reaches later lines"
+      (equal (sumo-test--letters) '("CCCCC" "C" "C")))
+  (goto-char (point-min))
+  (delete-char 4)
+  (font-lock-ensure)
+  (ok "highlight: closing it again clears them"
+      (equal (sumo-test--letters) '("." "." "."))))
+
+;; Every committed article, character by character, against web/highlight.js.
+;; Node runs the comparison; it is on the GitHub runners, and the reference
+;; must not be reimplemented here.
+(let* ((root (expand-file-name "."))
+       (dir (make-temp-file "sumo-highlight" t))
+       (files (append (directory-files-recursively (expand-file-name "corpus" root) "\\.wiki\\'")
+                      (directory-files-recursively (expand-file-name "corpus-other" root) "\\.wiki\\'")))
+       (n 0)
+       (start (float-time)))
+  (dolist (f files)
+    (with-temp-buffer
+      (let ((coding-system-for-read 'utf-8))
+        (insert-file-contents f))
+      ;; As a textarea gives it: a lone CR ends no line in SUMO's rules either way.
+      (sumo-wiki-mode)
+      (font-lock-ensure)
+      (let ((letters (sumo-test--letters)))
+        (with-temp-file (expand-file-name (format "%04d.hl" n) dir)
+          (insert (file-relative-name f root) "\n")
+          (dolist (l letters) (insert l "\n")))))
+    (setq n (1+ n)))
+  (princ (format "  highlighted %d articles in %.1f s\n" n (- (float-time) start)))
+  (let ((status (call-process "node" nil t nil "editors/highlight-check.mjs" dir "800")))
+    (princ (buffer-string))
+    (ok "highlight: every article matches SUMO's rules" (eq status 0))))
+
 ;;; Summary and exit status
 ;;
 ;; `--batch' exits 0 however many FAILs were printed, so without this the whole
@@ -436,7 +527,7 @@ stays marked, so the cases below read as text rather than as offsets."
 ;; would otherwise just print fewer lines and still pass. Raise it when adding
 ;; assertions.
 
-(let ((expected 85))
+(let ((expected 99))
   (when (< sumo-test-total expected)
     (setq sumo-test-failed (1+ sumo-test-failed))
     (princ (format "  %-46s FAIL (ran %d)\n"

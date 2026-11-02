@@ -2,160 +2,332 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "SUMO wiki markup",
   "scopeName": "text.sumo-wiki",
+  "comment": "A port of the rules of SUMO's own editor highlighting (sumo-linter #37): Kitsune's CodeMirror mode, kitsune/sumo/static/sumo/js/codemirror.sumo-mode.js at commit 908a9601bb628d69aed824bfed68928f2f8983ac, Copyright (c) 2011, 2012, 2013 Mozilla Foundation, BSD-3-Clause; web/highlight.js holds the full notice. The patterns are in Kitsune's order. CodeMirror tries the rules in order at each position and moves one character on if none matches; a TextMate grammar takes the earliest match and, at one position, the first pattern, which gives the same result. The scope names are Kitsune's own token names. editors/highlight-check.mjs compares this grammar with web/highlight.js over every committed article.",
   "patterns": [
-    { "include": "#preformatted" },
-    { "include": "#comment" },
-    { "include": "#heading" },
-    { "include": "#horizontal-rule" },
-    { "include": "#list" },
-    { "include": "#table" },
-    { "include": "#for" },
-    { "include": "#callout" },
-    { "include": "#macro" },
-    { "include": "#transclusion" },
-    { "include": "#media" },
-    { "include": "#link" },
-    { "include": "#emphasis" },
-    { "include": "#toc" }
+    {
+      "include": "#toc"
+    },
+    {
+      "include": "#for"
+    },
+    {
+      "include": "#callout"
+    },
+    {
+      "include": "#block-close"
+    },
+    {
+      "include": "#br"
+    },
+    {
+      "include": "#macro"
+    },
+    {
+      "include": "#link-piped"
+    },
+    {
+      "include": "#link-prefixed"
+    },
+    {
+      "include": "#link"
+    },
+    {
+      "include": "#link-external"
+    },
+    {
+      "include": "#bold"
+    },
+    {
+      "include": "#italic"
+    },
+    {
+      "include": "#underline"
+    },
+    {
+      "include": "#strike"
+    },
+    {
+      "include": "#strike-del"
+    },
+    {
+      "include": "#nowiki"
+    },
+    {
+      "include": "#code"
+    },
+    {
+      "include": "#pre"
+    },
+    {
+      "include": "#quote"
+    },
+    {
+      "include": "#heading"
+    },
+    {
+      "include": "#rule"
+    },
+    {
+      "include": "#list"
+    },
+    {
+      "include": "#table"
+    },
+    {
+      "include": "#comment"
+    }
   ],
   "repository": {
-    "preformatted": {
-      "comment": "A leading space renders preformatted. First, so it wins over the inline rules: nothing on such a line is interpreted as markup. Both scope names are listed because themes colour one or the other.",
-      "name": "markup.raw.block.sumo-wiki markup.inline.raw.sumo-wiki",
-      "match": "^ +.*$"
+    "toc": {
+      "name": "variable.language.sumo-wiki",
+      "match": "__TOC__"
+    },
+    "for": {
+      "comment": "CodeMirror: {for enters a state where only a condition (italic) or {/for} counts; after the condition, everything up to } is plain. Two nested rules give those two states. applyEndPatternLast: right after {for, the zero-width start of for-before-condition must win over a } there.",
+      "begin": "(\\{)(for)",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.language.sumo-wiki"
+        },
+        "2": {
+          "name": "meta.tag.name.sumo-wiki"
+        }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": {
+          "name": "variable.language.sumo-wiki"
+        }
+      },
+      "applyEndPatternLast": 1,
+      "patterns": [
+        {
+          "include": "#for-before-condition"
+        },
+        {
+          "include": "#for-condition"
+        }
+      ]
+    },
+    "for-before-condition": {
+      "comment": "Starts right after {for, unless a condition is there. A } here is plain, as in CodeMirror.",
+      "begin": "\\G(?!((?:,\\s?)?(?:not\\s)?(?:(?:win(?:xp|7|8|10|11)?|mac|linux|android|maemo)|=?(?:fx|tb|m|ios)\\d*))+)",
+      "end": "(?=((?:,\\s?)?(?:not\\s)?(?:(?:win(?:xp|7|8|10|11)?|mac|linux|android|maemo)|=?(?:fx|tb|m|ios)\\d*))+)",
+      "patterns": [
+        {
+          "name": "variable.language.sumo-wiki",
+          "match": "\\{/for\\}"
+        }
+      ]
+    },
+    "for-condition": {
+      "begin": "((?:,\\s?)?(?:not\\s)?(?:(?:win(?:xp|7|8|10|11)?|mac|linux|android|maemo)|=?(?:fx|tb|m|ios)\\d*))+",
+      "beginCaptures": {
+        "0": {
+          "name": "markup.italic.sumo-wiki"
+        }
+      },
+      "end": "(?=\\})"
+    },
+    "callout": {
+      "begin": "(\\{)(note|warning)",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.language.sumo-wiki"
+        },
+        "2": {
+          "name": "meta.tag.name.sumo-wiki"
+        }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": {
+          "name": "variable.language.sumo-wiki"
+        }
+      }
+    },
+    "block-close": {
+      "name": "variable.language.sumo-wiki",
+      "match": "\\{/(for|note|warning)\\}"
+    },
+    "br": {
+      "name": "meta.tag.sumo-wiki",
+      "match": "</?br>"
+    },
+    "macro": {
+      "match": "(\\{)(filepath|key|menu|button|pref)(.*?)(\\})",
+      "captures": {
+        "1": {
+          "name": "variable.language.sumo-wiki"
+        },
+        "2": {
+          "name": "meta.tag.sumo-wiki"
+        },
+        "3": {
+          "name": "markup.italic.sumo-wiki"
+        },
+        "4": {
+          "name": "variable.language.sumo-wiki"
+        }
+      }
+    },
+    "link-piped": {
+      "name": "markup.other.link.sumo-wiki markup.underline.link.sumo-wiki",
+      "match": "(\\[{2})([^\\]]*?)(\\|.*?)(\\]{2})"
+    },
+    "link-prefixed": {
+      "name": "markup.other.link.sumo-wiki markup.underline.link.sumo-wiki",
+      "match": "(\\[{2})(\\S*:)(.*?)(\\]{2})"
+    },
+    "link": {
+      "name": "markup.other.link.sumo-wiki markup.underline.link.sumo-wiki",
+      "match": "(\\[{2})(.*?)(\\]{2})"
+    },
+    "link-external": {
+      "name": "markup.other.link.sumo-wiki markup.underline.link.sumo-wiki",
+      "match": "(\\[)(\\S*)(.*?)(\\])"
+    },
+    "bold": {
+      "match": "(''')(.*?)(''')",
+      "captures": {
+        "1": {
+          "name": "variable.language.sumo-wiki"
+        },
+        "2": {
+          "name": "markup.bold.sumo-wiki"
+        },
+        "3": {
+          "name": "variable.language.sumo-wiki"
+        }
+      }
+    },
+    "italic": {
+      "match": "('')(.*?)('')",
+      "captures": {
+        "1": {
+          "name": "variable.language.sumo-wiki"
+        },
+        "2": {
+          "name": "markup.italic.sumo-wiki"
+        },
+        "3": {
+          "name": "variable.language.sumo-wiki"
+        }
+      }
+    },
+    "underline": {
+      "match": "(<u>)(.*?)(</u>)",
+      "captures": {
+        "1": {
+          "name": "variable.language.sumo-wiki"
+        },
+        "2": {
+          "name": "markup.underline.sumo-wiki"
+        },
+        "3": {
+          "name": "variable.language.sumo-wiki"
+        }
+      }
+    },
+    "strike": {
+      "match": "(<s>)(.*?)(</s>)",
+      "captures": {
+        "1": {
+          "name": "variable.language.sumo-wiki"
+        },
+        "2": {
+          "name": "markup.strikethrough.sumo-wiki"
+        },
+        "3": {
+          "name": "variable.language.sumo-wiki"
+        }
+      }
+    },
+    "strike-del": {
+      "match": "(<del>)(.*?)(</del>)",
+      "captures": {
+        "1": {
+          "name": "variable.language.sumo-wiki"
+        },
+        "2": {
+          "name": "markup.strikethrough.sumo-wiki"
+        },
+        "3": {
+          "name": "variable.language.sumo-wiki"
+        }
+      }
+    },
+    "nowiki": {
+      "begin": "<nowiki>",
+      "beginCaptures": {
+        "0": {
+          "name": "variable.language.sumo-wiki"
+        }
+      },
+      "end": "</nowiki>",
+      "endCaptures": {
+        "0": {
+          "name": "variable.language.sumo-wiki"
+        }
+      },
+      "contentName": "comment.block.sumo-wiki"
+    },
+    "code": {
+      "begin": "<code>",
+      "beginCaptures": {
+        "0": {
+          "name": "variable.language.sumo-wiki"
+        }
+      },
+      "end": "</code>",
+      "endCaptures": {
+        "0": {
+          "name": "variable.language.sumo-wiki"
+        }
+      },
+      "contentName": "comment.block.sumo-wiki"
+    },
+    "pre": {
+      "begin": "<pre>",
+      "beginCaptures": {
+        "0": {
+          "name": "variable.language.sumo-wiki"
+        }
+      },
+      "end": "</pre>",
+      "endCaptures": {
+        "0": {
+          "name": "variable.language.sumo-wiki"
+        }
+      },
+      "contentName": "comment.block.sumo-wiki"
+    },
+    "quote": {
+      "comment": "A line that starts with a space renders preformatted.",
+      "name": "markup.quote.sumo-wiki markup.raw.block.sumo-wiki",
+      "match": "^\\s+.*"
+    },
+    "heading": {
+      "comment": "The whole line, as in SUMO. The regex backtracks, so ==H=== is a heading here too.",
+      "name": "markup.bold.sumo-wiki markup.heading.sumo-wiki",
+      "match": "^(={1,6})(.*?)(\\1)$"
+    },
+    "rule": {
+      "name": "variable.language.sumo-wiki",
+      "match": "^[-]{4}"
+    },
+    "list": {
+      "name": "variable.language.sumo-wiki",
+      "match": "^[;:#\\*]+"
+    },
+    "table": {
+      "name": "variable.language.sumo-wiki",
+      "match": "^\\{?[\\|!][+\\-]?\\}?"
     },
     "comment": {
       "name": "comment.block.sumo-wiki",
       "begin": "<!--",
-      "end": "-->",
-      "captures": { "0": { "name": "punctuation.definition.comment.sumo-wiki" } }
-    },
-    "heading": {
-      "comment": "Both '= H =' and '=H=' are valid; neither is correct. Longest first, since all six start at column 0.",
-      "patterns": [
-        {
-          "match": "^(======)([^=\\n]*)(======)$",
-          "captures": {
-            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
-            "2": { "name": "markup.heading.6.sumo-wiki" },
-            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
-          }
-        },
-        {
-          "match": "^(=====)([^=\\n]*)(=====)$",
-          "captures": {
-            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
-            "2": { "name": "markup.heading.5.sumo-wiki" },
-            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
-          }
-        },
-        {
-          "match": "^(====)([^=\\n]*)(====)$",
-          "captures": {
-            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
-            "2": { "name": "markup.heading.4.sumo-wiki" },
-            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
-          }
-        },
-        {
-          "match": "^(===)([^=\\n]*)(===)$",
-          "captures": {
-            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
-            "2": { "name": "markup.heading.3.sumo-wiki" },
-            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
-          }
-        },
-        {
-          "match": "^(==)([^=\\n]*)(==)$",
-          "captures": {
-            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
-            "2": { "name": "markup.heading.2.sumo-wiki" },
-            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
-          }
-        },
-        {
-          "match": "^(=)([^=\\n]*)(=)$",
-          "captures": {
-            "1": { "name": "punctuation.definition.heading.sumo-wiki" },
-            "2": { "name": "markup.heading.1.sumo-wiki" },
-            "3": { "name": "punctuation.definition.heading.sumo-wiki" }
-          }
-        }
-      ]
-    },
-    "list": {
-      "comment": "'*' and '#' are list markers, never emphasis or a Markdown heading. keyword.other rather than punctuation.definition.list.begin, which themes only colour for Markdown.",
-      "name": "keyword.other.list.sumo-wiki punctuation.definition.list.begin.sumo-wiki",
-      "match": "^[*#]+|^;"
-    },
-    "horizontal-rule": {
-      "name": "keyword.other.separator.sumo-wiki",
-      "match": "^----+$"
-    },
-    "table": {
-      "name": "keyword.other.table.sumo-wiki",
-      "match": "^(?:\\{\\||\\|\\}|\\|-|\\|\\+)"
-    },
-    "for": {
-      "comment": "Platform conditionals: {for win,mac}, {for not mac}, {for =fx140}.",
-      "name": "keyword.control.conditional.sumo-wiki",
-      "match": "\\{/?for(?: [^}\\n]*)?\\}"
-    },
-    "callout": {
-      "name": "entity.name.tag.callout.sumo-wiki",
-      "match": "\\{/?(?:note|warning)\\}"
-    },
-    "macro": {
-      "comment": "Inline macros. The name is highlighted, the argument left as prose.",
-      "match": "(\\{(?:key|button|menu|filepath|pref) )([^}\\n]*)(\\})",
-      "captures": {
-        "1": { "name": "support.function.macro.sumo-wiki" },
-        "3": { "name": "support.function.macro.sumo-wiki" }
-      }
-    },
-    "transclusion": {
-      "comment": "Before the generic link rule, so the prefix shows.",
-      "name": "keyword.control.import.sumo-wiki",
-      "match": "\\[\\[(?:Template|T|Include|I):[^\\]\\n]*\\]\\]"
-    },
-    "media": {
-      "name": "constant.other.media.sumo-wiki",
-      "match": "\\[\\[(?:Image|Video|V|UI):[^\\]\\n]*\\]\\]"
-    },
-    "link": {
-      "patterns": [
-        {
-          "comment": "Internal: [[Page]] or [[Page|text]].",
-          "name": "markup.underline.link.sumo-wiki",
-          "match": "\\[\\[[^\\]\\n]*\\]\\]"
-        },
-        {
-          "comment": "External: [https://example.com label].",
-          "name": "markup.underline.link.sumo-wiki",
-          "match": "\\[https?://[^\\]\\n]*\\]"
-        }
-      ]
-    },
-    "emphasis": {
-      "comment": "Five quotes is bold+italic, so it is matched first.",
-      "patterns": [
-        {
-          "name": "markup.bold.italic.sumo-wiki",
-          "match": "'''''(?:[^'\\n]|'[^'\\n])*'''''"
-        },
-        {
-          "name": "markup.bold.sumo-wiki",
-          "match": "'''(?:[^'\\n]|'[^'\\n])*'''"
-        },
-        {
-          "name": "markup.italic.sumo-wiki",
-          "match": "''(?:[^'\\n]|'[^'\\n])*''"
-        }
-      ]
-    },
-    "toc": {
-      "name": "keyword.control.toc.sumo-wiki",
-      "match": "__TOC__"
+      "end": "-->"
     }
   }
 }

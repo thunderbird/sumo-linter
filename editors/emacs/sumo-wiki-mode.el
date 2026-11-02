@@ -6,7 +6,7 @@
 
 ;; Author: Thunderbird contributors
 ;; URL: https://github.com/thunderbird/sumo-linter
-;; Version: 0.1.0
+;; Version: 0.2.0
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: languages, wiki
 
@@ -67,87 +67,229 @@ Set to nil to make yanking always yank."
 
 ;;; Faces
 
-(defface sumo-wiki-macro-face
-  '((t :inherit font-lock-builtin-face))
-  "Face for inline macros such as `{key Ctrl+T}' and `{menu Settings}'."
+;; One face per color class of SUMO's own editor (sumo-linter #37), with
+;; SUMO's colors from Kitsune's config/themes/_light.scss and _dark.scss.
+;; Customize any of them to suit a theme.
+
+(defface sumo-wiki-syntax-face
+  '((((background dark)) :foreground "#E9A1A1")
+    (t :foreground "#D98484"))
+  "Face for markup delimiters and names.
+For example `''''', `{menu', `}', `__TOC__' and list markers."
   :group 'sumo-wiki)
 
-(defface sumo-wiki-for-face
-  '((t :inherit font-lock-keyword-face))
-  "Face for `{for}' platform-conditional blocks."
+(defface sumo-wiki-link-face
+  '((((background dark)) :foreground "#8FBEFA" :underline t)
+    (t :foreground "#5757C2" :underline t))
+  "Face for links, `[[...]]' and `[...]', brackets included."
   :group 'sumo-wiki)
 
-(defface sumo-wiki-callout-face
-  '((t :inherit font-lock-warning-face))
-  "Face for `{note}' and `{warning}' callout delimiters."
+(defface sumo-wiki-bold-face
+  '((((background dark)) :foreground "#F9F9FB")
+    (t :foreground "#000000"))
+  "Face for bold text and heading lines.
+
+SUMO shows them in a stronger color, not in bold, so that the columns
+of a monospace font stay aligned."
   :group 'sumo-wiki)
 
-(defface sumo-wiki-preformatted-face
-  '((t :inherit font-lock-string-face :extend t))
+(defface sumo-wiki-italic-face
+  '((t :slant italic))
+  "Face for italic text, macro arguments and `{for}' conditions."
+  :group 'sumo-wiki)
+
+(defface sumo-wiki-comment-face
+  '((((background dark)) :foreground "#83D5AD")
+    (t :foreground "#009900"))
+  "Face for `<!-- -->' comments and `<nowiki>', `<code>', `<pre>' content."
+  :group 'sumo-wiki)
+
+(defface sumo-wiki-quote-face
+  '((((background dark)) :foreground "#F9F9FB" :background "#3A3D43")
+    (t :foreground "#FFFFFF" :background "#000000"))
   "Face for lines beginning with a space.
 
 Such lines are rendered preformatted by the wiki, which is invisible in
 source and easy to create by accident -- one stray leading space turns a
-paragraph into a code block.  Highlighting the whole line makes that
-visible while editing."
+paragraph into a code block."
   :group 'sumo-wiki)
+
+(defface sumo-wiki-underline-face
+  '((t :underline t))
+  "Face for `<u>' text."
+  :group 'sumo-wiki)
+
+(defface sumo-wiki-strikethrough-face
+  '((t :strike-through t))
+  "Face for `<s>' and `<del>' text."
+  :group 'sumo-wiki)
+
+;; The faces before sumo-linter #37.
+(define-obsolete-face-alias 'sumo-wiki-macro-face 'sumo-wiki-syntax-face "0.2.0")
+(define-obsolete-face-alias 'sumo-wiki-for-face 'sumo-wiki-syntax-face "0.2.0")
+(define-obsolete-face-alias 'sumo-wiki-callout-face 'sumo-wiki-syntax-face "0.2.0")
+(define-obsolete-face-alias 'sumo-wiki-preformatted-face 'sumo-wiki-quote-face "0.2.0")
 
 ;;; Font lock
 
+;; SUMO does not highlight with its wiki parser.  Its editor is CodeMirror 5
+;; with a "simple mode": for each state, regular expressions that are tried in
+;; order at the current position.  The first that matches gives the colors and
+;; perhaps a new state; if none matches, CodeMirror moves one character on.
+;; The state carries across lines, for example inside `<!-- -->'.
+;;
+;; The rules below are those of Kitsune's codemirror.sumo-mode.js at commit
+;; 908a9601bb628d69aed824bfed68928f2f8983ac, Copyright (c) 2011, 2012, 2013
+;; Mozilla Foundation, BSD-3-Clause (web/highlight.js holds the full notice),
+;; translated to Emacs regexps.  Plain font-lock keywords cannot do this:
+;; a later keyword colors text inside an earlier match.  So one matcher runs
+;; the rules line by line, and the state at the end of each line is kept on
+;; its newline, as `syntax-ppss' keeps its cache.
+;;
+;; editors/highlight-check.mjs compares the result with web/highlight.js over
+;; every committed article, so keep the rules in Kitsune's order.
+
+(defconst sumo-wiki--space
+  "\t\v\f\r    -     　﻿"
+  "The characters of JavaScript's `\\s', less the newline.")
+
+(defconst sumo-wiki--for-condition
+  (concat "\\(?:\\(?:,[" sumo-wiki--space "]?\\)?\\(?:not[" sumo-wiki--space "]\\)?"
+          "\\(?:\\(?:win\\(?:xp\\|7\\|8\\|10\\|11\\)?\\|mac\\|linux\\|android\\|maemo\\)"
+          "\\|=?\\(?:fx\\|tb\\|m\\|ios\\)[0-9]*\\)\\)+")
+  "A `{for}' condition, as in SUMO's rules.")
+
+(defconst sumo-wiki--rules
+  (let ((ws (concat "[" sumo-wiki--space "]"))
+        (non-ws (concat "[^" sumo-wiki--space "\n]"))
+        (s 'sumo-wiki-syntax-face)
+        (l 'sumo-wiki-link-face))
+    ;; Each rule: (REGEXP FACES NEXT-STATE START-OF-LINE-ONLY).  FACES is one
+    ;; face for the whole match, or a list with one face per group.
+    `((start
+       ("__TOC__" ,s)
+       ("\\({\\)\\(for\\)" (,s ,s) for)
+       ("\\({\\)\\(note\\|warning\\)" (,s ,s) close)
+       ("{/\\(?:for\\|note\\|warning\\)}" ,s)
+       ("</?br>" ,s)
+       ("\\({\\)\\(filepath\\|key\\|menu\\|button\\|pref\\)\\(.*?\\)\\(}\\)"
+        (,s ,s sumo-wiki-italic-face ,s))
+       ("\\[\\[[^]]*?|.*?]]" ,l)
+       (,(concat "\\[\\[" non-ws "*:.*?]]") ,l)
+       ("\\[\\[.*?]]" ,l)
+       (,(concat "\\[" non-ws "*.*?]") ,l)
+       ("\\('''\\)\\(.*?\\)\\('''\\)" (,s sumo-wiki-bold-face ,s))
+       ("\\(''\\)\\(.*?\\)\\(''\\)" (,s sumo-wiki-italic-face ,s))
+       ("\\(<u>\\)\\(.*?\\)\\(</u>\\)" (,s sumo-wiki-underline-face ,s))
+       ("\\(<s>\\)\\(.*?\\)\\(</s>\\)" (,s sumo-wiki-strikethrough-face ,s))
+       ("\\(<del>\\)\\(.*?\\)\\(</del>\\)" (,s sumo-wiki-strikethrough-face ,s))
+       ("<nowiki>" ,s nowiki)
+       ("<code>" ,s code)
+       ("<pre>" ,s pre)
+       (,(concat ws "+.*") sumo-wiki-quote-face nil t)
+       ("\\(=\\{1,6\\}\\)\\(.*?\\)\\1$" sumo-wiki-bold-face nil t)
+       ("-\\{4\\}" ,s nil t)
+       ("[;:#*]+" ,s nil t)
+       ("{?[|!][-+]?}?" ,s nil t)
+       ("<!--" sumo-wiki-comment-face comment))
+      (comment
+       (".*?-->" sumo-wiki-comment-face start)
+       (".+" sumo-wiki-comment-face))
+      ;; SUMO's rule is `.', one character at a time; a run up to the next
+      ;; `<' gives the same colors faster.
+      (nowiki ("</nowiki>" ,s start) ("[^<]+\\|." sumo-wiki-comment-face))
+      (code ("</code>" ,s start) ("[^<]+\\|." sumo-wiki-comment-face))
+      (pre ("</pre>" ,s start) ("[^<]+\\|." sumo-wiki-comment-face))
+      (for
+       (,sumo-wiki--for-condition sumo-wiki-italic-face close)
+       ("{/for}" ,s))
+      (close ("}" ,s start))))
+  "SUMO's highlighting rules, per state.")
+
+(defconst sumo-wiki--skip
+  '((start . "^_{<['") (for . "^,nwmlaf=ti{") (close . "^}"))
+  "Per state, the characters that cannot start a rule except at a line start.
+Skipping them is only an optimization: no rule can match there.")
+
+(defvar-local sumo-wiki--state-valid 1
+  "The states kept on newlines before this position are up to date.")
+
+(defun sumo-wiki--paint (faces)
+  "Put FACES on the last match: one face, or one per group."
+  (if (symbolp faces)
+      (put-text-property (match-beginning 0) (match-end 0) 'face faces)
+    (let ((i 1))
+      (dolist (face faces)
+        (when (and (match-beginning i) (< (match-beginning i) (match-end i)))
+          (put-text-property (match-beginning i) (match-end i) 'face face))
+        (setq i (1+ i))))))
+
+(defun sumo-wiki--line (state paint)
+  "Run the rules over the line at point, starting in STATE.
+Point must be at the start of a line.  Put faces when PAINT is non-nil.
+Move to the start of the next line, keep the state there, and return it."
+  (let ((bol (point))
+        (eol (line-end-position))
+        (case-fold-search nil))
+    (save-restriction
+      (narrow-to-region bol eol)
+      (while (< (point) eol)
+        (let ((rules (alist-get state sumo-wiki--rules))
+              (matched nil))
+          (while (and rules (not matched))
+            (let ((rule (car rules)))
+              (when (and (or (not (nth 3 rule)) (= (point) bol))
+                         (looking-at (car rule))
+                         (< (point) (match-end 0)))
+                (setq matched t)
+                (when paint (sumo-wiki--paint (nth 1 rule)))
+                (when (nth 2 rule) (setq state (nth 2 rule)))
+                (goto-char (match-end 0))))
+            (setq rules (cdr rules)))
+          (unless matched
+            (forward-char 1)
+            (let ((skip (alist-get state sumo-wiki--skip)))
+              (when skip (skip-chars-forward skip eol)))))))
+    (when (< eol (point-max))
+      (with-silent-modifications
+        (put-text-property eol (1+ eol) 'sumo-wiki-state state))
+      (when (<= bol sumo-wiki--state-valid)
+        (setq sumo-wiki--state-valid (max sumo-wiki--state-valid (1+ eol)))))
+    (goto-char (min (1+ eol) (point-max)))
+    state))
+
+(defun sumo-wiki--state-at (bol)
+  "The state at BOL, the start of a line, running the rules from the last
+known state if needed."
+  (save-excursion
+    (goto-char (min bol sumo-wiki--state-valid (point-max)))
+    (beginning-of-line)
+    (let ((state (if (bobp) 'start (get-text-property (1- (point)) 'sumo-wiki-state))))
+      (unless state
+        (goto-char (point-min))
+        (setq state 'start))
+      (while (< (point) bol)
+        (setq state (sumo-wiki--line state nil)))
+      state)))
+
+(defun sumo-wiki--fontify (limit)
+  "Font-lock matcher: highlight from point to LIMIT with SUMO's rules.
+It puts the faces itself, so it always returns nil."
+  (beginning-of-line)
+  (let ((state (sumo-wiki--state-at (point))))
+    (while (< (point) limit)
+      (setq state (sumo-wiki--line state t))))
+  nil)
+
+(defun sumo-wiki--after-change (beg _end _len)
+  "Forget the states from the line of BEG on."
+  (setq sumo-wiki--state-valid
+        (min sumo-wiki--state-valid
+             (save-excursion (goto-char beg) (line-beginning-position)))))
+
 (defconst sumo-wiki-font-lock-keywords
-  `(;; A leading space means preformatted.  First, so it wins over the inline
-    ;; rules below: nothing inside such a line is interpreted as markup.
-    ("^ +.*$" 0 'sumo-wiki-preformatted-face t)
-
-    ;; Headings.  Both `= H =' and `=H=' are valid; neither is "correct".
-    ("^\\(======\\)\\([^=\n]*\\)\\(======\\)$"
-     (1 font-lock-comment-delimiter-face) (2 font-lock-function-name-face))
-    ("^\\(=====\\)\\([^=\n]*\\)\\(=====\\)$"
-     (1 font-lock-comment-delimiter-face) (2 font-lock-function-name-face))
-    ("^\\(====\\)\\([^=\n]*\\)\\(====\\)$"
-     (1 font-lock-comment-delimiter-face) (2 font-lock-function-name-face))
-    ("^\\(===\\)\\([^=\n]*\\)\\(===\\)$"
-     (1 font-lock-comment-delimiter-face) (2 font-lock-type-face))
-    ("^\\(==\\)\\([^=\n]*\\)\\(==\\)$"
-     (1 font-lock-comment-delimiter-face) (2 font-lock-type-face))
-    ("^\\(=\\)\\([^=\n]*\\)\\(=\\)$"
-     (1 font-lock-comment-delimiter-face) (2 font-lock-keyword-face))
-
-    ;; Platform-conditional blocks: {for win,mac}, {for not mac}, {for =fx140}.
-    ("{/?for\\(?: [^}\n]*\\)?}" 0 'sumo-wiki-for-face)
-
-    ;; Callouts.
-    ("{/?\\(?:note\\|warning\\)}" 0 'sumo-wiki-callout-face)
-
-    ;; Inline macros.  The name is highlighted, the argument left as prose.
-    ("\\({\\(?:key\\|button\\|menu\\|filepath\\|pref\\) \\)\\([^}\n]*\\)\\(}\\)"
-     (1 'sumo-wiki-macro-face) (3 'sumo-wiki-macro-face))
-
-    ;; Transclusions and templates before generic links, so their prefixes show.
-    ("\\[\\[\\(?:Template\\|T\\|Include\\|I\\):[^]\n]*\\]\\]" 0 font-lock-preprocessor-face)
-    ("\\[\\[\\(?:Image\\|Video\\|V\\|UI\\):[^]\n]*\\]\\]" 0 font-lock-constant-face)
-    ;; Internal links: [[Page]] or [[Page|text]].
-    ("\\[\\[[^]\n]*\\]\\]" 0 font-lock-string-face)
-    ;; External links: [https://example.com label].
-    ("\\[https?://[^]\n]*\\]" 0 font-lock-string-face)
-
-    ;; Emphasis.  Five quotes is bold+italic, so it is matched first.
-    ;; The face position in a font-lock rule is *evaluated*, so face names must
-    ;; be quoted -- an unquoted `bold' is read as a variable and signals
-    ;; void-variable on any buffer containing bold text.
-    ("'''''\\(?:[^'\n]\\|'[^'\n]\\)*'''''" 0 '(:inherit bold :slant italic))
-    ("'''\\(?:[^'\n]\\|'[^'\n]\\)*'''" 0 'bold)
-    ("''\\(?:[^'\n]\\|'[^'\n]\\)*''" 0 'italic)
-
-    ;; Structure.
-    ("^[*#]+" 0 font-lock-builtin-face)
-    ("^;" 0 font-lock-builtin-face)
-    ("^----+$" 0 font-lock-comment-delimiter-face)
-    ("__TOC__" 0 font-lock-preprocessor-face)
-
-    ;; Table markup.
-    ("^\\(?:{|\\||}\\||-\\||\\+\\)" 0 font-lock-builtin-face))
-  "Font-lock rules for `sumo-wiki-mode'.")
+  '((sumo-wiki--fontify))
+  "Font-lock rules for `sumo-wiki-mode': one matcher that runs SUMO's rules.")
 
 ;;; Syntax
 
@@ -582,7 +724,13 @@ Use this instead of Eglot if you would rather not run a language server."
 
 \\{sumo-wiki-mode-map}"
   :syntax-table sumo-wiki-mode-syntax-table
-  (setq-local font-lock-defaults '(sumo-wiki-font-lock-keywords nil nil nil nil))
+  ;; Keywords only: the syntax table's comment syntax must not color text.
+  (setq-local font-lock-defaults '(sumo-wiki-font-lock-keywords t nil nil nil))
+  ;; An edit can change the state of every later line, for example by
+  ;; opening `<!--', so refontify the rest of the buffer after it.
+  (setq-local jit-lock-contextually t)
+  (setq sumo-wiki--state-valid (point-min))
+  (add-hook 'after-change-functions #'sumo-wiki--after-change nil t)
   (setq-local comment-start "<!-- ")
   (setq-local comment-end " -->")
   (setq-local comment-start-skip "<!--[ \t]*")

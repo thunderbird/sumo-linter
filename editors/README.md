@@ -36,6 +36,56 @@ each editor has its own idiom, and chasing identical keys would fight all three:
 so `\b` and `\l`. Each section below gives the full behaviour, including when a
 gesture deliberately does nothing.
 
+## Highlighting
+
+All three editors, and the web app, color the markup with the rules of SUMO's own
+editor (sumo-linter #35, #36, #37). SUMO's editor is CodeMirror with a list of
+regular expressions per state, not Kitsune's wiki parser, so its gaps are copied
+on purpose: `{key}` is colored but `{/key}` is not, and a whole heading line is
+one color. A test in each editor's CI job compares every committed article,
+character by character, with `web/highlight.js` through `highlight-check.mjs`.
+If you change the rules, change all four together.
+
+The colors are SUMO's, light and dark, where the editor lets a mode set them:
+
+| Class | Light | Dark | VS Code scope | Emacs face | Vim group |
+|---|---|---|---|---|---|
+| delimiters and names, list markers, `__TOC__` | `#D98484` | `#E9A1A1` | `variable.language.sumo-wiki`, `meta.tag*.sumo-wiki` | `sumo-wiki-syntax-face` | `sumoWikiSyntax` |
+| links, underlined | `#5757C2` | `#8FBEFA` | `markup.other.link.sumo-wiki` | `sumo-wiki-link-face` | `sumoWikiLink` |
+| bold text and headings, not bold | `#000000` | `#F9F9FB` | `markup.bold.sumo-wiki` | `sumo-wiki-bold-face` | `sumoWikiBold` |
+| italic | | | `markup.italic.sumo-wiki` | `sumo-wiki-italic-face` | `sumoWikiItalic` |
+| comments, `<nowiki>`, `<code>`, `<pre>` | `#009900` | `#83D5AD` | `comment.block.sumo-wiki` | `sumo-wiki-comment-face` | `sumoWikiComment` |
+| a line that starts with a space | white on black | `#F9F9FB` on `#3A3D43` | `markup.quote.sumo-wiki` | `sumo-wiki-quote-face` | `sumoWikiQuote` |
+| `<u>`, `<s>` and `<del>` | | | `markup.underline.sumo-wiki`, `markup.strikethrough.sumo-wiki` | `sumo-wiki-underline-face`, `sumo-wiki-strikethrough-face` | `sumoWikiUnderline`, `sumoWikiStrike` |
+
+- Emacs: the faces default to SUMO's colors and follow a light or dark
+  background. `M-x customize-group RET sumo-wiki` changes them.
+- Vim: the groups default to SUMO's colors and follow `'background'`. Vim uses
+  the hex colors with `termguicolors` or in a GUI, and the nearest 256-color
+  values otherwise. To change a group, do it in a `ColorScheme` autocmd, so that
+  a color scheme or a change of `'background'` does not undo it.
+- VS Code: the theme colors the scopes. An extension cannot give token colors
+  without replacing your own `editor.tokenColorCustomizations`, so to get SUMO's
+  colors, add this to your settings. It changes only SUMO files, because every
+  scope ends in `.sumo-wiki`. For a dark theme, put the dark values under the
+  theme's name, for example `"[Default Dark Modern]": { "textMateRules": … }`.
+  VS Code token colors have no background, so preformatted lines get only a
+  color.
+
+```json
+"editor.tokenColorCustomizations": {
+  "textMateRules": [
+    { "scope": ["variable.language.sumo-wiki", "meta.tag.sumo-wiki", "meta.tag.name.sumo-wiki"],
+      "settings": { "foreground": "#D98484" } },
+    { "scope": "markup.other.link.sumo-wiki",
+      "settings": { "foreground": "#5757C2", "fontStyle": "underline" } },
+    { "scope": "markup.bold.sumo-wiki", "settings": { "foreground": "#000000", "fontStyle": "" } },
+    { "scope": "markup.italic.sumo-wiki", "settings": { "fontStyle": "italic" } },
+    { "scope": "comment.block.sumo-wiki", "settings": { "foreground": "#009900" } }
+  ]
+}
+```
+
 ## Quick fixes
 
 Every diagnostic that carries a fix is offered as an LSP code action, so the
@@ -85,7 +135,14 @@ filetype plugin on
 ```
 
 `.sumo` and `.wiki` then get the `sumo-wiki` filetype — `.wiki` via `:setfiletype`, so it
-yields to any wiki plugin you already use.
+yields to any wiki plugin you already use. **Vim 9.2 and Neovim 0.11 themselves call
+`*.wiki` `mediawiki`** (measured), so by default a `.wiki` file gets none of this plugin,
+including the files the web app saves. If you edit SUMO articles as `.wiki`, add this to
+your vimrc:
+
+```vim
+autocmd BufRead,BufNewFile *.wiki set filetype=sumo-wiki
+```
 
 ### Paste a URL over a selection
 
@@ -277,8 +334,9 @@ command with no link text, so the command carries a function-valued `delete-sele
 property that suppresses the deletion for exactly this case. If you turn
 `transient-mark-mode` off, `use-region-p` is nil and you get a plain `C-y` — deliberately.
 
-One highlighting choice worth knowing: **lines beginning with a space are shown in a
-distinct face**, because the wiki renders them preformatted. A single stray leading space
+Highlighting follows SUMO's own rules (see [Highlighting](#highlighting)). One choice
+worth knowing: **lines beginning with a space are shown in a distinct face**, white on
+black as on SUMO, because the wiki renders them preformatted. A single stray leading space
 silently turns a paragraph into a code block, and that is invisible in a plain editor.
 
 Verify the mode after changing it:
@@ -290,9 +348,9 @@ PATH="$PWD/target/release:$PATH" \
   -l editors/emacs/test-sumo-wiki-mode.el
 ```
 
-That checks mode activation, every font-lock rule, Eglot registration, the CLI commands
-against the real binary, the Flymake JSON path, both link paths and the bold toggle — 85
-assertions. **CI runs it too**, as the `emacs` job, on `emacs-nox` from Ubuntu's archive.
+That checks mode activation, the highlighting of every committed article against
+SUMO's rules (it needs `node`), Eglot registration, the CLI commands against the real
+binary, the Flymake JSON path, both link paths and the bold toggle — 99 assertions. **CI runs it too**, as the `emacs` job, on `emacs-nox` from Ubuntu's archive.
 
 Two wrinkles if you add cases: `transient-mark-mode` is nil under `--batch` but t in any
 interactive Emacs, so a region test must bind it or it passes vacuously; and the prompts are
@@ -307,15 +365,14 @@ the `expected` value when you add assertions.
 ## VS Code
 
 The extension in `vscode/` is a thin `vscode-languageclient` wrapper plus a TextMate
-grammar. It highlights the same constructs as the Emacs mode, including the
-leading-space preformatted lines described above.
+grammar with SUMO's highlighting rules (see [Highlighting](#highlighting)).
 
 ```sh
 cd editors/vscode
 npm install
-npm test                  # 34 grammar + 51 link + 26 bold assertions
-npx vsce package          # produces sumo-lint-0.4.1.vsix
-code --install-extension sumo-lint-0.4.1.vsix
+npm test                  # 31 grammar + 51 link + 26 bold assertions, and 905 articles
+npx vsce package          # produces sumo-lint-0.5.0.vsix
+code --install-extension sumo-lint-0.5.0.vsix
 ```
 
 If `sumo-lint-lsp` is not on your `PATH`, set `sumoLint.serverPath` to an

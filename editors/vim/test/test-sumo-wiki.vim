@@ -12,6 +12,8 @@
 " up, which columns it reads, or whether it clobbers the register.
 
 set nocompatible
+" The highlighting cases count characters, and the corpus is UTF-8.
+set encoding=utf-8
 let s:root = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
 execute 'set runtimepath^=' . fnameescape(s:root)
 filetype plugin on
@@ -403,9 +405,89 @@ call s:ok('a multibyte selection is not cut in half',
       \ s:bold_keys('See le café for details.', '0wv2e\b'),
       \ "See '''le café''' for details.")
 
+" --- highlighting with SUMO's rules (#36) ------------------------------------
+syntax on
+let s:letter_of = {'sumoWikiSyntax': 'S', 'sumoWikiLink': 'L', 'sumoWikiBold': 'B',
+      \ 'sumoWikiItalic': 'I', 'sumoWikiComment': 'C', 'sumoWikiQuote': 'Q',
+      \ 'sumoWikiUnderline': 'U', 'sumoWikiStrike': 'X', '': '.',
+      \ 'sumoWikiFor': '.', 'sumoWikiCloseTag': '.'}
+
+" The class letters of editors/highlight-check.mjs for one line, one per character.
+function! s:letters(lnum) abort
+  let out = ''
+  let col = 1
+  for ch in split(getline(a:lnum), '\zs')
+    let name = synIDattr(synIDtrans(synID(a:lnum, col, 1)), 'name')
+    " A composing character, such as an Arabic vowel mark, comes with the
+    " character before it; the reference counts it as a character of its own.
+    let out .= repeat(get(s:letter_of, name, '?'), strchars(ch))
+    let col += len(ch)
+  endfor
+  return out
+endfunction
+
+function! s:highlight(lines) abort
+  enew!
+  setfiletype sumo-wiki
+  call setline(1, a:lines)
+  let got = map(range(1, line('$')), 's:letters(v:val)')
+  bwipeout!
+  return got
+endfunction
+
+" The cases in Roland's two screenshots of SUMO's editor (#35).
+call s:ok('highlight: template shorthand is a link', s:highlight(['[[T:TBMore]]']), ['LLLLLLLLLLLL'])
+call s:ok('highlight: {for} with a condition',
+      \ s:highlight(['{for tb123}dddd{/for}']), ['SSSS.IIIIIS....SSSSSS'])
+call s:ok('highlight: {/key} is plain, as on SUMO', s:highlight(['{key}key{/key}']), ['SSSSS.........'])
+call s:ok('highlight: {button} argument is italic', s:highlight(['{button ok}']), ['SSSSSSSIIIS'])
+call s:ok('highlight: <-- is not a comment', s:highlight(['<--html comment-->']), ['..................'])
+call s:ok('highlight: bold markers and text', s:highlight(["the '''A''' b"]), ['....SSSBSSS..'])
+call s:ok('highlight: an asymmetric heading is bold', s:highlight(['==Card view ===']), ['BBBBBBBBBBBBBBB'])
+call s:ok('highlight: list markers', s:highlight(['** Click']), ['SS......'])
+call s:ok('highlight: a leading space is preformatted', s:highlight([' pre']), ['QQQQ'])
+call s:ok('highlight: before a condition, } is plain', s:highlight(['{for}x mac}']), ['SSSS...IIIS'])
+call s:ok('highlight: after the condition, all is plain up to }',
+      \ s:highlight(['{for mac and win} z']), ['SSSS.III........S..'])
+call s:ok('highlight: a comment spans lines', s:highlight(['a <!-- b', 'c --> d']), ['..CCCCCC', 'CCCCC..'])
+call s:ok('highlight: links', s:highlight(['[[a|b]] [https://x y]']), ['LLLLLLL.LLLLLLLLLLLLL'])
+" The groups are SUMO's colors, and follow 'background' even with no color scheme.
+" OptionSet does not fire while Vim starts, which is when -S runs this file.
+set background=light
+doautocmd <nomodeline> OptionSet background
+call s:ok('highlight: light syntax color', tolower(synIDattr(hlID('sumoWikiSyntax'), 'fg', 'gui')), '#d98484')
+set background=dark
+doautocmd <nomodeline> OptionSet background
+call s:ok('highlight: dark syntax color', tolower(synIDattr(hlID('sumoWikiSyntax'), 'fg', 'gui')), '#e9a1a1')
+
+" Every committed article, character by character, against web/highlight.js.
+" Node runs the comparison: the reference must not be reimplemented here.
+let s:repo = fnamemodify(s:root, ':h:h')
+let s:dumps = tempname()
+call mkdir(s:dumps, 'p')
+let s:files = sort(globpath(s:repo . '/corpus', '**/*.wiki', 0, 1)
+      \ + globpath(s:repo . '/corpus-other', '**/*.wiki', 0, 1))
+let s:start = reltime()
+let s:n = 0
+set fileformats=unix,dos
+for s:f in s:files
+  execute 'silent edit ' . fnameescape(s:f)
+  " Vim's own rules call *.wiki mediawiki, and ftdetect yields to them.
+  silent setlocal filetype=sumo-wiki
+  let s:out = [s:f[len(s:repo) + 1 :]] + map(range(1, line('$')), 's:letters(v:val)')
+  call writefile(s:out, printf('%s/%04d.hl', s:dumps, s:n))
+  silent bwipeout!
+  let s:n += 1
+endfor
+call s:say(printf('  highlighted %d articles in %.1f s', s:n, reltimefloat(reltime(s:start))))
+let s:report = system('node ' . shellescape(s:repo . '/editors/highlight-check.mjs') . ' '
+      \ . shellescape(s:dumps) . ' 800')
+call s:say(substitute(s:report, '\n$', '', ''))
+call s:ok('highlight: every article matches SUMO''s rules', v:shell_error, 0)
+
 " A floor on the count: a file that stops running its body would otherwise
 " print no failures and pass.
-let s:expected = 86
+let s:expected = 102
 if s:total < s:expected
   let s:failed += 1
   call s:say(printf('  only %d assertions ran, expected at least %d', s:total, s:expected))

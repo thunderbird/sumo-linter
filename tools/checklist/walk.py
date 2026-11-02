@@ -10,6 +10,7 @@
 """Walk through the unchecked items of a GitHub checklist (sumo-linter #30).
 
     uv run tools/checklist/walk.py URL [--dry-run] [--web DIR]
+        [--shots DIR --thunderbird APP [--expect VERSION]]
 
 URL is an issue comment, for example
 https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976,
@@ -46,6 +47,14 @@ one after the g, for example `g then I shortened it`. The change is in the web a
 copy the text from there. Build the linter first with
 tools/build-web.sh, or the page shows only the preview.
 
+`--shots DIR --thunderbird APP` also takes a screenshot of the setting that
+each item is about (#39), with tools/checklist/tb_shot.py, and saves it as
+DIR/<heading>-item-<N>.png. The setting is found by its 159 text: the text
+after `→`, or the possible 159 text, or `(shot: "TEXT")` anywhere in the
+item, which wins over both. tb_shot.py runs a second Thunderbird with an empty
+profile, so a Thunderbird you already use is not involved; see its docstring.
+`--expect 159` refuses an APP that is not version 159.
+
 It uses the `gh` command (signed in with `gh auth login`), so it needs no
 token of its own. Python standard library only, so `uv run` installs nothing
 (#32). `python3 -I tools/checklist/walk.py …` works too.
@@ -69,6 +78,8 @@ BOLD = re.compile(r"^\*\*(.+?)\*\*")
 NOTE = re.compile(r"^\s+- Note: ")
 LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 GUESS = re.compile(r'\(possible 159 text: "(.*)"\)\s*$')
+SHOT = re.compile(r'\(shot: "(.*?)"\)')
+NEW = re.compile(r'^Line \d+: ".*?" → "(.*?)"')
 LINE = re.compile(r'^Line (\d+):(?: "(.*?)"(?= →| \(|$))?')
 WEB = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "web")
 
@@ -183,6 +194,73 @@ def guess(item):
     if not m or m.group(1) == "removed" or not target(item)["find"]:
         return None
     return m.group(1)
+
+
+def shot_text(item):
+    """The text of the setting to screenshot for an item, or None (#39).
+
+    `(shot: "TEXT")` wins; then the new text after `→`; then the possible
+    159 text, unless it is "removed".
+    """
+    for pattern in (SHOT, NEW, GUESS):
+        m = pattern.search(item["text"])
+        if m and m.group(1) and m.group(1) != "removed":
+            return m.group(1)
+    return None
+
+
+class Shots:
+    """Screenshots of each item's setting, by tools/checklist/tb_shot.py (#39).
+
+    One `tb_shot.py session` runs for the whole walk, with its own Thunderbird.
+    A separate program, because walk.py must stay one file (#32).
+    """
+
+    def __init__(self, folder, app, expect=None, command=None):
+        self.folder, self.done = folder, {}
+        script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tb_shot.py")
+        if command is None:  # tests pass a fake
+            command = [sys.executable, script, "session", "--app", app, "--out", folder]
+            if expect:
+                command += ["--expect", expect]
+        self.proc = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
+        ready = self.proc.stdout.readline()
+        try:
+            hello = json.loads(ready)
+        except ValueError:
+            hello = {}
+        if not hello.get("ready"):
+            self.stop()
+            raise RuntimeError("tb_shot.py did not start Thunderbird (see the message above)")
+        self.version = hello.get("version")
+
+    def show(self, item, number):
+        """Take the item's screenshot once. Returns a line for the terminal, or None."""
+        text = shot_text(item)
+        if not text:
+            return None
+        if number not in self.done:
+            name = f"{item['heading'] or 'item'}-item-{number}"
+            self.proc.stdin.write(json.dumps({"text": text, "name": name}) + "\n")
+            self.proc.stdin.flush()
+            line = self.proc.stdout.readline()
+            if not line:
+                raise RuntimeError("tb_shot.py stopped")
+            self.done[number] = json.loads(line)
+        r = self.done[number]
+        if r.get("ok"):
+            return f"  screenshot: {r['path']} ({r['where']})"
+        return f"  no screenshot: {r.get('error')}"
+
+    def stop(self):
+        """Close its input, so it quits Thunderbird, and wait for it."""
+        try:
+            self.proc.stdin.close()
+            self.proc.wait(timeout=30)
+        except (OSError, subprocess.TimeoutExpired):
+            self.proc.kill()
+            self.proc.wait()
+        self.proc.stdout.close()
 
 
 class WebApp:
@@ -366,12 +444,14 @@ class GitHub:
             raise RuntimeError(res.stderr.strip() or "gh api failed")
 
 
-def walk(store, label, ask=input, say=print, show=None, use_guess=None):
+def walk(store, label, ask=input, say=print, show=None, use_guess=None, shots=None):
     """The interactive loop. `ask` and `say` are parameters so tests can drive it.
 
     `show(item)`, if given, is called before each question, and any line it
     returns is printed. `use_guess(item)` makes the edit for `g` and returns
     (ok, message). `--web` passes WebApp.show and WebApp.use_guess.
+    `shots(item, number)`, if given, takes the item's screenshot and returns a
+    line for the terminal; `--shots` passes Shots.show.
     """
     body = store.read()
     history = []  # bodies before each saved answer, for undo
@@ -394,6 +474,10 @@ def walk(store, label, ask=input, say=print, show=None, use_guess=None):
             say(f"  Note so far: {n}")
         if show:
             extra = show(it)
+            if extra:
+                say(extra)
+        if shots:
+            extra = shots(it, todo[pos] + 1)
             if extra:
                 say(extra)
         offer = guess(it) if use_guess else None
@@ -461,8 +545,21 @@ def walk(store, label, ask=input, say=print, show=None, use_guess=None):
     return counts
 
 
+def option(args, flag):
+    """The value after `flag`, removed from args, or None."""
+    if flag not in args:
+        return None
+    i = args.index(flag)
+    if i + 1 >= len(args):
+        sys.exit(__doc__)
+    value = args.pop(i + 1)
+    args.pop(i)
+    return value
+
+
 def main():
     args, dry_run, folder = sys.argv[1:], False, None
+    shots_dir, app, expect = None, None, None
     if "--dry-run" in args:
         args.remove("--dry-run")
         dry_run = True
@@ -474,9 +571,12 @@ def main():
         args.pop(i)
         if not os.path.isdir(folder):
             sys.exit(f"--web: not a folder: {folder}")
+    shots_dir, tb_app, expect = option(args, "--shots"), option(args, "--thunderbird"), option(args, "--expect")
+    if bool(shots_dir) != bool(tb_app) or (expect and not shots_dir):
+        sys.exit("--shots and --thunderbird go together, and --expect needs them.")
     if len(args) != 1:
         sys.exit(__doc__)
-    app = None
+    app, shots = None, None
     try:
         path, label = parse_url(args[0])
         if folder:
@@ -486,8 +586,13 @@ def main():
             if not os.path.isfile(os.path.join(WEB, "sumo_lint_wasm.wasm")):
                 print("The linter is not built, so the page shows only the preview. Run tools/build-web.sh.")
             webbrowser.open(app.url)
+        if shots_dir:
+            os.makedirs(shots_dir, exist_ok=True)
+            print("Starting a separate Thunderbird for the screenshots…")
+            shots = Shots(shots_dir, tb_app, expect)
+            print(f"Thunderbird {shots.version}: screenshots go to {shots_dir}")
         walk(GitHub(path, dry_run), label, show=app.show if app else None,
-             use_guess=app.use_guess if app else None)
+             use_guess=app.use_guess if app else None, shots=shots.show if shots else None)
     except (ValueError, RuntimeError) as e:
         sys.exit(str(e))
     except (KeyboardInterrupt, EOFError):
@@ -495,6 +600,8 @@ def main():
     finally:
         if app:
             app.stop()
+        if shots:
+            shots.stop()
 
 
 if __name__ == "__main__":

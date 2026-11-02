@@ -312,5 +312,71 @@ class Web(unittest.TestCase):
         self.assertEqual(said.count("extra line"), 3)
 
 
+# A stand-in for `tb_shot.py session`: it says it is ready, then answers each
+# request, with a failure for the text "missing".
+FAKE_SESSION = r"""
+import json, sys
+print(json.dumps({"ok": True, "ready": True, "version": "159.0"}), flush=True)
+for line in sys.stdin:
+    req = json.loads(line)
+    if req["text"] == "missing":
+        print(json.dumps({"ok": False, "error": "no setting with the text \"missing\""}), flush=True)
+    else:
+        print(json.dumps({"ok": True, "path": "shots/" + req["name"] + ".png",
+                          "where": "Settings, paneGeneral", "text": req["text"]}), flush=True)
+"""
+
+
+class Screenshots(unittest.TestCase):
+    def item(self, text, heading="article-one"):
+        return {"text": text, "heading": heading}
+
+    def test_the_text_to_find(self):
+        self.assertEqual(walk.shot_text(self.item('Line 27: "Use autoscrolling" → "Enable auto-scrolling"')),
+                         "Enable auto-scrolling")
+        self.assertEqual(walk.shot_text(self.item('Line 43: "Old" (possible 159 text: "Use graphics acceleration")')),
+                         "Use graphics acceleration")
+        self.assertIsNone(walk.shot_text(self.item('Line 18: "Old" (possible 159 text: "removed")')))
+        self.assertIsNone(walk.shot_text(self.item("Open the edit page")))
+
+    def test_an_explicit_shot_wins(self):
+        self.assertEqual(walk.shot_text(self.item('Line 1: "A" → "B" (shot: "Another label")')), "Another label")
+        self.assertEqual(walk.shot_text(self.item('Line 18: "Old" (possible 159 text: "removed") (shot: "X")')), "X")
+
+    def shots(self):
+        s = walk.Shots("shots", None, command=[sys.executable, "-c", FAKE_SESSION])
+        self.addCleanup(s.stop)
+        return s
+
+    def test_session_starts_and_answers(self):
+        s = self.shots()
+        self.assertEqual(s.version, "159.0")
+        self.assertEqual(s.show(self.item('Line 27: "A" → "Enable auto-scrolling"'), 3),
+                         "  screenshot: shots/article-one-item-3.png (Settings, paneGeneral)")
+        self.assertEqual(s.show(self.item('Line 1: "A" → "missing"'), 4),
+                         '  no screenshot: no setting with the text "missing"')
+        self.assertIsNone(s.show(self.item("Open the edit page"), 5))
+
+    def test_each_item_is_taken_once(self):
+        s = self.shots()
+        first = s.show(self.item('Line 27: "A" → "B"'), 3)
+        s.proc.stdin.close()  # a second request would now fail
+        self.assertEqual(s.show(self.item('Line 27: "A" → "B"'), 3), first)
+
+    def test_a_session_that_does_not_start_is_an_error(self):
+        with self.assertRaisesRegex(RuntimeError, "did not start Thunderbird"):
+            walk.Shots("shots", None, command=[sys.executable, "-c", "print('Thunderbird is version 160.0')"])
+
+    def test_walk_shows_each_items_screenshot(self):
+        s = self.shots()
+        queue, said = ["s", "s", "q"], []
+        walk.walk(Store(BODY), "t", ask=lambda p: queue.pop(0), say=said.append, shots=s.show)
+        shots = [line for line in said if "screenshot" in line]
+        # Item 1 has no 159 text; items 2 and 4 ("New", "B") do. Numbers are
+        # positions in the whole list, so they do not change as items are checked.
+        self.assertEqual(shots, ["  screenshot: shots/article-one-item-2.png (Settings, paneGeneral)",
+                                 "  screenshot: shots/article-one-item-4.png (Settings, paneGeneral)"])
+
+
 if __name__ == "__main__":
     unittest.main()

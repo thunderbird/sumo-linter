@@ -94,6 +94,10 @@ jobs:
       - name: Checklist walker tests
         # GitHub is replaced by a fake store, so this needs no network or token.
         run: python3 tools/checklist/test_walk.py
+      - name: Thunderbird screenshot tests
+        # Marionette is a fake server here: finding and drawing a setting needs
+        # a real Thunderbird and was tested by hand (#39).
+        run: python3 tools/checklist/test_tb_shot.py
 
   emacs:
     runs-on: ubuntu-latest

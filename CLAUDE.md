@@ -61,14 +61,16 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 <https://thunderbird.github.io/sumo-linter/>.
 
 **Open, on Roland's side (no deadline):**
-- **Staging test of the Thunderbird 159 string edits (#28).** Paste
-  `tools/ui-strings/proposals/advanced-panel-settings-in-thunderbird.wiki` and
-  `privacy-panel-settings-in-thunderbird.wiki` into support.allizom.org, work through the
-  checklist comment on #28 (walk it with `uv run tools/checklist/walk.py
-  https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976 --web
-  tools/ui-strings/proposals`, which also opens the web app at each item's line, #31), and report
-  there. Next session: read that comment's ticks and `Note:` lines first. Then adjust `propose_edits.py` and do the other
-  knowledgebase-issues #247 articles. The 160 section of #249 waits for the 160 release.
+- **Staging test of the Thunderbird 159 string edits (#48, which continues #28).** The
+  checklist is the body of #48, made by `tools/ui-strings/checklist.py` from the proposal
+  reports after #47, with #28's answers carried over (`--carry`); #28 is closed. Roland walks
+  it from `~/Desktop/walk28/`, which holds his edited advanced article merged with the
+  regenerated lines (backups in `backup-before-regenerate/`): `uv run
+  tools/checklist/walk.py https://github.com/thunderbird/sumo-linter/issues/48 --web
+  ~/Desktop/walk28 --shots ~/Desktop/shots28-walk --thunderbird
+  /Applications/THUNDERBIRD_MONTHLY_RELEASE/Thunderbird.app --expect 159`. Next session: read
+  #48's ticks and `Note:` lines first. Then do the other knowledgebase-issues #247 articles
+  with `propose_edits.py` and `checklist.py`. The 160 section of #249 waits for the 160 release.
 - Post the heading-convention consultation: `docs/heading-convention-discussion.md` plus
   the data gist <https://gist.github.com/rtanglao/2708f762f5a4ec71c699827d8bc4071f>.
   **This blocks nothing** — the per-article default needs no decision.

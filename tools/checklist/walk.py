@@ -44,7 +44,7 @@ proposals. Make a new folder, copy each edited file into it under the
 article's plain name, and give that folder to --web:
 
     mkdir ~/Desktop/walk28
-    cp ~/Downloads/some-article-edited\(2\).wiki ~/Desktop/walk28/some-article.wiki
+    cp ~/Downloads/'some-article-edited(2).wiki' ~/Desktop/walk28/some-article.wiki
     cp tools/ui-strings/proposals/other-article.wiki ~/Desktop/walk28/
 
 Copy the newest download: Firefox and Safari add (1), (2) and so on to each

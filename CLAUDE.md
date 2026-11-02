@@ -107,7 +107,7 @@ already filed with rendered-output evidence. **Every test now runs in CI** — `
 (85 mode assertions, against the real CLI), `vim` (86 plugin assertions, run under
 both Vim and Neovim), `ui-strings` (33 tests, plus 26 for the checklist walker, including that the committed comparison tables
 are up to date) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
-button, 72 on autosave, save-to-file and the file name, 99 on the preview, 30 on walk mode) — so there is no
+button, 72 on autosave, save-to-file and the file name, 99 on the preview, 30 on walk mode, 35 on highlighting) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
@@ -233,7 +233,7 @@ Cargo workspace with **zero dependencies**. The core does no I/O so it compiles 
 | `tools/scrape/` | dev-only Node corpus fetcher (not a runtime dependency) |
 | `tools/checklist/` | `walk.py URL`: walks the unchecked `- [ ]` items of a GitHub issue or comment through `gh`, checking each or adding a `  - Note:` line, and saves after every answer (#30). Made for the #28 test checklist. `--web DIR` (#31) serves `web/` on `127.0.0.1` with `?walk=1` and sends the page each item's file (`DIR/<heading>.wiki`) and `Line N:` over Server-Sent Events, so the cursor follows the checklist in one tab. Walk mode never touches `localStorage`, and Save to file suggests `<file>-edited.wiki` so the proposal is never replaced. The answer `g` (#34) uses an item's `(possible 159 text: …)` in the page: it replaces the old text and its `<!-- CHECK 159 … -->` comment, and walk.py checks the item only after the page reports success (`g some text` adds a comment to the note), because no answer must never look like done. All 29 guesses in the #28 checklist match their comment. Run it with `uv run` (#32): a PEP 723 block with no dependencies. It must stay one file, because `python3 -I` also works and drops the script's folder from `sys.path` |
 | `tools/ui-strings/` | dev-only Python (stdlib) tools for UI string changes, plus the 158 string sheet. `README.md` says how to add a version. `search.py` finds KB articles that quote changed strings (knowledgebase-issues #247, #249), and its docstring lists the matching lessons that the markup-aware search (#6) must keep. `extract.py` reads the en-US Settings and Account Settings strings out of an installed app's `omni.ja` into `strings/<version>.tsv` (committed). `compare.py` writes `string-versions.md`/`.mediawiki`: one column per version, mapped to CSV records (#18). `l10n_tables.py` writes the simpler visible-text tables for SUMO localizers, one for Settings and one for Account Settings per version set, `strings-<versions>-settings.*` and `strings-<versions>-account-settings.*` (#19, #20). The string file decides the window, because the same text can be in both. `shipped_search.py` finds the articles that quote a string that really changed, split into "changed in 159: edit now" and "changed in 160: edit when 160 is released"; its `affected-*.md` output is the body of knowledgebase-issues #247 and #249 (#27). The two 3-column wikitext tables are copied by hand to wiki.mozilla.org (`User:Rolandtb/strings-153.6.0-159.0-160.0-settings` and `-account-settings`), so update them after regenerating; the README has the check. A reworded string usually gets a new ID, so the CSV record is what links old and new |
-| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, the preview renderer and `{for}` rules in `preview.js`, the walk-mode line range in `walk.js`, all tested under Node — plus a pink dot beside **Wiki markup** (#33) when the text differs from the last loaded or file-saved text; autosave to `localStorage` does not count as saved |
+| `web/` | static Pages app — **paste-in only** (can't fetch source: needs auth + CORS); byte↔UTF-16 arithmetic isolated in `fixes.js`, gutter line counting in `gutter.js`, Copy-button outcome in `copy.js`, autosave and the file-write queue in `save.js`, the preview renderer and `{for}` rules in `preview.js`, the walk-mode line range in `walk.js`, SUMO's markup highlighting in `highlight.js`, all tested under Node — plus a pink dot beside **Wiki markup** (#33) when the text differs from the last loaded or file-saved text; autosave to `localStorage` does not count as saved |
 
 **Losslessness is non-negotiable.** Tokens tile the input exactly, so reprinting an
 unmodified parse is byte-identical. This is asserted in the lexer, property-tested over
@@ -291,6 +291,19 @@ version box also takes a number or `all`. A comment leaves a marker until the en
 `{<!-- -->key}` is the documented way to show a macro literally. Measured: 131 KB renders in
 29 ms under Node; checked in Chromium and Playwright's Firefox (columns, hide controls, `{for}`
 selector, persistence across reload).
+
+**The editor highlights markup with SUMO's own rules and colors, not the lexer** (#35). SUMO's
+editor is CodeMirror 5 with a simple mode (regexes per state) in Kitsune's
+`codemirror.sumo-mode.js`; `highlight.js` copies those rules unchanged (BSD-3 notice kept, Kitsune
+commit pinned) and runs them as CodeMirror's `simple.js` does, so SUMO's gaps are kept on purpose:
+`{/key}` is plain, `==H ===` is bold because the heading regex backtracks. The colors are Kitsune's
+`--codemirror-*` values, light and dark. A highlighted `<pre>` sits behind the textarea, whose text
+is transparent, so undo, Fix, Copy and walk mode are unchanged. It redraws on every input, not
+debounced, or the old text would show: `highlightLines` redoes only the changed lines, and each line
+is its own block, because as one paragraph Chromium laid out all 127 KB again per keystroke (13 ms;
+1.3 ms as blocks). Measured in Chromium and Playwright's Firefox: drawing both layers in one color
+and diffing screenshots gives no offset beyond antialiasing. A **Highlighting** switch turns it off
+(`sumo-lint:highlight`). Vim gets the same rules in #36.
 
 **Autosave never writes the example or a cleared box over the author's file.** In Chrome
 and Edge, Save to file keeps a File System Access handle and writes every change to it,

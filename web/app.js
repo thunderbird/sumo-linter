@@ -177,6 +177,76 @@ function drawGutter() {
     }),
   );
   gutter.scrollTop = ta.scrollTop;
+  placeHighlight();
+}
+
+/**
+ * Highlighting (#35): a copy of the text with SUMO's colors sits behind the
+ * textarea, whose own text is transparent. The copy must change in the same
+ * frame as the text, or the author sees the old text for a moment, so it is
+ * redrawn on every input, not debounced. highlightLines redoes only the lines
+ * an edit changed, and only those lines' elements are replaced.
+ */
+let highlightOn = true;
+let highlighted = null; // the last highlightLines result shown
+
+/** True when this page has highlight.js and the element for it. */
+function canHighlight() {
+  return typeof highlightLines === 'function' && !!document.getElementById('highlight');
+}
+
+function renderHighlight() {
+  if (!canHighlight()) return;
+  const ta = document.getElementById('src');
+  const pre = document.getElementById('highlight');
+  ta.parentElement.classList.toggle('highlighting', highlightOn);
+  pre.hidden = !highlightOn;
+  if (!highlightOn) {
+    highlighted = null;
+    pre.replaceChildren();
+    return;
+  }
+  const next = highlightLines(ta.value, highlighted);
+  const old = highlighted && pre.children.length === highlighted.html.length ? highlighted.html : [];
+  const now = next.html;
+  let p = 0;
+  while (p < old.length && p < now.length && old[p] === now[p]) p++;
+  let q = 0;
+  while (q < old.length - p && q < now.length - p && old[old.length - 1 - q] === now[now.length - 1 - q]) q++;
+  // One block per line, as in the gutter's mirror, so an edit lays out only
+  // its own line: as one paragraph, Chromium laid out all 127 KB again on each
+  // keystroke (13 ms, measured). An empty line still takes one row.
+  for (let i = old.length - q - 1; i >= p; i--) pre.children[i].remove();
+  const tpl = document.createElement('template');
+  tpl.innerHTML = now.slice(p, now.length - q).map((h) => `<span>${h || ' '}</span>`).join('');
+  pre.insertBefore(tpl.content, pre.children[p] || null);
+  highlighted = next;
+  placeHighlight();
+}
+
+/**
+ * Give the copy the textarea's exact box. `clientWidth` leaves out a
+ * scrollbar, which CSS alone cannot, and the text wraps at that width.
+ */
+function placeHighlight() {
+  const pre = document.getElementById('highlight');
+  if (!pre || pre.hidden) return;
+  const ta = document.getElementById('src');
+  pre.style.left = `${ta.offsetLeft}px`;
+  pre.style.top = `${ta.offsetTop}px`;
+  pre.style.width = `${ta.clientWidth}px`;
+  pre.style.height = `${ta.clientHeight}px`;
+  pre.scrollTop = ta.scrollTop;
+}
+
+function setHighlight(on) {
+  highlightOn = on;
+  try {
+    draftStorage()?.setItem(HIGHLIGHT_KEY, on ? 'on' : 'off');
+  } catch {
+    // Storage full or blocked: the switch still applies until the page closes.
+  }
+  renderHighlight();
 }
 
 /** The height each line of `text` takes in the textarea, wrapping included. */
@@ -480,6 +550,7 @@ function renderPreview() {
 function run() {
   updateButtons();
   renderChanged();
+  renderHighlight();
   keep();
   renderPreview();
   if (!wasm) return;
@@ -712,6 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Debounced so typing in a 15 KB article stays responsive.
   let t = null;
   ta.addEventListener('input', () => {
+    renderHighlight();
     updateButtons();
     renderChanged();
     scheduleGutter();
@@ -720,6 +792,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   ta.addEventListener('scroll', () => {
     document.getElementById('gutter').scrollTop = ta.scrollTop;
+    const pre = document.getElementById('highlight');
+    if (pre) pre.scrollTop = ta.scrollTop;
   });
   // Resizing the window or dragging the textarea's handle changes the wrapping.
   new ResizeObserver(scheduleGutter).observe(ta);
@@ -746,6 +820,20 @@ document.addEventListener('DOMContentLoaded', () => {
       saveDraft(draftStorage(), nameBox.value, NAME_KEY);
     });
   }
+  const hlBox = document.getElementById('showhighlight');
+  if (hlBox && canHighlight()) {
+    try {
+      highlightOn = parseHighlight(draftStorage()?.getItem(HIGHLIGHT_KEY) ?? null);
+    } catch {
+      highlightOn = true;
+    }
+    hlBox.checked = highlightOn;
+    hlBox.addEventListener('change', () => setHighlight(hlBox.checked));
+  } else if (hlBox) {
+    // An older cached highlight.js: no switch for a feature that is not there.
+    hlBox.closest('label').style.display = 'none';
+  }
+  renderHighlight();
   // In walk mode the first file from walk.py sets the known text instead.
   if (!walkMode) markKnown(ta.value);
   showFileName();

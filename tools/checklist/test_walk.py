@@ -399,6 +399,9 @@ class Screenshots(unittest.TestCase):
     def test_an_explicit_shot_wins(self):
         self.assertEqual(walk.shot_text(self.item('Line 1: "A" → "B" (shot: "Another label")')), "Another label")
         self.assertEqual(walk.shot_text(self.item('Line 18: "Old" (possible 159 text: "removed") (shot: "X")')), "X")
+        # As Roland typed it on #28: no parentheses.
+        self.assertEqual(walk.shot_text(self.item('Line 20: "Leave it in my Inbox" shot: "Leave in Inbox"')),
+                         "Leave in Inbox")
 
     def shots(self):
         self.opened = []

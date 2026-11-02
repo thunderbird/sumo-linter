@@ -73,6 +73,7 @@ An item whose possible 159 text is "removed" gets no screenshot, because
 there is nothing to search for. But "removed" can be wrong: 159 sometimes
 rewords a string and gives it a new ID. To capture such an item, add
 `(shot: "LABEL")`, where LABEL is the text exactly as Thunderbird 159 shows it.
+`shot: "LABEL"` without the parentheses works too.
 The search ignores case, curly quotes and a trailing colon or ellipsis. Two
 ways to find LABEL:
 
@@ -115,7 +116,8 @@ BOLD = re.compile(r"^\*\*(.+?)\*\*")
 NOTE = re.compile(r"^\s+- Note: ")
 LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 GUESS = re.compile(r'\(possible 159 text: "(.*)"\)\s*$')
-SHOT = re.compile(r'\(shot: "(.*?)"\)')
+# `(shot: "TEXT")`, or without the parentheses, as typed by hand.
+SHOT = re.compile(r'\(?\bshot: "(.*?)"\)?')
 NEW = re.compile(r'^Line \d+: ".*?" → "(.*?)"')
 LINE = re.compile(r'^Line (\d+):(?: "(.*?)"(?= →| \(|$))?')
 WEB = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "web")

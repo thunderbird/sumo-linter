@@ -376,6 +376,25 @@ npx vsce package          # produces sumo-lint-0.5.0.vsix
 code --install-extension sumo-lint-0.5.0.vsix
 ```
 
+If the shell says `zsh: command not found: code`, VS Code's command-line tool is
+not on your `PATH`. Do one of these:
+
+- In VS Code, press `Cmd+Shift+P`, run **Shell Command: Install 'code' command in
+  PATH**, and open a new terminal. Then `code --install-extension` works.
+- Give the full path:
+
+  ```sh
+  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" \
+    --install-extension sumo-lint-0.5.0.vsix
+  ```
+
+- In VS Code, run **Extensions: Install from VSIX…** from the Command Palette and
+  choose the `.vsix` file.
+
+After an update, reload the window (**Developer: Reload Window**) so that the new
+grammar and commands take effect. `npx vsce package` also writes the new version
+into `package-lock.json`, so commit that file with the version change.
+
 If `sumo-lint-lsp` is not on your `PATH`, set `sumoLint.serverPath` to an
 absolute path in settings.
 

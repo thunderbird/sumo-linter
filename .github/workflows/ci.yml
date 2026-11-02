@@ -75,6 +75,7 @@ jobs:
           node --check web/preview.js
           node --check web/walk.js
           node --check web/highlight.js
+          node --check web/columns.js
           node web/test/fixes.test.mjs
           node web/test/gutter.test.mjs
           node web/test/copy.test.mjs
@@ -82,6 +83,7 @@ jobs:
           node web/test/preview.test.mjs
           node web/test/walk.test.mjs
           node web/test/highlight.test.mjs
+          node web/test/columns.test.mjs
 
   ui-strings:
     runs-on: ubuntu-latest

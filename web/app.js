@@ -531,8 +531,161 @@ function applyView() {
   document.getElementById('foros').value = view.os ?? '';
   document.getElementById('forversion').value = view.version ?? '';
   showVersionHint();
+  applyColumns();
   // The column widths changed, so the textarea wraps differently.
   scheduleGutter();
+}
+
+/*
+ * Column widths (#46). Each column has a weight, kept in this browser; the
+ * visible ones share the width by weight, through the CSS variable
+ * --template, which applies only where the columns sit side by side. A
+ * handle in each gap changes the two weights beside it. The gutter and the
+ * highlighting follow by themselves: a ResizeObserver on the textarea
+ * redraws them when its width changes.
+ */
+let colWeights = null;
+const WIDE = '(min-width: 62rem)';
+const MIN_COLUMN_PX = 240;
+const COLUMN_IDS = { markup: 'markupcol', preview: 'previewcol', problems: 'problemscol' };
+const COLUMN_NAMES = { markup: 'Wiki markup', preview: 'Preview', problems: 'Problems' };
+
+function visibleColumns() {
+  return ['markup', ...(view.preview ? ['preview'] : []), ...(view.problems ? ['problems'] : [])];
+}
+
+/** True if this page has columns.js and the column ids (an older cached page does not). */
+function canResizeColumns() {
+  return typeof parseColumns === 'function' && !!document.getElementById('markupcol');
+}
+
+function applyColumns() {
+  if (!canResizeColumns()) return;
+  if (!colWeights) colWeights = loadColumns();
+  document.querySelector('.grid').style.setProperty('--template', template(colWeights, visibleColumns()));
+  placeHandles();
+}
+
+function loadColumns() {
+  try {
+    return parseColumns(draftStorage()?.getItem(COLUMNS_KEY) ?? null);
+  } catch {
+    return parseColumns(null);
+  }
+}
+
+function saveColumns() {
+  try {
+    draftStorage()?.setItem(COLUMNS_KEY, JSON.stringify(colWeights));
+  } catch {
+    // Storage full or blocked: the widths still apply until the page closes.
+  }
+}
+
+/** The width the visible columns share: the grid less its gaps. */
+function columnsWidth() {
+  const grid = document.querySelector('.grid');
+  const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
+  return grid.clientWidth - gap * (visibleColumns().length - 1);
+}
+
+/** Put one handle in each gap between visible columns, or hide them all. */
+function placeHandles() {
+  if (!canResizeColumns()) return;
+  const grid = document.querySelector('.grid');
+  const visible = visibleColumns();
+  const wide = window.matchMedia(WIDE).matches;
+  const handles = [...grid.querySelectorAll(':scope > .colhandle')];
+  while (handles.length < 2) {
+    const h = makeHandle(handles.length);
+    grid.append(h);
+    handles.push(h);
+  }
+  const g = grid.getBoundingClientRect();
+  handles.forEach((h, i) => {
+    h.hidden = !(wide && i + 1 < visible.length);
+    if (h.hidden) return;
+    const a = document.getElementById(COLUMN_IDS[visible[i]]).getBoundingClientRect();
+    const b = document.getElementById(COLUMN_IDS[visible[i + 1]]).getBoundingClientRect();
+    h.style.left = `${a.right - g.left}px`;
+    h.style.width = `${Math.max(8, b.left - a.right)}px`;
+    h.style.height = `${g.height}px`;
+    h.setAttribute('aria-label',
+      `Width of the ${COLUMN_NAMES[visible[i]]} and ${COLUMN_NAMES[visible[i + 1]]} columns`);
+    h.setAttribute('aria-valuenow', String(boundaryPercent(colWeights, visible, i)));
+  });
+}
+
+/** Move boundary i by `deltaPx` from the weights `from`. */
+function moveBoundary(from, i, deltaPx) {
+  colWeights = drag(from, visibleColumns(), i, deltaPx, columnsWidth(), MIN_COLUMN_PX);
+  applyColumns();
+}
+
+function resetColumns() {
+  colWeights = equalWeights();
+  applyColumns();
+  saveColumns();
+}
+
+function makeHandle(i) {
+  const h = document.createElement('div');
+  h.className = 'colhandle';
+  h.setAttribute('role', 'separator');
+  h.setAttribute('aria-orientation', 'vertical');
+  h.setAttribute('aria-valuemin', '0');
+  h.setAttribute('aria-valuemax', '100');
+  h.tabIndex = 0;
+  h.title = 'Drag to change the widths. Double-click to make them equal.';
+  // While dragging, only the handle moves: relaying a 126 KB article in three
+  // columns took 183 ms a step in Chromium and 280 ms in Firefox (measured).
+  // The columns take the new widths when the drag ends.
+  let start = null;
+  h.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    h.setPointerCapture(e.pointerId);
+    start = { x: e.clientX, weights: { ...colWeights }, left: parseFloat(h.style.left), next: null };
+    document.body.classList.add('resizing');
+    h.classList.add('active');
+  });
+  h.addEventListener('pointermove', (e) => {
+    if (!start) return;
+    const visible = visibleColumns();
+    start.next = drag(start.weights, visible, i, e.clientX - start.x, columnsWidth(), MIN_COLUMN_PX);
+    // Where the boundary would be: its move is the change in share times the width.
+    const moved = (shares(start.next, visible)[i] - shares(start.weights, visible)[i]) * columnsWidth();
+    h.style.left = `${start.left + moved}px`;
+  });
+  const end = () => {
+    if (!start) return;
+    const next = start.next;
+    start = null;
+    document.body.classList.remove('resizing');
+    h.classList.remove('active');
+    if (next) {
+      colWeights = next;
+      applyColumns();
+      saveColumns();
+    } else {
+      placeHandles();
+    }
+  };
+  h.addEventListener('pointerup', end);
+  h.addEventListener('pointercancel', end);
+  h.addEventListener('dblclick', resetColumns);
+  h.addEventListener('keydown', (e) => {
+    const step = (e.shiftKey ? 0.1 : 0.02) * columnsWidth();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      moveBoundary({ ...colWeights }, i, e.key === 'ArrowLeft' ? -step : step);
+      saveColumns();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      resetColumns();
+    }
+  });
+  return h;
 }
 
 /** Render the preview, unless its column is hidden. */
@@ -810,6 +963,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // Resizing the window or dragging the textarea's handle changes the wrapping.
   new ResizeObserver(scheduleGutter).observe(ta);
+  // The column handles follow the columns' size and the breakpoint (#46).
+  const grid = document.querySelector('.grid');
+  if (grid && canResizeColumns()) {
+    new ResizeObserver(() => placeHandles()).observe(grid);
+    window.matchMedia(WIDE).addEventListener('change', placeHandles);
+  }
   document.getElementById('fixbtn').addEventListener('click', applyFixes);
   document.getElementById('stylebtn').addEventListener('click', applyStyle);
   document.getElementById('copybtn').addEventListener('click', copyMarkup);

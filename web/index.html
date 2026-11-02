@@ -49,11 +49,28 @@
   body.wide { max-width: 104rem; }
   h1 { font-size: 1.35rem; margin: 0 0 .25rem; }
   .lede { color: var(--muted); margin: 0 0 1.25rem; }
-  .grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
-  /* `--cols` is the number of visible columns, set by app.js. */
+  .grid { position: relative; display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+  /* `--cols` is the number of visible columns, and `--template` their widths
+     (#46), both set by app.js. Below the breakpoint the columns stack, and
+     neither applies. */
   @media (min-width: 62rem) {
-    .grid { grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); }
+    .grid { grid-template-columns: var(--template, repeat(var(--cols, 3), minmax(0, 1fr))); }
   }
+  /* A handle in the gap between two columns: drag it, or focus it and use
+     the arrow keys. Double-click or Enter makes the columns equal again. */
+  .colhandle {
+    position: absolute; top: 0; z-index: 1; cursor: col-resize; touch-action: none;
+    display: flex; justify-content: center;
+  }
+  .colhandle::before {
+    content: ""; width: 2px; height: 100%; border-radius: 1px; background: transparent;
+  }
+  .colhandle:hover::before, .colhandle:focus-visible::before, body.resizing .colhandle.active::before {
+    background: var(--accent);
+  }
+  .colhandle:focus-visible { outline: none; }
+  .colhandle[hidden] { display: none; }
+  body.resizing, body.resizing * { cursor: col-resize !important; user-select: none !important; }
   .viewbar { margin: 0 0 .6rem; font-size: .9rem; }
   .viewbar label { display: inline-flex; gap: .3rem; align-items: center; cursor: pointer; }
   .bar select, .bar input[type=number] {
@@ -245,7 +262,7 @@
   </div>
 
   <div class="grid">
-    <section>
+    <section id="markupcol">
       <label for="src"><strong>Wiki markup</strong></label>
       <span id="changed" role="img" hidden
         title="Changed since it was loaded or saved to a file"
@@ -341,7 +358,9 @@
       product-details.mozilla.org which release that is. Type <code>all</code>
       in the version box to show every version. <strong>Show all</strong>
       systems with version <code>all</code> shows every branch, labelled.
-      Use <strong>Show</strong> to hide the Preview or Problems column.
+      Use <strong>Show</strong> to hide the Preview or Problems column, and
+      drag the line between two columns to make one wider. Double-click the
+      line to make them equal again.
     </p>
     <p>
       <strong>Highlighting</strong> colors the markup with the same rules and
@@ -363,6 +382,7 @@
   <script src="./preview.js"></script>
   <script src="./walk.js"></script>
   <script src="./highlight.js"></script>
+  <script src="./columns.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

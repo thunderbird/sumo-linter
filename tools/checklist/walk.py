@@ -69,6 +69,24 @@ DIR/<heading>-item-<N>.png. The setting is found by its 159 text: the text
 after `→`, or the possible 159 text, or `(shot: "TEXT")` anywhere in the
 item, which wins over both. tb_shot.py runs a second Thunderbird with an empty
 profile, so a Thunderbird you already use is not involved; see its docstring.
+An item whose possible 159 text is "removed" gets no screenshot, because
+there is nothing to search for. But "removed" can be wrong: 159 sometimes
+rewords a string and gives it a new ID. To capture such an item, add
+`(shot: "LABEL")`, where LABEL is the text exactly as Thunderbird 159 shows it.
+The search ignores case, curly quotes and a trailing colon or ellipsis. Two
+ways to find LABEL:
+
+- Look in Thunderbird 159: Settings, its dialogs, or Account Settings.
+- Use the string files. Find the old text in
+  tools/ui-strings/strings/153.6.0.tsv; its first column is the file, for
+  example .../preferences/receipts.ftl, or a .dtd file for Account Settings.
+  Then read that file's entries in strings/159.0.tsv:
+
+      grep "receipts.ftl" tools/ui-strings/strings/159.0.tsv
+
+  "Leave it in my Inbox" (receipt-leave-radio-control.label in 153.6) is
+  "Leave in Inbox" (receipt-leave-inbox-control.label) in 159.
+
 Each new screenshot opens in the image viewer, behind the terminal, so the
 next answer can be typed at once. `--expect 159` refuses an APP that is not
 version 159. `--real-account` uses

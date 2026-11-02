@@ -39,6 +39,18 @@ line number only loads the file of its heading. Save to file suggests
 `some-article-edited.wiki`, so it never replaces the file in DIR, and nothing
 is kept in the browser's storage.
 
+To continue a walk from your own edits, do not change tools/ui-strings/
+proposals. Make a new folder, copy each edited file into it under the
+article's plain name, and give that folder to --web:
+
+    mkdir ~/Desktop/walk28
+    cp ~/Downloads/some-article-edited\(2\).wiki ~/Desktop/walk28/some-article.wiki
+    cp tools/ui-strings/proposals/other-article.wiki ~/Desktop/walk28/
+
+Copy the newest download: Firefox and Safari add (1), (2) and so on to each
+new Save to file. Copy an article that you have not edited yet from
+proposals/ unchanged, so the walk finds every article.
+
 With `--web`, an item that ends with `(possible 159 text: "GUESS")` also
 offers `g` (#34). The web app then replaces the old text and its
 `<!-- CHECK 159: … -->` comment on that line with GUESS, undoably. Only if

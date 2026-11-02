@@ -10,7 +10,7 @@
 """Walk through the unchecked items of a GitHub checklist (sumo-linter #30).
 
     uv run tools/checklist/walk.py URL [--dry-run] [--web DIR]
-        [--shots DIR --thunderbird APP [--expect VERSION]]
+        [--shots DIR --thunderbird APP [--expect VERSION] [--real-account]]
 
 URL is an issue comment, for example
 https://github.com/thunderbird/sumo-linter/issues/28#issuecomment-6549440976,
@@ -53,7 +53,8 @@ DIR/<heading>-item-<N>.png. The setting is found by its 159 text: the text
 after `→`, or the possible 159 text, or `(shot: "TEXT")` anywhere in the
 item, which wins over both. tb_shot.py runs a second Thunderbird with an empty
 profile, so a Thunderbird you already use is not involved; see its docstring.
-`--expect 159` refuses an APP that is not version 159.
+`--expect 159` refuses an APP that is not version 159. `--real-account` uses
+the signed-in test account of `tb_shot.py login` instead of a dummy one (#40).
 
 It uses the `gh` command (signed in with `gh auth login`), so it needs no
 token of its own. Python standard library only, so `uv run` installs nothing
@@ -216,13 +217,15 @@ class Shots:
     A separate program, because walk.py must stay one file (#32).
     """
 
-    def __init__(self, folder, app, expect=None, command=None):
+    def __init__(self, folder, app, expect=None, command=None, real=False):
         self.folder, self.done = folder, {}
         script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tb_shot.py")
         if command is None:  # tests pass a fake
             command = [sys.executable, script, "session", "--app", app, "--out", folder]
             if expect:
                 command += ["--expect", expect]
+            if real:
+                command += ["--account", "real"]
         self.proc = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
         ready = self.proc.stdout.readline()
         try:
@@ -572,8 +575,11 @@ def main():
         if not os.path.isdir(folder):
             sys.exit(f"--web: not a folder: {folder}")
     shots_dir, tb_app, expect = option(args, "--shots"), option(args, "--thunderbird"), option(args, "--expect")
-    if bool(shots_dir) != bool(tb_app) or (expect and not shots_dir):
-        sys.exit("--shots and --thunderbird go together, and --expect needs them.")
+    real = "--real-account" in args
+    if real:
+        args.remove("--real-account")
+    if bool(shots_dir) != bool(tb_app) or ((expect or real) and not shots_dir):
+        sys.exit("--shots and --thunderbird go together, and --expect and --real-account need them.")
     if len(args) != 1:
         sys.exit(__doc__)
     app, shots = None, None
@@ -589,7 +595,7 @@ def main():
         if shots_dir:
             os.makedirs(shots_dir, exist_ok=True)
             print("Starting a separate Thunderbird for the screenshots…")
-            shots = Shots(shots_dir, tb_app, expect)
+            shots = Shots(shots_dir, tb_app, expect, real=real)
             print(f"Thunderbird {shots.version}: screenshots go to {shots_dir}")
         walk(GitHub(path, dry_run), label, show=app.show if app else None,
              use_guess=app.use_guess if app else None, shots=shots.show if shots else None)

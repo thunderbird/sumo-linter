@@ -152,6 +152,39 @@ class Prefs(unittest.TestCase):
         self.assertNotIn("offline.startup_state", self.prefs(offline=False))
 
 
+class RealAccount(unittest.TestCase):
+    """--account real (#40): a copy of the signed-in profile, never the profile."""
+
+    def test_the_copy_leaves_out_locks_and_caches(self):
+        src = tempfile.mkdtemp()
+        dst = os.path.join(tempfile.mkdtemp(), "copy")
+        self.addCleanup(lambda: [__import__("shutil").rmtree(d, ignore_errors=True)
+                                 for d in (src, os.path.dirname(dst))])
+        for name in ("prefs.js", "logins.json", "key4.db", ".parentlock", "lock"):
+            open(os.path.join(src, name), "w").close()
+        os.makedirs(os.path.join(src, "cache2", "entries"))
+        os.makedirs(os.path.join(src, "ImapMail", "example"))
+        tb_shot.copy_profile(src, dst)
+        self.assertEqual(sorted(os.listdir(dst)), ["ImapMail", "key4.db", "logins.json", "prefs.js"])
+
+    def test_no_signed_in_profile_says_run_login(self):
+        app = Application.make_app(self, "159.0")
+        os.makedirs(os.path.join(app, "Contents", "MacOS"))
+        open(os.path.join(app, "Contents", "MacOS", "thunderbird"), "w").close()
+        with self.assertRaisesRegex(RuntimeError, "run `tb_shot.py login` first"):
+            tb_shot.Thunderbird(app, account_profile=tempfile.mkdtemp())
+
+    def test_login_prefs_have_no_marionette_and_stay_online(self):
+        js = tb_shot.user_js(None, offline=False)
+        self.assertNotIn("marionette", js)
+        self.assertNotIn("offline.startup_state", js)
+
+    def test_the_account_profile_is_gitignored(self):
+        self.assertTrue(tb_shot.ACCOUNT_PROFILE.startswith(os.path.join(tb_shot.REPO, ".auth") + os.sep))
+        with open(os.path.join(tb_shot.REPO, ".gitignore"), encoding="utf-8") as f:
+            self.assertIn("/.auth/", f.read().split())
+
+
 class FakeThunderbird:
     version = "159.0"
 

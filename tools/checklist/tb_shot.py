@@ -11,6 +11,7 @@
 
     uv run tools/checklist/tb_shot.py shot --app APP --text TEXT --out FILE.png
     uv run tools/checklist/tb_shot.py session --app APP --out DIR
+    uv run tools/checklist/tb_shot.py login --app APP
 
 APP is a Thunderbird application: `/Applications/…/Thunderbird.app` on macOS,
 or the `thunderbird` program elsewhere. The script starts a second copy of it
@@ -36,6 +37,18 @@ answers each with one line, `{"ok": true, "path": …, "where": …}` or
 example 159. The version comes from the application's `application.ini`,
 never from its folder name, which can be wrong.
 
+`--account real` uses a real account instead (#40), for screenshots that need
+one. `login` sets it up once: it opens Thunderbird with a profile of its own,
+.auth/thunderbird-profile (gitignored, never commit it), and waits while you
+add the test account. Its sign-in may open in Firefox; sign in there, wait
+until Thunderbird shows the account's folders, and quit Thunderbird. Then
+`shot` and `session` with `--account real` run a temporary copy of that
+profile, online, so a screenshot run cannot change the signed-in profile, and
+they delete the copy at the end because it holds the account's tokens. The
+script never types a password and never composes or sends mail. If the sign-in
+has expired, run `login` again. Use a test account: its address will be in
+some screenshots, and SUMO's screenshots must contain no personal data.
+
 Python standard library only, like walk.py. It is a separate file because
 walk.py must stay one file (#32).
 """
@@ -59,6 +72,12 @@ MAX_PX = 620
 MARGIN_PX = 24  # room around the outline
 
 DUMMY_EMAIL = "dummy@example.invalid"
+
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# The signed-in profile for --account real (#40). /.auth/ is gitignored.
+ACCOUNT_PROFILE = os.path.join(REPO, ".auth", "thunderbird-profile")
+# Not copied: a copy must not look locked, and caches are rebuilt.
+NOT_COPIED = {"lock", ".parentlock", "parent.lock", "cache2", "startupCache", "crashes", "minidumps"}
 
 # The dialogs that Settings opens, searched after its panes. Proxy and
 # offline settings, for example, are only in these.
@@ -184,9 +203,9 @@ def free_port():
 
 
 def user_js(port, offline=True):
-    """The prefs of a screenshot profile."""
-    prefs = {
-        "marionette.port": port,
+    """The prefs of a screenshot profile. No port: no Marionette pref."""
+    prefs = {} if port is None else {"marionette.port": port}
+    prefs.update({
         "mail.shell.checkDefaultClient": False,
         "datareporting.policy.dataSubmissionEnabled": False,
         "toolkit.telemetry.reportingpolicy.firstRun": False,
@@ -195,7 +214,7 @@ def user_js(port, offline=True):
         "mail.provider.suppress_dialog_on_startup": True,
         "mail.spotlight.firstRunDone": True,
         "mailnews.start_page.enabled": False,
-    }
+    })
     if offline:
         prefs.update({
             # 3 is "always offline" in OfflineStartup.sys.mjs. 1 is "ask", which
@@ -211,24 +230,72 @@ def user_js(port, offline=True):
     return "\n".join(lines) + "\n"
 
 
-class Thunderbird:
-    """A copy of Thunderbird with its own profile, driven through Marionette."""
+def copy_profile(src, dst):
+    """Copy a profile, without its lock files and caches."""
+    shutil.copytree(src, dst, ignore=lambda folder, names: [n for n in names if n in NOT_COPIED])
 
-    def __init__(self, app, expect=None):
+
+def profile_in_use(profile):
+    """True if a running Thunderbird has this profile open (macOS and Linux)."""
+    try:
+        res = subprocess.run(["pgrep", "-f", "--", f"-profile {profile}"], capture_output=True, text=True)
+    except OSError:
+        return False
+    return res.returncode == 0
+
+
+def login(app, profile=ACCOUNT_PROFILE, run=subprocess.run, say=print):
+    """Open Thunderbird with the account profile, and wait until it quits."""
+    if profile_in_use(profile):
+        raise RuntimeError(f"a Thunderbird already has {profile} open: quit it first")
+    if not os.path.isfile(binary_of(app)):
+        raise RuntimeError(f"no Thunderbird program at {binary_of(app)}")
+    os.makedirs(profile, exist_ok=True)
+    with open(os.path.join(profile, "user.js"), "w", encoding="utf-8") as f:
+        f.write(user_js(None, offline=False))
+    say(f"Opening Thunderbird {version_of(app)} with the profile {profile}.")
+    say("Add the test account there (not your own). If its sign-in opens in Firefox,")
+    say("sign in there and come back. When Thunderbird shows the account's folders,")
+    say("quit Thunderbird, and this script ends.")
+    run([binary_of(app), "-no-remote", "-new-instance", "-profile", profile],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    say("Done. `--account real` now uses this account.")
+
+
+class Thunderbird:
+    """A copy of Thunderbird with its own profile, driven through Marionette.
+
+    With `account_profile`, a temporary copy of that signed-in profile runs
+    online (#40). Without it, a new empty profile runs offline, with a dummy
+    account.
+    """
+
+    def __init__(self, app, expect=None, account_profile=None):
         if expect and not version_matches(version_of(app), expect):
             raise RuntimeError(f"{app} is version {version_of(app)}, not {expect}")
         if not os.path.isfile(binary_of(app)):
             raise RuntimeError(f"no Thunderbird program at {binary_of(app)}")
+        real = account_profile is not None
+        if real:
+            if not os.path.isfile(os.path.join(account_profile, "prefs.js")):
+                raise RuntimeError(f"no signed-in profile at {account_profile}: run `tb_shot.py login` first")
+            if profile_in_use(account_profile):
+                raise RuntimeError(f"a Thunderbird has {account_profile} open: quit it first")
         self.app = app
         self.version = version_of(app)
         self.profile = tempfile.mkdtemp(prefix="tb-shot-")
+        self.proc = None
+        if real:
+            os.rmdir(self.profile)
+            copy_profile(account_profile, self.profile)
         port = free_port()
+        # user.js wins over the copy's prefs.js, and it is the copy's own file.
         with open(os.path.join(self.profile, "user.js"), "w", encoding="utf-8") as f:
-            f.write(user_js(port))
+            f.write(user_js(port, offline=not real))
         env = dict(os.environ, MOZ_REMOTE_ALLOW_SYSTEM_ACCESS="1")
+        command = [binary_of(app), "-no-remote", "-new-instance", "-profile", self.profile, "--marionette"]
         self.proc = subprocess.Popen(
-            [binary_of(app), "-no-remote", "-new-instance", "-profile", self.profile,
-             "--marionette", "-offline"],
+            command + ([] if real else ["-offline"]),
             env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
         )
         try:
@@ -237,7 +304,8 @@ class Thunderbird:
             self.m.cmd("Marionette:SetContext", {"value": "chrome"})
             self.m.cmd("WebDriver:SetTimeouts", {"script": 30000})
             self.wait_for_main_window()
-            self.add_dummy_account()
+            if not real:
+                self.add_dummy_account()
         except Exception:
             self.quit()
             raise
@@ -262,11 +330,12 @@ class Thunderbird:
             self.m.cmd("Marionette:Quit", {"flags": ["eForceQuit"]})
         except Exception:
             pass
-        try:
-            self.proc.wait(timeout=20)
-        except subprocess.TimeoutExpired:
-            self.proc.kill()
-            self.proc.wait()
+        if self.proc:
+            try:
+                self.proc.wait(timeout=20)
+            except subprocess.TimeoutExpired:
+                self.proc.kill()
+                self.proc.wait()
         if getattr(self, "m", None):
             self.m.close()
         shutil.rmtree(self.profile, ignore_errors=True)
@@ -377,7 +446,8 @@ return !!(doc && doc.readyState == 'complete' && doc.defaultView.selectServer);
 SELECT_ACCOUNT_PAGE_JS = """
 const [page] = arguments;
 const { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
-const server = MailServices.accounts.accounts.find(a => a.incomingServer.type == 'imap').incomingServer;
+// The first account that is not Local Folders: the dummy one, or the real one.
+const server = MailServices.accounts.accounts.find(a => a.incomingServer.type != 'none').incomingServer;
 document.getElementById('tabmail').currentTabInfo.browser.contentWindow.selectServer(server, page);
 """
 
@@ -610,17 +680,26 @@ def option(args, flag, default=None):
 
 def main():
     args = sys.argv[1:]
-    if not args or args[0] not in ("shot", "session"):
+    if not args or args[0] not in ("shot", "session", "login"):
         sys.exit(__doc__)
     command = args.pop(0)
     app = option(args, "--app")
     out = option(args, "--out")
     text = option(args, "--text")
     expect = option(args, "--expect")
-    if not app or not out or args or (command == "shot") != bool(text):
+    account = option(args, "--account", "dummy")
+    if command == "login":
+        if not app or args or out or text:
+            sys.exit(__doc__)
+        try:
+            login(app)
+        except RuntimeError as e:
+            sys.exit(str(e))
+        return
+    if not app or not out or args or (command == "shot") != bool(text) or account not in ("dummy", "real"):
         sys.exit(__doc__)
     try:
-        tb = Thunderbird(app, expect)
+        tb = Thunderbird(app, expect, ACCOUNT_PROFILE if account == "real" else None)
     except RuntimeError as e:
         sys.exit(str(e))
     try:

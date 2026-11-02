@@ -25,7 +25,7 @@ Phases 1 and 2 are implemented and tested. `cargo test` runs 42 tests, including
 tests over every corpus article.
 
 The corpus is no longer Thunderbird-only: `corpus-other/` holds 475 public Firefox
-articles, 207 other-product templates and the 3 markup-documentation articles — 895
+articles, 207 other-product templates and the 5 markup-documentation articles — 897
 documents of en-US source in total, all round-tripped in CI. It exists for lexer coverage
 *and* for the markup-aware search in issue #6. Thunderbird **style** still applies only to
 `corpus/`.
@@ -103,9 +103,9 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 for and expensive to *run* — a full pass is ~200 signed-in page fetches and reliably earns
 a 429 for the rest of the hour); the heading data is already measured; the four bugs are
 already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
-`vscode` (31 grammar + 51 link + 26 bold assertions, plus all 905 articles against SUMO's
-highlighting rules), `emacs` (99 mode assertions, against the real CLI, plus the 905),
-`vim` (109 plugin assertions, run under both Vim and Neovim, plus the 905), `ui-strings` (33 tests, plus 26 for the checklist walker, including that the committed comparison tables
+`vscode` (31 grammar + 51 link + 26 bold assertions, plus all 907 articles against SUMO's
+highlighting rules), `emacs` (99 mode assertions, against the real CLI, plus the 907),
+`vim` (109 plugin assertions, run under both Vim and Neovim, plus the 907), `ui-strings` (33 tests, plus 26 for the checklist walker, including that the committed comparison tables
 are up to date) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
 button, 72 on autosave, save-to-file and the file name, 99 on the preview, 30 on walk mode, 35 on highlighting) — so there is no
 by-hand test suite left.
@@ -372,7 +372,7 @@ Linting itself lives once in `sumo-lint-lsp` and is never duplicated; only editi
 gestures are. Highlighting is the one rule set that exists four times (web app, TextMate
 grammar, Emacs matcher, Vim syntax file), because each engine needs its own form; what
 keeps them equal is `editors/highlight-check.mjs`, which every editor's CI job uses to
-compare all 905 committed articles, character by character, with `web/highlight.js`. Each
+compare all 907 committed articles, character by character, with `web/highlight.js`. Each
 port runs Kitsune's rules as CodeMirror's simple mode does: a TextMate grammar's
 earliest-match-then-first-pattern rule is the same thing, Emacs needs one font-lock matcher
 (plain keywords color inside earlier matches) with the state cached on each newline, and

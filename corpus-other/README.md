@@ -72,6 +72,11 @@ source of truth: edit articles on SUMO.
 
 `markup-docs/en-US/` holds `markup-chart`, `markup-cheat-sheet` and `using-templates` — the
 articles that *document* the dialect, which `CLAUDE.md` cites as authoritative sources.
+`how-place-images-article` and `how-to-make-screenshots` joined them on 2026-11-01, for the
+screenshot conventions that sumo-linter #39 must follow: under 620 pixels in both height and
+width, a square-cornered `#f71701` outline 4 to 8 pt thick, the element centered in it, PNG,
+no personal data. Both were probed anonymously first (public), and fetched into a temporary
+folder so that the existing index entries stayed as they were.
 `how-to-use-for` is the fourth of that family and sits with the Firefox articles.
 
 They are here because **markup documentation is adversarial input for a markup linter**, and

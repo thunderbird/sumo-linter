@@ -371,7 +371,7 @@ grammar with SUMO's highlighting rules (see [Highlighting](#highlighting)).
 ```sh
 cd editors/vscode
 npm install
-npm test                  # 31 grammar + 51 link + 26 bold assertions, and 905 articles
+npm test                  # 31 grammar + 51 link + 26 bold assertions, and 907 articles
 npx vsce package          # produces sumo-lint-0.5.0.vsix
 code --install-extension sumo-lint-0.5.0.vsix
 ```

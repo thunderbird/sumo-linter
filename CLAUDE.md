@@ -80,6 +80,9 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
   the data gist <https://gist.github.com/rtanglao/2708f762f5a4ec71c699827d8bc4071f>.
   **This blocks nothing** — the per-article default needs no decision.
 - Fix the four filed markup bugs: knowledgebase-issues **#223, #224, #225, #228**.
+- knowledgebase-issues **#263**: explain in `markup-chart` and `markup-cheat-sheet` that one
+  `[[UI:details_start]]` pair can hold many sections (the linter side, SW013, shipped in #49).
+  Both articles are Mozilla-wide, so ask the SUMO content team first.
 - Triage the 8 non-public drafts: knowledgebase-issues **#227** (has a checklist). Two of
   the eight are not drafts at all — `invalid-certificates` is a misfiled support question,
   and `troubleshoot-pdf-and-email-issues-thunderbird` reads like machine-generated filler.

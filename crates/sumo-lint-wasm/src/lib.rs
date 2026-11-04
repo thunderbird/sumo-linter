@@ -86,8 +86,12 @@ pub unsafe extern "C" fn lint(ptr: *const u8, len: usize) -> *const u8 {
                     // fix on its own, the way an editor applies a single
                     // TextEdit, without another export to do it here.
                     Some(f) => format!(
-                        r#"{{"safe":{},"description":{},"start":{},"end":{},"replacement":{}}}"#,
+                        r#"{{"safe":{},"manual":{},"description":{},"start":{},"end":{},"replacement":{}}}"#,
                         f.applicability == Applicability::Safe,
+                        // Added for SW013 (#49). An older page ignores it and
+                        // shows "Fix (needs review)", which is wrong only in
+                        // its label; `fix()` never applies it either way.
+                        f.applicability == Applicability::Manual,
                         json_str(&f.description),
                         f.span.start,
                         f.span.end,

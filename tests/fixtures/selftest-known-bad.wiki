@@ -27,3 +27,11 @@ Press {button OK} then {menu Settings}.
 <nowiki>{for this} '''should be ignored'''</nowiki>
 <!-- {note} also ignored -->
 		tab line
+
+=Older=
+[[UI:details_start]]
+==A==
+[[UI:details_end]]
+[[UI:details_start]]
+==B==
+[[UI:details_end]]

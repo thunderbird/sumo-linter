@@ -224,6 +224,8 @@ fn main() -> ExitCode {
                     let tag = match f.applicability {
                         Applicability::Safe => "fix",
                         Applicability::Unsafe => "fix (unsafe)",
+                        // Never applied by --fix: see Applicability::Manual.
+                        Applicability::Manual => "fix (in an editor or the web app only)",
                     };
                     emit(format!("    {tag}: {}", f.description));
                 }

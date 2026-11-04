@@ -52,7 +52,14 @@ fn markup_documentation_lints_clean() {
     for f in &files {
         let src = std::fs::read_to_string(f).unwrap();
         let name = f.file_name().unwrap().to_string_lossy().to_string();
-        let ds = Document::parse(&src).diagnostics();
+        let mut ds = Document::parse(&src).diagnostics();
+        // The one exception: `how-to-make-screenshots` is style guidance, not a
+        // markup reference, and its 4 redundant details pairs are real (#49).
+        if name == "how-to-make-screenshots.wiki" {
+            let n = ds.iter().filter(|d| d.code == "SW013").count();
+            assert_eq!(n, 4, "{name}: SW013 count");
+            ds.retain(|d| d.code != "SW013");
+        }
         assert_eq!(ds, vec![], "{name} should lint clean, got {ds:#?}");
     }
     // `how-to-use-for` lives with the Firefox articles but is the same category:
@@ -310,13 +317,89 @@ fn known_bad_fixture_reports_errors() {
     assert!(doc.is_lossless());
     let codes: Vec<&str> = doc.diagnostics().iter().map(|d| d.code).collect();
     for expect in [
-        "SW001", "SW002", "SW004", "SW005", "SW006", "SW008", "SW009", "SW010",
+        "SW001", "SW002", "SW004", "SW005", "SW006", "SW008", "SW009", "SW010", "SW013",
     ] {
         assert!(
             codes.contains(&expect),
             "fixture should trigger {expect}, got {codes:?}"
         );
     }
+}
+
+/// SW013 over the Thunderbird corpus, per article, as measured by hand for
+/// #49. The scrape is older than revision 367098 of `new-thunderbird-android`,
+/// which removed its 8 pairs, so update this table after a rescrape.
+///
+/// Applying every SW013 fix must remove every SW013, keep the article
+/// lossless, and leave every other diagnostic as it was.
+#[test]
+fn redundant_details_pairs_in_the_corpus() {
+    let files = corpus_files();
+    if files.is_empty() {
+        eprintln!("corpus not present; skipping");
+        return;
+    }
+    let want: &[(&str, usize)] = &[
+        ("custom-oauth-advanced-users", 1),
+        ("new-email-notifications-thunderbird", 2),
+        ("new-thunderbird-android", 8),
+        ("new-thunderbird-desktop", 19),
+        ("openpgp-thunderbird-android-howto", 1),
+        ("stop-screen-brightness-dimming-thunderbird-android", 2),
+        ("tb-oauth", 1),
+        ("thunderbird-android-import", 1),
+    ];
+    let mut got: Vec<(String, usize)> = Vec::new();
+    for f in &files {
+        let src = std::fs::read_to_string(f).unwrap();
+        let doc = Document::parse(&src);
+        let ds = doc.diagnostics();
+        let fixes: Vec<_> = ds
+            .iter()
+            .filter(|d| d.code == "SW013")
+            .map(|d| d.fix.clone().expect("SW013 has a fix"))
+            .collect();
+        if fixes.is_empty() {
+            continue;
+        }
+        let name = f.file_stem().unwrap().to_string_lossy().to_string();
+        got.push((name.clone(), fixes.len()));
+
+        // Apply them the way an editor applies quick fixes, last first.
+        let mut out = src.clone();
+        for fx in fixes.iter().rev() {
+            assert_eq!(fx.applicability, sumo_wiki_core::Applicability::Manual);
+            out.replace_range(fx.span.clone(), &fx.replacement);
+        }
+        let redo = Document::parse(&out);
+        assert!(redo.is_lossless(), "{name}");
+        let before: Vec<_> = ds
+            .iter()
+            .filter(|d| d.code != "SW013")
+            .map(|d| (d.code, d.message.clone()))
+            .collect();
+        let after: Vec<_> = redo
+            .diagnostics()
+            .iter()
+            .map(|d| (d.code, d.message.clone()))
+            .collect();
+        assert_eq!(before, after, "{name}: other diagnostics changed");
+        // Only the tag lines and the blank lines between them go.
+        let lost = src.lines().count() - out.lines().count();
+        assert!(lost >= 2 * fixes.len(), "{name}");
+        assert!(
+            out.lines().filter(|l| l.contains("UI:details")).count()
+                == src.lines().filter(|l| l.contains("UI:details")).count() - 2 * fixes.len()
+        );
+        // And the safe-fix path never touches them.
+        assert_eq!(
+            doc.apply_fixes(true).0.matches("UI:details").count(),
+            src.matches("UI:details").count()
+        );
+    }
+    got.sort();
+    let want: Vec<(String, usize)> = want.iter().map(|(n, c)| (n.to_string(), *c)).collect();
+    assert_eq!(got, want);
 }
 
 // ---------------------------------------------------------------------------

@@ -133,6 +133,7 @@ fn diagnostic_json(text: &str, d: &Diagnostic) -> String {
     let hint = match d.fix.as_ref().map(|f| f.applicability) {
         Some(Applicability::Safe) => " (fixable)",
         Some(Applicability::Unsafe) => " (fix available, needs review)",
+        Some(Applicability::Manual) => " (fix available)",
         None => "",
     };
     format!(
@@ -153,7 +154,9 @@ fn diagnostic_json(text: &str, d: &Diagnostic) -> String {
 /// `Unsafe` fixes are offered too, unlike in `--fix`: a code action is an
 /// explicit, reviewable, undoable choice by the author, so the CLI's
 /// don't-touch-it default would only push people toward guessing by hand. The
-/// title says so.
+/// title says so. `Manual` fixes are offered as quick fixes but never as the
+/// preferred one, and never in the fix-all action, which `codeActionsOnSave`
+/// runs unattended.
 fn code_actions(uri: &str, text: &str, body: &str) -> String {
     let (start, end) = match parse_range(body) {
         Some((s, e)) => (from_position(text, s), from_position(text, e)),
@@ -178,7 +181,11 @@ fn code_actions(uri: &str, text: &str, body: &str) -> String {
             "{}: {}{}",
             d.code,
             fix.description,
-            if safe { "" } else { " (needs review)" }
+            if fix.applicability == Applicability::Unsafe {
+                " (needs review)"
+            } else {
+                ""
+            }
         );
         actions.push(format!(
             r#"{{"title":{},"kind":"quickfix","isPreferred":{},"diagnostics":[{}],"edit":{{"changes":{{{}:[{{"range":{},"newText":{}}}]}}}}}}"#,
@@ -501,6 +508,28 @@ mod tests {
         // And the document-wide action, for codeActionsOnSave.
         assert!(actions.contains(r#""kind":"source.fixAll.sumo-lint""#));
         assert!(actions.contains(r#""title":"sumo-lint: apply 1 safe fix""#));
+    }
+
+    /// SW013's fix is `Manual` (#49): a quick fix the author picks, but never
+    /// the preferred one and never part of the fix-all that runs on save.
+    #[test]
+    fn manual_fix_is_a_quick_fix_but_not_in_fix_all() {
+        let text = "==A==\n[[UI:details_end]]\n[[UI:details_start]]\n==B==\n";
+        let body = r#"{"params":{"textDocument":{"uri":"file:///a.wiki"},"range":{"start":{"line":1,"character":0},"end":{"line":1,"character":0}},"context":{"diagnostics":[]}}}"#;
+        let actions = code_actions("file:///a.wiki", text, body);
+        assert!(
+            actions.contains(r#""title":"SW013: delete the redundant `[[UI:details_end]]` and `[[UI:details_start]]`""#),
+            "{actions}"
+        );
+        assert!(!actions.contains("needs review"), "{actions}");
+        assert!(actions.contains(r#""isPreferred":false"#), "{actions}");
+        assert!(!actions.contains("source.fixAll"), "{actions}");
+        // Deletes lines 2 and 3 whole.
+        assert!(actions.contains(
+            r#""range":{"start":{"line":1,"character":0},"end":{"line":3,"character":0}},"newText":""}]"#
+        ), "{actions}");
+        let d = Document::parse(text).diagnostics_for(Product::Thunderbird);
+        assert!(diagnostic_json(text, &d[0]).contains("collapsible (fix available)"));
     }
 
     #[test]

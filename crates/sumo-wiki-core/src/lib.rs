@@ -90,7 +90,8 @@ impl Document {
 
     /// Apply fixes and return the rewritten source.
     ///
-    /// Only `Safe` fixes are applied unless `include_unsafe` is set. Overlapping
+    /// Only `Safe` fixes are applied unless `include_unsafe` is set, and
+    /// `Manual` fixes never are: a person applies those one at a time. Overlapping
     /// fixes are dropped rather than merged: applying two edits to the same bytes
     /// would produce something neither rule intended.
     pub fn apply_fixes(&self, include_unsafe: bool) -> (String, usize) {
@@ -103,7 +104,11 @@ impl Document {
             .diagnostics_for(product)
             .into_iter()
             .filter_map(|d| d.fix)
-            .filter(|f| include_unsafe || f.applicability == Applicability::Safe)
+            .filter(|f| match f.applicability {
+                Applicability::Safe => true,
+                Applicability::Unsafe => include_unsafe,
+                Applicability::Manual => false,
+            })
             .collect();
         fixes.sort_by_key(|f| (f.span.start, f.span.end));
 
@@ -295,6 +300,118 @@ mod tests {
         );
         // Not applied by default, precisely because the intended level is a guess.
         assert_eq!(d.apply_fixes(false).1, 0);
+    }
+
+    /// Apply only the SW013 fixes, last first, as an editor applies quick fixes.
+    fn apply_sw013(src: &str) -> (String, usize) {
+        let ds = Document::parse(src).diagnostics();
+        let fixes: Vec<Fix> = ds
+            .into_iter()
+            .filter(|d| d.code == "SW013")
+            .filter_map(|d| d.fix)
+            .collect();
+        let mut out = src.to_string();
+        for f in fixes.iter().rev() {
+            assert_eq!(f.applicability, Applicability::Manual);
+            out.replace_range(f.span.clone(), &f.replacement);
+        }
+        (out, fixes.len())
+    }
+
+    /// A `[[UI:details_end]]` that only blank lines separate from the next
+    /// `[[UI:details_start]]` does nothing (#49).
+    #[test]
+    fn redundant_details_pair_is_flagged_and_deleted() {
+        let pair = "=Older=\n[[UI:details_start]]\n==A==\nText A\n";
+        for (src, want) in [
+            // Adjacent lines.
+            (
+                format!("{pair}[[UI:details_end]]\n[[UI:details_start]]\n==B==\nText B\n[[UI:details_end]]\n"),
+                format!("{pair}==B==\nText B\n[[UI:details_end]]\n"),
+            ),
+            // Blank lines between the tags go too (Roland, 2026-11-03).
+            (
+                format!("{pair}[[UI:details_end]]\n\n  \n[[UI:details_start]]\n==B==\n[[UI:details_end]]\n"),
+                format!("{pair}==B==\n[[UI:details_end]]\n"),
+            ),
+            // Blank lines before the end and after the start stay.
+            (
+                format!("{pair}\n[[UI:details_end]]\n[[UI:details_start]]\n\n==B==\n[[UI:details_end]]\n"),
+                format!("{pair}\n\n==B==\n[[UI:details_end]]\n"),
+            ),
+            // Both on one line.
+            (
+                format!("{pair}[[UI:details_end]] [[UI:details_start]]\n==B==\n[[UI:details_end]]\n"),
+                format!("{pair}==B==\n[[UI:details_end]]\n"),
+            ),
+            // Text before the end tag stays on its own line, so the heading
+            // after the pair still starts a line.
+            (
+                format!("{pair}Text [[UI:details_end]]\n\n[[UI:details_start]]\n==B==\n[[UI:details_end]]"),
+                format!("{pair}Text \n==B==\n[[UI:details_end]]"),
+            ),
+            // Text after the start tag keeps its line too.
+            (
+                format!("{pair}[[UI:details_end]]\n[[UI:details_start]] Text\n==B==\n"),
+                format!("{pair} Text\n==B==\n"),
+            ),
+            // At the end of a file with no final newline.
+            (
+                format!("{pair}[[UI:details_end]]\n[[UI:details_start]]"),
+                pair.to_string(),
+            ),
+        ] {
+            let d = Document::parse(&src);
+            let sw = d
+                .diagnostics()
+                .into_iter()
+                .find(|x| x.code == "SW013")
+                .unwrap_or_else(|| panic!("SW013 for {src:?}"));
+            assert_eq!(sw.severity, Severity::Warning);
+            assert_eq!(&src[sw.span.clone()].len(), &src[sw.span.clone()].trim().len());
+            assert!(src[sw.span.clone()].starts_with("[[UI:details_end]]"));
+            assert!(src[sw.span.clone()].ends_with("[[UI:details_start]]"));
+            let (fixed, n) = apply_sw013(&src);
+            assert_eq!(n, 1, "{src:?}");
+            assert_eq!(fixed, want, "{src:?}");
+            assert!(Document::parse(&fixed).is_lossless());
+        }
+    }
+
+    #[test]
+    fn needed_details_pairs_are_not_flagged() {
+        for src in [
+            // Text, an h1, a comment or a {for} between the pair: each is content.
+            "[[UI:details_end]]\nText\n[[UI:details_start]]\n",
+            "[[UI:details_end]]\n=H1=\n[[UI:details_start]]\n",
+            "[[UI:details_end]]\n<!-- c -->\n[[UI:details_start]]\n",
+            "[[UI:details_end]]\n{for win}\n[[UI:details_start]]\n{/for}\n",
+            // The other order, and other components.
+            "[[UI:details_start]]\n[[UI:details_end]]\n",
+            "[[UI:details_end]]\n[[UI:device_migration_wizard]]\n[[UI:details_start]]\n",
+            // Escaped, as the markup docs show it.
+            "<nowiki>[[UI:details_end]]</nowiki>\n<nowiki>[[UI:details_start]]</nowiki>\n",
+            // A misspelt name is a different problem.
+            "[[UI:details_end]]\n[[UI:detail_start]]\n",
+        ] {
+            let codes: Vec<_> = Document::parse(src)
+                .diagnostics()
+                .iter()
+                .map(|d| d.code)
+                .collect();
+            assert!(!codes.contains(&"SW013"), "{src:?}: {codes:?}");
+        }
+    }
+
+    /// Nothing unattended applies a `Manual` fix: not `--fix`, not
+    /// `--unsafe-fixes` (#49, decided by Roland on 2026-11-03).
+    #[test]
+    fn manual_fixes_are_never_applied_in_bulk() {
+        let src = "[[UI:details_start]]\n==A==\n[[UI:details_end]]\n[[UI:details_start]]\n==B==\n[[UI:details_end]]\n";
+        let d = Document::parse(src);
+        assert!(d.diagnostics().iter().any(|x| x.code == "SW013"));
+        assert_eq!(d.apply_fixes(false), (src.to_string(), 0));
+        assert_eq!(d.apply_fixes(true), (src.to_string(), 0));
     }
 
     /// The case a typist actually hits: `=h1` with no closing run at all. The

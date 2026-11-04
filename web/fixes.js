@@ -72,8 +72,38 @@ function applyFixToText(text, fix) {
   };
 }
 
+/**
+ * The Fix button for one fix: class, label and tooltip.
+ *
+ * Three kinds, as in the Rust core's `Applicability`: `safe`, a guess that
+ * needs review, and `manual` (#49), which is correct but changes nothing a
+ * reader sees, so only a click applies it and "Apply N safe fixes" leaves it
+ * out. An older module sends no `manual`, and its fixes are never manual.
+ */
+function fixButton(fix) {
+  if (fix.safe) {
+    return { className: 'fix', text: 'Fix', title: `Apply: ${fix.description}` };
+  }
+  if (fix.manual) {
+    return {
+      className: 'fix',
+      text: 'Fix',
+      title:
+        `Apply: ${fix.description}. This changes the source only, not the page, `
+        + `so it is not part of "Apply safe fixes".`,
+    };
+  }
+  return {
+    className: 'fix review',
+    text: 'Fix (needs review)',
+    title:
+      `Apply, then check it: ${fix.description}. The intended markup is a `
+      + `guess here, so this may not be the repair you want.`,
+  };
+}
+
 // Loaded as a plain <script> in the browser, where these are globals; required
 // as CommonJS by the test.
 if (typeof module !== 'undefined') {
-  module.exports = { applyFixToText, byteToCharIndex, isApplicable, utf8Len };
+  module.exports = { applyFixToText, byteToCharIndex, fixButton, isApplicable, utf8Len };
 }

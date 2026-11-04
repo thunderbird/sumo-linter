@@ -23,7 +23,8 @@ impl Severity {
     }
 }
 
-/// How confident we are that applying a fix preserves author intent.
+/// How confident we are that applying a fix preserves author intent, and who
+/// may apply it.
 ///
 /// Only `Safe` fixes are applied without an explicit opt-in. This distinction is
 /// load-bearing: most phase-1 errors (an unbalanced `'''`, for instance) have
@@ -32,6 +33,12 @@ impl Severity {
 pub enum Applicability {
     Safe,
     Unsafe,
+    /// Correct, but it changes nothing that a reader sees, so it is only
+    /// source churn for the volunteer localizers who review every change.
+    /// A person applies it with a quick fix or the web app's Fix button, while
+    /// editing the article anyway. `--fix`, `--unsafe-fixes` and the LSP's
+    /// fix-all action never apply it (sumo-linter #49).
+    Manual,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

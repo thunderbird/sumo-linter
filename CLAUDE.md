@@ -21,7 +21,7 @@ and why it cannot be inferred from the API.
 
 ## Current state
 
-Phases 1 and 2 are implemented and tested. `cargo test` runs 42 tests, including property
+Phases 1 and 2 are implemented and tested. `cargo test` runs 47 tests, including property
 tests over every corpus article.
 
 The corpus is no longer Thunderbird-only: `corpus-other/` holds 475 public Firefox
@@ -29,6 +29,11 @@ articles, 207 other-product templates and the 5 markup-documentation articles �
 documents of en-US source in total, all round-tripped in CI. It exists for lexer coverage
 *and* for the markup-aware search in issue #6. Thunderbird **style** still applies only to
 `corpus/`.
+
+Linting the committed corpus also reports 35 warnings. All are SW013 (#49), a redundant
+`[[UI:details_end]]` `[[UI:details_start]]` pair. Eight are in `new-thunderbird-android`,
+and revision 367098 removed them on SUMO after the scrape. After the next rescrape, the
+count drops to 27, and you must update the table in `redundant_details_pairs_in_the_corpus`.
 
 Linting the committed corpus reports **5 errors, all verified by hand** and all filed:
 #223 and #225 (unbalanced `'''`) and #228 (two `{for}` bugs in
@@ -108,7 +113,7 @@ already filed with rendered-output evidence. **Every test now runs in CI** — `
 `vscode` (31 grammar + 51 link + 26 bold assertions, plus all 907 articles against SUMO's
 highlighting rules), `emacs` (99 mode assertions, against the real CLI, plus the 907),
 `vim` (109 plugin assertions, run under both Vim and Neovim, plus the 907), `ui-strings` (33 tests, plus 32 for the checklist walker and 24 for its Thunderbird screenshots, including that the committed comparison tables
-are up to date) and `web` (31 assertions on the fix arithmetic, 16 on the line-number gutter, 21 on the Copy
+are up to date) and `web` (39 assertions on the fix arithmetic and the Fix button labels, 16 on the line-number gutter, 21 on the Copy
 button, 72 on autosave, save-to-file and the file name, 99 on the preview, 30 on walk mode, 35 on highlighting, 17 on column widths) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
@@ -261,7 +266,13 @@ means the author's intent is unambiguous, not that rendering is unchanged** — 
 SW010 turn inert Markdown into a real link and real bold, and `=h1` → `=h1=` turns a
 literal line into a heading. What makes a fix `Unsafe` is a real choice between plausible
 repairs: `==H ===` could have meant either level, and picking one silently changes what the
-article says. Apply that test to every new rule. In the LSP
+article says. Apply that test to every new rule. A third kind, `Manual` (#49), is for a
+fix that is correct but changes nothing a reader sees. Such a fix is only churn for
+localizers. The example is SW013's redundant `[[UI:details_end]]` `[[UI:details_start]]`
+pair, which renders identically on staging. Nothing unattended applies a `Manual` fix:
+not `--fix`, not `--unsafe-fixes`, not the LSP fix-all that `codeActionsOnSave` runs, and
+not the web app's *Apply N safe fixes*. Only a click on its own quick fix or Fix button
+applies it, while the author edits the article anyway. In the LSP
 both kinds are offered as quick fixes (`Unsafe` titled *(needs review)*), because accepting
 a code action is a deliberate, undoable choice, unlike a CLI writing files unattended. The
 web app follows the same rule with a **Fix** button on each diagnostic, and earns the

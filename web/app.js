@@ -768,25 +768,24 @@ function run() {
       // An older module than this page: describe the repair, offer no button.
       const tag = document.createElement('em');
       tag.className = 'wide';
-      tag.textContent = d.fix.safe
+      tag.textContent = d.fix.safe || d.fix.manual
         ? `fix: ${d.fix.description}`
         : `fix needs review: ${d.fix.description}`;
       li.append(tag);
     } else if (d.fix) {
       // Both kinds get a button, on the same reasoning as the LSP quick fixes:
       // clicking one is a deliberate, undoable choice, unlike `--fix` rewriting
-      // files unattended. The unsafe ones say so rather than being hidden.
+      // files unattended. The unsafe ones say so rather than being hidden, and
+      // the manual ones (#49) are left out of "Apply N safe fixes".
       const row = document.createElement('div');
       row.className = 'fixrow';
 
       const apply = document.createElement('button');
       apply.type = 'button';
-      apply.className = d.fix.safe ? 'fix' : 'fix review';
-      apply.textContent = d.fix.safe ? 'Fix' : 'Fix (needs review)';
-      apply.title = d.fix.safe
-        ? `Apply: ${d.fix.description}`
-        : `Apply, then check it: ${d.fix.description}. The intended markup is a `
-          + `guess here, so this may not be the repair you want.`;
+      const look = fixButton(d.fix);
+      apply.className = look.className;
+      apply.textContent = look.text;
+      apply.title = look.title;
       apply.addEventListener('click', () => applyOne(d.fix, snapshot));
 
       const tag = document.createElement('em');

@@ -44,6 +44,10 @@ pub const RULES: &[(&str, &str)] = &[
         "SW012",
         "Firefox version condition {for fxN} in a Thunderbird article",
     ),
+    (
+        "SW013",
+        "[[UI:details_end]] directly followed by [[UI:details_start]]",
+    ),
 ];
 
 /// Which product's articles are being linted.
@@ -70,6 +74,7 @@ pub fn check(input: &str, tokens: &[Token]) -> Vec<Diagnostic> {
     empty_list_items(input, tokens, &mut out);
     markdown_syntax(input, tokens, &mut out);
     empty_macros(input, tokens, &mut out);
+    redundant_details(input, tokens, &mut out);
     out.sort_by_key(|d| (d.span.start, d.code));
     out
 }
@@ -625,6 +630,88 @@ fn firefox_versions(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
                 }),
             );
         }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// SW013 — a details_end/details_start pair that does nothing
+// ---------------------------------------------------------------------------
+
+/// True if `t` is `[[UI:name]]`. Kitsune matches the component name exactly
+/// (`ALLOWED_UI_COMPONENTS` in `kitsune/sumo/parser.py`), and the lexer already
+/// matched the `UI:` prefix without regard to case.
+fn is_ui(t: &Token, input: &str, name: &str) -> bool {
+    t.kind == (TokenKind::Link { kind: LinkKind::Ui })
+        && t.text(input)
+            .strip_prefix("[[")
+            .and_then(|s| s.strip_suffix("]]"))
+            .and_then(|s| s.split_once(':'))
+            .is_some_and(|(_, n)| n.trim() == name)
+}
+
+/// `[[UI:details_start]]` becomes `<section class="mzp-c-details">` and
+/// `[[UI:details_end]]` becomes `</section>`. Kitsune's
+/// `protocol-details-init.js` then makes every h2 to h6 heading in a section
+/// collapsible. So an end that only blank lines separate from the next start
+/// closes one section and opens an identical one: one pair around all the
+/// sections renders the same. Measured on staging, 2026-11-03 (sumo-linter #49).
+///
+/// The fix deletes both tags and the blank lines between them, and the tags'
+/// own lines when nothing else is on them. It changes nothing a reader sees, so
+/// it is `Manual`: only a person applies it.
+fn redundant_details(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
+    let bytes = input.as_bytes();
+    for (n, end) in tokens.iter().enumerate() {
+        if !is_ui(end, input, "details_end") {
+            continue;
+        }
+        // Only whitespace and newlines may separate the two tags.
+        let Some(start) = tokens[n + 1..]
+            .iter()
+            .find(|u| !(u.kind == TokenKind::Newline || u.text(input).trim().is_empty()))
+        else {
+            continue;
+        };
+        if !is_ui(start, input, "details_start") {
+            continue;
+        }
+        // Widen to whole lines where the tags are alone on them, so no blank
+        // line or stray indentation is left behind.
+        // The newline after the start tag goes only if both tags are alone on
+        // their lines: with text before the end tag, deleting it would join
+        // that text to the next line, which may be a heading.
+        let line_start = input[..end.span.start].rfind('\n').map_or(0, |i| i + 1);
+        let alone_before = input[line_start..end.span.start].trim().is_empty();
+        let line_end = input[start.span.end..]
+            .find('\n')
+            .map_or(input.len(), |i| start.span.end + i);
+        let alone_after = input[start.span.end..line_end].trim().is_empty();
+        let from = if alone_before {
+            line_start
+        } else {
+            end.span.start
+        };
+        let to = if alone_before && alone_after {
+            (line_end + 1).min(bytes.len())
+        } else {
+            start.span.end
+        };
+        out.push(
+            Diagnostic::new(
+                "SW013",
+                Severity::Warning,
+                "`[[UI:details_end]]` directly followed by `[[UI:details_start]]` does nothing: \
+                 one pair makes every h2 to h6 heading inside it collapsible",
+                end.span.start..start.span.end,
+            )
+            .with_fix(Fix {
+                span: from..to,
+                replacement: String::new(),
+                applicability: Applicability::Manual,
+                description: "delete the redundant `[[UI:details_end]]` and `[[UI:details_start]]`"
+                    .into(),
+            }),
+        );
     }
 }
 

@@ -13,7 +13,7 @@ import assert from 'node:assert/strict';
 // CommonJS module: the default import is its `module.exports` object.
 import fixes from '../fixes.js';
 
-const { applyFixToText, byteToCharIndex, isApplicable, utf8Len } = fixes;
+const { applyFixToText, byteToCharIndex, fixButton, isApplicable, utf8Len } = fixes;
 
 let failed = 0;
 let checks = 0;
@@ -101,9 +101,26 @@ check('undefined', isApplicable(undefined), false);
 check('a backwards span', isApplicable({ start: 5, end: 4, replacement: '=' }), false);
 check('a non-integer offset', isApplicable({ start: 0.5, end: 1, replacement: '=' }), false);
 
+// --- fixButton --------------------------------------------------------------
+// Three kinds of fix (#49). A manual one gets a plain Fix button, not the
+// "needs review" warning, because it is correct; it is only kept out of the
+// bulk button, which counts `safe` alone.
+const safeB = fixButton({ safe: true, description: 'd' });
+check('safe: label', safeB.text, 'Fix');
+check('safe: class', safeB.className, 'fix');
+const manualB = fixButton({ safe: false, manual: true, description: 'd' });
+check('manual: label', manualB.text, 'Fix');
+check('manual: class', manualB.className, 'fix');
+check('manual: says why it is not bulk', manualB.title.includes('not part of "Apply safe fixes"'), true);
+const unsafeB = fixButton({ safe: false, manual: false, description: 'd' });
+check('unsafe: label', unsafeB.text, 'Fix (needs review)');
+check('unsafe: class', unsafeB.className, 'fix review');
+// An older module sends no `manual` field.
+check('older module, unsafe', fixButton({ safe: false, description: 'd' }).text, 'Fix (needs review)');
+
 // A floor on the count: a file that stops running its body would otherwise
 // print no failures and pass.
-const expected = 31;
+const expected = 39;
 if (checks < expected) {
   console.error(`\nonly ${checks} web assertions ran, expected at least ${expected}`);
   process.exit(1);

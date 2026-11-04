@@ -112,6 +112,11 @@ Unsafe fixes appear in the menu too, marked *(needs review)* — the CLI withhol
 them behind `--unsafe-fixes` because it writes files unattended, whereas
 accepting a code action is a deliberate, undoable choice.
 
+The SW013 fix deletes a redundant `[[UI:details_end]]` `[[UI:details_start]]` pair. It
+is in the menu with no mark. It is never the preferred fix and never part of
+`source.fixAll.sumo-lint`, so a save never applies it. The deletion changes nothing that
+a reader sees, so it happens only when you choose it while you edit the article.
+
 This matters more than it looks: without a code-action provider of our own, `Cmd+.`
 on a SUMO diagnostic falls through to whatever else is installed, and an AI
 assistant asked to fix `SW009` will "correct" the markup to a Markdown link —

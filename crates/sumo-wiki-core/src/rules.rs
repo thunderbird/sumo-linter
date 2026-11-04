@@ -25,6 +25,9 @@ pub const IMAGE_PARAMS: &[&str] = &[
 ];
 
 /// Every rule code this crate can emit, with a one-line description.
+///
+/// `docs/rules.md` explains each one. A test fails if a code here has no
+/// section there, so add the section with the rule.
 pub const RULES: &[(&str, &str)] = &[
     ("SW001", "unclosed or unopened {for} block"),
     ("SW002", "unclosed or unopened {note} block"),

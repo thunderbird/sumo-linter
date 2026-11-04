@@ -21,7 +21,7 @@ and why it cannot be inferred from the API.
 
 ## Current state
 
-Phases 1 and 2 are implemented and tested. `cargo test` runs 47 tests, including property
+Phases 1 and 2 are implemented and tested. `cargo test` runs 49 tests, including property
 tests over every corpus article.
 
 The corpus is no longer Thunderbird-only: `corpus-other/` holds 475 public Firefox
@@ -416,6 +416,7 @@ Headless-test traps, all measured, one per editor:
 
 - Scaffold with `cargo init`; keep `cargo fmt` and `cargo clippy --all-targets` clean.
 - MPL-2.0 header on every new source file (see `tools/scrape/*.mjs`).
+- A new rule needs a section in `docs/rules.md` (#50), with an example that triggers it. `tests/rules_doc.rs` fails otherwise.
 - Write tests alongside code — `cargo mutants` is planned and needs real assertions.
 - Required properties: **round-trip** (parse→print of unmodified input is byte-identical)
   and **idempotence** (`format(format(x)) == format(x)`).

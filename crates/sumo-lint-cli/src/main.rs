@@ -45,7 +45,8 @@ STYLE OPTIONS:
                          difference, and every diff is reviewed by a localizer.
     --format <text|json> output format (default: text)
     --quiet              only print the summary
-    --list-rules         list every rule and exit
+    --list-rules         list every rule and exit. Each rule is explained in
+                         https://github.com/thunderbird/sumo-linter/blob/main/docs/rules.md
     -h, --help           print this help
 
 EXIT CODES:
@@ -87,6 +88,7 @@ fn main() -> ExitCode {
                 for (code, desc) in RULES {
                     println!("{code}  {desc}");
                 }
+                println!("\nEach rule is explained in https://github.com/thunderbird/sumo-linter/blob/main/docs/rules.md");
                 return ExitCode::SUCCESS;
             }
             "--fix" => o.fix = true,

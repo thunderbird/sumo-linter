@@ -424,6 +424,24 @@ fn empty_list_items(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
             j += 1;
         }
         if empty {
+            // An empty line ends a list, so deleting only the marker would
+            // split `* a`, `*`, `* b` into two lists, and restart a `#` list's
+            // numbers (#51). When the next line is a list item too, the fix
+            // deletes the whole line. Otherwise it keeps the line break, so two
+            // paragraphs around the item do not join into one.
+            // Only a marker at the very start of the next line counts. The lexer
+            // also accepts a tab before a marker, but whether Kitsune does is
+            // not measured, and keeping the break is the harmless choice.
+            let next_is_item = tokens.get(j).is_some_and(|t| t.kind == TokenKind::Newline)
+                && tokens
+                    .get(j + 1)
+                    .is_some_and(|u| u.kind == TokenKind::ListMarker);
+            let (from, to) = if next_is_item {
+                let line_start = input[..t.span.start].rfind('\n').map_or(0, |i| i + 1);
+                (line_start, tokens[j].span.end)
+            } else {
+                (t.span.start, end)
+            };
             out.push(
                 Diagnostic::new(
                     "SW008",
@@ -432,7 +450,7 @@ fn empty_list_items(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
                     t.span.start..end,
                 )
                 .with_fix(Fix {
-                    span: t.span.start..end,
+                    span: from..to,
                     replacement: String::new(),
                     applicability: Applicability::Safe,
                     description: "remove the empty list item".into(),

@@ -141,7 +141,7 @@ Empty list item.
 
 - Severity: warning
 - Products: all
-- Fix: safe, deletes the list marker and leaves an empty line
+- Fix: safe, deletes the empty item
 
 ```
 * First item
@@ -150,6 +150,8 @@ Empty list item.
 ```
 
 Why: SUMO shows an empty bullet or number.
+
+An empty line ends a list. So if the next line is also a list item, the fix deletes the whole line, and the list stays one list. Otherwise, the fix deletes only the marker and keeps the line break, so that the paragraphs before and after the item do not join. See issue #51.
 
 ## SW009
 

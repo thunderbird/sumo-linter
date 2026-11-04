@@ -302,6 +302,34 @@ mod tests {
         assert_eq!(d.apply_fixes(false).1, 0);
     }
 
+    /// The SW008 fix must not split a list in two (#51).
+    #[test]
+    fn empty_list_item_fix_keeps_the_list_whole() {
+        for (src, want) in [
+            ("* a\n*\n* b\n", "* a\n* b\n"),
+            ("# a\n#\n# b\n", "# a\n# b\n"),
+            ("* a\n**  \n** b\n", "* a\n** b\n"),
+            // A line that starts with spaces is preformatted, not an item.
+            ("* a\n*\n  * b\n", "* a\n\n  * b\n"),
+            ("*\n* b\n", "* b\n"),
+            // The last item: nothing follows to split from.
+            ("* a\n*\n", "* a\n\n"),
+            ("* a\n*", "* a\n"),
+            // Text after it: keep the break, or the paragraphs would join.
+            ("Text\n*\nMore\n", "Text\n\nMore\n"),
+        ] {
+            let d = Document::parse(src);
+            assert!(
+                d.diagnostics().iter().any(|x| x.code == "SW008"),
+                "SW008 for {src:?}"
+            );
+            let (fixed, n) = d.apply_fixes(false);
+            assert_eq!(n, 1, "{src:?}");
+            assert_eq!(fixed, want, "{src:?}");
+            assert!(Document::parse(&fixed).is_lossless());
+        }
+    }
+
     /// Apply only the SW013 fixes, last first, as an editor applies quick fixes.
     fn apply_sw013(src: &str) -> (String, usize) {
         let ds = Document::parse(src).diagnostics();

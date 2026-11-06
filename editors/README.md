@@ -544,8 +544,10 @@ extensions in the profile, not from GhostText.
 4. Open `about:config`, and find `extensions.webextensions.restrictedDomains`.
 5. Remove `support.mozilla.org,` from the value. Keep every other domain.
 6. Restart Firefox, open a SUMO edit page, and click GhostText.
-7. Use this profile only for SUMO editing. Launch it with
-   `/Applications/Firefox.app/Contents/MacOS/firefox -P sumo-ghosttext`.
+7. Use this profile only for SUMO editing. To launch it next to your usual Firefox, as a
+   separate window with its own Dock icon, run
+   `open -n -a Firefox --args -P sumo-ghosttext -no-remote`. Without `-no-remote`, the
+   command opens a window in the Firefox that is already running, with that profile.
 
 To undo the change, click the reset arrow next to the preference in `about:config`.
 

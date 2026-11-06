@@ -514,6 +514,51 @@ Two consequences of that setting being global, not per-site:
 Nothing is written back to SUMO by any of this — GhostText syncs your keystrokes into the
 textarea, and *you* still press Save in the wiki editor.
 
+### GhostText in Firefox does not work on production SUMO (#54)
+
+| Browser | Staging (`support.allizom.org`) | Production (`support.mozilla.org`) |
+|---|---|---|
+| Chrome | works | works |
+| Firefox | works | does not work |
+
+Firefox has a list of restricted domains, where no extension can run a content script.
+The list is the preference `extensions.webextensions.restrictedDomains`, and its default
+includes `support.mozilla.org` but not `support.allizom.org`. Chrome has no such list.
+The `greprefs.js` files of Firefox 159.0.1 and Nightly 162 show this (read on 2026-11-05).
+
+The list protects signed-in Mozilla accounts from extensions. Without it, any extension
+with access to all sites can read the SUMO pages you see. It can also act in your
+signed-in session, for example submit an edit or approve a revision. For a SUMO admin,
+that risk is real. Chrome already gives every extension this access, so use Chrome for
+production SUMO.
+
+#### If you decide to allow GhostText on production in Firefox
+
+Do this only in a profile that is used for nothing else. The risk comes from the other
+extensions in the profile, not from GhostText.
+
+1. Open `about:profiles` and create a new profile, for example `sumo-ghosttext`.
+2. In that profile, install GhostText and no other extension.
+3. Open `about:addons` > GhostText > Permissions. Grant only `localhost` and
+   `support.mozilla.org`, not "all websites".
+4. Open `about:config`, and find `extensions.webextensions.restrictedDomains`.
+5. Remove `support.mozilla.org,` from the value. Keep every other domain.
+6. Restart Firefox, open a SUMO edit page, and click GhostText.
+7. Use this profile only for SUMO editing. Launch it with
+   `/Applications/Firefox.app/Contents/MacOS/firefox -P sumo-ghosttext`.
+
+To undo the change, click the reset arrow next to the preference in `about:config`.
+
+#### The existing changed profile
+
+`nW0xhAhx.Profile 1` (opened by Firefox.app) already has this change: its value is the
+default list with `support.mozilla.org` removed. That profile is not safe for this,
+because it has eight active extensions: GhostText, 1Password, uBlock Origin, Firefox
+Multi-Account Containers, Checkvist, Checkvist Web Clipper, Clipboard2File and Adaptive
+Tab Bar Colour. On production SUMO, each of them with access to all sites can read and
+change the page. Either reset the preference in that profile, or move to a dedicated
+profile as described above.
+
 ## Just the CLI
 
 No editor setup at all:

@@ -180,7 +180,8 @@ function renderBlocks(lines, state) {
   let para = [];
   let pre = [];
   let listPrefix = '';
-  let pendingSummary = false;
+  // Where each open `[[UI:details_start]]` began in `out`.
+  const detailsStarts = [];
 
   const flushPara = () => {
     if (para.length) out.push(`<p>${para.map((l) => inline(l, state)).join('\n')}</p>`);
@@ -199,21 +200,17 @@ function renderBlocks(lines, state) {
     flushPre();
     closeLists();
   };
-  // SUMO uses the heading that follows `[[UI:details_start]]` as the summary.
-  const summary = (inner) => {
-    out.push(`<summary>${inner}</summary>`);
-    pendingSummary = false;
-  };
-
+  // Headings and block <div>s go into `out` as objects, so that a details
+  // block can find them when it closes. `serialize` turns them into HTML.
+  const pushHeading = (html) => out.push({ heading: html, level: Number(html[2]) });
   const openBlock = (kind, cond) => {
     flush();
-    if (kind === 'for') out.push(forOpen('div', cond, state));
-    else out.push(`<div class="${kind}">`);
+    out.push({ open: kind === 'for' ? forOpen('div', cond, state) : `<div class="${kind}">`, kind });
   };
   const closeBlock = (kind) => {
     flush();
     if (kind === 'for') state.forStack.pop();
-    out.push('</div>');
+    out.push({ close: '</div>' });
   };
 
   for (let n = 0; n < lines.length; n++) {
@@ -221,7 +218,6 @@ function renderBlocks(lines, state) {
 
     if (/^\s*\{\|/.test(line)) {
       flush();
-      if (pendingSummary) summary('Details');
       let depth = 0;
       const table = [];
       for (; n < lines.length; n++) {
@@ -254,29 +250,23 @@ function renderBlocks(lines, state) {
       // A blank line ends a paragraph and a list. A line left empty by peeling
       // a block marker ends them too, which openBlock and closeBlock did.
       if (!closers.length) flush();
-    } else if (pendingSummary && (heading = headingHtml(line, state))) {
-      flush();
-      summary(heading);
     } else if (/^\[\[ui:details_start\]\]$/i.test(trimmed)) {
       flush();
-      out.push('<details>');
-      pendingSummary = true;
+      detailsStarts.push(out.length);
     } else if (/^\[\[ui:details_end\]\]$/i.test(trimmed)) {
       flush();
-      if (pendingSummary) summary('Details');
-      out.push('</details>');
-    } else {
-      if (pendingSummary) {
-        flush();
-        summary('Details');
+      if (detailsStarts.length) {
+        const start = detailsStarts.pop();
+        out.push(collapse(out.splice(start)));
       }
+    } else {
       if (line.startsWith(' ')) {
         flushPara();
         closeLists();
         pre.push(line.slice(1));
       } else if ((heading = headingHtml(line, state))) {
         flush();
-        out.push(heading);
+        pushHeading(heading);
       } else if (/^-{4,}\s*$/.test(line)) {
         flush();
         out.push('<hr>');
@@ -315,8 +305,69 @@ function renderBlocks(lines, state) {
     for (const kind of closers) closeBlock(kind);
   }
   flush();
-  if (pendingSummary) summary('Details');
-  return out.join('');
+  // A block that is never closed is still collapsed, as an unclosed
+  // <section> would be in the browser.
+  while (detailsStarts.length) out.push(collapse(out.splice(detailsStarts.pop())));
+  return serialize(out);
+}
+
+/** The HTML for the objects and strings that `renderBlocks` collects. */
+function serialize(items) {
+  return items.map((x) => {
+    if (typeof x === 'string') return x;
+    if (x.heading !== undefined) return x.heading;
+    if (x.summary !== undefined) {
+      return `<details><summary>${x.summary.heading}</summary>${serialize(x.body)}</details>`;
+    }
+    if (x.children !== undefined) return x.open + serialize(x.children) + (x.closed ? x.close : '');
+    return x.open ?? x.close;
+  }).join('');
+}
+
+/**
+ * Collapse the contents of one `[[UI:details_start]]` … `[[UI:details_end]]`
+ * block as SUMO does (#52). Kitsune makes the block a
+ * `<section class="mzp-c-details">`, and `protocol-details-init.js` then runs
+ * Protocol's `Details.init` once per level, h2 to h6, on headings that are
+ * direct children of the section or of a `div.for` directly in it. Each such
+ * heading becomes a summary over its following siblings up to the next
+ * heading of that level, and a heading with no siblings stays plain. So the
+ * h2 pass moves the h3s into h2 bodies, and the h3 pass finds them only when
+ * the block has no h2. An h1 never collapses.
+ */
+function collapse(items) {
+  // Rebuild the nesting of block <div>s from their open and close objects. A
+  // close with no open, or an open with no close, crosses the block's edge:
+  // it is kept in place and does not nest.
+  const root = [];
+  const stack = [{ children: root }];
+  for (const x of items) {
+    const top = stack[stack.length - 1];
+    if (x.open !== undefined) {
+      const node = { open: x.open, kind: x.kind, children: [], closed: false };
+      top.children.push(node);
+      stack.push(node);
+    } else if (x.close !== undefined && stack.length > 1) {
+      top.closed = true;
+      top.close = x.close;
+      stack.pop();
+    } else {
+      top.children.push(x);
+    }
+  }
+  const parents = () => [root, ...root.filter((n) => n.kind === 'for').map((n) => n.children)];
+  for (let level = 2; level <= 6; level++) {
+    for (const list of parents()) {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].level !== level) continue;
+        let end = i + 1;
+        while (end < list.length && list[end].level !== level) end++;
+        if (end === i + 1) continue;
+        list.splice(i, end - i, { summary: list[i], body: list.slice(i + 1, end) });
+      }
+    }
+  }
+  return serialize(root);
 }
 
 /** The first `:` in a `;` item that is not in a link, a macro or a URL. */

@@ -117,7 +117,7 @@ already filed with rendered-output evidence. **Every test now runs in CI** — `
 highlighting rules), `emacs` (99 mode assertions, against the real CLI, plus the 907),
 `vim` (109 plugin assertions, run under both Vim and Neovim, plus the 907), `ui-strings` (33 tests, plus 32 for the checklist walker and 24 for its Thunderbird screenshots, including that the committed comparison tables
 are up to date) and `web` (39 assertions on the fix arithmetic and the Fix button labels, 16 on the line-number gutter, 21 on the Copy
-button, 72 on autosave, save-to-file and the file name, 99 on the preview, 30 on walk mode, 35 on highlighting, 17 on column widths) — so there is no
+button, 72 on autosave, save-to-file and the file name, 108 on the preview, 30 on walk mode, 35 on highlighting, 17 on column widths) — so there is no
 by-hand test suite left.
 LSP quick fixes (`textDocument/codeAction`) are implemented, tested, pushed and
 CI-green as of 2026-08-17;
@@ -300,7 +300,9 @@ does not give a URL). Its output goes into `innerHTML`, so raw HTML keeps only a
 with no attributes, and links only http/https/ftp/mailto; the test asserts that every corpus
 article renders with no tag outside that list. `{for}` follows `how-to-use-for`: hidden
 branches stay in the DOM with `hidden`, as on SUMO, and leave the table of contents; `fxN`/`mN`
-are ignored, and SW012 reports them. The version defaults to the latest monthly Thunderbird
+are ignored, and SW012 reports them. A `[[UI:details_start]]` block collapses as SUMO's JavaScript does (#52): one
+section per heading at the highest of h2 to h6 directly in the block, deeper headings plain
+inside, an h1 never; verified against three production articles. The version defaults to the latest monthly Thunderbird
 release, as SUMO's sidebar does (#29): the page reads it from product-details.mozilla.org, with a
 built-in fallback (`FALLBACK_LATEST_RELEASE` in `preview.js`, update it now and then), and the
 version box also takes a number or `all`. A comment leaves a marker until the end, because

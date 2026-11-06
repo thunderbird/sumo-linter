@@ -29,6 +29,7 @@ function check(what, actual, expected) {
 
 const has = (what, src, fragment, platform) => check(what, renderWiki(src, platform).includes(fragment), true);
 const lacks = (what, src, fragment, platform) => check(what, renderWiki(src, platform).includes(fragment), false);
+const mac140 = { os: 'mac', version: 140 };
 
 // --- headings and paragraphs ------------------------------------------------
 check('spaced heading', renderWiki('= Install it ='), '<h1 id="w_install-it">Install it</h1>');
@@ -84,8 +85,48 @@ check('block {for}', renderWiki('{for mac}\n* a\n{/for}'), '<div class="for" dat
 check('details with summary heading',
   renderWiki('[[UI:details_start]]\n===Profiles===\nText\n[[UI:details_end]]'),
   '<details><summary><h3 id="w_profiles">Profiles</h3></summary><p>Text</p></details>');
-check('details without a heading', renderWiki('[[UI:details_start]]\nText\n[[UI:details_end]]'),
-  '<details><summary>Details</summary><p>Text</p></details>');
+// SUMO collapses the highest level of h2 to h6 that sits directly in the
+// block, or in a {for} directly in it (#52). Measured on production.
+check('details without a heading stays open, as on SUMO',
+  renderWiki('[[UI:details_start]]\nText\n[[UI:details_end]]'), '<p>Text</p>');
+check('every h2 in the block collapses on its own',
+  renderWiki('[[UI:details_start]]\n==A==\na\n==B==\nb\n[[UI:details_end]]\nafter'),
+  '<details><summary><h2 id="w_a">A</h2></summary><p>a</p></details>'
+  + '<details><summary><h2 id="w_b">B</h2></summary><p>b</p></details><p>after</p>');
+check('an h3 under an h2 stays plain, as in tb-oauth',
+  renderWiki('[[UI:details_start]]\n==A==\na\n===S===\ns\n[[UI:details_end]]'),
+  '<details><summary><h2 id="w_a">A</h2></summary><p>a</p><h3 id="w_s">S</h3><p>s</p></details>');
+check('an h1 stays visible and the h2s collapse',
+  renderWiki('[[UI:details_start]]\n=T=\nt\n==A==\na\n[[UI:details_end]]'),
+  '<h1 id="w_t">T</h1><p>t</p><details><summary><h2 id="w_a">A</h2></summary><p>a</p></details>');
+check('a heading with nothing after it stays plain',
+  renderWiki('[[UI:details_start]]\n==A==\n==B==\nb\n[[UI:details_end]]'),
+  '<h2 id="w_a">A</h2><details><summary><h2 id="w_b">B</h2></summary><p>b</p></details>');
+check('a heading in a {for} directly in the block collapses inside it',
+  renderWiki('[[UI:details_start]]\n{for mac}\n==A==\na\n{/for}\n[[UI:details_end]]', mac140),
+  '<div class="for" data-for="mac"><details><summary><h2 id="w_a">A</h2></summary><p>a</p></details></div>');
+check('a heading in a {note} does not collapse',
+  renderWiki('[[UI:details_start]]\n{note}\n==A==\na\n{/note}\n[[UI:details_end]]'),
+  '<div class="note"><h2 id="w_a">A</h2><p>a</p></div>');
+check('a {for} that crosses the block edge keeps its tags',
+  renderWiki('{for mac}\n[[UI:details_start]]\n==A==\na\n{/for}\n[[UI:details_end]]', mac140),
+  '<div class="for" data-for="mac"><details><summary><h2 id="w_a">A</h2></summary><p>a</p></div></details>');
+{
+  const src = readFileSync(new URL('../../corpus/en-US/new-thunderbird-android.wiki', import.meta.url), 'utf8');
+  const html = renderWiki(src, mac140);
+  check('new-thunderbird-android has 16 sections',
+    [...html.matchAll(/<summary><h2 id="[^"]*">([^<]*)<\/h2><\/summary>/g)].map((m) => m[1]),
+    [23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8].map((n) => `Thunderbird ${n}`));
+}
+{
+  const src = readFileSync(new URL('../../corpus/en-US/thunderbird-android-import.wiki', import.meta.url), 'utf8');
+  const html = renderWiki(src, mac140);
+  check('thunderbird-android-import sections',
+    [...html.matchAll(/<summary><(h\d) [^>]*>([^<]*)</g)].map((m) => `${m[1]} ${m[2].trim()}`),
+    ['h3 Subsequent runs', 'h3 Subsequent runs', 'h2 Subsequent runs',
+      'h2 1. Export Thunderbird or K-9 settings to a file',
+      'h2 2. Import the exported settings file into Thunderbird for Android']);
+}
 check('table of contents', renderWiki('__TOC__\n=A=\n==B==\n=C='),
   '<nav class="toc"><ul><li><a href="#w_a">A</a><ul><li><a href="#w_b">B</a></li></ul></li><li><a href="#w_c">C</a></li></ul></nav>'
   + '<h1 id="w_a">A</h1><h2 id="w_b">B</h2><h1 id="w_c">C</h1>');
@@ -108,7 +149,6 @@ check('nested table', renderWiki('{|\n|outer\n{|\n|inner\n|}\n|}'),
 
 // --- {for} platform rules ---------------------------------------------------
 const any = { os: null, version: null };
-const mac140 = { os: 'mac', version: 140 };
 const win10 = { os: 'win10', version: null };
 check('any platform shows everything', ['mac', 'win', 'not tb60', '=tb115'].map((c) => forMatches(c, any)), [true, true, true, true]);
 check('os match', forMatches('mac', mac140), true);

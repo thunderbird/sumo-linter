@@ -91,7 +91,7 @@
   #preview ul, #preview ol { padding-left: 1.6rem; margin: .4rem 0; }
   #preview ul { list-style: disc; } #preview ol { list-style: decimal; }
   #preview dd { margin-left: 1.6rem; } #preview dt { font-weight: 600; }
-  #preview code, #preview pre, #preview tt, #preview .filepath, #preview .pref {
+  #preview code, #preview pre, #preview tt {
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em;
     background: var(--code-bg); border-radius: 3px; padding: .05rem .25rem;
   }
@@ -101,13 +101,16 @@
     border-left: 4px solid var(--accent); background: var(--code-bg);
   }
   #preview .warning { border-left-color: var(--warn); }
-  #preview .key {
-    font: .85em ui-monospace, monospace; padding: .05rem .35rem;
-    border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px;
-    background: var(--code-bg);
+  /* The macros as SUMO draws them (#53), measured on production 2026-11-05:
+     {menu} a gray box, {button} and {key} a bold gray label in a 2px border,
+     {pref} a thin border, {filepath} plain text. */
+  #preview .menu { background: var(--code-bg); padding: 2px 4px; }
+  #preview .button, #preview .key {
+    font-size: .875em; font-weight: 700; color: var(--muted);
+    border: 2px solid var(--line); border-radius: 2px; padding: 0 16px;
   }
-  #preview .button { padding: .05rem .4rem; border: 1px solid var(--line); border-radius: 4px; }
-  #preview .menu { font-weight: 600; }
+  #preview .key { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; padding: 0 8px; }
+  #preview .pref { border: 1px solid var(--line); padding: 0 2px; }
   #preview .ph {
     display: inline-block; margin: .1rem 0; padding: .05rem .4rem; font-size: .85em;
     color: var(--muted); border: 1px dashed var(--line); border-radius: 4px;

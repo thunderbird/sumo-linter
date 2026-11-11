@@ -248,9 +248,14 @@ def free_port():
         return s.getsockname()[1]
 
 
-def user_js(port, offline=True):
+def user_js(port, offline=True, version=None):
     """The prefs of a screenshot profile. No port: no Marionette pref."""
     prefs = {} if port is None else {"marionette.port": port}
+    if version:
+        # showWhatsNewPage in a new profile, whose milestone is empty, opens the
+        # what's-new page of the app's last installed update in the system
+        # browser (Firefox, from 153.6.0 ESR, #57). The app's own version stops it.
+        prefs["mailnews.start_page_override.mstone"] = version
     prefs.update({
         "mail.shell.checkDefaultClient": False,
         "datareporting.policy.dataSubmissionEnabled": False,
@@ -298,7 +303,7 @@ def login(app, profile=ACCOUNT_PROFILE, run=subprocess.run, say=print):
         raise RuntimeError(f"no Thunderbird program at {binary_of(app)}")
     os.makedirs(profile, exist_ok=True)
     with open(os.path.join(profile, "user.js"), "w", encoding="utf-8") as f:
-        f.write(user_js(None, offline=False))
+        f.write(user_js(None, offline=False, version=version_of(app)))
     say(f"Opening Thunderbird {version_of(app)} with the profile {profile}.")
     say("Add the test account there (not your own). If its sign-in opens in Firefox,")
     say("sign in there and come back. When Thunderbird shows the account's folders,")
@@ -337,7 +342,7 @@ class Thunderbird:
         port = free_port()
         # user.js wins over the copy's prefs.js, and it is the copy's own file.
         with open(os.path.join(self.profile, "user.js"), "w", encoding="utf-8") as f:
-            f.write(user_js(port, offline=not real))
+            f.write(user_js(port, offline=not real, version=self.version))
         env = dict(os.environ, MOZ_REMOTE_ALLOW_SYSTEM_ACCESS="1")
         command = [binary_of(app), "-no-remote", "-new-instance", "-profile", self.profile, "--marionette"]
         self.proc = subprocess.Popen(

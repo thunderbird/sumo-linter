@@ -176,6 +176,12 @@ class RealAccount(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "run `tb_shot.py login` first"):
             tb_shot.Thunderbird(app, account_profile=tempfile.mkdtemp())
 
+    def test_the_whats_new_page_stays_closed(self):
+        # An empty milestone opens the last update's what's-new page in Firefox (#57).
+        self.assertIn('user_pref("mailnews.start_page_override.mstone", "153.6.0");',
+                      tb_shot.user_js(2829, version="153.6.0").splitlines())
+        self.assertNotIn("mailnews.start_page_override.mstone", tb_shot.user_js(2829))
+
     def test_login_prefs_have_no_marionette_and_stay_online(self):
         js = tb_shot.user_js(None, offline=False)
         self.assertNotIn("marionette", js)

@@ -8,7 +8,7 @@
 
 What needs Thunderbird, finding a setting and drawing it, was tested by hand
 against Thunderbird 159 on macOS; see #39. The tour's clicks and screenshots
-were tested by hand against 160; see #55. This file tests the parts that can
+were tested by hand against 160; see #55 and #56. This file tests the parts that can
 break without anyone noticing: the Marionette protocol, the version check, the
 prefs that keep a dialog from waiting for a click, and the session protocol
 that walk.py speaks.
@@ -285,7 +285,7 @@ class TourSteps(unittest.TestCase):
         rows = [line for line in md.splitlines() if line.startswith("| ") and line[2].isdigit()]
         self.assertEqual(len(rows), 5)
         self.assertIn("Account Settings › Mail for a\\|b", rows[2])
-        self.assertTrue(rows[-1].endswith("| 05-account-smtp.png |  |  |"))
+        self.assertTrue(rows[-1].endswith("| 05-account-smtp.png |  |  |  |"))
 
 
 class FakeTourThunderbird:
@@ -293,13 +293,38 @@ class FakeTourThunderbird:
 
     version = "160.0"
 
-    def __init__(self):
+    def __init__(self, states=None, unlisted=(), file_window=None):
         self.shots = []
         self.m = self
+        self.states = states or {}  # item name → item_state answer
+        self.unlisted = list(unlisted)
+        self.file_window = file_window
+        self.proc = None
 
     def js(self, script, *args):
+        if script == tb_shot.TARGET_JS + tb_shot.SCROLL_TO_JS:
+            return None
         assert script == tb_shot.ACCOUNT_BUTTON_LABEL_JS
         return "Account Settings"
+
+    def item_state(self, target):
+        default = {"exists": True, "shown": True, "disabled": False, "label": None}
+        return self.states.get(target.get("id") or target.get("css"), default)
+
+    def unlisted_items(self, targets, frame):
+        found, self.unlisted = self.unlisted, []
+        return found
+
+    def item_shots(self, target, before, after):
+        self.shots.append(("item", os.path.basename(before), os.path.basename(after), target.get("id")))
+        for path in (before, after):
+            with open(path, "wb") as f:
+                f.write(b"png")
+        return "tab dialog"
+
+    def click_for_file_dialog(self, target, capture):
+        self.shots.append(("file", target["id"]))
+        return capture(self.file_window)
 
     def locale(self):
         return "en-US"
@@ -316,8 +341,8 @@ class FakeTourThunderbird:
     def show_account_row(self, r):
         self.shots.append(("show", r["id"]))
 
-    def view_shot(self, path, outline=None, part=None):
-        self.shots.append((os.path.basename(path), outline, part))
+    def view_shot(self, path, target=None):
+        self.shots.append((os.path.basename(path), target and target["id"], target and target.get("part")))
         with open(path, "wb") as f:
             f.write(b"png")
         return (620, 375)
@@ -408,6 +433,195 @@ class Publish(unittest.TestCase):
     def test_the_screenshots_folder_is_gitignored(self):
         with open(os.path.join(tb_shot.REPO, ".gitignore"), encoding="utf-8") as f:
             self.assertIn("/screenshots/", f.read().split())
+
+
+def items_tsv(text):
+    """A temporary item list with this text, after the header."""
+    fd, path = tempfile.mkstemp(suffix=".tsv")
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        f.write("# a comment\npage\ttarget\tgroup\tname\tlabel\n" + text)
+    return path
+
+
+class Items(unittest.TestCase):
+    def test_the_160_list(self):
+        items = tb_shot.read_items(tb_shot.items_file("160.0"))
+        flat = [i for page in items.values() for i in page]
+        self.assertEqual(len(flat), 50)
+        self.assertEqual(sum(i["group"] == "open" for i in flat), 37)
+        self.assertEqual(sum(i["group"] == "file" for i in flat), 6)
+        vcard = next(i for i in items["am-main.xhtml"] if i["name"] == "editVCard")
+        self.assertEqual(vcard["target"], {"css": 'button[oncommand="editVCard()"]', "frame": True})
+        self.assertEqual(items["paneGeneral"][0]["target"], {"id": "addSearchEngine"})
+
+    def test_the_list_file_is_by_major_version(self):
+        self.assertTrue(tb_shot.items_file("160.0.1").endswith("tour-items-160.tsv"))
+
+    def test_bad_lists(self):
+        for text, message in [("paneGeneral\tx\tclick\tx\tX…\n", "group"),
+                              ("paneGeneral\tx\topen\tx\n", "5 tab-separated"),
+                              ("paneGeneral\tx\topen\tx\tX…\npaneGeneral\ty\topen\tx\tY…\n", "already used")]:
+            path = items_tsv(text)
+            self.addCleanup(os.remove, path)
+            with self.assertRaisesRegex(ValueError, message):
+                tb_shot.read_items(path)
+
+    def test_a_bad_header(self):
+        fd, path = tempfile.mkstemp(suffix=".tsv")
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write("page\ttarget\n")
+        self.addCleanup(os.remove, path)
+        with self.assertRaisesRegex(ValueError, "header"):
+            tb_shot.read_items(path)
+
+    def test_entries_have_a_letter_and_file_names(self):
+        step = {"name": "01-settings-paneGeneral", "page": "paneGeneral"}
+        items = {"paneGeneral": [{"target": {"id": "a"}, "group": "open", "name": "a", "label": "A…"},
+                                 {"target": {"id": "b"}, "group": "open", "name": "b", "label": "B…"}]}
+        entries = tb_shot.item_entries(step, items)
+        self.assertEqual([(e["step"], e["base"]) for e in entries],
+                         [("1a", "01a-settings-paneGeneral-a"), ("1b", "01b-settings-paneGeneral-b")])
+
+
+TOUR_ITEMS = {
+    "paneGeneral": [
+        {"target": {"id": "catProxiesButton"}, "group": "open", "name": "catProxiesButton", "label": "Connection options…"},
+        {"target": {"id": "browseForSound"}, "group": "file", "name": "browseForSound", "label": "Select audio…"},
+        {"target": {"id": "editTagButton"}, "group": "open", "name": "editTagButton", "label": "Edit…"},
+        {"target": {"id": "gone"}, "group": "open", "name": "gone", "label": "Gone…"},
+    ],
+    "am-server.xhtml": [
+        {"target": {"id": "picker", "frame": True}, "group": "menu", "name": "picker", "label": "Choose Folder…"},
+        {"target": {"id": "global", "frame": True}, "group": "goto", "name": "global", "label": "Global…"},
+    ],
+}
+ITEM_STATES = {"editTagButton": {"exists": True, "shown": True, "disabled": True, "label": "Bearbeiten…"},
+               "gone": {"exists": False, "shown": False, "disabled": False, "label": None}}
+ROWS_WITH_SERVER = [ROWS[0], {"id": "account1/am-server.xhtml", "page": "am-server.xhtml", "label": "Server"}]
+
+
+class TourItems(unittest.TestCase):
+    def run_tour(self, file_dialogs):
+        out = tempfile.mkdtemp()
+        self.addCleanup(lambda: __import__("shutil").rmtree(out))
+        self.tb = FakeTourThunderbird(ITEM_STATES, unlisted=['#new "New…"'], file_window=4242)
+        self.tb.open_account_settings = lambda: ROWS_WITH_SERVER
+        self.restarts, self.captures, self.said = 0, [], []
+
+        def restart():
+            self.restarts += 1
+            return self.tb
+
+        def capture(wid, path):
+            self.captures.append((wid, os.path.basename(path)))
+            with open(path, "wb") as f:
+                f.write(b"png")
+
+        return tb_shot.tour(self.tb, out, say=self.said.append, items=TOUR_ITEMS,
+                            file_dialogs=file_dialogs, restart=restart, capture=capture)
+
+    def test_an_open_item_gets_two_shots(self):
+        _, steps = self.run_tour(False)
+        self.assertIn(("item", "01a-settings-paneGeneral-catProxiesButton-next.png",
+                       "01a-settings-paneGeneral-catProxiesButton.png", "catProxiesButton"), self.tb.shots)
+        e = steps[0]["items"][0]
+        self.assertEqual((e["status"], e["file"]), ("tab dialog", "01a-settings-paneGeneral-catProxiesButton.png"))
+
+    def test_skipped_items_say_why_and_have_no_files(self):
+        _, steps = self.run_tour(False)
+        general = steps[0]["items"]
+        self.assertEqual([e["status"] for e in general[1:]],
+                         ["a file dialog: needs --file-dialogs", "disabled", "hidden"])
+        self.assertEqual(general[2]["label"], "Bearbeiten…")  # the locale's own label
+        server = next(s for s in steps if s["page"] == "am-server.xhtml")["items"]
+        self.assertEqual([e["status"] for e in server],
+                         ["a drop-down menu: not clicked", "goes to a Settings pane: not clicked"])
+        self.assertTrue(all(e["file"] is None and e["next_file"] is None for e in general[1:] + server))
+        self.assertEqual(self.restarts, 0)
+
+    def test_file_dialogs_come_last_with_a_restart_each(self):
+        _, steps = self.run_tour(True)
+        self.assertEqual(self.restarts, 1)
+        self.assertEqual(self.captures, [(4242, "01b-settings-paneGeneral-browseForSound.png")])
+        self.assertEqual(self.tb.shots[-1], ("file", "browseForSound"))
+        e = steps[0]["items"][1]
+        self.assertEqual((e["status"], e["next_file"]), ("file dialog", "01b-settings-paneGeneral-browseForSound-next.png"))
+
+    def test_an_unlisted_item_is_a_warning(self):
+        _, steps = self.run_tour(False)
+        self.assertEqual(steps[0]["unlisted"], ['#new "New…"'])
+        self.assertIn('  warning: paneGeneral has #new "New…", which is not in the item list', self.said)
+
+    def test_index_md_lists_items_with_their_notes(self):
+        folder, _ = self.run_tour(False)
+        with open(os.path.join(folder, "index.md"), encoding="utf-8") as f:
+            md = f.read()
+        self.assertIn("| 1a | Settings › Allgemein › Connection options… | 01a-settings-paneGeneral-catProxiesButton-next.png"
+                      " | 01a-settings-paneGeneral-catProxiesButton.png |  |  | tab dialog |", md)
+        self.assertIn("| 1c | Settings › Allgemein › Bearbeiten… |  |  |  |  | disabled |", md)
+
+    def test_the_zip_has_the_item_files(self):
+        folder, _ = self.run_tour(True)
+        tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: __import__("shutil").rmtree(tmp))
+        path, _, _, count = tb_shot.zip_tour(folder, tmp)
+        with zipfile.ZipFile(path) as z:
+            names = z.namelist()
+        self.assertIn("160.0-en-US/01b-settings-paneGeneral-browseForSound.png", names)
+        self.assertIn("160.0-en-US/01a-settings-paneGeneral-catProxiesButton-next.png", names)
+        self.assertEqual(count, 7 + 4)  # 4 steps, the last with one shot; 2 items
+
+
+class FileDialogs(unittest.TestCase):
+    def test_refused_outside_macos(self):
+        self.assertIn("only on macOS", tb_shot.file_dialog_refusal("linux", [], "/tmp"))
+
+    def test_refused_for_an_administrator(self):
+        self.assertIn("administrator", tb_shot.file_dialog_refusal("darwin", ["staff", "admin"], "/nonexistent"))
+
+    def test_refused_with_icloud_drive(self):
+        home = tempfile.mkdtemp()
+        self.addCleanup(lambda: __import__("shutil").rmtree(home))
+        os.makedirs(os.path.join(home, "Library", "Mobile Documents", "com~apple~CloudDocs"))
+        self.assertIn("iCloud Drive", tb_shot.file_dialog_refusal("darwin", ["staff"], home))
+
+    def test_allowed_for_an_empty_standard_user(self):
+        home = tempfile.mkdtemp()
+        self.addCleanup(lambda: __import__("shutil").rmtree(home))
+        self.assertIsNone(tb_shot.file_dialog_refusal("darwin", ["staff", "everyone"], home))
+
+    def test_native_windows(self):
+        calls = []
+
+        def run(command, capture_output=True, text=True):
+            calls.append(command)
+            return subprocess_result(0, '[{"id": 7, "layer": 0}]', "")
+        self.assertEqual(tb_shot.native_windows(123, run=run), [{"id": 7, "layer": 0}])
+        self.assertEqual(calls[0][:4], ["osascript", "-l", "JavaScript", "-e"])
+        self.assertEqual(calls[0][-1], "123")
+
+    def test_screencapture_scales_and_removes_the_full_size_file(self):
+        out = tempfile.mkdtemp()
+        self.addCleanup(lambda: __import__("shutil").rmtree(out))
+        path = os.path.join(out, "x.png")
+        calls = []
+
+        def run(command, capture_output=True, text=True):
+            calls.append(command)
+            target = command[-1]
+            with open(target, "wb") as f:
+                f.write(b"png")
+            return subprocess_result(0, "", "")
+        tb_shot.screencapture(99, path, run=run)
+        self.assertEqual(calls[0][:5], ["screencapture", "-x", "-o", "-l", "99"])
+        self.assertEqual(calls[1][:3], ["sips", "-Z", "620"])
+        self.assertEqual(os.listdir(out), ["x.png"])
+
+    def test_screencapture_without_permission_says_so(self):
+        def run(command, capture_output=True, text=True):
+            return subprocess_result(1, "", "could not create image from window")
+        with self.assertRaisesRegex(RuntimeError, "Screen Recording"):
+            tb_shot.screencapture(99, "/tmp/never.png", run=run)
 
 
 def subprocess_result(code, stdout, stderr):

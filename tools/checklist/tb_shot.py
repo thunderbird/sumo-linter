@@ -12,7 +12,7 @@
     uv run tools/checklist/tb_shot.py shot --app APP --text TEXT --out FILE.png
     uv run tools/checklist/tb_shot.py session --app APP --out DIR
     uv run tools/checklist/tb_shot.py login --app APP
-    uv run tools/checklist/tb_shot.py tour --app APP --out DIR
+    uv run tools/checklist/tb_shot.py tour --app APP --out DIR [--file-dialogs]
     uv run tools/checklist/tb_shot.py publish DIR/VERSION-LOCALE [--replace]
 
 APP is a Thunderbird application: `/Applications/…/Thunderbird.app` on macOS,
@@ -62,6 +62,25 @@ list the steps with the labels in the locale's own words. Each screenshot is
 the whole tab, scaled down to fit SUMO's 620 pixels, as SUMO's guide says to
 resize a large screenshot; the outline is drawn thicker by the same factor,
 so it is still OUTLINE_PX in the file. /screenshots/ is gitignored.
+
+In each pane, the tour also clicks every item whose label ends with an
+ellipsis, such as "Connection options…" (#56). The items come from
+tour-items-<major version>.tsv next to this script, by element ID, so the
+same list works in every locale; the tour warns about an ellipsis item that
+is not in the list. For each item it saves the pane with the item outlined
+(`01c-settings-paneGeneral-catProxiesButton-next.png`) and the dialog that
+the click opens (`…-catProxiesButton.png`): a dialog in the tab, a separate
+window, or an HTML dialog. It closes each dialog without OK. Hidden and
+disabled items, drop-down menus and links to another pane are listed in
+index.md but not clicked.
+
+Items that open the operating system's file dialog are captured only with
+--file-dialogs, on macOS, with `screencapture`, which needs the Screen
+Recording permission. macOS shows the user's own folders, iCloud Drive and
+tags in that dialog, so --file-dialogs refuses to run in a macOS user that is
+an administrator or has iCloud Drive: use a separate, empty, standard user
+(#56). Each file dialog needs its own Thunderbird start, because only a key
+press closes it, so the tour takes them last.
 
 `publish` puts a tour folder on GitHub as a release asset, with `gh`: one
 release per Thunderbird version (tag screenshots-VERSION) and one zip per
@@ -442,22 +461,27 @@ class Thunderbird:
             raise RuntimeError("Settings shows no categories")
         return self.m.js(SETTINGS_CATEGORIES_JS)
 
-    def click(self, element_id, part=None):
-        """Click an element of the tab, as a person does."""
+    def click(self, target):
+        """Click an element of the tab, as a person does.
+
+        `target` is {id or css, part, frame}: see TARGET_JS. The click runs
+        after this call returns, so a dialog that it opens cannot hold up
+        Marionette.
+        """
         if len(self.windows()) > 1:
             raise RuntimeError("Thunderbird shows a dialog that waits for an answer")
-        if not self.m.js(CLICK_JS, element_id, part):
-            raise LookupError(f"no element #{element_id} to click")
+        if not self.m.js(TARGET_JS + CLICK_JS, target):
+            raise LookupError(f"no element {target_name(target)} to click")
 
     def show_category(self, category):
-        self.click(category["id"])
+        self.click({"id": category["id"]})
         if not self.wait_for(CATEGORY_SHOWN_JS, category["id"], category["pane"]):
             raise RuntimeError(f"the Settings category {category['pane']} did not show")
         time.sleep(0.5)  # Fluent fills in the pane's text
 
     def open_account_settings(self):
         """Click the Account Settings link at the foot of the Settings sidebar."""
-        self.click("accountButton")
+        self.click({"id": "accountButton"})
         if not self.wait_for(ACCOUNTS_READY_JS):
             raise RuntimeError("Account Settings did not open")
         if not self.wait_for(ACCOUNT_ROWS_JS):
@@ -465,21 +489,79 @@ class Thunderbird:
         return self.m.js(ACCOUNT_ROWS_JS)
 
     def show_account_row(self, row):
-        self.click(row["id"], ".container")
+        self.click({"id": row["id"], "part": ".container"})
         if not self.wait_for(ACCOUNT_ROW_SHOWN_JS, row["id"], row["page"]):
             raise RuntimeError(f"the Account Settings page {row['id']} did not show")
         time.sleep(0.5)
 
-    def view_shot(self, path, outline=None, part=None):
-        """Save the whole tab, scaled to fit MAX_PX, with `outline` outlined."""
-        data = self.m.js_async(VIEW_SNAPSHOT_JS, OUTLINE_COLOR, OUTLINE_PX, MAX_PX, outline, part)
-        if not isinstance(data, str) or not data.startswith("data:image/png;base64,"):
-            raise RuntimeError(f"the screenshot failed: {data}")
-        png = base64.b64decode(data.split(",", 1)[1])
-        os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
-        with open(path, "wb") as f:
-            f.write(png)
-        return png_size(png)
+    def view_shot(self, path, target=None):
+        """Save the whole tab, scaled to fit MAX_PX, with `target` outlined."""
+        return save_png(self.m.js_async(TARGET_JS + VIEW_SNAPSHOT_JS, OUTLINE_COLOR, OUTLINE_PX, MAX_PX, target), path)
+
+    def item_state(self, target):
+        """{exists, shown, disabled, label} of an item in the shown pane."""
+        return self.m.js(TARGET_JS + ITEM_STATE_JS, target)
+
+    def unlisted_items(self, targets, frame):
+        """Labels of shown ellipsis items in the pane that `targets` misses."""
+        return self.m.js(TARGET_JS + UNLISTED_JS, targets, frame)
+
+    def item_shots(self, target, before_path, after_path, timeout=10):
+        """Outline `target`, click it, and save the dialog that it opens.
+
+        The dialog can be a separate window (a prompt, for example), a
+        dialog in the tab (gSubDialog), or an HTML <dialog>. It is closed
+        without OK. Returns which kind it was.
+        """
+        self.m.js(TARGET_JS + SCROLL_TO_JS, target)
+        time.sleep(0.3)
+        self.view_shot(before_path, target)
+        main = self.m.cmd("WebDriver:GetWindowHandle")["value"]
+        before = set(self.windows())
+        self.click(target)
+        deadline = time.time() + timeout
+        while time.time() < deadline:
+            time.sleep(0.25)
+            # A command in the main window while a prompt window is open
+            # fails ("Unexpected prompt dialog"), so new windows come first.
+            new = [h for h in self.windows() if h not in before]
+            if new:
+                self.m.cmd("WebDriver:SwitchToWindow", {"handle": new[0]})
+                try:
+                    if not self.wait_for(WINDOW_READY_JS, timeout=10):
+                        raise RuntimeError(f"the window that {target_name(target)} opened did not load")
+                    time.sleep(0.5)
+                    save_png(self.m.js_async(WINDOW_SNAPSHOT_JS, MAX_PX), after_path)
+                finally:
+                    self.m.js("window.close()")
+                    time.sleep(0.3)
+                    self.m.cmd("WebDriver:SwitchToWindow", {"handle": main})
+                return "window"
+            kind = self.m.js(OPEN_DIALOG_KIND_JS)
+            if kind:
+                time.sleep(0.7)  # the dialog's opening animation, and Fluent
+                self.view_shot(after_path)
+                self.m.js(CLOSE_ANY_DIALOG_JS)
+                time.sleep(0.3)
+                return kind
+        raise RuntimeError(f"{target_name(target)} opened nothing in {timeout} s")
+
+    def click_for_file_dialog(self, target, capture, timeout=10):
+        """Click `target`, wait for the native file dialog, and `capture` it.
+
+        `capture(window_id)` saves the picture. The dialog stays open: the
+        caller quits this Thunderbird.
+        """
+        before = {w["id"] for w in native_windows(self.proc.pid)}
+        self.click(target)
+        deadline = time.time() + timeout
+        while time.time() < deadline:
+            time.sleep(0.5)
+            new = [w for w in native_windows(self.proc.pid) if w["id"] not in before and w["layer"] == 0]
+            if new:
+                time.sleep(1)  # the dialog's opening animation
+                return capture(new[0]["id"])
+        raise RuntimeError(f"{target_name(target)} opened no file dialog in {timeout} s")
 
     def wait_for(self, script, *args, timeout=15):
         deadline = time.time() + timeout
@@ -488,6 +570,23 @@ class Thunderbird:
                 return True
             time.sleep(0.25)
         return False
+
+
+def save_png(data, path):
+    """Save a PNG data URL from a snapshot script; returns its size."""
+    if not isinstance(data, str) or not data.startswith("data:image/png;base64,"):
+        raise RuntimeError(f"the screenshot failed: {data}")
+    png = base64.b64decode(data.split(",", 1)[1])
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    with open(path, "wb") as f:
+        f.write(png)
+    return png_size(png)
+
+
+def target_name(target):
+    """A target for messages: #id, or the CSS selector."""
+    name = f"#{target['id']}" if target.get("id") else target.get("css", "?")
+    return name + (f" {target['part']}" if target.get("part") else "")
 
 
 def png_size(png):
@@ -737,19 +836,134 @@ const rows = [...doc.querySelectorAll('#accounttree li')]
 return rows.length && rows.every(r => r.label) ? rows : null;
 """
 
-# A click that the element's own handlers see: the mouse events a person makes.
-CLICK_JS = """
-const [id, part] = arguments;
-const doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
-let el = doc.getElementById(id);
-if (el && part) el = el.querySelector(part);
-if (!el) return false;
-el.scrollIntoView({ block: 'nearest' });
-const win = doc.defaultView;
-for (const type of ['mousedown', 'mouseup', 'click']) {
-  el.dispatchEvent(new win.MouseEvent(type, { bubbles: true, cancelable: true, view: win, button: 0, detail: 1 }));
+# Finds a target in the current tab: {id} or {css}, optionally a `part`
+# inside it (a CSS selector), and with `frame` in the Account Settings page
+# (#contentFrame) instead of the tab's own document. Returns the element and
+# the offset of its document within the tab, or null.
+TARGET_JS = """
+function targetOf(t) {
+  const doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
+  let d = doc, dx = 0, dy = 0;
+  if (t.frame) {
+    const f = doc.getElementById('contentFrame');
+    if (!f || !f.contentDocument) return null;
+    d = f.contentDocument;
+    const r = f.getBoundingClientRect();
+    dx = r.x; dy = r.y;
+  }
+  let el = t.id ? d.getElementById(t.id) : d.querySelector(t.css);
+  if (el && t.part) el = el.querySelector(t.part);
+  return el ? { el, dx, dy } : null;
 }
+"""
+
+# A click that the element's own handlers see: the mouse events a person
+# makes. It runs after the script returns, because a click that opens a modal
+# window would otherwise hold up the script until the window closes.
+CLICK_JS = """
+const [t] = arguments;
+const found = targetOf(t);
+if (!found) return false;
+const el = found.el;
+el.scrollIntoView({ block: 'nearest' });
+const win = el.ownerGlobal || el.ownerDocument.defaultView;
+win.setTimeout(() => {
+  for (const type of ['mousedown', 'mouseup', 'click']) {
+    el.dispatchEvent(new win.MouseEvent(type, { bubbles: true, cancelable: true, view: win, button: 0, detail: 1 }));
+  }
+}, 0);
 return true;
+"""
+
+SCROLL_TO_JS = """
+const [t] = arguments;
+const found = targetOf(t);
+if (found) found.el.scrollIntoView({ block: 'center' });
+"""
+
+ITEM_STATE_JS = """
+const [t] = arguments;
+const found = targetOf(t);
+if (!found) return { exists: false, shown: false, disabled: false, label: null };
+const el = found.el;
+const r = el.getBoundingClientRect();
+return { exists: true, shown: r.width > 0 && r.height > 0,
+         disabled: !!(el.disabled || el.hasAttribute('disabled')),
+         label: (el.getAttribute('label') || el.textContent || '').trim() };
+"""
+
+# The shown items with an ellipsis that no target in the list finds. Menu
+# items are left out: they are inside menus, never clicked directly.
+UNLISTED_JS = """
+const [targets, frame] = arguments;
+const listed = new Set(targets.map(t => { const f = targetOf(t); return f && f.el; }).filter(Boolean));
+let doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
+if (frame) doc = doc.getElementById('contentFrame').contentDocument;
+const out = [];
+for (const e of doc.querySelectorAll('button, menulist, toolbarbutton, a')) {
+  const label = (e.getAttribute('label') || e.textContent || '').trim();
+  const r = e.getBoundingClientRect();
+  if (/(\u2026|\\.\\.\\.)$/.test(label) && r.width > 0 && r.height > 0 && !listed.has(e)) {
+    const c = e.closest('[data-category]');
+    if (!frame && c && c.hidden) continue;
+    out.push((e.id ? '#' + e.id : e.localName) + ' "' + label + '"');
+  }
+}
+return out;
+"""
+
+WINDOW_READY_JS = """
+return document.readyState == 'complete' && location.href != 'about:blank';
+"""
+
+# A separate window, the whole of it, scaled to fit `max` pixels each way.
+WINDOW_SNAPSHOT_JS = """
+const [max, resolve] = arguments;
+const w = window.innerWidth, h = window.innerHeight;
+const scale = Math.min(1, max / w, max / h);
+window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+  window.browsingContext.currentWindowGlobal.drawSnapshot(new DOMRect(0, 0, w, h), scale, 'white').then((bitmap) => {
+    const c = document.createElementNS('http://www.w3.org/1999/xhtml', 'canvas');
+    c.width = bitmap.width;
+    c.height = bitmap.height;
+    c.getContext('2d').drawImage(bitmap, 0, 0);
+    resolve(c.toDataURL('image/png'));
+  }, (e) => resolve('error ' + e));
+}));
+"""
+
+# Which dialog is open in the tab: "tab dialog" (gSubDialog, loaded), "html
+# dialog" (a <dialog> in the tab or in the Account Settings page), or null.
+OPEN_DIALOG_KIND_JS = """
+const b = document.getElementById('tabmail').currentTabInfo.browser;
+const w = b && b.contentWindow;
+const top = w && w.gSubDialog && w.gSubDialog._topDialog;
+if (top) {
+  const d = top._frame.contentDocument;
+  return d && d.readyState == 'complete' && d.location.href != 'about:blank' ? 'tab dialog' : null;
+}
+const docs = [b.contentDocument];
+const f = b.contentDocument.getElementById('contentFrame');
+if (f && f.contentDocument) docs.push(f.contentDocument);
+return docs.some(d => d.querySelector('dialog[open]')) ? 'html dialog' : null;
+"""
+
+# Closes the tab's dialogs without OK: gSubDialog ones, and a <dialog> by its
+# form's reset (Cancel), which also runs the page's own clean-up.
+CLOSE_ANY_DIALOG_JS = """
+const b = document.getElementById('tabmail').currentTabInfo.browser;
+const sub = b.contentWindow && b.contentWindow.gSubDialog;
+for (let i = 0; sub && sub._dialogs && sub._dialogs.length && i < 10; i++) sub._topDialog.close();
+const docs = [b.contentDocument];
+const f = b.contentDocument.getElementById('contentFrame');
+if (f && f.contentDocument) docs.push(f.contentDocument);
+for (const d of docs) {
+  for (const dialog of d.querySelectorAll('dialog[open]')) {
+    const form = dialog.querySelector('form');
+    if (form) form.reset();
+    if (dialog.open) dialog.close();
+  }
+}
 """
 
 CATEGORY_SHOWN_JS = """
@@ -770,22 +984,21 @@ return !!(tree.selectedRow && tree.selectedRow.id == id && f && f.contentDocumen
 """
 
 # The whole visible tab, as a PNG data URL, scaled to fit `max` pixels each
-# way. With an outline id, that element (or its `part`) gets SUMO's outline,
-# drawn 1/scale thicker so it is `width` pixels in the file, and kept inside
-# the picture.
+# way. With a target, that element gets SUMO's outline, drawn 1/scale
+# thicker so it is `width` pixels in the file, and kept inside the picture.
 VIEW_SNAPSHOT_JS = """
-const [color, width, max, id, part, resolve] = arguments;
+const [color, width, max, t, resolve] = arguments;
 const browser = document.getElementById('tabmail').currentTabInfo.browser;
 const doc = browser.contentDocument;
 const win = doc.defaultView;
 const w = win.innerWidth, h = win.innerHeight;
 const scale = Math.min(1, max / w, max / h);
 let box = null;
-if (id) {
-  let el = doc.getElementById(id);
-  if (el && part) el = el.querySelector(part);
-  if (!el) { resolve('error: no element #' + id); return; }
-  const r = el.getBoundingClientRect();
+if (t) {
+  const found = targetOf(t);
+  if (!found) { resolve('error: no element ' + JSON.stringify(t)); return; }
+  const e = found.el.getBoundingClientRect();
+  const r = new DOMRect(e.x + found.dx, e.y + found.dy, e.width, e.height);
   // The border sits on the element's edge, half inside and half outside, so
   // in a list of 28-pixel rows it covers the padding of this row and of its
   // neighbours, never their text.
@@ -810,6 +1023,74 @@ win.requestAnimationFrame(() => win.requestAnimationFrame(() => {
   }, (e) => { if (box) box.remove(); resolve('error ' + e); });
 }));
 """
+
+
+# --- Native windows and the file dialogs (#56) -------------------------------------
+
+# The on-screen windows of one process, from CoreGraphics, through
+# osascript's JavaScript, so this script keeps to the standard library.
+NATIVE_WINDOWS_JXA = """
+ObjC.import('CoreGraphics');
+function run(argv) {
+  const pid = Number(argv[0]);
+  const list = ObjC.castRefToObject($.CGWindowListCopyWindowInfo($.kCGWindowListOptionOnScreenOnly, $.kCGNullWindowID));
+  const out = [];
+  for (let i = 0; i < list.count; i++) {
+    const w = list.objectAtIndex(i);
+    if (ObjC.unwrap(w.objectForKey('kCGWindowOwnerPID')) != pid) continue;
+    out.push({ id: ObjC.unwrap(w.objectForKey('kCGWindowNumber')),
+               layer: ObjC.unwrap(w.objectForKey('kCGWindowLayer')) });
+  }
+  return JSON.stringify(out);
+}
+"""
+
+
+def native_windows(pid, run=subprocess.run):
+    """[{id, layer}] of the process's on-screen windows (macOS)."""
+    res = run(["osascript", "-l", "JavaScript", "-e", NATIVE_WINDOWS_JXA, str(pid)],
+              capture_output=True, text=True)
+    if res.returncode != 0:
+        raise RuntimeError(f"osascript could not list windows: {res.stderr.strip()}")
+    return json.loads(res.stdout)
+
+
+def file_dialog_refusal(platform=sys.platform, groups=None, home=None):
+    """Why --file-dialogs must not run in this macOS user, or None.
+
+    The file dialog shows the user's folders, iCloud Drive and tags, so it is
+    captured only in a separate, empty, standard user (#56).
+    """
+    if platform != "darwin":
+        return "--file-dialogs works only on macOS"
+    if groups is None:
+        res = subprocess.run(["id", "-Gn"], capture_output=True, text=True, check=False)
+        groups = res.stdout.split()
+    home = home or os.path.expanduser("~")
+    if "admin" in groups:
+        return ("--file-dialogs refuses to run in an administrator user, because the file dialog shows "
+                "that user's own folders: run it in a separate, empty, standard user (#56)")
+    if os.path.isdir(os.path.join(home, "Library", "Mobile Documents", "com~apple~CloudDocs")):
+        return ("--file-dialogs refuses to run in a user with iCloud Drive, because the file dialog shows it: "
+                "run it in a separate user with no Apple Account (#56)")
+    return None
+
+
+def screencapture(window_id, path, run=subprocess.run):
+    """Save a native window, scaled to fit MAX_PX, with screencapture and sips."""
+    raw = path + ".full.png"
+    res = run(["screencapture", "-x", "-o", "-l", str(window_id), raw], capture_output=True, text=True)
+    if res.returncode != 0:
+        raise RuntimeError(f"screencapture failed ({res.stderr.strip()}): give the terminal the Screen Recording "
+                           "permission in System Settings › Privacy & Security")
+    try:
+        res = run(["sips", "-Z", str(MAX_PX), raw, "--out", path], capture_output=True, text=True)
+        if res.returncode != 0:
+            raise RuntimeError(f"sips could not scale the screenshot: {res.stderr.strip()}")
+    finally:
+        if os.path.exists(raw):
+            os.remove(raw)
+    return path
 
 
 # --- The tour, apart from Thunderbird (#55) --------------------------------------
@@ -845,46 +1126,164 @@ def tour_steps(categories, rows, account_label=None):
     return steps
 
 
+ITEM_GROUPS = ("open", "file", "menu", "goto")
+
+
+def items_file(version):
+    """tour-items-<major>.tsv next to this script."""
+    major = (version or "").split(".")[0]
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), f"tour-items-{major}.tsv")
+
+
+def read_items(path):
+    """The ellipsis items of a version, {page: [item]}, from its TSV file."""
+    items = {}
+    with open(path, encoding="utf-8") as f:
+        rows = [line.rstrip("\n") for line in f if line.strip() and not line.startswith("#")]
+    header = rows[0].split("\t")
+    if header != ["page", "target", "group", "name", "label"]:
+        raise ValueError(f"{path}: the header must be page, target, group, name, label")
+    names = set()
+    for n, line in enumerate(rows[1:], 2):
+        cells = line.split("\t")
+        if len(cells) != 5 or not all(cells[:4]):
+            raise ValueError(f"{path}: row {n} needs 5 tab-separated cells: {line!r}")
+        page, target, group, name, label = cells
+        if group not in ITEM_GROUPS:
+            raise ValueError(f"{path}: row {n}: group {group!r} is not one of {', '.join(ITEM_GROUPS)}")
+        if (page, name) in names:
+            raise ValueError(f"{path}: row {n}: the name {name!r} is already used in {page}")
+        names.add((page, name))
+        spec = {"css": target[4:]} if target.startswith("css:") else {"id": target}
+        if page.startswith("am-"):
+            spec["frame"] = True
+        items.setdefault(page, []).append({"target": spec, "group": group, "name": safe_name(name), "label": label})
+    return items
+
+
+def item_entries(step, items):
+    """The item entries of a step, each with its letter and file names."""
+    page_items = items.get(step["page"], [])
+    if len(page_items) > 26:
+        raise ValueError(f"{step['page']} has more than 26 items")
+    entries = []
+    for letter, item in zip("abcdefghijklmnopqrstuvwxyz", page_items):
+        base = step["name"][:2] + letter + step["name"][2:] + "-" + item["name"]
+        entries.append(dict(item, step=step["name"][:2].lstrip("0") + letter, file=None, next_file=None,
+                            base=base, status=None))
+    return entries
+
+
 def tour_folder(out, version, locale):
     return os.path.join(out, safe_name(f"{version}-{locale}"))
 
 
 def index_md(version, locale, steps):
-    """index.md of a tour folder: one line per step, in the locale's words."""
+    """index.md of a tour folder: one line per step and item, in the locale's words."""
     lines = [f"# Thunderbird {version}, {locale}: Settings and Account Settings", "",
-             "Made by `tools/checklist/tb_shot.py tour` (sumo-linter #55). Each step has the pane",
+             "Made by `tools/checklist/tb_shot.py tour` (sumo-linter #55, #56). Each step has the pane",
              "as it first shows and, if there is a next step, the same pane with the next item",
-             "to click outlined.", "",
-             "| Step | Clicked | Screenshot | Next item | With the next item outlined |",
-             "|---|---|---|---|---|"]
+             "to click outlined. A step with a letter is an item whose label ends with an ellipsis:",
+             "first the pane with the item outlined, then what the click opens.", "",
+             "| Step | Clicked | Item outlined | Screenshot | Next item | With the next item outlined | Note |",
+             "|---|---|---|---|---|---|---|"]
+
+    def row(cells):
+        lines.append("| " + " | ".join((c or "").replace("|", "\\|") for c in cells) + " |")
+
     for i, s in enumerate(steps, 1):
         where = "Settings" if s["kind"] == "settings" else "Account Settings"
-        nxt = s["next"]["label"] if s["next"] else ""
-        cells = [str(i), f"{where} › {s['label']}", s["file"], nxt or "", s["next_file"] or ""]
-        lines.append("| " + " | ".join(c.replace("|", "\\|") for c in cells) + " |")
+        row([str(i), f"{where} › {s['label']}", "", s["file"], s["next"]["label"] if s["next"] else "",
+             s["next_file"], ""])
+        for e in s.get("items", []):
+            row([e["step"], f"{where} › {s['label']} › {e['label']}", e["next_file"], e["file"], "", "", e["status"]])
     return "\n".join(lines) + "\n"
 
 
-def tour(tb, out, say=print):
-    """Click through Settings and Account Settings, two screenshots a step."""
+def tour(tb, out, say=print, items=None, file_dialogs=False, restart=None, capture=None):
+    """Click through Settings and Account Settings, two screenshots a step.
+
+    `items` are the ellipsis items ({page: [item]}, from read_items). Items
+    that open a file dialog are taken last, with `restart()` giving a new
+    Thunderbird for each one and `capture(window_id, path)` saving it.
+    """
+    items = items or {}
     locale = tb.locale()
     folder = tour_folder(out, tb.version, locale)
     os.makedirs(folder, exist_ok=True)
+    pending = []  # the file dialogs, taken last
+
+    def do_items(step, where):
+        step["items"] = item_entries(step, items)
+        for e in step["items"]:
+            state = tb.item_state(e["target"])
+            if state.get("label"):
+                e["label"] = state["label"]
+            if not state["exists"] or not state["shown"]:
+                e["status"] = "hidden"
+            elif e["group"] == "menu":
+                e["status"] = "a drop-down menu: not clicked"
+            elif e["group"] == "goto":
+                e["status"] = "goes to a Settings pane: not clicked"
+            elif state["disabled"]:
+                e["status"] = "disabled"
+            elif e["group"] == "file" and not file_dialogs:
+                e["status"] = "a file dialog: needs --file-dialogs"
+            elif e["group"] == "file":
+                e["next_file"] = e["base"] + "-next.png"
+                tb.m.js(TARGET_JS + SCROLL_TO_JS, e["target"])
+                time.sleep(0.3)
+                tb.view_shot(os.path.join(folder, e["next_file"]), e["target"])
+                pending.append((step, where, e))
+                continue
+            else:
+                e["next_file"], e["file"] = e["base"] + "-next.png", e["base"] + ".png"
+                kind = tb.item_shots(e["target"], os.path.join(folder, e["next_file"]), os.path.join(folder, e["file"]))
+                e["status"] = kind
+                say(f"  {e['file']}: {e['label']} ({kind})")
+                continue
+            say(f"  {e['step']} {e['label']}: {e['status']}")
+        targets = [e["target"] for e in step["items"]]
+        unlisted = tb.unlisted_items(targets, step["kind"] == "account")
+        for u in unlisted:
+            say(f"  warning: {step['page']} has {u}, which is not in the item list")
+        step["unlisted"] = unlisted
+
+    settings_steps = []
     categories = tb.open_settings()
     for c, step in zip(categories, tour_steps(categories, [])):
         tb.show_category(c)
         tb.view_shot(os.path.join(folder, step["file"]))
-        tb.view_shot(os.path.join(folder, step["next_file"]), step["next"]["id"], step["next"]["part"])
+        tb.view_shot(os.path.join(folder, step["next_file"]), step["next"])
         say(f"{step['file']}: {c['label']}")
+        do_items(step, c)
+        settings_steps.append(step)
     account_label = tb.m.js(ACCOUNT_BUTTON_LABEL_JS)
     rows = tb.open_account_settings()
     steps = tour_steps(categories, rows, account_label)
+    for done, step in zip(settings_steps, steps):
+        step["items"], step["unlisted"] = done["items"], done["unlisted"]
     for r, step in zip(rows, steps[len(categories):]):
         tb.show_account_row(r)
         tb.view_shot(os.path.join(folder, step["file"]))
         if step["next"]:
-            tb.view_shot(os.path.join(folder, step["next_file"]), step["next"]["id"], step["next"]["part"])
+            tb.view_shot(os.path.join(folder, step["next_file"]), step["next"])
         say(f"{step['file']}: {r['label']}")
+        do_items(step, r)
+    for old_step, where, e in pending:
+        # e is the same object as in `steps`, so its file name lands there.
+        tb = restart()
+        if old_step["kind"] == "settings":
+            tb.open_settings()
+            tb.show_category(where)
+        else:
+            tb.open_settings()
+            tb.open_account_settings()
+            tb.show_account_row(where)
+        e["file"] = e["base"] + ".png"
+        tb.click_for_file_dialog(e["target"], lambda wid, e=e: capture(wid, os.path.join(folder, e["file"])))
+        e["status"] = "file dialog"
+        say(f"  {e['file']}: {e['label']} (file dialog)")
     with open(os.path.join(folder, "index.md"), "w", encoding="utf-8") as f:
         f.write(index_md(tb.version, locale, steps))
     with open(os.path.join(folder, "index.json"), "w", encoding="utf-8") as f:
@@ -913,7 +1312,8 @@ def zip_tour(folder, dest_dir):
         version, locale, steps = index["version"], index["locale"], index["steps"]
     except (OSError, ValueError, KeyError) as e:
         raise RuntimeError(f"{folder} is not a finished tour (index.json: {e})")
-    files = ["index.md", "index.json"] + [s[k] for s in steps for k in ("file", "next_file") if s[k]]
+    files = ["index.md", "index.json"] + [x[k] for s in steps for x in [s, *s.get("items", [])]
+                                          for k in ("file", "next_file") if x[k]]
     missing = [n for n in files if not os.path.isfile(os.path.join(folder, n))]
     if missing:
         raise RuntimeError(f"{folder} lacks {', '.join(missing)}")
@@ -1020,6 +1420,8 @@ def main():
     text = option(args, "--text")
     expect = option(args, "--expect")
     account = option(args, "--account", "dummy")
+    file_dialogs = "--file-dialogs" in args
+    args = [a for a in args if a != "--file-dialogs"]
     if command == "login":
         if not app or args or out or text:
             sys.exit(__doc__)
@@ -1030,24 +1432,51 @@ def main():
         return
     if not app or not out or args or (command == "shot") != bool(text) or account not in ("dummy", "real"):
         sys.exit(__doc__)
+    if file_dialogs and command != "tour":
+        sys.exit(__doc__)
+    if file_dialogs and file_dialog_refusal():
+        sys.exit(file_dialog_refusal())
+    items = {}
+    if command == "tour":
+        path = items_file(version_of(app))
+        if os.path.isfile(path):
+            try:
+                items = read_items(path)
+            except ValueError as e:
+                sys.exit(str(e))
+        else:
+            print(f"No {os.path.basename(path)}: items with an ellipsis are not clicked.")
+
+    def start():
+        return Thunderbird(app, expect, ACCOUNT_PROFILE if account == "real" else None)
+
     try:
-        tb = Thunderbird(app, expect, ACCOUNT_PROFILE if account == "real" else None)
+        tb = start()
     except RuntimeError as e:
         sys.exit(str(e))
+    current = [tb]  # the Thunderbird to quit at the end, after any restart
+
+    def restart():
+        current[0].quit()
+        current[0] = start()
+        return current[0]
+
     try:
         if command == "shot":
             where, size = tb.shot(text, out)
             print(f"{out}: {size[0]}×{size[1]}, {where}")
         elif command == "tour":
-            folder, steps = tour(tb, out)
-            print(f"{folder}: {len(steps)} steps")
+            folder, steps = tour(tb, out, items=items, file_dialogs=file_dialogs, restart=restart,
+                                 capture=lambda wid, path: screencapture(wid, path))
+            shots = sum(bool(x[k]) for s in steps for x in [s, *s["items"]] for k in ("file", "next_file"))
+            print(f"{folder}: {len(steps)} steps, {shots} screenshots")
         else:
             os.makedirs(out, exist_ok=True)
             session(tb, out)
     except (LookupError, RuntimeError, ValueError) as e:
         sys.exit(str(e))
     finally:
-        tb.quit()
+        current[0].quit()
 
 
 if __name__ == "__main__":

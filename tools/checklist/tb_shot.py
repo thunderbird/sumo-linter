@@ -12,6 +12,8 @@
     uv run tools/checklist/tb_shot.py shot --app APP --text TEXT --out FILE.png
     uv run tools/checklist/tb_shot.py session --app APP --out DIR
     uv run tools/checklist/tb_shot.py login --app APP
+    uv run tools/checklist/tb_shot.py tour --app APP --out DIR
+    uv run tools/checklist/tb_shot.py publish DIR/VERSION-LOCALE [--replace]
 
 APP is a Thunderbird application: `/Applications/…/Thunderbird.app` on macOS,
 or the `thunderbird` program elsewhere. The script starts a second copy of it
@@ -49,6 +51,25 @@ script never types a password and never composes or sends mail. If the sign-in
 has expired, run `login` again. Use a test account: its address will be in
 some screenshots, and SUMO's screenshots must contain no personal data.
 
+`tour` (#55) clicks through every Settings category and every Account
+Settings page, as a person does, and saves two screenshots of each: the pane
+as it first shows, and the same pane with the next item to click outlined.
+The order is the Settings sidebar, then its Account Settings link, then every
+row of the Account Settings tree. The files go to DIR/VERSION-LOCALE, for
+example screenshots/160.0-en-US, named by pane, never by visible text, so a
+step has the same file name in every locale. index.md and index.json there
+list the steps with the labels in the locale's own words. Each screenshot is
+the whole tab, scaled down to fit SUMO's 620 pixels, as SUMO's guide says to
+resize a large screenshot; the outline is drawn thicker by the same factor,
+so it is still OUTLINE_PX in the file. /screenshots/ is gitignored.
+
+`publish` puts a tour folder on GitHub as a release asset, with `gh`: one
+release per Thunderbird version (tag screenshots-VERSION) and one zip per
+locale (VERSION-LOCALE.zip). It creates the release if it is missing and adds
+the zip otherwise, and it never replaces a zip that is already there unless
+you give --replace. Release assets are outside the git history, so a clone of
+this repo never downloads them.
+
 Python standard library only, like walk.py. It is a separate file because
 walk.py must stay one file (#32).
 """
@@ -64,6 +85,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import zipfile
 
 # SUMO's rules, from "How to make screenshots" (corpus-other/markup-docs).
 OUTLINE_COLOR = "#f71701"
@@ -72,6 +94,11 @@ MAX_PX = 620
 MARGIN_PX = 24  # room around the outline
 
 DUMMY_EMAIL = "dummy@example.invalid"
+
+# The window size of a tour (#55), in CSS pixels. The tab's content is then
+# about 955 by 580, which scales to 620 by 376.
+TOUR_WINDOW = (1000, 720)
+RELEASE_REPO = "thunderbird/sumo-linter"
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # The signed-in profile for --account real (#40). /.auth/ is gitignored.
@@ -399,6 +426,61 @@ class Thunderbird:
                 return f"Account Settings, {page}"
         return None
 
+    # --- The tour (#55) ---
+
+    def locale(self):
+        """The language that Thunderbird shows, for example "en-US"."""
+        return self.m.js("return Services.locale.appLocaleAsBCP47")
+
+    def open_settings(self):
+        self.m.cmd("WebDriver:SetWindowRect", {"width": TOUR_WINDOW[0], "height": TOUR_WINDOW[1]})
+        self.m.js(CLOSE_DIALOGS_JS)
+        self.m.js("window.openPreferencesTab('paneGeneral')")
+        if not self.wait_for(PREFS_READY_JS):
+            raise RuntimeError("Settings did not open")
+        if not self.wait_for(SETTINGS_CATEGORIES_JS):
+            raise RuntimeError("Settings shows no categories")
+        return self.m.js(SETTINGS_CATEGORIES_JS)
+
+    def click(self, element_id, part=None):
+        """Click an element of the tab, as a person does."""
+        if len(self.windows()) > 1:
+            raise RuntimeError("Thunderbird shows a dialog that waits for an answer")
+        if not self.m.js(CLICK_JS, element_id, part):
+            raise LookupError(f"no element #{element_id} to click")
+
+    def show_category(self, category):
+        self.click(category["id"])
+        if not self.wait_for(CATEGORY_SHOWN_JS, category["id"], category["pane"]):
+            raise RuntimeError(f"the Settings category {category['pane']} did not show")
+        time.sleep(0.5)  # Fluent fills in the pane's text
+
+    def open_account_settings(self):
+        """Click the Account Settings link at the foot of the Settings sidebar."""
+        self.click("accountButton")
+        if not self.wait_for(ACCOUNTS_READY_JS):
+            raise RuntimeError("Account Settings did not open")
+        if not self.wait_for(ACCOUNT_ROWS_JS):
+            raise RuntimeError("Account Settings shows no accounts")
+        return self.m.js(ACCOUNT_ROWS_JS)
+
+    def show_account_row(self, row):
+        self.click(row["id"], ".container")
+        if not self.wait_for(ACCOUNT_ROW_SHOWN_JS, row["id"], row["page"]):
+            raise RuntimeError(f"the Account Settings page {row['id']} did not show")
+        time.sleep(0.5)
+
+    def view_shot(self, path, outline=None, part=None):
+        """Save the whole tab, scaled to fit MAX_PX, with `outline` outlined."""
+        data = self.m.js_async(VIEW_SNAPSHOT_JS, OUTLINE_COLOR, OUTLINE_PX, MAX_PX, outline, part)
+        if not isinstance(data, str) or not data.startswith("data:image/png;base64,"):
+            raise RuntimeError(f"the screenshot failed: {data}")
+        png = base64.b64decode(data.split(",", 1)[1])
+        os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+        with open(path, "wb") as f:
+            f.write(png)
+        return png_size(png)
+
     def wait_for(self, script, *args, timeout=15):
         deadline = time.time() + timeout
         while time.time() < deadline:
@@ -635,6 +717,246 @@ win.requestAnimationFrame(() => win.requestAnimationFrame(() => {
 """
 
 
+# The tour (#55). Both Settings and Account Settings are the document of the
+# current tab.
+
+SETTINGS_CATEGORIES_JS = """
+const doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
+const items = [...doc.querySelectorAll('#categories > richlistitem')]
+  .filter(e => !e.hidden && e.getBoundingClientRect().height > 0)
+  .map(e => ({ id: e.id, pane: e.value, label: e.textContent.trim() }));
+return items.length && items.every(i => i.label) ? items : null;
+"""
+
+ACCOUNT_ROWS_JS = """
+const doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
+const rows = [...doc.querySelectorAll('#accounttree li')]
+  .filter(li => li.querySelector('.container') && li.querySelector('.container').getBoundingClientRect().height > 0)
+  .map(li => ({ id: li.id, page: li.getAttribute('PageTag'),
+                label: (li.querySelector('.container .name') || li.querySelector('.container')).textContent.trim() }));
+return rows.length && rows.every(r => r.label) ? rows : null;
+"""
+
+# A click that the element's own handlers see: the mouse events a person makes.
+CLICK_JS = """
+const [id, part] = arguments;
+const doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
+let el = doc.getElementById(id);
+if (el && part) el = el.querySelector(part);
+if (!el) return false;
+el.scrollIntoView({ block: 'nearest' });
+const win = doc.defaultView;
+for (const type of ['mousedown', 'mouseup', 'click']) {
+  el.dispatchEvent(new win.MouseEvent(type, { bubbles: true, cancelable: true, view: win, button: 0, detail: 1 }));
+}
+return true;
+"""
+
+CATEGORY_SHOWN_JS = """
+const [id, pane] = arguments;
+const doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
+const list = doc.getElementById('categories');
+const shown = [...doc.querySelectorAll('[data-category="' + pane + '"]')].some(e => !e.hidden && e.getBoundingClientRect().height > 0);
+return !!(list.selectedItem && list.selectedItem.id == id && shown);
+"""
+
+ACCOUNT_ROW_SHOWN_JS = """
+const [id, page] = arguments;
+const doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
+const tree = doc.getElementById('accounttree');
+const f = doc.getElementById('contentFrame');
+return !!(tree.selectedRow && tree.selectedRow.id == id && f && f.contentDocument
+          && f.contentDocument.readyState == 'complete' && f.contentDocument.location.href.endsWith(page));
+"""
+
+# The whole visible tab, as a PNG data URL, scaled to fit `max` pixels each
+# way. With an outline id, that element (or its `part`) gets SUMO's outline,
+# drawn 1/scale thicker so it is `width` pixels in the file, and kept inside
+# the picture.
+VIEW_SNAPSHOT_JS = """
+const [color, width, max, id, part, resolve] = arguments;
+const browser = document.getElementById('tabmail').currentTabInfo.browser;
+const doc = browser.contentDocument;
+const win = doc.defaultView;
+const w = win.innerWidth, h = win.innerHeight;
+const scale = Math.min(1, max / w, max / h);
+let box = null;
+if (id) {
+  let el = doc.getElementById(id);
+  if (el && part) el = el.querySelector(part);
+  if (!el) { resolve('error: no element #' + id); return; }
+  const r = el.getBoundingClientRect();
+  // The border sits on the element's edge, half inside and half outside, so
+  // in a list of 28-pixel rows it covers the padding of this row and of its
+  // neighbours, never their text.
+  const bw = width / scale;
+  const x1 = Math.max(0, r.left - bw / 2), y1 = Math.max(0, r.top - bw / 2);
+  const x2 = Math.min(w, r.right + bw / 2), y2 = Math.min(h, r.bottom + bw / 2);
+  box = doc.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+  box.style.cssText = `position: fixed; z-index: 2147483647; pointer-events: none;
+    box-sizing: border-box; border: ${bw}px solid ${color}; border-radius: 0;
+    left: ${x1}px; top: ${y1}px; width: ${x2 - x1}px; height: ${y2 - y1}px;`;
+  doc.documentElement.appendChild(box);
+}
+win.requestAnimationFrame(() => win.requestAnimationFrame(() => {
+  const rect = new DOMRect(win.scrollX, win.scrollY, w, h);
+  browser.browsingContext.currentWindowGlobal.drawSnapshot(rect, scale, 'white').then((bitmap) => {
+    if (box) box.remove();
+    const c = document.createElementNS('http://www.w3.org/1999/xhtml', 'canvas');
+    c.width = bitmap.width;
+    c.height = bitmap.height;
+    c.getContext('2d').drawImage(bitmap, 0, 0);
+    resolve(c.toDataURL('image/png'));
+  }, (e) => { if (box) box.remove(); resolve('error ' + e); });
+}));
+"""
+
+
+# --- The tour, apart from Thunderbird (#55) --------------------------------------
+
+def tour_steps(categories, rows, account_label=None):
+    """The steps of a tour: what each one clicks, and what it outlines next.
+
+    `categories` are the Settings sidebar items ({id, pane, label}), `rows`
+    the Account Settings tree rows ({id, page, label}). The last category's
+    next item is the sidebar's Account Settings link, labelled
+    `account_label`; the last row has none. The rows are known only after
+    the Settings steps, and they do not change the Settings steps.
+    """
+    steps = []
+    for c in categories:
+        steps.append({"kind": "settings", "id": c["id"], "page": c["pane"], "label": c["label"],
+                      "name": safe_name(f"settings-{c['pane']}")})
+    for r in rows:
+        steps.append({"kind": "account", "id": r["id"], "page": r["page"], "label": r["label"],
+                      "name": safe_name("account-" + r["id"].replace(".xhtml", ""))})
+    for i, step in enumerate(steps):
+        step["name"] = f"{i + 1:02d}-{step['name']}"
+        step["file"] = step["name"] + ".png"
+        if i + 1 < len(steps) and steps[i + 1]["kind"] == step["kind"]:
+            following = steps[i + 1]
+            step["next"] = {"id": following["id"], "label": following["label"],
+                            "part": ".container" if following["kind"] == "account" else None}
+        elif step["kind"] == "settings":
+            step["next"] = {"id": "accountButton", "label": account_label, "part": None}
+        else:
+            step["next"] = None
+        step["next_file"] = step["name"] + "-next.png" if step["next"] else None
+    return steps
+
+
+def tour_folder(out, version, locale):
+    return os.path.join(out, safe_name(f"{version}-{locale}"))
+
+
+def index_md(version, locale, steps):
+    """index.md of a tour folder: one line per step, in the locale's words."""
+    lines = [f"# Thunderbird {version}, {locale}: Settings and Account Settings", "",
+             "Made by `tools/checklist/tb_shot.py tour` (sumo-linter #55). Each step has the pane",
+             "as it first shows and, if there is a next step, the same pane with the next item",
+             "to click outlined.", "",
+             "| Step | Clicked | Screenshot | Next item | With the next item outlined |",
+             "|---|---|---|---|---|"]
+    for i, s in enumerate(steps, 1):
+        where = "Settings" if s["kind"] == "settings" else "Account Settings"
+        nxt = s["next"]["label"] if s["next"] else ""
+        cells = [str(i), f"{where} › {s['label']}", s["file"], nxt or "", s["next_file"] or ""]
+        lines.append("| " + " | ".join(c.replace("|", "\\|") for c in cells) + " |")
+    return "\n".join(lines) + "\n"
+
+
+def tour(tb, out, say=print):
+    """Click through Settings and Account Settings, two screenshots a step."""
+    locale = tb.locale()
+    folder = tour_folder(out, tb.version, locale)
+    os.makedirs(folder, exist_ok=True)
+    categories = tb.open_settings()
+    for c, step in zip(categories, tour_steps(categories, [])):
+        tb.show_category(c)
+        tb.view_shot(os.path.join(folder, step["file"]))
+        tb.view_shot(os.path.join(folder, step["next_file"]), step["next"]["id"], step["next"]["part"])
+        say(f"{step['file']}: {c['label']}")
+    account_label = tb.m.js(ACCOUNT_BUTTON_LABEL_JS)
+    rows = tb.open_account_settings()
+    steps = tour_steps(categories, rows, account_label)
+    for r, step in zip(rows, steps[len(categories):]):
+        tb.show_account_row(r)
+        tb.view_shot(os.path.join(folder, step["file"]))
+        if step["next"]:
+            tb.view_shot(os.path.join(folder, step["next_file"]), step["next"]["id"], step["next"]["part"])
+        say(f"{step['file']}: {r['label']}")
+    with open(os.path.join(folder, "index.md"), "w", encoding="utf-8") as f:
+        f.write(index_md(tb.version, locale, steps))
+    with open(os.path.join(folder, "index.json"), "w", encoding="utf-8") as f:
+        json.dump({"version": tb.version, "locale": locale, "steps": steps}, f, ensure_ascii=False, indent=1)
+        f.write("\n")
+    return folder, steps
+
+
+ACCOUNT_BUTTON_LABEL_JS = """
+const doc = document.getElementById('tabmail').currentTabInfo.browser.contentDocument;
+return doc.getElementById('accountButton').textContent.trim();
+"""
+
+
+# --- Publishing a tour as a GitHub release asset (#55) ----------------------------
+
+def release_tag(version):
+    return f"screenshots-{version}"
+
+
+def zip_tour(folder, dest_dir):
+    """VERSION-LOCALE.zip of a tour folder, from its index.json."""
+    try:
+        with open(os.path.join(folder, "index.json"), encoding="utf-8") as f:
+            index = json.load(f)
+        version, locale, steps = index["version"], index["locale"], index["steps"]
+    except (OSError, ValueError, KeyError) as e:
+        raise RuntimeError(f"{folder} is not a finished tour (index.json: {e})")
+    files = ["index.md", "index.json"] + [s[k] for s in steps for k in ("file", "next_file") if s[k]]
+    missing = [n for n in files if not os.path.isfile(os.path.join(folder, n))]
+    if missing:
+        raise RuntimeError(f"{folder} lacks {', '.join(missing)}")
+    name = f"{version}-{locale}"
+    path = os.path.join(dest_dir, name + ".zip")
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
+        for n in files:
+            z.write(os.path.join(folder, n), f"{name}/{n}")
+    return path, version, locale, len(files) - 2
+
+
+def release_notes(version):
+    return (f"Screenshots of every Settings category and Account Settings page in Thunderbird {version}, "
+            "one zip per locale, made by `tools/checklist/tb_shot.py tour` (#55). Each zip has an "
+            "index.md that lists the steps.\n")
+
+
+def publish(folder, replace=False, run=subprocess.run, say=print, repo=RELEASE_REPO):
+    """Add a tour folder's zip to the release of its version, creating it if needed."""
+    with tempfile.TemporaryDirectory() as tmp:
+        path, version, _locale, count = zip_tour(folder, tmp)
+        tag, asset = release_tag(version), os.path.basename(path)
+        view = run(["gh", "release", "view", tag, "--repo", repo, "--json", "assets"],
+                   capture_output=True, text=True)
+        if view.returncode != 0:
+            if "release not found" not in (view.stderr or ""):
+                raise RuntimeError(f"gh release view {tag} failed: {(view.stderr or '').strip()}")
+            command = ["gh", "release", "create", tag, path, "--repo", repo,
+                       "--title", f"Thunderbird {version} screenshots", "--notes", release_notes(version)]
+            action = "created the release"
+        else:
+            names = [a["name"] for a in json.loads(view.stdout or "{}").get("assets", [])]
+            if asset in names and not replace:
+                raise RuntimeError(f"{tag} already has {asset}: give --replace to replace it")
+            command = ["gh", "release", "upload", tag, path, "--repo", repo] + (["--clobber"] if asset in names else [])
+            action = "replaced" if asset in names else "added"
+        res = run(command, capture_output=True, text=True)
+        if res.returncode != 0:
+            raise RuntimeError(f"{' '.join(command[:3])} failed: {(res.stderr or '').strip()}")
+    say(f"{tag}: {action} {asset} ({count} screenshots), https://github.com/{repo}/releases/tag/{tag}")
+    return command
+
+
 # --- Commands -------------------------------------------------------------------
 
 def session(tb, out, read=sys.stdin.readline, write=None):
@@ -680,9 +1002,19 @@ def option(args, flag, default=None):
 
 def main():
     args = sys.argv[1:]
-    if not args or args[0] not in ("shot", "session", "login"):
+    if not args or args[0] not in ("shot", "session", "login", "tour", "publish"):
         sys.exit(__doc__)
     command = args.pop(0)
+    if command == "publish":
+        replace = "--replace" in args
+        args = [a for a in args if a != "--replace"]
+        if len(args) != 1 or args[0].startswith("-"):
+            sys.exit(__doc__)
+        try:
+            publish(args[0], replace)
+        except RuntimeError as e:
+            sys.exit(str(e))
+        return
     app = option(args, "--app")
     out = option(args, "--out")
     text = option(args, "--text")
@@ -706,10 +1038,13 @@ def main():
         if command == "shot":
             where, size = tb.shot(text, out)
             print(f"{out}: {size[0]}×{size[1]}, {where}")
+        elif command == "tour":
+            folder, steps = tour(tb, out)
+            print(f"{folder}: {len(steps)} steps")
         else:
             os.makedirs(out, exist_ok=True)
             session(tb, out)
-    except (LookupError, RuntimeError) as e:
+    except (LookupError, RuntimeError, ValueError) as e:
         sys.exit(str(e))
     finally:
         tb.quit()

@@ -79,3 +79,6 @@ node_modules/
 
 # Python bytecode from tools/ui-strings tests
 __pycache__/
+
+# Thunderbird screenshot tours (#55), published as GitHub release assets, never committed
+/screenshots/

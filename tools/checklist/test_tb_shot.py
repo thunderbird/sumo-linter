@@ -7,7 +7,8 @@
     python3 tools/checklist/test_tb_shot.py
 
 What needs Thunderbird, finding a setting and drawing it, was tested by hand
-against Thunderbird 159 on macOS; see #39. This file tests the parts that can
+against Thunderbird 159 on macOS; see #39. The tour's clicks and screenshots
+were tested by hand against 160; see #55. This file tests the parts that can
 break without anyone noticing: the Marionette protocol, the version check, the
 prefs that keep a dialog from waiting for a click, and the session protocol
 that walk.py speaks.
@@ -22,6 +23,7 @@ import sys
 import tempfile
 import threading
 import unittest
+import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -238,6 +240,178 @@ class Png(unittest.TestCase):
     def test_png_size(self):
         header = b"\x89PNG\r\n\x1a\n" + struct.pack(">I", 13) + b"IHDR" + struct.pack(">II", 595, 93)
         self.assertEqual(tb_shot.png_size(header), (595, 93))
+
+
+CATEGORIES = [{"id": "category-general", "pane": "paneGeneral", "label": "Allgemein"},
+              {"id": "category-compose", "pane": "paneCompose", "label": "Verfassen"}]
+ROWS = [{"id": "account1", "page": "am-main.xhtml", "label": "Mail for a|b"},
+        {"id": "account1/am-server.xhtml", "page": "am-server.xhtml", "label": "Server"},
+        {"id": "smtp", "page": "am-smtp.xhtml", "label": "Outgoing Server"}]
+
+
+class TourSteps(unittest.TestCase):
+    def test_names_come_from_panes_not_labels(self):
+        steps = tb_shot.tour_steps(CATEGORIES, ROWS, "Konten")
+        self.assertEqual([s["file"] for s in steps], [
+            "01-settings-paneGeneral.png", "02-settings-paneCompose.png", "03-account-account1.png",
+            "04-account-account1-am-server.png", "05-account-smtp.png"])
+
+    def test_each_step_outlines_the_next_click(self):
+        steps = tb_shot.tour_steps(CATEGORIES, ROWS, "Konten")
+        self.assertEqual(steps[0]["next"], {"id": "category-compose", "label": "Verfassen", "part": None})
+        # The last category leads to the sidebar's Account Settings link.
+        self.assertEqual(steps[1]["next"], {"id": "accountButton", "label": "Konten", "part": None})
+        # A tree row is clicked, and outlined, by its .container.
+        self.assertEqual(steps[2]["next"], {"id": "account1/am-server.xhtml", "label": "Server", "part": ".container"})
+        self.assertEqual(steps[1]["next_file"], "02-settings-paneCompose-next.png")
+
+    def test_the_last_step_has_no_next(self):
+        last = tb_shot.tour_steps(CATEGORIES, ROWS)[-1]
+        self.assertIsNone(last["next"])
+        self.assertIsNone(last["next_file"])
+
+    def test_the_rows_do_not_change_the_settings_steps(self):
+        # tour() shoots Settings before it knows the rows.
+        before = tb_shot.tour_steps(CATEGORIES, [])
+        after = tb_shot.tour_steps(CATEGORIES, ROWS)[:2]
+        for b, a in zip(before, after):
+            self.assertEqual((b["file"], b["next_file"], b["next"]["id"]), (a["file"], a["next_file"], a["next"]["id"]))
+
+    def test_the_folder_is_version_and_locale(self):
+        self.assertEqual(tb_shot.tour_folder("out", "160.0", "en-US"), os.path.join("out", "160.0-en-US"))
+
+    def test_index_md_has_a_row_per_step_and_escapes_bars(self):
+        md = tb_shot.index_md("160.0", "de", tb_shot.tour_steps(CATEGORIES, ROWS, "Konten"))
+        rows = [line for line in md.splitlines() if line.startswith("| ") and line[2].isdigit()]
+        self.assertEqual(len(rows), 5)
+        self.assertIn("Account Settings › Mail for a\\|b", rows[2])
+        self.assertTrue(rows[-1].endswith("| 05-account-smtp.png |  |  |"))
+
+
+class FakeTourThunderbird:
+    """The tour's view of Thunderbird, recording each screenshot."""
+
+    version = "160.0"
+
+    def __init__(self):
+        self.shots = []
+        self.m = self
+
+    def js(self, script, *args):
+        assert script == tb_shot.ACCOUNT_BUTTON_LABEL_JS
+        return "Account Settings"
+
+    def locale(self):
+        return "en-US"
+
+    def open_settings(self):
+        return CATEGORIES
+
+    def show_category(self, c):
+        self.shots.append(("show", c["id"]))
+
+    def open_account_settings(self):
+        return ROWS
+
+    def show_account_row(self, r):
+        self.shots.append(("show", r["id"]))
+
+    def view_shot(self, path, outline=None, part=None):
+        self.shots.append((os.path.basename(path), outline, part))
+        with open(path, "wb") as f:
+            f.write(b"png")
+        return (620, 375)
+
+
+class Tour(unittest.TestCase):
+    def setUp(self):
+        self.out = tempfile.mkdtemp()
+        self.addCleanup(lambda: __import__("shutil").rmtree(self.out))
+        self.tb = FakeTourThunderbird()
+        self.folder, self.steps = tb_shot.tour(self.tb, self.out, say=lambda line: None)
+
+    def test_two_shots_a_step_except_the_last(self):
+        self.assertEqual(self.tb.shots[:4], [
+            ("show", "category-general"), ("01-settings-paneGeneral.png", None, None),
+            ("01-settings-paneGeneral-next.png", "category-compose", None), ("show", "category-compose")])
+        self.assertIn(("02-settings-paneCompose-next.png", "accountButton", None), self.tb.shots)
+        self.assertIn(("03-account-account1-next.png", "account1/am-server.xhtml", ".container"), self.tb.shots)
+        self.assertEqual(self.tb.shots[-2:], [("show", "smtp"), ("05-account-smtp.png", None, None)])
+        self.assertEqual(len([s for s in self.tb.shots if s[0] != "show"]), 9)
+
+    def test_the_index_files(self):
+        self.assertEqual(self.folder, os.path.join(self.out, "160.0-en-US"))
+        with open(os.path.join(self.folder, "index.json"), encoding="utf-8") as f:
+            index = json.load(f)
+        self.assertEqual((index["version"], index["locale"], len(index["steps"])), ("160.0", "en-US", 5))
+        self.assertEqual(index["steps"][1]["next"]["label"], "Account Settings")
+        self.assertTrue(os.path.isfile(os.path.join(self.folder, "index.md")))
+
+
+class Publish(unittest.TestCase):
+    def setUp(self):
+        out = tempfile.mkdtemp()
+        self.addCleanup(lambda: __import__("shutil").rmtree(out))
+        self.folder, _ = tb_shot.tour(FakeTourThunderbird(), out, say=lambda line: None)
+        self.calls = []
+
+    def gh(self, view_code=0, view_err="", assets=(), upload_code=0):
+        def run(command, capture_output=True, text=True):
+            self.calls.append(command)
+            if command[:3] == ["gh", "release", "view"]:
+                stdout = json.dumps({"assets": [{"name": a} for a in assets]})
+                return subprocess_result(view_code, stdout, view_err)
+            with zipfile.ZipFile(command[4]) as z:
+                self.zipped = sorted(z.namelist())
+            return subprocess_result(upload_code, "", "boom" if upload_code else "")
+        return run
+
+    def test_the_first_locale_creates_the_release(self):
+        tb_shot.publish(self.folder, run=self.gh(1, "release not found"), say=lambda line: None)
+        create = self.calls[1]
+        self.assertEqual(create[:4], ["gh", "release", "create", "screenshots-160.0"])
+        self.assertTrue(create[4].endswith("160.0-en-US.zip"))
+        self.assertIn("thunderbird/sumo-linter", create)
+        self.assertIn("160.0-en-US/index.md", self.zipped)
+        self.assertIn("160.0-en-US/05-account-smtp.png", self.zipped)
+        self.assertEqual(len(self.zipped), 9 + 2)
+
+    def test_a_second_locale_is_added(self):
+        tb_shot.publish(self.folder, run=self.gh(assets=["160.0-de.zip"]), say=lambda line: None)
+        self.assertEqual(self.calls[1][:4], ["gh", "release", "upload", "screenshots-160.0"])
+        self.assertNotIn("--clobber", self.calls[1])
+
+    def test_an_existing_zip_is_never_replaced_by_accident(self):
+        with self.assertRaisesRegex(RuntimeError, "--replace"):
+            tb_shot.publish(self.folder, run=self.gh(assets=["160.0-en-US.zip"]), say=lambda line: None)
+        self.assertEqual(len(self.calls), 1)
+
+    def test_replace(self):
+        tb_shot.publish(self.folder, replace=True, run=self.gh(assets=["160.0-en-US.zip"]), say=lambda line: None)
+        self.assertIn("--clobber", self.calls[1])
+
+    def test_another_gh_error_creates_nothing(self):
+        with self.assertRaisesRegex(RuntimeError, "not logged in"):
+            tb_shot.publish(self.folder, run=self.gh(1, "not logged in"), say=lambda line: None)
+        self.assertEqual(len(self.calls), 1)
+
+    def test_a_failed_upload_is_an_error(self):
+        with self.assertRaisesRegex(RuntimeError, "boom"):
+            tb_shot.publish(self.folder, run=self.gh(assets=[], upload_code=1), say=lambda line: None)
+
+    def test_an_unfinished_tour_is_refused(self):
+        os.remove(os.path.join(self.folder, "02-settings-paneCompose-next.png"))
+        with self.assertRaisesRegex(RuntimeError, "lacks 02-settings-paneCompose-next.png"):
+            tb_shot.publish(self.folder, run=self.gh(), say=lambda line: None)
+        self.assertEqual(self.calls, [])
+
+    def test_the_screenshots_folder_is_gitignored(self):
+        with open(os.path.join(tb_shot.REPO, ".gitignore"), encoding="utf-8") as f:
+            self.assertIn("/screenshots/", f.read().split())
+
+
+def subprocess_result(code, stdout, stderr):
+    return __import__("subprocess").CompletedProcess([], code, stdout, stderr)
 
 
 if __name__ == "__main__":

@@ -66,6 +66,13 @@ Phases 1 and 2 are done, pushed, and CI is green. The web app is live at
 <https://thunderbird.github.io/sumo-linter/>.
 
 **Open, on Roland's side (no deadline):**
+- **Next on resume: the 153 ESR screenshot tour (#57).** The checklist is at the end of
+  #57's body. Roland runs one `--file-dialogs` tour in the `sumoshots` user (after `git
+  pull`), which makes the whole set. Then Claude checks the file-dialog captures in
+  `/Users/Shared/sumo-screenshots/153.6.0-en-US/` for personal data, Roland publishes from
+  his own user, and #57 closes. `tour-items-153.tsv` is measured: the 160 items plus
+  Choose… in Appearance (`menu`) and Config Editor… (group `tab`, which saves the
+  `about:config` tab). The 160.0 en-US tour (#55, #56) is published, 91 screenshots.
 - **Staging test of the Thunderbird 159 string edits (#48, which continues #28).** The
   checklist is the body of #48, made by `tools/ui-strings/checklist.py` from the proposal
   reports after #47, with #28's answers carried over (`--carry`); #28 is closed. Roland walks

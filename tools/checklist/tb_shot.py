@@ -72,7 +72,8 @@ is not in the list. For each item it saves the pane with the item outlined
 the click opens (`…-catProxiesButton.png`): a dialog in the tab, a separate
 window, or an HTML dialog. It closes each dialog without OK. Hidden and
 disabled items, drop-down menus and links to another pane are listed in
-index.md but not clicked.
+index.md but not clicked. An item that opens a Thunderbird tab, such as
+Config Editor… (about:config) in 153 (#57), saves that tab and closes it.
 
 Items that open the operating system's file dialog are captured only with
 --file-dialogs, on macOS, with `screencapture`, which needs the Screen
@@ -551,6 +552,26 @@ class Thunderbird:
                 return kind
         raise RuntimeError(f"{target_name(target)} opened nothing in {timeout} s")
 
+    def tab_shots(self, target, before_path, after_path, timeout=10):
+        """Outline `target`, click it, and save the Thunderbird tab it opens.
+
+        Config Editor… in 153 opens about:config in a new tab (#57). The tab
+        is closed after, and the tour goes on in the tab it came from.
+        """
+        self.m.js(TARGET_JS + SCROLL_TO_JS, target)
+        time.sleep(0.3)
+        self.view_shot(before_path, target)
+        self.m.js(REMEMBER_TAB_JS)
+        self.click(target)
+        if not self.wait_for(NEW_TAB_READY_JS, timeout=timeout):
+            raise RuntimeError(f"{target_name(target)} opened no tab in {timeout} s")
+        time.sleep(0.7)  # Fluent fills in the page's text
+        self.view_shot(after_path)
+        if not self.m.js(CLOSE_NEW_TAB_JS) or not self.wait_for(TAB_BACK_JS):
+            raise RuntimeError(f"the tab that {target_name(target)} opened did not close")
+        time.sleep(0.3)
+        return "tab"
+
     def click_for_file_dialog(self, target, capture, timeout=10):
         """Click `target`, wait for the native file dialog, and `capture` it.
 
@@ -615,6 +636,32 @@ identity.fullName = "Dummy";
 const account = MailServices.accounts.createAccount();
 account.incomingServer = server;
 account.addIdentity(identity);
+"""
+
+# The tab that a "tab" item opens: the tab before the click is remembered,
+# a new current tab with a loaded page is the one it opened, and closing it
+# goes back to the remembered tab.
+REMEMBER_TAB_JS = """
+window.__tbShotTab = document.getElementById('tabmail').currentTabInfo;
+"""
+
+NEW_TAB_READY_JS = """
+const t = document.getElementById('tabmail').currentTabInfo;
+const doc = t != window.__tbShotTab && t.browser && t.browser.contentDocument;
+return !!(doc && doc.readyState == 'complete' && doc.URL != 'about:blank');
+"""
+
+CLOSE_NEW_TAB_JS = """
+const tabmail = document.getElementById('tabmail');
+const t = tabmail.currentTabInfo;
+if (t == window.__tbShotTab) return false;
+tabmail.closeTab(t);
+tabmail.switchToTab(window.__tbShotTab);
+return true;
+"""
+
+TAB_BACK_JS = """
+return document.getElementById('tabmail').currentTabInfo == window.__tbShotTab;
 """
 
 PREFS_READY_JS = """
@@ -1131,7 +1178,7 @@ def tour_steps(categories, rows, account_label=None):
     return steps
 
 
-ITEM_GROUPS = ("open", "file", "menu", "goto")
+ITEM_GROUPS = ("open", "tab", "file", "menu", "goto")
 
 
 def items_file(version):
@@ -1232,6 +1279,11 @@ def tour(tb, out, say=print, items=None, file_dialogs=False, restart=None, captu
                 e["status"] = "goes to a Settings pane: not clicked"
             elif state["disabled"]:
                 e["status"] = "disabled"
+            elif e["group"] == "tab":
+                e["next_file"], e["file"] = e["base"] + "-next.png", e["base"] + ".png"
+                e["status"] = tb.tab_shots(e["target"], os.path.join(folder, e["next_file"]), os.path.join(folder, e["file"]))
+                say(f"  {e['file']}: {e['label']} (tab)")
+                continue
             elif e["group"] == "file" and not file_dialogs:
                 e["status"] = "a file dialog: needs --file-dialogs"
             elif e["group"] == "file":

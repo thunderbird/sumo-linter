@@ -328,6 +328,13 @@ class FakeTourThunderbird:
                 f.write(b"png")
         return "tab dialog"
 
+    def tab_shots(self, target, before, after):
+        self.shots.append(("tab", os.path.basename(before), os.path.basename(after), target.get("id")))
+        for path in (before, after):
+            with open(path, "wb") as f:
+                f.write(b"png")
+        return "tab"
+
     def click_for_file_dialog(self, target, capture):
         self.shots.append(("file", target["id"]))
         return capture(self.file_window)
@@ -507,7 +514,7 @@ ROWS_WITH_SERVER = [ROWS[0], {"id": "account1/am-server.xhtml", "page": "am-serv
 
 
 class TourItems(unittest.TestCase):
-    def run_tour(self, file_dialogs):
+    def run_tour(self, file_dialogs, items=TOUR_ITEMS):
         out = tempfile.mkdtemp()
         self.addCleanup(lambda: __import__("shutil").rmtree(out))
         self.tb = FakeTourThunderbird(ITEM_STATES, unlisted=['#new "New…"'], file_window=4242)
@@ -523,7 +530,7 @@ class TourItems(unittest.TestCase):
             with open(path, "wb") as f:
                 f.write(b"png")
 
-        return tb_shot.tour(self.tb, out, say=self.said.append, items=TOUR_ITEMS,
+        return tb_shot.tour(self.tb, out, say=self.said.append, items=items,
                             file_dialogs=file_dialogs, restart=restart, capture=capture)
 
     def test_an_open_item_gets_two_shots(self):
@@ -532,6 +539,17 @@ class TourItems(unittest.TestCase):
                        "01a-settings-paneGeneral-catProxiesButton.png", "catProxiesButton"), self.tb.shots)
         e = steps[0]["items"][0]
         self.assertEqual((e["status"], e["file"]), ("tab dialog", "01a-settings-paneGeneral-catProxiesButton.png"))
+
+    def test_a_tab_item_gets_two_shots(self):
+        # Config Editor… in 153 opens about:config in a Thunderbird tab (#57).
+        items = {"paneGeneral": [{"target": {"id": "configEditor"}, "group": "tab",
+                                  "name": "configEditor", "label": "Config Editor…"}]}
+        _, steps = self.run_tour(False, items)
+        self.assertIn(("tab", "01a-settings-paneGeneral-configEditor-next.png",
+                       "01a-settings-paneGeneral-configEditor.png", "configEditor"), self.tb.shots)
+        e = steps[0]["items"][0]
+        self.assertEqual((e["status"], e["file"]), ("tab", "01a-settings-paneGeneral-configEditor.png"))
+        self.assertIn("  01a-settings-paneGeneral-configEditor.png: Config Editor… (tab)", self.said)
 
     def test_skipped_items_say_why_and_have_no_files(self):
         _, steps = self.run_tour(False)

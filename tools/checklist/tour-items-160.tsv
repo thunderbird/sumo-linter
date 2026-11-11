@@ -3,6 +3,7 @@
 # page: a Settings pane, or an Account Settings page (PageTag of the tree row)
 # target: an element ID, or css:SELECTOR for an element with no ID
 # group: open (a dialog in the tab, a separate window, or an HTML dialog),
+#        tab (a new Thunderbird tab, such as about:config: saved, then closed),
 #        file (the operating system's file dialog, only with --file-dialogs),
 #        menu (a drop-down menu, skipped), goto (goes to a Settings pane, skipped).
 # "Generate and save a CSR file as…" is open, not file: it opens an introduction

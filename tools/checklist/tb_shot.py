@@ -14,6 +14,7 @@
     uv run tools/checklist/tb_shot.py login --app APP
     uv run tools/checklist/tb_shot.py tour --app APP --out DIR [--file-dialogs]
     uv run tools/checklist/tb_shot.py publish DIR/VERSION-LOCALE [--replace]
+    uv run tools/checklist/tb_shot.py wiki WIKI_CHECKOUT DIR/VERSION-LOCALE...
 
 APP is a Thunderbird application: `/Applications/…/Thunderbird.app` on macOS,
 or the `thunderbird` program elsewhere. The script starts a second copy of it
@@ -89,6 +90,15 @@ locale (VERSION-LOCALE.zip). It creates the release if it is missing and adds
 the zip otherwise, and it never replaces a zip that is already there unless
 you give --replace. Release assets are outside the git history, so a clone of
 this repo never downloads them.
+
+`wiki` (#58) puts tour folders side by side on the repo wiki. WIKI_CHECKOUT is
+a clone of thunderbird/sumo-linter.wiki.git. It copies the screenshots of each
+folder into screenshots/VERSION-LOCALE there and writes one page, for example
+Screenshots-153.6.0-160.0-en-US.md, with one column per folder and one row per
+step and ellipsis item. Rows are matched by element ID, so a step or item that
+a version lacks gets "Not in this version". The page links the screenshots and
+shows none inline, because 184 images make a large page. A folder can be an
+unpacked release zip. You commit and push the checkout with git yourself.
 
 Python standard library only, like walk.py. It is a separate file because
 walk.py must stay one file (#32).
@@ -1361,12 +1371,13 @@ def release_tag(version):
     return f"screenshots-{version}"
 
 
-def zip_tour(folder, dest_dir):
-    """VERSION-LOCALE.zip of a tour folder, from its index.json."""
+def read_tour(folder):
+    """The index.json of a finished tour folder, and its files: index.md, index.json, then the PNGs."""
     try:
         with open(os.path.join(folder, "index.json"), encoding="utf-8") as f:
             index = json.load(f)
-        version, locale, steps = index["version"], index["locale"], index["steps"]
+        steps = index["steps"]
+        index["version"], index["locale"]
     except (OSError, ValueError, KeyError) as e:
         raise RuntimeError(f"{folder} is not a finished tour (index.json: {e})")
     files = ["index.md", "index.json"] + [x[k] for s in steps for x in [s, *s.get("items", [])]
@@ -1374,6 +1385,13 @@ def zip_tour(folder, dest_dir):
     missing = [n for n in files if not os.path.isfile(os.path.join(folder, n))]
     if missing:
         raise RuntimeError(f"{folder} lacks {', '.join(missing)}")
+    return index, files
+
+
+def zip_tour(folder, dest_dir):
+    """VERSION-LOCALE.zip of a tour folder, from its index.json."""
+    index, files = read_tour(folder)
+    version, locale = index["version"], index["locale"]
     name = f"{version}-{locale}"
     path = os.path.join(dest_dir, name + ".zip")
     with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
@@ -1412,6 +1430,133 @@ def publish(folder, replace=False, run=subprocess.run, say=print, repo=RELEASE_R
             raise RuntimeError(f"{' '.join(command[:3])} failed: {(res.stderr or '').strip()}")
     say(f"{tag}: {action} {asset} ({count} screenshots), https://github.com/{repo}/releases/tag/{tag}")
     return command
+
+
+# --- The wiki page of tours, side by side (#58) -------------------------------------
+
+WIKI_IMAGES = "screenshots"  # the folder of the wiki repository that holds the PNGs
+
+
+def merged_keys(lists):
+    """The keys of several ordered lists as one list: the first list's order, and a key
+    that only a later list has goes after the key it follows there."""
+    out = []
+    for keys in lists:
+        prev = None
+        for k in keys:
+            if k not in out:
+                out.insert(out.index(prev) + 1 if prev is not None else 0, k)
+            prev = k
+    return out
+
+
+def wiki_rows(indexes):
+    """One row per step and one per item, matched across tours by element ID, never by
+    position or label, because a version can add, drop or rename a step (#58).
+    Each row is (kind, step entries, item entries), with None where a tour lacks it."""
+    steps = [{s["id"]: s for s in ix["steps"]} for ix in indexes]
+    rows = []
+    for sid in merged_keys([[s["id"] for s in ix["steps"]] for ix in indexes]):
+        per = [st.get(sid) for st in steps]
+        rows.append(("step", per, per))
+        items = [{e["name"]: e for e in (s or {}).get("items", [])} for s in per]
+        for name in merged_keys([[e["name"] for e in (s or {}).get("items", [])] for s in per]):
+            rows.append(("item", per, [it.get(name) for it in items]))
+    return rows
+
+
+def wiki_page_name(indexes):
+    locales = sorted({ix["locale"] for ix in indexes})
+    return safe_name("Screenshots-" + "-".join(ix["version"] for ix in indexes) + "-" + "-".join(locales))
+
+
+def wiki_page(indexes):
+    """The Markdown of the wiki page: a row heading and one column per tour."""
+    folders = [f"{WIKI_IMAGES}/{ix['version']}-{ix['locale']}" for ix in indexes]
+
+    def cell_text(t):
+        return t.replace("|", "\\|").replace("\n", " ")
+
+    def link(text, folder, name):
+        return f"[{cell_text(text)}]({folder}/{name})"
+
+    def both(values):
+        """The values once each, in order, joined by a slash: the label in every version."""
+        seen = []
+        for v in values:
+            if v is not None and v not in seen:
+                seen.append(v)
+        return " / ".join(seen)
+
+    def where(s):
+        return "Settings" if s["kind"] == "settings" else "Account Settings"
+
+    def issue(n):  # a wiki page does not link #N by itself
+        return f"[#{n}](https://github.com/{RELEASE_REPO}/issues/{n})"
+
+    columns = [f"Thunderbird {ix['version']} ({ix['locale']})" for ix in indexes]
+    releases = ", ".join(f"[{release_tag(ix['version'])}](https://github.com/{RELEASE_REPO}/releases/tag/"
+                         f"{release_tag(ix['version'])})" for ix in indexes)
+    lines = [
+        f"# Settings and Account Settings: Thunderbird {' and '.join(ix['version'] for ix in indexes)}", "",
+        "Screenshots of every Settings category and Account Settings page, made by",
+        f"`tools/checklist/tb_shot.py tour` ({issue(55)}, {issue(56)}) and put here by `tb_shot.py wiki` "
+        f"({issue(58)}).",
+        f"The zips are in the releases {releases}.", "",
+        "Each row is one step of the tour. A step has the pane as it first shows and the",
+        "same pane with the next item to click outlined. An indented row is an item whose",
+        "label ends with an ellipsis: the pane with the item outlined, then what the click",
+        "opens. Rows are matched by element ID, so a label that changed between versions",
+        "shows both labels.", "",
+        "| Step | " + " | ".join(columns) + " |",
+        "|---|" + "---|" * len(indexes),
+    ]
+    for kind, steps, entries in wiki_rows(indexes):
+        cells = []
+        for folder, s, e in zip(folders, steps, entries):
+            if e is None:
+                cells.append("Not in this version")
+            elif kind == "step":
+                c = [link("Pane", folder, e["file"])]
+                if e.get("next_file"):
+                    c.append(link(f"Next: {e['next']['label']}", folder, e["next_file"]))
+                cells.append(" · ".join(c))
+            elif e.get("file") and e.get("next_file"):
+                opened = e["status"][:1].upper() + e["status"][1:]
+                cells.append(link("Item outlined", folder, e["next_file"]) + " · " + link(opened, folder, e["file"]))
+            else:
+                cells.append(cell_text(f"Not clicked: {e['status']}" if e["status"] in ("disabled", "hidden")
+                                       else e["status"][:1].upper() + e["status"][1:]))
+        present = [s for s in steps if s]
+        heading = f"{both(where(s) for s in present)} › {both(s['label'] for s in present)}"
+        if kind == "item":
+            heading = "&nbsp;&nbsp;&nbsp;&nbsp;↳ " + both(e["label"] for e in entries if e)
+        lines.append(f"| {cell_text(heading)} | " + " | ".join(cells) + " |")
+    return "\n".join(lines) + "\n"
+
+
+def write_wiki(wiki_dir, folders, say=print):
+    """Copy the screenshots of each tour folder into the wiki checkout and write the page.
+    The commit and the push are left to git, so the result can be read first."""
+    if not os.path.isdir(os.path.join(wiki_dir, ".git")):
+        raise RuntimeError(f"{wiki_dir} is not a git checkout of the wiki")
+    tours = [read_tour(f) for f in folders]
+    indexes = [ix for ix, _ in tours]
+    names = [f"{ix['version']}-{ix['locale']}" for ix in indexes]
+    if len(set(names)) != len(names):
+        raise RuntimeError("the same tour is given twice")
+    for folder, (ix, files), name in zip(folders, tours, names):
+        dest = os.path.join(wiki_dir, WIKI_IMAGES, name)
+        os.makedirs(dest, exist_ok=True)
+        pngs = [n for n in files if n.endswith(".png")]
+        for n in pngs:
+            shutil.copyfile(os.path.join(folder, n), os.path.join(dest, n))
+        say(f"{WIKI_IMAGES}/{name}: {len(pngs)} screenshots")
+    page = os.path.join(wiki_dir, wiki_page_name(indexes) + ".md")
+    with open(page, "w", encoding="utf-8") as f:
+        f.write(wiki_page(indexes))
+    say(f"{os.path.basename(page)}: {len(wiki_rows(indexes))} rows")
+    return page
 
 
 # --- Commands -------------------------------------------------------------------
@@ -1459,9 +1604,17 @@ def option(args, flag, default=None):
 
 def main():
     args = sys.argv[1:]
-    if not args or args[0] not in ("shot", "session", "login", "tour", "publish"):
+    if not args or args[0] not in ("shot", "session", "login", "tour", "publish", "wiki"):
         sys.exit(__doc__)
     command = args.pop(0)
+    if command == "wiki":
+        if len(args) < 2 or any(a.startswith("-") for a in args):
+            sys.exit(__doc__)
+        try:
+            write_wiki(args[0], args[1:])
+        except RuntimeError as e:
+            sys.exit(str(e))
+        return
     if command == "publish":
         replace = "--replace" in args
         args = [a for a in args if a != "--replace"]

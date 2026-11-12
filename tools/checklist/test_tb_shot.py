@@ -652,5 +652,93 @@ def subprocess_result(code, stdout, stderr):
     return __import__("subprocess").CompletedProcess([], code, stdout, stderr)
 
 
+def wiki_index(version, steps):
+    """A small index.json: steps are (id, label, [(item name, label, status, has files)])."""
+    out = []
+    for n, (sid, label, items) in enumerate(steps, 1):
+        out.append({"kind": "settings", "id": sid, "label": label, "file": f"{n:02}-{sid}.png",
+                    "next": {"label": "Next"} if n < len(steps) else None,
+                    "next_file": f"{n:02}-{sid}-next.png" if n < len(steps) else None,
+                    "items": [{"name": name, "label": il, "status": st,
+                               "file": f"{n:02}-{name}.png" if files else None,
+                               "next_file": f"{n:02}-{name}-next.png" if files else None}
+                              for name, il, st, files in items]})
+    return {"version": version, "locale": "en-US", "steps": out}
+
+
+class Wiki(unittest.TestCase):
+    OLD = wiki_index("153.6.0", [
+        ("general", "General", [("fonts", "Advanced…", "tab dialog", True), ("config", "Config Editor…", "tab", True)]),
+        ("look", "Appearance", [("apply", "Choose…", "disabled", False)]),
+        ("junk", "Spam Settings", [])])
+    NEW = wiki_index("160.0", [
+        ("general", "General", [("new", "New…", "window", True), ("fonts", "Customize fonts…", "tab dialog", True)]),
+        ("junk", "Manage spam", []),
+        ("chat", "Chat", [])])
+
+    def test_merged_keys_keep_each_order(self):
+        self.assertEqual(tb_shot.merged_keys([["a", "b", "c"], ["x", "a", "c", "d", "y"]]),
+                         ["x", "a", "b", "c", "d", "y"])
+
+    def test_rows_are_matched_by_id_not_position(self):
+        rows = tb_shot.wiki_rows([self.OLD, self.NEW])
+        got = [(k, [e and (e.get("name") or e["id"]) for e in entries]) for k, _, entries in rows]
+        self.assertEqual(got, [
+            ("step", ["general", "general"]), ("item", [None, "new"]), ("item", ["fonts", "fonts"]),
+            ("item", ["config", None]), ("step", ["look", None]), ("item", ["apply", None]),
+            ("step", ["junk", "junk"]), ("step", [None, "chat"])])
+
+    def test_page(self):
+        page = tb_shot.wiki_page([self.OLD, self.NEW])
+        lines = page.splitlines()
+        self.assertEqual(tb_shot.wiki_page_name([self.OLD, self.NEW]), "Screenshots-153.6.0-160.0-en-US")
+        self.assertIn("| Step | Thunderbird 153.6.0 (en-US) | Thunderbird 160.0 (en-US) |", lines)
+        self.assertIn("| Settings › General | [Pane](screenshots/153.6.0-en-US/01-general.png) · "
+                      "[Next: Next](screenshots/153.6.0-en-US/01-general-next.png) | "
+                      "[Pane](screenshots/160.0-en-US/01-general.png) · "
+                      "[Next: Next](screenshots/160.0-en-US/01-general-next.png) |", lines)
+        self.assertIn("| &nbsp;&nbsp;&nbsp;&nbsp;↳ Advanced… / Customize fonts… | "
+                      "[Item outlined](screenshots/153.6.0-en-US/01-fonts-next.png) · "
+                      "[Tab dialog](screenshots/153.6.0-en-US/01-fonts.png) | "
+                      "[Item outlined](screenshots/160.0-en-US/01-fonts-next.png) · "
+                      "[Tab dialog](screenshots/160.0-en-US/01-fonts.png) |", lines)
+        self.assertIn("| &nbsp;&nbsp;&nbsp;&nbsp;↳ Choose… | Not clicked: disabled | Not in this version |", lines)
+        # A renamed step shows both labels; the last step has no next screenshot.
+        self.assertIn("| Settings › Spam Settings / Manage spam | [Pane](screenshots/153.6.0-en-US/03-junk.png) | "
+                      "[Pane](screenshots/160.0-en-US/02-junk.png) · "
+                      "[Next: Next](screenshots/160.0-en-US/02-junk-next.png) |", lines)
+        self.assertEqual(len([ln for ln in lines if ln.startswith("| ") and "Step |" not in ln]), 8)
+
+    def test_a_pipe_in_a_label_does_not_split_the_cell(self):
+        ix = wiki_index("160.0", [("a", "Yes | No", [])])
+        self.assertIn("| Settings › Yes \\| No |", tb_shot.wiki_page([ix]))
+
+    def test_write_wiki_copies_every_screenshot(self):
+        out, wiki = tempfile.mkdtemp(), tempfile.mkdtemp()
+        self.addCleanup(lambda: (__import__("shutil").rmtree(out), __import__("shutil").rmtree(wiki)))
+        folder, _ = tb_shot.tour(FakeTourThunderbird(), out, say=lambda line: None)
+        with self.assertRaisesRegex(RuntimeError, "not a git checkout"):
+            tb_shot.write_wiki(wiki, [folder], say=lambda line: None)
+        os.mkdir(os.path.join(wiki, ".git"))
+        with self.assertRaisesRegex(RuntimeError, "given twice"):
+            tb_shot.write_wiki(wiki, [folder, folder], say=lambda line: None)
+        page = tb_shot.write_wiki(wiki, [folder], say=lambda line: None)
+        self.assertEqual(os.path.basename(page), "Screenshots-160.0-en-US.md")
+        _, files = tb_shot.read_tour(folder)
+        copied = sorted(os.listdir(os.path.join(wiki, "screenshots", "160.0-en-US")))
+        self.assertEqual(copied, sorted(n for n in files if n.endswith(".png")))
+        with open(page, encoding="utf-8") as f:
+            links = [ln for ln in f.read().split("](")[1:]]
+        for target in links:
+            self.assertTrue(os.path.isfile(os.path.join(wiki, target.split(")")[0])) or target.startswith("http"))
+
+    def test_an_unfinished_tour_is_refused(self):
+        out, wiki = tempfile.mkdtemp(), tempfile.mkdtemp()
+        self.addCleanup(lambda: (__import__("shutil").rmtree(out), __import__("shutil").rmtree(wiki)))
+        os.mkdir(os.path.join(wiki, ".git"))
+        with self.assertRaisesRegex(RuntimeError, "not a finished tour"):
+            tb_shot.write_wiki(wiki, [out], say=lambda line: None)
+
+
 if __name__ == "__main__":
     unittest.main()

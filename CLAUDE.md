@@ -119,7 +119,7 @@ a 429 for the rest of the hour); the heading data is already measured; the four 
 already filed with rendered-output evidence. **Every test now runs in CI** — `rust`,
 `vscode` (31 grammar + 51 link + 26 bold assertions, plus all 907 articles against SUMO's
 highlighting rules), `emacs` (99 mode assertions, against the real CLI, plus the 907),
-`vim` (109 plugin assertions, run under both Vim and Neovim, plus the 907), `ui-strings` (33 tests, plus 32 for the checklist walker and 58 for its Thunderbird screenshots and tour, including that the committed comparison tables
+`vim` (109 plugin assertions, run under both Vim and Neovim, plus the 907), `ui-strings` (41 tests, plus 39 for the checklist walker and 60 for its Thunderbird screenshots and tour, including that the committed comparison tables
 are up to date) and `web` (39 assertions on the fix arithmetic and the Fix button labels, 16 on the line-number gutter, 21 on the Copy
 button, 72 on autosave, save-to-file and the file name, 108 on the preview, 30 on walk mode, 35 on highlighting, 17 on column widths) — so there is no
 by-hand test suite left.

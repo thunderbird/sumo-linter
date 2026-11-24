@@ -52,14 +52,9 @@ fn markup_documentation_lints_clean() {
     for f in &files {
         let src = std::fs::read_to_string(f).unwrap();
         let name = f.file_name().unwrap().to_string_lossy().to_string();
-        let mut ds = Document::parse(&src).diagnostics();
-        // The one exception: `how-to-make-screenshots` is style guidance, not a
-        // markup reference, and its 4 redundant details pairs are real (#49).
-        if name == "how-to-make-screenshots.wiki" {
-            let n = ds.iter().filter(|d| d.code == "SW013").count();
-            assert_eq!(n, 4, "{name}: SW013 count");
-            ds.retain(|d| d.code != "SW013");
-        }
+        // `how-to-make-screenshots` had 4 SW013 warnings until #60. Each of
+        // its blocks starts with an h1, so its pairs are needed.
+        let ds = Document::parse(&src).diagnostics();
         assert_eq!(ds, vec![], "{name} should lint clean, got {ds:#?}");
     }
     // `how-to-use-for` lives with the Firefox articles but is the same category:
@@ -329,6 +324,10 @@ fn known_bad_fixture_reports_errors() {
 /// SW013 over the Thunderbird corpus, per article, as measured by hand for
 /// #49. The scrape is older than revision 367098 of `new-thunderbird-android`,
 /// which removed its 8 pairs, so update this table after a rescrape.
+/// Before #60 the table also held 16 more pairs in `new-thunderbird-desktop`
+/// and one each in `openpgp-thunderbird-android-howto` and
+/// `thunderbird-android-import`: each had an h1 after the start tag, so they
+/// were not redundant.
 ///
 /// Applying every SW013 fix must remove every SW013, keep the article
 /// lossless, and leave every other diagnostic as it was.
@@ -343,11 +342,9 @@ fn redundant_details_pairs_in_the_corpus() {
         ("custom-oauth-advanced-users", 1),
         ("new-email-notifications-thunderbird", 2),
         ("new-thunderbird-android", 8),
-        ("new-thunderbird-desktop", 19),
-        ("openpgp-thunderbird-android-howto", 1),
+        ("new-thunderbird-desktop", 3),
         ("stop-screen-brightness-dimming-thunderbird-android", 2),
         ("tb-oauth", 1),
-        ("thunderbird-android-import", 1),
     ];
     let mut got: Vec<(String, usize)> = Vec::new();
     for f in &files {

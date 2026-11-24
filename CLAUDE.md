@@ -30,10 +30,14 @@ documents of en-US source in total, all round-tripped in CI. It exists for lexer
 *and* for the markup-aware search in issue #6. Thunderbird **style** still applies only to
 `corpus/`.
 
-Linting the committed corpus also reports 35 warnings. All are SW013 (#49), a redundant
+Linting the committed corpus also reports 17 warnings. All are SW013 (#49), a redundant
 `[[UI:details_end]]` `[[UI:details_start]]` pair. Eight are in `new-thunderbird-android`,
 and revision 367098 removed them on SUMO after the scrape. After the next rescrape, the
-count drops to 27, and you must update the table in `redundant_details_pairs_in_the_corpus`.
+count drops to 9, and you must update the table in `redundant_details_pairs_in_the_corpus`.
+Until #60 (2026-11-23) the count was 35: SW013 also reported pairs where the next block
+starts with an h1. Removing those on production hid each `=Thunderbird N=` h1 of
+`new-thunderbird-desktop` inside the previous version's last collapsed h2, so a pair is
+redundant only if the next block starts with a heading at the collapsing level.
 
 Linting the committed corpus reports **5 errors, all verified by hand** and all filed:
 #223 and #225 (unbalanced `'''`) and #228 (two `{for}` bugs in

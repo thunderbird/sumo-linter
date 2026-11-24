@@ -245,4 +245,21 @@ Text
 [[UI:details_end]]
 ```
 
-Why: `[[UI:details_start]]` opens a collapsible section and `[[UI:details_end]]` closes it. Every h2 to h6 heading inside one section collapses separately, so one pair around all the sections is enough. An h1 does not collapse, so put the start tag after the h1. A staging test on 2026-11-03 showed that both forms look the same. See issue #49.
+Why: `[[UI:details_start]]` opens a collapsible section and `[[UI:details_end]]` closes it. In one section, each heading at the highest level from h2 to h6 collapses separately, so one pair around all the sections is enough. A staging test on 2026-11-03 showed that both forms look the same. See issue #49.
+
+SW013 reports a pair only if the second block starts with a heading at the first block's level and has no higher heading. A collapsed section holds everything up to the next heading at its level. So an h1, text or a deeper heading at the start of the second block would move into the hidden part of the first block's last section. The linter does not report this pair:
+
+```
+[[UI:details_start]]
+=Thunderbird 159=
+==Settings string changes==
+Text
+[[UI:details_end]]
+[[UI:details_start]]
+=Thunderbird 158=
+==Settings and Account Settings strings==
+Text
+[[UI:details_end]]
+```
+
+Without the pair in the middle, `Thunderbird 158` shows only when you expand `Settings string changes`. This happened in `new-thunderbird-desktop` on production. See issue #60.

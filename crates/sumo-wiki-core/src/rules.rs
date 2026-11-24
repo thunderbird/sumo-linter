@@ -672,10 +672,19 @@ fn is_ui(t: &Token, input: &str, name: &str) -> bool {
 
 /// `[[UI:details_start]]` becomes `<section class="mzp-c-details">` and
 /// `[[UI:details_end]]` becomes `</section>`. Kitsune's
-/// `protocol-details-init.js` then makes every h2 to h6 heading in a section
-/// collapsible. So an end that only blank lines separate from the next start
-/// closes one section and opens an identical one: one pair around all the
-/// sections renders the same. Measured on staging, 2026-11-03 (sumo-linter #49).
+/// `protocol-details-init.js` then makes the headings at the highest level from
+/// h2 to h6 in a section collapsible, each over what follows it up to the next
+/// heading at that level. So an end that only blank lines separate from the
+/// next start can close one section and open an identical one: one pair around
+/// all the sections renders the same. Measured on staging, 2026-11-03
+/// (sumo-linter #49).
+///
+/// But only if the second block starts with a heading at the first block's
+/// level, and has no higher heading. Else what comes first in the second block
+/// moves into the hidden body of the first block's last section. Measured on
+/// production, 2026-11-23 (#60): with the pairs removed, each `=Thunderbird N=`
+/// h1 of `new-thunderbird-desktop` was hidden under the previous version's
+/// last h2.
 ///
 /// The fix deletes both tags and the blank lines between them, and the tags'
 /// own lines when nothing else is on them. It changes nothing a reader sees, so
@@ -687,13 +696,18 @@ fn redundant_details(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
             continue;
         }
         // Only whitespace and newlines may separate the two tags.
-        let Some(start) = tokens[n + 1..]
+        let Some(start_i) = tokens[n + 1..]
             .iter()
-            .find(|u| !(u.kind == TokenKind::Newline || u.text(input).trim().is_empty()))
+            .position(|u| !(u.kind == TokenKind::Newline || u.text(input).trim().is_empty()))
+            .map(|i| n + 1 + i)
         else {
             continue;
         };
+        let start = &tokens[start_i];
         if !is_ui(start, input, "details_start") {
+            continue;
+        }
+        if !blocks_merge_cleanly(input, tokens, n, start_i) {
             continue;
         }
         // Widen to whole lines where the tags are alone on them, so no blank
@@ -734,6 +748,68 @@ fn redundant_details(input: &str, tokens: &[Token], out: &mut Vec<Diagnostic>) {
             }),
         );
     }
+}
+
+/// The level of the heading whose opening run is `tokens[i]`, if it is one:
+/// the smaller of its two runs, as in Kitsune. Only an opening run at the
+/// start of a line counts.
+fn heading_level_at(input: &str, tokens: &[Token], i: usize) -> Option<usize> {
+    let TokenKind::HeadingMarker { level: open } = tokens[i].kind else {
+        return None;
+    };
+    let line_start = input[..tokens[i].span.start]
+        .rfind('\n')
+        .map_or(0, |p| p + 1);
+    if !input[line_start..tokens[i].span.start].trim().is_empty() {
+        return None;
+    }
+    let close = tokens[i + 1..]
+        .iter()
+        .take_while(|t| t.kind != TokenKind::Newline)
+        .filter_map(|t| match t.kind {
+            TokenKind::HeadingMarker { level } => Some(level),
+            _ => None,
+        })
+        .last()
+        .unwrap_or(open);
+    Some(open.min(close))
+}
+
+/// The highest heading level from h2 to h6 among `tokens[range]`.
+fn collapse_level(input: &str, tokens: &[Token], range: std::ops::Range<usize>) -> Option<usize> {
+    range
+        .filter_map(|i| heading_level_at(input, tokens, i))
+        .filter(|l| (2..=6).contains(l))
+        .min()
+}
+
+/// True if removing the `[[UI:details_end]]` at `tokens[end]` and the
+/// `[[UI:details_start]]` after it renders the same as keeping them (#60).
+fn blocks_merge_cleanly(input: &str, tokens: &[Token], end: usize, start_i: usize) -> bool {
+    // The first block runs from the previous start tag, the second to the next
+    // end tag (or the end of the file).
+    let first_from = tokens[..end]
+        .iter()
+        .rposition(|t| is_ui(t, input, "details_start"))
+        .map_or(0, |i| i + 1);
+    let second_to = tokens[start_i + 1..]
+        .iter()
+        .position(|t| is_ui(t, input, "details_end"))
+        .map_or(tokens.len(), |i| start_i + 1 + i);
+    let Some(level) = collapse_level(input, tokens, first_from..end) else {
+        // Nothing collapses in the first block, so nothing can move into it.
+        return true;
+    };
+    let second = &tokens[start_i + 1..second_to];
+    let Some(first) = second
+        .iter()
+        .position(|t| !(t.kind == TokenKind::Newline || t.text(input).trim().is_empty()))
+    else {
+        // An empty second block.
+        return true;
+    };
+    heading_level_at(input, tokens, start_i + 1 + first) == Some(level)
+        && collapse_level(input, tokens, start_i + 1..second_to) == Some(level)
 }
 
 /// Names of opaque region kinds, for diagnostics and tests.

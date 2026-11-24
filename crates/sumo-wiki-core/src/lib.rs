@@ -378,10 +378,15 @@ mod tests {
                 format!("{pair}Text [[UI:details_end]]\n\n[[UI:details_start]]\n==B==\n[[UI:details_end]]"),
                 format!("{pair}Text \n==B==\n[[UI:details_end]]"),
             ),
-            // Text after the start tag keeps its line too.
+            // An h1 later in the second block does not change what collapses.
             (
-                format!("{pair}[[UI:details_end]]\n[[UI:details_start]] Text\n==B==\n"),
-                format!("{pair} Text\n==B==\n"),
+                format!("{pair}[[UI:details_end]]\n[[UI:details_start]]\n== B ==\n=x=\n[[UI:details_end]]\n"),
+                format!("{pair}== B ==\n=x=\n[[UI:details_end]]\n"),
+            ),
+            // A first block with no h2 to h6 has nothing to take in.
+            (
+                "[[UI:details_start]]\nIntro\n[[UI:details_end]]\n[[UI:details_start]]\nMore\n[[UI:details_end]]\n".to_string(),
+                "[[UI:details_start]]\nIntro\nMore\n[[UI:details_end]]\n".to_string(),
             ),
             // At the end of a file with no final newline.
             (
@@ -421,6 +426,18 @@ mod tests {
             "<nowiki>[[UI:details_end]]</nowiki>\n<nowiki>[[UI:details_start]]</nowiki>\n",
             // A misspelt name is a different problem.
             "[[UI:details_end]]\n[[UI:detail_start]]\n",
+            // Anything before the second block's first heading would move into
+            // the hidden body of the first block's last section (#60): an h1,
+            // as in `new-thunderbird-desktop`, text, or a deeper heading.
+            "[[UI:details_start]]\n=V2=\n==A==\nx\n[[UI:details_end]]\n[[UI:details_start]]\n=V1=\n==B==\ny\n[[UI:details_end]]\n",
+            "[[UI:details_start]]\n==A==\nx\n[[UI:details_end]]\n[[UI:details_start]] Text\n==B==\n[[UI:details_end]]\n",
+            "[[UI:details_start]]\n==A==\nx\n[[UI:details_end]]\n[[UI:details_start]]\n===B===\ny\n[[UI:details_end]]\n",
+            // The second block collapses at a higher level, so its h2 would
+            // take in the first block's h3 sections.
+            "[[UI:details_start]]\n===A===\nx\n[[UI:details_end]]\n[[UI:details_start]]\n===B===\ny\n==C==\nz\n[[UI:details_end]]\n",
+            // A second block with no heading would join the first block's
+            // last section.
+            "[[UI:details_start]]\n==A==\nx\n[[UI:details_end]]\n[[UI:details_start]]\nText\n[[UI:details_end]]\n",
         ] {
             let codes: Vec<_> = Document::parse(src)
                 .diagnostics()

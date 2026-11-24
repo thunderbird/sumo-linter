@@ -172,12 +172,30 @@ async function waitOutBan() {
     }
     if (res.status() !== 429) return;
     const wait = Math.min((Number(res.headers()['retry-after'] || 600) + 15) * cycle, 3600);
-    const until = new Date(Date.now() + wait * 1000).toLocaleTimeString();
-    console.log(`  ${CONFIG.base} is rate limiting (429). Waiting ${wait}s quietly, until ${until}.`);
+    const until = clockTime(Date.now() + wait * 1000);
+    const minutes = Math.ceil(wait / 60);
+    console.log(`  ${CONFIG.base} is rate limiting (429). Waiting ${minutes} minutes quietly, until ${until}.`);
     console.log('  Do not reload the page in the meantime: any request restarts the wait.');
     await sleep(wait * 1000);
   }
   throw new Error(`Still rate limited on ${CONFIG.base}. Try again in an hour.`);
+}
+
+/**
+ * A clock time in the computer's own time zone. Node's bundled time zone data
+ * can be older than the system's: on 2026-11-23 it put Vancouver at UTC-8,
+ * while macOS had UTC-7 all year, so Node's clock was an hour behind. So ask
+ * the system's `date` first (BSD `-r SECONDS`), and fall back to Node.
+ */
+function clockTime(ms) {
+  try {
+    return execFileSync('date', ['-r', String(Math.round(ms / 1000)), '+%-I:%M %p'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+  } catch {
+    return new Date(ms).toLocaleTimeString();
+  }
 }
 
 /** Navigate, after any ban is over. */

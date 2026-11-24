@@ -27,7 +27,7 @@ Make a GitHub issue with two checklists. Write each string item exactly as `"old
 
 Every string item applies, checked or not. The script works only on the article items that are not checked. Other sections of the issue are ignored.
 
-The script replaces exact text only. It does not replace text inside HTML comments, `<nowiki>` or `<pre>`. If one old text is part of another, the longer one wins, and a replacement never applies to the output of another one.
+The script replaces exact text only. It does not replace text inside HTML comments, `<nowiki>` or `<pre>`. If one old text is part of another, the longer one wins. A replacement never applies to the output of another one.
 
 ## 2. Do a dry run
 
@@ -38,9 +38,9 @@ cd ~/Documents/GIT/sumo-linter/tools/scrape
 node replace.mjs https://github.com/thunderbird/sumo-linter/issues/N --base https://support.mozilla.org --dry-run
 ```
 
-The dry run reads each article, shows each change with its line number, and lints the result. It does not fill an edit page, and it does not change the issue. Read the list of changes. Look for each `(check: …)` mark: a match inside a `[[link]]` can change a link target, and a match inside a `{for}` branch can be text for an older version that must stay.
+The dry run reads each article, shows each change with its line number, and lints the result. It does not fill an edit page, and it does not change the issue. Read the list of changes. Look for each `(check: …)` mark. A match inside a `[[link]]` can change a link target. A match inside a `{for}` branch can be text for an older version that must stay.
 
-If a string matches text that must not change, for example a sentence that names the old setting on purpose, edit that article by hand and leave it out of the list.
+Some text must not change, for example a sentence that names the old setting on purpose. If a string matches such text, edit that article by hand and leave it out of the list.
 
 ## 3. Do the edits
 
@@ -56,9 +56,9 @@ For each article:
 2. The script shows the changes. Type `y` to fill the edit page, `n` and a reason to skip the article, or `q` to stop.
 3. After `y`, check the edit in the browser. Preview shows the result. The revision comment is already filled with `String changes from <issue URL>`.
 4. Click Submit for Review, then Submit. To not save, type `s` and Enter in the terminal instead.
-5. The script finds the new revision in the article's history. It checks the article item in the issue and adds a note, for example `- Note: revision 381300, 3 replacements: <URL>`.
+5. The script finds the new revision in the article's history. It checks the article item in the issue and adds a note, for example `- Note: revision 381300, 3 replacements`.
 
-The script saves the issue after each article, so you can stop at any time and run the same command again later. It then continues with the articles that are not checked.
+The script saves the issue after each article. So you can stop at any time and run the same command again later. It then continues with the articles that are not checked.
 
 ## What the notes mean
 
@@ -67,7 +67,7 @@ The script saves the issue after each article, so you can stop at any time and r
 | `revision N, K replacements: URL` | checked | You saved the edit as revision N. |
 | `no match: no edit` | checked | The article has none of the strings. |
 | `skipped: REASON` | not checked | You typed `n REASON`, or `s` after the fill. |
-| `not edited: the edit adds …` | not checked | The edit would add a linter diagnostic, so the script did not offer it. |
+| `not edited: the edit adds …` | not checked | The edit adds a linter diagnostic, so the script did not offer it. |
 | `not edited: the article changed on SUMO during the check` | not checked | Someone saved the article while you read the changes. Run again. |
 
 A run that finds every article item checked says `nothing to do`. That is different from a run that did nothing.

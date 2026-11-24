@@ -358,7 +358,11 @@ async function doArticle(slug, strings, comment) {
       const cm = document.querySelector('.CodeMirror').CodeMirror;
       if (cm.getValue() !== source) return 'the page shows other source than the script read';
       cm.setValue(text);
-      cm.save();
+      // SUMO's CodeMirror copies each change into the form's textarea itself,
+      // and has no save() (measured on staging, 2026-11-23). Set it anyway if
+      // the copy did not happen, so the form never posts the old text.
+      const ta = document.querySelector('#id_content');
+      if (ta.value !== text) ta.value = text;
       const c = document.querySelector('#id_comment');
       if (c) c.value = comment;
       return cm.getValue() === text && document.querySelector('#id_content').value === text ? 'ok' : 'the editor did not take the text';

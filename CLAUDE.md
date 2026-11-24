@@ -213,6 +213,14 @@ npm run scrape -- --limit 3 # trial
 npm run report              # writes corpus/report.md
 ```
 
+`npm run replace -- ISSUE [--base …] [--dry-run]` (#62) is the one tool here that edits:
+it applies the issue's `### Strings` checklist (`"old" → "new"`) to each unchecked slug in
+its `### Articles` checklist through the edit page, shows each change, and on `y` fills
+the editor and the revision comment. **Roland clicks Submit himself** (his decision,
+2026-11-23): the script never submits, clicks or posts, and a test greps for that. It then
+checks the item with `Note: revision N, …`. `--dry-run` shows the changes and never fills
+or changes the checklist. Logic in `replace-lib.mjs`, tested in CI.
+
 Read-only by construction: GETs only, never submits a form, defaults to staging
 (`--base https://support.mozilla.org` to switch). `.auth/` is gitignored; **public** en-US
 source is committed (see `corpus/README.md` and `corpus-other/README.md` for the rule and

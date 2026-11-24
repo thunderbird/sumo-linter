@@ -165,3 +165,6 @@ jobs:
         run: |
           node --check tools/scrape/scrape.mjs
           node --check tools/scrape/report.mjs
+          node --check tools/scrape/replace.mjs
+      - name: Test the search-and-replace logic (#62)
+        run: node --test tools/scrape/test/*.test.mjs

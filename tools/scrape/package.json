@@ -8,7 +8,9 @@
   "scripts": {
     "login": "node scrape.mjs --login",
     "scrape": "node scrape.mjs",
-    "report": "node report.mjs"
+    "report": "node report.mjs",
+    "replace": "node replace.mjs",
+    "test": "node --test test/*.test.mjs"
   },
   "devDependencies": {
     "playwright": "^1.49.0"

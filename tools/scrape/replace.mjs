@@ -155,20 +155,42 @@ async function waitPastChallenge(page) {
 }
 
 /**
- * Navigate, with patience for a 429: on a navigation it shows only as
- * ERR_HTTP_RESPONSE_CODE_FAILURE, and an early retry prolongs the ban.
+ * Wait out a 429 ban before any navigation. A navigation cannot see a 429
+ * (it fails as ERR_HTTP_RESPONSE_CODE_FAILURE) or read Retry-After, and a
+ * request during a ban restarts it: the second staging trial (#62) retried a
+ * navigation every two minutes and stayed banned. So probe once with
+ * Playwright's request client, which still sees a 429 as a 429 (#61), then
+ * wait quietly, longer each time, as the scraper does.
  */
+async function waitOutBan() {
+  for (let cycle = 1; cycle <= 4; cycle++) {
+    let res;
+    try {
+      res = await ctx.request.get(`${CONFIG.base}/${CONFIG.locale}/`, { maxRedirects: 0, timeout: 30_000 });
+    } catch {
+      return;
+    }
+    if (res.status() !== 429) return;
+    const wait = Math.min((Number(res.headers()['retry-after'] || 600) + 15) * cycle, 3600);
+    const until = new Date(Date.now() + wait * 1000).toLocaleTimeString();
+    console.log(`  ${CONFIG.base} is rate limiting (429). Waiting ${wait}s quietly, until ${until}.`);
+    console.log('  Do not reload the page in the meantime: any request restarts the wait.');
+    await sleep(wait * 1000);
+  }
+  throw new Error(`Still rate limited on ${CONFIG.base}. Try again in an hour.`);
+}
+
+/** Navigate, after any ban is over. */
 async function go(page, url) {
   for (let attempt = 1; ; attempt++) {
+    await waitOutBan();
     try {
       await page.goto(url, { waitUntil: 'domcontentloaded' });
       await waitPastChallenge(page);
       return;
     } catch (e) {
       if (attempt >= 3) throw e;
-      const wait = 120 * attempt;
-      console.log(`  navigation failed (${String(e.message).split('\n')[0].slice(0, 60)}), waiting ${wait}s`);
-      await sleep(wait * 1000);
+      console.log(`  navigation failed (${String(e.message).split('\n')[0].slice(0, 60)})`);
     }
   }
 }

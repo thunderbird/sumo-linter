@@ -156,6 +156,12 @@ wrong tool. Authoritative sources:
 including `/api/1/kb/` — gets a 3038-byte JS interstitial titled `Client Challenge`. `curl`
 cannot be used. A real browser is mandatory.
 
+**Requests must come from inside a page, not from Playwright's request client** (#61).
+Since 2026-11-23 Fastly answers every `ctx.request.get` with the challenge page, even with
+the cookie the page just earned, so `fetchPath` sends each GET with `fetch` from its own
+page on the SUMO origin. The 429 probe before navigation still uses `ctx.request`, because
+it reads only the status.
+
 **`--disable-blink-features=AutomationControlled` is load-bearing.** The challenge gates on
 `navigator.webdriver`. Measured, and counterintuitive: bundled Chromium *with* the flag
 clears the challenge; `channel:'chrome'` *without* it stays blocked forever. Do not "clean

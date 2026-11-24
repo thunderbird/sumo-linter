@@ -139,6 +139,10 @@ const isChallenge = (body) => body.includes('Client Challenge') && body.includes
  * read Retry-After. Navigating during a ban restarts the 600s window, so an
  * impatient retry loop there can never succeed. This probe uses a context
  * request — one call, then a full quiet wait.
+ *
+ * This is the one request left on Playwright's request client (#61): Fastly
+ * gives it the challenge page instead of the real one, but a 429 is still a
+ * 429, and that status is all this probe reads.
  */
 async function ensureNotRateLimited(ctx) {
   for (let cycle = 1; cycle <= 3; cycle++) {
@@ -159,7 +163,7 @@ async function ensureNotRateLimited(ctx) {
   );
 }
 
-/** Clear the Fastly challenge in a real page; the cookie then covers context requests too. */
+/** Clear the Fastly challenge in a real page; the cookie then covers the in-page requests too. */
 async function solveChallenge(ctx, page) {
   const title = async () => {
     try { return await page.title(); } catch { return 'Client Challenge'; }
@@ -189,6 +193,58 @@ async function solveChallenge(ctx, page) {
 }
 
 /**
+ * A page that stays on the SUMO origin and sends every request with `fetch`.
+ *
+ * Measured 2026-11-23 (sumo-linter #61): Fastly now answers every
+ * `ctx.request.get` with the challenge page, even with the cookie that the
+ * page just earned, because Playwright's request client is not the browser.
+ * A `fetch` inside a page is the browser's own request, and it passes. The
+ * page is separate from the main one, so it stays on the SUMO origin while the
+ * main page is on Mozilla Accounts during a sign-in.
+ */
+let requestPage = null;
+async function sumoPage(ctx) {
+  if (requestPage && !requestPage.isClosed() && requestPage.url().startsWith(CONFIG.base)) {
+    return requestPage;
+  }
+  requestPage ??= await ctx.newPage();
+  if (requestPage.isClosed()) requestPage = await ctx.newPage();
+  // Any SUMO page gives the origin. A 404 is enough and costs little; the
+  // challenge page is on the origin too.
+  await requestPage.goto(`${CONFIG.base}/robots.txt`, { waitUntil: 'domcontentloaded' });
+  return requestPage;
+}
+
+/**
+ * GET `url` from inside the browser. Returns the parts of a Playwright
+ * response that `fetchPath` and `banWait` read.
+ */
+async function browserGet(ctx, url) {
+  const page = await sumoPage(ctx);
+  const r = await page.evaluate(async (u) => {
+    const ac = new AbortController();
+    const timer = setTimeout(() => ac.abort(), 45_000);
+    try {
+      const res = await fetch(u, { signal: ac.signal, credentials: 'include' });
+      return {
+        status: res.status,
+        url: res.url,
+        retryAfter: res.headers.get('retry-after'),
+        body: await res.text(),
+      };
+    } finally {
+      clearTimeout(timer);
+    }
+  }, url);
+  return {
+    status: () => r.status,
+    url: () => r.url,
+    headers: () => (r.retryAfter == null ? {} : { 'retry-after': r.retryAfter }),
+    text: async () => r.body,
+  };
+}
+
+/**
  * Single funnel for every request. Handles, in one place:
  *   - 429: waits the full Retry-After quietly (polling restarts the ban window)
  *   - challenge interstitial: re-solves in the page, then retries
@@ -199,7 +255,7 @@ async function fetchPath(ctx, page, path) {
   for (let attempt = 1; attempt <= 4; attempt++) {
     let res;
     try {
-      res = await ctx.request.get(url, { timeout: 45_000 });
+      res = await browserGet(ctx, url);
     } catch (e) {
       if (attempt === 4) throw e;
       await sleep(5000);
@@ -276,8 +332,8 @@ async function login(ctx, page) {
   const deadline = Date.now() + 15 * 60_000;
   while (Date.now() < deadline) {
     await sleep(4000);
-    // Context requests are immune to the page being on the Mozilla Accounts
-    // origin mid-login, which used to crash this poll with "Failed to fetch".
+    // The requests go through their own page on the SUMO origin, so the main
+    // page being on Mozilla Accounts mid-login cannot make them fail.
     let signedIn = false;
     try { signedIn = await loginState(ctx, page); } catch { /* keep waiting */ }
     if (signedIn) {

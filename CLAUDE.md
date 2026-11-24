@@ -213,7 +213,8 @@ npm run scrape -- --limit 3 # trial
 npm run report              # writes corpus/report.md
 ```
 
-`npm run replace -- ISSUE [--base …] [--dry-run]` (#62) is the one tool here that edits:
+`npm run replace -- ISSUE [--base …] [--dry-run]` (#62, workflow in
+`docs/search-and-replace.md`) is the one tool here that edits:
 it applies the issue's `### Strings` checklist (`"old" → "new"`) to each unchecked slug in
 its `### Articles` checklist through the edit page, shows each change, and on `y` fills
 the editor and the revision comment. **Roland clicks Submit himself** (his decision,

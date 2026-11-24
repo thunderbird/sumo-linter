@@ -4,6 +4,7 @@
 
 /**
  * Semi-automatic search and replace over SUMO KB articles (sumo-linter #62).
+ * The workflow for authors is in docs/search-and-replace.md.
  *
  *   node replace.mjs ISSUE [--base URL] [--locale en-US] [--comment TEXT]
  *   npm run replace -- https://github.com/thunderbird/sumo-linter/issues/N

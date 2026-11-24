@@ -203,18 +203,30 @@ async function get(path) {
 const editPath = (slug) => `/${CONFIG.locale}/kb/${encodeURIComponent(slug)}/edit`;
 const historyPath = (slug) => `/${CONFIG.locale}/kb/${encodeURIComponent(slug)}/history`;
 
-/** Wait until the session can open an edit page, asking you to sign in if not. */
+/**
+ * Wait until the session can open an edit page, asking you to sign in if not.
+ *
+ * While you sign in, the script only watches the address of the window and
+ * sends no request: polling the edit page every few seconds earned a 429 from
+ * staging in the first trial (#62), in the middle of the sign-in. You are
+ * signed in when the window is back on the edit page after the sign-in page.
+ */
 async function ensureSignedIn(slug) {
-  const signedIn = async () => !(await get(editPath(slug))).url.includes('/users/auth');
-  if (await signedIn()) return;
-  console.log(`\nSign in to ${CONFIG.base} in the browser window. This script never reads your password.`);
-  await go(main, `${CONFIG.base}/${CONFIG.locale}/fxa/authenticate/?next=${encodeURIComponent(editPath(slug))}`);
+  const first = await get(editPath(slug));
+  if (!first.url.includes('/users/auth')) return;
+  const target = `${CONFIG.base}${editPath(slug)}`;
+  console.log(`\nSign in to ${CONFIG.base} in the browser window: click Continue, then sign in.`);
+  console.log('This script never reads your password, and it waits up to 15 minutes.');
+  await go(main, `${CONFIG.base}/${CONFIG.locale}/users/auth?next=${encodeURIComponent(editPath(slug))}`);
   const deadline = Date.now() + 15 * 60_000;
   while (Date.now() < deadline) {
-    await sleep(4000);
-    if (await signedIn().catch(() => false)) {
-      console.log('Signed in.');
-      return;
+    await sleep(2000);
+    if (main.url().split('?')[0] === target) {
+      await waitPastChallenge(main);
+      if ((await main.locator('textarea[name="content"]').count()) > 0) {
+        console.log('Signed in.');
+        return;
+      }
     }
   }
   throw new Error('Timed out waiting for sign-in (15 min).');

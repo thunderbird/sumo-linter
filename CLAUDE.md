@@ -219,7 +219,12 @@ its `### Articles` checklist through the edit page, shows each change, and on `y
 the editor and the revision comment. **Roland clicks Submit himself** (his decision,
 2026-11-23): the script never submits, clicks or posts, and a test greps for that. It then
 checks the item with `Note: revision N, …`. `--dry-run` shows the changes and never fills
-or changes the checklist. Logic in `replace-lib.mjs`, tested in CI.
+or changes the checklist. Logic in `replace-lib.mjs`, tested in CI. Trial on staging,
+2026-11-23: Roland approved, submitted, and the script recorded revision 372912, which holds
+the change and the comment. Measured traps: SUMO's CodeMirror has no `save()` but copies each
+change into the textarea itself; polling during sign-in earns a 429, so the script watches
+the window's address instead; staging's copy of an article can be much older than
+production's, so "no match" there can be right.
 
 Read-only by construction: GETs only, never submits a form, defaults to staging
 (`--base https://support.mozilla.org` to switch). `.auth/` is gitignored; **public** en-US
